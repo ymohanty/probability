@@ -5,3 +5,4 @@ ym_pset_solns/
 # Ignore dynamically generated files
 *~
 *#
+.DS_Store
