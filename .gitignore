@@ -1,0 +1,7 @@
+tatikonda_notes/
+tatikonda_pset_solns/
+ym_pset_solns/
+
+# Ignore dynamically generated files
+*~
+*#
