@@ -1,0 +1,3930 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsbook
+\begin_preamble
+\usepackage{dsfont}
+\usepackage{enumitem,lipsum}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "Analysis & Probability"
+\pdf_author "Yashaswi Mohanty"
+\pdf_subject "Mathematics"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Measures
+\end_layout
+
+\begin_layout Section
+Why is measurement hard?
+\end_layout
+
+\begin_layout Standard
+On the real line 
+\begin_inset Formula $\mathds{R}$
+\end_inset
+
+, we may want our measure to satisfy some properties that our consistent
+ with our intuitive notion of 
+\begin_inset Quotes eld
+\end_inset
+
+length
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Formally, we want a function
+\begin_inset Formula 
+\[
+\lambda:2^{\mathds{R}}\longrightarrow\left[0,\infty\right]
+\]
+
+\end_inset
+
+that satisfies
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lambda\left(\emptyset\right)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lambda\left(\left[a,b\right]\right)=b-a$
+\end_inset
+
+ for 
+\begin_inset Formula $a\leq b\in\mathds{R}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Countable additivity: For a countable collection of pairwise-disjoint sets
+ 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\mathbb{N}}\subseteq\mathds{R}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\lambda\left(\bigcup_{i\in\mathbb{N}}A_{i}\right)=\sum_{i\in\mathbb{N}}\lambda\left(A_{i}\right)\label{eq:countableAdditivity}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Translation invariance: 
+\begin_inset Formula $\lambda\left(A+a\right)=\lambda\left(A\right)$
+\end_inset
+
+ for any 
+\begin_inset Formula $a\in\mathds{R}$
+\end_inset
+
+ where 
+\begin_inset Formula $A+a:=\left\{ \alpha+a\mid\alpha\in A\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Quite counterintuitively, it turns out that no such function exists! To
+ prove this assertion, we need to construct some special kinds of sets that
+ only exist if we assume the Axiom of Choice.
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:vitaliSet"
+
+\end_inset
+
+ Define an equivalence relation 
+\begin_inset Formula $\sim$
+\end_inset
+
+ on 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+x\sim y\Leftrightarrow x-y\in\mathbb{Q}.
+\]
+
+\end_inset
+
+Note that there are uncountably many classes in such a construction as the
+ equivalence class for any given irrational number can contain at most countably
+ many other irrational numbers.
+ For example,
+\begin_inset Formula 
+\[
+\left[\frac{\pi}{4}\right]=\left\{ \frac{\pi}{4}+q\mod1\mid q\in\mathbb{Q}\right\} .
+\]
+
+\end_inset
+
+Thus, using the Axiom of Choice, we can construct a set 
+\begin_inset Formula $E\subseteq\left[0,1\right]$
+\end_inset
+
+ such that 
+\begin_inset Formula $E$
+\end_inset
+
+ consists of exactly one 
+\begin_inset Quotes eld
+\end_inset
+
+representative
+\begin_inset Quotes erd
+\end_inset
+
+ from each equivalence class.
+ Next, we can define
+\begin_inset Formula 
+\[
+E_{q}:=\left\{ x+q\mod1\mid x\in E\right\} 
+\]
+
+\end_inset
+
+so that 
+\begin_inset Formula $\left\{ E_{q}\right\} _{q\in\mathbb{Q}}$
+\end_inset
+
+ is a partition of 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+.
+ To see that the sets are disjoint, suppose for contradiction that for any
+ distinct 
+\begin_inset Formula $q,\tilde{q}\in\mathbb{Q}\cap\left[0,1\right]$
+\end_inset
+
+, 
+\begin_inset Formula $E_{q}\cap E_{\tilde{q}}\neq\emptyset$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $x\in E_{q}\cap E_{\tilde{q}}$
+\end_inset
+
+, then 
+\begin_inset Formula $x-q\in E$
+\end_inset
+
+ and 
+\begin_inset Formula $x-\tilde{q}\in E$
+\end_inset
+
+.
+ But they clearly belong to the same equivalence class and this is a contradicti
+on given our construction of 
+\begin_inset Formula $E.$
+\end_inset
+
+ To see that the union of these sets is 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+, consider an arbitrary 
+\begin_inset Formula $y\in\left[0,1\right]$
+\end_inset
+
+ and observe that since our equivalence relation 
+\begin_inset Formula $\sim$
+\end_inset
+
+ partitions 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+, 
+\begin_inset Formula $y\in\left[x\right]$
+\end_inset
+
+ for some 
+\begin_inset Formula $x\in E$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $q^{*}=y-x\in\mathbb{Q}$
+\end_inset
+
+ and so 
+\begin_inset Formula $y=x+q^{*}\mod1\in E_{q^{*}}$
+\end_inset
+
+.
+ Thus we have that
+\begin_inset Formula 
+\[
+\left[0,1\right]\subseteq\bigcup_{q\in\mathbb{Q}}E_{q}.
+\]
+
+\end_inset
+
+Since the reverse inclusion follows by the definition of 
+\begin_inset Formula $E_{q}$
+\end_inset
+
+, we have that 
+\begin_inset Formula $\left\{ E_{q}\right\} _{q\in\mathbb{Q}}$
+\end_inset
+
+ is a partition of 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:vitalitSetNotMeasurable"
+
+\end_inset
+
+There exists no function 
+\begin_inset Formula $\lambda:2^{\mathds{R}}\longrightarrow\left[0,\infty\right]$
+\end_inset
+
+ that satisfies properties (1)-(4) described above
+\end_layout
+
+\begin_layout Proof
+Suppose, for contradiction, that such a function 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ exists.
+ We can define the collection of sets 
+\begin_inset Formula $\left\{ E\right\} _{q\in\mathbb{Q}}$
+\end_inset
+
+ as in Example 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "exa:vitaliSet"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and observe that
+\begin_inset Formula 
+\begin{align*}
+1=\lambda\left(\left[0,1\right]\right) & =\lambda\left[\bigcup_{q\in\mathbb{Q}}E_{q}\right]\\
+ & =\sum_{q\in\mathbb{Q}}\lambda\left[E_{q}\right]\\
+ & =\sum_{q\in\mathbb{Q}}c
+\end{align*}
+
+\end_inset
+
+where the first equality follows from property (2), the second equality
+ follows from the fact that 
+\begin_inset Formula $\left\{ E\right\} _{q\in\mathbb{Q}}$
+\end_inset
+
+ is a partition of 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+, the third equality is due to property (3).
+ The last equality follows as a consequence of translation invariance (property
+ (4)).
+ Since 
+\begin_inset Formula $c\in\left[0,1\right]$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sum_{q\in\mathbb{Q}}c=0\text{ or }\infty\neq1
+\]
+
+\end_inset
+
+which is a contradiction.
+ Thus no such function 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ exists.
+\end_layout
+
+\begin_layout Standard
+This particular example of a 
+\emph on
+non-measurable 
+\emph default
+set is called a 
+\emph on
+Vitali set.
+ 
+\emph default
+While we used the interval 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+ to construct such a set, it turns out that this contruction can be extended
+ to any set of positive length in the Lebesgue sense.
+\end_layout
+
+\begin_layout Section
+Constructing the Lebesgue measure
+\end_layout
+
+\begin_layout Standard
+The key issue with our previous definition of a measure on 
+\begin_inset Formula $\mathds{R}$
+\end_inset
+
+ is that one cannot have a set-valued function that both has our four desired
+ properties 
+\emph on
+and 
+\emph default
+is defined on all subsets of the real line.
+ As a convention, the canonical construction of a measure retains the desired
+ properties in exchange for restricting the class of subsets on which the
+ measure is defined.
+ These subsets are called 
+\begin_inset Formula $measurable$
+\end_inset
+
+ and the standard construction of the Lebesgue measure leads to the class
+ of measurable subsets on the real line to have a special structure of a
+ 
+\emph on
+
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra.
+ 
+\emph default
+Before we define this structure it might be worthwhile looking at various
+ types of structures a class of sets could have
+\end_layout
+
+\begin_layout Subsection
+Structures of sets
+\end_layout
+
+\begin_layout Standard
+In the rest of this chapter, we assume that 
+\begin_inset Formula $\left(\mathcal{X},\tau\right)$
+\end_inset
+
+ is an abstract topological space.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:ring"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mathcal{F}\subseteq2^{\mathcal{X}}$
+\end_inset
+
+.
+ We call 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ a 
+\emph on
+ring 
+\emph default
+if
+\end_layout
+
+\begin_layout Definition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+emptyset 
+\backslash
+in 
+\backslash
+mathcal{F}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $A,B 
+\backslash
+in 
+\backslash
+mathcal{F} 
+\backslash
+Rightarrow A
+\backslash
+cup B 
+\backslash
+in 
+\backslash
+mathcal{F}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $A,B 
+\backslash
+in 
+\backslash
+mathcal{F} 
+\backslash
+Rightarrow A
+\backslash
+setminus B 
+\backslash
+in 
+\backslash
+mathcal{F}$.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ Note that the above definition implies that 
+\begin_inset Formula $A\cap B=A\setminus\left(A\setminus B\right)\in\mathcal{F}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:algebra"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mathcal{F}\subseteq2^{\mathcal{X}}$
+\end_inset
+
+.
+ We call 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ an 
+\emph on
+algebra 
+\emph default
+if
+\end_layout
+
+\begin_layout Definition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+mathcal{F}$ is a ring
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+mathcal{X} 
+\backslash
+in 
+\backslash
+mathcal{F}$.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ For example, if we let 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ be an arbitrary infinite set, the collection of all finite subsets of 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ forms a ring but not an algebra.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:sigmaRing"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mathcal{F}\subseteq2^{\mathcal{X}}$
+\end_inset
+
+.
+ We call 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ a 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-ring if
+\end_layout
+
+\begin_layout Definition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+mathcal{F}$ is a ring
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+mathcal{F}$ is closed under countable unions.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:sigmaAlgebra"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mathcal{F}\subseteq2^{\mathcal{X}}$
+\end_inset
+
+.
+ We call 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ a 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra if
+\end_layout
+
+\begin_layout Definition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+mathcal{F}$ is an algebra.
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+mathcal{F}$ is closed under countable unions.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ Naturally, the power set 
+\begin_inset Formula $2^{\mathcal{X}}$
+\end_inset
+
+ is a ring, algebra, 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-ring, and 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra all rolled into one.
+\end_layout
+
+\begin_layout Remark*
+Algebras are sometimes referred to as 
+\emph on
+fields
+\emph default
+ in the probability literature.
+\end_layout
+
+\begin_layout Standard
+As we said earlier, the notion of a 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra is important because the standard Lebesgue measurable sets form
+ a 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra of subsets of 
+\begin_inset Formula $\mathds{R}$
+\end_inset
+
+.
+ However, the other structures we have defined are also important; as we
+ 
+\begin_inset Quotes eld
+\end_inset
+
+extend
+\begin_inset Quotes erd
+\end_inset
+
+ the notion of the length of an interval on the real line to more complicated
+ sets, we shall first expand our class of measurable sets to a ring of sets.
+\end_layout
+
+\begin_layout Subsection
+Lengths of intervals
+\end_layout
+
+\begin_layout Standard
+The mosts intuitive notion of a measure on 
+\begin_inset Formula $\mathds{R}$
+\end_inset
+
+ arises from the length of an interval.
+ Thus, in our construction of the Lebesgue measure, we start with the simplest
+ class of sets which consists of intervals in 
+\begin_inset Formula $\mathds{R}.$
+\end_inset
+
+ Define 
+\begin_inset Formula $\mathcal{L}=\left\{ \left(a,b\right]\mid-\infty<a\leq b<\infty\right\} $
+\end_inset
+
+ and let 
+\begin_inset Formula $\lambda_{1}:\mathcal{L}\longrightarrow\left[0,\infty\right]$
+\end_inset
+
+ be given by 
+\begin_inset Formula $\lambda_{1}\left(\left(a,b\right]\right)=b-a$
+\end_inset
+
+.
+ It turns out that our collection of half-open intervals in 
+\begin_inset Formula $\mathds{R}$
+\end_inset
+
+ has the structure of a 
+\emph on
+semi-ring.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:semiRing"
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\mathcal{F}\subseteq2^{\mathcal{X}}$
+\end_inset
+
+.
+ We call 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ a 
+\emph on
+semi-ring 
+\emph default
+if
+\end_layout
+
+\begin_layout Definition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+emptyset 
+\backslash
+in 
+\backslash
+mathcal{F}$.
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $A,B 
+\backslash
+in 
+\backslash
+mathcal{F} 
+\backslash
+Rightarrow A
+\backslash
+cap B 
+\backslash
+in 
+\backslash
+mathcal{F}$.
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $A,B 
+\backslash
+in 
+\backslash
+mathcal{F} 
+\backslash
+Rightarrow 
+\backslash
+exists 
+\backslash
+left
+\backslash
+{A_i
+\backslash
+right
+\backslash
+}_{i=1}^{n} 
+\backslash
+in 
+\backslash
+mathcal{F}$ such that 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+		A 
+\backslash
+setminus B = 
+\backslash
+bigcup_{i=1}^{n}A_i 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:intervalSigmaRing"
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ is a semi-ring.
+\end_layout
+
+\begin_layout Proof
+To see (i), note that 
+\begin_inset Formula $\emptyset=\left(a,a\right]\in\mathcal{L}$
+\end_inset
+
+.
+ For (ii), note that for any intervals 
+\begin_inset Formula $A=\left(a_{1},b_{1}\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $B=\left(a_{2},b_{2}\right]$
+\end_inset
+
+, 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+If 
+\begin_inset Formula $\max\left(a_{1},a_{2}\right)>\min\left(b_{1},b_{2}\right)$
+\end_inset
+
+, then 
+\begin_inset Formula $\left(\max\left(a_{1},a_{2}\right),\min\left(b_{1},b_{2}\right)\right]=\emptyset\in\mathcal{L}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(a_{1},b_{1}\right]\cap\left(a_{2},b_{2}\right]=\left(\max\left(a_{1},a_{2}\right),\min\left(b_{1},b_{2}\right)\right]\in\mathcal{L}.
+\]
+
+\end_inset
+
+To see (iii), we have to consider two possible cases.
+ First, if 
+\begin_inset Formula $A,B$
+\end_inset
+
+ are disjoint then 
+\begin_inset Formula $A\setminus B=A\in\mathcal{L}.$
+\end_inset
+
+ If 
+\begin_inset Formula $A,B$
+\end_inset
+
+ have a non-trivial intersection, then
+\begin_inset Formula 
+\begin{align*}
+A\setminus B=A\cap B^{C} & =\left(a_{1},b_{1}\right]\cap\left\{ \left(-\infty,a_{2}\right]\cup\left(b_{2},\infty\right)\right\} \\
+ & =\left(a_{1},b_{1}\right]\cap\left(-\infty,a_{2}\right]\bigcup\left(a_{1},b_{1}\right]\cap\left(b_{2},\infty\right)\\
+ & =\left(a_{1},\min\left(b_{1},a_{2}\right)\right]\bigcup\left(\max\left(a_{1},b_{2}\right),b_{1}\right]
+\end{align*}
+
+\end_inset
+
+where the components of the union expressed in the last equality are in
+ 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+.
+ This completes the proof.
+\end_layout
+
+\begin_layout Standard
+The fact that 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ is a semi-ring is important because there's a relatively straightforward
+ way to 
+\begin_inset Quotes eld
+\end_inset
+
+expand
+\begin_inset Quotes erd
+\end_inset
+
+ a semi-ring into a ring.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:expandSemiRing"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ be a semi-ring and let 
+\begin_inset Formula $\mathcal{B}$
+\end_inset
+
+ be the set of all finite disjoint unions of sets in 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathcal{B}$
+\end_inset
+
+ is a ring.
+\end_layout
+
+\begin_layout Proof
+Property (i) in Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:ring"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is trivially satisfied thus we need to prove properties (ii) and (iii).
+ Let 
+\begin_inset Formula $A,B\in\mathcal{B}$
+\end_inset
+
+.
+ To prove property (iii), we first establish the weaker claim that 
+\begin_inset Formula $A\cap B\in\mathcal{B}$
+\end_inset
+
+.
+ Observe that
+\begin_inset Formula 
+\begin{align*}
+A & =\bigcup_{i=1}^{n_{A}}A_{i},\ A_{i}\in\mathcal{F},A_{i}\cap A_{j}=\emptyset\mathrm{\ for\ }i\neq j,\\
+B & =\bigcup_{i=1}^{n_{B}}B_{i},\ B_{i}\in\mathcal{F},B_{i}\cap B_{j}=\emptyset\mathrm{\ for\ }i\neq j,
+\end{align*}
+
+\end_inset
+
+by the definition of 
+\begin_inset Formula $\mathcal{B}.$
+\end_inset
+
+ Then
+\begin_inset Formula 
+\begin{align*}
+A\cap B & =\left(\bigcup_{i=1}^{n_{A}}A_{i}\right)\bigcap\left(\bigcup_{j=1}^{n_{B}}B_{j}\right)\\
+ & =\bigcup_{i=1}^{n_{A}}\bigcup_{j=1}^{n_{B}}\left(A_{i}\cap B_{j}\right)
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $\forall i,j:\ A_{i}\cap B_{j}\in\mathcal{F}$
+\end_inset
+
+ as 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ is a semi-ring.
+ Clearly, 
+\begin_inset Formula $A_{i}\cap B_{j}$
+\end_inset
+
+ is disjoint from 
+\begin_inset Formula $A_{i^{\prime}}\cap B_{j^{\prime}}$
+\end_inset
+
+, thus proving the claim.
+ Next, we establish property (iii) by noting that
+\begin_inset Formula 
+\begin{align*}
+A\setminus B & =\left(\bigcup_{i=1}^{n_{A}}A_{i}\right)\setminus B\\
+ & =\left(\bigcup_{i=1}^{n_{A}}A_{i}\right)\bigcap B^{C}\\
+ & =\bigcup_{i=1}^{n_{A}}\left(A_{i}\cap B^{C}\right)\\
+ & =\bigcup_{i=1}^{n_{A}}\left(A_{i}\cap\left(\bigcap_{j=1}^{n_{B}}B_{j}^{C}\right)\right)\\
+ & =\bigcup_{i=1}^{n_{A}}\bigcap_{j=1}^{n_{B}}\left(A_{i}\cap B_{j}^{C}\right)\\
+ & =\bigcup_{i=1}^{n_{A}}\bigcap_{j=1}^{n_{B}}A_{i}\setminus B_{j}
+\end{align*}
+
+\end_inset
+
+where the 
+\begin_inset Formula $A_{i}\setminus B_{j}\in\mathcal{B}$
+\end_inset
+
+ since 
+\begin_inset Formula $A_{i},B_{j}\in\mathcal{F}$
+\end_inset
+
+.
+ By the closure under finite intersections property established earlier,
+ 
+\begin_inset Formula $E_{i}=\bigcap_{j=1}^{n_{B}}A_{i}\setminus B_{j}\in\mathcal{B}$
+\end_inset
+
+ for any 
+\begin_inset Formula $1\leq i\leq n_{A}$
+\end_inset
+
+.
+ Thus we can rewrite the chain of equalities above as
+\begin_inset Formula 
+\[
+A\setminus B=\bigcup_{i=1}^{n_{A}}E_{i}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $E_{i}\cap E_{i^{\prime}}=\emptyset$
+\end_inset
+
+ because 
+\begin_inset Formula $A_{i}\cap A_{i^{\prime}}=\emptyset.$
+\end_inset
+
+ Since the finite disjoint union of elements of 
+\begin_inset Formula $\mathcal{B}$
+\end_inset
+
+ is also a finite disjoint union of elements of 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+, our claim follows.
+ Finally, to establish property (ii), observe that
+\begin_inset Formula 
+\[
+A\cup B=\left(A\setminus B\right)\cup\left(A\cap B\right)\cup\left(B/A\right)
+\]
+
+\end_inset
+
+which is a disjoint union of elements in 
+\begin_inset Formula $\mathcal{B}$
+\end_inset
+
+ and so is also in 
+\begin_inset Formula $\mathcal{B}$
+\end_inset
+
+ by the same argument as earlier.
+\end_layout
+
+\begin_layout Corollary
+Let 
+\begin_inset Formula $\mathcal{J}$
+\end_inset
+
+ be the set of all finite disjoint unions of sets in 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathcal{J}$
+\end_inset
+
+ is a ring.
+\end_layout
+
+\begin_layout Proof
+By Proposition 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "prop:intervalSigmaRing"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ is a semi-ring.
+ The claim then follows by an application of Theorem 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "thm:expandSemiRing"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now we can extend our proto-measure 
+\begin_inset Formula $\lambda_{1}$
+\end_inset
+
+ to a new proto-measure 
+\begin_inset Formula $\lambda_{2}:\mathcal{J}\longrightarrow\left[0,\infty\right]$
+\end_inset
+
+ as follows:
+\begin_inset Formula 
+\[
+\lambda_{2}\left(A\right):=\begin{cases}
+\lambda_{1}\left(A\right), & A\in\mathcal{L}\\
+\sum_{i=1}^{n}\lambda_{1}\left(B_{i}\right), & A=\bigcup_{i=1}^{n}B_{i},\left\{ B_{i}\right\} _{i=1}^{n}\text{ are disjoint in }\mathcal{L}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:ringMeasureFinitelyAdditive"
+
+\end_inset
+
+
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+ is fiinitely additive on 
+\begin_inset Formula $\mathcal{J}$
+\end_inset
+
+.
+ That is, for any finite disjoint collection of sets 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i=1}^{n}\in\mathcal{J}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lambda_{2}\left(\bigcup_{i=1}^{n}A_{i}\right)=\sum_{i=1}^{n}\lambda_{2}\left(A_{i}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For clarity, we will prove finite additivity for two sets , since the general
+ case follows by induction.
+ Let 
+\begin_inset Formula $A,B\in\mathcal{J}$
+\end_inset
+
+ such that 
+\begin_inset Formula $A\cap B=\emptyset$
+\end_inset
+
+.
+ By definition,
+\begin_inset Formula 
+\begin{align*}
+A & =\bigcup_{i=1}^{n_{A}}A_{i},\left\{ A_{i}\right\} _{i=1}^{n_{A}}\text{ are disjoint in }\mathcal{L}\\
+B & =\bigcup_{i=1}^{n_{A}}B_{i},\left\{ B_{i}\right\} _{i=1}^{n_{B}}\text{ are disjoint in }\mathcal{L}
+\end{align*}
+
+\end_inset
+
+and so we have that
+\begin_inset Formula 
+\begin{align*}
+\lambda_{2}\left(A\cup B\right) & =\lambda_{2}\left(\left(\bigcup_{i=1}^{n_{A}}A_{i}\right)\cup\left(\bigcup_{i=1}^{n_{A}}B_{i}\right)\right)\\
+ & =\sum_{i=1}^{n_{A}}\lambda_{2}\left(A_{i}\right)+\sum_{i=1}^{n_{B}}\lambda_{2}\left(B_{i}\right)\\
+ & =\lambda_{2}\left(A\right)+\lambda_{2}\left(B\right)
+\end{align*}
+
+\end_inset
+
+where the second equality follows from associativity of addition along with
+ the fact that 
+\begin_inset Formula $\left(\bigcup_{i=1}^{n_{A}}A_{i}\right)\cup\left(\bigcup_{i=1}^{n_{A}}B_{i}\right)$
+\end_inset
+
+ is a disjoint union of sets in 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Structures generated by a class of sets
+\end_layout
+
+\begin_layout Standard
+A key way to 
+\begin_inset Quotes eld
+\end_inset
+
+expand
+\begin_inset Quotes erd
+\end_inset
+
+ a particular class of sets into a larger structure is to look at the structure
+ 
+\emph on
+generated 
+\emph default
+by the class of sets.
+ This idea can be formalized in the following definition, which serves as
+ particular example of this general concept of generation.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:ringGeneratedByClass"
+
+\end_inset
+
+For any 
+\begin_inset Formula $\mathcal{A}\subseteq2^{\mathcal{X}},$
+\end_inset
+
+ we refer to the intersection of all rings that contain 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ as the ring 
+\emph on
+generated 
+\emph default
+by 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+.
+ Formally, we write
+\begin_inset Formula 
+\[
+\ring\left(\mathcal{A}\right)=\bigcap\left\{ \mathcal{R\subseteq}2^{\mathcal{X}}\text{ is a ring }\mid\mathcal{A\subseteq\mathcal{R}}\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+For any 
+\begin_inset Formula $\mathcal{A}\subseteq2^{\mathcal{X}},$
+\end_inset
+
+ 
+\begin_inset Formula $\ring\left(\mathcal{A}\right)$
+\end_inset
+
+ is a ring.
+\end_layout
+
+\begin_layout Proof
+First note that 
+\begin_inset Formula $\ring\left(\mathcal{A}\right)$
+\end_inset
+
+ exists since 
+\begin_inset Formula $2^{\mathcal{X}}$
+\end_inset
+
+ is a ring and so 
+\begin_inset Formula $\left\{ \mathcal{R\subseteq}2^{\mathcal{X}}\text{ is a ring }\mid\mathcal{A\subseteq\mathcal{R}}\right\} $
+\end_inset
+
+ is non-empty.
+ Next observe that 
+\begin_inset Formula $\emptyset\in\ring\left(\mathcal{A}\right)$
+\end_inset
+
+ vacuously, so property (i) in Definition 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "def:ring"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is easily satisfied.
+ For property (ii), let 
+\begin_inset Formula $A,B\in\ring\left(\mathcal{A}\right)$
+\end_inset
+
+ and observe that 
+\begin_inset Formula $A,B\in\mathcal{R}$
+\end_inset
+
+ for every 
+\begin_inset Formula $\mathcal{R}\in\left\{ \mathcal{R\subseteq}2^{\mathcal{X}}\text{ is a ring }\mid\mathcal{A\subseteq\mathcal{R}}\right\} $
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+ is a ring, 
+\begin_inset Formula $A\cup B\in\mathcal{R}$
+\end_inset
+
+ for every 
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+ and thus 
+\begin_inset Formula $A\cup B$
+\end_inset
+
+ is in the intersection i.e.
+ 
+\begin_inset Formula $\ring\left(\mathcal{A}\right)$
+\end_inset
+
+.
+ A similar argument establishes property (iii) and thus we can conclude
+ that 
+\begin_inset Formula $\ring\left(\mathcal{A}\right)$
+\end_inset
+
+ is a ring (as it should, given its name).
+\end_layout
+
+\begin_layout Standard
+In our construction of the Lebesgue measure on 
+\begin_inset Formula $\mathds{R}$
+\end_inset
+
+, we discovered that 
+\begin_inset Formula $\mathcal{J}$
+\end_inset
+
+, which is the set of all disjoint unions of half-open intervals in 
+\begin_inset Formula $\mathds{R}$
+\end_inset
+
+, is a ring.
+ It turns out that we can make a stronger statement using the language of
+ generators developed here.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:JisRingGeneratedByL"
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{J}=\ring\left(\mathcal{L}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $A\in\mathcal{J}$
+\end_inset
+
+ be arbitrary.
+ Then we can write 
+\begin_inset Formula 
+\[
+A=\bigcup_{i=1}^{n_{A}}A_{i}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $A_{i}\in\mathcal{L}$
+\end_inset
+
+ are pairwise disjoint.
+ Let 
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+ be an arbitrary ring that contains 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ and observe that since rings are closed under finite unions, 
+\begin_inset Formula $A\in\mathcal{R}.$
+\end_inset
+
+ Since 
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+ was arbitrary, 
+\begin_inset Formula $A$
+\end_inset
+
+ is contained by every ring that contains 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ and is thus contained in the intersection of all such rings i.e.
+ 
+\begin_inset Formula $\ring\left(\mathcal{L}\right).$
+\end_inset
+
+ This proves that 
+\begin_inset Formula $\mathcal{J}\subseteq\ring\left(\mathcal{L}\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+To see reverse inclusion, recall that 
+\begin_inset Formula $\mathcal{J}$
+\end_inset
+
+ is a ring that contains 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+, and so the intersection of all rings that contain 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ is certaintly contained in 
+\begin_inset Formula $\mathcal{J}$
+\end_inset
+
+.
+ This completes the proof.
+\end_layout
+
+\begin_layout Standard
+In measure theory, the most important structure on sets is the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra, and the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra generated by a class of sets 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+, defined analagously to Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:ringGeneratedByClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ about rings and notated as 
+\begin_inset Formula $\sigma\left(\mathcal{A}\right)$
+\end_inset
+
+, plays in an important role in this theory.
+ Using a similar argument as the one shown earlier, one can conclude that
+ 
+\begin_inset Formula $\sigma\left(\mathcal{A}\right)$
+\end_inset
+
+ is indeed a 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra.
+ In analysis and probability theory, mathematicians are interested in 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebras generated by a special class of sets.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:borelSigma"
+
+\end_inset
+
+The 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra generated by the topology 
+\begin_inset Formula $\tau$
+\end_inset
+
+ on set 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ is called the 
+\emph on
+Borel 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra 
+\emph default
+on 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ and is denoted 
+\begin_inset Formula $\mathscr{B}\left(\mathcal{X}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The Borel 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra is interesting because it turns that it is the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra generated by 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ is indeed 
+\begin_inset Formula $\mathscr{B}\left(\mathds{R}\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $\mathds{R}$
+\end_inset
+
+ has the usual topology.
+ To prove this fact, we need a little lemma from an introductory course
+ on analysis and topology.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:openSetDisjointUnionInterval"
+
+\end_inset
+
+ Any open set in the usual topology of 
+\begin_inset Formula $\R$
+\end_inset
+
+ can be written as a countable disjoint union of open intervals in 
+\begin_inset Formula $\R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $O$
+\end_inset
+
+ be an open set in 
+\begin_inset Formula $\R$
+\end_inset
+
+ and let 
+\begin_inset Formula $x\in O$
+\end_inset
+
+ be arbitrary.
+ Define 
+\begin_inset Formula $I_{x}\subseteq O$
+\end_inset
+
+ to be the largest open interval that contains 
+\begin_inset Formula $x$
+\end_inset
+
+ (that is, 
+\begin_inset Formula $I_{x}$
+\end_inset
+
+ is the union of all open intervals in 
+\begin_inset Formula $O$
+\end_inset
+
+ that contain 
+\begin_inset Formula $x$
+\end_inset
+
+).
+ Note that at least one such interval exists because 
+\begin_inset Formula $O$
+\end_inset
+
+ is open and so there exists some 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $\left(x-\varepsilon,x+\varepsilon\right)\subseteq O.$
+\end_inset
+
+ Now for any distinct 
+\begin_inset Formula $x,y\in O$
+\end_inset
+
+, 
+\begin_inset Formula $I_{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $I_{y}$
+\end_inset
+
+ are either disjoint or equal since if they were neither, 
+\begin_inset Formula $I_{x}\cup I_{y}\subseteq O$
+\end_inset
+
+ would be a larger interval that contains both 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+ denote the collection of all disjoint such intervals (that is, we get 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+ by discarding all the 
+\begin_inset Quotes eld
+\end_inset
+
+redundant
+\begin_inset Quotes erd
+\end_inset
+
+ intervals in 
+\begin_inset Formula $\left\{ I_{x}\right\} _{x\in O}$
+\end_inset
+
+).
+ We can do this without invoking the Axiom of Choice since there are only
+ countably many intervals in 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+: every interval 
+\begin_inset Formula $I\in\mathcal{I}$
+\end_inset
+
+ contains at least one rational number because the rationals are a countably
+ dense subset of 
+\begin_inset Formula $\R$
+\end_inset
+
+.
+ Thus, since the intervals are disjoint, 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+ can have at most countably many intervals.
+ Of course
+\begin_inset Formula 
+\[
+O=\bigcup_{I\in\mathcal{I}}I
+\]
+
+\end_inset
+
+and so our claim follows.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:sigmaAlgebraGeneratedbyLisBorel"
+
+\end_inset
+
+
+\begin_inset Formula $\sigma\left(\mathcal{L}\right)=\borel\left(\R\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $O$
+\end_inset
+
+ be an open set in 
+\begin_inset Formula $\R$
+\end_inset
+
+.
+ Then, by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:openSetDisjointUnionInterval"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+O & =\bigcup_{i=1}^{\infty}\left(a_{i},b_{i}\right)\\
+ & =\bigcup_{i=1}^{\infty}\bigcup_{n=1}^{\infty}\left(a_{i},b_{i}-\frac{1}{n}\right]
+\end{align*}
+
+\end_inset
+
+which is in 
+\begin_inset Formula $\sigma\left(\mathcal{L}\right)$
+\end_inset
+
+ by closure under countable unions (property (ii) in Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:sigmaAlgebra"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ Therefore the topology of 
+\begin_inset Formula $\R$
+\end_inset
+
+ is in 
+\begin_inset Formula $\sigma\left(\mathcal{L}\right)$
+\end_inset
+
+ which implies that 
+\begin_inset Formula $\borel\left(\R\right)\subseteq\sigma\left(\mathcal{L}\right)$
+\end_inset
+
+.
+ The
+\end_layout
+
+\begin_layout Proof
+To see the reverse inclusion, observe that for any 
+\begin_inset Formula $\left(a,b\right]\in\mathcal{L}$
+\end_inset
+
+, we can write
+\begin_inset Formula 
+\[
+\left(a,b\right]=\left(a,b\right)\cup\left\{ b\right\} \in\borel\left(\R\right)
+\]
+
+\end_inset
+
+since 
+\begin_inset Formula $\left\{ b\right\} $
+\end_inset
+
+ is closed in 
+\begin_inset Formula $\R$
+\end_inset
+
+ and closed sets are the complements of open sets and thus contained in
+ 
+\begin_inset Formula $\borel\left(\R\right)$
+\end_inset
+
+.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebras on 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ are closed under complements since they are closed under set-differences
+ and contain 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ Therefore 
+\begin_inset Formula $\mathcal{L\subseteq\borel\left(\R\right)}$
+\end_inset
+
+ and so 
+\begin_inset Formula $\sigma\left(\mathcal{L}\right)\subseteq\borel\left(\R\right)$
+\end_inset
+
+, completing the proof.
+\end_layout
+
+\begin_layout Standard
+Now we are ready to prove that our proto-measure 
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+ is actually a countably-additive pre-measure on 
+\begin_inset Formula $\ring\left(\mathcal{L}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:ringMeasureCountablyAdditive"
+
+\end_inset
+
+ 
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+ is a countably additive pre-measure on 
+\begin_inset Formula $\ring\left(\mathcal{L}\right)$
+\end_inset
+
+, that is to say,
+\end_layout
+
+\begin_layout Proposition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+lambda_2
+\backslash
+left(
+\backslash
+emptyset
+\backslash
+right) = 0$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For disjoint $
+\backslash
+left
+\backslash
+{A_i
+\backslash
+right
+\backslash
+}_{i=1}^{
+\backslash
+infty}
+\backslash
+in 
+\backslash
+mathcal{J}$ such that $
+\backslash
+bigcup_{i=1}^{
+\backslash
+infty}A_i 
+\backslash
+in 
+\backslash
+mathcal{J}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+lambda_2
+\backslash
+left(
+\backslash
+bigcup_{i=1}^{
+\backslash
+infty}A_i
+\backslash
+right) = 
+\backslash
+sum_{i=1}^{
+\backslash
+infty}
+\backslash
+lambda_2
+\backslash
+left(A_i
+\backslash
+right).
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Property (i) is inherited from 
+\begin_inset Formula $\lambda_{1}$
+\end_inset
+
+.
+ To see property (ii), let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i=1}^{\infty}\in\mathcal{J}$
+\end_inset
+
+ be disjoint and write 
+\begin_inset Formula $A:=\bigcup_{i=1}^{\infty}A_{i}$
+\end_inset
+
+.
+ First, note that if 
+\begin_inset Formula $\lambda_{2}\left(A_{i}\right)=\infty$
+\end_inset
+
+ for any 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+, then 
+\begin_inset Formula $\infty=\lambda_{2}\left(A_{i}\right)\leq\lambda_{2}\left(\bigcup_{i=1}^{\infty}A_{i}\right)=\infty$
+\end_inset
+
+ where the inequality is due to the monotonicity
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+For any 
+\begin_inset Formula $A,B\in\ring\left(\mathcal{L}\right)\text{ such that }A\subseteq B,\lambda_{2}\left(B\right)=\lambda_{2}\left(A\right)+\lambda_{2}\left(B\setminus A\right)\geq\lambda_{2}\left(A\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ of 
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+.
+ Thus, in this case, the claim follows vacuously.
+ So, without loss of generality, we can assume that 
+\begin_inset Formula $\lambda_{2}\left(A_{i}\right)<\infty$
+\end_inset
+
+ for every 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+.
+ First, note that for any 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+,
+\begin_inset Formula $\bigcup_{i=1}^{n}A_{i}\subseteq A$
+\end_inset
+
+ and so, by the monotonictity and finite additivity of 
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+, we have that
+\begin_inset Formula 
+\[
+\lambda_{2}\left(A\right)\geq\sum_{i=1}^{n}\lambda_{2}\left(A_{i}\right)
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+.
+ Taking limits, we have countable superadditivity:
+\begin_inset Formula 
+\[
+\lambda_{2}\left(A\right)\geq\sum_{i=1}^{\infty}\lambda_{2}\left(A_{i}\right).
+\]
+
+\end_inset
+
+In order to deduce the reverse inequality, 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: Figure out proof of the reverse inequality.
+ Use Proposition 4.1 in Caratheodory note.
+ See 6.1 as well
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO: Figure out proof of the reverse inequality}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Outer measures
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:outerMeasure"
+
+\end_inset
+
+A set valued function 
+\begin_inset Formula 
+\[
+\mu^{*}:2^{\mathcal{X}}\longrightarrow\left[0,\infty\right]
+\]
+
+\end_inset
+
+is called an outer measure on 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ if
+\end_layout
+
+\begin_layout Definition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $ 
+\backslash
+mu^*
+\backslash
+left(
+\backslash
+emptyset
+\backslash
+right) = 0$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $A
+\backslash
+subseteq B 
+\backslash
+in 2^
+\backslash
+mathcal{X} 
+\backslash
+Longrightarrow 
+\backslash
+mu^*
+\backslash
+left(A
+\backslash
+right) 
+\backslash
+leq 
+\backslash
+mu^*
+\backslash
+left(B
+\backslash
+right) $
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For $
+\backslash
+left
+\backslash
+{A_i
+\backslash
+right
+\backslash
+}_{i=1}^{
+\backslash
+infty}
+\backslash
+in 2^
+\backslash
+mathcal{X}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+mu^*
+\backslash
+left(
+\backslash
+bigcup_{i=1}^{
+\backslash
+infty}A_i
+\backslash
+right) 
+\backslash
+leq 
+\backslash
+sum_{i=1}^{
+\backslash
+infty}
+\backslash
+mu^*
+\backslash
+left(A_i
+\backslash
+right).
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:canonicalOuterMeasure"
+
+\end_inset
+
+Given a countably additive pre-measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ on a ring 
+\begin_inset Formula $\mathcal{A\subseteq}2^{\mathcal{X}}$
+\end_inset
+
+, define for any 
+\begin_inset Formula $E\subseteq\mathcal{X}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu^{*}\left(E\right):=\inf\left\{ \sum_{i=1}^{\infty}\mu\left(A_{i}\right)\mid A_{i}\in\mathcal{A},E\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Note that this function is defined on 
+\begin_inset Formula $2^{\mathcal{X}}$
+\end_inset
+
+ since every bounded below subset of the (extended) real numbers has an
+ infimum.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In order to prove that the function in our example is indeed an outer measure,
+ the following lemma is useful.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:TonelliForSeries"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Tonelli for series
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left\{ x_{ij}\right\} _{i,j\in\N\times\N}$
+\end_inset
+
+ be a sequence of non-negative (extended) real numbers.
+ Then
+\end_layout
+
+\begin_layout Lemma
+\begin_inset Formula 
+\[
+\sum_{i,j\in\N^{2}}x_{ij}=\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}=\sum_{j=1}^{\infty}\sum_{i=1}^{\infty}x_{ij}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We will prove the first equality since the second then follows by symmetry.
+ Let 
+\begin_inset Formula $F\subset\N^{2}$
+\end_inset
+
+ be arbitrary and finite.
+ Then, there exists some 
+\begin_inset Formula $N\in\N$
+\end_inset
+
+ such that 
+\begin_inset Formula $F\subseteq\left\{ 1,2\ldots,N\right\} ^{2}$
+\end_inset
+
+ and so, by the non-negativity of 
+\begin_inset Formula $x_{ij}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sum_{i,j\in F}x_{ij}\leq\sum_{i,j\in\left\{ 1,2\ldots,N\right\} ^{2}}x_{ij}=\sum_{i=1}^{N}\sum_{j=1}^{N}x_{ij}\leq\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}.
+\]
+
+\end_inset
+
+This inequality holds for any finite 
+\begin_inset Formula $F\subset\N^{2}$
+\end_inset
+
+ and so it holds for the supremum of all such finite sums.
+ That is to say,
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\sup_{F\subset\N^{2}\mid F\text{ is finite}}\sum_{i,j\in F}x_{ij}\leq\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}.
+\]
+
+\end_inset
+
+But recall that for any 
+\begin_inset Formula $\left\{ a_{i}\right\} _{i\in\mathcal{I}}\in\left[0,\infty\right]$
+\end_inset
+
+ where 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+ is any index set
+\begin_inset Formula 
+\[
+\sum_{i\in\mathcal{I}}a_{i}:=\sup_{I\subset\mathcal{I}\mid I\text{ is finite}}\sum_{i\in I}a_{i},
+\]
+
+\end_inset
+
+and so we have that
+\begin_inset Formula 
+\[
+\sum_{i,j\in\N^{2}}x_{ij}\leq\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+To derive the other inequality, observe that it is sufficient to prove that
+\begin_inset Formula 
+\[
+\sum_{i,j\in\N^{2}}x_{ij}\geq\sum_{i=1}^{I}\sum_{j=1}^{\infty}x_{ij}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $I\in\N$
+\end_inset
+
+.
+ Fix 
+\begin_inset Formula $I=I_{0}$
+\end_inset
+
+ and note that
+\begin_inset Formula 
+\[
+\sum_{i=1}^{I_{0}}\sum_{j=1}^{\infty}x_{ij}=\sum_{i=1}^{I_{0}}\lim_{J\to\infty}\sum_{j=1}^{J}x_{ij}=\lim_{J\to\infty}\sum_{i=1}^{I_{0}}\sum_{j=1}^{J}x_{ij}.
+\]
+
+\end_inset
+
+Thus to prove 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\sum_{i,j\in\N^{2}}x_{ij}\geq\sum_{i=1}^{I_{0}}\sum_{j=1}^{\infty}x_{ij}$
+\end_inset
+
+ we need to prove that 
+\begin_inset Formula 
+\[
+\sum_{i,j\in\N^{2}}x_{ij}\geq\sum_{i=1}^{I_{0}}\sum_{j=1}^{J}x_{ij}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $J\in\N$
+\end_inset
+
+.
+ Fix 
+\begin_inset Formula $J=J_{0}$
+\end_inset
+
+ and then observe that
+\begin_inset Formula 
+\[
+\sum_{i=1}^{I_{0}}\sum_{j=1}^{J_{0}}x_{ij}=\sum_{i,j\in\left\{ 1,2,\ldots,I_{0}\right\} \times\left\{ 1,2,\ldots,J_{0}\right\} }x_{ij}\leq\sum_{i,j\in\N^{2}}x_{ij}
+\]
+
+\end_inset
+
+where the inequality follows due to non-negativity of 
+\begin_inset Formula $x_{ij}$
+\end_inset
+
+.
+ This concludes the proof.
+\end_layout
+
+\begin_layout Remark*
+This lemma is a special case of Tonelli's theorem, a fundamental theorem
+ that allows us to construct measures on Cartesian products of measure spaces
+ from the measures on those spaces themselves.
+ This theorem will be motivated and proved in Chapter 5.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:canonicalOuterMeasureIsOuterMeasure"
+
+\end_inset
+
+The function 
+\begin_inset Formula $\mu^{*}:2^{\mathcal{X}}\longrightarrow\left[0,\infty\right]$
+\end_inset
+
+ defined in Example 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "exa:canonicalOuterMeasure"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is an outer measure
+\end_layout
+
+\begin_layout Proof
+For (i), observe that 
+\begin_inset Formula $\emptyset\in\mathcal{A}$
+\end_inset
+
+ and so 
+\begin_inset Formula $\mu^{*}\left(\emptyset\right)=\mu\left(\emptyset\right)=0.$
+\end_inset
+
+ Next, let 
+\begin_inset Formula $A\subseteq B\subseteq\mathcal{X}$
+\end_inset
+
+ and observe that 
+\begin_inset Formula 
+\[
+\left\{ \sum_{i=1}^{\infty}\mu\left(A_{i}\right)\mid A_{i}\in\mathcal{A},B\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} \subseteq\left\{ \sum_{i=1}^{\infty}\mu\left(A_{i}\right)\mid A_{i}\in\mathcal{A},A\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} 
+\]
+
+\end_inset
+
+and so 
+\begin_inset Formula 
+\[
+\mu^{*}\left(B\right)=\inf\left\{ \sum_{i=1}^{\infty}\mu\left(A_{i}\right)\mid A_{i}\in\mathcal{A},B\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} \geq\inf\left\{ \sum_{i=1}^{\infty}\mu\left(A_{i}\right)\mid A_{i}\in\mathcal{A},A\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} =\mu^{*}\left(A\right)
+\]
+
+\end_inset
+
+which gives us (ii).
+ For (iii), let 
+\begin_inset Formula $\left\{ E_{i}\right\} _{i=1}^{\infty}\in2^{\mathcal{X}}$
+\end_inset
+
+ be disjoint and assume that 
+\begin_inset Formula $\sum_{i=1}^{\infty}\mu^{*}\left(E_{i}\right)<\infty$
+\end_inset
+
+ since otherwise the claim is trivial.
+ Fix 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and choose 
+\begin_inset Formula $A_{ij}\in\mathcal{A}$
+\end_inset
+
+ such that 
+\begin_inset Formula $E_{i}\subseteq\bigcup_{j=1}^{\infty}A_{ij}$
+\end_inset
+
+ and
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\mu^{*}\left(E_{i}\right)\leq\sum_{j=1}^{\infty}\mu(A_{ij})<\mu^{*}\left(E_{i}\right)+\frac{\epsilon}{2^{i}}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This is possible due to the assumption that 
+\begin_inset Formula $\mu^{*}\left(E_{i}\right)<\infty$
+\end_inset
+
+, which implies that the set 
+\begin_inset Formula $\left\{ \sum_{j=1}^{\infty}\mu\left(A_{ij}\right)\mid A_{ij}\in\mathcal{A},E_{i}\subseteq\bigcup_{j=1}^{\infty}A_{ij}\right\} $
+\end_inset
+
+ is non-empty.
+ The definition of an infimum then implies that such a cover 
+\begin_inset Formula $\left\{ A_{ij}\right\} $
+\end_inset
+
+ exists.
+\end_layout
+
+\end_inset
+
+.
+ Observe that
+\begin_inset Formula 
+\begin{align*}
+E & :=\bigcup_{i=1}^{\infty}E_{i}\subseteq\bigcup_{i=1}^{\infty}\bigcup_{j=1}^{\infty}A_{ij}
+\end{align*}
+
+\end_inset
+
+and so 
+\begin_inset Formula 
+\[
+\mu^{*}\left(E\right)\leq\sum_{i,j\in\N^{2}}\mu\left(A_{ij}\right)=\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}\mu\left(A_{ij}\right)\leq\sum_{i=1}^{\infty}\mu^{*}(E_{i})+\epsilon
+\]
+
+\end_inset
+
+where the equality follows by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:TonelliForSeries"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and the second inequality is due to properties of the geometric series.
+ Since 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ was arbitrary, the claim folllows.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:restrictionOfOuterMeasure"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+, 
+\begin_inset Formula $\mu,$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu^{*}$
+\end_inset
+
+ be defined as in Example 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "exa:canonicalOuterMeasure"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Then, for any 
+\begin_inset Formula $A\in\mathcal{A}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu^{*}\left(A\right)=\mu\left(A\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First, observe that 
+\begin_inset Formula $A$
+\end_inset
+
+ is a cover for itself and that 
+\begin_inset Formula $\emptyset\in\mathcal{A}$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\[
+\mu^{*}\left(A\right)=\inf\left\{ \sum_{i=1}^{\infty}\mu(A_{i})\mid A_{i}\in\mathcal{A},A\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} \leq\sum_{i=1}^{\infty}\mu(A_{i})
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $A_{1}=A$
+\end_inset
+
+ and 
+\begin_inset Formula $A_{i}=\emptyset$
+\end_inset
+
+ for 
+\begin_inset Formula $i\neq1.$
+\end_inset
+
+ Therefore,
+\begin_inset Formula 
+\[
+\mu^{*}\left(A\right)\leq\mu\left(A\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+To see the reverse inequality, let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{A}$
+\end_inset
+
+ be an arbitrary cover of 
+\begin_inset Formula $A.$
+\end_inset
+
+ Define,
+\begin_inset Formula 
+\[
+B_{i}:=A\cap\left(A_{i}\setminus\bigcup_{j=1}^{i-1}A_{i}\right)
+\]
+
+\end_inset
+
+and notice that the 
+\begin_inset Formula $\left\{ B_{i}\right\} $
+\end_inset
+
+ is a pairwise disjoint collections whose union is A such that 
+\begin_inset Formula $B_{i}\subseteq A_{i}$
+\end_inset
+
+ for every 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+.
+ By countable additivity and monotonicity,
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\mu\left(A\right)=\sum_{i=1}^{\infty}\mu\left(B_{i}\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right).
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $\left\{ A_{i}\right\} \subseteq\mathcal{A}$
+\end_inset
+
+ is an arbitrary cover of 
+\begin_inset Formula $A$
+\end_inset
+
+ , we have that
+\begin_inset Formula 
+\[
+\mu\left(A\right)\leq\inf\left\{ \sum_{i=1}^{\infty}\mu\left(A_{i}\right)\mid A_{i}\in\mathcal{A},A\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} =\mu^{*}\left(A\right)
+\]
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Standard
+Now we are (finally!!) ready to extend our pre-measure to a bona-fide measure
+ on a 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra, using the following theorem.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:caratheodoryExtn"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Caratheodory's Extension Theorem
+\end_layout
+
+\end_inset
+
+Given a countably-additive pre-measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ on ring 
+\begin_inset Formula $\mathcal{A\subseteq}2^{\mathcal{X}}$
+\end_inset
+
+ with outer measure 
+\begin_inset Formula $\mu^{*}$
+\end_inset
+
+ as in Example 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "exa:canonicalOuterMeasure"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, define the set 
+\begin_inset Formula 
+\[
+\mathcal{C}=\left\{ A\subseteq\mathcal{X}\mathrm{\ such\ that\ }\mu^{*}\left(E\right)=\mu^{*}\left(A\cap E\right)+\mu^{*}\left(A^{C}\cap E\right)\forall E\in2^{\mathcal{X}}\right\} .
+\]
+
+\end_inset
+
+Then
+\end_layout
+
+\begin_layout Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $ 
+\backslash
+mathcal{A}
+\backslash
+subseteq 
+\backslash
+mathcal{C}$.
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $ 
+\backslash
+mathcal{C}$ is a $
+\backslash
+sigma$-algebra.
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+left.
+\backslash
+mu^*
+\backslash
+right|_{
+\backslash
+mathcal{C}}$ is a countably additive measure on $
+\backslash
+mathcal{C}$.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First we will show (i).
+ Let 
+\begin_inset Formula $A\in\mathcal{A}$
+\end_inset
+
+ be arbitrary.
+ By the countable subadditivity of 
+\begin_inset Formula $\mu^{*}$
+\end_inset
+
+, we know that 
+\begin_inset Formula 
+\[
+\mu^{*}\left(E\right)=\mu^{*}\left(\left(A\cap E\right)\bigcup\left(A^{C}\cap E\right)\right)\leq\mu^{*}\left(A\cap E\right)+\mu^{*}\left(A^{C}\cap E\right)
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $E\subseteq\mathcal{X}$
+\end_inset
+
+.
+ To deduce the reverse inequality, fix 
+\begin_inset Formula $E$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu^{*}\left(E\right)<\infty$
+\end_inset
+
+ because otherwise the claim follows trivially.
+ Pick an 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and find a cover 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i=1}^{\infty}\in\mathcal{A}$
+\end_inset
+
+ of 
+\begin_inset Formula $E$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\mu^{*}\left(E\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right)<\mu^{*}\left(E\right)+\epsilon
+\]
+
+\end_inset
+
+As in the proof of Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:canonicalOuterMeasureIsOuterMeasure"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, this is possible because 
+\begin_inset Formula $\mu^{*}\left(E\right)<\infty$
+\end_inset
+
+ and the definition of an infimum.
+ Next, observe that
+\begin_inset Formula 
+\begin{align*}
+E\cap A & \subseteq\bigcup_{i=1}^{\infty}(A_{i}\cap A),\\
+E\cap A^{C} & \subseteq\bigcup_{i=1}^{\infty}(A_{i}\cap A^{C})
+\end{align*}
+
+\end_inset
+
+and so 
+\begin_inset Formula 
+\begin{align*}
+\mu^{*}\left(E\cap A\right) & \leq\mu^{*}\left(\bigcup_{i=1}^{\infty}(A_{i}\cap A)\right)\leq\sum_{i=1}^{\infty}\mu^{*}\left(A_{i}\cap A\right)\\
+\mu^{*}\left(E\cap A^{C}\right) & \leq\mu^{*}\left(\bigcup_{i=1}^{\infty}(A_{i}\cap A^{C})\right)\leq\sum_{i=1}^{\infty}\mu^{*}\left(A_{i}\cap A^{C}\right)
+\end{align*}
+
+\end_inset
+
+where the first inequality follows due to monotonicity and the second due
+ to subadditivity.
+ Together, these inequalities imply that
+\begin_inset Formula 
+\begin{align*}
+\mu^{*}\left(A\cap E\right)+\mu^{*}\left(A^{C}\cap E\right) & \leq\sum_{i=1}^{\infty}\mu^{*}\left(A_{i}\cap A\right)+\mu^{*}\left(A_{i}\cap A^{C}\right)\\
+ & =\sum_{i=1}^{\infty}\mu\left(A_{i}\cap A\right)+\mu\left(A_{i}\cap A^{C}\right)\\
+ & =\sum_{i=1}^{\infty}\mu\left(A_{i}\right)\\
+ & <\mu^{*}\left(E\right)+\epsilon
+\end{align*}
+
+\end_inset
+
+where the first equality is due to the fact that rings are closed under
+ intersections and set-differences along with Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:restrictionOfOuterMeasure"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and the second equality is due to the countable additivity of 
+\begin_inset Formula $\mu.$
+\end_inset
+
+ Since 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ and 
+\begin_inset Formula $E$
+\end_inset
+
+ are arbitrary, we have that 
+\begin_inset Formula 
+\[
+\mu^{*}\left(A\cap E\right)+\mu^{*}\left(A^{C}\cap E\right)\geq\mu^{*}\left(E\right)
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $E\subseteq\mathcal{X},$
+\end_inset
+
+ establishing that 
+\begin_inset Formula $\mathcal{A}\subseteq\mathcal{C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Next we show (ii); that is, we prove 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra.
+ Recall Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:sigmaAlgebra"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and notice that it is sufficient to prove that (1) 
+\begin_inset Formula $\emptyset,\mathcal{X}\in\mathcal{C}$
+\end_inset
+
+; (2) if 
+\begin_inset Formula $A\in\mathcal{C}$
+\end_inset
+
+ then 
+\begin_inset Formula $A^{C}\in\mathcal{C}$
+\end_inset
+
+; (3) if 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i=1}^{\infty}\in\mathcal{C}$
+\end_inset
+
+ then 
+\begin_inset Formula $\bigcup_{i=1}^{\infty}A_{i}\in\mathcal{C}.$
+\end_inset
+
+ Note that 
+\begin_inset Formula $\emptyset,\mathcal{X}\in\mathcal{C}$
+\end_inset
+
+ because, trivially,
+\begin_inset Formula 
+\[
+\mu^{*}\left(E\cap\mathcal{X}\right)+\mu^{*}\left(E\cap\emptyset\right)=\mu^{*}\left(E\right).
+\]
+
+\end_inset
+
+Symmetry between 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $A^{C}$
+\end_inset
+
+ in the definition of 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ establishes (2).
+ For (3), we first establish closure under finite unions and bootstrap this
+ weaker result to yield the stronger claim.
+ Let 
+\begin_inset Formula $A,B\in\mathcal{C}$
+\end_inset
+
+ and let 
+\begin_inset Formula $E\subseteq\mathcal{X}$
+\end_inset
+
+ be arbitrary.
+ Then
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{align*}
+\mu^{*}\left(E\right) & =\mu^{*}\left(E\cap A\right)+\mu^{*}\left(E\cap A^{C}\right)\\
+ & =\mu^{*}\left(\left(E\cap A\right)\cap B\right)+\mu^{*}\left(\left(E\cap A\right)\cap B^{C}\right)+\mu^{*}\left(E\cap A^{C}\right)\\
+ & =\mu^{*}\left(E\cap A\cap B\right)+\mu^{*}\left(E\cap\left(A\cap B\right)^{C}\cap A\right)+\mu^{*}\left(E\cap\left(A\cap B\right)^{C}\cap A^{C}\right)\\
+ & =\mu^{*}\left(E\cap A\cap B\right)+\mu^{*}\left(E\cap\left(A\cap B\right)^{C}\right)
+\end{align*}
+
+\end_inset
+
+where the first equality is due to the definition of 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ and the fact that 
+\begin_inset Formula $B\in\mathcal{\mathcal{C}}$
+\end_inset
+
+, the second equality is due to the identities
+\begin_inset Formula 
+\begin{align*}
+\left(A\cap B\right)^{C}\cap A & =\left(A^{C}\cup B^{C}\right)\cap A=A\cap B^{C}\\
+\left(A\cap B\right)^{C}\cap A^{C} & =\left(A^{C}\cup B^{C}\right)\cap A^{C}=A^{C},
+\end{align*}
+
+\end_inset
+
+and the third equality follows from the definition of 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ and that 
+\begin_inset Formula $A\in\mathcal{C}$
+\end_inset
+
+.
+ This proves that for any 
+\begin_inset Formula $A,B\in\mathcal{C}$
+\end_inset
+
+, 
+\begin_inset Formula $A\cap B\in\mathcal{C}.$
+\end_inset
+
+ Property (2) then implies that 
+\begin_inset Formula $A\cup B\in\mathcal{C}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+To establish closure under countable unions, fix 
+\begin_inset Formula $E\subseteq\mathcal{X}$
+\end_inset
+
+ and let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i=1}^{\infty}\in\mathcal{C}$
+\end_inset
+
+ be arbitrary with 
+\begin_inset Formula $B=\bigcup_{i\in\N}A_{i}$
+\end_inset
+
+ and define
+\begin_inset Formula 
+\[
+B_{n}:=\bigcup_{i=1}^{n}A_{i}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $B_{n}\in\mathcal{C}$
+\end_inset
+
+ by our result on closure under finite unions.
+ Without loss of generality, we can assume that the 
+\begin_inset Formula $\left\{ A_{i}\right\} $
+\end_inset
+
+ are pairwise disjoint (since we could otherwise replace 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+ with 
+\begin_inset Formula $C_{i}:=A_{i}\setminus\bigcup_{j=1}^{i-1}A_{j}$
+\end_inset
+
+ which are disjoint such that 
+\begin_inset Formula $\bigcup_{i=1}^{\infty}A_{i}=\bigcup_{i=1}^{\infty}C_{i}$
+\end_inset
+
+).
+ Then, we have that
+\begin_inset Formula 
+\begin{align*}
+\mu^{*}\left(E\right) & =\mu^{*}\left(E\cap B_{n}^{C}\right)+\mu^{*}\left(E\cap B_{n}\right)\\
+ & =\mu^{*}\left(E\cap B_{n}^{C}\right)+\mu^{*}\left(E\cap B_{n}\cap A_{n}\right)+\mu^{*}\left(E\cap B_{n}\cap A_{n}^{C}\right)\\
+ & =\mu^{*}\left(E\cap B_{n}^{C}\right)+\mu^{*}\left(E\cap A_{n}\right)+\mu^{*}\left(E\cap B_{n-1}\right)
+\end{align*}
+
+\end_inset
+
+where we used the fact that 
+\begin_inset Formula $A_{n}\in\mathcal{C}$
+\end_inset
+
+ for the second equality and the disjointness of 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+ for the third equality.
+ Observe that the equality 
+\begin_inset Formula $\mu^{*}\left(E\cap B_{n}\right)=\mu^{*}\left(E\cap A_{n}\right)+\mu^{*}\left(E\cap B_{n-1}\right)$
+\end_inset
+
+ is a recurrence relation that can be expanded as
+\begin_inset Formula 
+\[
+\mu^{*}\left(E\cap B_{n}\right)=\sum_{i=1}^{n}\mu^{*}\left(E\cap A_{i}\right)
+\]
+
+\end_inset
+
+and so 
+\begin_inset Formula 
+\begin{align*}
+\mu^{*}\left(E\right) & =\mu^{*}\left(E\cap B_{n}^{C}\right)+\sum_{i=1}^{n}\mu^{*}\left(E\cap A_{i}\right)\\
+ & \geq\mu^{*}\left(E\cap B^{C}\right)+\sum_{i=1}^{n}\mu^{*}\left(E\cap A_{i}\right)
+\end{align*}
+
+\end_inset
+
+for every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ where the inequality is due to the the fact that 
+\begin_inset Formula $B^{C}\subseteq B_{n}^{C}$
+\end_inset
+
+ and the monotonicity of outer measures.
+ After taking limits, we have that
+\begin_inset Formula 
+\begin{align*}
+\mu^{*}\left(E\right) & \geq\mu^{*}\left(E\cap B^{C}\right)+\sum_{i=1}^{\infty}\mu^{*}\left(E\cap A_{i}\right)\\
+ & \geq\mu^{*}\left(E\cap B^{C}\right)+\mu^{*}\left(\bigcup_{i\in\N}\left(E\cap A_{i}\right)\right)\\
+ & =\mu^{*}\left(E\cap B^{C}\right)+\mu^{*}\left(E\cap B\right)
+\end{align*}
+
+\end_inset
+
+where the second inequality follows by countable subadditivity.
+ Another application of countable subadditivity yields
+\begin_inset Formula 
+\[
+\mu^{*}\left(E\right)\leq\mu^{*}\left(E\cap B^{C}\right)+\mu^{*}\left(E\cap B\right)
+\]
+
+\end_inset
+
+and together the two inequalities establish that 
+\begin_inset Formula $B\in\mathcal{C},$
+\end_inset
+
+ finishing the proof of (ii).
+\end_layout
+
+\begin_layout Proof
+Finally, in order to show that 
+\begin_inset Formula $\left.\mu^{*}\right|_{\mathcal{C}}$
+\end_inset
+
+ is indeed a countably additive measure on 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+, let 
+\begin_inset Formula $\left\{ A\right\} _{i=1}^{\infty}\in\mathcal{C}$
+\end_inset
+
+ be pairwise disjoint, and observe that for 
+\begin_inset Formula $B:=\bigcup_{i\in\N}A_{i}\in\mathcal{C}$
+\end_inset
+
+ and any 
+\begin_inset Formula $E\subseteq\mathcal{X}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu^{*}\left(E\right)\geq\mu^{*}\left(E\cap B^{C}\right)+\sum_{i=1}^{\infty}\mu^{*}\left(E\cap A_{i}\right)
+\]
+
+\end_inset
+
+due to our previous work.
+ Letting 
+\begin_inset Formula $E=B$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\begin{align*}
+\mu^{*}\left(B\right) & \geq\sum_{i=1}^{\infty}\mu^{*}\left(B\cap A_{i}\right)\\
+ & =\sum_{i=1}^{\infty}\mu^{*}\left(A_{i}\right).
+\end{align*}
+
+\end_inset
+
+Since the reverse inequality follows by the subadditivity of the outer measure,
+ our proof is complete.
+\end_layout
+
+\begin_layout Standard
+Note that in general such an extension may not be unique and we provide
+ sufficient conditions for uniqueness in Chapter XX.
+\end_layout
+
+\begin_layout Subsection
+Defining the Lebesgue measure
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: Corollary for Lebesgue measure along with a proof that the properties
+ of the Lebesgue measure hold.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Abstract measure spaces
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:measurableSpace"
+
+\end_inset
+
+A pair 
+\begin_inset Formula $\left(\mathcal{X},\mathcal{F}\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ is an arbitrary set and 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra on 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+, is called a 
+\emph on
+measurable space.
+\end_layout
+
+\begin_layout Standard
+Although we had implicitly defined a measure in the previous section, it's
+ appopriate to write down a formal definition in this section.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:measureSpace"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\mathcal{X},\mathcal{F}\right)$
+\end_inset
+
+ be a measurable space.
+ A function 
+\begin_inset Formula $\mu:\mathcal{F}\longrightarrow\left[0,\infty\right]$
+\end_inset
+
+ is a 
+\emph on
+measure 
+\emph default
+on 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ if
+\end_layout
+
+\begin_layout Definition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+mu
+\backslash
+left(
+\backslash
+emptyset
+\backslash
+right)= 0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For disjoint $
+\backslash
+{A_i
+\backslash
+}_{i
+\backslash
+in 
+\backslash
+N} 
+\backslash
+in 
+\backslash
+mathcal{F}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+mu
+\backslash
+left(
+\backslash
+bigcup_{i=1}^{
+\backslash
+infty}A_i
+\backslash
+right) = 
+\backslash
+sum_{i=1}^{
+\backslash
+infty}
+\backslash
+mu
+\backslash
+left(A_i
+\backslash
+right).
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+The triple 
+\begin_inset Formula $\left(\mathcal{X},\mathcal{F},\mu\right)$
+\end_inset
+
+ is called a 
+\emph on
+measure space.
+ 
+\emph default
+If 
+\begin_inset Formula $\mu\left(\mathcal{X}\right)=1$
+\end_inset
+
+ then 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is called a 
+\emph on
+probability measure 
+\emph default
+and 
+\begin_inset Formula $\left(\mathcal{X},\mathcal{F},\mu\right)$
+\end_inset
+
+ is called a 
+\emph on
+probability space.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:measurableSet"
+
+\end_inset
+
+Given a measurable space 
+\begin_inset Formula $\left(\mathcal{X},\mathcal{F}\right)$
+\end_inset
+
+, any set 
+\begin_inset Formula $A\in\mathcal{F}$
+\end_inset
+
+ is called a 
+\emph on
+measurable 
+\emph default
+set.
+ Conversely, any set 
+\begin_inset Formula $A\subset\mathcal{X}$
+\end_inset
+
+ such that 
+\begin_inset Formula $A\notin\mathcal{F}$
+\end_inset
+
+ is referred to as a 
+\emph on
+non-measurable 
+\emph default
+set.
+\end_layout
+
+\end_body
+\end_document
