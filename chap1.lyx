@@ -2375,7 +2375,81 @@ for every
 
 \end_inset
 
-In order to deduce the reverse inequality, 
+In order to deduce the reverse inequality, define 
+\begin_inset Formula $\bar{A}_{i}$
+\end_inset
+
+ to be the closure of 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+.
+ Then notice that, 
+\begin_inset Formula $\cup_{i=1}^{\infty}\bar{A}_{i}\supset A$
+\end_inset
+
+.
+ Furthermore notice that the countable union of closed sets is closed and
+ because each 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+ is bounded and 
+\begin_inset Formula $\lambda(A)<\infty$
+\end_inset
+
+ we have that 
+\begin_inset Formula $\bar{A}:=\cup_{i=1}^{\infty}\bar{A}_{i}$
+\end_inset
+
+ is bounded.
+ By Heine-Borel we then know that 
+\begin_inset Formula $\bar{A}$
+\end_inset
+
+ is compact and so we from any cover of 
+\begin_inset Formula $\bar{A}$
+\end_inset
+
+ we can extract a finite open cover.
+ In particular let us choose the cover 
+\begin_inset Formula $(a_{i},b_{i}+\epsilon_{i})$
+\end_inset
+
+ for all 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+.
+ Then there is a finite subcover that can be extracted from this.
+ So we have,
+\begin_inset Formula 
+\[
+\lambda(A)=\left|b-a\right|\leq\sum_{i}|b_{i}+\epsilon_{i}-a_{i}|=\lambda(\bar{A})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\iff\lambda(A)\leq\sum_{i=1}^{n}\lambda((a_{i},b_{i}+\epsilon_{i}])\leq\lambda(\cup_{i=1}^{\infty}(a_{i},b_{i}+\epsilon_{i}])=\lambda(\bar{A)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+But from the definition of the measure we have that 
+\begin_inset Formula $\lambda(A)=\left|b-a\right|=\lambda(\bar{A})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
 \begin_inset Note Note
 status open
 
