@@ -3926,5 +3926,566 @@ non-measurable
 set.
 \end_layout
 
+\begin_layout Definition
+While the definition of a measure is simple, it turns out to have some remarkabl
+e properties that are useful in the theory of integration and probability
+ that is built on top of measure theory (or, as we shall later see, is equivalen
+t to it).
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:measureProperties"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\mathcal{X},\mathcal{F}\right)$
+\end_inset
+
+ be a measurabe space and let 
+\begin_inset Formula 
+\[
+\mu:\mathcal{F}\longrightarrow\left[0,\infty\right]
+\]
+
+\end_inset
+
+be a function.
+ Then 
+\begin_inset Formula $\mu$
+\end_inset
+
+is a measure if and only if
+\end_layout
+
+\begin_layout Proposition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+mu
+\backslash
+left(
+\backslash
+emptyset
+\backslash
+right)= 0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For disjoint $A,B 
+\backslash
+in 
+\backslash
+mathcal{F}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+mu
+\backslash
+left(A 
+\backslash
+cup B
+\backslash
+right) = 
+\backslash
+mu
+\backslash
+left(A
+\backslash
+right) + 
+\backslash
+mu
+\backslash
+left(B
+\backslash
+right) .
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For any increasing sequence of sets $ A_1 
+\backslash
+subseteq A_2 
+\backslash
+ldots $ in $
+\backslash
+mathcal{F}$ such that $
+\backslash
+bigcup_{i
+\backslash
+in
+\backslash
+N} A_i = A $
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+mu
+\backslash
+left(A
+\backslash
+right) = 
+\backslash
+lim_{i 
+\backslash
+to 
+\backslash
+infty}
+\backslash
+mu
+\backslash
+left(A_i
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First we shall establish that Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:measureSpace"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ implies properties (i)-(iii) above.
+ Property (i) is inherited straight from the definition; to see (ii), we
+ can let 
+\begin_inset Formula $A_{1}=A,A_{2}=B$
+\end_inset
+
+ and 
+\begin_inset Formula $A_{j}=\emptyset$
+\end_inset
+
+ for all 
+\begin_inset Formula $j\geq3$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+\mu\left(A\cup B\right)=\mu\left(\bigcup_{j\in\N}A_{j}\right)=\sum_{j=1}^{\infty}\mu\left(A_{j}\right)=\mu\left(A\right)+\mu\left(B\right)
+\]
+
+\end_inset
+
+where the first second equality is due countably additiivity and the third
+ equality is due to property (i).
+ To see property (iii), let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
+\end_inset
+
+ be an increasing sequence of sets such that 
+\begin_inset Formula $A_{i}\subseteq A_{i+1}$
+\end_inset
+
+ for every 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+ and let 
+\begin_inset Formula $A:=\bigcup_{i\in N}A_{i}$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula 
+\[
+B_{i}:=A_{i}\setminus\bigcup_{j=1}^{i-1}A_{j}
+\]
+
+\end_inset
+
+which is the standard 
+\begin_inset Quotes eld
+\end_inset
+
+disjointification
+\begin_inset Quotes erd
+\end_inset
+
+ of 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
+\end_inset
+
+ as we have seen earlier.
+ By countable additivity
+\begin_inset Formula 
+\begin{align*}
+\mu\left(A\right) & =\sum_{i=1}^{\infty}\mu\left(B_{i}\right)\\
+ & =\lim_{n\to\infty}\sum_{i=1}^{n}\mu\left(B_{i}\right)\\
+ & =\lim_{n\to\infty}\mu\left(\bigcup_{i=1}^{n}B_{i}\right)\\
+ & =\lim_{n\to\infty}\mu\left(\bigcup_{i=1}^{n}A_{i}\right)\\
+ & =\lim_{n\to\infty}\mu\left(A_{n}\right)
+\end{align*}
+
+\end_inset
+
+where the third equality is due to property (ii).
+ The fourth equality follows from the disjointification and the last equality
+ is due to the increasing nature of the sequence of sets.
+\end_layout
+
+\begin_layout Proof
+Next, we shall establish countable additivity while assuming properties
+ (i)-(iii) in order to complete the equivalence.
+ Let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
+\end_inset
+
+ be pairwise disjoint in 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+.
+ Then, letting 
+\begin_inset Formula $A:=\bigcup_{i\in\N}A_{i}$
+\end_inset
+
+ we can define
+\begin_inset Formula 
+\[
+B_{n}:=\bigcup_{i=1}^{n}A_{i}
+\]
+
+\end_inset
+
+and observe that 
+\begin_inset Formula $\bigcup_{n\in\N}B_{n}=A$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{n}\subseteq B_{n+1}.$
+\end_inset
+
+ Then, by property (iii), 
+\begin_inset Formula 
+\begin{align*}
+\mu\left(A\right) & =\lim_{n\to\infty}\mu\left(B_{n}\right)\\
+ & =\lim_{n\to\infty}\sum_{i=1}^{n}\mu\left(A_{i}\right)\\
+ & =\sum_{i=1}^{\infty}\mu\left(A_{i}\right)
+\end{align*}
+
+\end_inset
+
+where the second equality is due to finite additivity (property (ii)).
+ This completes the proof.
+\end_layout
+
+\begin_layout Remark*
+Property (iii) resembles a continuity condition, and is indeed called the
+ 
+\emph on
+lower-continuity 
+\emph default
+of measures.
+ There is an analagous definition for 
+\emph on
+upper-continuity
+\emph default
+ which iis equivalent to 
+\emph on
+lower-continuity 
+\emph default
+under certain conditions.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:equivalenceContinuityMeasures"
+
+\end_inset
+
+For a finite and finitely additive measure 
+\begin_inset Formula $\mu:\mathcal{F}\longrightarrow\left[0,\infty\right),$
+\end_inset
+
+ the following statements are equivalent:
+\end_layout
+
+\begin_layout Proposition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For any increasing sequence of sets $
+\backslash
+left
+\backslash
+{ A_{i}
+\backslash
+right
+\backslash
+} _{i
+\backslash
+in
+\backslash
+N}$ such that $A_i 
+\backslash
+subseteq A_{i+1}$ for all $i
+\backslash
+in 
+\backslash
+N$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\backslash
+mu
+\backslash
+left(
+\backslash
+bigcup_{i=1}^{
+\backslash
+infty}
+\backslash
+right) = 
+\backslash
+lim_{i
+\backslash
+to
+\backslash
+infty}
+\backslash
+mu
+\backslash
+left(A_i
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For any decreasing sequence of sets $
+\backslash
+left
+\backslash
+{ A_{i}
+\backslash
+right
+\backslash
+} _{i
+\backslash
+in
+\backslash
+N}$ such that $ A_{i+1}
+\backslash
+subseteq A_i$ for all $i
+\backslash
+in 
+\backslash
+N$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\backslash
+mu
+\backslash
+left(
+\backslash
+bigcap_{i=1}^{
+\backslash
+infty}
+\backslash
+right) = 
+\backslash
+lim_{i
+\backslash
+to
+\backslash
+infty}
+\backslash
+mu
+\backslash
+left(A_i
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Assuming (i), let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
+\end_inset
+
+ be a decreasing sequence of sets and define 
+\begin_inset Formula $A:=\bigcap_{i\in\N}A_{i}$
+\end_inset
+
+.
+ Then let 
+\begin_inset Formula $B_{i}=A_{i}^{C}$
+\end_inset
+
+ which is an increasing sequence of sets such that 
+\begin_inset Formula $A^{C}=\bigcup_{i\in\N}B_{i}$
+\end_inset
+
+.
+ By (i), 
+\begin_inset Formula 
+\[
+\mu\left(\mathcal{X}\right)-\mu\left(A\right)=\mu\left(A^{C}\right)=\lim_{i\to\infty}\mu\left(B_{i}\right)=\mu\left(\mathcal{X}\right)-\lim_{i\to\infty}\mu\left(A_{i}\right)
+\]
+
+\end_inset
+
+where the first and last equality are due to finite additivity.
+ Since 
+\begin_inset Formula $\mu\left(\mathcal{X}\right)<\infty$
+\end_inset
+
+ by assumption, we can subtract 
+\begin_inset Formula $\mu\left(\mathcal{X}\right)$
+\end_inset
+
+ from both sides to yield the result.
+\end_layout
+
+\begin_layout Proof
+A similar argument establishes the converse.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
 \end_body
 \end_document
