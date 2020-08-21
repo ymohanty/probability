@@ -4338,7 +4338,7 @@ left(
 \backslash
 bigcup_{i=1}^{
 \backslash
-infty}
+infty} A_i
 \backslash
 right) = 
 \backslash
@@ -4404,7 +4404,7 @@ left(
 \backslash
 bigcap_{i=1}^{
 \backslash
-infty}
+infty} A_i
 \backslash
 right) = 
 \backslash
@@ -4481,10 +4481,6 @@ where the first and last equality are due to finite additivity.
 
 \begin_layout Proof
 A similar argument establishes the converse.
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \end_body
