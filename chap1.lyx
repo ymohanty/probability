@@ -4248,21 +4248,22 @@ where the second equality is due to finite additivity (property (ii)).
 \end_layout
 
 \begin_layout Remark*
-Property (iii) resembles a continuity condition, and is indeed called the
- 
+Property (iii) resembles a continuity condition, and is indeed called 
 \emph on
-lower-continuity 
+continuity from below 
 \emph default
 of measures.
  There is an analagous definition for 
 \emph on
-upper-continuity
+continuity from above
 \emph default
- which iis equivalent to 
+ which is implied by 
 \emph on
-lower-continuity 
+continuity from above 
 \emph default
-under certain conditions.
+for finitely additive measures and pre-measures.
+ If the measures are finite, these two notions of continuity are in fact
+ equivalent.
 \end_layout
 
 \begin_layout Proposition
@@ -4272,7 +4273,7 @@ name "prop:equivalenceContinuityMeasures"
 
 \end_inset
 
-For a finite and finitely additive measure 
+For a finitely additive measure 
 \begin_inset Formula $\mu:\mathcal{F}\longrightarrow\left[0,\infty\right),$
 \end_inset
 
@@ -4352,7 +4353,7 @@ mu
 \backslash
 left(A_i
 \backslash
-right)
+right).
 \end_layout
 
 \begin_layout Plain Layout
@@ -4384,7 +4385,7 @@ subseteq A_i$ for all $i
 \backslash
 in 
 \backslash
-N$
+N$ 
 \end_layout
 
 \begin_layout Plain Layout
@@ -4418,7 +4419,7 @@ mu
 \backslash
 left(A_i
 \backslash
-right)
+right).
 \end_layout
 
 \begin_layout Plain Layout
@@ -4445,42 +4446,143 @@ Assuming (i), let
 \begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
 \end_inset
 
- be a decreasing sequence of sets and define 
+ be a decreasing sequence of sets and let 
 \begin_inset Formula $A:=\bigcap_{i\in\N}A_{i}$
 \end_inset
 
 .
- Then let 
-\begin_inset Formula $B_{i}=A_{i}^{C}$
+ Then define 
+\begin_inset Formula $B_{i}=A_{1}\setminus A_{i}$
 \end_inset
 
  which is an increasing sequence of sets such that 
-\begin_inset Formula $A^{C}=\bigcup_{i\in\N}B_{i}$
+\begin_inset Formula $A_{1}\setminus A=\bigcup_{i\in\N}B_{i}$
 \end_inset
 
 .
  By (i), 
 \begin_inset Formula 
 \[
-\mu\left(\mathcal{X}\right)-\mu\left(A\right)=\mu\left(A^{C}\right)=\lim_{i\to\infty}\mu\left(B_{i}\right)=\mu\left(\mathcal{X}\right)-\lim_{i\to\infty}\mu\left(A_{i}\right)
+\mu\left(A_{1}\right)-\mu\left(A\right)=\mu\left(A_{1}\setminus A\right)=\lim_{i\to\infty}\mu\left(B_{i}\right)=\mu\left(A_{1}\right)-\lim_{i\to\infty}\mu\left(A_{i}\right)
 \]
 
 \end_inset
 
-where the first and last equality are due to finite additivity.
- Since 
-\begin_inset Formula $\mu\left(\mathcal{X}\right)<\infty$
+where the first and last equality are due to finite additivity and the finitenes
+s of 
+\begin_inset Formula $\mu.$
 \end_inset
 
- by assumption, we can subtract 
-\begin_inset Formula $\mu\left(\mathcal{X}\right)$
+ We can subtract 
+\begin_inset Formula $\mu\left(A_{1}\right)$
 \end_inset
 
  from both sides to yield the result.
 \end_layout
 
 \begin_layout Proof
-A similar argument establishes the converse.
+To establish the converse, assume (ii) and let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
+\end_inset
+
+ be an increasing sequence of sets and define 
+\begin_inset Formula $A:=\bigcup_{i\in\N}A_{i}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $B_{i}:=A\setminus A_{i}$
+\end_inset
+
+ which is a decreasing sequence of sets such that 
+\begin_inset Formula $\bigcap_{i\in\N}B_{i}=\emptyset$
+\end_inset
+
+.
+ By (ii), we have that 
+\begin_inset Formula 
+\[
+0=\mu\left(\emptyset\right)=\lim_{i\to\infty}\mu\left(B_{i}\right)=\lim_{i\to\infty}\mu\left(A\setminus A_{i}\right)=\mu\left(A\right)-\lim_{i\to\infty}\mu\left(A_{i}\right)
+\]
+
+\end_inset
+
+where the last equality is again due to finite additivity and the finitenesss
+ of 
+\begin_inset Formula $\mu.$
+\end_inset
+
+ Rearrangement yields the proof.
+\end_layout
+
+\begin_layout Standard
+Observe how the two results apply without modification to pre-measures as
+ well and so we can establish the countable additivity of 
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+ (see the previous section) using a continuity argument instead of the Heine-Bor
+el argument we previously used.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:ringMeasureCountablyAdditive"
+
+\end_inset
+
+
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+ is a countably additive pre-measure on 
+\begin_inset Formula $\ring\left(\mathcal{L}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We know from Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:ringMeasureFinitelyAdditive"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that 
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+ is a finitely additive pre-measure on 
+\begin_inset Formula $\ring\left(\mathcal{L}\right)$
+\end_inset
+
+ and so, by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:measureProperties"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we need to establish the lower continuity condition in order to prove that
+ 
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+ is indeed countably additive.
+ Let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
+\end_inset
+
+ be an increasing sequence of
 \end_layout
 
 \end_body
