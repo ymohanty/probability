@@ -90,7 +90,7 @@ Measurable functions
 \end_layout
 
 \begin_layout Section
-Sets and their indicator functions
+Limits of sets and their indicator functions
 \end_layout
 
 \begin_layout Standard
@@ -312,7 +312,7 @@ which completes the argument.
 
 \begin_layout Standard
 These arguments appear to be rather pedantic, but they are key to defining
- limit operations on sets.
+ limiting operations on sets.
  With a background in undergraduate calculus, it can be quite cumbersome
  to think of a sequence of sets converging to another set.
  However, it is quite straightforward to imagine the pointwise convergence
@@ -322,7 +322,7 @@ indicator functions
 \emph default
 of sets.
  For example, we have what appears to be a fairly daunting definition for
- limit of a sequence of sets.
+ the limit of a sequence of sets.
 \end_layout
 
 \begin_layout Definition
@@ -344,7 +344,7 @@ name "def:limSupInfSets"
  Then the limit superior of the sequence is given by
 \begin_inset Formula 
 \[
-\limsup_{i\to\infty}A_{i}:=\bigcap_{n=1}^{\infty}\bigcup_{i=n}^{\infty}A_{i}.
+\limsup_{n\to\infty}A_{n}:=\bigcap_{n=1}^{\infty}\bigcup_{i=n}^{\infty}A_{i}.
 \]
 
 \end_inset
@@ -352,20 +352,20 @@ name "def:limSupInfSets"
 Similarly, the limit inferior of the sequence is given by
 \begin_inset Formula 
 \[
-\liminf_{i\to\infty}A_{i}:=\bigcup_{n=1}^{\infty}\bigcap_{i=n}^{\infty}A_{i}.
+\liminf_{n\to\infty}A_{n}:=\bigcup_{n=1}^{\infty}\bigcap_{i=n}^{\infty}A_{i}.
 \]
 
 \end_inset
 
 If 
-\begin_inset Formula $\limsup_{i\to\infty}A_{i}=\liminf_{i\to\infty}A_{i}$
+\begin_inset Formula $\limsup_{n\to\infty}A_{n}=\liminf_{n\to\infty}A_{n}$
 \end_inset
 
  then the limit of the sequence is defined and is equal to the limit superior
  and inferior i.e.
 \begin_inset Formula 
 \[
-\lim_{i\to\infty}A_{i}:=\limsup_{i\to\infty}A_{i}=\liminf_{i\to\infty}A_{i}.
+\lim_{n\to\infty}A_{n}:=\limsup_{n\to\infty}A_{n}=\liminf_{n\to\infty}A_{n}.
 \]
 
 \end_inset
@@ -382,7 +382,7 @@ While these definitions appear arbitrary, they demarcate important concepts
 \end_inset
 
  to be in 
-\begin_inset Formula $\limsup_{i\to\infty}A_{i}$
+\begin_inset Formula $\limsup_{n\to\infty}A_{i}$
 \end_inset
 
 .
@@ -422,7 +422,7 @@ While these definitions appear arbitrary, they demarcate important concepts
 
 .
  In the language of probability, the event 
-\begin_inset Formula $\limsup_{i\to\infty}A_{i}$
+\begin_inset Formula $\limsup_{n\to\infty}A_{n}$
 \end_inset
 
  is the event of outcomes that occur infinitely often in the collection
@@ -435,7 +435,7 @@ While these definitions appear arbitrary, they demarcate important concepts
 
 \begin_layout Definition
 On the other hand, if 
-\begin_inset Formula $x\in\liminf_{i\to\infty}A_{i},$
+\begin_inset Formula $x\in\liminf_{n\to\infty}A_{n},$
 \end_inset
 
 then there exists some 
@@ -451,7 +451,184 @@ then there exists some
 \end_inset
 
 .
- Clearly then, for any
+ Clearly then, 
+\begin_inset Formula $\liminf_{n\to\infty}A_{n}\subseteq\limsup_{n\to\infty}A_{n}$
+\end_inset
+
+ which mirrors the domination condition for limit superiors and inferiors
+ of sequences of real numbers or real functions.
+ So when does equality hold? Note that if 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
+\end_inset
+
+ is an increasing sequence of sets
+\begin_inset Formula 
+\begin{align*}
+\limsup_{n\to\infty}A_{n} & =\bigcap_{n=1}^{\infty}\bigcup_{i=n}^{\infty}A_{i}\\
+ & =\bigcap_{n=1}^{\infty}\bigcup_{i=1}^{\infty}A_{i}\\
+ & =\bigcup_{i=1}^{\infty}A_{i}\\
+ & =\bigcup_{i=1}^{\infty}\bigcap_{n=i}^{\infty}A_{n}\\
+ & =\liminf_{i\to\infty}A_{i}
+\end{align*}
+
+\end_inset
+
+where the second and fourth equalitiies follow from the increasing nature
+ of the sets 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+.
+ This shows that the continuity from below condition described in Proposition
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:measureProperties"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is in fact bona-fide continuity.
+ After developing the theory of integration, we will (seemingly) generalize
+ this continuity result to measurable functions in the form of the famous
+ 
+\emph on
+monotone convergence theorem
+\emph default
+.
+ Of course, once we know that measures and integrals are essentially the
+ same objects, it will be clear that continuity from below and monotone
+ convergence are two sides of the same coin.
+ While this result is better known in it's integral formulation, there's
+ another result that is perhaps better known in its measure-theoretic formulatio
+n: the Borel-Cantelli lemma.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+First Borel-Cantelli lemma
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:borelCantelli"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\mathcal{X},\mathcal{F},\mu\right)$
+\end_inset
+
+ be an arbitrary measure space and let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{F}$
+\end_inset
+
+ be a sequence of sets.
+ If
+\begin_inset Formula 
+\[
+\sum_{i=1}^{\infty}\mu\left(A_{i}\right)<\infty
+\]
+
+\end_inset
+
+then
+\begin_inset Formula 
+\[
+\mu\left(\limsup_{i\to\infty}A_{i}\right)=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Define by 
+\begin_inset Formula $B_{n}:=\bigcup_{i=n}^{\infty}A_{i}$
+\end_inset
+
+.
+ It's clear that 
+\begin_inset Formula $\left\{ B_{n}\right\} _{n\in\N}$
+\end_inset
+
+ is a decreasing sequence of sets.
+ More over 
+\begin_inset Formula $\mu\left(B_{1}\right)=\mu\left(\bigcup_{i\in\N}A_{i}\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right)<\infty$
+\end_inset
+
+ by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[cor:countableSubadditivity]{subadditivity}
+\end_layout
+
+\end_inset
+
+ and so, since 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is finite on 
+\begin_inset Formula $\left\{ B_{n}\right\} _{n\in\N}$
+\end_inset
+
+, we can apply Propositions 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:measureProperties"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:equivalenceContinuityMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to establish
+\begin_inset Formula 
+\begin{align*}
+\mu\left(\bigcap_{n=1}^{\infty}B_{n}\right) & =\lim_{n\to\infty}\mu\left(B_{n}\right)\\
+ & =\lim_{n\to\infty}\text{\ensuremath{\mu\left(\bigcup_{i=n}^{\infty}A_{i}\right)}}\\
+ & \leq\lim_{n\to\infty}\sum_{i=n}^{\infty}\mu\left(A_{i}\right)\\
+ & =\lim_{n\to\infty}\left[\sum_{i=1}^{\infty}\mu\left(A_{i}\right)-\sum_{i=1}^{n-1}\mu\left(A_{i}\right)\right]\\
+ & =0
+\end{align*}
+
+\end_inset
+
+where the inequality follows from subadditivity and the last equality is
+ due to the the assumption that 
+\begin_inset Formula $\sum_{i\in\N}\mu\left(A_{i}\right)<\infty$
+\end_inset
+
+ along with the fact that a sequence and its tail have the same limit.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \end_body

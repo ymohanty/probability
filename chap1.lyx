@@ -3926,7 +3926,7 @@ non-measurable
 set.
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 While the definition of a measure is simple, it turns out to have some remarkabl
 e properties that are useful in the theory of integration and probability
  that is built on top of measure theory (or, as we shall later see, is equivalen
@@ -4266,6 +4266,121 @@ for finitely additive measures and pre-measures.
  equivalent.
 \end_layout
 
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:countableSubadditivity"
+
+\end_inset
+
+Every measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+on an arbitrary measurable space 
+\begin_inset Formula $\left(\mathcal{X},\mathcal{F}\right)$
+\end_inset
+
+ is countably subadditive i.e.
+ for any collection 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{F}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu\left(\bigcup_{i=1}^{\infty}A_{i}\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We shall first establish 
+\emph on
+finite 
+\emph default
+subadditivity and bootstrap this result to countable subadditivity.
+ To see finite subadditivity, let 
+\begin_inset Formula $A,B\in\mathcal{F}$
+\end_inset
+
+ be arbitrary, and observe that
+\begin_inset Formula 
+\[
+A\cup B=\left(A\setminus B\right)\cup B.
+\]
+
+\end_inset
+
+The two sets on the right hand side are disjoint and so by finite additivity
+\begin_inset Formula 
+\begin{align*}
+\mu\left(A\cup B\right) & =\mu\left(A\setminus B\right)+\mu\left(B\right).
+\end{align*}
+
+\end_inset
+
+Adding 
+\begin_inset Formula $\mu\left(A\cap B\right)$
+\end_inset
+
+ and applying finite additivity again, we deduce that
+\begin_inset Formula 
+\[
+\mu\left(A\cup B\right)+\mu\left(A\cap B\right)=\mu\left(A\right)+\mu\left(B\right)
+\]
+
+\end_inset
+
+which establishes finite subadditivity.
+ To prove the countable analogue, let
+\begin_inset Formula 
+\[
+B_{n}:=\bigcup_{i=1}^{n}A_{i}
+\]
+
+\end_inset
+
+and observe that by finite subadditivity
+\begin_inset Formula 
+\[
+\mu\left(B_{n}\right)\leq\sum_{i=1}^{n}\mu\left(A_{i}\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right)
+\]
+
+\end_inset
+
+where the last inequality follows by the non-negativity of 
+\begin_inset Formula $\mu.$
+\end_inset
+
+ Note that since 
+\begin_inset Formula $B_{n}$
+\end_inset
+
+ is an increasing sequence, we can apply Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:measureProperties"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (iii) to infer that
+\begin_inset Formula 
+\[
+\mu\left(\bigcup_{i=1}^{\infty}A_{i}\right)=\lim_{n\to\infty}\mu\left(B_{n}\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Proposition
 \begin_inset CommandInset label
 LatexCommand label
@@ -4522,67 +4637,7 @@ Observe how the two results apply without modification to pre-measures as
 \end_inset
 
  (see the previous section) using a continuity argument instead of the Heine-Bor
-el argument we previously used.
-\end_layout
-
-\begin_layout Corollary
-\begin_inset CommandInset label
-LatexCommand label
-name "cor:ringMeasureCountablyAdditive"
-
-\end_inset
-
-
-\begin_inset Formula $\lambda_{2}$
-\end_inset
-
- is a countably additive pre-measure on 
-\begin_inset Formula $\ring\left(\mathcal{L}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-We know from Proposition 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prop:ringMeasureFinitelyAdditive"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- that 
-\begin_inset Formula $\lambda_{2}$
-\end_inset
-
- is a finitely additive pre-measure on 
-\begin_inset Formula $\ring\left(\mathcal{L}\right)$
-\end_inset
-
- and so, by Proposition 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prop:measureProperties"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- we need to establish the lower continuity condition in order to prove that
- 
-\begin_inset Formula $\lambda_{2}$
-\end_inset
-
- is indeed countably additive.
- Let 
-\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
-\end_inset
-
- be an increasing sequence of
+el argument we previously used (Exercise!).
 \end_layout
 
 \end_body
