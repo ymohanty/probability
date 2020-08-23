@@ -5,6 +5,9 @@
 \save_transient_properties true
 \origin unavailable
 \textclass amsbook
+\begin_preamble
+\usepackage{dsfont}
+\end_preamble
 \use_default_options true
 \begin_modules
 theorems-ams
@@ -86,20 +89,369 @@ figs-within-sections
 Measurable functions
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hl{TALK ABOUT EQUIVALENCE BETWEEN INDICATOR FUNCTIONS AND SETS}
+\begin_layout Section
+Sets and their indicator functions
 \end_layout
+
+\begin_layout Standard
+Before we embark on a general description of measurable functions, it's
+ useful to look at special kind of function: the indicator function of a
+ set.
+ These functions are special, because they are essentially the building
+ blocks of all important functions in measure theory.
+ In fact, indicator functions of sets are the key to linking abstract measure
+ theory on one hand, to the theory of integration on the other.
+ As we shall later see, this link is actually an equivalence: measures and
+ integrals are equivalent objects, and so, in the context of this theory,
+ sets and their indicator functions are also in some sense equivalent.
+ While the full scope of this equivalence will only become salient when
+ we discuss integration, this section will shed some light on why we perhaps
+ should expect this 
+\emph on
+ex-ante
+\emph default
+.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:indicatorFunction"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ be a set and let 
+\begin_inset Formula $A\subseteq\mathcal{X}$
+\end_inset
+
+ be an arbitrary subset.
+ The function 
+\begin_inset Formula 
+\[
+\mathds{1}_{A}:\mathcal{X}\longrightarrow\left\{ 0,1\right\} 
+\]
+
+\end_inset
+
+defined by
+\begin_inset Formula 
+\[
+\mathds{1}_{A}\left(x\right)=\begin{cases}
+1 & x\in A\\
+0 & x\notin A
+\end{cases}
+\]
+
+\end_inset
+
+is called the 
+\emph on
+indicator function 
+\emph default
+of set 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The algebra of sets implies a corresponding Boolean algebra for indicator
+ functions.
+\end_layout
+
+\begin_layout Fact
+\begin_inset CommandInset label
+LatexCommand label
+name "fact:indicatorFunctionsFiniteOperations"
+
+\end_inset
+
+Let 
+\begin_inset Formula $A,B\subseteq\mathcal{X}$
+\end_inset
+
+ be arbitrary and let 
+\begin_inset Formula $\mathds{1}_{A},\mathds{1}_{B}$
+\end_inset
+
+ be their respective indicator functions.
+ Then the indicator function of the set 
+\begin_inset Formula $C:=A\cup B$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\[
+\mathds{1}_{C}=\max\left\{ \mathds{1}_{A},\mathds{1}_{B}\right\} =\mathds{1}_{A}+\mathds{1}_{B}-\mathds{1}_{A}\mathds{1}_{B}
+\]
+
+\end_inset
+
+where the maximum is taken pointwise.
+ Similarly, the indicator function for set 
+\begin_inset Formula $D:=A\cap B$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\[
+\mathds{1}_{D}=\min\left\{ \mathds{1}_{A},\mathds{1}_{B}\right\} =\mathds{1}_{A}\mathds{1}_{B}.
+\]
+
+\end_inset
+
+The indicator function for 
+\begin_inset Formula $A^{C}$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\[
+\mathds{1}_{A^{C}}=1-\mathds{1}_{A}.
+\]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Note that if 
+\begin_inset Formula $A,B$
+\end_inset
+
+ are disjoint, then the indicator function of their union is simply the
+ sum of their individual indicators, i.e.
+\begin_inset Formula 
+\[
+\mathds{1}_{A\cup B}=\mathds{1}_{A}+\mathds{1}_{B}.
+\]
+
+\end_inset
+
+We can extend these facts to describe indicator functions of arbitrary unions
+ and intersections of sets in the obvious way
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:indicatorFunctionsArbitraryOperations"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+ be an arbitrary index set and let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\mathcal{I}}\subseteq\mathcal{X}$
+\end_inset
+
+ be subsets with indicator functions 
+\begin_inset Formula $\left\{ \mathds{1}_{A_{i}}\right\} _{i\in\mathcal{I}}$
+\end_inset
+
+.
+ Then, the indicator function for 
+\begin_inset Formula $B:=\bigcup_{i\in\mathcal{I}}A_{i}$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\[
+\mathds{1}_{B}=\sup_{i\in\mathcal{I}}\mathds{1}_{A_{i}}
+\]
+
+\end_inset
+
+where the supremum is taken pointwise.
+ Similarly, the indicator function for 
+\begin_inset Formula $C:=\bigcap_{i\in\mathcal{I}}A_{i}$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\[
+\mathds{1}_{C}=\inf_{i\in\mathcal{I}}\mathds{1}_{A_{i}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We provide the argument for 
+\begin_inset Formula $B$
+\end_inset
+
+; the argument for 
+\begin_inset Formula $C$
+\end_inset
+
+ is analagous.
+ Observe that
+\begin_inset Formula 
+\begin{align*}
+\mathds{1}_{B}\left(x\right)=1 & \Longleftrightarrow x\in\bigcup_{i\in\mathcal{I}}A_{i}\\
+ & \Longleftrightarrow x\in A_{i_{0}}\textrm{ for some }i_{0}\in\mathcal{I}\\
+ & \Longleftrightarrow\mathds{1}_{A_{i_{0}}}=1\text{ for some }i_{0}\in\mathcal{I}\\
+ & \Longleftrightarrow\sup_{i\in\mathcal{I}}\mathds{1}_{A_{i}}=1
+\end{align*}
+
+\end_inset
+
+which completes the argument.
+\end_layout
+
+\begin_layout Standard
+These arguments appear to be rather pedantic, but they are key to defining
+ limit operations on sets.
+ With a background in undergraduate calculus, it can be quite cumbersome
+ to think of a sequence of sets converging to another set.
+ However, it is quite straightforward to imagine the pointwise convergence
+ of a sequence of 
+\emph on
+indicator functions 
+\emph default
+of sets.
+ For example, we have what appears to be a fairly daunting definition for
+ limit of a sequence of sets.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:limSupInfSets"
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
+\end_inset
+
+ be a sequence of sets in 
+\begin_inset Formula $2^{\mathcal{X}}$
+\end_inset
+
+.
+ Then the limit superior of the sequence is given by
+\begin_inset Formula 
+\[
+\limsup_{i\to\infty}A_{i}:=\bigcap_{n=1}^{\infty}\bigcup_{i=n}^{\infty}A_{i}.
+\]
+
+\end_inset
+
+Similarly, the limit inferior of the sequence is given by
+\begin_inset Formula 
+\[
+\liminf_{i\to\infty}A_{i}:=\bigcup_{n=1}^{\infty}\bigcap_{i=n}^{\infty}A_{i}.
+\]
+
+\end_inset
+
+If 
+\begin_inset Formula $\limsup_{i\to\infty}A_{i}=\liminf_{i\to\infty}A_{i}$
+\end_inset
+
+ then the limit of the sequence is defined and is equal to the limit superior
+ and inferior i.e.
+\begin_inset Formula 
+\[
+\lim_{i\to\infty}A_{i}:=\limsup_{i\to\infty}A_{i}=\liminf_{i\to\infty}A_{i}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+While these definitions appear arbitrary, they demarcate important concepts
+ in both analysis and probability.
+ To unpack the intuition, let's try to understand what it means for an element
+ 
+\begin_inset Formula $x\in\mathcal{X}$
+\end_inset
+
+ to be in 
+\begin_inset Formula $\limsup_{i\to\infty}A_{i}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $x\in\bigcap_{n=1}^{\infty}\bigcup_{i=n}^{\infty}A_{i}$
+\end_inset
+
+, then 
+\begin_inset Formula $x\in\bigcup_{i=n}^{\infty}A_{i}$
+\end_inset
+
+ for every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+.
+ That it is to say, for any 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+, there exists an 
+\begin_inset Formula $i\geq n$
+\end_inset
+
+ such that 
+\begin_inset Formula $x\in A_{i}$
+\end_inset
+
+.
+ This essentially says that 
+\begin_inset Formula $x$
+\end_inset
+
+ is in infinitely many of the sets 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
+\end_inset
+
+.
+ In the language of probability, the event 
+\begin_inset Formula $\limsup_{i\to\infty}A_{i}$
+\end_inset
+
+ is the event of outcomes that occur infinitely often in the collection
+ of events 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+On the other hand, if 
+\begin_inset Formula $x\in\liminf_{i\to\infty}A_{i},$
+\end_inset
+
+then there exists some 
+\begin_inset Formula $n_{0}\in\N$
+\end_inset
+
+ such that 
+\begin_inset Formula $x\in A_{i}$
+\end_inset
+
+ for every 
+\begin_inset Formula $i\geq n_{0}$
+\end_inset
+
+.
+ Clearly then, for any
 \end_layout
 
 \end_body
