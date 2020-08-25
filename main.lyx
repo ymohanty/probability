@@ -165,7 +165,25 @@ Math operator declarations
 \newcommand{\N}{\mathds{N}}
 \end_inset
 
- 
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset FormulaMacro
+\newcommand{\X}{\mathcal{X}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset FormulaMacro
+\newcommand{\indicate}{\mathds{1}}
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
