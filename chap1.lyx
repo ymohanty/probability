@@ -2594,15 +2594,6 @@ Given a countably additive pre-measure
 
 \end_layout
 
-\begin_layout Example
-Note that this function is defined on 
-\begin_inset Formula $2^{\mathcal{X}}$
-\end_inset
-
- since every bounded below subset of the (extended) real numbers has an
- infimum.
-\end_layout
-
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -2611,7 +2602,13 @@ Note that this function is defined on
 \end_layout
 
 \begin_layout Standard
-In order to prove that the function in our example is indeed an outer measure,
+Note that this function is defined on 
+\begin_inset Formula $2^{\mathcal{X}}$
+\end_inset
+
+ since every bounded below subset of the (extended) real numbers has an
+ infimum.
+ In order to prove that the function in our example is indeed an outer measure,
  the following lemma is useful.
 \end_layout
 
