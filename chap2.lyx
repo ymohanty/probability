@@ -382,7 +382,7 @@ While these definitions appear arbitrary, they demarcate important concepts
 \end_inset
 
  to be in 
-\begin_inset Formula $\limsup_{n\to\infty}A_{i}$
+\begin_inset Formula $\limsup_{n\to\infty}A_{n}$
 \end_inset
 
 .
@@ -627,8 +627,509 @@ where the inequality follows from subadditivity and the last equality is
  along with the fact that a sequence and its tail have the same limit.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Remark*
+This version of the Borel-Cantelli lemma is sometimes called the 
+\emph on
+first 
+\emph default
+Borel-Cantelli lemma since its converse, which is true under certain conditions,
+ is also called the Borel-Cantelli lemma in the literature.
+ To prevent ambiguity, we refer to the conversee result as the 
+\emph on
+second 
+\emph default
+Borel-Cantelli lemma.
+ The second Borel-Cantelli lemma uses the probabilistic concept of independence
+ which is the topic of Chapter 7 and as such, we will relegate the discussion
+ of the second Borel-Cantelli lemma when we formally delve into probabiility
+ theory.
+\end_layout
 
+\begin_layout Standard
+By now you should be sufficiently convinced that our definitions of the
+ limiting behavior sets indeed make sense.
+ However, if you any doubts, our treatment of indicator functions should
+ help resolve them completely
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:limSupInfIndicator"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
+\end_inset
+
+ be a collection of subsets of 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ and let 
+\begin_inset Formula $\left\{ \indicate_{A_{i}}\right\} _{i\in\N}$
+\end_inset
+
+ be their corresponding indicator functions.
+ Then
+\begin_inset Formula 
+\[
+\limsup_{n\to\infty}\indicate_{A_{n}}=\indicate_{\limsup_{n\to\infty}A_{n}}
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\liminf_{n\to\infty}\indicate_{A_{n}}=\indicate_{\liminf_{n\to\infty}A_{n}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We prove the first assertion as the second one follows by the same argument.
+ Note that
+\begin_inset Formula 
+\begin{align*}
+\limsup_{n\to\infty}\indicate_{A_{n}} & =\inf_{n\in\N}\left\{ \sup_{i\geq n}\indicate_{A_{i}}\right\} \\
+ & =\inf_{n\in\N}\left\{ \indicate_{\bigcup_{i\geq n}A_{i}}\right\} \\
+ & =\indicate_{\bigcap_{n\in\N}\bigcup_{i\geq n}A_{i}}\\
+ & =\indicate_{\liminf_{n\to\infty}A_{n}}
+\end{align*}
+
+\end_inset
+
+where the second and third equalities follow by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:indicatorFunctionsArbitraryOperations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+By now, you should have begun to appreciate that indicator functions are
+ essentially functional equivalents of the sets they indicate: sets and
+ their indicator functioins are just two representations of the same object.
+ This is not particularly suprising, given that sets are defined by their
+ membership and indicator functions describe membership.
+ In this context, it should then not be suprising that indicator functions
+ of 
+\emph on
+measurable sets 
+\emph default
+are 
+\emph on
+measurable functions
+\emph default
+,
+\emph on
+ 
+\emph default
+even though we have not yet described the latter concept yet.
+ This is indeed true, and moreover, any non-negative measurable function
+ can be built by taking a limit of a linear combination of indicators of
+ sets.
+ But before we can show this, we should first define what a measurable function
+ is!
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:measurableFunction"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G}\right)$
+\end_inset
+
+ be two measurable spaces.
+ A function 
+\begin_inset Formula 
+\[
+f:\mathcal{X}\longrightarrow\mathcal{Y}
+\]
+
+\end_inset
+
+is called 
+\emph on
+
+\begin_inset Formula $\mathcal{F}/\mathcal{G}-$
+\end_inset
+
+measurable 
+\emph default
+if for any 
+\begin_inset Formula $G\in\mathcal{G}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f^{-1}\left[G\right]\in\mathcal{F}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+This definition also resembles a continuity condition; indeed, if 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+ were topologies rather than 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras, this would be the definition of a continuous function.
+ It turns out that if 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+ are Borel 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras, then continuity implies measurability: this is a fact that we
+ establish in the next section.
+ Moreover, all measurable functions are in some sense 
+\emph on
+almost 
+\emph default
+continuous: we make this notion precise when we briefly discuss the deep
+ connections between topology and measure theory in Chapter 4.
+\end_layout
+
+\begin_layout Standard
+Later in these notes, we will stop writing 
+\begin_inset Formula $\mathcal{F}/\mathcal{G}$
+\end_inset
+
+ explicitly and let the reader infer the 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras in play from the context.
+\end_layout
+
+\begin_layout Section
+Properties of measurable functions
+\end_layout
+
+\begin_layout Standard
+Armed with our definition of measurable functions, we are ready to discuss
+ interesting examples of such functions along with their properties.
+ First, we establish that the measurability of a sets and its indicator
+ function is indeed equivalent, as we had guessed earlier
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:measurableSetsFunctions"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ be a measurable space.
+ Then for any 
+\begin_inset Formula $A\subseteq\mathcal{X}$
+\end_inset
+
+, 
+\begin_inset Formula $A$
+\end_inset
+
+ is measurable (i.e.
+ 
+\begin_inset Formula $A\in\mathcal{F}$
+\end_inset
+
+) if and only if 
+\begin_inset Formula 
+\[
+\indicate_{A}:\mathcal{X}\longrightarrow\left\{ 0,1\right\} 
+\]
+
+\end_inset
+
+is 
+\begin_inset Formula $\mathcal{F}/2^{\left\{ 0,1\right\} }-$
+\end_inset
+
+measurable.
+\end_layout
+
+\begin_layout Proof
+First assume that 
+\begin_inset Formula $A\in\mathcal{F}$
+\end_inset
+
+ and observe that if 
+\begin_inset Formula $B=\left\{ 0,1\right\} $
+\end_inset
+
+ then 
+\begin_inset Formula $\indicate_{A}^{-1}\left[B\right]=\X\in\mathcal{F}$
+\end_inset
+
+, if 
+\begin_inset Formula $B=\{1\}$
+\end_inset
+
+ then 
+\begin_inset Formula $\indicate_{A}^{-1}\left[B\right]=A\in\mathcal{F}$
+\end_inset
+
+, if 
+\begin_inset Formula $B=\left\{ 0\right\} $
+\end_inset
+
+ then 
+\begin_inset Formula $\indicate_{A}^{-1}\left[B\right]=A^{C}\in\mathcal{F}$
+\end_inset
+
+, and if 
+\begin_inset Formula $B=\emptyset$
+\end_inset
+
+ then 
+\begin_inset Formula $\indicate_{A}^{-1}\left[B\right]=\emptyset\in\mathcal{F}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Conversely, assume that 
+\begin_inset Formula $\indicate_{A}$
+\end_inset
+
+ is measurable and notice how 
+\begin_inset Formula $A=f^{-1}\left[\left\{ 1\right\} \right]\in\mathcal{F}$
+\end_inset
+
+ which completes the proof.
+\end_layout
+
+\begin_layout Standard
+In this case, measurability of our function was easy to establish because
+ the 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra 
+\begin_inset Formula $2^{\left\{ 0,1\right\} }$
+\end_inset
+
+ could be explicitly enumerated.
+ Generally, this is not possible as 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras can be extremely large.
+ Nevertheless, it is possible establish measurability using a smaller class
+ of sets in the target 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra; this is the crux of generating class arguments which we discusss
+ more abstractly in the next section.
+ Even the simplest of such arguments can be quite powerful, as we shall
+ see with the following result.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:genericGeneratingClassArgument"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Generic generating class argument
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G}\right)$
+\end_inset
+
+ be measurable spaces and let 
+\begin_inset Formula $\mathcal{E}\subseteq\mathcal{G}$
+\end_inset
+
+ be a collection of sets such that 
+\begin_inset Formula $\sigma\left(\mathcal{E}\right)=\mathcal{G}.$
+\end_inset
+
+ A function
+\begin_inset Formula 
+\[
+f:\X\longrightarrow\mathcal{Y}
+\]
+
+\end_inset
+
+is 
+\begin_inset Formula $\mathcal{F}/\mathcal{G}-$
+\end_inset
+
+measurable if and only if 
+\begin_inset Formula 
+\[
+f^{-1}\left[E\right]\in\mathcal{F}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $E\in\mathcal{E}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+If 
+\begin_inset Formula $f$
+\end_inset
+
+ is measurable, then trivially 
+\begin_inset Formula $f^{-1}\left[E\right]\in\mathcal{F}$
+\end_inset
+
+ for every 
+\begin_inset Formula $E\in\mathcal{E}$
+\end_inset
+
+ since 
+\begin_inset Formula $\mathcal{E}\subseteq\mathcal{G}$
+\end_inset
+
+.
+ Conversely, suppose that 
+\begin_inset Formula $f^{-1}\left[E\right]\in\mathcal{F}$
+\end_inset
+
+ for every 
+\begin_inset Formula $E\in\mathcal{E}$
+\end_inset
+
+ and define 
+\begin_inset Formula 
+\[
+\mathcal{D}=\left\{ G\in\mathcal{G}\mid f^{-1}\left[G\right]\in\mathcal{F}\right\} .
+\]
+
+\end_inset
+
+By assumption, 
+\begin_inset Formula $\mathcal{E}\subseteq\mathcal{D}$
+\end_inset
+
+ and with a little effort we can show that 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ is in fact a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra, and so 
+\begin_inset Formula $\mathcal{G}=\sigma\left(\mathcal{E}\right)\subseteq\sigma\left(\mathcal{D}\right)=\mathcal{D}.$
+\end_inset
+
+ First, it is clear that 
+\begin_inset Formula $\emptyset\in\mathcal{D}$
+\end_inset
+
+ as 
+\begin_inset Formula $f^{-1}\left[\emptyset\right]=\emptyset\in\mathcal{F}$
+\end_inset
+
+.
+ Next, for any 
+\begin_inset Formula $A\in\mathcal{D}$
+\end_inset
+
+, observe that 
+\begin_inset Formula $f^{-1}\left[A^{c}\right]=\left(f^{-1}\left[A\right]\right)^{C}\in\mathcal{F}$
+\end_inset
+
+ since 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra.
+ Finally, for any collection 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{D},$
+\end_inset
+
+ 
+\begin_inset Formula $f^{-1}\left[\bigcup_{i\in\N}A_{i}\right]=\bigcup_{i\in\N}f^{-1}\left[A_{i}\right]\in\mathcal{F}$
+\end_inset
+
+ again because 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra.
+ This completes the proof.
 \end_layout
 
 \end_body
