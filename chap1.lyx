@@ -3957,7 +3957,7 @@ be a function.
 \begin_inset Formula $\mu$
 \end_inset
 
-is a measure if and only if
+ is a measure if and only if
 \end_layout
 
 \begin_layout Proposition
@@ -4277,7 +4277,7 @@ Every measure
 \begin_inset Formula $\mu$
 \end_inset
 
-on an arbitrary measurable space 
+ on an arbitrary measurable space 
 \begin_inset Formula $\left(\mathcal{X},\mathcal{F}\right)$
 \end_inset
 
