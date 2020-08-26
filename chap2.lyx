@@ -1041,7 +1041,7 @@ If
 \begin_inset Formula $f$
 \end_inset
 
- is measurable, then trivially 
+ is measurable, then by definition, 
 \begin_inset Formula $f^{-1}\left[E\right]\in\mathcal{F}$
 \end_inset
 
@@ -1082,7 +1082,7 @@ By assumption,
 \begin_inset Formula $\sigma-$
 \end_inset
 
-algebra, and so 
+algebra, which then shows that 
 \begin_inset Formula $\mathcal{G}=\sigma\left(\mathcal{E}\right)\subseteq\sigma\left(\mathcal{D}\right)=\mathcal{D}.$
 \end_inset
 
@@ -1130,6 +1130,491 @@ algebra.
 
 algebra.
  This completes the proof.
+\end_layout
+
+\begin_layout Standard
+Now we can show that continuous functions between two spaces equipped with
+ Borel 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras are indeed measurable.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:continuousFunctionsAreMeasurable"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\borel\left(\X\right)\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\mathcal{Y},\borel\left(\mathcal{Y}\right)\right)$
+\end_inset
+
+ be measurable spaces and let 
+\begin_inset Formula 
+\[
+f:\mathcal{X}\longrightarrow\mathcal{Y}
+\]
+
+\end_inset
+
+be continuous.
+ Then 
+\begin_inset Formula $f$
+\end_inset
+
+ is 
+\begin_inset Formula $\borel\left(\X\right)/\borel\left(\mathcal{Y}\right)-$
+\end_inset
+
+measurable.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\mathcal{O}_{\mathcal{Y}}$
+\end_inset
+
+ be the topology on 
+\begin_inset Formula $\mathcal{Y}$
+\end_inset
+
+.
+ By definition
+\begin_inset Formula 
+\[
+\sigma\left(\mathcal{O}_{\mathcal{Y}}\right)=\borel\left(\mathcal{Y}\right)
+\]
+
+\end_inset
+
+and by continuity, for any open set 
+\begin_inset Formula $O\in\mathcal{O}_{\mathcal{Y}}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f^{-1}\left[O\right]\in\mathcal{O}_{\mathcal{X}}\subseteq\borel\left(\X\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathcal{O}_{\mathcal{X}}$
+\end_inset
+
+ is the topology on 
+\begin_inset Formula $\X$
+\end_inset
+
+.
+ Thus by Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:genericGeneratingClassArgument"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+ is measurable.
+\end_layout
+
+\begin_layout Standard
+Now we can use the generic generating class argument to establish routine
+ properties of measurable functions.
+ First, we prove the following useful lemma, which is an important property
+ of measurable functions on its own.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:compositionMeasurableFunctioins"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\mathcal{F}\right),\left(\mathcal{Y},\mathcal{G}\right),$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\mathcal{Z},\mathcal{H}\right)$
+\end_inset
+
+ be measurable spaces.
+ If the functions
+\begin_inset Formula 
+\begin{align*}
+f & :\X\longrightarrow\mathcal{Y}\\
+g & :\mathcal{Y}\longrightarrow\mathcal{Z}
+\end{align*}
+
+\end_inset
+
+are 
+\begin_inset Formula $\mathcal{F}/\mathcal{G}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{G}/\mathcal{H}-$
+\end_inset
+
+measurable respectively, then the composition function 
+\begin_inset Formula $\phi:=f\circ g$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathcal{F}/\mathcal{H}-$
+\end_inset
+
+measurable.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $H\in\mathcal{H}$
+\end_inset
+
+ be arbitrary and note that
+\begin_inset Formula 
+\begin{align*}
+\phi^{-1}\left[H\right] & =f^{-1}\left[g^{-1}\left[H\right]\right]\\
+ & =f^{-1}\left[G\right]\\
+ & =F\in\mathcal{F}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $G:=g^{-1}\left[H\right]\in\mathcal{G}$
+\end_inset
+
+ since 
+\begin_inset Formula $g$
+\end_inset
+
+is measurable.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:binaryOperationsMeasurableFunctions"
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ be a measurable space and let 
+\begin_inset Formula $f,g$
+\end_inset
+
+ be real-valued Borel-measurable functions on 
+\begin_inset Formula $\X$
+\end_inset
+
+; that is 
+\begin_inset Formula $f,g:\longrightarrow\R$
+\end_inset
+
+ and are 
+\begin_inset Formula $\mathcal{F}/\borel\left(\R\right)-$
+\end_inset
+
+measurable.
+ Define 
+\begin_inset Formula $T:\R\longrightarrow\R^{2}$
+\end_inset
+
+ as
+\begin_inset Formula 
+\[
+T\left(x\right):=\left(\begin{array}{c}
+f\left(x\right)\\
+g\left(x\right)
+\end{array}\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\R^{2}$
+\end_inset
+
+ is equipped with its Borel 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra 
+\begin_inset Formula $\borel\left(\R^{2}\right).$
+\end_inset
+
+ Finally, let the function 
+\begin_inset Formula $\psi:\R^{2}\longrightarrow\R$
+\end_inset
+
+ be continuous with respect to the standard topologies.
+ Then the function 
+\begin_inset Formula 
+\begin{align*}
+h & :=\psi\circ T:\R\longrightarrow\R
+\end{align*}
+
+\end_inset
+
+is Borel measurable.
+\end_layout
+
+\begin_layout Proof
+First, note that by Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:continuousFunctionsAreMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:compositionMeasurableFunctioins"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we only need to prove the measurability of 
+\begin_inset Formula $T$
+\end_inset
+
+ in order to deduce the measurability of 
+\begin_inset Formula $h$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be an open rectangle in 
+\begin_inset Formula $\R^{2}$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $R=I_{1}\times I_{2}$
+\end_inset
+
+ where
+\begin_inset Formula 
+\[
+I_{j}=\left(a_{j},b_{j}\right)
+\]
+
+\end_inset
+
+for 
+\begin_inset Formula $a_{j}>b_{j}\in\R$
+\end_inset
+
+.
+ Then consider 
+\begin_inset Formula 
+\begin{align*}
+T^{-1}\left[R\right] & =\left\{ x\in\X\mid T\left(x\right)\in R\right\} \\
+ & =\left\{ x\in\X\mid\left(f\left(x\right),g\left(x\right)\right)\in I_{1}\times I_{2}\right\} \\
+ & =\left\{ x\in\X\mid f\left(x\right)\in I_{1}\text{ and }g\left(x\right)\in I_{2}\right\} \\
+ & =\left\{ x\in\X\mid f\left(x\right)\in I_{1}\right\} \bigcap\left\{ x\in\X\mid g\left(x\right)\in I_{2}\right\} \\
+ & =f^{-1}\left[I_{1}\right]\bigcap g^{-1}\left[I_{2}\right]\in\mathcal{F}
+\end{align*}
+
+\end_inset
+
+due to the measurability of 
+\begin_inset Formula $f,g$
+\end_inset
+
+ and the fact that 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras are closed under intersection.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+ denote the collection of all open rectanges in 
+\begin_inset Formula $\R^{2}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+ is a subset of all open sets in 
+\begin_inset Formula $\R^{2}$
+\end_inset
+
+, we know that 
+\begin_inset Formula $\sigma\left(\mathcal{R}\right)\subseteq\borel\left(\R^{2}\right).$
+\end_inset
+
+ To deduce the converse inclusion, recall that a small modification of Lemma
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:openSetDisjointUnionInterval"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ will show that any open set in 
+\begin_inset Formula $\R^{2}$
+\end_inset
+
+ can be written as a countable union of disjoint sets in 
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+ i.e.
+ for any open set 
+\begin_inset Formula $O\subseteq\R^{2}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+O=\bigcup_{i\in\N}R_{i}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $R_{i}\in\mathcal{R}.$
+\end_inset
+
+ This implies that 
+\begin_inset Formula $O\in\sigma\left(\mathcal{R}\right)$
+\end_inset
+
+ and so 
+\begin_inset Formula $\borel\left(\R^{2}\right)\subseteq\sigma\left(\mathcal{R}\right).$
+\end_inset
+
+ Applying a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:genericGeneratingClassArgument]{generating class argument}
+\end_layout
+
+\end_inset
+
+ with 
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+ then shows that 
+\begin_inset Formula $T$
+\end_inset
+
+ is measurable.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:examplesBinaryOpsMeasFunc"
+
+\end_inset
+
+For any Borel-measurable functions 
+\begin_inset Formula $f,g$
+\end_inset
+
+ from 
+\begin_inset Formula $\left(\X,\mathcal{F}\right)$
+\end_inset
+
+, the following functions are also measurable
+\end_layout
+
+\begin_layout Corollary
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $ h(x) := f(x) + g(x) $
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $ h(x) := f(x)g(x) $
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
