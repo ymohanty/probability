@@ -3349,7 +3349,7 @@ noprefix "false"
  are arbitrary, we have that 
 \begin_inset Formula 
 \[
-\mu^{*}\left(A\cap E\right)+\mu^{*}\left(A^{C}\cap E\right)\geq\mu^{*}\left(E\right)
+\mu^{*}\left(A\cap E\right)+\mu^{*}\left(A^{C}\cap E\right)\leq\mu^{*}\left(E\right)
 \]
 
 \end_inset
