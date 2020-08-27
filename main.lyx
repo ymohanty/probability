@@ -202,7 +202,7 @@ Analysis
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "chap1.lyx"
+filename "measures.lyx"
 
 \end_inset
 
@@ -212,7 +212,27 @@ filename "chap1.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "chap2.lyx"
+filename "measurable_functions.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "integration.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "spaces_of_functions.lyx"
 
 \end_inset
 

@@ -641,8 +641,8 @@ second
 Borel-Cantelli lemma.
  The second Borel-Cantelli lemma uses the probabilistic concept of independence
  which is the topic of Chapter 7 and as such, we will relegate the discussion
- of the second Borel-Cantelli lemma when we formally delve into probabiility
- theory.
+ of the second Borel-Cantelli lemma to when we formally delve into probabiility
+ theory in the second part of these notes.
 \end_layout
 
 \begin_layout Standard
@@ -1338,7 +1338,7 @@ name "prop:binaryOperationsMeasurableFunctions"
 
 measurable.
  Define 
-\begin_inset Formula $T:\R\longrightarrow\R^{2}$
+\begin_inset Formula $T:\X\longrightarrow\R^{2}$
 \end_inset
 
  as
@@ -1372,7 +1372,7 @@ algebra
  Then the function 
 \begin_inset Formula 
 \begin{align*}
-h & :=\psi\circ T:\R\longrightarrow\R
+h & :=\psi\circ T:\X\longrightarrow\R
 \end{align*}
 
 \end_inset
@@ -1600,13 +1600,6 @@ item $ h(x) := f(x)g(x) $
 
 \begin_layout Plain Layout
 
-	
-\backslash
-item 
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 end{enumerate}
@@ -1615,6 +1608,37 @@ end{enumerate}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Proof
+For (i), let 
+\begin_inset Formula $\psi\left(x,y\right):=x+y$
+\end_inset
+
+ (which is a continuous function) and apply Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:binaryOperationsMeasurableFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ For (ii), let 
+\begin_inset Formula $\psi\left(x,y\right)=xy$
+\end_inset
+
+ and repeat.
+\end_layout
+
+\begin_layout Standard
+So we know that measurabiltiy is preserved under addition and multiplication,
+ but the principal concept in analysis is the limit, and we would like measurabi
+lity of functions to be preserved under limiting operations.
+ The following result helps us establish that measurability is indeed preserved
+ under pointwise limits, when one exists.
 \end_layout
 
 \end_body
