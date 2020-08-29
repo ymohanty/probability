@@ -95,8 +95,8 @@ Limits of sets and their indicator functions
 
 \begin_layout Standard
 Before we embark on a general description of measurable functions, it's
- useful to look at special kind of function: the indicator function of a
- set.
+ useful to look at a special kind of function: the indicator function of
+ a set.
  These functions are special, because they are essentially the building
  blocks of all important functions in measure theory.
  In fact, indicator functions of sets are the key to linking abstract measure
@@ -1233,16 +1233,16 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-Now we can use the generic generating class argument to establish routine
+Next we can use the generic generating class argument to establish routine
  properties of measurable functions.
  First, we prove the following useful lemma, which is an important property
- of measurable functions on its own.
+ on its own.
 \end_layout
 
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
-name "lem:compositionMeasurableFunctioins"
+name "lem:compositionMeasurableFunctions"
 
 \end_inset
 
@@ -1329,7 +1329,7 @@ name "prop:binaryOperationsMeasurableFunctions"
 \end_inset
 
 ; that is 
-\begin_inset Formula $f,g:\longrightarrow\R$
+\begin_inset Formula $f,g:\X\longrightarrow\R$
 \end_inset
 
  and are 
@@ -1394,7 +1394,7 @@ noprefix "false"
  and Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:compositionMeasurableFunctioins"
+reference "lem:compositionMeasurableFunctions"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1556,11 +1556,11 @@ name "cor:examplesBinaryOpsMeasFunc"
 
 \end_inset
 
-For any Borel-measurable functions 
+For any real-valued Borel-measurable functions 
 \begin_inset Formula $f,g$
 \end_inset
 
- from 
+ on 
 \begin_inset Formula $\left(\X,\mathcal{F}\right)$
 \end_inset
 
@@ -1600,6 +1600,21 @@ item $ h(x) := f(x)g(x) $
 
 \begin_layout Plain Layout
 
+	
+\backslash
+item $ h(x) := f(x)/g(x)
+\backslash
+ 
+\backslash
+mathrm{where} 
+\backslash
+ g(x)
+\backslash
+neq 0 $
+\end_layout
+
+\begin_layout Plain Layout
+
 
 \backslash
 end{enumerate}
@@ -1626,19 +1641,425 @@ noprefix "false"
 \end_inset
 
 .
- For (ii), let 
-\begin_inset Formula $\psi\left(x,y\right)=xy$
-\end_inset
-
- and repeat.
+ The other cases are simiilar.
 \end_layout
 
 \begin_layout Standard
 So we know that measurabiltiy is preserved under addition and multiplication,
  but the principal concept in analysis is the limit, and we would like measurabi
 lity of functions to be preserved under limiting operations.
- The following result helps us establish that measurability is indeed preserved
- under pointwise limits, when one exists.
+ The following results help us establish that measurability of real-valued
+ functions is indeed preserved under pointwise limits, when one exists.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:collectionIntervalsMeasurable"
+
+\end_inset
+
+The following sets are generating classes for 
+\begin_inset Formula $\borel\left(\R\right):$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left\{ \left(a,\infty\right)\mid\forall a\in\R\right\} ,\ \left\{ \left[a,\infty\right)\mid\forall a\in\R\right\} ,\ \left\{ \left(-\infty,b\right)\mid\forall b\in\R\right\} ,\ \left\{ \left(-\infty,b\right]\mid\forall a\in\R\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[prop:sigmaAlgebraGeneratedbyLisBorel]{Recall}
+\end_layout
+
+\end_inset
+
+ that the collection of half-open intervals 
+\begin_inset Formula $\mathcal{L}=\left\{ \left(a,b\right]\mid-\infty<a\leq b<\infty\right\} $
+\end_inset
+
+ is a generating class for 
+\begin_inset Formula $\borel\left(\R\right).$
+\end_inset
+
+ Observe that for any 
+\begin_inset Formula $a\leq b\in\R$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\left(a,b\right]=\bigcap_{n\in\N}\left(\left(a,\infty\right)\cap\left(b+\frac{1}{n},\infty\right)\right)
+\]
+
+\end_inset
+
+and so 
+\begin_inset Formula $\mathcal{L}\subseteq\sigma\left(\left\{ \left(a,\infty\right)\mid\forall a\in\R\right\} \right)$
+\end_inset
+
+ which implies that 
+\begin_inset Formula $\borel\left(\R\right)\subseteq\sigma\left(\left\{ \left(a,\infty\right)\mid\forall a\in\R\right\} \right).$
+\end_inset
+
+ To see the reverse inclusion, note that for any 
+\begin_inset Formula $a\in\R$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(a,\infty\right)=\bigcup_{b\in\N}\left(a,b\right]
+\]
+
+\end_inset
+
+which shows that 
+\begin_inset Formula $\sigma\left(\left\{ \left(a,\infty\right)\mid\forall a\in\R\right\} \right)\subseteq\borel\left(\R\right)$
+\end_inset
+
+.
+ The other sets can be shown to be generators in a similar fashion.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:supInfMeasurable"
+
+\end_inset
+
+For a sequence of real-valued Borel-measurable functions 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}$
+\end_inset
+
+ on 
+\begin_inset Formula $\left(\X,\mathcal{F}\right)$
+\end_inset
+
+, the functions
+\begin_inset Formula 
+\[
+g:=\sup_{n\in\N}f_{n}
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+h:=\inf_{n\in\N}f_{n}
+\]
+
+\end_inset
+
+are 
+\begin_inset Formula $\mathcal{F}/\borel\left(\overline{\R}\right)$
+\end_inset
+
+ measurable where 
+\begin_inset Formula $\overline{\R}$
+\end_inset
+
+ represents the extended real line.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $a\in\R$
+\end_inset
+
+ be arbitrary.
+ Note that the set
+\begin_inset Formula 
+\[
+g^{-1}\left[\left(a,\infty\right)\right]=\left\{ x\in\X\mid g\left(x\right)>a\right\} =\bigcup_{n\in\N}\left\{ x\in\X\mid f_{n}\left(x\right)>a\right\} =\bigcup_{n\in\N}f_{n}^{-1}\left[\left(a,\infty\right)\right]
+\]
+
+\end_inset
+
+since if 
+\begin_inset Formula $g\left(x\right)>a$
+\end_inset
+
+ then there's at least one 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ such that 
+\begin_inset Formula $f_{n}\left(x\right)>a$
+\end_inset
+
+.
+ Note that by the measurability of 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $f_{n}^{-1}\left[\left(a,\infty\right)\right]\in\mathcal{F}$
+\end_inset
+
+ for every 
+\begin_inset Formula $n\in\N.$
+\end_inset
+
+ Since 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra, 
+\begin_inset Formula $g^{-1}\left[\left(a,\infty\right)\right]\in\mathcal{F}$
+\end_inset
+
+ by closure under countable unions.
+ This establishes the measurability of 
+\begin_inset Formula $g$
+\end_inset
+
+ by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:collectionIntervalsMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ A similar argument establishes the measurability of 
+\begin_inset Formula $h$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:limSupLimInfMeasurable"
+
+\end_inset
+
+For a sequence of real-valued Borel-measurable functions 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}$
+\end_inset
+
+ on 
+\begin_inset Formula $\left(\X,\mathcal{F}\right)$
+\end_inset
+
+, the functions
+\begin_inset Formula 
+\[
+g:=\limsup_{n\to\infty}f_{n}
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+h:=\liminf_{n\to\infty}f_{n}
+\]
+
+\end_inset
+
+are measurable and if 
+\begin_inset Formula $h=g$
+\end_inset
+
+ then 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}f_{n}=h=g
+\]
+
+\end_inset
+
+is measurable.
+\end_layout
+
+\begin_layout Proof
+Recall that 
+\begin_inset Formula 
+\[
+g=\limsup_{n\to\infty}f_{n}=\inf_{n\in\N}\left\{ \sup_{k\geq n}f_{k}\right\} 
+\]
+
+\end_inset
+
+and apply Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:supInfMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The other results follow in the same fashion.
+\end_layout
+
+\begin_layout Standard
+Of course, we are often more interested in establishing the measurability
+ of vector-valued function i.e functions whose range is some subset of the
+ Euclidean space 
+\begin_inset Formula $\R^{n}$
+\end_inset
+
+.
+ This limit theorems for real-valued functions proved here extend naturally
+ to arbitrary finite dimensional spaces.
+\end_layout
+
+\begin_layout Proposition
+Let 
+\begin_inset Formula $\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ be a measurable space and let the sequence of functions 
+\begin_inset Formula $\left\{ f_{m}\right\} _{m\in\N}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f_{n}:\X\longrightarrow\R^{n}
+\]
+
+\end_inset
+
+be 
+\begin_inset Formula $\mathcal{F}/\borel\left(\R^{n}\right)-$
+\end_inset
+
+measurable.
+ The pointwise limit function 
+\begin_inset Formula $f:=\lim_{m\to\infty}f_{m}$
+\end_inset
+
+ (if it exists) is 
+\begin_inset Formula $\mathcal{F}/\borel\left(\R^{n}\right)-$
+\end_inset
+
+measurable if and only if the projection functions 
+\begin_inset Formula $f_{1},\ldots,f_{n}$
+\end_inset
+
+ are 
+\begin_inset Formula $\mathcal{F}/\borel\left(\R\right)-$
+\end_inset
+
+measurable.
+\end_layout
+
+\begin_layout Proof
+First assume that the projections 
+\begin_inset Formula $f_{1},\ldots,f_{n}$
+\end_inset
+
+ are measurable.
+ Then, applying the same proof we used to prove the measurability of the
+ function 
+\begin_inset Formula $T$
+\end_inset
+
+ in Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:binaryOperationsMeasurableFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we have that
+\begin_inset Formula 
+\[
+f=\left(\begin{array}{c}
+f_{1}\\
+\vdots\\
+f_{n}
+\end{array}\right)
+\]
+
+\end_inset
+
+is measurable.
+\end_layout
+
+\begin_layout Proof
+Conversely, suppose that 
+\begin_inset Formula $f$
+\end_inset
+
+ is measurable, then recall that the projection functions 
+\begin_inset Formula $\pi_{k}:\R^{n}\longrightarrow\R$
+\end_inset
+
+ given by
+\begin_inset Formula 
+\[
+\pi_{k}\left(\begin{array}{c}
+x_{1}\\
+\vdots\\
+x_{k}\\
+\vdots\\
+x_{n}
+\end{array}\right)=x_{k}
+\]
+
+\end_inset
+
+is a continuous function and hence measurable for any 
+\begin_inset Formula $1\leq k\leq n$
+\end_inset
+
+.
+ Applying Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:compositionMeasurableFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we have that 
+\begin_inset Formula $f_{k}=\pi_{k}\circ f$
+\end_inset
+
+ is measurable for any 
+\begin_inset Formula $1\leq k\leq n.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \end_body
