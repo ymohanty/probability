@@ -830,8 +830,8 @@ algebras, then continuity implies measurability: this is a fact that we
 \emph on
 almost 
 \emph default
-continuous: we make this notion precise when we briefly discuss the deep
- connections between topology and measure theory in Chapter 4.
+continuous: we make this notion precise when we discuss the deep connections
+ between topology and measure theory in Appendix A.
 \end_layout
 
 \begin_layout Standard
@@ -2056,6 +2056,240 @@ noprefix "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+In general, it appears that a measurability is preserved under a wide range
+ of operations on functions.
+ Additionally, the richness of commonly seen 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras makes it the case that almost all functions we encounter in everyday
+ mathematics are measurable.
+ This heuristic is a fine one, but it begs the question: precisely how rich
+ does the 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra of the domain have to be for a given function to be measurable?
+ This has a relatively straightforward answer.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:sigmaAlgebraGeneratedByFunction"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\X$
+\end_inset
+
+ be a set and let 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G}\right)$
+\end_inset
+
+ be a measurable space.
+ Let
+\begin_inset Formula 
+\[
+T:\X\longrightarrow\mathcal{Y}
+\]
+
+\end_inset
+
+be a function.
+ Then the 
+\begin_inset Quotes eld
+\end_inset
+
+smallest
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra on 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ that makes 
+\begin_inset Formula $T$
+\end_inset
+
+ measurable is 
+\begin_inset Formula 
+\[
+\sigma\left(T\right):=\left\{ T^{-1}\left[G\right]\mid G\in\mathcal{G}\right\} .
+\]
+
+\end_inset
+
+That is, 
+\begin_inset Formula $\sigma\left(T\right)$
+\end_inset
+
+ is the intersecion of all 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras on 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ that makes T measurable.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+ be the collection of all 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras on 
+\begin_inset Formula $\X$
+\end_inset
+
+ that makes 
+\begin_inset Formula $T$
+\end_inset
+
+ measurable.
+ Clearly, 
+\begin_inset Formula $\sigma\left(T\right)\subseteq R$
+\end_inset
+
+ for every 
+\begin_inset Formula $R\in\mathcal{\mathcal{R}}$
+\end_inset
+
+ by the definition of measurability.
+ Thus 
+\begin_inset Formula 
+\[
+\sigma\left(T\right)\subseteq\bigcap_{R\in\mathcal{R}}R
+\]
+
+\end_inset
+
+and so all we have to do is show that 
+\begin_inset Formula $\sigma\left(T\right)\in\mathcal{\mathcal{R}}$
+\end_inset
+
+ to show the reverse inclusion.
+ To do this, we simply show that 
+\begin_inset Formula $\sigma\left(T\right)$
+\end_inset
+
+ is a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra.
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $\emptyset=T^{-1}\left[\emptyset\right]\in\sigma\left(T\right).$
+\end_inset
+
+ Next, let 
+\begin_inset Formula $A\in\sigma\left(T\right)$
+\end_inset
+
+ be arbitrary and observe that 
+\begin_inset Formula $A=T^{-1}\left[G\right]$
+\end_inset
+
+ for some 
+\begin_inset Formula $G\in\mathcal{G}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $A^{C}=\left(T^{-1}\left[G\right]\right)^{C}=T^{-1}\left[G^{C}\right]\in\sigma\left(T\right)$
+\end_inset
+
+ as 
+\begin_inset Formula $G^{C}\in\mathcal{G}$
+\end_inset
+
+ since 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra.
+ Finally, suppose 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}\in\sigma\left(T\right)$
+\end_inset
+
+ and note that 
+\begin_inset Formula $A_{i}=T^{-1}\left[G_{i}\right]$
+\end_inset
+
+ for 
+\begin_inset Formula $G_{i}\in\mathcal{G}$
+\end_inset
+
+ and so
+\begin_inset Formula 
+\[
+\bigcup_{i\in\N}A_{i}=\bigcup_{i\in\N}T^{-1}\left[G_{i}\right]=T^{-1}\left[\bigcup_{i\in\N}G_{i}\right]\in\sigma\left(T\right)
+\]
+
+\end_inset
+
+ since 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+ is closed under countable unions.
+ This completes the proof.
+\end_layout
+
+\begin_layout Section
+Simple functions
+\end_layout
+
+\begin_layout Standard
+In the beginning of this chapter, we foreshadowed how the indicator functions
+ of measurable functions were in fact the building blocks of all real-valued
+ non-negative measurable functions; now we have developed just enough of
+ the theory to show that this is true.
+ First, we should introduce some useful notation to save space in the future.
+ We denote by 
+\begin_inset Formula $\mathcal{M}\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ the set of (extended) real-valued Borel-measurable functions on 
+\begin_inset Formula $\left(\X,\mathcal{F}\right)$
+\end_inset
+
+.
+ We write 
+\begin_inset Formula $\mathcal{M}^{+}\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ to denote the set of all non-negative Borel-measurable functions on 
+\begin_inset Formula $\left(\X,\mathcal{F}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Types of generating class arguments
 \end_layout
 
 \begin_layout Standard

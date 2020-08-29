@@ -3455,7 +3455,7 @@ Symmetry between
 
 \end_inset
 
-where the first equality is due to the definition of 
+where the second equality is due to the definition of 
 \begin_inset Formula $\mathcal{C}$
 \end_inset
 
@@ -3463,7 +3463,7 @@ where the first equality is due to the definition of
 \begin_inset Formula $B\in\mathcal{\mathcal{C}}$
 \end_inset
 
-, the second equality is due to the identities
+, the third equality is due to the identities
 \begin_inset Formula 
 \begin{align*}
 \left(A\cap B\right)^{C}\cap A & =\left(A^{C}\cup B^{C}\right)\cap A=A\cap B^{C}\\
@@ -3472,7 +3472,7 @@ where the first equality is due to the definition of
 
 \end_inset
 
-and the third equality follows from the definition of 
+and the fourth equality follows from the definition of 
 \begin_inset Formula $\mathcal{C}$
 \end_inset
 

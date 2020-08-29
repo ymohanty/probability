@@ -119,6 +119,22 @@ Written By: Yashaswi Mohanty
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+frontmatter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \align center
 \begin_inset Note Note
 status open
@@ -189,6 +205,30 @@ Math operator declarations
 \begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+Preface
+\end_layout
+
+\begin_layout Standard
+These notes 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+mainmatter
+\end_layout
 
 \end_inset
 
