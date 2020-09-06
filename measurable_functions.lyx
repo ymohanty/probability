@@ -1306,7 +1306,7 @@ where
 \begin_inset Formula $g$
 \end_inset
 
-is measurable.
+ is measurable.
 \end_layout
 
 \begin_layout Proposition
@@ -2262,6 +2262,10 @@ algebra.
 Constructing measurable functions
 \end_layout
 
+\begin_layout Subsection
+Simple functions
+\end_layout
+
 \begin_layout Standard
 In the beginning of this chapter, we foreshadowed how the indicator functions
  of measurable sets were in fact the building blocks of all real-valued
@@ -2622,7 +2626,7 @@ where the first inequality is due to the fact that
 
  pointwise and the second inequality is due to 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:pointwiseInequalitySimpleFunc"
 plural "false"
 caps "false"
@@ -2634,12 +2638,528 @@ noprefix "false"
  Taking limits then yields the result.
 \end_layout
 
+\begin_layout Subsection
+Change of variables
+\end_layout
+
+\begin_layout Subsection
+Image measures
+\end_layout
+
 \begin_layout Section
 Types of generating class arguments
 \end_layout
 
 \begin_layout Standard
+So far we have seen how a generating class argument, such as the one formalized
+ in Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:genericGeneratingClassArgument"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+, can help establish the measurability of functions.
+ In general, measurability can be replaced by any property, opening up other
+ avenues to use such arguments.
+ The abstract analogue of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:genericGeneratingClassArgument"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ goes as follows: Let 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ be a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra on 
+\begin_inset Formula $\X$
+\end_inset
+
+.
+ We want to show that all sets in 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ enjoy some property 
+\begin_inset Formula $\left(*\right)$
+\end_inset
+
+.
+ In order to prove that this is indeed the case we
+\end_layout
+
+\begin_layout Enumerate
+Find a subclass of sets 
+\begin_inset Formula $\mathcal{E}\subseteq\mathcal{F}$
+\end_inset
+
+ that enjoys property 
+\begin_inset Formula $\left(*\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $\sigma\left(\mathcal{E}\right)\subseteq\mathcal{F}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Define 
+\begin_inset Formula $\mathcal{D}=\left\{ F\in\mathcal{F}\mid F\ \text{enjoys property }\text{\left(*\right)}\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Observe that if 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra then
+\begin_inset Formula 
+\[
+\mathcal{E}\subseteq\mathcal{D}\subseteq\mathcal{F}\Longrightarrow\mathcal{F}=\sigma\left(\mathcal{E}\right)\subseteq\sigma\left(\mathcal{D}\right)=\mathcal{D}\subseteq\mathcal{F}\Longrightarrow\mathcal{F}=\mathcal{D}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this argument, we do not assume any structure on the special class 
+\begin_inset Formula $\mathcal{E}.$
+\end_inset
+
+ However, imposing structure can add power to generating class arguments,
+ since then we can drop the requirement that subclass 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ of 
+\begin_inset Quotes eld
+\end_inset
+
+desirable
+\begin_inset Quotes erd
+\end_inset
+
+ sets be a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra.
+ The fact that we can do this is not trivial, and the point of this section
+ is to develop the theory to show that this can be done with different types
+ of structural assumptions.
+ The results of this section form the backbone of standard techniques in
+ measure theory, and have important applications, one of which we show here.
+\end_layout
+
+\begin_layout Subsection
+Dynkin's 
+\begin_inset Formula $\pi-\lambda$
+\end_inset
+
+ Theorem
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:dynkinSystem"
+
+\end_inset
+
+A class of sets 
+\begin_inset Formula $\mathcal{D}\subseteq2^{\X}$
+\end_inset
+
+ is called a 
+\emph on
+Dynkin system 
+\emph default
+or a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system if
+\end_layout
+
+\begin_layout Definition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $ 
+\backslash
+X 
+\backslash
+in 
+\backslash
+mathcal{D} $
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $ A_1, A_2 
+\backslash
+in 
+\backslash
+mathcal{D} 
+\backslash
+text{ s.t.
+ } A_2 
+\backslash
+subseteq A_1 
+\backslash
+Longrightarrow A_2
+\backslash
+setminus A_1 
+\backslash
+in 
+\backslash
+mathcal{D} $
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+{A_i
+\backslash
+}_{i
+\backslash
+in
+\backslash
+N} 
+\backslash
+in 
+\backslash
+mathcal{D} 
+\backslash
+text{ s.t.
+ } A_i 
+\backslash
+subseteq A_{i+1} 
+\backslash
+Longrightarrow 
+\backslash
+bigcup_{i
+\backslash
+in
+\backslash
+N} A_i 
+\backslash
+in 
+\backslash
+mathcal{D} $
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:dynkinSystemEquivDefn"
+
+\end_inset
+
+A class of sets 
+\begin_inset Formula $\mathcal{D\subseteq}2^{\mathcal{X}}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system if and only if
+\end_layout
+
+\begin_layout Proposition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*'),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $ 
+\backslash
+X 
+\backslash
+in 
+\backslash
+mathcal{D} $
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $ A 
+\backslash
+in 
+\backslash
+mathcal{D} 
+\backslash
+Longrightarrow A^C 
+\backslash
+in 
+\backslash
+mathcal{D} $
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+{A_i
+\backslash
+}_{i
+\backslash
+in
+\backslash
+N} 
+\backslash
+in 
+\backslash
+mathcal{D}$ s.t $A_i 
+\backslash
+cap A_j = 
+\backslash
+emptyset 
+\backslash
+Longrightarrow 
+\backslash
+bigcup_{i
+\backslash
+in
+\backslash
+N} A_i 
+\backslash
+in 
+\backslash
+mathcal{D}$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First suppose that 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system.
+ Then, property 
+\begin_inset Formula $(i')$
+\end_inset
+
+ above is automatically satisfied.
+ For property 
+\begin_inset Formula $(ii')$
+\end_inset
+
+, observe that 
+\begin_inset Formula $\text{(i),(ii})$
+\end_inset
+
+ together imply 
+\begin_inset Formula $(ii')$
+\end_inset
+
+ since 
+\begin_inset Formula $A^{C}=\X\setminus A.$
+\end_inset
+
+ Next, let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{D}$
+\end_inset
+
+ be pairwise disjoint and define 
+\begin_inset Formula 
+\[
+B_{n}:=\bigcup_{i=1}^{n}A_{i},
+\]
+
+\end_inset
+
+observing that 
+\begin_inset Formula $B_{n}\subseteq B_{n+1}$
+\end_inset
+
+ and that 
+\begin_inset Formula $\bigcup_{n\in\N}B_{n}=\bigcup_{i\in\N}A_{i}.$
+\end_inset
+
+ Then 
+\begin_inset Formula $(iii')$
+\end_inset
+
+ follows from (iii).
+\end_layout
+
+\begin_layout Proof
+Conversely, assume that 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ satisfies 
+\begin_inset Formula $(i')-(iii')$
+\end_inset
+
+ above.
+ Again, (i) follows from 
+\begin_inset Formula $(i')$
+\end_inset
+
+.
+ Next, pick 
+\begin_inset Formula $A_{1},A_{2}\in\mathcal{D}$
+\end_inset
+
+ such that 
+\begin_inset Formula $A_{2}\subseteq A_{1}$
+\end_inset
+
+.
+ By 
+\begin_inset Formula $(ii')$
+\end_inset
+
+ , 
+\begin_inset Formula $A_{1}^{C}\in\mathcal{D}$
+\end_inset
+
+ and we know that
+\begin_inset Formula $A_{1}^{C}\cap A_{2}=\emptyset$
+\end_inset
+
+ and so by 
+\begin_inset Formula $\left(ii'\right),\left(iii'\right)$
+\end_inset
+
+, we have that
+\begin_inset Formula 
+\[
+A_{1}\setminus A_{2}=\left(A_{1}^{C}\cup A_{2}\right)^{C}\in\mathcal{D}
+\]
+
+\end_inset
+
+which proves (ii).
+ Finally, let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{D}$
+\end_inset
+
+ be an increasing sequence of sets (that is, 
+\begin_inset Formula $A_{i}\subseteq A_{i+1}$
+\end_inset
+
+ for every 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+).
+ By (ii), 
+\begin_inset Formula 
+\[
+B_{i}:=A_{i}\setminus A_{i-1}\in\mathcal{D}
+\]
+
+\end_inset
+
+ and are pairwise disjoint.
+ Applying 
+\begin_inset Formula $(iii')$
+\end_inset
+
+ we have that
+\begin_inset Formula 
+\[
+\bigcup_{i\in\N}A_{i}=\bigcup_{i\in\N}B_{i}\in\mathcal{D}
+\]
+
+\end_inset
+
+completing the proof.
 \end_layout
 
 \end_body
