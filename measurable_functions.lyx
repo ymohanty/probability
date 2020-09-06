@@ -2259,12 +2259,12 @@ algebra.
 \end_layout
 
 \begin_layout Section
-Simple functions
+Constructing measurable functions
 \end_layout
 
 \begin_layout Standard
 In the beginning of this chapter, we foreshadowed how the indicator functions
- of measurable functions were in fact the building blocks of all real-valued
+ of measurable sets were in fact the building blocks of all real-valued
  non-negative measurable functions; now we have developed just enough of
  the theory to show that this is true.
  First, we should introduce some useful notation to save space in the future.
@@ -2281,11 +2281,357 @@ In the beginning of this chapter, we foreshadowed how the indicator functions
 \begin_inset Formula $\mathcal{M}^{+}\left(\X,\mathcal{F}\right)$
 \end_inset
 
- to denote the set of all non-negative Borel-measurable functions on 
+ to denote the set of all non-negative (extended) real-valued Borel-measurable
+ functions on 
 \begin_inset Formula $\left(\X,\mathcal{F}\right)$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:simpleFunction"
+
+\end_inset
+
+ A function 
+\begin_inset Formula $s:\mathcal{X}\longrightarrow\R$
+\end_inset
+
+ is called a 
+\emph on
+simple function 
+\emph default
+if its range is a finite subset of 
+\begin_inset Formula $\R.$
+\end_inset
+
+ It can be represented as an aggregation of indicator functions as
+\begin_inset Formula 
+\[
+s=\sum_{i=1}^{k}\alpha_{i}\indicate_{A_{i}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\left\{ \alpha_{i}\right\} _{i=1}^{k}\in\R$
+\end_inset
+
+ is the range of 
+\begin_inset Formula $s$
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i=1}^{k}\subseteq\R$
+\end_inset
+
+ partitions the domain 
+\begin_inset Formula $\X$
+\end_inset
+
+ into preimages of the range.
+\end_layout
+
+\begin_layout Standard
+It should be clear that a non-negative simple function 
+\begin_inset Formula $s\in\mathcal{M^{+}}\left(\mathcal{X},\mathcal{F}\right)$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i=1}^{k}\in\mathcal{F}$
+\end_inset
+
+; the 
+\begin_inset Quotes eld
+\end_inset
+
+if
+\begin_inset Quotes erd
+\end_inset
+
+ part follows directly from Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:examplesBinaryOpsMeasFunc"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ To see the 
+\begin_inset Quotes eld
+\end_inset
+
+only if
+\begin_inset Quotes erd
+\end_inset
+
+ part, note that if 
+\begin_inset Formula $s$
+\end_inset
+
+ is measurable then 
+\begin_inset Formula $s^{-1}\left[\left\{ \alpha_{i}\right\} \right]=A_{i}\in\mathcal{F}$
+\end_inset
+
+ since singletons in 
+\begin_inset Formula $\R$
+\end_inset
+
+ are Borel sets.
+ Denote the collection of these measurable simple functions on 
+\begin_inset Formula $\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ as 
+\begin_inset Formula $M_{s}\left(\X,\mathcal{F}\right)$
+\end_inset
+
+.
+ Then, we have shown that 
+\begin_inset Formula $M_{s}\left(\X,\mathcal{F}\right)\subset\mathcal{M^{+}}\left(\mathcal{X},\mathcal{F}\right)$
+\end_inset
+
+.
+ It turns out that we can make a stronger claim: the measurable simple functions
+ are in some sense 
+\begin_inset Quotes eld
+\end_inset
+
+dense
+\begin_inset Quotes erd
+\end_inset
+
+ in the space of non-negative measurable functions.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:simpleFunctionMonotoneConvergence"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f\in\mathcal{M^{+}}\left(\mathcal{X},\mathcal{F}\right)$
+\end_inset
+
+ be arbitrary.
+ Then there exists a sequence of simple measurable functions 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in M_{s}\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+f_{n}\leq f_{n+1}
+\]
+
+\end_inset
+
+pointwise for every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}f_{n}=f
+\]
+
+\end_inset
+
+where the limit is taken pointwise.
+\end_layout
+
+\begin_layout Proof
+It turns out that we can establish the existence of such functions 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ constructively.
+ Define
+\begin_inset Formula 
+\[
+f_{n}\left(x\right):=\sum_{k=0}^{4^{n}-1}\frac{k}{2^{n}}\indicate_{\left\{ \frac{k}{2^{n}}\leq f\left(x\right)<\frac{k+1}{2^{n}}\right\} }+2^{n}\indicate_{\left\{ f\left(x\right)\geq2^{n}\right\} }
+\]
+
+\end_inset
+
+and observe that 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ are Borel-measurable simple functions (given the measurability of 
+\begin_inset Formula $f$
+\end_inset
+
+) and that 
+\begin_inset Formula $f_{n}\leq f$
+\end_inset
+
+ pointwise by definition.
+ Next, note that 
+\begin_inset Formula $\left\{ \frac{k}{2^{n}}\right\} _{k=0}^{4^{n}}\subset\left\{ \frac{k}{2^{n+1}}\right\} _{k=0}^{4^{n+1}}$
+\end_inset
+
+ and fix 
+\begin_inset Formula $x_{0}\in\X$
+\end_inset
+
+ to be arbitrary.
+ If 
+\begin_inset Formula $\frac{k_{0}}{2^{n}}\leq f\left(x_{0}\right)<\frac{k_{0}+1}{2^{n}}$
+\end_inset
+
+ for some 
+\begin_inset Formula $k_{0}\in\left\{ 0,1,\ldots,4^{n}-1\right\} $
+\end_inset
+
+ then either 
+\begin_inset Formula $\frac{k_{0}}{2^{n}}=\frac{2k_{0}}{2^{n+1}}\leq f\left(x_{0}\right)<\frac{2k_{0}+1}{2^{n+1}}$
+\end_inset
+
+ or 
+\begin_inset Formula $\frac{2k_{0}+1}{2^{n+1}}\leq f\left(x_{0}\right)<\frac{2k_{0}+2}{2^{n+1}}=\frac{k_{0}+1}{2^{n}}$
+\end_inset
+
+.
+ In either case,
+\begin_inset Formula 
+\[
+f_{n}\left(x_{0}\right)=\frac{k_{0}}{2^{n}}\leq f_{n+1}\left(x_{0}\right)\leq\frac{2k_{0}+1}{2^{n+1}}
+\]
+
+\end_inset
+
+by the definitions of our simple functions 
+\begin_inset Formula $f_{n}.$
+\end_inset
+
+ Conversely, if 
+\begin_inset Formula $f\left(x_{0}\right)\geq2^{n}$
+\end_inset
+
+ then either 
+\begin_inset Formula $f\left(x_{0}\right)\geq2^{n+1}$
+\end_inset
+
+ or there exists some 
+\begin_inset Formula $k_{0}\in\left\{ 2^{2n+1},\ldots,4^{n+1}-1\right\} $
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\frac{k_{0}}{2^{n+1}}\leq f\left(x_{0}\right)<\frac{k_{0}+1}{2^{n+1}}.
+\]
+
+\end_inset
+
+Again, in either case,
+\begin_inset Formula 
+\[
+f_{n}\left(x_{0}\right)=2^{n}\leq\frac{k_{0}}{2^{n+1}}\leq f_{n+1}\left(x_{0}\right)\leq2^{n+1}
+\]
+
+\end_inset
+
+which shows that 
+\begin_inset Formula $f_{n}\leq f_{n+1}$
+\end_inset
+
+ pointwise.
+\end_layout
+
+\begin_layout Proof
+To show convergence, again pick an arbitrary 
+\begin_inset Formula $x_{0}\in\X$
+\end_inset
+
+ and observe that if 
+\begin_inset Formula $f\left(x_{0}\right)=\infty$
+\end_inset
+
+ then 
+\begin_inset Formula $f_{n}\left(x_{0}\right)=2^{n}\nearrow\infty=f\left(x_{0}\right).$
+\end_inset
+
+ Conversely, suppose that 
+\begin_inset Formula $f\left(x_{0}\right)<\infty$
+\end_inset
+
+.
+ Then, since the natural numbers are not bounded above in 
+\begin_inset Formula $\R$
+\end_inset
+
+, we know that there exists some 
+\begin_inset Formula $n_{x_{0}}\in\N$
+\end_inset
+
+ such that for every 
+\begin_inset Formula $n\geq n_{x_{0}}$
+\end_inset
+
+: 
+\begin_inset Formula $f\left(x_{0}\right)<2^{n}$
+\end_inset
+
+.
+ Thus for each such 
+\begin_inset Formula $n,$
+\end_inset
+
+ there exists some 
+\begin_inset Formula $k_{n}\in\left\{ 0,1,\ldots,4^{n}-1\right\} $
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\begin{equation}
+\frac{k_{n}}{2^{n}}\leq f\left(x_{0}\right)<\frac{k_{n}+1}{2^{n}}\label{eq:pointwiseInequalitySimpleFunc}
+\end{equation}
+
+\end_inset
+
+which would imply that 
+\begin_inset Formula $f_{n}\left(x_{0}\right)=\frac{k_{n}}{2^{n}}$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\geq n_{x_{0}}.$
+\end_inset
+
+ Then
+\begin_inset Formula 
+\[
+0\leq f\left(x_{0}\right)-f_{n}\left(x_{0}\right)=f\left(x_{0}\right)-\frac{k_{n}}{2^{n}}\leq\frac{k_{n}+1}{2^{n}}-\frac{k_{n}}{2_{n}}=\frac{1}{2^{n}}
+\]
+
+\end_inset
+
+where the first inequality is due to the fact that 
+\begin_inset Formula $f_{n}\leq f$
+\end_inset
+
+ pointwise and the second inequality is due to 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pointwiseInequalitySimpleFunc"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Taking limits then yields the result.
 \end_layout
 
 \begin_layout Section
