@@ -2767,9 +2767,12 @@ desirable
 \end_inset
 
 algebra.
- The fact that we can do this is not trivial, and the point of this section
- is to develop the theory to show that this can be done with different types
- of structural assumptions.
+ The fact that we can do this is not 
+\emph on
+ex-ante 
+\emph default
+trivial, and the point of this section is to develop the theory to show
+ that this can be done with different types of structural assumptions.
  The results of this section form the backbone of standard techniques in
  measure theory, and have important applications, one of which we show here.
 \end_layout
@@ -2789,7 +2792,7 @@ name "def:dynkinSystem"
 
 \end_inset
 
-A class of sets 
+A collection of sets 
 \begin_inset Formula $\mathcal{D}\subseteq2^{\X}$
 \end_inset
 
@@ -2913,7 +2916,7 @@ name "prop:dynkinSystemEquivDefn"
 
 \end_inset
 
-A class of sets 
+A collection of sets 
 \begin_inset Formula $\mathcal{D\subseteq}2^{\mathcal{X}}$
 \end_inset
 
@@ -3160,6 +3163,592 @@ B_{i}:=A_{i}\setminus A_{i-1}\in\mathcal{D}
 \end_inset
 
 completing the proof.
+\end_layout
+
+\begin_layout Standard
+It is easy to see that a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system, and arguments akin to those in Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:ringGeneratedByClassIsRing"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ will prove that
+\begin_inset Formula 
+\[
+\lambda\left(\mathcal{E}\right):=\bigcap\left\{ \mathcal{A}\subseteq2^{\X}\text{ is a }\lambda-\text{system}\mid\mathcal{E}\subseteq\mathcal{A}\right\} 
+\]
+
+\end_inset
+
+is itself a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system, and these two facts together show that
+\begin_inset Formula 
+\[
+\mathcal{E}\subseteq\lambda\left(\mathcal{E}\right)\subseteq\sigma\left(\mathcal{E}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:piSystem"
+
+\end_inset
+
+A collection of sets 
+\begin_inset Formula $\mathcal{E}\subseteq2^{\X}$
+\end_inset
+
+ is called a 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system if it is closed under finite intersections i.e.
+ if 
+\begin_inset Formula $A,B\in\mathcal{E}$
+\end_inset
+
+ then 
+\begin_inset Formula $A\cap B\in\mathcal{E}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Properties of 
+\begin_inset Formula $\pi-$
+\end_inset
+
+systems and 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+systems can be combined to yield a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:piLambdaIsSigma"
+
+\end_inset
+
+A collection of sets 
+\begin_inset Formula $\mathcal{F}\subseteq2^{\X}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra if and only if it is both a 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system and a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system.
+\end_layout
+
+\begin_layout Proof
+Clearly, if 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra, then it is both a 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system and a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system.
+ To see the converse, note that Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:dynkinSystemEquivDefn"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ gives us (i) containing 
+\begin_inset Formula $\X$
+\end_inset
+
+ and (ii) closure under complements for free.
+ Thus we need to prove that for any countable (not necessarily disjoint)
+ collection of sets 
+\begin_inset Formula $\left\{ E_{i}\right\} _{i\in\N}\in\mathcal{E}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\bigcup_{i\in\N}E_{i}\in\mathcal{F}.
+\]
+
+\end_inset
+
+As we usually do, we shall look at the 
+\begin_inset Quotes eld
+\end_inset
+
+disjointification
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+F_{i} & :=E_{i}\setminus\bigcup_{j=1}^{i-1}E_{j}\\
+ & =E_{i}\cap\left(\bigcap_{j=1}^{i-1}E_{j}^{C}\right)
+\end{align*}
+
+\end_inset
+
+and observe that closure under finite intersections (from being a 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system) and complements implies that 
+\begin_inset Formula $F_{i}\in\mathcal{F}$
+\end_inset
+
+.
+ Moreover, the 
+\begin_inset Formula $F_{i}$
+\end_inset
+
+ are pairwise disjoint, and so by closure under countable 
+\emph on
+disjoint 
+\emph default
+unions, we have that
+\begin_inset Formula 
+\[
+\bigcup_{i\in\N}E_{i}=\bigcup_{i\in\N}F_{i}\in\mathcal{F}
+\]
+
+\end_inset
+
+which finishes the proof.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Dynkin's 
+\begin_inset Formula $\pi-\lambda$
+\end_inset
+
+ Theorem
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:piLambdaThm"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mathcal{E}\subseteq2^{\X}$
+\end_inset
+
+ be a 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system.
+ Then
+\begin_inset Formula 
+\[
+\lambda\left(\mathcal{E}\right)=\sigma\left(\mathcal{E}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We had shown earlier that 
+\begin_inset Formula $\lambda\left(\mathcal{E}\right)\subseteq\sigma\left(\mathcal{E}\right)$
+\end_inset
+
+ and so we now we use the additional hypothesis of closure under finite
+ intersections to show the reverse inclusion.
+ By Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:piLambdaIsSigma"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we only need to show that 
+\begin_inset Formula $\lambda\left(\mathcal{E}\right)$
+\end_inset
+
+ inherits closure under finite intersections from 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+, since then 
+\begin_inset Formula $\lambda\left(\mathcal{E}\right)$
+\end_inset
+
+ would be a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra that contains 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+ and so 
+\begin_inset Formula $\sigma\left(\mathcal{E}\right)\subseteq\lambda\left(\mathcal{E}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+In order to show that 
+\begin_inset Formula $\lambda\left(\mathcal{E}\right)$
+\end_inset
+
+ is indeed closed under finite intersections, define for every 
+\begin_inset Formula $B\in\lambda\left(\mathcal{E}\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{D}_{B}:=\left\{ A\subseteq\X\mid A\cap B\in\lambda\left(\mathcal{E}\right)\right\} .
+\]
+
+\end_inset
+
+It turns out that 
+\begin_inset Formula $\mathcal{D}_{B}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system for every 
+\begin_inset Formula $B\in\lambda\left(\mathcal{E}\right)$
+\end_inset
+
+.
+ To see this, note that 
+\begin_inset Formula $\X\in\mathcal{D}_{B}$
+\end_inset
+
+ since 
+\begin_inset Formula $\X\cap B=B\in\lambda\left(\mathcal{E}\right).$
+\end_inset
+
+ Moreover, for any set 
+\begin_inset Formula $A\in\mathcal{D}_{B}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+A^{C}\cap B=B\setminus\left(A\cap B\right)\in\lambda\left(\mathcal{E}\right)
+\]
+
+\end_inset
+
+ since 
+\begin_inset Formula $A\cap B,B\in\lambda\left(\mathcal{E}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $A\cap B\subseteq B$
+\end_inset
+
+ (see property (ii) in Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:dynkinSystem"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ This shows that 
+\begin_inset Formula $A^{C}\in\mathcal{D}_{B}.$
+\end_inset
+
+ Finally, let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{D}_{B}$
+\end_inset
+
+ be an increasing sequence of sets, then
+\begin_inset Formula 
+\[
+A_{i}\cap B\subseteq A_{i+1}\cap B
+\]
+
+\end_inset
+
+and so using property (iii) of 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+systems 
+\begin_inset Formula 
+\[
+\left(\bigcup_{i\in\N}A_{i}\right)\cap B=\bigcup_{i\in\N}\left(A_{i}\cap B\right)\in\lambda\left(\mathcal{E}\right)
+\]
+
+\end_inset
+
+which shows that 
+\begin_inset Formula $\bigcup_{i\in\N}A_{i}\in\mathcal{D}_{B}$
+\end_inset
+
+, proving our claim that 
+\begin_inset Formula $\mathcal{D}_{B}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system for any 
+\begin_inset Formula $B\in\lambda\left(\mathcal{E}\right).$
+\end_inset
+
+ In particular, for any 
+\begin_inset Formula $E\in\mathcal{E}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathcal{D}_{E}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system such that 
+\begin_inset Formula $\mathcal{E}\subseteq\mathcal{D}_{E}$
+\end_inset
+
+ because of 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+ is closed under finite intersections.
+ Since 
+\begin_inset Formula $\mathcal{D}_{E}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system,
+\begin_inset Formula 
+\[
+\lambda\left(\mathcal{E}\right)\subseteq\mathcal{D}_{E}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $E\in\mathcal{E}$
+\end_inset
+
+.
+ Now we have proved that for any 
+\begin_inset Formula $B\in\lambda\left(\mathcal{E}\right)$
+\end_inset
+
+ and any 
+\begin_inset Formula $E\in\mathcal{E}$
+\end_inset
+
+, their intersection 
+\begin_inset Formula $A\cap E\in\lambda\left(\mathcal{E}\right)$
+\end_inset
+
+, which seems like it is just a little bit short of what we need.
+ But notice that this means 
+\begin_inset Formula $\mathcal{E}\subseteq\mathcal{D}_{B}$
+\end_inset
+
+ for every 
+\begin_inset Formula $B\in\lambda\left(\mathcal{E}\right)$
+\end_inset
+
+, which implies that 
+\begin_inset Formula 
+\[
+\lambda\left(\mathcal{E}\right)\subseteq\mathcal{D}_{B}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $B\in\lambda\left(\mathcal{E}\right).$
+\end_inset
+
+ Thus we have proved that for any 
+\begin_inset Formula $A,B\in\mathcal{\lambda\left(E\right)},A\cap B\in\mathcal{\lambda\left(E\right)}$
+\end_inset
+
+ which completes the proof.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:piLambdaGeneratingClassArg"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mathcal{D}\subseteq2^{\X}$
+\end_inset
+
+ be a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system and let 
+\begin_inset Formula $\mathcal{E}\subseteq\mathcal{D}$
+\end_inset
+
+ be a 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system.
+ Then
+\begin_inset Formula 
+\[
+\sigma\left(\mathcal{E}\right)\subseteq\mathcal{D}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+By the 
+\begin_inset Formula $\pi-\lambda$
+\end_inset
+
+ theorem
+\begin_inset Formula 
+\[
+\sigma\left(\mathcal{E}\right)=\lambda\left(\mathcal{E}\right)\subseteq\mathcal{D}
+\]
+
+\end_inset
+
+since 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system that contains 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This corollary is useful because it adds structural assumptions on the generatin
+g class (by requiring that it be a 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system), which allows us to loosen the restriction that 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ be a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra like we used to assume in standard generating class arguments.
+ This technique is powerful, and has important applications such as finding
+ sufficient conditions to show that two measures on a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra are equal without having to explicitly check that equality holds
+ on the entire 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Uniqueness of Measures
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

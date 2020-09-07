@@ -1569,6 +1569,12 @@ by
 \end_layout
 
 \begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:ringGeneratedByClassIsRing"
+
+\end_inset
+
 For any 
 \begin_inset Formula $\mathcal{A}\subseteq2^{\mathcal{X}},$
 \end_inset
