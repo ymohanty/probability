@@ -2710,7 +2710,7 @@ Find a subclass of sets
 \end_inset
 
  such that 
-\begin_inset Formula $\sigma\left(\mathcal{E}\right)\subseteq\mathcal{F}.$
+\begin_inset Formula $\sigma\left(\mathcal{E}\right)=\mathcal{F}.$
 \end_inset
 
 
@@ -3748,7 +3748,279 @@ Uniqueness of Measures
 
 \end_inset
 
+ Let 
+\begin_inset Formula $\left(\X,\mathcal{F}\right)$
+\end_inset
 
+ be a measurable space and let 
+\begin_inset Formula $\mu,\nu$
+\end_inset
+
+ be measures on 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+.
+ If there exists a 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system 
+\begin_inset Formula $\mathcal{E\subseteq}2^{\X}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\sigma\left(\mathcal{E}\right)=\mathcal{F}$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+\mu\left(E\right)=\nu\left(E\right)
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $E\in\mathcal{E}$
+\end_inset
+
+, and there exists increasing sequence 
+\begin_inset Formula $\left\{ E_{i}\right\} _{i\in\N}\in\mathcal{E}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\X=\bigcup_{i\in\N}E_{i}$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\mu\left(E_{i}\right)=\nu\left(E_{i}\right)<\infty
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+ then
+\begin_inset Formula 
+\[
+\mu\left(F\right)=\nu\left(F\right)
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $F\in\mathcal{F}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Define
+\begin_inset Formula 
+\[
+\mathcal{D}_{i}:=\left\{ F\in\mathcal{F}\mid\mu\left(F\cap E_{i}\right)=\nu\left(F\cap E_{i}\right)\right\} 
+\]
+
+\end_inset
+
+and note that 
+\begin_inset Formula $\X\in\mathcal{D}_{i}$
+\end_inset
+
+ for every 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+ since 
+\begin_inset Formula $\mu\left(E_{i}\right)=\nu\left(E_{i}\right)$
+\end_inset
+
+.
+ Next, let 
+\begin_inset Formula $F\in\mathcal{D}_{i}$
+\end_inset
+
+ and observe that 
+\begin_inset Formula 
+\begin{align*}
+\mu\left(F^{C}\cap E_{i}\right) & =\mu\left(E_{i}\setminus\left(E_{i}\cap F\right)\right)\\
+ & =\mu\left(E_{i}\right)-\mu\left(E_{i}\cap F\right)\\
+ & =\nu\left(E_{i}\right)-\nu\left(E_{i}\cap F\right)\\
+ & =\nu\left(E_{i}\setminus\left(E_{i}\cap F\right)\right)\\
+ & =\nu\left(F^{C}\cap E_{i}\right)
+\end{align*}
+
+\end_inset
+
+where the second and fourth equalities follow from (finite) additivity of
+ measures and the fact that 
+\begin_inset Formula $\mu\left(E_{i}\cap F\right)\leq\mu\left(E_{i}\right)<\infty$
+\end_inset
+
+.
+ This proves that for any 
+\begin_inset Formula $F\in\mathcal{D}_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $F^{C}\in\mathcal{D}_{i}$
+\end_inset
+
+ for every 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+.
+ Finally, let 
+\begin_inset Formula $\left\{ F_{j}\right\} _{j\in\N}$
+\end_inset
+
+be a pairwise disjoint collection of sets in 
+\begin_inset Formula $\mathcal{D}_{i}$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\mu\left(\left(\bigcup_{k\in\N}F_{j}\right)\cap E_{i}\right) & =\mu\left(\bigcup_{j\in\N}\left(F_{j}\cap E_{i}\right)\right)\\
+ & =\sum_{j=1}^{\infty}\mu\left(F_{j}\cap E_{i}\right)\\
+ & =\sum_{j=1}^{\infty}\nu\left(F_{j}\cap E_{i}\right)\\
+ & =\nu\left(\bigcup_{j\in\N}\left(F_{j}\cap E_{i}\right)\right)\\
+ & =\nu\left(\left(\bigcup_{k\in\N}F_{j}\right)\cap E_{i}\right)
+\end{align*}
+
+\end_inset
+
+where the second and fourth equality follow from countable additivity and
+ the third equality follows from the uniqueness of limits.
+ This proves that 
+\begin_inset Formula $\bigcup_{j\in\N}F_{j}\in\mathcal{D}_{i}$
+\end_inset
+
+ for every 
+\begin_inset Formula $i\in\N,$
+\end_inset
+
+ which shows (through Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:dynkinSystemEquivDefn"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) that every 
+\begin_inset Formula $\mathcal{D}_{i}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system.
+\end_layout
+
+\begin_layout Proof
+Now note that since 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system (and so closed under finite intersections), we have that 
+\begin_inset Formula 
+\[
+\mathcal{E}\subseteq\mathcal{D}_{i}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+.
+ By Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:piLambdaGeneratingClassArg"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we have that 
+\begin_inset Formula 
+\[
+\mathcal{F}=\sigma\left(\mathcal{E}\right)\subseteq\mathcal{D}_{i}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+.
+ This means that for any 
+\begin_inset Formula $F\in\mathcal{F}$
+\end_inset
+
+ and any 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu\left(F\cap E_{i}\right)=\nu\left(F\cap E_{i}\right).
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $F\in\mathcal{F}$
+\end_inset
+
+ be arbitrary and observe that since 
+\begin_inset Formula $\left\{ E_{i}\right\} _{i\in\N}\nearrow\X$
+\end_inset
+
+, 
+\begin_inset Formula $\left\{ E_{i}\cap F\right\} _{i\in\N}\nearrow\X\cap F=F.$
+\end_inset
+
+ Then, by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:measureProperties"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\mu\left(F\right)=\lim_{i\to\infty}\mu\left(F\cap E_{i}\right)=\lim_{i\to\infty}\nu\left(F\cap E_{i}\right)=\nu\left(F\right),
+\]
+
+\end_inset
+
+again by the uniqueness of limits.
 \end_layout
 
 \end_body
