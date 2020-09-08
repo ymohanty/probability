@@ -2639,6 +2639,12 @@ noprefix "false"
 \end_layout
 
 \begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:minMaxMeasurable"
+
+\end_inset
+
 For any function 
 \begin_inset Formula $f\in\mathcal{M}\left(\X,\mathcal{F}\right)$
 \end_inset
@@ -5352,7 +5358,17 @@ Finally, assume that
 \begin_inset Formula $f^{+},f^{-}\in\mathcal{H}$
 \end_inset
 
- be the last step, and so 
+ by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:minMaxMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and the last step, and so 
 \begin_inset Formula $f=f^{+}-f^{-}\in\mathcal{H}$
 \end_inset
 
