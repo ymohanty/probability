@@ -441,7 +441,11 @@ While we used the interval
 \end_layout
 
 \begin_layout Section
-Constructing the Lebesgue measure
+Constructing measures on 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras
 \end_layout
 
 \begin_layout Standard
@@ -3673,7 +3677,7 @@ Note that in general such an extension may not be unique and we provide
 \end_layout
 
 \begin_layout Subsection
-Defining the Lebesgue measure
+Constructing the Lebesgue measure
 \end_layout
 
 \begin_layout Standard
@@ -4641,6 +4645,93 @@ Observe how the two results apply without modification to pre-measures as
 
  (see the previous section) using a continuity argument instead of the Heine-Bor
 el argument we previously used (Exercise!).
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:sumOfCountableMeasures"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\mathcal{X},\mathcal{F}\right)$
+\end_inset
+
+ be a measurable space and let 
+\begin_inset Formula $\left\{ \mu_{i}\right\} _{i\in\mathcal{I}}$
+\end_inset
+
+ be a collection of measures on 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ where 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+ is at most countable.
+ Then
+\begin_inset Formula 
+\[
+\mu:=\sum_{i\in\mathcal{I}}\mu_{i}
+\]
+
+\end_inset
+
+is a measure on 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+First observe that 
+\begin_inset Formula 
+\[
+\mu\left(\emptyset\right)=\sum_{i\in\mathcal{I}}\mu_{i}\left(\emptyset\right)=0.
+\]
+
+\end_inset
+
+Next, let 
+\begin_inset Formula $\left\{ A_{j}\right\} _{j\in\N}\in\mathcal{F}$
+\end_inset
+
+ be disjoint.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\mu\left(\bigcup_{j\in\N}A_{j}\right) & =\sum_{i\in\mathcal{I}}\mu_{i}\left(\bigcup_{j\in\N}A_{j}\right)\\
+ & =\sum_{i\in\mathcal{I}}\sum_{j\in\N}\mu_{i}\left(A_{j}\right)\\
+ & =\sum_{j\in\N}\sum_{i\in\mathcal{I}}\mu_{i}\left(A_{j}\right)\\
+ & =\sum_{j\in\N}\mu\left(A_{j}\right)
+\end{align*}
+
+\end_inset
+
+where the second equality follows from the countable additivity of 
+\begin_inset Formula $\mu_{i}$
+\end_inset
+
+ and the third equality follows from the non-negativity of measures and
+ Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:TonelliForSeries"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ This completes the proof.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \end_body

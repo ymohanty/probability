@@ -2282,7 +2282,7 @@ In the beginning of this chapter, we foreshadowed how the indicator functions
 
 .
  We write 
-\begin_inset Formula $\mathcal{M}^{+}\left(\X,\mathcal{F}\right)$
+\begin_inset Formula $\mathcal{M}^{+}\left(\X,\mathcal{F}\right)\subset\mathcal{M}\left(\X,\mathcal{F}\right)$
 \end_inset
 
  to denote the set of all non-negative (extended) real-valued Borel-measurable
@@ -2636,6 +2636,113 @@ noprefix "false"
 
 .
  Taking limits then yields the result.
+\end_layout
+
+\begin_layout Proposition
+For any function 
+\begin_inset Formula $f\in\mathcal{M}\left(\X,\mathcal{F}\right)$
+\end_inset
+
+, the derived functions
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Again, maxima are taken pointwise.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+f^{+} & =\max\left\{ f,0\right\} \\
+f^{-} & =\max\left\{ -f,0\right\} 
+\end{align*}
+
+\end_inset
+
+are contained in 
+\begin_inset Formula $\mathcal{M}^{+}\left(\X,\mathcal{F}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Define for any 
+\begin_inset Formula $a\in\R$
+\end_inset
+
+ , 
+\begin_inset Formula $F_{a}:=\left\{ x\in\X\mid f^{+}\left(x\right)\in\left(a,\infty\right)\right\} $
+\end_inset
+
+ and notice that if 
+\begin_inset Formula $a>0$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+F_{a}=f^{-1}\left[\left(a,\infty\right)\right]\in\mathcal{F}
+\]
+
+\end_inset
+
+by the measurability of 
+\begin_inset Formula $f.$
+\end_inset
+
+ Conversely, if 
+\begin_inset Formula $a\leq0$
+\end_inset
+
+ then
+\begin_inset Formula 
+\[
+F_{a}=\X\in\mathcal{F}
+\]
+
+\end_inset
+
+and so, by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:collectionIntervalsMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and a generating class argument, 
+\begin_inset Formula $f^{+}\in\mathcal{M}^{+}\left(\X,\mathcal{F}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+To see that 
+\begin_inset Formula $f^{-1}\in\mathcal{M}^{+}\left(\X,\mathcal{F}\right)$
+\end_inset
+
+, notice that by Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:examplesBinaryOpsMeasFunc"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $-f\in\mathcal{M}\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ and apply the same argument.
 \end_layout
 
 \begin_layout Subsection
@@ -4563,8 +4670,9 @@ algebra
 \end_inset
 
  has the minimal structure of a monotone class.
- The type of argument to use depends on context, and in many situations
- one can pick to use either Dynkin's theorem or the monotone class theorem.
+ The type of argument one uses in practice depends on context, and in many
+ situations one can pick to use either Dynkin's theorem or the monotone
+ class theorem.
 \end_layout
 
 \begin_layout Standard
@@ -4797,7 +4905,9 @@ linewidth]
 \backslash
 item The constant function $
 \backslash
-indicate 
+indicate_{
+\backslash
+X} 
 \backslash
 in 
 \backslash
@@ -4810,7 +4920,9 @@ mathcal{H} $
 \backslash
 item $
 \backslash
-mathcal{H}$ is a vector space
+mathcal{H}$ is a vector space over $
+\backslash
+R$
 \end_layout
 
 \begin_layout Plain Layout
@@ -4853,7 +4965,7 @@ infty} h_n = h
 
 \begin_layout Plain Layout
 
-		 is well defined then $h 
+		 is well defined and bounded then $h 
 \backslash
 in 
 \backslash
@@ -4922,6 +5034,329 @@ is a
 \end_inset
 
 system.
+\end_layout
+
+\begin_layout Proof
+Note that since 
+\begin_inset Formula $\indicate_{\X}\in\mathcal{H}$
+\end_inset
+
+ we have that 
+\begin_inset Formula $\X\in\mathcal{D}.$
+\end_inset
+
+ Next, assume that 
+\begin_inset Formula $A_{1},A_{2}\in\mathcal{D}$
+\end_inset
+
+ such that 
+\begin_inset Formula $A_{2}\subseteq A_{1}$
+\end_inset
+
+ and observe that
+\begin_inset Formula 
+\begin{align*}
+\indicate_{A_{1}\setminus A_{2}} & =\indicate_{A_{1}\cap A_{2}^{C}}\\
+ & =\indicate_{A_{1}}\left(1-\indicate_{A_{2}}\right)\\
+ & =\indicate_{A_{1}}-\indicate_{A_{2}}\in\mathcal{H}
+\end{align*}
+
+\end_inset
+
+where the second and third equalities follows from Fact 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fact:indicatorFunctionsFiniteOperations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and the inclusion follows from the fact that 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ is closed under linear combinations.
+ This prove that 
+\begin_inset Formula $A_{1}\setminus A_{2}\in\mathcal{H}$
+\end_inset
+
+.
+ Fiinally, let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
+\end_inset
+
+ be an increasing sequence of sets in 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ and observe that
+\begin_inset Formula 
+\begin{align*}
+\indicate_{\bigcup_{i\in\N}A_{i}} & =\sup_{i\in\N}\indicate_{A_{i}}\\
+ & =\lim_{n\to\infty}\indicate_{A_{i}}\in\mathcal{H}
+\end{align*}
+
+\end_inset
+
+where the first equality follows from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:indicatorFunctionsArbitraryOperations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and the second equality is due to the fact that 
+\begin_inset Formula $A\subseteq B\Longrightarrow\indicate_{A}\leq\indicate_{B}$
+\end_inset
+
+, and so 
+\begin_inset Formula $\indicate_{A_{i}}$
+\end_inset
+
+ converges pointwise to its supremum.
+ This proves that 
+\begin_inset Formula $\bigcup_{i\in\N}A_{i}\in\mathcal{D}$
+\end_inset
+
+ which implies that 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system.
+\end_layout
+
+\begin_layout Standard
+In the next theorem and elsewhere, let 
+\begin_inset Formula $\mathcal{M}_{\text{bdd}}\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{M}_{\text{bdd}}^{+}\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ denote the set of all bounded real-valued Borel-measurable functions on
+ 
+\begin_inset Formula $\left(\mathcal{X},\mathcal{F}\right),$
+\end_inset
+
+and the set of all non-negative and bounded real-valued Borel-measurable
+ functions on 
+\begin_inset Formula $\left(\mathcal{X},\mathcal{F}\right)$
+\end_inset
+
+ respectively.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi-\lambda$
+\end_inset
+
+ theorem for functions
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:piLambdaThmFunctions"
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+ be a 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system of sets and let 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ be a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+space of functions on 
+\begin_inset Formula $\X$
+\end_inset
+
+.
+ If
+\begin_inset Formula 
+\[
+\left\{ \indicate_{A}\mid A\in\mathcal{G}\right\} \subseteq\mathcal{H}
+\]
+
+\end_inset
+
+then 
+\begin_inset Formula $\mathcal{M}_{\text{bdd}}\left(\X,\sigma\left(\mathcal{G}\right)\right)\subseteq\mathcal{H}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Define 
+\begin_inset Formula $\mathcal{D:=}\left\{ D\subseteq\X\mid\indicate_{D}\in\mathcal{H}\right\} $
+\end_inset
+
+.
+ Then, by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:lambdaFuncsGeneralizeLambdaSystems"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system such that 
+\begin_inset Formula $\mathcal{G}\subseteq\mathcal{D}.$
+\end_inset
+
+ By the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[cor:piLambdaGeneratingClassArg]{$
+\backslash
+pi-
+\backslash
+lambda$ theorem for sets}
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Formula $\sigma\left(\mathcal{G}\right)\subseteq\mathcal{D}$
+\end_inset
+
+.
+ This means that the indicator functions of sets in 
+\begin_inset Formula $\sigma\left(\mathcal{G}\right)$
+\end_inset
+
+ is contained in 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Next, let 
+\begin_inset Formula $f\in\mathcal{M}_{\text{bdd}}^{+}\left(\X,\sigma\left(\mathcal{G}\right)\right)$
+\end_inset
+
+ be arbitrary.
+ Since 
+\begin_inset Formula $f\in\mathcal{M}^{+}\left(\X,\sigma\left(\mathcal{G}\right)\right),$
+\end_inset
+
+ by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:simpleFunctionMonotoneConvergence"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ there exists an increasing sequence of simple functions 
+\begin_inset Formula $\left\{ s_{n}\right\} _{n\in\N}\in\mathcal{M}^{+}\left(\X,\sigma\left(\mathcal{G}\right)\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+f=\lim_{n\to\infty}s_{n}.
+\]
+
+\end_inset
+
+Since, 
+\begin_inset Formula $f$
+\end_inset
+
+ is bounded, 
+\begin_inset Formula $s_{n}\leq f$
+\end_inset
+
+ are all bounded.
+ Moreover, since every 
+\begin_inset Formula $s_{n}$
+\end_inset
+
+ is a measurable simple function, it's a finite linear combination of indicator
+ functions of sets in 
+\begin_inset Formula $\sigma\left(\mathcal{G}\right)$
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula $\left\{ s_{n}\right\} _{n\in\N}\in\mathcal{H}$
+\end_inset
+
+ and since 
+\begin_inset Formula $f$
+\end_inset
+
+ is the monotone limit of 
+\begin_inset Formula $s_{n}$
+\end_inset
+
+, 
+\begin_inset Formula $f\in\mathcal{H}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Finally, assume that 
+\begin_inset Formula $f\in\mathcal{M}_{\text{bdd}}\left(\X,\sigma\left(\mathcal{G}\right)\right)$
+\end_inset
+
+ and note that 
+\begin_inset Formula $f^{+},f^{-}\in\mathcal{H}$
+\end_inset
+
+ be the last step, and so 
+\begin_inset Formula $f=f^{+}-f^{-}\in\mathcal{H}$
+\end_inset
+
+.
 \end_layout
 
 \end_body
