@@ -86,5 +86,21 @@ figs-within-sections
 Integration
 \end_layout
 
+\begin_layout Section
+Existence and uniqueness of the Lebesgue integral
+\end_layout
+
+\begin_layout Section
+Properties of the Lebesgue integral
+\end_layout
+
+\begin_layout Section
+Null sets
+\end_layout
+
+\begin_layout Section
+Modes of convergence for measurable functionss
+\end_layout
+
 \end_body
 \end_document
