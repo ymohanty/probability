@@ -196,7 +196,61 @@ Math operator declarations
 \begin_layout Standard
 \align center
 \begin_inset FormulaMacro
+\newcommand{\F}{\mathcal{F}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset FormulaMacro
+\newcommand{\measurablespace}{\left(\X,\F\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset FormulaMacro
+\newcommand{\measurableFunctions}{\mathcal{M}\left(\X,\F\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset FormulaMacro
+\newcommand{\nonnegMeasurableFunctions}{\mathcal{M}^{+}\left(\X,\F\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset FormulaMacro
+\newcommand{\lebInt}[2]{\bar{#1}\left(#2\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset FormulaMacro
 \newcommand{\indicate}{\mathds{1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset FormulaMacro
+\newcommand{\Lp}[2]{\mathcal{L}^{#1}\left(#2\right)}
 \end_inset
 
 
@@ -213,10 +267,6 @@ LatexCommand tableofcontents
 
 \begin_layout Chapter*
 Preface
-\end_layout
-
-\begin_layout Standard
-These notes 
 \end_layout
 
 \begin_layout Standard
@@ -316,6 +366,16 @@ filename "independence.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
+filename "laws_of_large_numbers.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
 filename "conditioning.lyx"
 
 \end_inset
@@ -334,7 +394,21 @@ filename "martingales.lyx"
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "central_limit_theorems.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
 \start_of_appendix
+Appendices
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
 filename "topological_spaces.lyx"

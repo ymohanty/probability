@@ -2336,7 +2336,44 @@ where
 \begin_inset Formula $\X$
 \end_inset
 
- into preimages of the range.
+ into preimages of the singletons in the range.
+ Such a representation is called the 
+\emph on
+standard representation 
+\emph default
+of 
+\begin_inset Formula $s$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+Note that in general, a simple function could be written as a finite linear
+ combination of indicator functions in more than one way.
+ For example, the function 
+\begin_inset Formula $s=3\indicate_{A}+7\indicate_{B}$
+\end_inset
+
+ can also be expressed as 
+\begin_inset Formula $3\indicate_{A\setminus B}+10\indicate_{A\cap B}+7\indicate_{B\setminus A}$
+\end_inset
+
+, where the latter is the 
+\emph on
+standard representation 
+\emph default
+since the sets 
+\begin_inset Formula $A\cap B,A\setminus B,B\setminus A$
+\end_inset
+
+ is a partition of the domain given by preimages of the singletons in the
+ range (namely 
+\begin_inset Formula $\{3,7,10\}$
+\end_inset
+
+).
+ Standard representations are, of course, unique.
 \end_layout
 
 \begin_layout Standard
@@ -2387,7 +2424,7 @@ only if
 \begin_inset Formula $\R$
 \end_inset
 
- are Borel sets.
+ are Borel sets (they are closed).
  Denote the collection of these measurable simple functions on 
 \begin_inset Formula $\left(\X,\mathcal{F}\right)$
 \end_inset
@@ -2662,8 +2699,8 @@ Again, maxima are taken pointwise.
 
 \begin_inset Formula 
 \begin{align*}
-f^{+} & =\max\left\{ f,0\right\} \\
-f^{-} & =\max\left\{ -f,0\right\} 
+f^{+} & :=\max\left\{ f,0\right\} \\
+f^{-} & :=\max\left\{ -f,0\right\} 
 \end{align*}
 
 \end_inset
@@ -2749,6 +2786,68 @@ noprefix "false"
 \end_inset
 
  and apply the same argument.
+\end_layout
+
+\begin_layout Standard
+Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:minMaxMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is important because any function 
+\begin_inset Formula $f\in\measurableFunctions$
+\end_inset
+
+ can be decomposed as
+\begin_inset Formula 
+\[
+f=f^{+}-f
+\]
+
+\end_inset
+
+and since both 
+\begin_inset Formula $f^{+},f^{-}\in\nonnegMeasurableFunctions$
+\end_inset
+
+, by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:simpleFunctionMonotoneConvergence"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, there are non-negative simple functions 
+\begin_inset Formula $\left\{ s_{n}^{+}\right\} _{n\in\N},\left\{ s_{n}^{-}\right\} _{n\in\N}$
+\end_inset
+
+ such that 
+\begin_inset Formula $s_{n}^{+}\nearrow f^{+}$
+\end_inset
+
+and 
+\begin_inset Formula $s_{n}^{-}\nearrow f^{-}$
+\end_inset
+
+.
+ By the linearity of limits, the sequence of functions 
+\begin_inset Formula $h_{n}:=s_{n}^{+}-s_{n}^{-}$
+\end_inset
+
+ converges (although not monotonically) to 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ This fact will prove important in the chapter on integration.
 \end_layout
 
 \begin_layout Subsection
@@ -5213,7 +5312,7 @@ space of functions on
 \end_inset
 
 then 
-\begin_inset Formula $\mathcal{M}_{\text{bdd}}\left(\X,\sigma\left(\mathcal{G}\right)\right)\subseteq\mathcal{H}.$
+\begin_inset Formula $\mathcal{M}_{\textnormal{bdd}}\left(\X,\sigma\left(\mathcal{G}\right)\right)\subseteq\mathcal{H}.$
 \end_inset
 
 

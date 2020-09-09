@@ -87,11 +87,480 @@ Integration
 \end_layout
 
 \begin_layout Section
-Existence and uniqueness of the Lebesgue integral
+Constructing the Lebesgue integral
+\end_layout
+
+\begin_layout Subsection
+Integration on non-negative measurable functions
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:existenceUniquenessLebesgueIntegral"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ be measurable space.
+ For any measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ on 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+, there exists a unique linear functional
+\begin_inset Formula 
+\[
+\bar{\mu}:\mathcal{\mathcal{M}^{+}}\left(\X,\mathcal{F}\right)\longrightarrow\left[0,\infty\right]
+\]
+
+\end_inset
+
+that satisfies the following properties
+\end_layout
+
+\begin_layout Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $ 
+\backslash
+bar{
+\backslash
+mu}
+\backslash
+left(
+\backslash
+indicate_A
+\backslash
+right) = 
+\backslash
+mu
+\backslash
+left(A
+\backslash
+right) $ for any $ A 
+\backslash
+in 
+\backslash
+mathcal{F} $
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item 
+\backslash
+textnormal{(Linearity)}  For any $f,g
+\backslash
+in 
+\backslash
+mathcal{
+\backslash
+mathcal{M}^{+}}
+\backslash
+left(
+\backslash
+X,
+\backslash
+mathcal{F}
+\backslash
+right)$ and any $
+\backslash
+alpha,
+\backslash
+beta 
+\backslash
+geq 0 $ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\backslash
+bar{
+\backslash
+mu}
+\backslash
+left(
+\backslash
+alpha f + 
+\backslash
+beta g
+\backslash
+right) = 
+\backslash
+alpha 
+\backslash
+bar{
+\backslash
+mu}
+\backslash
+left(f
+\backslash
+right) + 
+\backslash
+beta 
+\backslash
+bar{
+\backslash
+mu}
+\backslash
+left(g
+\backslash
+right)                
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item 
+\backslash
+textnormal{(Monotone convergence)} For a sequence of increasing functions
+ $ 
+\backslash
+left
+\backslash
+{f_n
+\backslash
+right
+\backslash
+}_{n
+\backslash
+in
+\backslash
+N} 
+\backslash
+in 
+\backslash
+mathcal{
+\backslash
+mathcal{M}^{+}}
+\backslash
+left(
+\backslash
+X,
+\backslash
+mathcal{F}
+\backslash
+right)$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+				
+\backslash
+bar{
+\backslash
+mu}
+\backslash
+left(
+\backslash
+lim_{n
+\backslash
+to
+\backslash
+infty}f_n
+\backslash
+right) = 
+\backslash
+lim_{n
+\backslash
+to
+\backslash
+infty}
+\backslash
+bar{
+\backslash
+mu}
+\backslash
+left(f_n
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:nonnegIntegralMonotonicity"
+
+\end_inset
+
+Given functions 
+\begin_inset Formula $f,g\in\nonnegMeasurableFunctions$
+\end_inset
+
+ such that 
+\begin_inset Formula $f\leq g$
+\end_inset
+
+ pointwise, for any measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ on 
+\begin_inset Formula $\F$
+\end_inset
+
+ we have that
+\begin_inset Formula 
+\[
+\lebInt{\mu}f\leq\lebInt{\mu}g.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:integrable"
+
+\end_inset
+
+A function 
+\begin_inset Formula $f\in\mathcal{M}\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ is called 
+\emph on
+integrable 
+\emph default
+with respect to a measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+(or 
+\begin_inset Formula $\mu-$
+\end_inset
+
+
+\emph on
+integrable 
+\emph default
+in short) if 
+\begin_inset Formula 
+\[
+\bar{\mu}\left(\left|f\right|\right)<\infty.
+\]
+
+\end_inset
+
+The collection of all such functions is denoted 
+\begin_inset Formula $\Lp 1{\mu}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The reason for the exponent 
+\begin_inset Formula $1$
+\end_inset
+
+ will become clear in the next chapter.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:L1conditions"
+
+\end_inset
+
+A function 
+\begin_inset Formula $f\in\measurableFunctions$
+\end_inset
+
+ is in 
+\begin_inset Formula $\Lp 1{\mu}$
+\end_inset
+
+ if and only if 
+\begin_inset Formula 
+\[
+\lebInt{\mu}{f^{+}},\lebInt{\mu}{f^{-}}<\infty.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this definition of integrability excludes those functions
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:L1VectorSpace"
+
+\end_inset
+
+For any measure space 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+, the space of 
+\begin_inset Formula $\mu-$
+\end_inset
+
+integrable functions 
+\begin_inset Formula $\Lp 1{\mu}$
+\end_inset
+
+ is a vector space over 
+\begin_inset Formula $\R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:integral"
+
+\end_inset
+
+For any function 
+\begin_inset Formula $f\in\measurableFunctions$
+\end_inset
+
+ and a measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ on 
+\begin_inset Formula $\F$
+\end_inset
+
+, we can define the 
+\emph on
+Lebesgue integral
+\emph default
+ 
+\begin_inset Formula 
+\[
+\tilde{\mu}\left(f\right):=\lebInt{\mu}{f^{+}}-\lebInt{\mu}{f^{-}}
+\]
+
+\end_inset
+
+wherever the difference is defined (i.e.
+ at least one of 
+\begin_inset Formula $\lebInt{\mu}{f^{+}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lebInt{\mu}{f^{-}}$
+\end_inset
+
+ is finite).
+\end_layout
+
+\begin_layout Definition
+Note that for any non-negative measurable function 
+\begin_inset Formula $f$
+\end_inset
+
+, 
+\begin_inset Formula $\tilde{\mu}\left(f\right)=\lebInt{\mu}f$
+\end_inset
+
+ and so in order to not get burdened with unnecessary amounts of new notation,
+ we simply denote the integral as 
+\begin_inset Formula $\bar{\mu}\left(f\right)$
+\end_inset
+
+ for any function 
+\begin_inset Formula $f\in\measurableFunctions$
+\end_inset
+
+, provided that the integral is defined.
+ This is analagous to our construction of the Lebesgue measure in Chapter
+ 1, where we 
+\begin_inset Quotes eld
+\end_inset
+
+extended
+\begin_inset Quotes erd
+\end_inset
+
+ the measure from simple sets to more complicated sets over the course of
+ the chapter.
 \end_layout
 
 \begin_layout Section
-Properties of the Lebesgue integral
+Properties of the integral
 \end_layout
 
 \begin_layout Section
@@ -99,7 +568,11 @@ Null sets
 \end_layout
 
 \begin_layout Section
-Modes of convergence for measurable functionss
+Modes of convergence for measurable functions
+\end_layout
+
+\begin_layout Section
+The Riemann integral
 \end_layout
 
 \end_body
