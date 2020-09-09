@@ -90,10 +90,6 @@ Integration
 Constructing the Lebesgue integral
 \end_layout
 
-\begin_layout Subsection
-Integration on non-negative measurable functions
-\end_layout
-
 \begin_layout Theorem
 \begin_inset CommandInset label
 LatexCommand label
@@ -421,7 +417,7 @@ The collection of all such functions is denoted
 \end_layout
 
 \begin_layout Standard
-The reason for the exponent 
+The significance of the exponent 
 \begin_inset Formula $1$
 \end_inset
 
