@@ -2367,9 +2367,13 @@ since the sets
 \begin_inset Formula $A\cap B,A\setminus B,B\setminus A$
 \end_inset
 
- is a partition of the domain given by preimages of the singletons in the
- range (namely 
-\begin_inset Formula $\{3,7,10\}$
+ ( and the implicitly included 
+\begin_inset Formula $\X\setminus\left(A\cup B\right)$
+\end_inset
+
+) form a partition of the domain given by preimages of the singletons in
+ the range (namely 
+\begin_inset Formula $\{0,3,7,10\}$
 \end_inset
 
 ).
@@ -2788,6 +2792,28 @@ noprefix "false"
  and apply the same argument.
 \end_layout
 
+\begin_layout Remark*
+Another way to prove the above proposition would be to observe that 
+\begin_inset Formula 
+\[
+\max\left\{ x,y\right\} =\frac{x+y+\left|x-y\right|}{2}
+\]
+
+\end_inset
+
+and apply Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:binaryOperationsMeasurableFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Standard
 Proposition 
 \begin_inset CommandInset ref
@@ -2806,7 +2832,7 @@ noprefix "false"
  can be decomposed as
 \begin_inset Formula 
 \[
-f=f^{+}-f
+f=f^{+}-f^{-}
 \]
 
 \end_inset
