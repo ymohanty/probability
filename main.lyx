@@ -9,6 +9,9 @@
 \usepackage{dsfont}
 \usepackage{enumitem,lipsum}
 \usepackage{soul}
+
+
+\DeclareMathOperator{\Ran}{Ran}
 \end_preamble
 \use_default_options true
 \begin_removed_modules
@@ -253,6 +256,10 @@ Math operator declarations
 \newcommand{\Lp}[2]{\mathcal{L}^{#1}\left(#2\right)}
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
