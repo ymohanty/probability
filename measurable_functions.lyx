@@ -2434,12 +2434,12 @@ only if
 \end_inset
 
  as 
-\begin_inset Formula $M_{s}\left(\X,\mathcal{F}\right)$
+\begin_inset Formula $M_{\textnormal{sim}}\left(\X,\mathcal{F}\right)$
 \end_inset
 
 .
  Then, we have shown that 
-\begin_inset Formula $M_{s}\left(\X,\mathcal{F}\right)\subset\mathcal{M^{+}}\left(\mathcal{X},\mathcal{F}\right)$
+\begin_inset Formula $M_{\textnormal{sim}}\left(\X,\mathcal{F}\right)\subset\mathcal{M^{+}}\left(\mathcal{X},\mathcal{F}\right)$
 \end_inset
 
 .
@@ -2468,7 +2468,7 @@ Let
 
  be arbitrary.
  Then there exists a sequence of simple measurable functions 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in M_{s}\left(\X,\mathcal{F}\right)$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in M_{\textnormal{sim}}\left(\X,\mathcal{F}\right)$
 \end_inset
 
  such that
@@ -2884,14 +2884,14 @@ name "prop:simpleFunctionsAddMultiply"
 \end_inset
 
 Let 
-\begin_inset Formula $s,t\in\mathcal{M}_{s}\measurablespace$
+\begin_inset Formula $s,t\in\mathcal{M}_{\textnormal{sim}}\measurablespace$
 \end_inset
 
 .
  Then
 \begin_inset Formula 
 \[
-h:=s+t\in\mathcal{M}_{s}\measurablespace
+h:=s+t\in\mathcal{M}_{\textnormal{sim}}\measurablespace
 \]
 
 \end_inset
@@ -2899,7 +2899,7 @@ h:=s+t\in\mathcal{M}_{s}\measurablespace
 and 
 \begin_inset Formula 
 \[
-g:=st\in\mathcal{M}_{s}\measurablespace.
+g:=st\in\mathcal{M}_{\textnormal{sim}}\measurablespace.
 \]
 
 \end_inset
@@ -3068,14 +3068,6 @@ noprefix "false"
 
 .
  For the same reason as before, this representation need not be standard.
-\end_layout
-
-\begin_layout Subsection
-Change of variables
-\end_layout
-
-\begin_layout Subsection
-Image measures
 \end_layout
 
 \begin_layout Section
@@ -5671,7 +5663,7 @@ Since,
 
 \begin_layout Proof
 Finally, assume that 
-\begin_inset Formula $f\in\mathcal{M}_{\text{bdd}}\left(\X,\sigma\left(\mathcal{G}\right)\right)$
+\begin_inset Formula $f\in\mathcal{M}_{\textnormal{bdd}}\left(\X,\sigma\left(\mathcal{G}\right)\right)$
 \end_inset
 
  and note that 
