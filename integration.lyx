@@ -1367,7 +1367,7 @@ in short) if
 \end_inset
 
 The collection of all such functions is denoted 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp1{\mu}$
 \end_inset
 
 .
@@ -1393,7 +1393,7 @@ A function
 \end_inset
 
  is in 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp1{\mu}$
 \end_inset
 
  if and only if 
@@ -1445,7 +1445,7 @@ For any measure space
 \end_inset
 
 integrable functions 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp1{\mu}$
 \end_inset
 
  is a vector space over 
@@ -1544,108 +1544,6 @@ Modes of convergence for measurable functions
 
 \begin_layout Section
 The Riemann integral
-\end_layout
-
-\begin_layout Section*
-\begin_inset Note Note
-status open
-
-\begin_layout Section*
-**Reservoir**
-\end_layout
-
-\begin_layout Lemma*
-\begin_inset CommandInset label
-LatexCommand label
-name "lem:simpleFunctionIntegralIsMeasure"
-
-\end_inset
-
-For any function 
-\begin_inset Formula $s\in\mathcal{M}_{s}\left(\X,\F\right)$
-\end_inset
-
- and a measurable set 
-\begin_inset Formula $B\in\F$
-\end_inset
-
-, the function
-\begin_inset Formula 
-\[
-\nu_{s}\left(B\right):=\lebInt{\mu}{s\indicate_{B}}
-\]
-
-\end_inset
-
-is a measure on 
-\begin_inset Formula $\F$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Proof
-First, observe that 
-\begin_inset Formula 
-\begin{align*}
-\nu_{s}\left(\emptyset\right) & =\lebInt{\mu}{s\indicate_{\emptyset}}\\
- & =\lebInt{\mu}{\indicate_{\emptyset}}\\
- & =\mu\left(\emptyset\right)\\
- & =0
-\end{align*}
-
-\end_inset
-
-which shows that emtpyset is has 
-\begin_inset Formula $\nu_{s}-$
-\end_inset
-
-measure zero.
- Further, let 
-\begin_inset Formula $\left\{ B_{j}\right\} _{j\in\N}$
-\end_inset
-
- be a disjoint collection of sets in 
-\begin_inset Formula $\F$
-\end_inset
-
- and note that 
-\begin_inset Formula 
-\begin{align*}
-\nu_{s}\left(\bigcup_{j\in\N}B_{j}\right) & =\lebInt{\mu}{s\indicate_{\bigcup_{j\in\N}B_{j}}}\\
- & =\lebInt{\mu}{\sum_{i=1}^{I}\alpha_{i}\indicate_{A_{i}}\indicate_{\bigcup_{j\in\N}B_{j}}}\\
- & =\lebInt{\mu}{\sum_{i=1}^{I}\alpha_{i}\indicate_{\bigcup_{j\in\N}\left(A_{i}\cap B_{j}\right)}}\\
- & =\sum_{i=1}^{I}\alpha_{i}\mu\left(\bigcup_{j\in\N}A_{i}\cap B_{j}\right)\\
- & =\sum_{i=1}^{I}\alpha_{i}\sum_{j=1}^{\infty}\mu\left(A_{i}\cap B_{j}\right)\\
- & =\sum_{j=1}^{\infty}\sum_{i=1}^{I}\alpha_{i}\mu\left(A_{i}\cap B_{j}\right)\\
- & =\sum_{j=1}^{\infty}\lebInt{\mu}{s\indicate_{B_{j}}}\\
- & =\sum_{j=1}^{\infty}\nu_{s}\left(B_{j}\right)
-\end{align*}
-
-\end_inset
-
-where the third equality follows from 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fact:indicatorFunctionsFiniteOperations"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- The fourth equality is a litttle subtle; because we have defined our functional
- 
-\begin_inset Formula $\bar{\mu}$
-\end_inset
-
- as operating on standard representations
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_body
