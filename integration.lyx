@@ -1407,8 +1407,26 @@ A function
 
 \end_layout
 
-\begin_layout Standard
-Note that this definition of integrability excludes those functions
+\begin_layout Proof
+Note that if 
+\begin_inset Formula $\lebInt{\mu}{\left|f\right|}<\infty$
+\end_inset
+
+ then
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}{\left|f\right|} & =\lebInt{\mu}{f^{+}+f^{-}}\\
+ & =\lebInt{\mu}{f^{+}}+\lebInt{\mu}{f^{-}}\\
+ & <\infty
+\end{align*}
+
+\end_inset
+
+which would imply that 
+\begin_inset Formula $\lebInt{\mu}{f^{+}},\lebInt{\mu}{f^{-}}<\infty.$
+\end_inset
+
+ The converse follows similarly.
 \end_layout
 
 \begin_layout Proposition
