@@ -494,10 +494,21 @@ noprefix "false"
  After developing the theory of integration, we will (seemingly) generalize
  this continuity result to measurable functions in the form of the famous
  
-\emph on
-monotone convergence theorem
-\emph default
-.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:existenceUniquenessLebesgueIntegral]{
+\backslash
+emph{monotone convergence theorem}}
+\end_layout
+
+\end_inset
+
+ .
  Of course, once we know that measures and integrals are essentially the
  same objects, it will be clear that continuity from below and monotone
  convergence are two sides of the same coin.

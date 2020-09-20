@@ -340,22 +340,44 @@ end{enumerate}
 
 \end_layout
 
-\begin_layout Corollary
+\begin_layout Standard
+We can prove Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:existenceUniquenessLebesgueIntegral"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ constructively, in a similar fashion to how we proved the existence of
+ the Lebesgue measure in Chapter 1.
+ In this spirit, we shall define a functional on the non-negative measurable
+ simple functions and extend the domain of this functional to more complicated
+ function spaces.
+\end_layout
+
+\begin_layout Definition
 \begin_inset CommandInset label
 LatexCommand label
-name "cor:nonnegIntegralMonotonicity"
+name "def:simpleFuncIntegral"
 
 \end_inset
 
-Given functions 
-\begin_inset Formula $f,g\in\nonnegMeasurableFunctions$
+For any measurable simple function 
+\begin_inset Formula $s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)$
 \end_inset
 
- such that 
-\begin_inset Formula $f\leq g$
+ with the standard representation
+\begin_inset Formula 
+\[
+s=\sum_{i=1}^{I}\alpha_{i}\indicate_{A_{i}}
+\]
+
 \end_inset
 
- pointwise, for any measure 
+define, for any measure 
 \begin_inset Formula $\mu$
 \end_inset
 
@@ -363,15 +385,950 @@ Given functions
 \begin_inset Formula $\F$
 \end_inset
 
- we have that
+, the functional 
+\begin_inset Formula $\bar{\mu}_{0}$
+\end_inset
+
+ as
 \begin_inset Formula 
 \[
-\lebInt{\mu}f\leq\lebInt{\mu}g.
+\bar{\mu}_{0}\left(s\right):=\sum_{i=1}^{I}\alpha_{i}\mu\left(A_{i}\right).
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Immediately, we can see that our proto-integral 
+\begin_inset Formula $\bar{\mu}_{0}$
+\end_inset
+
+ behaves quite nicely: it is always non-negative and since indicator functions
+ are special cases of simple functions, we have that 
+\begin_inset Formula 
+\[
+\bar{\mu}_{0}\left(\indicate_{A}\right)=\mu\left(A\right)
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+.
+ Moreover, our functional satisfies the linearity property on the space
+ of simple measurable functions.
+ To see this we shall need the following lemma which solves a minor technical
+ issue that arises due to our definition of 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+ relying on the standard representation of simple functions.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:lebIntDiffRep"
+
+\end_inset
+
+For any non-negative measurable simple function 
+\begin_inset Formula $s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)$
+\end_inset
+
+ with a standard representation
+\begin_inset Formula 
+\[
+s=\sum_{i=1}^{I}\alpha_{i}\indicate_{A_{i}}
+\]
+
+\end_inset
+
+and another representation
+\begin_inset Formula 
+\[
+s=\sum_{j=1}^{J}\beta_{i}\indicate_{B_{j}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\left\{ B_{j}\right\} _{j=1}^{J}$
+\end_inset
+
+ is a partition of 
+\begin_inset Formula $\X$
+\end_inset
+
+ we have 
+\begin_inset Formula 
+\[
+\bar{\mu}_{0}\left(s\right):=\sum_{i=1}^{I}\alpha_{i}\mu\left(A_{i}\right)=\sum_{j=1}^{J}\beta_{j}\mu\left(B_{j}\right).
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\bar{\mu}_{0}$
+\end_inset
+
+ is the functional derived from a measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ as in Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:simpleFuncIntegral"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Note that both 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{j}$
+\end_inset
+
+ partition 
+\begin_inset Formula $\X$
+\end_inset
+
+ and so observe that
+\begin_inset Formula 
+\begin{align*}
+\sum_{i=1}^{I}\alpha_{i}\mu\left(A_{i}\right) & =\sum_{i=1}^{I}\alpha_{i}\mu\left(\bigcup_{j=1}^{J}\left(A_{i}\cap B_{j}\right)\right)\\
+ & =\sum_{i=1}^{I}\sum_{j=1}^{J}\alpha_{i}\mu\left(A_{i}\cap B_{j}\right)
+\end{align*}
+
+\end_inset
+
+where the last equality follows by finite addivity.
+ Similarly,
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\sum_{j=1}^{J}\beta_{j}\mu\left(B_{j}\right)=\sum_{i=1}^{I}\sum_{j=1}^{J}\beta_{j}\mu\left(A_{i}\cap B_{j}\right).
+\]
+
+\end_inset
+
+Now observe that since 
+\begin_inset Formula $\sum_{i=1}^{I}\alpha_{i}\indicate_{A_{i}}=\sum_{j=1}^{J}\beta_{i}\indicate_{B_{j}}$
+\end_inset
+
+ we know that 
+\begin_inset Formula $\alpha_{i}=\beta_{j}$
+\end_inset
+
+ if 
+\begin_inset Formula $A_{i}\cap B_{j}\neq\emptyset$
+\end_inset
+
+; conversely, if 
+\begin_inset Formula $A_{i}\cap B_{j}=\emptyset$
+\end_inset
+
+ then 
+\begin_inset Formula $\mu\left(A_{i}\cap B_{j}\right)=0$
+\end_inset
+
+ and so we have that 
+\begin_inset Formula 
+\[
+\sum_{i=1}^{I}\alpha_{i}\mu\left(A_{i}\right)=\sum_{i=1}^{I}\sum_{j=1}^{J}\alpha_{i}\mu\left(A_{i}\cap B_{j}\right)=\sum_{i=1}^{I}\sum_{j=1}^{J}\beta_{j}\mu\left(A_{i}\cap B_{j}\right)=\sum_{j=1}^{J}\beta_{j}\mu\left(B_{j}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:lebIntLinearitySimpleFunc"
+
+\end_inset
+
+Let 
+\begin_inset Formula $s,t\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)$
+\end_inset
+
+ and let 
+\begin_inset Formula $\mu$
+\end_inset
+
+be a measure on 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+.
+ Then, for any 
+\begin_inset Formula $\alpha,\beta\geq0$
+\end_inset
+
+, we have that
+\begin_inset Formula 
+\[
+\bar{\mu}_{0}\left(\alpha s+\beta t\right)=\alpha\bar{\mu}_{0}\left(s\right)+\beta\bar{\mu}_{0}\left(t\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+It is sufficient to prove that 
+\begin_inset Formula $\bar{\mu}_{0}\left(\alpha s\right)=\alpha\bar{\mu}_{0}\left(s\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\mu}_{0}\left(s+t\right)=\bar{\mu}_{0}\left(s\right)+\bar{\mu}_{0}\left(t\right).$
+\end_inset
+
+ To show the first equality, simply notice that if 
+\begin_inset Formula $s$
+\end_inset
+
+ is given by the standard representation 
+\begin_inset Formula 
+\[
+s=\sum_{i=1}^{I}a_{i}\indicate_{A_{i}}
+\]
+
+\end_inset
+
+then the standard representation of 
+\begin_inset Formula $\alpha s$
+\end_inset
+
+ when 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+ is simply
+\begin_inset Formula 
+\[
+\alpha s=\sum_{i=1}^{I}\alpha a_{i}\indicate_{A_{i}}
+\]
+
+\end_inset
+
+and so 
+\begin_inset Formula 
+\begin{align*}
+\bar{\mu}_{0}\left(\alpha s\right) & =\sum_{i=1}^{I}\alpha a_{i}\mu\left(A_{i}\right)\\
+ & =\alpha\sum_{i=1}^{I}a_{i}\mu\left(A_{i}\right)\\
+ & =\alpha\bar{\mu}_{0}\left(s\right).
+\end{align*}
+
+\end_inset
+
+When 
+\begin_inset Formula $\alpha=0$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha s=\indicate_{\emptyset}$
+\end_inset
+
+ and so 
+\begin_inset Formula $\bar{\mu}_{0}\left(\alpha s\right)=\mu\left(\emptyset\right)=0=\alpha\bar{\mu}_{0}\left(s\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+In order to prove the second equality, observe that if the standard representati
+ons of 
+\begin_inset Formula $s$
+\end_inset
+
+ and 
+\begin_inset Formula $t$
+\end_inset
+
+ are given by
+\begin_inset Formula 
+\begin{align*}
+s & =\sum_{i=1}^{I}a_{i}\indicate_{A_{i}}\\
+t & =\sum_{j=1}^{J}b_{j}\indicate_{B_{j}}
+\end{align*}
+
+\end_inset
+
+then
+\begin_inset Formula 
+\begin{align*}
+\bar{\mu}_{0}\left(s+t\right) & =\bar{\mu}_{0}\left(\sum_{i=1}^{I}\sum_{j=1}^{J}\left(a_{i}+b_{j}\right)\indicate_{A_{i}\cap B_{j}}\right)\\
+ & =\sum_{i=1}^{I}\sum_{j=1}^{J}\left(a_{i}+b_{j}\right)\mu\left(A_{i}\cap B_{j}\right)\\
+ & =\sum_{i=1}^{I}a_{i}\sum_{j=1}^{J}\mu\left(A_{i}\cap B_{j}\right)+\sum_{j=1}^{J}b_{j}\sum_{i=1}^{I}\mu\left(A_{i}\cap B_{j}\right)\\
+ & =\sum_{i=1}^{I}a_{i}\mu\left(A_{i}\right)+\sum_{j=1}^{J}b_{j}\mu\left(B_{j}\right)\\
+ & =\bar{\mu}_{0}\left(s\right)+\bar{\mu}_{0}\left(t\right)
+\end{align*}
+
+\end_inset
+
+where the first equality follows from Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:simpleFunctionsAddMultiply"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the second equality due to Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:lebIntDiffRep"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and the fourth equality due to finite additivity of 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ This completes the proof.
+\end_layout
+
+\begin_layout Standard
+Linearity and non-negativity of 
+\begin_inset Formula $\bar{\mu}_{0}$
+\end_inset
+
+ tells us that for any simple measurable functions 
+\begin_inset Formula $f\leq g$
+\end_inset
+
+, we have that
+\begin_inset Formula 
+\[
+\bar{\mu}_{0}\left(f\right)\leq\bar{\mu}_{0}\left(g\right).
+\]
+
+\end_inset
+
+Indeed, we can decompose 
+\begin_inset Formula $g=\left(g-f\right)+f$
+\end_inset
+
+ where 
+\begin_inset Formula $g-f$
+\end_inset
+
+ and 
+\begin_inset Formula $f$
+\end_inset
+
+ are both non-negative simple functions and so
+\begin_inset Formula 
+\[
+\bar{\mu}_{0}\left(g\right)=\bar{\mu}_{0}\left(g-f\right)+\bar{\mu}_{0}\left(f\right)
+\]
+
+\end_inset
+
+which by non-negativity proves our claim.
+ In other words, our functional 
+\begin_inset Formula $\bar{\mu}_{0}$
+\end_inset
+
+ is an 
+\emph on
+increasing 
+\emph default
+or 
+\emph on
+monotone 
+\emph default
+functional.
+ With this final fact, we are now ready to extend 
+\begin_inset Formula $\bar{\mu}_{0}$
+\end_inset
+
+ to the space of non-negative measurable functions.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Proof of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:existenceUniquenessLebesgueIntegral"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+For any 
+\begin_inset Formula $f\in\nonnegMeasurableFunctions$
+\end_inset
+
+, define 
+\begin_inset Formula 
+\[
+\lebInt{\mu}f:=\sup\left\{ \bar{\mu}_{0}\left(s\right)\mid s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)\textnormal{ such that }s\leq f\right\} .
+\]
+
+\end_inset
+
+We claim that 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+ is the unique functional (for a given measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+) that satisfies the properties described in the statement of the theorem.
+ To see this, we first have to show that the functional defined above indeed
+ satisfes the three requisite properties and then show that it is the only
+ such functional.
+ Before we do this, note that the set 
+\begin_inset Formula $\left\{ \bar{\mu}_{0}\left(s\right)\mid s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)\text{s.t\ }s\leq f\right\} $
+\end_inset
+
+ is always non-empty, thanks to Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:simpleFunctionMonotoneConvergence"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Therefore the supremum is at least 0 since 
+\begin_inset Formula $\bar{\mu}_{0}\left(s\right)\geq0.$
+\end_inset
+
+ Moreover, since for any non-negative measurable functions 
+\begin_inset Formula $f\leq g$
+\end_inset
+
+, 
+\begin_inset Formula $\left\{ \bar{\mu}_{0}\left(s\right)\mid s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)\textnormal{ such that }s\leq f\right\} \subseteq\left\{ \bar{\mu}_{0}\left(s\right)\mid s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)\textnormal{ such that }s\leq g\right\} ,$
+\end_inset
+
+we can conclude that 
+\begin_inset Formula $\lebInt{\mu}f\leq\lebInt{\mu}g.$
+\end_inset
+
+ Thus we already know that our functional 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+ is both non-negative and monotone.
+ Next, to show property (i), observe that for any simple function 
+\begin_inset Formula $t\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}t & =\sup\left\{ \bar{\mu}_{0}\left(s\right)\mid s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)\textnormal{ such that }s\leq t\right\} \\
+ & =\bar{\mu}_{0}\left(t\right)
+\end{align*}
+
+\end_inset
+
+where the second equality follows from the monotonicty of 
+\begin_inset Formula $\bar{\mu}_{0}$
+\end_inset
+
+.
+ Property (i) then follows from letting 
+\begin_inset Formula $t=\indicate_{A}$
+\end_inset
+
+ for any set 
+\begin_inset Formula $A\in\F.$
+\end_inset
+
+ Next, we prove property (iii) which is monotone convergence.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\nonnegMeasurableFunctions$
+\end_inset
+
+ an increasing sequence of measurable functions.
+ Since we are working with the extended non-negative real numbers, we know
+ that 
+\begin_inset Formula 
+\[
+f:=\lim_{n\to\infty}f_{n}=\sup_{n\in\N}f_{n}\in\nonnegMeasurableFunctions
+\]
+
+\end_inset
+
+by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:supInfMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Note that by the monotonicity of 
+\begin_inset Formula $\bar{\mu},$
+\end_inset
+
+ 
+\begin_inset Formula $\bar{\mu}\left(f_{n}\right)\leq\bar{\mu}\left(f\right)$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}\leq\lebInt{\mu}f.
+\]
+
+\end_inset
+
+To deduce the reverse inequality, let 
+\begin_inset Formula $s\leq f$
+\end_inset
+
+ be a non-negative measurable simple function, fix some 
+\begin_inset Formula $t\in\left(0,1\right)$
+\end_inset
+
+ and define 
+\begin_inset Formula $A_{n}=\left\{ x\in\X\mid f_{n}\left(x\right)\geq ts\left(x\right)\right\} $
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $f_{n}\leq f_{n+1}$
+\end_inset
+
+, we have that 
+\begin_inset Formula $A_{n}\subseteq A_{n+1}$
+\end_inset
+
+.
+ Moreover, for any 
+\begin_inset Formula $x\in\X$
+\end_inset
+
+, observe that there is some 
+\begin_inset Formula $\epsilon_{x}>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $f\left(x\right)-ts\left(x\right)=2\epsilon_{x}$
+\end_inset
+
+ and so, by pointwise convergence, there exists some 
+\begin_inset Formula $n_{\epsilon_{x}}\in\N$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\begin{align*}
+f_{n}\left(x\right)-ts\left(x\right) & =\underbrace{\left(f\left(x\right)-ts\left(x\right)\right)}_{2\epsilon_{x}}-\underbrace{\left(f\left(x\right)-f_{n}\left(x\right)\right)}_{\epsilon_{x}}=\epsilon_{x}>0
+\end{align*}
+
+\end_inset
+
+ for all 
+\begin_inset Formula $n\geq n_{\epsilon_{x}}.$
+\end_inset
+
+ This proves that for any 
+\begin_inset Formula $x\in\X$
+\end_inset
+
+, there exists some 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ such that 
+\begin_inset Formula $x\in A_{n}$
+\end_inset
+
+ and so 
+\begin_inset Formula $\X=\bigcup_{n\in\N}A_{n}$
+\end_inset
+
+.
+ Now, by the montonicity of 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+, observe that
+\begin_inset Formula 
+\begin{align}
+\lebInt{\mu}{f_{n}} & \geq\lebInt{\mu}{f_{n}\indicate_{A_{n}}}\nonumber \\
+ & \geq\lebInt{\mu}{ts\indicate_{A_{n}}}\nonumber \\
+ & =\bar{\mu}_{0}\left(ts\indicate_{A_{n}}\right)\nonumber \\
+ & =t\bar{\mu}_{0}\left(s\indicate_{A_{n}}\right)\nonumber \\
+ & =t\lebInt{\mu}{s\indicate_{A_{n}}}\label{eq:monotoneConvPointwiseEq}
+\end{align}
+
+\end_inset
+
+where the third and last equalities follow from the result above that 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+ extends 
+\begin_inset Formula $\bar{\mu}_{0}$
+\end_inset
+
+ and the fourth equality is due to the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[prop:lebIntLinearitySimpleFunc]{linearity of $
+\backslash
+bar{
+\backslash
+mu}_0$}
+\end_layout
+
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $s=\sum_{i=1}^{J}b_{i}\indicate_{B_{i}}$
+\end_inset
+
+then by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:lebIntDiffRep"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\bar{\mu}\left(s\indicate_{A_{n}}\right)=\sum_{i=1}^{I}b_{i}\mu\left(B_{i}\cap A_{n}\right).
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $A_{n}\subseteq A_{n+1}\Longrightarrow B_{i}\cap A_{n}\subseteq B_{i}\cap A_{n=1}$
+\end_inset
+
+, by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[prop:measureProperties]{continuity from below}
+\end_layout
+
+\end_inset
+
+ of measures, we have that 
+\begin_inset Formula 
+\begin{align}
+\lim_{n\to\infty}\lebInt{\mu}{s\indicate_{A_{n}}} & =\lim_{n\to\infty}\sum_{i=1}^{I}b_{i}\mu\left(B_{i}\cap A_{n}\right)\nonumber \\
+ & =\sum_{i=1}^{I}b_{i}\mu\left(\bigcup_{n\in\N}\left(B_{i}\cap A_{n}\right)\right)\nonumber \\
+ & =\sum_{i=1}^{I}b_{i}\mu\left(B_{i}\right)\nonumber \\
+ & =\mu\left(s\right).\label{eq:monotoneConvSimpleLimit}
+\end{align}
+
+\end_inset
+
+Together, 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:monotoneConvPointwiseEq"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:monotoneConvSimpleLimit"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ imply that 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}\geq t\lebInt{\mu}s.
+\]
+
+\end_inset
+
+Since this is true for any 
+\begin_inset Formula $t\in\left(0,1\right)$
+\end_inset
+
+, we have that 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}\geq\lebInt{\mu}s.
+\]
+
+\end_inset
+
+Finally, since 
+\begin_inset Formula $s\leq f$
+\end_inset
+
+ was an arbitrary simple function, we have that 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}\geq\sup\left\{ \bar{\mu}_{0}\left(s\right)\mid s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)\textnormal{ such that }s\leq f\right\} =\lebInt{\mu}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Next, we show that 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+ is a linear functional.
+ As before, it is sufficient to show that for any 
+\begin_inset Formula $f,g\in\nonnegMeasurableFunctions$
+\end_inset
+
+ and any 
+\begin_inset Formula $\alpha\geq0$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}{\alpha f} & =\alpha\lebInt{\mu}f\\
+\lebInt{\mu}{f+g} & =\lebInt{\mu}f+\lebInt{\mu}g.
+\end{align*}
+
+\end_inset
+
+First we shall show the homogenous scaling property.
+ If 
+\begin_inset Formula $\alpha=0$
+\end_inset
+
+ then the proof is trivial; if 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+ then by the monotone convergence property 
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}{\alpha f} & =\lim_{n\to\infty}\lebInt{\mu}{s_{n}}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $\left\{ s_{n}\right\} _{n\in\N}$
+\end_inset
+
+ is an increasing sequence of simple functions such that 
+\begin_inset Formula $s_{n}\nearrow\alpha f$
+\end_inset
+
+.
+ Then, 
+\begin_inset Formula $h_{n}=\frac{s_{n}}{\alpha}$
+\end_inset
+
+ is an increasing sequence of simple functions such that 
+\begin_inset Formula $h_{n}\nearrow f$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}f & =\lim_{n\to\infty}\lebInt{\mu}{h_{n}}\\
+ & =\lim_{n\to\infty}\frac{1}{\alpha}\bar{\mu}_{0}\left(s_{n}\right)\\
+ & =\frac{1}{\alpha}\lebInt{\mu}{\alpha f}.
+\end{align*}
+
+\end_inset
+
+Rearranging yields the proof.
+ Now let 
+\begin_inset Formula $\left\{ s_{n}\right\} _{n\in\N},\left\{ t_{n}\right\} _{n\in\N}$
+\end_inset
+
+ be increasing sequences of measurable simple functions such that 
+\begin_inset Formula $s_{n}\nearrow f,t_{n}\nearrow g$
+\end_inset
+
+.
+ By the linearity of limits, we have that 
+\begin_inset Formula $s_{n}+t_{n}\nearrow f+g$
+\end_inset
+
+ and so
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}{f+g} & =\lim_{n\to\infty}\lebInt{\mu}{s_{n}+t_{n}}\\
+ & =\lim_{n\to\infty}\bar{\mu}_{0}\left(s_{n}+t_{n}\right)\\
+ & =\lim_{n\to\infty}\bar{\mu}_{0}\left(s_{n}\right)+\lim_{n\to\infty}\bar{\mu}_{0}\left(t_{n}\right)\\
+ & =\lebInt{\mu}f+\lebInt{\mu}g
+\end{align*}
+
+\end_inset
+
+where the first equality follows from the monotone convergence property,
+ the second equality follows from the fact that measurable simple functions
+ are 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[prop:simpleFunctionsAddMultiply]{closed under addition}
+\end_layout
+
+\end_inset
+
+ and the fact that 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+ extends 
+\begin_inset Formula $\bar{\mu}_{0}$
+\end_inset
+
+, the third equality due to the linearity of 
+\begin_inset Formula $\bar{\mu}_{0}$
+\end_inset
+
+, and finally the fourth equality due to a second application of monotone
+ convergence.
+\end_layout
+
+\begin_layout Proof
+To show that our functional 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+ is unique, suppose that there were two functionals 
+\begin_inset Formula $\bar{\mu}_{1},\bar{\mu}_{2}$
+\end_inset
+
+ that satisfied properties (i)-(iii) with respect to some measure 
+\begin_inset Formula $\mu.$
+\end_inset
+
+ Then, by property (i), 
+\begin_inset Formula $\bar{\mu}_{1}\left(\indicate_{A}\right)=\mu\left(A\right)=\bar{\mu}_{2}\left(\indicate_{A}\right)$
+\end_inset
+
+ for any measurable set 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+.
+ Next, by the linearity property along with equality on indicator functions,
+ 
+\begin_inset Formula $\bar{\mu}_{1}\left(s\right)=\bar{\mu}_{2}\left(s\right)$
+\end_inset
+
+ for any 
+\begin_inset Formula $s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right).$
+\end_inset
+
+ Finally, for any arbitrary 
+\begin_inset Formula $f\in\nonnegMeasurableFunctions$
+\end_inset
+
+ and 
+\begin_inset Formula $s_{n}\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $s_{n}\nearrow f$
+\end_inset
+
+, observe that
+\begin_inset Formula 
+\begin{align*}
+\bar{\mu}_{1}\left(f\right) & =\lim_{n\to\infty}\bar{\mu}_{1}\left(s_{n}\right)\\
+ & =\lim_{n\to\infty}\bar{\mu}_{2}\left(s_{n}\right)\\
+ & =\bar{\mu}_{2}\left(f\right)
+\end{align*}
+
+\end_inset
+
+where the first equality uses the monotone convergence propert of 
+\begin_inset Formula $\bar{\mu}_{1}$
+\end_inset
+
+, the second equality uses the fact that our two functionals are equal on
+ simple functions, and the last equality uses the monotone convergence property
+ of 
+\begin_inset Formula $\bar{\mu}_{2}$
+\end_inset
+
+.
+ This completes the proof.
 \end_layout
 
 \begin_layout Definition
@@ -542,8 +1499,8 @@ Note that for any non-negative measurable function
 \end_inset
 
 , provided that the integral is defined.
- This is analagous to our construction of the Lebesgue measure in Chapter
- 1, where we 
+ As discussed earlier, this is analagous to our construction of the Lebesgue
+ measure in Chapter 1, where we 
 \begin_inset Quotes eld
 \end_inset
 
@@ -569,6 +1526,108 @@ Modes of convergence for measurable functions
 
 \begin_layout Section
 The Riemann integral
+\end_layout
+
+\begin_layout Section*
+\begin_inset Note Note
+status open
+
+\begin_layout Section*
+**Reservoir**
+\end_layout
+
+\begin_layout Lemma*
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:simpleFunctionIntegralIsMeasure"
+
+\end_inset
+
+For any function 
+\begin_inset Formula $s\in\mathcal{M}_{s}\left(\X,\F\right)$
+\end_inset
+
+ and a measurable set 
+\begin_inset Formula $B\in\F$
+\end_inset
+
+, the function
+\begin_inset Formula 
+\[
+\nu_{s}\left(B\right):=\lebInt{\mu}{s\indicate_{B}}
+\]
+
+\end_inset
+
+is a measure on 
+\begin_inset Formula $\F$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+First, observe that 
+\begin_inset Formula 
+\begin{align*}
+\nu_{s}\left(\emptyset\right) & =\lebInt{\mu}{s\indicate_{\emptyset}}\\
+ & =\lebInt{\mu}{\indicate_{\emptyset}}\\
+ & =\mu\left(\emptyset\right)\\
+ & =0
+\end{align*}
+
+\end_inset
+
+which shows that emtpyset is has 
+\begin_inset Formula $\nu_{s}-$
+\end_inset
+
+measure zero.
+ Further, let 
+\begin_inset Formula $\left\{ B_{j}\right\} _{j\in\N}$
+\end_inset
+
+ be a disjoint collection of sets in 
+\begin_inset Formula $\F$
+\end_inset
+
+ and note that 
+\begin_inset Formula 
+\begin{align*}
+\nu_{s}\left(\bigcup_{j\in\N}B_{j}\right) & =\lebInt{\mu}{s\indicate_{\bigcup_{j\in\N}B_{j}}}\\
+ & =\lebInt{\mu}{\sum_{i=1}^{I}\alpha_{i}\indicate_{A_{i}}\indicate_{\bigcup_{j\in\N}B_{j}}}\\
+ & =\lebInt{\mu}{\sum_{i=1}^{I}\alpha_{i}\indicate_{\bigcup_{j\in\N}\left(A_{i}\cap B_{j}\right)}}\\
+ & =\sum_{i=1}^{I}\alpha_{i}\mu\left(\bigcup_{j\in\N}A_{i}\cap B_{j}\right)\\
+ & =\sum_{i=1}^{I}\alpha_{i}\sum_{j=1}^{\infty}\mu\left(A_{i}\cap B_{j}\right)\\
+ & =\sum_{j=1}^{\infty}\sum_{i=1}^{I}\alpha_{i}\mu\left(A_{i}\cap B_{j}\right)\\
+ & =\sum_{j=1}^{\infty}\lebInt{\mu}{s\indicate_{B_{j}}}\\
+ & =\sum_{j=1}^{\infty}\nu_{s}\left(B_{j}\right)
+\end{align*}
+
+\end_inset
+
+where the third equality follows from 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fact:indicatorFunctionsFiniteOperations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The fourth equality is a litttle subtle; because we have defined our functional
+ 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+ as operating on standard representations
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
