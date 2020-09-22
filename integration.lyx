@@ -1086,7 +1086,12 @@ hyperref[prop:measureProperties]{continuity from below}
 
 \end_inset
 
-Together, 
+where the third equality follows from the fact that 
+\begin_inset Formula $\bigcup_{n\in\N}A_{n}=\X$
+\end_inset
+
+.
+ Together, 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:monotoneConvPointwiseEq"
