@@ -501,7 +501,7 @@ status open
 
 
 \backslash
-hyperref[thm:existenceUniquenessLebesgueIntegral]{
+hyperref[thm:monotoneConvergenceLebInt]{
 \backslash
 emph{monotone convergence theorem}}
 \end_layout
