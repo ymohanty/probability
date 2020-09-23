@@ -994,7 +994,7 @@ for all
 \end_inset
 
  then 
-\begin_inset Formula $f_{n}\left(x\right)=f_{n}\left(x\right)=ts\left(x\right)=0$
+\begin_inset Formula $f\left(x\right)=f_{n}\left(x\right)=ts\left(x\right)=0$
 \end_inset
 
  and so 
@@ -2165,7 +2165,7 @@ and so, since
  ,
 \begin_inset Formula 
 \[
-\lim_{i\to\infty}\lebInt{\mu}{\phi_{i}}=\lim_{i\to\infty}\lebInt{\mu}{\psi_{i}}-\lebInt{\mu}{2g}=0.
+\lim_{i\to\infty}\lebInt{\mu}{\phi_{i}}=\lebInt{\mu}{2g}-\lim_{i\to\infty}\lebInt{\mu}{\psi_{i}}=0.
 \]
 
 \end_inset
