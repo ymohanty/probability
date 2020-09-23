@@ -1389,14 +1389,22 @@ in short) if
 \end_inset
 
 The collection of all such functions is denoted 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp 1{\X,\F,\mu}$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Standard
-The significance of the exponent 
+When the underlying space and 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra are clear, we shall simply write 
+\begin_inset Formula $\Lp 1{\mu}.$
+\end_inset
+
+ The significance of the exponent 
 \begin_inset Formula $1$
 \end_inset
 
@@ -1477,6 +1485,62 @@ integrable functions
 .
 \end_layout
 
+\begin_layout Proof
+First observe that the zero function 
+\begin_inset Formula $\indicate_{\emptyset}\in\Lp 1{\mu}$
+\end_inset
+
+since 
+\begin_inset Formula $\lebInt{\mu}{\left|\indicate_{\emptyset}\right|}=\mu\left(\emptyset\right)=0<\infty$
+\end_inset
+
+ and so we have an additive identity.
+ Next, notice that 
+\begin_inset Formula $f\in\Lp 1{\mu}\Longleftrightarrow-f\in\Lp 1{\mu}$
+\end_inset
+
+ and so we have additive inverses for each function.
+ Commutativity and associativity of addition follow from the definition
+ of addition on spaces of functions, as does distributivity of scalar multiplica
+tion over addition.
+ Finally, notice that for any 
+\begin_inset Formula $\alpha\in\R$
+\end_inset
+
+ and any functions 
+\begin_inset Formula $f,g\in\Lp 1{\mu}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}{\left|\alpha f+g\right|} & \leq\lebInt{\mu}{\left|\alpha f\right|+\left|g\right|}\\
+ & =\left|\alpha\right|\lebInt{\mu}{\left|f\right|}+\lebInt{\mu}{\left|g\right|}\\
+ & <\infty
+\end{align*}
+
+\end_inset
+
+where the first inequality follows from the triangle inequality of 
+\begin_inset Formula $|\cdot|$
+\end_inset
+
+ and monotonicty of 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+, and the equality follows from the linearity of 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+.
+ This proves that 
+\begin_inset Formula $\Lp 1{\mu}$
+\end_inset
+
+ is closed under finite linear combinations and so is a vector space.
+\end_layout
+
 \begin_layout Definition
 \begin_inset CommandInset label
 LatexCommand label
@@ -1520,7 +1584,7 @@ wherever the difference is defined (i.e.
  is finite).
 \end_layout
 
-\begin_layout Definition
+\begin_layout Remark*
 Note that for any non-negative measurable function 
 \begin_inset Formula $f$
 \end_inset
@@ -1529,8 +1593,315 @@ Note that for any non-negative measurable function
 \begin_inset Formula $\tilde{\mu}\left(f\right)=\lebInt{\mu}f$
 \end_inset
 
- and so in order to not get burdened with unnecessary amounts of new notation,
- we simply denote the integral as 
+ and so 
+\begin_inset Formula $\tilde{\mu}$
+\end_inset
+
+ extends 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+ just like 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+ extended 
+\begin_inset Formula $\bar{\mu}_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Properties of the integral
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:linearityLebIntL1"
+
+\end_inset
+
+For any functions 
+\begin_inset Formula $f,g\in\Lp 1{\X,\F,\mu}$
+\end_inset
+
+ and scalar 
+\begin_inset Formula $\alpha\in\R$
+\end_inset
+
+, we have that 
+\begin_inset Formula 
+\[
+\tilde{\mu}\left(\alpha f+g\right)=\alpha\tilde{\mu}\left(f\right)+\tilde{\mu}\left(g\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First we shall prove that 
+\begin_inset Formula $\tilde{\mu}\left(\alpha f\right)=\alpha\tilde{\mu}\left(f\right).$
+\end_inset
+
+ Note that if 
+\begin_inset Formula $\alpha=0$
+\end_inset
+
+ then the equality follows trivially.
+ If 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+ then 
+\begin_inset Formula 
+\begin{align*}
+\tilde{\mu}\left(\alpha f\right) & =\lebInt{\mu}{\left(\alpha f\right)^{+}}-\lebInt{\mu}{\left(\alpha f\right)^{-}}\\
+ & =\lebInt{\mu}{\alpha f\indicate_{\left\{ \alpha f>0\right\} }}-\lebInt{\mu}{-\alpha f\indicate_{\left\{ \alpha f<0\right\} }}\\
+ & =\lebInt{\mu}{\alpha f\indicate_{\left\{ f>0\right\} }}-\lebInt{\mu}{-\alpha f\indicate_{\left\{ f<0\right\} }}\\
+ & =\alpha\lebInt{\mu}{f^{+}}-\alpha\lebInt{\mu}{f^{-}}\\
+ & =\alpha\tilde{\mu}\left(f\right)
+\end{align*}
+
+\end_inset
+
+where the third equality follows from the fact that 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+ and the fourth equality due to the linearity of 
+\begin_inset Formula $\bar{\mu}.$
+\end_inset
+
+ Finally, if 
+\begin_inset Formula $\alpha<0$
+\end_inset
+
+ then
+\begin_inset Formula 
+\begin{align*}
+\tilde{\mu}\left(\alpha f\right) & =\lebInt{\mu}{\left(\alpha f\right)^{+}}-\lebInt{\mu}{\left(\alpha f\right)^{-}}\\
+ & =\lebInt{\mu}{\alpha f\indicate_{\left\{ \alpha f>0\right\} }}-\lebInt{\mu}{-\alpha f\indicate_{\left\{ \alpha f<0\right\} }}\\
+ & =\lebInt{\mu}{\alpha f\indicate_{\left\{ f<0\right\} }}-\lebInt{\mu}{-\alpha f\indicate_{\left\{ f>0\right\} }}\\
+ & =\lebInt{\mu}{-\alpha-f\indicate_{\left\{ f<0\right\} }}-\lebInt{\mu}{-\alpha\indicate_{\left\{ f>0\right\} }}\\
+ & =\alpha\bar{\mu}\left(f^{+}\right)-\alpha\lebInt{\mu}{f^{-}}\\
+ & =\alpha\tilde{\mu}\left(f\right).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Next, let 
+\begin_inset Formula $h=f+g$
+\end_inset
+
+ and observe that
+\begin_inset Formula 
+\begin{align*}
+h & =h^{+}-h^{-}\\
+ & =f+g\\
+ & =\left(f^{+}-f^{-}\right)+\left(g^{+}-g^{-}\right).
+\end{align*}
+
+\end_inset
+
+Rearranging, we have that 
+\begin_inset Formula 
+\[
+h^{+}+f^{-}+g^{-}=h^{-}+f^{+}+g^{-}
+\]
+
+\end_inset
+
+where the functions on each side are non-negative measurable functions and
+ so
+\begin_inset Formula 
+\[
+\lebInt{\mu}{h^{+}+f^{-}+g^{-}}=\lebInt{\mu}{h^{+}}+\lebInt{\mu}{f^{-}}+\lebInt{\mu}{g^{-}}=\lebInt{\mu}{h^{-}}+\lebInt{\mu}{f^{+}}+\lebInt{\mu}{g^{+}}=\lebInt{\mu}{h^{-}+f^{+}+g^{-}}
+\]
+
+\end_inset
+
+by linearity of 
+\begin_inset Formula $\bar{\mu}.$
+\end_inset
+
+ As 
+\begin_inset Formula $h,g,h\in\Lp 1{\mu}$
+\end_inset
+
+, the integrals of the individual components are not infinite and so we
+ can rearrange the second equality above as
+\begin_inset Formula 
+\[
+\underbrace{\lebInt{\mu}{h^{+}}-\lebInt{\mu}{h^{-}}}_{\tilde{\mu}\left(h\right)}=\underbrace{\lebInt{\mu}{f^{+}}-\lebInt{\mu}{f^{-}}}_{\tilde{\mu}\left(f\right)}+\underbrace{\lebInt{\mu}{g^{+}}-\lebInt{\mu}{g^{-}}}_{\tilde{\mu}\left(g\right)}
+\]
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:monotonicityLebIntL1"
+
+\end_inset
+
+For any functions 
+\begin_inset Formula $f,g\in\Lp 1{\X,\F,\mu}$
+\end_inset
+
+ such that 
+\begin_inset Formula $f\leq g$
+\end_inset
+
+ pointwise,
+\begin_inset Formula 
+\[
+\tilde{\mu}\left(f\right)\leq\tilde{\mu}\left(g\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $h=g-f\geq0$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\[
+\tilde{\mu}\left(g-f\right)=\lebInt{\mu}{g-f}\geq0.
+\]
+
+\end_inset
+
+Then, by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:linearityLebIntL1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\tilde{\mu}\left(g-f\right)=\tilde{\mu}\left(g\right)-\tilde{\mu}\left(f\right)\geq0
+\]
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:triangleIneqLebIntL1"
+
+\end_inset
+
+For any function 
+\begin_inset Formula $f\in\Lp 1{\X,\F,\mu}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left|\tilde{\mu}\left(f\right)\right|\leq\tilde{\mu}\left(\left|f\right|\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+By Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:monotonicityLebIntL1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and the triangle inequality for 
+\begin_inset Formula $\left|\cdot\right|$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tilde{\mu}\left(f\right)\leq\tilde{\mu}\left(\left|f\right|\right).
+\]
+
+\end_inset
+
+Similarly, we have that
+\begin_inset Formula 
+\[
+-f\leq\left|f\right|\Longrightarrow\tilde{\mu}\left(-f\right)\leq\tilde{\mu}\left(\left|f\right|\right)\Longrightarrow\tilde{\mu}\left(f\right)\geq-\tilde{\mu}\left(\left|f\right|\right)
+\]
+
+\end_inset
+
+where the second implication follows due to linearity.
+ Together, the two inequalities imply that
+\begin_inset Formula 
+\[
+\left|\tilde{\mu}\left(f\right)\right|\leq\tilde{\mu}\left(\left|f\right|\right)
+\]
+
+\end_inset
+
+which is the result.
+\end_layout
+
+\begin_layout Standard
+At this point we have defined the functionals 
+\begin_inset Formula $\bar{\mu}_{0},\bar{\mu,}$
+\end_inset
+
+and 
+\begin_inset Formula $\tilde{\mu}$
+\end_inset
+
+ to operate on simple functions, non-negative measurable functions, and
+ all measurable functions respectively.
+ Since 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+ extends 
+\begin_inset Formula $\bar{\mu}_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{\mu}$
+\end_inset
+
+ extends 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+, we can dispense with the unnecessary amounts of new notation and simply
+ denote the integral as 
 \begin_inset Formula $\bar{\mu}\left(f\right)$
 \end_inset
 
@@ -1552,8 +1923,532 @@ extended
  the chapter.
 \end_layout
 
-\begin_layout Section
-Properties of the integral
+\begin_layout Standard
+Next we show the power of this integration theory by establishing two results
+ which allow us to interchange pointwise limits of functions and with their
+ integrals.
+ We have already proved the following result in Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:existenceUniquenessLebesgueIntegral"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Monotone convergence theorem
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:monotoneConvergenceLebInt"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\nonnegMeasurableFunctions$
+\end_inset
+
+ be such that 
+\begin_inset Formula $f_{n}\leq f_{n+1}$
+\end_inset
+
+ pointwise.
+ Then
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}=\lebInt{\mu}{\lim_{n\to\infty}f_{n}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The other theorem drops the requirement that the functions 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ be non-negative or that the sequence be monotone, in exchange for asking
+ the sequence 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ to be uniformly bounded by an integrable function.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Dominated convergence theorem
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:dominatedConvergenceLebInt"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}$
+\end_inset
+
+ be a sequence of functions in 
+\begin_inset Formula $\Lp 1{\X,\F,\mu}$
+\end_inset
+
+ and let 
+\begin_inset Formula $g\in\Lp 1{\mu}$
+\end_inset
+
+ be such that
+\begin_inset Formula 
+\[
+\left|f_{n}\right|\leq g
+\]
+
+\end_inset
+
+pointwise for every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+.
+ Then, if 
+\begin_inset Formula $f:=\lim_{n\to\infty}f_{n}$
+\end_inset
+
+ is defined, we have that
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{\left|f_{n}-f\right|}=0
+\]
+
+\end_inset
+
+which also shows that
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\bar{\mu}\left(f_{n}\right)=\lebInt{\mu}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that by the continuity of the absolute value function, 
+\begin_inset Formula $\left|f_{n}\right|\leq g\Longrightarrow\left|f\right|\leq g$
+\end_inset
+
+ pointwise.
+ Then, by the triangle inequality
+\begin_inset Formula 
+\[
+\left|f_{n}\left(x\right)-f\left(x\right)\right|\leq\left|f_{i}\left(x\right)\right|+\left|f\left(x\right)\right|\leq2g\left(x\right)
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ and every 
+\begin_inset Formula $x\in\X.$
+\end_inset
+
+ Then, 
+\begin_inset Formula 
+\[
+\phi_{i}\left(x\right):=\sup_{n\geq i}\left|f_{n}\left(x\right)-f\left(x\right)\right|\leq2g\left(x\right)
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+ and every 
+\begin_inset Formula $x\in\X,$
+\end_inset
+
+ which proves that 
+\begin_inset Formula $\phi_{i}\in\Lp 1{\mu}$
+\end_inset
+
+ for every 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+.
+ Notice that 
+\begin_inset Formula 
+\begin{align*}
+\lim_{i\to\infty}\phi_{i} & =\limsup_{n\to\infty}\left|f_{n}-f\right|\\
+ & =\lim_{n\to\infty}\left|f_{n}-f\right|\\
+ & =0
+\end{align*}
+
+\end_inset
+
+where the second and third equalities follows from the assumption that 
+\begin_inset Formula $f_{n}\longrightarrow f.$
+\end_inset
+
+ Further, define
+\begin_inset Formula 
+\[
+\psi_{i}\left(x\right):=2g\left(x\right)-\phi_{i}\left(x\right)\geq0
+\]
+
+\end_inset
+
+and observe that since 
+\begin_inset Formula $\phi_{i}\geq\phi_{i+1}$
+\end_inset
+
+ pointwise for every 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+, 
+\begin_inset Formula $\psi_{i}\leq\psi_{i+1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lim_{i\to\infty}\psi_{i}=2g$
+\end_inset
+
+.
+ Then, by the monotone convergence theorem
+\begin_inset Formula 
+\begin{align*}
+\lim_{i\to\infty}\lebInt{\mu}{\psi_{i}} & =\lebInt{\mu}{2g}.
+\end{align*}
+
+\end_inset
+
+However, note that
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}{\psi_{i}} & =\lebInt{\mu}{2g-\phi_{i}}\\
+ & =\lebInt{\mu}{2g}-\lebInt{\mu}{\phi_{i}}
+\end{align*}
+
+\end_inset
+
+and so, since 
+\begin_inset Formula $\lebInt{\mu}{\psi_{i}},\lebInt{\mu}{2g}<\infty$
+\end_inset
+
+ ,
+\begin_inset Formula 
+\[
+\lim_{i\to\infty}\lebInt{\mu}{\phi_{i}}=\lim_{i\to\infty}\lebInt{\mu}{\psi_{i}}-\lebInt{\mu}{2g}=0.
+\]
+
+\end_inset
+
+Finally, note that 
+\begin_inset Formula $0\leq\lebInt{\mu}{\left|f_{n}-f\right|}\leq\lebInt{\mu}{\phi_{n}}$
+\end_inset
+
+ for every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ by the monotonicty of 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{\left|f_{n}-f\right|}=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+By Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:triangleIneqLebIntL1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+0\leq\lim_{n\to\infty}\left|\lebInt{\mu}{f_{n}-f}\right|\leq\lim_{n\to\infty}\lebInt{\mu}{\left|f_{n}-f\right|}=0
+\]
+
+\end_inset
+
+which shows that 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}=\lebInt{\mu}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We have shown results that establish interchanging limits and integrals
+ when such limits exist.
+ The next result makes a more general statement about interchanging limit
+ superiors and inferiors of non-negative measurable functions (which always
+ exist in the extended real numbers) with their integrals, although we cannot
+ get strict equality.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Fatou's lemma
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:fatouLemmaLebInt"
+
+\end_inset
+
+For any functions 
+\begin_inset Formula $f_{n}\in\nonnegMeasurableFunctions$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\liminf_{n\to\infty}f_{n}}\leq\liminf_{n\to\infty}\lebInt{\mu}{f_{n}}
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\limsup_{n\to\infty}f_{n}}\geq\limsup_{n\to\infty}\lebInt{\mu}{f_{n}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Define 
+\begin_inset Formula $g_{n}\left(x\right)=\inf_{i\geq n}f_{i}\left(x\right).$
+\end_inset
+
+ Clearly, 
+\begin_inset Formula $g_{n}\leq f_{n}$
+\end_inset
+
+ pointwise and
+\begin_inset Formula 
+\[
+\liminf_{n\to\infty}f_{n}=\lim_{n\to\infty}g_{n}.
+\]
+
+\end_inset
+
+ Further, 
+\begin_inset Formula $g_{n}\leq g_{n+1}$
+\end_inset
+
+ pointwise and so by the monotone convergence theorem
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\liminf_{n\to\infty}f_{n}}=\lebInt{\mu}{\lim_{n\to\infty}g_{n}}=\lim_{n\to\infty}\lebInt{\mu}{g_{n}}=\liminf_{n\to\infty}\lebInt{\mu}{g_{n}}\leq\liminf_{n\to\infty}\lebInt{\mu}{f_{n}}
+\]
+
+\end_inset
+
+where the fourth equality follows from the fact the when the limit exists,
+ limit superiors and inferiors are both equal to the limit.
+ The proof for the 
+\begin_inset Formula $\limsup$
+\end_inset
+
+ case is similar.
+\end_layout
+
+\begin_layout Standard
+One important application of the dominated convergence theorem is differentiatin
+g under the integral sign.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Differentiating under the integral sign
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:diffIntSign"
+
+\end_inset
+
+For any 
+\begin_inset Formula $\theta\in\left[-\delta,\delta\right],$
+\end_inset
+
+ define 
+\begin_inset Formula $g\left(x,\theta\right)\in\Lp 1{\X,\F,\mu}$
+\end_inset
+
+ to be differentiable with respect to 
+\begin_inset Formula $\theta$
+\end_inset
+
+, with derivative
+\begin_inset Formula 
+\[
+g_{\theta}\left(x,\theta\right)=\lim_{\epsilon\to0}\frac{g\left(x,\theta+\epsilon\right)-g\left(x,\theta\right)}{\epsilon}.
+\]
+
+\end_inset
+
+Define the function
+\begin_inset Formula 
+\[
+m\left(\theta\right):=\lebInt{\mu_{x}}{g\left(x,\theta\right)}
+\]
+
+\end_inset
+
+where the subscript 
+\begin_inset Formula $x$
+\end_inset
+
+ clarifies the variable of integration.
+ If there exists a function 
+\begin_inset Formula $G\in\Lp 1{\mu}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\left|g_{\theta}\right|\leq G$
+\end_inset
+
+ for every 
+\begin_inset Formula $\theta\in\left(-\delta,\delta\right)$
+\end_inset
+
+ then
+\begin_inset Formula 
+\[
+\frac{dm\left(\theta\right)}{d\theta}=\frac{d\lebInt{\mu_{x}}{g\left(x,\theta\right)}}{d\theta}=\lebInt{\mu_{x}}{g_{\theta}\left(x,\theta\right)}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Define the function 
+\begin_inset Formula 
+\[
+f_{n}\left(x,\theta\right):=\frac{g\left(x,\theta+\frac{1}{n}\right)-g\left(x,\theta\right)}{\frac{1}{n}}
+\]
+
+\end_inset
+
+and observe by the linearity of the Lebesgue integral that 
+\begin_inset Formula 
+\[
+\frac{m\left(\theta+\frac{1}{n}\right)-m\left(\theta\right)}{\frac{1}{n}}=\lebInt{\mu_{x}}{f_{n}\left(x,\theta\right)}
+\]
+
+\end_inset
+
+and that 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}f_{n}\left(x,\theta\right)=g_{\theta}\left(x,\theta\right).
+\]
+
+\end_inset
+
+Next, observe that by the mean value theorem
+\begin_inset Formula 
+\[
+f_{n}\left(x,\theta\right)=g_{\theta}\left(x,\tilde{\theta}_{n}\right)
+\]
+
+\end_inset
+
+for some 
+\begin_inset Formula $0<\tilde{\theta}_{n}<\frac{1}{n}$
+\end_inset
+
+ for every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+, which implies that
+\begin_inset Formula 
+\[
+\left|f_{n}\left(x,\theta\right)\right|=\left|g_{\theta}\left(x,\tilde{\theta}_{n}\right)\right|\leq G\left(x\right).
+\]
+
+\end_inset
+
+Applying the dominated convergence theorem, we have that
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu_{x}}{g_{\theta}\left(x,\theta\right)} & =\lebInt{\mu_{x}}{\lim_{n\to\infty}f_{n}\left(x,\theta\right)}\\
+ & =\lim_{n\to\infty}\lebInt{\mu_{x}}{f_{n}\left(x,\theta\right)}\\
+ & =\lim_{n\to\infty}\frac{m\left(\theta+\frac{1}{n}\right)-m\left(\theta\right)}{\frac{1}{n}}\\
+ & =\frac{dm\left(\theta\right)}{d\theta}
+\end{align*}
+
+\end_inset
+
+which completes the proof.
 \end_layout
 
 \begin_layout Section
