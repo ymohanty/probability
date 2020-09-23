@@ -87,7 +87,10 @@ Spaces of functions
 \end_layout
 
 \begin_layout Section
-Normed vector spaces of functions
+\begin_inset Formula $\mathcal{L}^{p}$
+\end_inset
+
+ spaces as Banach spaces
 \end_layout
 
 \begin_layout Section
