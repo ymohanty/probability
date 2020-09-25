@@ -1389,7 +1389,7 @@ in short) if
 \end_inset
 
 The collection of all such functions is denoted 
-\begin_inset Formula $\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\Lp1{\X,\F,\mu}$
 \end_inset
 
 .
@@ -1401,7 +1401,7 @@ When the underlying space and
 \end_inset
 
 algebra are clear, we shall simply write 
-\begin_inset Formula $\Lp 1{\mu}.$
+\begin_inset Formula $\Lp1{\mu}.$
 \end_inset
 
  The significance of the exponent 
@@ -1423,7 +1423,7 @@ A function
 \end_inset
 
  is in 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp1{\mu}$
 \end_inset
 
  if and only if 
@@ -1475,7 +1475,7 @@ For any measure space
 \end_inset
 
 integrable functions 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp1{\mu}$
 \end_inset
 
  is a vector space over 
@@ -1496,7 +1496,7 @@ since
 
  and so we have an additive identity.
  Next, notice that 
-\begin_inset Formula $f\in\Lp 1{\mu}\Longleftrightarrow-f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}\Longleftrightarrow-f\in\Lp1{\mu}$
 \end_inset
 
  and so we have additive inverses for each function.
@@ -1508,7 +1508,7 @@ tion over addition.
 \end_inset
 
  and any functions 
-\begin_inset Formula $f,g\in\Lp 1{\mu}$
+\begin_inset Formula $f,g\in\Lp1{\mu}$
 \end_inset
 
 
@@ -1535,7 +1535,7 @@ where the first inequality follows from the triangle inequality of
 
 .
  This proves that 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp1{\mu}$
 \end_inset
 
  is closed under finite linear combinations and so is a vector space.
@@ -1624,7 +1624,7 @@ name "prop:linearityLebIntL1"
 \end_inset
 
 For any functions 
-\begin_inset Formula $f,g\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f,g\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  and scalar 
@@ -1733,7 +1733,7 @@ by linearity of
 \end_inset
 
  As 
-\begin_inset Formula $h,g,h\in\Lp 1{\mu}$
+\begin_inset Formula $h,g,h\in\Lp1{\mu}$
 \end_inset
 
 , the integrals of the individual components are not infinite and so we
@@ -1756,7 +1756,7 @@ name "cor:monotonicityLebIntL1"
 \end_inset
 
 For any functions 
-\begin_inset Formula $f,g\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f,g\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  such that 
@@ -1816,7 +1816,7 @@ name "cor:triangleIneqLebIntL1"
 \end_inset
 
 For any function 
-\begin_inset Formula $f\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f\in\Lp1{\X,\F,\mu}$
 \end_inset
 
 
@@ -1871,6 +1871,10 @@ where the second implication follows due to linearity.
 \end_inset
 
 which is the result.
+\end_layout
+
+\begin_layout Subsection
+Interchanging limits and integrals
 \end_layout
 
 \begin_layout Standard
@@ -2012,11 +2016,11 @@ Let
 \end_inset
 
  be a sequence of functions in 
-\begin_inset Formula $\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\Lp1{\X,\F,\mu}$
 \end_inset
 
  and let 
-\begin_inset Formula $g\in\Lp 1{\mu}$
+\begin_inset Formula $g\in\Lp1{\mu}$
 \end_inset
 
  be such that
@@ -2094,7 +2098,7 @@ for every
 \end_inset
 
  which proves that 
-\begin_inset Formula $\phi_{i}\in\Lp 1{\mu}$
+\begin_inset Formula $\phi_{i}\in\Lp1{\mu}$
 \end_inset
 
  for every 
@@ -2337,7 +2341,7 @@ For any
 \end_inset
 
  define 
-\begin_inset Formula $g\left(x,\theta\right)\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $g\left(x,\theta\right)\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  to be differentiable with respect to 
@@ -2366,7 +2370,7 @@ where the subscript
 
  clarifies the variable of integration.
  If there exists a function 
-\begin_inset Formula $G\in\Lp 1{\mu}$
+\begin_inset Formula $G\in\Lp1{\mu}$
 \end_inset
 
  such that 
@@ -2449,6 +2453,404 @@ Applying the dominated convergence theorem, we have that
 \end_inset
 
 which completes the proof.
+\end_layout
+
+\begin_layout Subsection
+New measures from old and their integrals
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:densities"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space.
+ For any function 
+\begin_inset Formula $f\in\nonnegMeasurableFunctions$
+\end_inset
+
+, the set valued function 
+\begin_inset Formula $\nu:\F\longrightarrow\left[0,\infty\right]$
+\end_inset
+
+ given by
+\begin_inset Formula 
+\[
+\nu\left(A\right):=\lebInt{\mu}{f\indicate_{A}}
+\]
+
+\end_inset
+
+is a measure on 
+\begin_inset Formula $\F$
+\end_inset
+
+.
+ Moreover, for any 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+, if 
+\begin_inset Formula $\mu\left(A\right)=0$
+\end_inset
+
+ then 
+\begin_inset Formula $\nu\left(A\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $\nu\left(\emptyset\right)=$
+\end_inset
+
+
+\begin_inset Formula $\lebInt{\mu}{f\indicate_{\emptyset}}=\lebInt{\mu}{\indicate_{\emptyset}}=\mu\left(\emptyset\right)=0.$
+\end_inset
+
+ Next, let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}\in\F$
+\end_inset
+
+ be disjoint and define
+\begin_inset Formula 
+\[
+B_{n}=\bigcup_{i=1}^{n}A_{i}
+\]
+
+\end_inset
+
+which is an increasing sequence of sets such that 
+\begin_inset Formula $\bigcup_{n\in\N}B_{n}=\bigcup_{i\in\N}A_{i}$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\nu\left(\bigcup_{i\in\N}A_{i}\right) & =\lebInt{\mu}{f\indicate_{\bigcup_{i\in\N}A_{i}}}\\
+ & =\lebInt{\mu}{f\indicate_{\lim_{n\to\infty}B_{n}}}\\
+ & =\lebInt{\mu}{f\lim_{n\to\infty}\indicate_{B_{n}}}\\
+ & =\lebInt{\mu}{f\lim_{n\to\infty}\sum_{i=1}^{n}\indicate_{A_{i}}}\\
+ & =\lim_{n\to\infty}\lebInt{\mu}{\sum_{i=1}^{n}f\indicate_{A_{i}}}\\
+ & =\lim_{n\to\infty}\sum_{i=1}^{n}\lebInt{\mu}{f\indicate_{A_{i}}}\\
+ & =\sum_{i=1}^{\infty}\lebInt{\mu}{f\indicate_{A_{i}}}\\
+ & =\sum_{i=1}^{\infty}\nu\left(A_{i}\right)
+\end{align*}
+
+\end_inset
+
+where the second equality follows from the discussion on convergence of
+ sets in Section 2.1, the third equality due to Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:limSupInfIndicator"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the fourth equality from induction on Fact 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fact:indicatorFunctionsFiniteOperations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the fifth equality from the monotone convergence theorem, and the sixth
+ equality due to the linearity of 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+.
+ Finally, let 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ be a measure zero set and define 
+\begin_inset Formula $\left\{ s_{n}\right\} _{n\in\N}\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)$
+\end_inset
+
+ to be an 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[prop:simpleFunctionMonotoneConvergence]{increasing sequence of
+ simple functions}
+\end_layout
+
+\end_inset
+
+ which converges to 
+\begin_inset Formula $f$
+\end_inset
+
+ with standard representation 
+\begin_inset Formula 
+\[
+s_{n}=\sum_{i=1}^{I_{n}}a_{i.n}\indicate_{A_{i,n}}.
+\]
+
+\end_inset
+
+Then the 
+\begin_inset Formula $s_{n}\indicate_{A}\nearrow f\indicate_{A}$
+\end_inset
+
+and 
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}{s_{n}\indicate_{A}} & =\lebInt{\mu}{\sum_{i=1}^{I_{n}}a_{i,n}\indicate_{A_{i,n}\cap A}}\\
+ & =\sum_{i=1}^{I_{n}}a_{i,n}\mu\left(A_{i,n}\cap A\right)\\
+ & =0
+\end{align*}
+
+\end_inset
+
+where the last equality follows from the monotonicty of measures.
+ Applying the monotone convergence theorem, we have that 
+\begin_inset Formula 
+\begin{align*}
+\nu\left(A\right) & =\lebInt{\mu}{f\indicate_{A}}\\
+ & =\lim_{n\to\infty}\lebInt{\mu}{s_{n}\indicate_{A}}\\
+ & =0
+\end{align*}
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Remark*
+A measure 
+\begin_inset Formula $\nu$
+\end_inset
+
+ on 
+\begin_inset Formula $\F$
+\end_inset
+
+ with the relation 
+\begin_inset Formula $\mu\left(A\right)=0\Longrightarrow\nu\left(A\right)=0$
+\end_inset
+
+ for every 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ and a refence measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is called 
+\emph on
+absolutely continuous 
+\emph default
+with respect to 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ This relation is denoted as 
+\begin_inset Formula $\nu<<\mu$
+\end_inset
+
+ symbolically.
+ We discuss absolute continuity in Chapter 6, where we prove the converse
+ of this theorem under a minor restriction.
+ The non-negative measurable function 
+\begin_inset Formula $f$
+\end_inset
+
+ which generates the new measure 
+\begin_inset Formula $\nu$
+\end_inset
+
+ is called the 
+\emph on
+density 
+\emph default
+of 
+\begin_inset Formula $\nu$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $\mu.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:densityIntegral"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mu,\nu$
+\end_inset
+
+ be measures on 
+\begin_inset Formula $\measurablespace$
+\end_inset
+
+ and let 
+\begin_inset Formula $f$
+\end_inset
+
+ a density of 
+\begin_inset Formula $\nu$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $\mu.$
+\end_inset
+
+ The unique Lebesgue integral associated with the measure 
+\begin_inset Formula $\nu$
+\end_inset
+
+is given by 
+\begin_inset Formula 
+\[
+\lebInt{\nu}g=\lebInt{\mu}{fg},
+\]
+
+\end_inset
+
+for any function 
+\begin_inset Formula $g\in\measurableFunctions$
+\end_inset
+
+, provided the right-hand side is defined.
+\end_layout
+
+\begin_layout Proof
+Note that for any set 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+, 
+\begin_inset Formula $\lebInt{\nu}{\indicate_{A}}=\lebInt{\mu}{f\indicate_{A}}=\nu\left(A\right)$
+\end_inset
+
+.
+ Further, 
+\begin_inset Formula $\bar{\nu}$
+\end_inset
+
+ inherits linearity and monotone convergence on 
+\begin_inset Formula $\nonnegMeasurableFunctions$
+\end_inset
+
+ from 
+\begin_inset Formula $\bar{\mu}$
+\end_inset
+
+ and so by Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:existenceUniquenessLebesgueIntegral"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $\bar{\nu}$
+\end_inset
+
+ is the unique integral on 
+\begin_inset Formula $\nonnegMeasurableFunctions,$
+\end_inset
+
+ which of course extends uniquely to 
+\begin_inset Formula $\measurableFunctions$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:imageMeasures"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space.
+ For any function 
+\begin_inset Formula $f\in\measurableFunctions$
+\end_inset
+
+, the function 
+\begin_inset Formula $f\mu:\borel\left(\R\right)\longrightarrow\left[0,\infty\right]$
+\end_inset
+
+ given by 
+\begin_inset Formula 
+\[
+f\mu\left(B\right):=\mu\left(f^{-1}\left[B\right]\right)
+\]
+
+\end_inset
+
+is a measure on 
+\begin_inset Formula $\borel\left(\R\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $f\mu\left(\emptyset\right)=\mu\left(f^{-1}\left[\emptyset\right]\right)=\mu\left(\emptyset\right).$
+\end_inset
+
+ Next, let 
+\begin_inset Formula $\left\{ B_{i}\right\} _{i\in\N}\in\borel\left(\R\right)$
+\end_inset
+
+ be disjoint and observe that
+\begin_inset Formula 
+\begin{align*}
+f\mu\left(\bigcup_{i\in\N}B_{i}\right) & =\mu\left(f^{-1}\left[\bigcup_{i\in\N}B_{i}\right]\right)\\
+ & =\mu\left(\bigcup_{i\in\N}f^{-1}\left[B_{i}\right]\right)\\
+ & =\sum_{i=1}^{\infty}\mu\left(f^{-1}\left[B_{i}\right]\right)\\
+ & =\sum_{i=1}^{\infty}f\mu\left(B_{i}\right)
+\end{align*}
+
+\end_inset
+
+where the second equality is a property of inverse maps and the third equality
+ is due to the countable additivity of 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
