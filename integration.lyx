@@ -1487,7 +1487,7 @@ integrable functions
 
 \begin_layout Proof
 First observe that the zero function 
-\begin_inset Formula $\indicate_{\emptyset}\in\Lp 1{\mu}$
+\begin_inset Formula $\indicate_{\emptyset}\in\Lp1{\mu}$
 \end_inset
 
 since 
@@ -2068,7 +2068,7 @@ Note that by the continuity of the absolute value function,
  Then, by the triangle inequality
 \begin_inset Formula 
 \[
-\left|f_{n}\left(x\right)-f\left(x\right)\right|\leq\left|f_{i}\left(x\right)\right|+\left|f\left(x\right)\right|\leq2g\left(x\right)
+\left|f_{n}\left(x\right)-f\left(x\right)\right|\leq\left|f_{n}\left(x\right)\right|+\left|f\left(x\right)\right|\leq2g\left(x\right)
 \]
 
 \end_inset

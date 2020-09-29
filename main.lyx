@@ -260,6 +260,15 @@ Math operator declarations
 \end_layout
 
 \begin_layout Standard
+\align center
+\begin_inset FormulaMacro
+\newcommand{\pnorm}[2]{\lVert#1\rVert_{#2}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
 
