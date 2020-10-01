@@ -3673,7 +3673,17 @@ Since the reverse inequality follows by the subadditivity of the outer measure,
 
 \begin_layout Standard
 Note that in general such an extension may not be unique and we provide
- sufficient conditions for uniqueness in Chapter XX.
+ sufficient conditions for uniqueness in Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:uniquenessMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
