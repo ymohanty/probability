@@ -1389,7 +1389,7 @@ in short) if
 \end_inset
 
 The collection of all such functions is denoted 
-\begin_inset Formula $\Lp1{\X,\F,\mu}$
+\begin_inset Formula $\Lp 1{\X,\F,\mu}$
 \end_inset
 
 .
@@ -1401,7 +1401,7 @@ When the underlying space and
 \end_inset
 
 algebra are clear, we shall simply write 
-\begin_inset Formula $\Lp1{\mu}.$
+\begin_inset Formula $\Lp 1{\mu}.$
 \end_inset
 
  The significance of the exponent 
@@ -1423,7 +1423,7 @@ A function
 \end_inset
 
  is in 
-\begin_inset Formula $\Lp1{\mu}$
+\begin_inset Formula $\Lp 1{\mu}$
 \end_inset
 
  if and only if 
@@ -1475,7 +1475,7 @@ For any measure space
 \end_inset
 
 integrable functions 
-\begin_inset Formula $\Lp1{\mu}$
+\begin_inset Formula $\Lp 1{\mu}$
 \end_inset
 
  is a vector space over 
@@ -1487,7 +1487,7 @@ integrable functions
 
 \begin_layout Proof
 First observe that the zero function 
-\begin_inset Formula $\indicate_{\emptyset}\in\Lp1{\mu}$
+\begin_inset Formula $\indicate_{\emptyset}\in\Lp 1{\mu}$
 \end_inset
 
 since 
@@ -1496,7 +1496,7 @@ since
 
  and so we have an additive identity.
  Next, notice that 
-\begin_inset Formula $f\in\Lp1{\mu}\Longleftrightarrow-f\in\Lp1{\mu}$
+\begin_inset Formula $f\in\Lp 1{\mu}\Longleftrightarrow-f\in\Lp 1{\mu}$
 \end_inset
 
  and so we have additive inverses for each function.
@@ -1508,7 +1508,7 @@ tion over addition.
 \end_inset
 
  and any functions 
-\begin_inset Formula $f,g\in\Lp1{\mu}$
+\begin_inset Formula $f,g\in\Lp 1{\mu}$
 \end_inset
 
 
@@ -1535,7 +1535,7 @@ where the first inequality follows from the triangle inequality of
 
 .
  This proves that 
-\begin_inset Formula $\Lp1{\mu}$
+\begin_inset Formula $\Lp 1{\mu}$
 \end_inset
 
  is closed under finite linear combinations and so is a vector space.
@@ -1624,7 +1624,7 @@ name "prop:linearityLebIntL1"
 \end_inset
 
 For any functions 
-\begin_inset Formula $f,g\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $f,g\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
  and scalar 
@@ -1733,7 +1733,7 @@ by linearity of
 \end_inset
 
  As 
-\begin_inset Formula $h,g,f\in\Lp1{\mu}$
+\begin_inset Formula $h,g,f\in\Lp 1{\mu}$
 \end_inset
 
 , the integrals of the individual components are not infinite and so we
@@ -1756,7 +1756,7 @@ name "cor:monotonicityLebIntL1"
 \end_inset
 
 For any functions 
-\begin_inset Formula $f,g\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $f,g\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
  such that 
@@ -1816,7 +1816,7 @@ name "cor:triangleIneqLebIntL1"
 \end_inset
 
 For any function 
-\begin_inset Formula $f\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $f\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
 
@@ -1970,7 +1970,15 @@ Let
 \end_inset
 
  pointwise.
- Then
+ Then, for any meaasure 
+\begin_inset Formula $\mu$
+\end_inset
+
+on 
+\begin_inset Formula $\F$
+\end_inset
+
+,
 \begin_inset Formula 
 \[
 \lim_{n\to\infty}\lebInt{\mu}{f_{n}}=\lebInt{\mu}{\lim_{n\to\infty}f_{n}}.
@@ -2016,11 +2024,11 @@ Let
 \end_inset
 
  be a sequence of functions in 
-\begin_inset Formula $\Lp1{\X,\F,\mu}$
+\begin_inset Formula $\Lp 1{\X,\F,\mu}$
 \end_inset
 
  and let 
-\begin_inset Formula $g\in\Lp1{\mu}$
+\begin_inset Formula $g\in\Lp 1{\mu}$
 \end_inset
 
  be such that
@@ -2098,7 +2106,7 @@ for every
 \end_inset
 
  which proves that 
-\begin_inset Formula $\phi_{i}\in\Lp1{\mu}$
+\begin_inset Formula $\phi_{i}\in\Lp 1{\mu}$
 \end_inset
 
  for every 
@@ -2117,9 +2125,10 @@ for every
 \end_inset
 
 where the second and third equalities follows from the assumption that 
-\begin_inset Formula $f_{n}\longrightarrow f.$
+\begin_inset Formula $f_{n}\longrightarrow f$
 \end_inset
 
+ pointwise.
  Further, define
 \begin_inset Formula 
 \[
@@ -2341,7 +2350,7 @@ For any
 \end_inset
 
  define 
-\begin_inset Formula $g\left(x,\theta\right)\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $g\left(x,\theta\right)\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
  to be differentiable with respect to 
@@ -2370,7 +2379,7 @@ where the subscript
 
  clarifies the variable of integration.
  If there exists a function 
-\begin_inset Formula $G\in\Lp1{\mu}$
+\begin_inset Formula $G\in\Lp 1{\mu}$
 \end_inset
 
  such that 
@@ -2579,7 +2588,11 @@ noprefix "false"
 \begin_inset Formula $A\in\F$
 \end_inset
 
- be a measure zero set and define 
+ be a 
+\begin_inset Formula $\mu-$
+\end_inset
+
+measure zero set and define 
 \begin_inset Formula $\left\{ s_{n}\right\} _{n\in\N}\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)$
 \end_inset
 
@@ -2702,7 +2715,15 @@ of
 \begin_inset Formula $f$
 \end_inset
 
- is called the probability density function with respect to 
+ is called the
+\emph on
+ probability density function
+\emph default
+ of 
+\begin_inset Formula $\nu$
+\end_inset
+
+ with respect to 
 \begin_inset Formula $\mu.$
 \end_inset
 
@@ -2999,8 +3020,1011 @@ noprefix "false"
 .
 \end_layout
 
+\begin_layout Standard
+These two ways of constructing new measures from existing measures using
+ a non-negative measurable function can be combined to yield an interesting
+ result, which is often referred to as the 
+\emph on
+law of the unconscious statistician 
+\emph default
+in the probability and statistics literature.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:lawUnconsciousStatistician"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Equivalence of integrals and measures
+\end_layout
+
 \begin_layout Section
 Null sets
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:nullSet"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space.
+ A set 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ is called a 
+\begin_inset Formula $\mu-$
+\end_inset
+
+null set if it's a measure zero set with respect to 
+\begin_inset Formula $\mu$
+\end_inset
+
+ i.e.
+\begin_inset Formula 
+\[
+\mu\left(A\right)=0.
+\]
+
+\end_inset
+
+The collection of all 
+\begin_inset Formula $\mu-$
+\end_inset
+
+null sets in 
+\begin_inset Formula $\F$
+\end_inset
+
+ is denoted 
+\begin_inset Formula $N_{\mu}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Note we will often omit the 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\mu$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ when describing a 
+\begin_inset Formula $\mu-$
+\end_inset
+
+null set and simply say 
+\begin_inset Quotes eld
+\end_inset
+
+null set
+\begin_inset Quotes erd
+\end_inset
+
+ if the measure is clear from context.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:nullClosureCountableUnion"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space.
+ The set of all null sets 
+\begin_inset Formula $N_{\mu}$
+\end_inset
+
+ is closed under countable unions.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}\in N_{\mu}$
+\end_inset
+
+ be arbitrary.
+ Then, by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[cor:countableSubadditivity]{countable subadditivity}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mu\left(\bigcup_{i\in\N}A_{i}\right) & \leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right)\\
+ & =\lim_{n\to\infty}\sum_{i=1}^{n}\mu\left(A_{i}\right)\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:intZeroFuncZero"
+
+\end_inset
+
+For any function 
+\begin_inset Formula $f\in\nonnegMeasurableFunctions$
+\end_inset
+
+ and a measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ on 
+\begin_inset Formula $\F$
+\end_inset
+
+, if the integral 
+\begin_inset Formula $\lebInt{\mu}f=0$
+\end_inset
+
+ then the set 
+\begin_inset Formula $\left\{ x\in\X\mid f\left(x\right)>0\right\} \in N_{\mu}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Observe that for any 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ we have the pointwise inequality
+\begin_inset Formula 
+\[
+h_{n}:=\indicate_{\left\{ f\geq\frac{1}{n}\right\} }\leq nf
+\]
+
+\end_inset
+
+where both sides are measurable since 
+\begin_inset Formula $f$
+\end_inset
+
+ is Borel-measurable.
+ By the monotonicity and linearity of the integral, we have 
+\begin_inset Formula 
+\[
+\mu\left(\left\{ x\in\X\mid f\left(x\right)\geq\frac{1}{n}\right\} \right)=\lebInt{\mu}{h_{n}}\leq n\lebInt{\mu}f=0.
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $f\left(x\right)\geq\frac{1}{n}\Longrightarrow f\left(x\right)\geq\frac{1}{n+1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bigcup_{n\in\N}\left\{ x\in\X\mid f\left(x\right)\geq\frac{1}{n}\right\} =\left\{ x\in\X\mid f\left(x\right)>0\right\} ,$
+\end_inset
+
+ by the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[prop:measureProperties]{continuity from below of measures}
+\end_layout
+
+\end_inset
+
+ (or, equivalently, the monotone convergence theorem)
+\begin_inset Formula 
+\[
+\mu\left(\left\{ x\in\X\mid f\left(x\right)>0\right\} \right)=\lim_{n\to\infty}\mu\left(\left\{ x\in\X\mid f\left(x\right)\geq\frac{1}{n}\right\} \right)=0
+\]
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Remark*
+When two function 
+\begin_inset Formula $f,g\in\measurableFunctions$
+\end_inset
+
+ are such that 
+\begin_inset Formula $f=g$
+\end_inset
+
+ on 
+\begin_inset Formula $\X\setminus A$
+\end_inset
+
+ for some 
+\begin_inset Formula $A\in N_{\mu}$
+\end_inset
+
+ , we say that the functions are equal 
+\begin_inset Formula $\mu-$
+\end_inset
+
+almost everywhere.
+ In the literature, this is often shortened to writing 
+\begin_inset Formula $\mu-$
+\end_inset
+
+a.e or simply a.e if the measure is clear from context.
+ If 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is a probability measure, then we say 
+\begin_inset Formula $f=g$
+\end_inset
+
+ almost surely, which is often shortened to a.s in the literature.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Sometimes, this is denoted even more compactly as 
+\begin_inset Formula $f\stackrel{\textnormal{a.e}}{=}g.$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ From this it's clear that the set 
+\begin_inset Formula $\left\{ x\in\X\mid f\left(x\right)\neq g\left(x\right)\right\} \subseteq A.$
+\end_inset
+
+ Of course, if we can show that 
+\begin_inset Formula $\left\{ x\in\X\mid f\left(x\right)\neq g\left(x\right)\right\} \in\F$
+\end_inset
+
+ then 
+\begin_inset Formula $\left\{ x\in\X\mid f\left(x\right)\neq g\left(x\right)\right\} \in N_{\mu}$
+\end_inset
+
+ by the monotonicity of measures.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:setFuncNotEqualMeasurable"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f,g\in\measurableFunctions$
+\end_inset
+
+ be arbitrary.
+ Then, the set
+\begin_inset Formula 
+\[
+A:=\left\{ x\in\X\mid f\left(x\right)\neq g\left(x\right)\right\} 
+\]
+
+\end_inset
+
+is measurable i.e.
+ 
+\begin_inset Formula $A\in\F.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $h:=\left(f-g\right)\indicate_{\left\{ f=g=\infty\textnormal{or}f=g=-\infty\right\} ^{C}}$
+\end_inset
+
+and observe that 
+\begin_inset Formula $h$
+\end_inset
+
+ is measurable by Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:examplesBinaryOpsMeasFunc"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Further, 
+\begin_inset Formula $A\subseteq\left\{ x\in\X\mid f\left(x\right)=g\left(x\right)=\infty\textnormal{ or }f\left(x\right)=g\left(x\right)=-\infty\right\} ^{C}$
+\end_inset
+
+ and so
+\begin_inset Formula 
+\[
+A=\left\{ x\in\X\mid h\left(x\right)\neq0\right\} =\left\{ x\in\X\mid h\left(x\right)>0\right\} \bigcup\left\{ x\in\X\mid h\left(x\right)<0\right\} 
+\]
+
+\end_inset
+
+is in 
+\begin_inset Formula $\F$
+\end_inset
+
+ by the measurability of 
+\begin_inset Formula $h$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:intFiniteFuncFinite"
+
+\end_inset
+
+For any function 
+\begin_inset Formula $f\in\nonnegMeasurableFunctions$
+\end_inset
+
+ and a measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ on 
+\begin_inset Formula $\F$
+\end_inset
+
+, if the integral 
+\begin_inset Formula $\lebInt{\mu}f<\infty$
+\end_inset
+
+ then 
+\begin_inset Formula $f<\infty$
+\end_inset
+
+ 
+\begin_inset Formula $\mu-$
+\end_inset
+
+almost everywhere.
+\end_layout
+
+\begin_layout Proof
+Observe that the pointwise equality
+\begin_inset Formula 
+\[
+\indicate_{\left\{ f=\infty\right\} }\leq\frac{f}{n}
+\]
+
+\end_inset
+
+where both sides are measurable since 
+\begin_inset Formula $f$
+\end_inset
+
+ is Borel-measurable.
+ By the monotonicity and linearity of the integral and our assumptions,
+ 
+\begin_inset Formula 
+\[
+0\leq\mu\left(\left\{ x\in\X\mid f\left(x\right)=\infty\right\} \right)\leq\frac{1}{n}\lebInt{\mu}f<\infty.
+\]
+
+\end_inset
+
+Since weak inequalities are preserved under limits, we have that 
+\begin_inset Formula 
+\[
+0\leq\mu\left(\left\{ x\in\X\mid f\left(x\right)=\infty\right\} \right)\leq\lim_{n\to\infty}\frac{1}{n}\lebInt{\mu}f=0
+\]
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:funcEqualityAlmostEverywhere"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f,g\in\nonnegMeasurableFunctions$
+\end_inset
+
+ be arbitrary and let 
+\begin_inset Formula $\mu$
+\end_inset
+
+be a measure on 
+\begin_inset Formula $\F$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $f=g$
+\end_inset
+
+ 
+\begin_inset Formula $\mu-$
+\end_inset
+
+almost everywhere, then 
+\begin_inset Formula 
+\[
+\lebInt{\mu}f=\lebInt{\mu}g.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Define the set 
+\begin_inset Formula 
+\[
+A:=\left\{ x\in\X\mid f\left(x\right)\neq g\left(x\right)\right\} 
+\]
+
+\end_inset
+
+which has measure zero by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:setFuncNotEqualMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and our assumption.
+ Then, I claim that the pointwise inequality
+\begin_inset Formula 
+\[
+\min\left\{ g,n\right\} \leq n\indicate_{A}+f
+\]
+
+\end_inset
+
+holds for every 
+\begin_inset Formula $n\in\N.$
+\end_inset
+
+ To see this, we can look at the following cases:
+\end_layout
+
+\begin_layout Proof
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $g\left(x\right)>n$
+\end_inset
+
+ and 
+\begin_inset Formula $g\left(x\right)\neq f\left(x\right)$
+\end_inset
+
+: In this case, we see that the inequality resolves to 
+\begin_inset Formula 
+\[
+n\leq n+f\left(x\right)
+\]
+
+\end_inset
+
+which is true by the non-negativity of 
+\begin_inset Formula $f.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $g\left(x\right)\leq n$
+\end_inset
+
+ and 
+\begin_inset Formula $g\left(x\right)\neq f\left(x\right):$
+\end_inset
+
+ In this case, the inequality resolves to 
+\begin_inset Formula 
+\[
+g\left(x\right)\leq n+f\left(x\right)
+\]
+
+\end_inset
+
+which is again true by the non-negativity of 
+\begin_inset Formula $f.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $g\left(x\right)>n$
+\end_inset
+
+ and 
+\begin_inset Formula $g\left(x\right)=f\left(x\right):$
+\end_inset
+
+ In this case, the inequality resolves to 
+\begin_inset Formula 
+\[
+n\leq f\left(x\right)
+\]
+
+\end_inset
+
+which is true since 
+\begin_inset Formula $f\left(x\right)=g\left(x\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $g\left(x\right)\leq n$
+\end_inset
+
+ and 
+\begin_inset Formula $g\left(x\right)=f\left(x\right)$
+\end_inset
+
+: In this case, the inequality resolves to 
+\begin_inset Formula 
+\[
+g\left(x\right)\leq f\left(x\right)
+\]
+
+\end_inset
+
+which is true by assumption.
+\end_layout
+
+\begin_layout Proof
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that both the left and right hand side are measurable by Proposition
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:binaryOperationsMeasurableFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+and so, integrating both sides, we have
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}{\min\left\{ g,n\right\} } & \leq n\mu\left(A\right)+\lebInt{\mu}f\\
+ & =\lebInt{\mu}f
+\end{align*}
+
+\end_inset
+
+since 
+\begin_inset Formula $\mu\left(A\right)=0.$
+\end_inset
+
+ Finally, observe that 
+\begin_inset Formula $\min\left\{ g,n\right\} \leq\min\left\{ g,n+1\right\} $
+\end_inset
+
+ and that 
+\begin_inset Formula $\lim_{n\to\infty}\min\left\{ g,n\right\} =g.$
+\end_inset
+
+ Then, applying the monotone convergence theorem, we have 
+\begin_inset Formula 
+\[
+\lebInt{\mu}g=\lim_{n\to\infty}\lebInt{\mu}{\min\left\{ g,n\right\} }\leq\lebInt{\mu}f.
+\]
+
+\end_inset
+
+We can deduce the reverse inequality with the analagous pointwise inequality
+\begin_inset Formula 
+\[
+\min\left\{ f,n\right\} \leq n\indicate_{A}+g
+\]
+
+\end_inset
+
+which proves the result.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:LPfuncEqualityAlmostEverywhere"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f,g\in L^{1}\left(\X,\F,\mu\right)$
+\end_inset
+
+ be such that they are equal almost everywhere.
+ Then
+\begin_inset Formula 
+\[
+\lebInt{\mu}f=\lebInt{\mu}g.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+If 
+\begin_inset Formula $f=g$
+\end_inset
+
+ a.e then
+\begin_inset Formula 
+\[
+f^{+}-f^{-}\stackrel{\textnormal{a.e}}{=}g^{+}-g^{-}\Longleftrightarrow f^{+}+g^{-}\stackrel{\textnormal{a.e}}{=}g^{+}+f^{-}
+\]
+
+\end_inset
+
+and so, integrating both sides and applying Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:funcEqualityAlmostEverywhere"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we have
+\begin_inset Formula 
+\[
+\lebInt{\mu}{f^{+}+g^{-}}=\lebInt{\mu}{g^{+}+f^{-}}.
+\]
+
+\end_inset
+
+Applying linearity and observing that the integral of each component is
+ finite by 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:L1conditions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we get 
+\begin_inset Formula 
+\[
+\lebInt{\mu}f=\lebInt{\mu}{f^{+}}-\lebInt{\mu}{f^{-}}=\lebInt{\mu}{g^{+}}-\lebInt{\mu}{g^{-}}=\lebInt{\mu}g
+\]
+
+\end_inset
+
+as desired.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:convAlmostEverywhere"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space and define
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+\end_inset
+
+ to be a sequence of functions.
+ The sequence is 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ is said to 
+\emph on
+converge almost everywhere
+\emph default
+ to a function 
+\begin_inset Formula $f\in\measurableFunctions$
+\end_inset
+
+ if 
+\begin_inset Formula 
+\[
+\mu\left(\left\{ x\in\X\mid\lim_{n\to\infty}f_{n}\left(x\right)\neq f\left(x\right)\right\} \right)=0.
+\]
+
+\end_inset
+
+In this case, we write
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}f_{n}\stackrel{\textnormal{a.e}}{=}f
+\]
+
+\end_inset
+
+or say 
+\begin_inset Formula $f_{n}\longrightarrow f$
+\end_inset
+
+ 
+\begin_inset Formula $\mu-$
+\end_inset
+
+a.e (or 
+\begin_inset Formula $f_{n}\stackrel{\textnormal{a.e}}{\longrightarrow}f$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:generalizedMonotoneConvergence"
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\nonnegMeasurableFunctions$
+\end_inset
+
+ be such that 
+\begin_inset Formula $f_{n}\leq f_{n+1}$
+\end_inset
+
+ 
+\begin_inset Formula $\mu-$
+\end_inset
+
+almost everyhwere; that is, there is some 
+\begin_inset Formula $A\in N_{\mu}$
+\end_inset
+
+ such that 
+\begin_inset Formula $f_{n}\left(x\right)\leq f_{n+1}\left(x\right)$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in\X\setminus A.$
+\end_inset
+
+ Then if 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}f_{n}=f
+\]
+
+\end_inset
+
+ on 
+\begin_inset Formula $\X\setminus A$
+\end_inset
+
+, we have that
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}=\lebInt{\mu}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Define 
+\begin_inset Formula $g_{n}=f_{n}\indicate_{\X\setminus A}$
+\end_inset
+
+ and observe that 
+\begin_inset Formula 
+\[
+g_{n}\leq g_{n+1}
+\]
+
+\end_inset
+
+pointwise for all 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}g_{n}=f\indicate_{\X\setminus A}.
+\]
+
+\end_inset
+
+By the standard 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:monotoneConvergenceLebInt]{monotone convergence theorem}
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{g_{n}}=\lebInt{\mu}{f\indicate_{\X\setminus A}}.
+\]
+
+\end_inset
+
+But note that since 
+\begin_inset Formula $g_{n}\stackrel{\textnormal{a.e}}{=}f_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $f\stackrel{\textnormal{a.e}}{=}f\indicate_{\X\setminus A}$
+\end_inset
+
+, by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:funcEqualityAlmostEverywhere"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}=\lim_{n\to\infty}\lebInt{\mu}{g_{n}}=\lebInt{\mu}{f\indicate_{\X\setminus A}}=\lebInt{\mu}f
+\]
+
+\end_inset
+
+which completes the proof.
 \end_layout
 
 \begin_layout Section
