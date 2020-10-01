@@ -960,6 +960,91 @@ Conversely, assume that
  which completes the proof.
 \end_layout
 
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:borelMeasurableSetsFunctions"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+ be a measurable space.
+ For any 
+\begin_inset Formula $A\subseteq\X$
+\end_inset
+
+, 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ if and only if
+\begin_inset Formula 
+\[
+\indicate_{A}:\X\longrightarrow\R
+\]
+
+\end_inset
+
+is 
+\begin_inset Formula $\F/\borel\left(\R\right)-$
+\end_inset
+
+measurable.
+\end_layout
+
+\begin_layout Proof
+First assume that 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ and observe that for any set 
+\begin_inset Formula $B\in\borel\left(\R\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\indicate_{A}^{-1}\left[B\right] & =\indicate_{A}^{-1}\left[\left(B\setminus\left\{ 0,1\right\} \right)\bigcup\left(B\cap\left\{ 0,1\right\} \right)\right]\\
+ & =\indicate_{A}^{-1}\left[B\setminus\left\{ 0,1\right\} \right]\bigcup\indicate_{A}^{-1}\left[B\cap\left\{ 0,1\right\} \right]\\
+ & =\indicate_{A}^{-1}\left[B\cap\left\{ 0,1\right\} \right]\in\F
+\end{align*}
+
+\end_inset
+
+where the second equality follows by the property of preimages and the last
+ equality follows by the fact that 
+\begin_inset Formula $\indicate_{A}^{-1}\left[B\setminus\left\{ 0,1\right\} \right]=\emptyset$
+\end_inset
+
+.
+ The inclusion on the last line then is a consequence of Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:measurableSetsFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Conversely, assume that 
+\begin_inset Formula $\indicate_{A}$
+\end_inset
+
+ is measurable and observe that since 
+\begin_inset Formula $\left\{ 1\right\} \in\borel\left(\R\right)$
+\end_inset
+
+, the results follows trivially.
+\end_layout
+
 \begin_layout Standard
 In this case, measurability of our function was easy to establish because
  the 
@@ -1893,7 +1978,7 @@ h:=\liminf_{n\to\infty}f_{n}
 
 \end_inset
 
-are measurable and if 
+are measurable (provided they exist) and if 
 \begin_inset Formula $h=g$
 \end_inset
 
@@ -1955,7 +2040,7 @@ Let
 
 \begin_inset Formula 
 \[
-f_{n}:\X\longrightarrow\R^{n}
+f_{m}:\X\longrightarrow\R^{n}
 \]
 
 \end_inset
@@ -2302,6 +2387,21 @@ In the beginning of this chapter, we foreshadowed how the indicator functions
 \end_inset
 
 .
+ Note that the properties we described for the set of real-valued measurable
+ functions on 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+ in the previous section carry over to the set of extended real valued measurabl
+e functions, as long as no weird 
+\begin_inset Formula $\infty-\infty$
+\end_inset
+
+ or 
+\begin_inset Formula $\infty\cdot0$
+\end_inset
+
+ situations arise.
 \end_layout
 
 \begin_layout Definition
@@ -4183,7 +4283,14 @@ Uniqueness of Measures
 
 \end_inset
 
- Let 
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:uniquenessMeasures"
+
+\end_inset
+
+Let 
 \begin_inset Formula $\left(\X,\mathcal{F}\right)$
 \end_inset
 
