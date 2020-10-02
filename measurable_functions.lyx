@@ -4025,24 +4025,28 @@ system for every
 \begin_inset Formula $\X\cap B=B\in\lambda\left(\mathcal{E}\right).$
 \end_inset
 
- Moreover, for any set 
-\begin_inset Formula $A\in\mathcal{D}_{B}$
+ Moreover, for any sets 
+\begin_inset Formula $A_{1},A_{2}\in\mathcal{D}_{B}$
+\end_inset
+
+ such that 
+\begin_inset Formula $A_{2}\subseteq A_{1}$
 \end_inset
 
 
 \begin_inset Formula 
 \[
-A^{C}\cap B=B\setminus\left(A\cap B\right)\in\lambda\left(\mathcal{E}\right)
+\left(A_{1}\setminus A_{2}\right)\cap B=A_{1}\cap A_{2}^{C}\cap B=A_{1}\cap B\setminus A_{2}=A_{1}\cap B\setminus A_{2}\cap B\in\lambda\left(\mathcal{E}\right)
 \]
 
 \end_inset
 
  since 
-\begin_inset Formula $A\cap B,B\in\lambda\left(\mathcal{E}\right)$
+\begin_inset Formula $A_{1}\cap B,A_{2}\cap B\in\lambda\left(\mathcal{E}\right)$
 \end_inset
 
  and 
-\begin_inset Formula $A\cap B\subseteq B$
+\begin_inset Formula $A_{2}\cap B\subseteq A_{1}\cap B$
 \end_inset
 
  (see property (ii) in Definition 
@@ -4057,7 +4061,7 @@ noprefix "false"
 
 ).
  This shows that 
-\begin_inset Formula $A^{C}\in\mathcal{D}_{B}.$
+\begin_inset Formula $A_{1}\setminus A_{2}\in\mathcal{D}_{B}.$
 \end_inset
 
  Finally, let 
