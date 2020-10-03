@@ -4697,6 +4697,11 @@ noprefix "false"
 \end_inset
 
  and so 
+\begin_inset Formula $\limsup_{n\to\infty}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \in\F$
+\end_inset
+
+ by closure under countable unions and intersections.
+ Then,
 \begin_inset Formula 
 \[
 0\leq\mu\left(\limsup_{n\to\infty}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)\leq\mu\left(A\right)=0
@@ -4708,13 +4713,8 @@ for any
 \begin_inset Formula $\epsilon>0$
 \end_inset
 
- by the fact that 
-\begin_inset Formula $\F$
-\end_inset
-
- is closed under countable unions and intersections, and the monotonicity
- of measures.
- Finally, recall that by Prop 
+ by the monotonicity of measures.
+ Finally, recall that by Proposition 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prop:limSupInfIndicator"
@@ -4758,7 +4758,18 @@ hyperref[cor:reverseFatouLemma]{reverse Fatou Lemma}
 
 \end_inset
 
-By the non-negativity of measures, our claim follows.
+By the non-negativity of measures
+\begin_inset Formula 
+\begin{align*}
+0 & \leq\liminf_{n\to\infty}\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)\\
+ & \leq\lim_{n\to\infty}\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)\\
+ & \leq\limsup_{n\to\infty}\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)\\
+ & =0
+\end{align*}
+
+\end_inset
+
+which completes the proof.
 \end_layout
 
 \begin_layout Section
