@@ -2072,7 +2072,11 @@ Note that by the continuity of the absolute value function,
 \begin_inset Formula $\left|f_{n}\right|\leq g\Longrightarrow\left|f\right|\leq g$
 \end_inset
 
- pointwise.
+ pointwise which shows 
+\begin_inset Formula $f\in\Lp 1{\mu}$
+\end_inset
+
+.
  Then, by the triangle inequality
 \begin_inset Formula 
 \[
@@ -2089,7 +2093,7 @@ for every
 \begin_inset Formula $x\in\X.$
 \end_inset
 
- Then, 
+ Note that
 \begin_inset Formula 
 \[
 \phi_{i}\left(x\right):=\sup_{n\geq i}\left|f_{n}\left(x\right)-f\left(x\right)\right|\leq2g\left(x\right)
@@ -2114,7 +2118,7 @@ for every
 \end_inset
 
 .
- Notice that 
+ Next, observe that 
 \begin_inset Formula 
 \begin{align*}
 \lim_{i\to\infty}\phi_{i} & =\limsup_{n\to\infty}\left|f_{n}-f\right|\\
@@ -2240,9 +2244,9 @@ which shows that
 We have shown results that establish interchanging limits and integrals
  when such limits exist.
  The next result makes a more general statement about interchanging limit
- superiors and inferiors of non-negative measurable functions (which always
- exist in the extended real numbers) with their integrals, although we cannot
- get strict equality.
+ inferiors of non-negative measurable functions (which always exist in the
+ extended real numbers) with their integrals, although we cannot get strict
+ equality.
 \end_layout
 
 \begin_layout Theorem
@@ -2269,15 +2273,7 @@ For any functions
 
 \begin_inset Formula 
 \[
-\lebInt{\mu}{\liminf_{n\to\infty}f_{n}}\leq\liminf_{n\to\infty}\lebInt{\mu}{f_{n}}
-\]
-
-\end_inset
-
-and
-\begin_inset Formula 
-\[
-\lebInt{\mu}{\limsup_{n\to\infty}f_{n}}\geq\limsup_{n\to\infty}\lebInt{\mu}{f_{n}}.
+\lebInt{\mu}{\liminf_{n\to\infty}f_{n}}\leq\liminf_{n\to\infty}\lebInt{\mu}{f_{n}}.
 \]
 
 \end_inset
@@ -2297,11 +2293,22 @@ Define
  pointwise and
 \begin_inset Formula 
 \[
-\liminf_{n\to\infty}f_{n}=\lim_{n\to\infty}g_{n}.
+\liminf_{n\to\infty}f_{n}=\lim_{n\to\infty}g_{n}\in\nonnegMeasurableFunctions
 \]
 
 \end_inset
 
+by Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:limSupLimInfMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
  Further, 
 \begin_inset Formula $g_{n}\leq g_{n+1}$
 \end_inset
@@ -2316,16 +2323,83 @@ Define
 
 where the fourth equality follows from the fact the when the limit exists,
  limit superiors and inferiors are both equal to the limit.
- The proof for the 
-\begin_inset Formula $\limsup$
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:reverseFatouLemma"
+
 \end_inset
 
- case is similar.
+For any functions 
+\begin_inset Formula $f_{n}\in\nonnegMeasurableFunctions$
+\end_inset
+
+ such that 
+\begin_inset Formula $f_{n}\leq g$
+\end_inset
+
+ for some 
+\begin_inset Formula $g\in\nonnegMeasurableFunctions$
+\end_inset
+
+ such that 
+\begin_inset Formula $\lebInt{\mu}g<\infty$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\limsup_{n\to\infty}f_{n}}\geq\limsup_{n\to\infty}\lebInt{\mu}{f_{n}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Define 
+\begin_inset Formula $h_{n}:=g-f_{n}\in\nonnegMeasurableFunctions$
+\end_inset
+
+ and observe that by Fatou's lemma
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\liminf_{n\to\infty}h_{n}}\leq\liminf_{n\to\infty}\lebInt{\mu}{h_{n}}.
+\]
+
+\end_inset
+
+Notice that we can rewrite the left hand side as 
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}{\liminf_{n\to\infty}h_{n}} & =\lebInt{\mu}{g+\liminf_{n\to\infty}-f_{n}}\\
+ & =\lebInt{\mu}{g-\limsup_{n\to\infty}f_{n}}\\
+ & =\lebInt{\mu}g-\lebInt{\mu}{\limsup_{n\to\infty}f_{n}}.
+\end{align*}
+
+\end_inset
+
+Similarly, we can rewrite the right hand side as 
+\begin_inset Formula 
+\[
+\liminf_{n\to\infty}\lebInt{\mu}{h_{n}}=\lebInt{\mu}g-\limsup_{n\to\infty}\lebInt{\mu}{f_{n}}.
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $\lebInt{\mu}g<\infty$
+\end_inset
+
+, we can subtract it from both sides to yield the result.
 \end_layout
 
 \begin_layout Standard
 One important application of the dominated convergence theorem is differentiatin
-g under the integral sign.
+g under the inte gral sign.
 \end_layout
 
 \begin_layout Theorem
@@ -4519,7 +4593,172 @@ f_{n}\stackrel{\mu}{\longrightarrow}f.
 \end_layout
 
 \begin_layout Standard
+It would be good to know the conditions under which one type of convergence
+ implies another, one of which we have already explored in the form of the
+ (generalized) dominated convergence theorem, which gives us sufficient
+ conditions for almost everywhere convergence implies 
+\begin_inset Formula $\mathcal{L}^{1}$
+\end_inset
 
+ convergence.
+ The next <few> results link the other types of convergence.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:finiteMeasuresAEimpliesConvInMeasures"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space such that 
+\begin_inset Formula $\mu\left(\X\right)<\infty$
+\end_inset
+
+ and let 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+f_{n}\stackrel{\text{a.e}}{\longrightarrow}f.
+\]
+
+\end_inset
+
+Then
+\begin_inset Formula 
+\[
+f_{n}\stackrel{\mu}{\longrightarrow}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Define 
+\begin_inset Formula 
+\[
+A:=\left\{ x\in\X\mid\lim_{n\to\infty}f_{n}\left(x\right)\neq f\left(x\right)\right\} 
+\]
+
+\end_inset
+
+and observe that by our hypothesis 
+\begin_inset Formula $\mu\left(A\right)=0.$
+\end_inset
+
+ Let's unpack what this means carefully.
+ Fix any 
+\begin_inset Formula $x_{0}\in A$
+\end_inset
+
+ and observe that there exists some 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $\lvert f_{n}\left(x_{0}\right)-f\left(x_{0}\right)\rvert>\epsilon$
+\end_inset
+
+ for infinitely many 
+\begin_inset Formula $n\in\N.$
+\end_inset
+
+ Recall the discussion on convergence of sets in Section 2.1 and notice that
+ we can formalize our intuition with the equalities
+\begin_inset Formula 
+\begin{align*}
+A & =\bigcup_{\epsilon>0}\bigcap_{n_{0}\in\N}\bigcup_{n\geq n_{0}}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \\
+ & =\bigcup_{\epsilon>0}\limsup_{n\to\infty}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} 
+\end{align*}
+
+\end_inset
+
+where the set 
+\begin_inset Formula $\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \in\F$
+\end_inset
+
+ by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:compositionMeasurableFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\[
+0\leq\mu\left(\limsup_{n\to\infty}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)\leq\mu\left(A\right)=0
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ by the fact that 
+\begin_inset Formula $\F$
+\end_inset
+
+ is closed under countable unions and intersections, and the monotonicity
+ of measures.
+ Finally, recall that by Prop 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:limSupInfIndicator"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\indicate_{\limsup_{n\to\infty}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} }=\limsup_{n\to\infty}\indicate_{\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} }\leq1
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\lebInt{\mu}1=\mu\left(\X\right)<\infty$
+\end_inset
+
+.
+ Then, by the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[cor:reverseFatouLemma]{reverse Fatou Lemma}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+0\leq\limsup_{n\to\infty}\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)\leq\mu\left(\limsup_{n\to\infty}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)=0.
+\]
+
+\end_inset
+
+By the non-negativity of measures, our claim follows.
 \end_layout
 
 \begin_layout Section
