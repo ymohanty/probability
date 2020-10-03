@@ -90,11 +90,26 @@ Spaces of functions
 \begin_inset Formula $\mathcal{L}^{p}$
 \end_inset
 
- spaces as Banach spaces
+ spaces as Banach spaces over 
+\begin_inset Formula $\R$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
-Inner product spaces of functions
+\begin_inset Formula $\mathcal{L}^{2}$
+\end_inset
+
+ as a Hilbert space over 
+\begin_inset Formula $\R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Introduction to inner product spaces
 \end_layout
 
 \end_body
