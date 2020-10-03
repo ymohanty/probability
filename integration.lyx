@@ -972,7 +972,7 @@ To deduce the reverse inequality, let
  such that 
 \begin_inset Formula 
 \begin{align*}
-f_{n}\left(x\right)-ts\left(x\right) & =\underbrace{\left(f\left(x\right)-ts\left(x\right)\right)}_{2\epsilon_{x}}-\underbrace{\left(f\left(x\right)-f_{n}\left(x\right)\right)}_{\epsilon_{x}}=\epsilon_{x}>0
+f_{n}\left(x\right)-ts\left(x\right) & =\underbrace{\left(f\left(x\right)-ts\left(x\right)\right)}_{2\epsilon_{x}}-\underbrace{\left(f\left(x\right)-f_{n}\left(x\right)\right)}_{\leq\epsilon_{x}}\geq\epsilon_{x}>0
 \end{align*}
 
 \end_inset
@@ -1389,7 +1389,7 @@ in short) if
 \end_inset
 
 The collection of all such functions is denoted 
-\begin_inset Formula $\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\Lp1{\X,\F,\mu}$
 \end_inset
 
 .
@@ -1401,7 +1401,7 @@ When the underlying space and
 \end_inset
 
 algebra are clear, we shall simply write 
-\begin_inset Formula $\Lp 1{\mu}.$
+\begin_inset Formula $\Lp1{\mu}.$
 \end_inset
 
  The significance of the exponent 
@@ -1423,7 +1423,7 @@ A function
 \end_inset
 
  is in 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp1{\mu}$
 \end_inset
 
  if and only if 
@@ -1475,7 +1475,7 @@ For any measure space
 \end_inset
 
 integrable functions 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp1{\mu}$
 \end_inset
 
  is a vector space over 
@@ -1496,7 +1496,7 @@ since
 
  and so we have an additive identity.
  Next, notice that 
-\begin_inset Formula $f\in\Lp 1{\mu}\Longleftrightarrow-f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}\Longleftrightarrow-f\in\Lp1{\mu}$
 \end_inset
 
  and so we have additive inverses for each function.
@@ -1508,7 +1508,7 @@ tion over addition.
 \end_inset
 
  and any functions 
-\begin_inset Formula $f,g\in\Lp 1{\mu}$
+\begin_inset Formula $f,g\in\Lp1{\mu}$
 \end_inset
 
 
@@ -1535,7 +1535,7 @@ where the first inequality follows from the triangle inequality of
 
 .
  This proves that 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp1{\mu}$
 \end_inset
 
  is closed under finite linear combinations and so is a vector space.
@@ -1624,7 +1624,7 @@ name "prop:linearityLebIntL1"
 \end_inset
 
 For any functions 
-\begin_inset Formula $f,g\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f,g\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  and scalar 
@@ -1733,7 +1733,7 @@ by linearity of
 \end_inset
 
  As 
-\begin_inset Formula $h,g,f\in\Lp 1{\mu}$
+\begin_inset Formula $h,g,f\in\Lp1{\mu}$
 \end_inset
 
 , the integrals of the individual components are not infinite and so we
@@ -1756,7 +1756,7 @@ name "cor:monotonicityLebIntL1"
 \end_inset
 
 For any functions 
-\begin_inset Formula $f,g\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f,g\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  such that 
@@ -1816,7 +1816,7 @@ name "cor:triangleIneqLebIntL1"
 \end_inset
 
 For any function 
-\begin_inset Formula $f\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f\in\Lp1{\X,\F,\mu}$
 \end_inset
 
 
@@ -2024,14 +2024,14 @@ Let
 \end_inset
 
  be a sequence of functions in 
-\begin_inset Formula $\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\Lp1{\X,\F,\mu}$
 \end_inset
 
- and let 
-\begin_inset Formula $g\in\Lp 1{\mu}$
+ and suppose there exists some 
+\begin_inset Formula $g\in\Lp1{\mu}$
 \end_inset
 
- be such that
+ such that
 \begin_inset Formula 
 \[
 \left|f_{n}\right|\leq g
@@ -2106,7 +2106,7 @@ for every
 \end_inset
 
  which proves that 
-\begin_inset Formula $\phi_{i}\in\Lp 1{\mu}$
+\begin_inset Formula $\phi_{i}\in\Lp1{\mu}$
 \end_inset
 
  for every 
@@ -2350,7 +2350,7 @@ For any
 \end_inset
 
  define 
-\begin_inset Formula $g\left(x,\theta\right)\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $g\left(x,\theta\right)\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  to be differentiable with respect to 
@@ -2379,7 +2379,7 @@ where the subscript
 
  clarifies the variable of integration.
  If there exists a function 
-\begin_inset Formula $G\in\Lp 1{\mu}$
+\begin_inset Formula $G\in\Lp1{\mu}$
 \end_inset
 
  such that 
@@ -2824,7 +2824,7 @@ noprefix "false"
 \begin_inset Formula $\measurableFunctions$
 \end_inset
 
-through Definition 
+ through Definition 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "def:integral"
@@ -3840,6 +3840,16 @@ as desired.
 \end_layout
 
 \begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Convergence almost everywhere
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "def:convAlmostEverywhere"
@@ -3850,7 +3860,7 @@ Let
 \begin_inset Formula $\left(\X,\F,\mu\right)$
 \end_inset
 
- be a measure space and define
+ be a measure space and define 
 \begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
 \end_inset
 
@@ -3899,6 +3909,16 @@ a.e (or
 \end_layout
 
 \begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Generalized monotone convergence theorem
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "thm:generalizedMonotoneConvergence"
@@ -4027,8 +4047,479 @@ noprefix "false"
 which completes the proof.
 \end_layout
 
+\begin_layout Standard
+We can similarly strengthen the dominated convergence theorem.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Generalized dominated convergence theorem
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:generalizedDominatedConvergence"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n}\in\Lp 1{\X,\F,\mu}$
+\end_inset
+
+ and suppose there exists some 
+\begin_inset Formula $g\in\Lp 1{\mu}$
+\end_inset
+
+ be such that
+\begin_inset Formula 
+\[
+\lvert f_{n}\rvert\leq g
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\mu-$
+\end_inset
+
+almost everywhere.
+ Then, if there exists some 
+\begin_inset Formula $f\in\mathcal{M}\left(\X,\F\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}f_{n}\stackrel{\textnormal{a.e}}{=}f
+\]
+
+\end_inset
+
+we have that 
+\begin_inset Formula $f\in\Lp 1{\mu}$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{\lvert f_{n}-f\rvert}=0
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}=\lebInt{\mu}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Without loss of generality
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This can be justfied by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:nullClosureCountableUnion"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, assume that there exists some set 
+\begin_inset Formula $A\in N_{\mu}$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\lvert f_{n}\left(x\right)\rvert\leq g\left(x\right)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $x\in\X\setminus A$
+\end_inset
+
+ and every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+, and that
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}f_{n}\left(x\right)=f\left(x\right)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $x\in\X\setminus A.$
+\end_inset
+
+ Then, consider the functions 
+\begin_inset Formula $h_{n}:=f_{n}\indicate_{\X\setminus A}$
+\end_inset
+
+and observe that 
+\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp 1{\mu}$
+\end_inset
+
+ since 
+\begin_inset Formula $g^{*}\stackrel{\text{a.e}}{=}g\Longrightarrow\lvert g^{*}\rvert\stackrel{\text{a.e}}{=}\lvert g\rvert\Longrightarrow\lebInt{\mu}{\lvert g^{*}\rvert}=\lebInt{\mu}{\lvert g\rvert}<\infty.$
+\end_inset
+
+ Next, note that 
+\begin_inset Formula 
+\[
+\lvert h_{n}\rvert\leq g^{*}
+\]
+
+\end_inset
+
+everywhere for each 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}h_{n}=f\indicate_{\X\setminus A}
+\]
+
+\end_inset
+
+pointwise and so, applying the usual 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:dominatedConvergenceLebInt]{dominated convergence theorem}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{h_{n}}=\lebInt{\mu}{f\indicate_{\X\setminus A}}.
+\]
+
+\end_inset
+
+As, before, by Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:LPfuncEqualityAlmostEverywhere"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}=\lim_{n\to\infty}\lebInt{\mu}{h_{n}}=\lebInt{\mu}{f\indicate_{\X\setminus A}}=\lebInt{\mu}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the context of our discussion on the equivalence between integrals and
+ measures, we had foreshadowed how the monotone convergence theorem and
+ the continuity from below of measures were basically the same concept.
+ We had also said that the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:borelCantelli]{Borel-Cantelli lemma}
+\end_layout
+
+\end_inset
+
+ could be understood through from both an integration and measure-theoretic
+ perspective.
+ We can make this precise with the following result.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:generalizedBorelCantelli"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Generalized Borel-Cantelli lemma
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\nonnegMeasurableFunctions$
+\end_inset
+
+ and let 
+\begin_inset Formula $\mu$
+\end_inset
+
+ be measure on 
+\begin_inset Formula $\F$
+\end_inset
+
+.
+ If 
+\begin_inset Formula 
+\[
+\sum_{n=1}^{\infty}\lebInt{\mu}{f_{n}}<\infty
+\]
+
+\end_inset
+
+then
+\begin_inset Formula 
+\[
+\sum_{n=1}^{\infty}f_{n}<\infty
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\mu-$
+\end_inset
+
+almost everywhere.
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}{\sum_{n=1}^{\infty}f_{n}} & =\lebInt{\mu}{\lim_{N\to\infty}\sum_{n=1}^{N}f_{n}}\\
+ & =\lim_{N\to\infty}\lebInt{\mu}{\sum_{n=1}^{N}f_{n}}\\
+ & =\sum_{n=1}^{\infty}\lebInt{\mu}{f_{n}}<\infty
+\end{align*}
+
+\end_inset
+
+where the second equality follows from the monotone convergence theorem
+ and the third equality due to the linearity of the integral.
+ By Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:intFiniteFuncFinite"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sum_{n=1}^{\infty}f_{n}<\infty
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\mu-$
+\end_inset
+
+almost everywhere.
+\end_layout
+
+\begin_layout Standard
+It should be clear that we can recover our original Borel-Cantelli lemma
+ by letting 
+\begin_inset Formula $f_{n}=\indicate_{A_{n}}$
+\end_inset
+
+for sets 
+\begin_inset Formula $\left\{ A_{n}\right\} _{n\in\N}\in\F.$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Modes of convergence for measurable functions
+\end_layout
+
+\begin_layout Standard
+So far, we have discussed two modes of convergence for measurable functions
+ explicitly: pointwise convergence and almost-everywhere convergence, the
+ latter of which is implied by the former.
+ We have also implicitly defined another type of convergence through the
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:dominatedConvergenceLebInt]{dominated convergence theorem}
+\end_layout
+
+\end_inset
+
+.
+ We can make this explicit with the following definition
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Convergence in 
+\begin_inset Formula $L^{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "def:L1Convergence"
+
+\end_inset
+
+A sequence of functions 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
+\end_inset
+
+ is said to converge to a function 
+\begin_inset Formula $f\in\Lp 1{\X,\F,\mu}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{L}^{1}$
+\end_inset
+
+ if 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{\lvert f_{n}-f\rvert}=0.
+\]
+
+\end_inset
+
+In this case, we write 
+\begin_inset Formula 
+\[
+f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Convergence in measure
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "def:convergenceInMeasure"
+
+\end_inset
+
+A sequence of functions 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+\end_inset
+
+ is said to 
+\emph on
+converge in measure 
+\emph default
+with respect to measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ on 
+\begin_inset Formula $\F$
+\end_inset
+
+ if for every 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)=0.
+\]
+
+\end_inset
+
+In this case, we write
+\begin_inset Formula 
+\[
+f_{n}\stackrel{\mu}{\longrightarrow}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Section
