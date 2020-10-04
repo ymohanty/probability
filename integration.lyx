@@ -4772,6 +4772,56 @@ By the non-negativity of measures
 which completes the proof.
 \end_layout
 
+\begin_layout Standard
+Note that if we drop the finiteness assumption the result does not hold:
+ take 
+\begin_inset Formula $\indicate_{[n,n+1]}\longrightarrow0$
+\end_inset
+
+ pointwise and the Lebesgue measure 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ on 
+\begin_inset Formula $\R$
+\end_inset
+
+ and note that for any 
+\begin_inset Formula $\epsilon\in\left(0,1\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lambda\left(\left\{ x\in\R\mid\indicate_{[n,n+1]}>\epsilon\right\} \right)=\lim_{n\to\infty}\lambda\left(\left[n,n+1\right]\right)=1.
+\]
+
+\end_inset
+
+Note that crucial failure here is that we cannot dominate 
+\begin_inset Formula $\indicate_{[n,n+1]}$
+\end_inset
+
+ uniformly (i.e.
+ for all 
+\begin_inset Formula $n$
+\end_inset
+
+) with any integrable function 
+\begin_inset Formula $g$
+\end_inset
+
+and so a violation of dominated convergence leads to a failure of convergence
+ in measure.
+\end_layout
+
+\begin_layout Standard
+The converse to this result is not true either, that is, convergence in
+ measure does not imply almost everywhere convergence, even when the measure
+ in question in is finite.
+ However, 
+\end_layout
+
 \begin_layout Section
 The Riemann integral
 \end_layout

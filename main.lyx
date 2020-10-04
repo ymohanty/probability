@@ -109,16 +109,108 @@ theorems-ams-chap-bytype
 
 \begin_body
 
-\begin_layout Title
-Yale MA 330 Course Notes: Advanced Probability
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ring}{\mathrm{ring}}
+\end_inset
+
+
 \end_layout
 
-\begin_layout Author
-Taught by: Sekhar Tatikonda (Spring 2020)
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\borel}{\mathscr{B}}
+\end_inset
+
+
 \end_layout
 
-\begin_layout Author
-Written By: Yashaswi Mohanty
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\R}{\mathds{R}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\N}{\mathds{N}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\X}{\mathcal{X}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\F}{\mathcal{F}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\measurablespace}{\left(\X,\F\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\measurableFunctions}{\mathcal{M}\left(\X,\F\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\nonnegMeasurableFunctions}{\mathcal{M}^{+}\left(\X,\F\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\lebInt}[2]{\bar{#1}\left(#2\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\indicate}{\mathds{1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Lp}[2]{\mathcal{L}^{#1}\left(#2\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\pnorm}[2]{\lVert#1\rVert_{#2}}
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -137,135 +229,16 @@ frontmatter
 
 \end_layout
 
-\begin_layout Standard
-\align center
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Math operator declarations
+\begin_layout Title
+Yale MA 330 Course Notes: Advanced Probability
 \end_layout
 
-\end_inset
-
-
+\begin_layout Author
+Taught by: Sekhar Tatikonda (Spring 2020)
 \end_layout
 
-\begin_layout Standard
-\align center
-\begin_inset FormulaMacro
-\newcommand{\ring}{\mathrm{ring}}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset FormulaMacro
-\newcommand{\borel}{\mathscr{B}}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset FormulaMacro
-\newcommand{\R}{\mathds{R}}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset FormulaMacro
-\newcommand{\N}{\mathds{N}}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset FormulaMacro
-\newcommand{\X}{\mathcal{X}}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset FormulaMacro
-\newcommand{\F}{\mathcal{F}}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset FormulaMacro
-\newcommand{\measurablespace}{\left(\X,\F\right)}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset FormulaMacro
-\newcommand{\measurableFunctions}{\mathcal{M}\left(\X,\F\right)}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset FormulaMacro
-\newcommand{\nonnegMeasurableFunctions}{\mathcal{M}^{+}\left(\X,\F\right)}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset FormulaMacro
-\newcommand{\lebInt}[2]{\bar{#1}\left(#2\right)}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset FormulaMacro
-\newcommand{\indicate}{\mathds{1}}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset FormulaMacro
-\newcommand{\Lp}[2]{\mathcal{L}^{#1}\left(#2\right)}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset FormulaMacro
-\newcommand{\pnorm}[2]{\lVert#1\rVert_{#2}}
-\end_inset
-
-
+\begin_layout Author
+Written By: Yashaswi Mohanty
 \end_layout
 
 \begin_layout Standard
