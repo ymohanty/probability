@@ -4811,7 +4811,7 @@ Note that crucial failure here is that we cannot dominate
 \begin_inset Formula $g$
 \end_inset
 
-and so a violation of dominated convergence leads to a failure of convergence
+ and so a violation of dominated convergence leads to a failure of convergence
  in measure.
 \end_layout
 
@@ -4819,7 +4819,523 @@ and so a violation of dominated convergence leads to a failure of convergence
 The converse to this result is not true either, that is, convergence in
  measure does not imply almost everywhere convergence, even when the measure
  in question in is finite.
- However, 
+ However, convergence in measure implies almost everywhere subsequential
+ convergence.
+ To show this, we will first establish a useful lemma.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:borelCantelliAEConvArgument"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space and let 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+\end_inset
+
+ be such that 
+\begin_inset Formula 
+\[
+\sum_{n=1}^{\infty}\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)<\infty
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and some 
+\begin_inset Formula $f\in\measurableFunctions.$
+\end_inset
+
+ Then
+\begin_inset Formula 
+\[
+f_{n}\stackrel{\text{a.e}}{\longrightarrow}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Applying the Borel-Cantelli lemma, we know that for each 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu\left(\limsup_{n\to\infty}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)=0.
+\]
+
+\end_inset
+
+In particular, this is true for 
+\begin_inset Formula $\epsilon=\frac{1}{p}$
+\end_inset
+
+ for every 
+\begin_inset Formula $p\in\N.$
+\end_inset
+
+ By the Archimedean property of natural numbers and our discussion in the
+ proof of Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:finiteMeasuresAEimpliesConvInMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the set
+\begin_inset Formula 
+\[
+\left\{ x\in\X\mid\lim_{n\to\infty}f_{n}\left(x\right)\neq f\left(x\right)\right\} =\bigcup_{p\in\N}\limsup_{n\to\infty}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\frac{1}{p}\right\} 
+\]
+
+\end_inset
+
+and so by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:nullClosureCountableUnion"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu\left(\left\{ x\in\X\mid\lim_{n\to\infty}f_{n}\left(x\right)\neq f\left(x\right)\right\} \right)=0
+\]
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:convInMeasureImpliesSubsequenceAE"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space and let 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+\end_inset
+
+ be a sequence of functions such that 
+\begin_inset Formula 
+\[
+f_{n}\stackrel{\mu}{\longrightarrow}f
+\]
+
+\end_inset
+
+for some 
+\begin_inset Formula $f\in\measurableFunctions.$
+\end_inset
+
+ Then there exists a sequence of natural numbers 
+\begin_inset Formula $\left\{ n_{k}\right\} _{k\in\N}$
+\end_inset
+
+such that
+\begin_inset Formula 
+\[
+f_{n_{k}}\stackrel{\text{a.e}}{\longrightarrow}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that by convergence in measure, for any 
+\begin_inset Formula $\epsilon,\delta>0$
+\end_inset
+
+ there exists some 
+\begin_inset Formula $n_{\epsilon,\delta}^{*}\in\N$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $n\geq n_{\epsilon,\delta}^{*}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)<\delta.
+\]
+
+\end_inset
+
+In particular, this is true for 
+\begin_inset Formula $\epsilon=\delta=2^{-k}$
+\end_inset
+
+ for all 
+\begin_inset Formula $k\in\N.$
+\end_inset
+
+ Define the sequence 
+\begin_inset Formula $\left\{ n_{k}\right\} _{k\in\N}$
+\end_inset
+
+by
+\begin_inset Formula 
+\[
+n_{k}:=\begin{cases}
+n_{1,1}^{*}, & k=1\\
+n_{2^{-k},2^{-k}}^{*}, & n_{k-1}<n_{2^{-k},2^{-k}}^{*}\\
+n_{2^{-k},2^{-k}}^{*}+1, & n_{k-1}=n_{2^{-k},2^{-k}}^{*}
+\end{cases}
+\]
+
+\end_inset
+
+and observe that 
+\begin_inset Formula $n_{k}$
+\end_inset
+
+ is a strictly increasing sequence of natural numbers and that 
+\begin_inset Formula 
+\[
+\sum_{k=1}^{\infty}\mu\left(\left\{ x\in\X\mid\lvert f_{n_{k}}\left(x\right)-f\left(x\right)\rvert>2^{-k}\right\} \right)<\sum_{k=1}^{\infty}2^{-k}=1<\infty.
+\]
+
+\end_inset
+
+Applying Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:borelCantelliAEConvArgument"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ furnishes the result.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:markovInequality"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Markov's inequality
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space.
+ For any function 
+\begin_inset Formula $f\in\Lp 1{\mu}$
+\end_inset
+
+ and any 
+\begin_inset Formula $a>0$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu\left(\left\{ x\in\X\mid\lvert f\left(x\right)\rvert>a\right\} \right)\leq\frac{\lebInt{\mu}{\lvert f\rvert}}{a}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note the pointwise inequality
+\begin_inset Formula 
+\[
+\alpha\indicate_{\left\{ x\in\X\mid\lvert f\left(x\right)\rvert>a\right\} }\leq\lvert f\left(x\right)\rvert
+\]
+
+\end_inset
+
+and observe that my the monotonicity of the integral
+\begin_inset Formula 
+\[
+\alpha\lebInt{\mu}{\indicate_{\{x\in\X\mid\lvert f\left(x\right)\rvert>a\}}}\leq\lebInt{\mu}f
+\]
+
+\end_inset
+
+which finishes the proof.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:L1impliesConvergenceInMeasure"
+
+\end_inset
+
+For a sequence of functions 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
+\end_inset
+
+such that 
+\begin_inset Formula 
+\[
+f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f
+\]
+
+\end_inset
+
+for some 
+\begin_inset Formula $f\in\Lp 1{\mu},$
+\end_inset
+
+ we have 
+\begin_inset Formula 
+\[
+f_{n}\stackrel{\mu}{\longrightarrow}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that for any fixed 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+0\leq\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)\leq\frac{1}{\epsilon}\lebInt{\mu}{\lvert f_{n}-f\rvert}
+\]
+
+\end_inset
+
+by the Markov inequality.
+ Taking the limit proves the result.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:egorovTheorem"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Egorov's theorem
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space such that 
+\begin_inset Formula $\mu\left(\X\right)<\infty$
+\end_inset
+
+ and fix some 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+\end_inset
+
+ is a sequence functions such that
+\begin_inset Formula 
+\[
+f_{n}\stackrel{\text{a.e}}{\longrightarrow}f
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $f\in\measurableFunctions$
+\end_inset
+
+ then there exists some 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu\left(A\right)<\epsilon$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\sup_{x\in\X\setminus A}\lvert f_{n}\left(x\right)-f\left(x\right)\rvert=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Define the set 
+\begin_inset Formula 
+\[
+A_{n,k}:=\bigcup_{i=n}^{\infty}\left\{ x\in\X\mid\lvert f_{i}\left(x\right)-f\left(x\right)\rvert>\frac{1}{k}\right\} 
+\]
+
+\end_inset
+
+and recall from our earlier discussion that 
+\begin_inset Formula 
+\[
+\mu\left(\bigcap_{n\in\N}A_{n,k}\right)=0
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $k\in\N$
+\end_inset
+
+ by almost everywhere convergence.
+ Then, since 
+\begin_inset Formula $\mu\left(\X\right)<\infty,$
+\end_inset
+
+ we can apply the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[prop:equivalenceContinuityMeasures]{continuity from above of measures}
+\end_layout
+
+\end_inset
+
+ to deduce that 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\mu\left(A_{n,k}\right)=0.
+\]
+
+\end_inset
+
+This means there exists some 
+\begin_inset Formula $n_{k}\in\N$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $n\geq n_{k}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu\left(A_{n,k}\right)<\frac{\epsilon}{2^{k}}
+\]
+
+\end_inset
+
+and so
+\begin_inset Formula 
+\[
+\mu\left(\bigcup_{k\in\N}A_{n_{k},k}\right)\leq\sum_{k=1}^{\infty}\mu\left(A_{n_{k},k}\right)\leq\epsilon.
+\]
+
+\end_inset
+
+If we let 
+\begin_inset Formula $A:=\bigcup_{k\in\N}A_{n_{k},k}$
+\end_inset
+
+ then
+\begin_inset Formula 
+\[
+\X\setminus A=\bigcap_{k\in\N}\bigcap_{i=n_{k}}^{\infty}\left\{ x\in\X\mid\lvert f_{i}\left(x\right)-f\left(x\right)\rvert\leq\frac{1}{k}\right\} .
+\]
+
+\end_inset
+
+Fix any 
+\begin_inset Formula $k\in\N$
+\end_inset
+
+, and observe that for any 
+\begin_inset Formula $n\geq n_{k}$
+\end_inset
+
+ and any 
+\begin_inset Formula $x\in\X\setminus A$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lvert f_{n}\left(x\right)-f\left(x\right)\rvert\leq\frac{1}{k}
+\]
+
+\end_inset
+
+which means 
+\begin_inset Formula 
+\[
+\sup_{x\in\X\setminus A}\lvert f_{n}\left(x\right)-f\left(x\right)\rvert\leq\frac{1}{k}.
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $k$
+\end_inset
+
+ was unspecified, we have uniform convergence.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Section
