@@ -86,18 +86,123 @@ figs-within-sections
 Spaces of functions
 \end_layout
 
-\begin_layout Section
+\begin_layout Standard
+The central objects of study in analysis are functions, and the study of
+ sets of functions is what broadly characterizes functional analysis.
+ Often, the types of function spaces studied in analysis are 
+\emph on
+vector spaces 
+\emph default
+over some field (usually 
+\begin_inset Formula $\R$
+\end_inset
+
+ or 
+\begin_inset Formula $\mathds{C})$
+\end_inset
+
+.
+ We have already seen one such space in Chapter 3: the 
+\begin_inset Formula $\mathcal{L}^{1}$
+\end_inset
+
+ space or the space of integrable functions.
+ 
+\begin_inset Formula $\mathcal{L}^{1}$
+\end_inset
+
+ spaces can be suitably generalized to allow for 
+\begin_inset Formula $p-$
+\end_inset
+
+th power integrability
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:LpSpace"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space.
+ For any 
+\begin_inset Formula $p\in\left[1,\infty\right),$
+\end_inset
+
+ the spaces 
+\begin_inset Formula 
+\[
+\mathcal{L}^{p}\left(\X,\F,\mu\right):=\left\{ f\in\measurableFunctions\mid\lebInt{\mu}{\lvert f\rvert^{p}}<\infty\right\} 
+\]
+
+\end_inset
+
+are called 
 \begin_inset Formula $\mathcal{L}^{p}$
 \end_inset
 
- spaces as Banach spaces over 
+ spaces over 
 \begin_inset Formula $\R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $p=1$
+\end_inset
+
+ we get our original integrable functions.
+ It should be clear that for any 
+\begin_inset Formula $p,q\in\left[1,\infty\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+p\geq q\Longrightarrow\Lp p{\mu}\subseteq\Lp q{\mu}.
+\]
+
+\end_inset
+
+To see this, suppose that
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\lvert f\rvert^{p}}<\infty
+\]
+
+\end_inset
+
+and let 
+\begin_inset Formula $q\leq p$
+\end_inset
+
+ be fixed.
+ 
+\begin_inset Formula 
+\[
+\lebInt{\mu}{}
+\]
+
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Section
+\begin_inset Formula $\mathcal{L}^{p}$
+\end_inset
+
+ spaces as almost Banach spaces over 
+\begin_inset Formula $\R$
+\end_inset
+
 
 \end_layout
 

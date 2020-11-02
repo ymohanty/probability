@@ -1487,7 +1487,7 @@ integrable functions
 
 \begin_layout Proof
 First observe that the zero function 
-\begin_inset Formula $\indicate_{\emptyset}\in\Lp 1{\mu}$
+\begin_inset Formula $\indicate_{\emptyset}\in\Lp1{\mu}$
 \end_inset
 
 since 
@@ -2073,7 +2073,7 @@ Note that by the continuity of the absolute value function,
 \end_inset
 
  pointwise which shows 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
 .
@@ -4143,11 +4143,11 @@ name "thm:generalizedDominatedConvergence"
 \end_inset
 
 Let 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n}\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n}\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  and suppose there exists some 
-\begin_inset Formula $g\in\Lp 1{\mu}$
+\begin_inset Formula $g\in\Lp1{\mu}$
 \end_inset
 
  be such that
@@ -4176,7 +4176,7 @@ almost everywhere.
 \end_inset
 
 we have that 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
  and
@@ -4256,7 +4256,7 @@ for all
 \end_inset
 
 and observe that 
-\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp 1{\mu}$
+\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp1{\mu}$
 \end_inset
 
  since 
@@ -5089,7 +5089,7 @@ Note the pointwise inequality
 
 \end_inset
 
-and observe that my the monotonicity of the integral
+and observe that by the monotonicity of the integral
 \begin_inset Formula 
 \[
 \alpha\lebInt{\mu}{\indicate_{\{x\in\X\mid\lvert f\left(x\right)\rvert>a\}}}\leq\lebInt{\mu}f
@@ -5294,7 +5294,7 @@ If we let
  then
 \begin_inset Formula 
 \[
-\X\setminus A=\bigcap_{k\in\N}\bigcap_{i=n_{k}}^{\infty}\left\{ x\in\X\mid\lvert f_{i}\left(x\right)-f\left(x\right)\rvert\leq\frac{1}{k}\right\} .
+\X\setminus A=\bigcap_{k\in\N}\bigcap_{i=n_{k}}^{\infty}\left\{ x\in\X\mid\left\lvert f_{i}\left(x\right)-f\left(x\right)\right\rvert \leq\frac{1}{k}\right\} .
 \]
 
 \end_inset
@@ -5332,10 +5332,6 @@ Since
 \end_inset
 
  was unspecified, we have uniform convergence.
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \begin_layout Section
