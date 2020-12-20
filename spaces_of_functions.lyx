@@ -159,37 +159,452 @@ For
 \end_inset
 
  we get our original integrable functions.
- It should be clear that for any 
-\begin_inset Formula $p,q\in\left[1,\infty\right)$
+ We will soon show that 
+\begin_inset Formula $\mathcal{L}^{p}$
 \end_inset
 
-:
+ spaces are vector spaces; in-fact, they are (semi)-normed vector spaces
+ with the (semi)-norm given by the function
 \begin_inset Formula 
 \[
-p\geq q\Longrightarrow\Lp p{\mu}\subseteq\Lp q{\mu}.
+\pnorm fp:=\lebInt{\mu}{\lvert f\rvert^{p}}^{\frac{1}{p}}.
 \]
 
 \end_inset
 
-To see this, suppose that
-\begin_inset Formula 
-\[
-\lebInt{\mu}{\lvert f\rvert^{p}}<\infty
-\]
-
+It should be clear that the function defined above satisfies the absolute
+ homogeneity aspect of norms i.e.
+ for any 
+\begin_inset Formula $\alpha\in\R$
 \end_inset
 
-and let 
-\begin_inset Formula $q\leq p$
-\end_inset
-
- be fixed.
  
 \begin_inset Formula 
 \[
-\lebInt{\mu}{}
+\pnorm{\alpha f}p=\lvert\alpha\rvert\pnorm fp.
 \]
 
+\end_inset
+
+However, our function in question fails being positive definite in that
+ 
+\begin_inset Formula $\pnorm fp=0\not\implies f=0.$
+\end_inset
+
+ In fact, all functions that are almost everywhere equal to zero are mapped
+ to zero under this function, which means that it cannot be a bonafide norm.
+ Hence, if we can show that the function satisfies the triangle inequality,
+ we can show that 
+\begin_inset Formula $\mathcal{L}^{p}$
+\end_inset
+
+ is a semi-normed vector space.
+ To do this, we will establish a series of results that will be important
+ in their own right, but shall also help us get the triangle inequality
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:amGmInequality"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left\{ a_{i}\right\} _{i=1}^{k}\in\left[0,\infty\right)$
+\end_inset
+
+ and let 
+\begin_inset Formula $\theta_{1},\ldots,\theta_{k}>0$
+\end_inset
+
+ be real numbers such that 
+\begin_inset Formula 
+\[
+\sum_{i=1}^{k}\theta_{i}=1.
+\]
+
+\end_inset
+
+Then,
+\begin_inset Formula 
+\[
+\prod_{i=1}^{k}a_{i}^{\theta_{i}}\leq\sum_{i=1}^{k}a_{i}\theta_{i}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that since the 
+\begin_inset Formula $\log\left(\cdot\right)$
+\end_inset
+
+ function is concave, by induction on the definition of concavity, we have
+ that
+\begin_inset Formula 
+\[
+\log\left(\prod_{i=1}^{k}a_{i}^{\theta_{i}}\right)=\sum_{i=1}^{k}\theta_{i}\log\left(a_{i}\right)\leq\log\left(\sum_{i=1}^{k}\theta_{i}a_{i}\right).
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $e^{x}$
+\end_inset
+
+ is a monotonic function, the inequality is preserved under exponentiation
+ which yields are result.
+\end_layout
+
+\begin_layout Remark*
+This lemma is often referred to as the inequality between arithmetic and
+ geometric means as the right hand side is the standard weighted average
+ i.e.
+ the arithmetic mean whereas the left hand side is the geometric mean.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:generalizedHolder"
+
+\end_inset
+
+Let functions 
+\begin_inset Formula $f_{1},\ldots,f_{k}\in\measurableFunctions$
+\end_inset
+
+ and let 
+\begin_inset Formula $\theta_{1},\ldots,\theta_{k}>0$
+\end_inset
+
+ be real numbers such that 
+\begin_inset Formula 
+\[
+\sum_{i=1}^{k}\theta_{i}=1.
+\]
+
+\end_inset
+
+Then, for any measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ on 
+\begin_inset Formula $\X$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\prod_{i=1}^{k}f_{i}^{\theta_{i}}}\leq\prod_{i=1}^{k}\lebInt{\mu}{f_{i}}^{\theta_{i}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First notice that if 
+\begin_inset Formula $\lebInt{\mu}{f_{i}}=0$
+\end_inset
+
+ for any 
+\begin_inset Formula $i\in\left\{ 1,\ldots,k\right\} $
+\end_inset
+
+ then by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:intZeroFuncZero"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $f_{i}=0$
+\end_inset
+
+ almost everywhere, which would imply that the left hand side is identically
+ zero.
+ This would make the inequality hold trivially.
+ Conversely, if any 
+\begin_inset Formula $\lebInt{\mu}{f_{i}}=\infty$
+\end_inset
+
+ and all 
+\begin_inset Formula $\mu\left(f_{i}\right)>0$
+\end_inset
+
+ then the right hand side is identically 
+\begin_inset Formula $\infty$
+\end_inset
+
+ which would again let the inequality hold trivially.
+\end_layout
+
+\begin_layout Proof
+Thus, without loss of generality, assume that 
+\begin_inset Formula $0<\lebInt{\mu}{f_{i}}<\infty$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+ and define 
+\begin_inset Formula 
+\[
+f_{i}^{*}=\frac{f_{i}}{\lebInt{\mu}{f_{i}}}.
+\]
+
+\end_inset
+
+Clearly, 
+\begin_inset Formula $\lebInt{\mu}{f_{i}^{*}}=1$
+\end_inset
+
+ and moreover if
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\prod_{i=1}^{k}f_{i}^{*\theta_{i}}}=\frac{\lebInt{\mu}{\prod_{i=1}^{k}f_{i}^{\theta_{i}}}}{\prod_{i=1}^{k}\lebInt{\mu}{f_{i}}^{\theta_{i}}}\leq\prod_{i=1}^{k}\lebInt{\mu}{f_{i}^{*}}^{\theta_{i}}=1
+\]
+
+\end_inset
+
+then our claim follows.
+ To show this, note that by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:amGmInequality"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\prod_{i=1}^{k}f_{i}^{*\theta_{i}}\leq\sum_{i=1}\theta_{i}f_{i}^{*}
+\]
+
+\end_inset
+
+pointwise.
+ Integrating both sides, we have 
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}{\prod_{i=1}^{k}f_{i}^{*\theta_{i}}} & \leq\lebInt{\mu}{\sum_{i=1}^{k}\theta_{i}f_{i}^{*}}\\
+ & =\sum_{i=1}^{k}\theta_{i}\lebInt{\mu}{f_{i}^{*}}\\
+ & =\sum_{i=1}^{k}\theta_{i}\\
+ & =1
+\end{align*}
+
+\end_inset
+
+where the first inequality follows from the monotonicty of the integral
+ and the first equality from the linearity of integration.
+ This completes the proof.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+H
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\begin_inset Quotes erd
+\end_inset
+
+{o}
+\end_layout
+
+\end_inset
+
+lder's inequality
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:holdersInequality"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space.
+ For any real numbers 
+\begin_inset Formula $p,q\in\left(1,\infty\right)$
+\end_inset
+
+ suc that 
+\begin_inset Formula $\frac{1}{p}+\frac{1}{q}=1$
+\end_inset
+
+ and functions 
+\begin_inset Formula $g,h\in\measurableFunctions,$
+\end_inset
+
+ we have that
+\begin_inset Formula 
+\[
+\pnorm{gh}1\leq\pnorm gp\pnorm hq.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $k=2$
+\end_inset
+
+ , 
+\begin_inset Formula $f_{1}=\lvert g\rvert^{p},f_{2}=\lvert h\rvert^{q},$
+\end_inset
+
+ 
+\begin_inset Formula $\theta_{1}=\frac{1}{p},$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta_{2}=\frac{1}{q}$
+\end_inset
+
+ and apply Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:generalizedHolder"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now we can finally establish the triangle inequality for the so-called 
+\begin_inset Formula $p-$
+\end_inset
+
+norms.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Minkowski's inequality
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:minkowskiInequality"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f,g\in\Lp p{\X,\F,\mu}$
+\end_inset
+
+ for some 
+\begin_inset Formula $p\in\left[1,\infty\right).$
+\end_inset
+
+ Then, 
+\begin_inset Formula $f+g\in\Lp p{\mu}$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+\pnorm{f+g}p\leq\pnorm fp+\pnorm gp.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that if 
+\begin_inset Formula $\lebInt{\mu}{\lvert f+g\rvert^{p}}=0$
+\end_inset
+
+ then the inequality follows trivially so let's assume that 
+\begin_inset Formula $\lebInt{\mu}{\lvert f+g\rvert^{p}}>0$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}{\lvert f+g\lvert^{p}} & =\lebInt{\mu}{\lvert f+g\rvert\lvert f+g\rvert^{p-1}}\\
+ & \leq\lebInt{\mu}{\lvert f\rvert\lvert f+g\rvert^{p-1}+\lvert g\rvert\lvert f+g\rvert^{p-1}}\\
+ & =\lebInt{\mu}{\lvert f\rvert\lvert f+g\rvert^{p-1}}+\lebInt{\mu}{\lvert g\rvert\lvert f+g\rvert^{p-1}}\\
+ & =\pnorm{f\lvert f+g\rvert^{p-1}}1+\pnorm{g\lvert f+g\rvert^{p-1}}1\\
+ & \leq\pnorm fp\pnorm{\lvert f+g\rvert^{p-1}}{\frac{p}{p-1}}+\pnorm gp\pnorm{\lvert f+g\rvert^{p-1}}{\frac{p}{p-1}}
+\end{align*}
+
+\end_inset
+
+where the first inequality follows from the triangle inequality of 
+\begin_inset Formula $\lvert\cdot\rvert$
+\end_inset
+
+ and the monotonicty of integration and the second inequality from H
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\begin_inset Quotes erd
+\end_inset
+
+{o}
+\end_layout
+
+\end_inset
+
+lder's inequality above.
+ Dividing both sides by 
+\begin_inset Formula $\pnorm{\lvert f+g\rvert^{p-1}}{\frac{p}{p-1}}=\lebInt{\mu}{\lvert f+g\rvert^{p}}^{1-\frac{1}{p}}=\frac{\lebInt{\mu}{\lvert f+g\lvert^{p}}}{\pnorm{f+g}p}$
+\end_inset
+
+ yields the result.
+ Of course, this then shows that 
+\begin_inset Formula $f+g\in\Lp p{\mu}.$
 \end_inset
 
 
