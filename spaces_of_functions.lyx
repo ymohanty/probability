@@ -1161,6 +1161,10 @@ where the second inequality follows from the monotone convergence argument
  yields the result.
 \end_layout
 
+\begin_layout Subsection
+Convexity
+\end_layout
+
 \begin_layout Section
 \begin_inset Formula $\mathcal{L}^{2}$
 \end_inset
@@ -1174,6 +1178,476 @@ where the second inequality follows from the monotone convergence argument
 
 \begin_layout Subsection
 Introduction to inner product spaces
+\end_layout
+
+\begin_layout Standard
+The inner product is a generalization of the dot product of Euclidean spaces.
+ Recall from calculus that the dot product is defined 
+\begin_inset Formula $\bullet:\R^{n}\times\R^{n}\longrightarrow\R$
+\end_inset
+
+ where
+\begin_inset Formula 
+\[
+x\bullet y:=\sum_{i=1}^{n}x_{i}y_{i}
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $x,y\in\R^{n}.$
+\end_inset
+
+ We can generalize this with the following definition.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:innerProduct"
+
+\end_inset
+
+Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be a vector space over 
+\begin_inset Formula $\R$
+\end_inset
+
+.
+ The function 
+\begin_inset Formula $\innerproduct{\cdot}{\cdot}:V\times V\longrightarrow\R$
+\end_inset
+
+ is called an
+\emph on
+ inner product 
+\emph default
+if
+\end_layout
+
+\begin_layout Definition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+innerproduct{v}{v} 
+\backslash
+geq 0$ for all $ v 
+\backslash
+in V $
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+innerproduct{v}{v} =0 
+\backslash
+implies v = 0$ for all $ v 
+\backslash
+in V $
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For any $v,w 
+\backslash
+in V: 
+\backslash
+innerproduct{v}{w} = 
+\backslash
+innerproduct{w}{v}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For any %
+\backslash
+alpha,
+\backslash
+beta 
+\backslash
+in 
+\backslash
+R$ and any $v,w,u 
+\backslash
+in V$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+innerproduct{
+\backslash
+alpha v + 
+\backslash
+beta w}{u} = 
+\backslash
+alpha
+\backslash
+innerproduct{v,u} + 
+\backslash
+beta
+\backslash
+innerproduct{w,u}.
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+If 
+\begin_inset Formula $\innerproduct{\cdot}{\cdot}$
+\end_inset
+
+ satsifies these properties then 
+\begin_inset Formula $\left(V,\innerproduct{\cdot}{\cdot}\right)$
+\end_inset
+
+ is called an 
+\emph on
+inner product space
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+The first and second properties are called the 
+\emph on
+definiteness 
+\emph default
+condition of inner products, analagous to the one for norms.
+ The third property is called 
+\emph on
+symmetry, 
+\emph default
+and the the final property is 
+\emph on
+linearity in the first argument.
+
+\emph default
+ Note that symmetry and linearity in the first argument together imply linearity
+ in the second argument.
+ Since we are ultimately concerned with basic probability theory, we shall
+ always assume the field over which 
+\begin_inset Formula $V$
+\end_inset
+
+is defined is 
+\begin_inset Formula $\R$
+\end_inset
+
+; if the field were 
+\begin_inset Formula $\mathds{C}$
+\end_inset
+
+ then the second property above would be replaced by 
+\emph on
+skew-symmetry 
+\emph default
+i.e.
+ 
+\begin_inset Formula $\innerproduct vw=\overline{\innerproduct wv}$
+\end_inset
+
+ where the 
+\begin_inset Formula $\overline{c}$
+\end_inset
+
+ for any 
+\begin_inset Formula $c\in\mathds{C}$
+\end_inset
+
+ denotes the complex conjugate.
+ In this case, proper linearity in the second argument would not hold.
+\end_layout
+
+\begin_layout Standard
+We can immediately use this properties to derive a familiar result from
+ a different context.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:innerCauchySchwarz"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(V,\innerproduct{\cdot}{\cdot}\right)$
+\end_inset
+
+ be an inner product space.
+ For any 
+\begin_inset Formula $v,w\in V$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\innerproduct vw{}^{2}\leq\innerproduct vv\innerproduct ww
+\]
+
+\end_inset
+
+and moreover, strict equality holds if and only if 
+\begin_inset Formula $v=\alpha w$
+\end_inset
+
+ for some 
+\begin_inset Formula $\alpha\in\R.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The claim is trivially true if either 
+\begin_inset Formula $v=0$
+\end_inset
+
+ or 
+\begin_inset Formula $w=0$
+\end_inset
+
+ as 
+\begin_inset Formula $\innerproduct 0w=0\innerproduct vw$
+\end_inset
+
+ by linearity.
+ Thus we can assume without loss of generality both are non-zero.
+ Write 
+\begin_inset Formula $v=\left(v-\alpha w\right)+\alpha w$
+\end_inset
+
+ where 
+\begin_inset Formula $\alpha=\frac{\innerproduct vw}{\innerproduct ww}.$
+\end_inset
+
+ Then,
+\begin_inset Formula 
+\begin{align}
+\innerproduct vv & =\innerproduct{\left(v-\alpha w\right)+\alpha w}{\left(v-\alpha w\right)+\alpha w}\nonumber \\
+ & =\innerproduct{v-\alpha w}{v-\alpha w}+2\innerproduct{\alpha w}{v-\alpha w}+\innerproduct{\alpha w}{\alpha w}\label{eq:innerProdExpansion}
+\end{align}
+
+\end_inset
+
+where the second equality follows from an application of linearity and symmetry.
+ Note that the term
+\begin_inset Formula 
+\begin{align}
+\innerproduct{\alpha w}{v-\alpha w} & =\alpha\innerproduct wv-\alpha^{2}\innerproduct ww\nonumber \\
+ & =\alpha\left(\innerproduct vw-\alpha\innerproduct ww\right)\nonumber \\
+ & =0.\label{eq:crossProdZero}
+\end{align}
+
+\end_inset
+
+Note that equations 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:innerProdExpansion"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:crossProdZero"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, together with the definiteness of inner products, imply that 
+\begin_inset Formula 
+\begin{align*}
+\innerproduct vv & \geq\innerproduct{\alpha w}{\alpha w}\\
+ & =\alpha^{2}\innerproduct ww\\
+ & =\frac{\innerproduct vw^{2}}{\innerproduct ww}
+\end{align*}
+
+\end_inset
+
+and rearranging yields the inequality.
+\end_layout
+
+\begin_layout Proof
+To see the equality result, note that 
+\begin_inset Formula $\innerproduct vv=\innerproduct{\alpha w}{\alpha w}$
+\end_inset
+
+ in equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:innerProdExpansion"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ when 
+\begin_inset Formula $\innerproduct{v-\alpha w}{v-\alpha w}=0\implies v=\alpha w$
+\end_inset
+
+ which shows the necessity.
+ To show sufficiency, let 
+\begin_inset Formula $v=\beta w$
+\end_inset
+
+ for some 
+\begin_inset Formula $\beta\in\R$
+\end_inset
+
+ and note that 
+\begin_inset Formula 
+\begin{align*}
+\innerproduct vw^{2} & =\innerproduct{\beta w}w^{2}\\
+ & =\beta^{2}\innerproduct ww^{2}\\
+ & =\beta^{2}\innerproduct ww\innerproduct ww\\
+ & =\innerproduct{\beta w}{\beta w}\innerproduct ww\\
+ & =\innerproduct vv\innerproduct ww
+\end{align*}
+
+\end_inset
+
+where the second equality follows from linearity in the first argument and
+ the fourth equality follows from linearity in both arguments.
+\end_layout
+
+\begin_layout Standard
+The relationship between inner-products and norms is a tight one; every
+ inner-product induces a norm.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:normInducedByInnerProd"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(V,\innerproduct{\cdot}{\cdot}\right)$
+\end_inset
+
+ be an inner product space and let the function 
+\begin_inset Formula $\pnorm{\cdot}{}:V\longrightarrow\R$
+\end_inset
+
+ be defined by 
+\begin_inset Formula 
+\[
+\pnorm v{}=\sqrt{\innerproduct vv}
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $v\in V$
+\end_inset
+
+.
+ Then the function 
+\begin_inset Formula $\pnorm{\cdot}{}$
+\end_inset
+
+ is a norm.
+\end_layout
+
+\begin_layout Proof
+Note that the definiteness condition of norms corresponds to the definiteness
+ condition of inner-products, and so is trivially satisfied.
+ Next, observe that for any 
+\begin_inset Formula $\alpha\in\R$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\pnorm{\alpha v}{} & =\sqrt{\innerproduct{\alpha v}{\alpha v}}\\
+ & =\sqrt{\alpha^{2}\innerproduct vv}\\
+ & =\lvert\alpha\rvert\pnorm v{}
+\end{align*}
+
+\end_inset
+
+which gives us absolute homogeneity.
+ Finally, for any 
+\begin_inset Formula $v,w\in V$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\pnorm{v+w}{}^{2} & =\innerproduct{v+w}{v+w}\\
+ & =\innerproduct vv+2\innerproduct vw+\innerproduct ww\\
+ & \leq\pnorm v{}^{2}+2\pnorm v{}\pnorm w{}+\pnorm w{}^{2}\\
+ & =\left(\pnorm v{}+\pnorm w{}\right)^{2}
+\end{align*}
+
+\end_inset
+
+where the first inequality follows from the Cauchy-Schwarz inequality.
+ This completes the proof.
 \end_layout
 
 \end_body

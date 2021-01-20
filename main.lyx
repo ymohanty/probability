@@ -199,6 +199,14 @@ theorems-ams-chap-bytype
 
 \begin_layout Standard
 \begin_inset FormulaMacro
+\newcommand{\innerproduct}[2]{\langle#1,#2\rangle}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
 \newcommand{\Lp}[2]{\mathcal{L}^{#1}\left(#2\right)}
 \end_inset
 
