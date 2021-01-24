@@ -1000,7 +1000,7 @@ hyperref[thm:generalizedMonotoneConvergence]{monotone convergence theorem}
 
 \end_inset
 
-to deduce
+ to deduce
 \begin_inset Formula 
 \begin{align}
 \lim_{k\to\infty}\pnorm{g_{k}}p & =\lim_{k\to\infty}\lebInt{\mu}{g_{k}^{p}}^{\frac{1}{p}}\nonumber \\
@@ -1165,6 +1165,17 @@ where the second inequality follows from the monotone convergence argument
 Convexity
 \end_layout
 
+\begin_layout Subsection
+\begin_inset Formula $L^{\infty}$
+\end_inset
+
+ as the limit of 
+\begin_inset Formula $L^{p}$
+\end_inset
+
+ spaces
+\end_layout
+
 \begin_layout Section
 \begin_inset Formula $\mathcal{L}^{2}$
 \end_inset
@@ -1288,7 +1299,7 @@ innerproduct{w}{v}$
 
 	
 \backslash
-item For any %
+item For any $
 \backslash
 alpha,
 \backslash
@@ -1320,11 +1331,11 @@ beta w}{u} =
 \backslash
 alpha
 \backslash
-innerproduct{v,u} + 
+innerproduct{v}{u} + 
 \backslash
 beta
 \backslash
-innerproduct{w,u}.
+innerproduct{w}{u}.
 \end_layout
 
 \begin_layout Plain Layout
@@ -1363,7 +1374,7 @@ inner product space
 \end_layout
 
 \begin_layout Standard
-The first and second properties are called the 
+The first and second properties are together called the 
 \emph on
 definiteness 
 \emph default
@@ -1384,7 +1395,7 @@ linearity in the first argument.
 \begin_inset Formula $V$
 \end_inset
 
-is defined is 
+ is defined is 
 \begin_inset Formula $\R$
 \end_inset
 
@@ -1414,11 +1425,21 @@ i.e.
 \end_layout
 
 \begin_layout Standard
-We can immediately use this properties to derive a familiar result from
+We can immediately use these properties to derive a familiar result from
  a different context.
 \end_layout
 
 \begin_layout Proposition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Cauchy-Schwarz inequality
+\end_layout
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "prop:innerCauchySchwarz"
@@ -1646,8 +1667,468 @@ which gives us absolute homogeneity.
 
 \end_inset
 
-where the first inequality follows from the Cauchy-Schwarz inequality.
+where the inequality follows from the Cauchy-Schwarz inequality.
  This completes the proof.
+\end_layout
+
+\begin_layout Standard
+We call such a norm a norm 
+\emph on
+induced by 
+\emph default
+an inner product.
+ It turns out that one can recover a norm from an inner product precisely
+ when a particular identity is satisfied.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:parallelogram"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(V,\pnorm{\cdot}{}\right)$
+\end_inset
+
+ be a normed vector space.
+ The norm 
+\begin_inset Formula $\pnorm{\cdot}{}$
+\end_inset
+
+ is said to satisfy the 
+\emph on
+parallelogram identity 
+\emph default
+if for any 
+\begin_inset Formula $v,w\in V$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\pnorm{\frac{v+w}{2}}{}^{2}+\pnorm{\frac{v-w}{2}}{}^{2}=\frac{1}{2}\left(\pnorm v{}^{2}+\pnorm w{}^{2}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Next, we need a few lemmas to aid in the proof of the main result.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:polarization"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(V,\pnorm{\cdot}{}\right)$
+\end_inset
+
+ be a normed vector space where the norm 
+\begin_inset Formula $\pnorm{\cdot}{}$
+\end_inset
+
+ satisfies the parallelogram identity.
+ Then, for any 
+\begin_inset Formula $u,v,w\in V$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\pnorm{u+v+w}{}^{2}=\pnorm{u+v}{}^{2}+\pnorm{v+w}{}^{2}+\pnorm{u+w}{}^{2}-\pnorm u{}^{2}-\pnorm v{}^{2}-\pnorm w{}^{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that by the parallelogram identity
+\begin_inset Formula 
+\begin{equation}
+\pnorm{\left(u+v\right)+w}{}^{2}=2\pnorm{u+v}{}^{2}+2\pnorm w{}^{2}-\pnorm{\left(u+v\right)-w}{}^{2}\label{eq:parallel1}
+\end{equation}
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\begin{equation}
+\pnorm{u+\left(v+w\right)}{}^{2}=2\pnorm u{}^{2}+2\pnorm{v+w}{}^{2}-\pnorm{u-v-w}{}^{2}.\label{eq:parallel2}
+\end{equation}
+
+\end_inset
+
+Adding equations 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:parallel1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:parallel2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, then dividing by two, we have that 
+\begin_inset Formula 
+\begin{align*}
+\pnorm{u+v+w}{}^{2} & =\pnorm{u+v}{}^{2}+\pnorm w{}^{2}-\frac{1}{2}\pnorm{u+v-w}{}^{2}+\pnorm u{}^{2}+\pnorm{v+w}{}^{2}-\frac{1}{2}\pnorm{u-v-w}{}^{2}\\
+ & =\pnorm{u+v}{}^{2}+\pnorm w{}^{2}+\pnorm u{}^{2}+\pnorm{v+w}{}^{2}-\pnorm{u-w}{}^{2}-\pnorm v{}^{2}\\
+ & =\pnorm{u+v}{}^{2}+\pnorm w{}^{2}+\pnorm u{}^{2}+\pnorm{v+w}{}^{2}+\pnorm{u+w}{}^{2}-2\pnorm u{}^{2}-2\pnorm w{}^{2}-\pnorm v{}^{2}\\
+ & =\pnorm{u+v}{}^{2}+\pnorm{v+w}{}^{2}+\pnorm{u+w}{}^{2}-\pnorm u{}^{2}-\pnorm v{}^{2}-\pnorm w{}^{2}
+\end{align*}
+
+\end_inset
+
+where the second equality follows from an application of the parallelogram
+ identity on 
+\begin_inset Formula $\frac{1}{2}\pnorm{u+v-w}{}^{2}+\frac{1}{2}\pnorm{u-v-w}{}^{2}$
+\end_inset
+
+ and the third equality follows from another application of the identity
+ to 
+\begin_inset Formula $\pnorm{u-w}{}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:continuityNorm"
+
+\end_inset
+
+For any norm 
+\begin_inset Formula $\pnorm{\cdot}{}$
+\end_inset
+
+ on some vector space 
+\begin_inset Formula $V$
+\end_inset
+
+, the map 
+\begin_inset Formula $\phi_{v,w}:\R\longrightarrow\R$
+\end_inset
+
+ given by
+\begin_inset Formula 
+\[
+\phi_{v,w}\left(t\right):=\frac{1}{4}\left(\pnorm{tv+w}{}^{2}-\pnorm{tv-w}{}^{2}\right)
+\]
+
+\end_inset
+
+is continuous for any 
+\begin_inset Formula $v,w\in V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Note that for any 
+\begin_inset Formula $v,w\in V$
+\end_inset
+
+, our function 
+\begin_inset Formula $\phi_{v,w}$
+\end_inset
+
+ is the composition of continous functions and thus the result follows.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The norm is continuous by the reversed triangle inequality 
+\begin_inset Formula $\lvert\pnorm x{}-\pnorm y{}\rvert\leq\pnorm{x-y}{}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:parallelogram"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(V,\pnorm{\cdot}{}\right)$
+\end_inset
+
+ be a normed vector space.
+ The norm 
+\begin_inset Formula $\pnorm{\cdot}{}$
+\end_inset
+
+ is induced by an inner product if and only if the parallelogram identity
+ is satisfied.
+\end_layout
+
+\begin_layout Proof
+First suppose that the norm 
+\begin_inset Formula $\pnorm{\cdot}{}$
+\end_inset
+
+ is induced by the inner product 
+\begin_inset Formula $\innerproduct{\cdot}{\cdot}$
+\end_inset
+
+.
+ Then, 
+\begin_inset Formula 
+\begin{align*}
+\pnorm{\frac{v+w}{2}}{}^{2}+\pnorm{\frac{v-w}{2}}{}^{2} & =\innerproduct{\frac{v+w}{2}}{\frac{v+w}{2}}+\innerproduct{\frac{v-w}{2}}{\frac{v-w}{2}}\\
+ & =\frac{1}{4}\left(\innerproduct vv+2\innerproduct vw+\innerproduct ww\right)+\frac{1}{4}\left(\innerproduct vv-2\innerproduct vw+\innerproduct ww\right)\\
+ & =\frac{1}{2}\innerproduct vv+\frac{1}{2}\innerproduct ww\\
+ & =\frac{1}{2}\left(\pnorm v{}^{2}+\pnorm w{}^{2}\right).
+\end{align*}
+
+\end_inset
+
+The harder part is showing that if a norm that satisfies the parallelogram
+ identity, there exists an inner product that induces such a norm.
+ To do so, first define a map
+\begin_inset Formula 
+\[
+\left(v,w\right):=\frac{1}{4}\left(\pnorm{v+w}{}^{2}-\pnorm{v-w}{}^{2}\right)
+\]
+
+\end_inset
+
+ and observe that 
+\begin_inset Formula 
+\[
+\left(v,v\right)=\pnorm v{}^{2}\geq0
+\]
+
+\end_inset
+
+and that 
+\begin_inset Formula $\left(v,v\right)=0$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $v=0$
+\end_inset
+
+ by the definiteness condition of norms.
+ Moreover, observe that 
+\begin_inset Formula $\left(v,w\right)=\left(w,v\right)$
+\end_inset
+
+ since
+\begin_inset Formula $\pnorm{v-w}{}=\pnorm{w-v}{}$
+\end_inset
+
+.
+ Next, note that for any 
+\begin_inset Formula $v,u,w\in V$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(v+u,w\right) & =\frac{1}{4}\left(\pnorm{v+u+w}{}^{2}-\pnorm{v+u-w}{}^{2}\right)\\
+ & =\frac{1}{4}\left(\pnorm{u+v}{}^{2}+\pnorm{v+w}{}^{2}+\pnorm{u+w}{}^{2}-\pnorm u{}^{2}-\pnorm v{}^{2}-\pnorm w{}^{2}\right.\\
+ & \ \ \ \ \left.\ \ \ -\pnorm{u+v}{}^{2}-\pnorm{v-w}{}-\pnorm{u-w}{}^{2}+\pnorm u{}^{2}+\pnorm v{}^{2}+\pnorm w{}^{2}\right)\\
+ & =\frac{1}{4}\left(\pnorm{v+w}{}^{2}-\pnorm{v-w}{}^{2}\right)+\frac{1}{4}\left(\pnorm{u+w}{}^{2}-\pnorm{u-w}{}^{2}\right)\\
+ & =\left(v,w\right)+\left(u,w\right)
+\end{align*}
+
+\end_inset
+
+where the second equality follows from Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:polarization"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ which proves additive linearity.
+\end_layout
+
+\begin_layout Proof
+In order to establish multiplicative linearity on 
+\begin_inset Formula $\R$
+\end_inset
+
+, we shall first demonstrate it on natural numbers 
+\begin_inset Formula $\N$
+\end_inset
+
+, then on integers 
+\begin_inset Formula $\mathds{Z},$
+\end_inset
+
+then on the rationals 
+\begin_inset Formula $\mathds{Q}$
+\end_inset
+
+ and finally the entire real line.
+ First, we show that for any 
+\begin_inset Formula $n\in\N:\left(nv,w\right)=n\left(v,w\right).$
+\end_inset
+
+ This follows from induction on additive linearity since
+\begin_inset Formula 
+\begin{align*}
+\left(nv,w\right) & =\left(\sum_{i=1}^{n}v,w\right)\\
+ & =\sum_{i=1}^{n}\left(v,w\right)\\
+ & =n\left(v,w\right).
+\end{align*}
+
+\end_inset
+
+Next, to show that multiplicative linearity holds over 
+\begin_inset Formula $\mathds{Z},$
+\end_inset
+
+ all we have to show is that 
+\begin_inset Formula 
+\[
+\left(0v,w\right)=0
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\left(-v,w\right)=-\left(v,w\right).
+\]
+
+\end_inset
+
+The first follows on inspection; for the second, note
+\begin_inset Formula 
+\begin{align*}
+\left(-v,w\right) & =\frac{1}{4}\left(\pnorm{w-v}{}^{2}-\pnorm{-\left(v+w\right)}{}^{2}\right)\\
+ & =\frac{1}{4}\left(\pnorm{v-w}{}^{2}-\pnorm{v+w}{}^{2}\right)\\
+ & =-\left(v,w\right)
+\end{align*}
+
+\end_inset
+
+where the second equality follows from absolute homogeneity of norms.
+ To extend the multiplicative linearity to 
+\begin_inset Formula $\mathds{Q}$
+\end_inset
+
+, consider an arbitrary 
+\begin_inset Formula $q\in\mathds{Q}$
+\end_inset
+
+ and note that by definition 
+\begin_inset Formula $q=\frac{a}{b},\left(a,b\right)\in\mathds{Z}\times\left(\mathds{Z}\setminus\left\{ 0\right\} \right)$
+\end_inset
+
+ and so
+\begin_inset Formula 
+\begin{align*}
+\left(qv,w\right) & =\left(\frac{a}{b}v,w\right)\\
+ & =a\left(\frac{v}{b},w\right)\\
+ & =\frac{a}{4}\left(\pnorm{\frac{v}{b}+w}{}^{2}-\pnorm{\frac{v}{b}-w}{}^{2}\right)\\
+ & =\frac{a}{4}\left(\pnorm{\frac{b}{b}\left(\frac{v}{b}+w\right)}{}^{2}-\pnorm{\frac{b}{b}\left(\frac{v}{b}-w\right)}{}^{2}\right)\\
+ & =\frac{a}{4b^{2}}\left(\pnorm{v+bw}{}^{2}-\pnorm{v-bw}{}^{2}\right)\\
+ & =\frac{a}{b^{2}}\left(v,bw\right)\\
+ & =\frac{a}{b}\left(v,w\right)\\
+ & =q\left(v,w\right)
+\end{align*}
+
+\end_inset
+
+where we used the linearity on 
+\begin_inset Formula $\mathds{Z}$
+\end_inset
+
+ (and symmetry) in the second and second-to-last equalities, and the absolute
+ homogeneity of norms in the fifth equality.
+ Finally, to extend this linearity to all of 
+\begin_inset Formula $\R$
+\end_inset
+
+, let 
+\begin_inset Formula $\alpha\in\R$
+\end_inset
+
+ be unspecified and observe that by the density of rational numbers in 
+\begin_inset Formula $\R$
+\end_inset
+
+, there exists a sequence 
+\begin_inset Formula $\left\{ q_{n}\right\} \in\mathds{Q}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\lim_{n\to\infty}q_{n}=\alpha$
+\end_inset
+
+ and so, 
+\begin_inset Formula 
+\begin{align*}
+\left(\alpha v,w\right) & =\left(\lim_{n\to\infty}q_{n}v,w\right)\\
+ & =\lim_{n\to\infty}\left(q_{n}v,w\right)\\
+ & =\lim_{n\to\infty}q_{n}\left(v,w\right)\\
+ & =\\alpha\left(v,w\right)
+\end{align*}
+
+\end_inset
+
+where the second equality follows by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:continuityNorm"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and the third by our linearity result on 
+\begin_inset Formula $\mathds{Q}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Together, we have shown that our function 
+\begin_inset Formula $\left(\cdot,\cdot\right):V\times V\longrightarrow\R$
+\end_inset
+
+ satisfies all the properties of the inner product, thus completing the
+ proof.
 \end_layout
 
 \end_body
