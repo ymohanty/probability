@@ -4256,7 +4256,7 @@ for all
 \end_inset
 
 and observe that 
-\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp1{\mu}$
+\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp 1{\mu}$
 \end_inset
 
  since 
@@ -5062,7 +5062,7 @@ Markov's inequality
 
  be a measure space.
  For any function 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
  and any 
@@ -5092,7 +5092,7 @@ Note the pointwise inequality
 and observe that by the monotonicity of the integral
 \begin_inset Formula 
 \[
-\alpha\lebInt{\mu}{\indicate_{\{x\in\X\mid\lvert f\left(x\right)\rvert>a\}}}\leq\lebInt{\mu}f
+\alpha\lebInt{\mu}{\indicate_{\{x\in\X\mid\lvert f\left(x\right)\rvert>a\}}}\leq\lebInt{\mu}{\lvert f\rvert}
 \]
 
 \end_inset
@@ -5120,7 +5120,7 @@ f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f
 \end_inset
 
 for some 
-\begin_inset Formula $f\in\Lp 1{\mu},$
+\begin_inset Formula $f\in\Lp1{\mu},$
 \end_inset
 
  we have 
