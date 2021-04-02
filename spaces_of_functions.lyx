@@ -1484,7 +1484,7 @@ The claim is trivially true if either
 \end_inset
 
  as 
-\begin_inset Formula $\innerproduct 0w=0\innerproduct vw$
+\begin_inset Formula $\innerproduct0w=0\innerproduct vw$
 \end_inset
 
  by linearity.
@@ -2100,7 +2100,7 @@ where we used the linearity on
 \left(\alpha v,w\right) & =\left(\lim_{n\to\infty}q_{n}v,w\right)\\
  & =\lim_{n\to\infty}\left(q_{n}v,w\right)\\
  & =\lim_{n\to\infty}q_{n}\left(v,w\right)\\
- & =\\alpha\left(v,w\right)
+ & =\alpha\left(v,w\right)
 \end{align*}
 
 \end_inset
@@ -2129,6 +2129,475 @@ Together, we have shown that our function
 
  satisfies all the properties of the inner product, thus completing the
  proof.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:L2Hilbert"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space.
+ The space 
+\begin_inset Formula $\Lp2{\X,\F,\mu}$
+\end_inset
+
+ is an inner-product space.
+\end_layout
+
+\begin_layout Proof
+Let us verify that 
+\begin_inset Formula $\Lp2{\mu}$
+\end_inset
+
+ satisfies the parallelogram identity.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{COMPLETE LATER}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Hilbert spaces
+\end_layout
+
+\begin_layout Standard
+Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:L2Hilbert"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ showed that 
+\begin_inset Formula $\Lp2{\mu}$
+\end_inset
+
+ is an inner-product space but we also know, from Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:completenessLp"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that 
+\begin_inset Formula $\Lp2{\mu}$
+\end_inset
+
+ is a complete metric space with respect to the metric induced by its norm.
+ These types of spaces play a special role in analysis and are important
+ objects of study in of themselves in functional analysis.
+ In the context of probability theory, they play a key role in the development
+ of the theory of conditional expectations and the existence of probability
+ density functions.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:hilbertSpace"
+
+\end_inset
+
+An inner product space 
+\begin_inset Formula $\left(\mathcal{H},\innerproduct{\cdot}{\cdot}\right)$
+\end_inset
+
+ is called a 
+\emph on
+Hilbert space 
+\emph default
+if it is complete with respect to the norm induced by the inner product.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:projectionThm"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Projection
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\mathcal{H},\innerproduct{\cdot}{\cdot}\right)$
+\end_inset
+
+ be a Hilbert space and let 
+\begin_inset Formula $G\subseteq\mathcal{H}$
+\end_inset
+
+ be a nonempty closed convex subset.
+ Then, for any 
+\begin_inset Formula $h\in\mathcal{H},$
+\end_inset
+
+ there exists a unique 
+\begin_inset Formula $g_{0}\in G$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\pnorm{h-g_{0}}{}=\inf_{g\in G}\pnorm{h-g}{}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\pnorm{\cdot}{}$
+\end_inset
+
+ is the norm induced by 
+\begin_inset Formula $\innerproduct{\cdot}{\cdot}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\delta_{h}:=\inf_{g\in G}\pnorm{h-g}{}$
+\end_inset
+
+ and note that by the definition of the infimum, for every 
+\begin_inset Formula $n\in\N,$
+\end_inset
+
+ there exists some 
+\begin_inset Formula $g_{n}\in G$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\delta_{h}\leq\pnorm{h-g_{n}}{}<\delta_{h}+\frac{1}{n}
+\]
+
+\end_inset
+
+and so 
+\begin_inset Formula $\lim_{n\to\infty}\pnorm{h-g_{n}}{}=\delta_{h}.$
+\end_inset
+
+ It turns out that the sequence 
+\begin_inset Formula $\left\{ g_{n}\right\} _{n\in\N}$
+\end_inset
+
+ is a Cauchy sequence in 
+\begin_inset Formula $\mathcal{H}.$
+\end_inset
+
+ To see this, fix 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ observe that by the definition of a limit and the continuity of 
+\begin_inset Formula $x\to x^{2}$
+\end_inset
+
+, there exists some 
+\begin_inset Formula $n_{0}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\pnorm{h-g_{n}}{}^{2}-\delta_{h}^{2}<\frac{\epsilon^{2}}{4}$
+\end_inset
+
+ for every 
+\begin_inset Formula $n\geq n_{0}.$
+\end_inset
+
+ By the parallelogram identity 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:parallelogram"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+with 
+\begin_inset Formula $v=h-g_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $w=h-g_{m}$
+\end_inset
+
+ where 
+\begin_inset Formula $m,n\geq n_{0}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\pnorm{h-\left(\frac{g_{m}+g_{n}}{2}\right)}{}^{2}+\pnorm{\frac{g_{n}-g_{m}}{2}}{}^{2}=\frac{1}{2}\left(\pnorm{h-g_{n}}{}^{2}+\pnorm{h-g_{m}}{}^{2}\right).
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $G$
+\end_inset
+
+ is convex, 
+\begin_inset Formula $\frac{g_{m}+g_{n}}{2}\in G$
+\end_inset
+
+ and so, again by the definition of an infimum
+\begin_inset Formula 
+\[
+\delta_{h}^{2}\leq\pnorm{h-\left(\frac{g_{m}+g_{n}}{2}\right)}{}^{2}
+\]
+
+\end_inset
+
+which implies that
+\begin_inset Formula 
+\begin{align*}
+\delta_{h}^{2}+\pnorm{\frac{g_{n}-g_{m}}{2}}{}^{2} & \leq\frac{1}{2}\left(\pnorm{h-g_{n}}{}^{2}+\pnorm{h-g_{m}}{}^{2}\right)\\
+\implies\pnorm{g_{n}-g_{m}}{}^{2} & \leq2\left(\pnorm{h-g_{n}}{}^{2}-\delta_{h}^{2}+\pnorm{h-g_{m}}{}^{2}-\delta_{h}^{2}\right)\\
+ & <2\left(\frac{\epsilon^{2}}{4}+\frac{\epsilon^{2}}{4}\right)\\
+ & =\epsilon^{2}
+\end{align*}
+
+\end_inset
+
+which then shows that 
+\begin_inset Formula $g_{n}$
+\end_inset
+
+ is Cauchy and so by the completeness of 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ converges to a limit in 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+.
+ However, since 
+\begin_inset Formula $G$
+\end_inset
+
+ is closed, it contains this limit and thus 
+\begin_inset Formula $g_{0}:=\lim_{n\to\infty}g_{n}\in G.$
+\end_inset
+
+ Finally, by Minkowski's inequality
+\begin_inset Formula 
+\begin{align*}
+\pnorm{h-g_{0}}{} & \leq\pnorm{h-g_{n}}{}+\pnorm{g_{n}-g_{0}}{}\\
+\end{align*}
+
+\end_inset
+
+and by taking limits on the RHS we have
+\begin_inset Formula 
+\[
+\pnorm{h-g_{0}}{}\leq\delta_{h}.
+\]
+
+\end_inset
+
+The definition of the infimum then implies that 
+\begin_inset Formula 
+\[
+\delta_{h}\leq\pnorm{h-g_{0}}{}
+\]
+
+\end_inset
+
+which gives equality.
+\end_layout
+
+\begin_layout Proof
+Now suppose there exists some 
+\begin_inset Formula $g_{1}\in G$
+\end_inset
+
+ such that 
+\begin_inset Formula $\pnorm{h-g_{1}}{}=\delta_{h}$
+\end_inset
+
+.
+ Then, applying the parallelogram identity 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:parallelogram"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ again with 
+\begin_inset Formula $v=h-g_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $w=h-g_{1}$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\begin{align*}
+\pnorm{h-\left(\frac{g_{0}+g_{1}}{2}\right)}{}^{2}+\pnorm{\frac{g_{0}-g_{1}}{2}}{}^{2} & =\frac{1}{2}\left(\pnorm{h-g_{0}}{}^{2}+\pnorm{h-g_{1}}{}^{2}\right)\\
+ & =\delta_{h}^{2}
+\end{align*}
+
+\end_inset
+
+Note again by convexity, 
+\begin_inset Formula $\frac{g_{0}+g_{1}}{2}\in G$
+\end_inset
+
+ and so 
+\begin_inset Formula $\pnorm{h-\left(\frac{g_{0}+g_{1}}{2}\right)}{}^{2}\geq\delta_{h}^{2}$
+\end_inset
+
+ which implies that
+\begin_inset Formula 
+\[
+\pnorm{\frac{g_{0}-g_{1}}{2}}{}^{2}\leq0
+\]
+
+\end_inset
+
+and since norms cant be negative, we have that 
+\begin_inset Formula $\pnorm{\frac{g_{0}-g_{1}}{2}}{}^{2}=0\implies g_{0}=g_{1}$
+\end_inset
+
+ by the definiteness of norms.
+\end_layout
+
+\begin_layout Remark*
+The unique vector 
+\begin_inset Formula $g_{0}\in G$
+\end_inset
+
+ described above is called the 
+\emph on
+projection 
+\emph default
+of 
+\begin_inset Formula $h$
+\end_inset
+
+ into 
+\begin_inset Formula $G$
+\end_inset
+
+ and is often denoted as 
+\begin_inset Formula $P_{G}h.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that the projection theorem holds in general for any nonempty, closed,
+ and convex subset 
+\begin_inset Formula $G$
+\end_inset
+
+ of any Hilbert space 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ but in particular it holds for any nonempty closed 
+\emph on
+subspace 
+\emph default
+of 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+, since every subspace is automatically convex.
+ However, in the case, of a subspace, the projection is 
+\emph on
+orthogonal
+\emph default
+.
+ We make this precise with the following result.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:orthProjection"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\mathcal{H},\innerproduct{\cdot}{\cdot}\right)$
+\end_inset
+
+ be a Hilbert space and let 
+\begin_inset Formula $\mathcal{G\subset\mathcal{H}}$
+\end_inset
+
+ be a closed subspace.
+ Then for any 
+\begin_inset Formula $h\in\mathcal{H}$
+\end_inset
+
+, the unique projection 
+\begin_inset Formula $P_{\mathcal{G}}h$
+\end_inset
+
+ of 
+\begin_inset Formula $h$
+\end_inset
+
+ into 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+ has the property that
+\begin_inset Formula 
+\[
+\innerproduct{h-P_{\mathcal{G}}h}g=0
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $g\in G.$
+\end_inset
+
+
 \end_layout
 
 \end_body
