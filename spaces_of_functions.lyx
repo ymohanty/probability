@@ -2594,7 +2594,152 @@ Let
 \end_inset
 
 for every 
-\begin_inset Formula $g\in G.$
+\begin_inset Formula $g\in G$
+\end_inset
+
+ and so
+\begin_inset Formula 
+\[
+\pnorm h{}^{2}=\pnorm{P_{\mathcal{G}}h}{}^{2}+\pnorm{h-P_{\mathcal{G}}h}{}^{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Fix 
+\begin_inset Formula $h\in\mathcal{H}$
+\end_inset
+
+ and observe that 
+\begin_inset Formula $\tilde{g}=P_{\mathcal{G}}h+tg\in\mathcal{G}$
+\end_inset
+
+ for any 
+\begin_inset Formula $g\in\mathcal{G}$
+\end_inset
+
+ and 
+\begin_inset Formula $t\in\R$
+\end_inset
+
+ since 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+ is a subspace and so by the projection theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:projectionThm"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\pnorm{h-P_{\mathcal{G}}h}{}^{2} & \leq\pnorm{h-\tilde{g}}{}^{2}\nonumber \\
+ & =\innerproduct{h-\tilde{g}}{h-\tilde{g}}\nonumber \\
+ & =\innerproduct{(h-P_{\mathcal{G}}h)-tg}{(h-P_{\mathcal{G}}h)-tg}\nonumber \\
+ & =\pnorm{h-P_{\mathcal{G}}h}{}^{2}-2t\innerproduct{h-P_{\mathcal{G}}h}g+t^{2}\pnorm g{}^{2}\label{eq:convxPoly}
+\end{align}
+
+\end_inset
+
+where the last equality follows by linearity of inner products.
+ Now if 
+\begin_inset Formula $\pnorm g{}=0$
+\end_inset
+
+ then 
+\begin_inset Formula $g=0$
+\end_inset
+
+ by definiteness and so 
+\begin_inset Formula $\innerproduct{h-P_{\mathcal{G}}h}g=0$
+\end_inset
+
+ by linearity.
+ Thus, assume that 
+\begin_inset Formula $\pnorm g{}>0$
+\end_inset
+
+ and so notice that equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:convxPoly"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is a convex polynomial in 
+\begin_inset Formula $t$
+\end_inset
+
+ which is minimized at 
+\begin_inset Formula $t=\frac{\innerproduct{h-P_{\mathcal{G}}h}g}{\pnorm g{}^{2}}$
+\end_inset
+
+ with minimum 
+\begin_inset Formula 
+\[
+\pnorm{h-P_{\mathcal{G}}h}{}^{2}-\frac{\innerproduct{h-P_{\mathcal{G}}h}g^{2}}{\pnorm g{}^{2}}.
+\]
+
+\end_inset
+
+But since the inequality in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:convxPoly"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ holds for any 
+\begin_inset Formula $t\in\R$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\[
+\pnorm{h-P_{\mathcal{G}}h}{}^{2}\leq\pnorm{h-P_{\mathcal{G}}h}{}^{2}-\frac{\innerproduct{h-P_{\mathcal{G}}h}g^{2}}{\pnorm g{}^{2}}
+\]
+
+\end_inset
+
+ and so
+\begin_inset Formula 
+\[
+\innerproduct{h-P_{\mathcal{G}}h}g=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Finally, observe that
+\begin_inset Formula 
+\begin{align*}
+\pnorm h{}^{2} & =\pnorm{P_{\mathcal{G}}h+\left(h-P_{\mathcal{G}}h\right)}{}^{2}\\
+ & =\pnorm{P_{\mathcal{G}}h}{}^{2}+2\innerproduct{P_{\mathcal{G}}h}{h-P_{\mathcal{G}}h}+\pnorm{h-P_{\mathcal{G}}h}{}^{2}\\
+ & =\pnorm{P_{\mathcal{G}}h}{}^{2}+\pnorm{h-P_{\mathcal{G}}h}{}^{2}
+\end{align*}
+
+\end_inset
+
+since 
+\begin_inset Formula $\innerproduct{h-P_{\mathcal{G}}h}{P_{\mathcal{G}}h}=0.$
 \end_inset
 
 
