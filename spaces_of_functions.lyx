@@ -2147,7 +2147,19 @@ Let
 \begin_inset Formula $\Lp2{\X,\F,\mu}$
 \end_inset
 
- is an inner-product space.
+ is an inner-product space with inner product 
+\begin_inset Formula $\innerproduct{\cdot}{\cdot}:\X\times\X\to\R$
+\end_inset
+
+ given by
+\begin_inset Formula 
+\[
+\innerproduct xy=\lebInt{\mu}{\lvert xy\rvert}=\pnorm{xy}1.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
@@ -2719,12 +2731,12 @@ noprefix "false"
  and so
 \begin_inset Formula 
 \[
-\innerproduct{h-P_{\mathcal{G}}h}g=0.
+\innerproduct{h-P_{\mathcal{G}}h}g=0
 \]
 
 \end_inset
 
-
+since all the terms are non-negative.
 \end_layout
 
 \begin_layout Proof
@@ -2743,6 +2755,479 @@ since
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The projection theorem for subspaces has important consequences in the theory
+ of linear functionals on Hilbert spaces.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:linearFunctionalContinuity"
+
+\end_inset
+
+Let V be a vector space and let
+\begin_inset Formula 
+\[
+\Gamma:V\to\R
+\]
+
+\end_inset
+
+be a linear functional on 
+\begin_inset Formula $V.$
+\end_inset
+
+ The functional 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ is continuous (with respect to the usual topologies) if and only if there
+ exists a constant 
+\begin_inset Formula $C\in\R$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\begin{equation}
+\lvert\Gamma\left(h\right)\rvert\leq C\pnorm h{}\label{eq:continuityConditionLinFunc}
+\end{equation}
+
+\end_inset
+
+for every 
+\begin_inset Formula $h\in V.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First, suppose that a functional 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ on satisfies the condition in
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:continuityConditionLinFunc"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Fix 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and notice that for any 
+\begin_inset Formula $h,\tilde{h}\in V$
+\end_inset
+
+, 
+\begin_inset Formula $h-\tilde{h}\in V$
+\end_inset
+
+ and so if 
+\begin_inset Formula $\pnorm{h-\tilde{h}}{}<\frac{\epsilon}{C}$
+\end_inset
+
+, then by 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:continuityConditionLinFunc"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lvert\Gamma\left(h\right)-\Gamma\left(\tilde{h}\right)\rvert=\lvert\Gamma\left(h-\tilde{h}\right)\rvert<\epsilon
+\]
+
+\end_inset
+
+which proves continuity.
+\end_layout
+
+\begin_layout Proof
+For the converse, assume that 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ is continuous and fix 
+\begin_inset Formula $\epsilon=1.$
+\end_inset
+
+ By continuity at 
+\begin_inset Formula $h=0$
+\end_inset
+
+, there exists some 
+\begin_inset Formula $\delta_{\epsilon,0}>0$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\pnorm h{}\leq\delta_{\epsilon,0}\implies\lvert\Gamma\left(h\right)\rvert\leq1
+\]
+
+\end_inset
+
+for any nonzero 
+\begin_inset Formula $h\in V.$
+\end_inset
+
+ Let 
+\begin_inset Formula $g=\frac{\delta_{\epsilon,0}h}{\pnorm h{}}$
+\end_inset
+
+ and notice that since 
+\begin_inset Formula $\pnorm g{}=\delta_{\epsilon_{0},}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lvert\Gamma\left(g\right)\rvert\leq1
+\]
+
+\end_inset
+
+which by linearity of 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ implies that
+\begin_inset Formula 
+\[
+\frac{\delta_{\epsilon,0}}{\pnorm h{}}\lvert\Gamma\left(h\right)\rvert\leq1\Longleftrightarrow\lvert\Gamma\left(h\right)\rvert\leq\frac{1}{\delta_{\epsilon,0}}\pnorm h{}
+\]
+
+\end_inset
+
+for every nonzero 
+\begin_inset Formula $h\in V$
+\end_inset
+
+.
+ Of course, if 
+\begin_inset Formula $h=0$
+\end_inset
+
+ then the final (in) equality follows trivially since both sides are identically
+ zero.
+ This completes our proof with 
+\begin_inset Formula $C=\frac{1}{\delta_{\epsilon,0}}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It turns out that every continuous linear functional on a Hilbert space
+ can be recovered as an inner product on the space.
+ This result is key to proving the existence of conditional expectations
+ and density functions in probability theory.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:rieszRep"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Riesz representation theorem
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\mathcal{H},\innerproduct{\cdot}{\cdot}\right)$
+\end_inset
+
+ be a Hilbert space and let 
+\begin_inset Formula 
+\[
+\Gamma:\mathcal{H}\to\R
+\]
+
+\end_inset
+
+be a continuous linear functional on 
+\begin_inset Formula $\mathcal{H}.$
+\end_inset
+
+ Then there exists a unique element 
+\begin_inset Formula $k\in\mathcal{H}$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\Gamma\left(h\right)=\innerproduct hk
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $h\in\mathcal{H}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\mathcal{G:=}\Gamma^{-1}\left(\left\{ 0\right\} \right)$
+\end_inset
+
+ and notice that 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+ is a closed subspace
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This type of a subspace is called the 
+\emph on
+kernel 
+\emph default
+of the operator and is often denoted
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Add macro}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ of 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ by the continuity and linearity of 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ and the fact that singletons are closed in the usual topology on 
+\begin_inset Formula $\R$
+\end_inset
+
+.
+ Note that if 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ is zero everywhere, then 
+\begin_inset Formula $g=0$
+\end_inset
+
+ uniquely satisfies the condition of the theorem.
+ Thus, assuming that 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ is not identically zero, we can find some 
+\begin_inset Formula $h_{0}\in\mathcal{H}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\Gamma\left(h_{0}\right)\neq0$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula $\tilde{h}:=\frac{h_{0}}{\pnorm{h_{0}}{}}$
+\end_inset
+
+ so that 
+\begin_inset Formula $\Gamma\left(\tilde{h}\right)=1$
+\end_inset
+
+ and observe that by Corollary 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "cor:orthProjection"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that
+\begin_inset Formula 
+\[
+\innerproduct{\tilde{h}-P_{\mathcal{G}}\tilde{h}}g=0
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $g\in\mathcal{\mathcal{G}}.$
+\end_inset
+
+ Let 
+\begin_inset Formula $k_{0}:=\tilde{h}-P_{\mathcal{G}}\tilde{h}$
+\end_inset
+
+ and note that by linearity
+\begin_inset Formula 
+\begin{align*}
+\Gamma\left(k_{0}\right) & =\Gamma\left(\tilde{h}\right)-\Gamma\left(P_{\mathcal{G}}\tilde{h}\right)\\
+ & =1
+\end{align*}
+
+\end_inset
+
+since 
+\begin_inset Formula $P_{\mathcal{G}}\tilde{h}\in\mathcal{G}.$
+\end_inset
+
+ By continuity and Proposition 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "prop:linearFunctionalContinuity"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+1=\Gamma\left(k_{0}\right)\leq C\pnorm{k_{0}}{}
+\]
+
+\end_inset
+
+for some real 
+\begin_inset Formula $C$
+\end_inset
+
+ which implies that 
+\begin_inset Formula $\pnorm{k_{0}}{}>0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Next, observe that for any 
+\begin_inset Formula $h\in\mathcal{H}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+h-\Gamma\left(h\right)k_{0}\in\mathcal{G}
+\]
+
+\end_inset
+
+since
+\begin_inset Formula 
+\begin{align*}
+\Gamma\left(h-\Gamma\left(h\right)k_{0}\right) & =\Gamma\left(h\right)-\Gamma\left(h\right)\Gamma\left(k_{0}\right)\\
+ & =\Gamma\left(h\right)-\Gamma\left(h\right)\\
+ & =0
+\end{align*}
+
+\end_inset
+
+where the second equality follows from the fact that 
+\begin_inset Formula $\Gamma\left(k_{0}\right)=1.$
+\end_inset
+
+ This implies that 
+\begin_inset Formula 
+\[
+\innerproduct{k_{0}}{h-\Gamma\left(h\right)k_{0}}=0
+\]
+
+\end_inset
+
+which by linearity of inner products reduces to
+\begin_inset Formula 
+\[
+\innerproduct{k_{0}}h=\Gamma\left(h\right)\pnorm{k_{0}}{}^{2}.
+\]
+
+\end_inset
+
+Recall that 
+\begin_inset Formula $\pnorm{k_{0}}{}>0$
+\end_inset
+
+ and so we can rearrange and apply linearity once again to deduce
+\begin_inset Formula 
+\[
+\Gamma\left(h\right)=\innerproduct h{\frac{k_{0}}{\pnorm{k_{0}}{}^{2}}}
+\]
+
+\end_inset
+
+which completes the existence part of the proof.
+\end_layout
+
+\begin_layout Proof
+To see that the representation is unique, note that if 
+\begin_inset Formula $k_{1},k_{2}\in\mathcal{H}$
+\end_inset
+
+ are both valid representers then
+\begin_inset Formula 
+\begin{align*}
+0 & =\innerproduct h{k_{1}}-\innerproduct h{k_{2}}\\
+ & =\innerproduct h{k_{1}-k_{2}}
+\end{align*}
+
+\end_inset
+
+for any 
+\begin_inset Formula $h\in\mathcal{H}.$
+\end_inset
+
+ In particular, this holds 
+\begin_inset Formula $h=k_{1}-k_{2}$
+\end_inset
+
+ in which case
+\begin_inset Formula 
+\[
+\pnorm{k_{1}-k_{2}}{}^{2}=0\implies k_{1}=k_{2}
+\]
+
+\end_inset
+
+completing the proof.
 \end_layout
 
 \end_body

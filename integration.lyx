@@ -3095,19 +3095,39 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-These two ways of constructing new measures from existing measures using
- a non-negative measurable function can be combined to yield an interesting
- result, which is often referred to as the 
-\emph on
-law of the unconscious statistician 
-\emph default
-in the probability and statistics literature.
+Recall from Proposition
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "prop:sumOfCountableMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that the countable sum of measures on 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+ is a measure on 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+.
+ The integral resulting from this compound measure can be decomposed into
+ the integrals from constituent summand measures in certain situations.
 \end_layout
 
-\begin_layout Proposition
-\begin_inset CommandInset label
-LatexCommand label
-name "prop:lawUnconsciousStatistician"
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{ADD INTEGRAL OF SUM OF MEASURES}
+\end_layout
 
 \end_inset
 
@@ -5108,7 +5128,7 @@ name "prop:L1impliesConvergenceInMeasure"
 \end_inset
 
 For a sequence of functions 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp1{\X,\F,\mu}$
 \end_inset
 
 such that 
