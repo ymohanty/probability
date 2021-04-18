@@ -2424,7 +2424,7 @@ For any
 \end_inset
 
  define 
-\begin_inset Formula $g\left(x,\theta\right)\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $g\left(x,\theta\right)\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
  to be differentiable with respect to 
@@ -2453,7 +2453,7 @@ where the subscript
 
  clarifies the variable of integration.
  If there exists a function 
-\begin_inset Formula $G\in\Lp1{\mu}$
+\begin_inset Formula $G\in\Lp 1{\mu}$
 \end_inset
 
  such that 
@@ -4118,13 +4118,13 @@ almost everywhere.
 Assume the hypothesis is true and define
 \begin_inset Formula 
 \[
-F:=\left\{ x\in\X\mid f\left(x\right)\neq g\left(x\right)\right\} =\underbrace{\left\{ x\in\X\mid f\left(x\right)>g\left(x\right)\right\} }_{A_{1}}\bigcup\underbrace{\left\{ x\in\X\mid f\left(x\right)<g\left(x\right)\right\} }_{A_{2}}
+A:=\left\{ x\in\X\mid f\left(x\right)\neq g\left(x\right)\right\} =\underbrace{\left\{ x\in\X\mid f\left(x\right)>g\left(x\right)\right\} }_{A_{1}}\bigcup\underbrace{\left\{ x\in\X\mid f\left(x\right)<g\left(x\right)\right\} }_{A_{2}}
 \]
 
 \end_inset
 
 and suppose for contradiction that 
-\begin_inset Formula $\mu\left(F\right)>0.$
+\begin_inset Formula $\mu\left(A\right)>0.$
 \end_inset
 
  Then one of 
@@ -4455,11 +4455,11 @@ name "thm:generalizedDominatedConvergence"
 \end_inset
 
 Let 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n}\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n}\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
  and suppose there exists some 
-\begin_inset Formula $g\in\Lp1{\mu}$
+\begin_inset Formula $g\in\Lp 1{\mu}$
 \end_inset
 
  be such that
@@ -4488,7 +4488,7 @@ almost everywhere.
 \end_inset
 
 we have that 
-\begin_inset Formula $f\in\Lp1{\mu}$
+\begin_inset Formula $f\in\Lp 1{\mu}$
 \end_inset
 
  and
@@ -4568,7 +4568,7 @@ for all
 \end_inset
 
 and observe that 
-\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp1{\mu}$
+\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp 1{\mu}$
 \end_inset
 
  since 
@@ -4811,11 +4811,11 @@ name "def:L1Convergence"
 \end_inset
 
 A sequence of functions 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
  is said to converge to a function 
-\begin_inset Formula $f\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $f\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
  in 

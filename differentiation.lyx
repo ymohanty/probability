@@ -86,8 +86,648 @@ figs-within-sections
 Differentiation
 \end_layout
 
-\begin_layout Standard
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
 
+\begin_layout Plain Layout
+Radon-Nikodym
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:radonNikodym"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+ be a measurable space.
+ If 
+\begin_inset Formula $\mu,\nu$
+\end_inset
+
+ are two 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measures on 
+\begin_inset Formula $\F$
+\end_inset
+
+such that 
+\begin_inset Formula $\nu<<\mu$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $\mu\left(F\right)=0\implies\nu\left(F\right)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $F\in\F$
+\end_inset
+
+, then there exists some (
+\begin_inset Formula $\mu$
+\end_inset
+
+-almost everywhere unique) non-negative (
+\begin_inset Formula $\mu$
+\end_inset
+
+-almost everywhere) measurable function 
+\begin_inset Formula $k\in\nonnegMeasurableFunctions$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\nu\left(A\right)=\lebInt{\mu}{k\indicate_{A}}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+We first prove this theorem for finite measures and then bootstrap the results
+ to 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measures.
+ Define the measure 
+\begin_inset Formula $\psi:=\mu+\nu$
+\end_inset
+
+ and observe that by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:integralSumOfMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\lebInt{\psi}f=\lebInt{\mu}f+\lebInt{\nu}f.
+\]
+
+\end_inset
+
+Next define an operator 
+\begin_inset Formula 
+\[
+\Gamma:\Lp 2{\psi}\longrightarrow\R
+\]
+
+\end_inset
+
+by
+\begin_inset Formula 
+\[
+\Gamma\left(f\right):=\lebInt{\nu}f
+\]
+
+\end_inset
+
+and notice that 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ is a continuous linear functional by a slight variant of the argument presented
+ in the proof of Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:integrationContinuousLinearFunctional"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, using the fact that 
+\begin_inset Formula $\mu\left(\X\right),\nu\left(\X\right)<\infty$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\mathcal{L}^{2}\left(\psi\right)$
+\end_inset
+
+ is a Hilbert space by Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:L2Hilbert"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:completenessLp"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the Riesz representation theorem tells us there exists an (almost 
+\begin_inset Formula $\psi-$
+\end_inset
+
+everywhere unique) function 
+\begin_inset Formula $h\in\Lp 2{\psi}$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\begin{align*}
+\Gamma\left(f\right) & =\innerproduct fh
+\end{align*}
+
+\end_inset
+
+for every 
+\begin_inset Formula $f\in\Lp 2{\psi}.$
+\end_inset
+
+ Of course, in the context of 
+\begin_inset Formula $\mathcal{L}^{2}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{equation}
+\innerproduct fh=\pnorm{fh}1=\lebInt{\psi}{fh}=\lebInt{\mu}{fh}+\lebInt{\nu}{fh}.\label{eq:rieszRepresenterL2}
+\end{equation}
+
+\end_inset
+
+Next consider the following measurable partition of 
+\begin_inset Formula $\X$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+N:=\left\{ x\in\X\mid h\left(x\right)<0\right\} ,M:=\left\{ x\in\X\mid0\leq h\left(x\right)<1\right\} ,P:=\left\{ x\in\X\mid h\left(x\right)\geq1\right\} .
+\]
+
+\end_inset
+
+Note that by the fact that 
+\begin_inset Formula $0\geq h\indicate_{N}$
+\end_inset
+
+ and the monotonicity of integration
+\begin_inset Formula 
+\begin{align*}
+0 & \geq\lebInt{\psi}{h\indicate_{N}}\\
+ & =\lebInt{\mu}{h\indicate_{N}}+\lebInt{\nu}{h\indicate_{N}}\\
+ & =\lebInt{\nu}{\indicate_{N}}
+\end{align*}
+
+\end_inset
+
+where the last equality is due to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rieszRepresenterL2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ But since 
+\begin_inset Formula $\lebInt{\nu}{\indicate_{N}}=\nu\left(N\right),$
+\end_inset
+
+we have 
+\begin_inset Formula $\nu\left(N\right)=0$
+\end_inset
+
+ by non-negativity of measures.
+ Then
+\begin_inset Formula 
+\[
+\lebInt{\mu}{h\indicate_{N}}+\lebInt{\nu}{h\indicate_{N}}=0
+\]
+
+\end_inset
+
+where the second term is automatically zero since 
+\begin_inset Formula $h\indicate_{N}\stackrel{\nu-\text{a.e}}{=}0$
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula 
+\[
+\lebInt{\mu}{h\indicate_{N}}=0
+\]
+
+\end_inset
+
+which by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:intZeroFuncZero"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ implies that
+\begin_inset Formula 
+\[
+h\indicate_{N}\stackrel{\mu-\text{a.e}}{=}0\implies\mu\left(N\right)=0
+\]
+
+\end_inset
+
+and so both 
+\begin_inset Formula $\mu\left(N\right)=\nu\left(N\right)=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+On the other hand, observe that 
+\begin_inset Formula 
+\begin{align*}
+\Gamma\left(\indicate_{P}\right) & =\nu\left(P\right)\\
+ & =\lebInt{\mu}{h\indicate_{P}}+\lebInt{\nu}{h\indicate_{P}}\\
+ & \geq\mu\left(P\right)+\nu\left(P\right)
+\end{align*}
+
+\end_inset
+
+where the inequality follows from the fact that 
+\begin_inset Formula $h\indicate_{P}\geq\indicate_{P}$
+\end_inset
+
+ and the monotonicity of the integral.
+ Since 
+\begin_inset Formula $\nu\left(P\right)<\infty$
+\end_inset
+
+ as 
+\begin_inset Formula $\nu$
+\end_inset
+
+ is a finite measure, we can subtract if from both sides of the inequality
+ to deduce
+\begin_inset Formula 
+\[
+\mu\left(P\right)\leq0
+\]
+
+\end_inset
+
+ which reduces to equality by the non-negativity of measures.
+ Absolute continuity of 
+\begin_inset Formula $\nu$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $\mu$
+\end_inset
+
+ then implies that 
+\begin_inset Formula $\nu\left(P\right)=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+To control the final piece of the partition, observe that we can use the
+ definition 
+\begin_inset Formula $\Gamma\left(f\right)=\lebInt{\nu}f$
+\end_inset
+
+ and Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rieszRepresenterL2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ together to deduce (since all terms are finite) that
+\begin_inset Formula 
+\[
+\lebInt{\nu}f-\lebInt{\nu}{fh}=\lebInt{\mu}{fh}.
+\]
+
+\end_inset
+
+By linearity this reduces to
+\begin_inset Formula 
+\begin{equation}
+\lebInt{\nu}{\left(1-h\right)f}=\lebInt{\mu}{hf}.\label{eq:oneminusH}
+\end{equation}
+
+\end_inset
+
+Finally, notice that
+\begin_inset Formula 
+\begin{align*}
+\nu\left(M\right) & =\lebInt{\nu}{\indicate_{M}\frac{1-h}{1-h}}\\
+ & =\lebInt{\mu}{\indicate_{M}\frac{h}{1-h}}\\
+ & =\lebInt{\mu}{\indicate_{M}\frac{h}{1-h}}+\lebInt{\mu}{\indicate_{N\cup B}\frac{h}{1-h}}\\
+ & =\lebInt{\mu}{\frac{h}{1-h}}
+\end{align*}
+
+\end_inset
+
+where the second equality is due to 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:oneminusH"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the third equality is due to the fact that 
+\begin_inset Formula $\mu\left(B\right)=\mu\left(N\right)=0$
+\end_inset
+
+ and the last equality is due to the linearity of integration.
+ Then for any 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\nu\left(M\cap A\right)=\lebInt{\mu}{\frac{h}{1-h}\indicate_{A}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Letting 
+\begin_inset Formula $k=\frac{h}{1-h}$
+\end_inset
+
+ we have that 
+\begin_inset Formula 
+\[
+\mu\left(\left\{ x\in\X\mid k\left(x\right)\notin\left[0,1\right]\right\} \right)=0
+\]
+
+\end_inset
+
+since 
+\begin_inset Formula $\mu\left(N\right)=\mu\left(P\right)=0.$
+\end_inset
+
+ In particular, 
+\begin_inset Formula $k$
+\end_inset
+
+ is 
+\begin_inset Formula $\mu-$
+\end_inset
+
+almost everywhere non-negative and
+\begin_inset Formula 
+\begin{align*}
+\nu\left(A\right) & =\nu\left(\left(A\cap N\right)\cup\left(A\cap M\right)\cup\left(A\cap P\right)\right)\\
+ & =\nu\left(A\cap N\right)+\nu\left(A\cap M\right)+\nu\left(A\cap P\right)\\
+ & =\lebInt{\mu}{k\indicate_{A}}
+\end{align*}
+
+\end_inset
+
+where the first equality follows from the fact that 
+\begin_inset Formula $N,M,$
+\end_inset
+
+ and 
+\begin_inset Formula $P$
+\end_inset
+
+ form a partition of 
+\begin_inset Formula $\X$
+\end_inset
+
+, the second equality by finite additivity, and the final equality by the
+ fact that 
+\begin_inset Formula $N$
+\end_inset
+
+ and 
+\begin_inset Formula $P$
+\end_inset
+
+ are both 
+\begin_inset Formula $\nu-$
+\end_inset
+
+null sets.
+ This concludes the 
+\begin_inset Quotes eld
+\end_inset
+
+existence
+\begin_inset Quotes erd
+\end_inset
+
+ portion of the proof.
+\end_layout
+
+\begin_layout Proof
+To see that 
+\begin_inset Formula $k$
+\end_inset
+
+ is the (
+\begin_inset Formula $\mu-$
+\end_inset
+
+almost everywhere) unique such function, suppose that 
+\begin_inset Formula $k_{1},k_{2}\in\nonnegMeasurableFunctions$
+\end_inset
+
+ both satisfy the hypothesis.
+ Then, we have for every 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lebInt{\mu}{k\indicate_{A}}=\lebInt{\mu}{k\indicate_{A}}
+\]
+
+\end_inset
+
+which by Proposition
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:intEqualFuncEqual"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ implies that 
+\begin_inset Formula $k_{1}\stackrel{\mu-\text{a.e}}{=}k_{2}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+In order to extend the theorem to 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measures, we shall successively apply the finite measure version.
+ Note that if 
+\begin_inset Formula $\nu$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu$
+\end_inset
+
+ are 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite, we can find a disjoint countable sequence 
+\begin_inset Formula $\left\{ E_{i}\right\} _{i\in\N}\in\F$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\bigcup_{i\in\N}E_{i}=\X
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula $\mu\left(E_{i}\right),\nu\left(E_{i}\right)<\infty$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+ by applying the arguments from Propositions
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:equivSigmaFinite"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:sumSigmaFiniteMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Then, defining 
+\begin_inset Formula 
+\begin{align*}
+\nu_{i}\left(A\right) & :=\nu\left(A\cap E_{i}\right),\\
+\mu_{i}\left(A\right) & :=\mu\left(A\cap E_{i}\right)
+\end{align*}
+
+\end_inset
+
+we can easily verify that these new functions are in fact finite measures
+ on 
+\begin_inset Formula $\F$
+\end_inset
+
+ such that 
+\begin_inset Formula $\nu_{i}<<\mu_{i}$
+\end_inset
+
+ and so we can apply the finite version of the theorem to yield (
+\begin_inset Formula $\mu-$
+\end_inset
+
+a.e) unique functions 
+\begin_inset Formula $k_{i}\in\nonnegMeasurableFunctions$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\nu_{i}\left(A\right)=\lebInt{\mu_{i}}{k_{i}\indicate_{A}}=\lebInt{\mu}{k_{i}\indicate_{E_{i}}\indicate_{A}}
+\]
+
+\end_inset
+
+where the last equality can be seen by first showing it for simple functions
+ and then approximating non-negative measurable functions by simple functions.
+ Applying countable additivity and the monotone convergence theorem, we
+ have
+\begin_inset Formula 
+\begin{align*}
+\nu\left(A\right) & =\sum_{i=1}^{\infty}v_{i}\left(A\right)\\
+ & =\sum_{i=1}^{\infty}\lebInt{\mu}{k_{i}\indicate_{E_{i}}\indicate_{A}}\\
+ & =\lebInt{\mu}{\indicate_{A}\sum_{i=1}^{\infty}k_{i}\indicate_{E_{i}}}\\
+ & =\lebInt{\mu}{k\indicate_{A}}
+\end{align*}
+
+\end_inset
+
+for all 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ where 
+\begin_inset Formula $k:=\sum_{i\in\N}k_{i}\indicate_{E_{i}}.$
+\end_inset
+
+ This completes the existence part of the proof; uniqueness follows again
+ by the argument we used earlier in the finite case.
 \end_layout
 
 \end_body
