@@ -288,7 +288,7 @@ Next consider the following measurable partition of
 
 \begin_inset Formula 
 \[
-N:=\left\{ x\in\X\mid h\left(x\right)<0\right\} ,M:=\left\{ x\in\X\mid0\leq h\left(x\right)<1\right\} ,P:=\left\{ x\in\X\mid h\left(x\right)\geq1\right\} .
+N:=\left\{ x\in\X\mid h\left(x\right)<0\right\} ,M:=\left\{ x\in\X\mid0\leq h\left(x\right)<1\right\} ,G:=\left\{ x\in\X\mid h\left(x\right)\geq1\right\} .
 \]
 
 \end_inset
@@ -377,20 +377,20 @@ and so both
 On the other hand, observe that 
 \begin_inset Formula 
 \begin{align*}
-\Gamma\left(\indicate_{P}\right) & =\nu\left(P\right)\\
- & =\lebInt{\mu}{h\indicate_{P}}+\lebInt{\nu}{h\indicate_{P}}\\
- & \geq\mu\left(P\right)+\nu\left(P\right)
+\Gamma\left(\indicate_{G}\right) & =\nu\left(G\right)\\
+ & =\lebInt{\mu}{h\indicate_{G}}+\lebInt{\nu}{h\indicate_{G}}\\
+ & \geq\mu\left(G\right)+\nu\left(G\right)
 \end{align*}
 
 \end_inset
 
 where the inequality follows from the fact that 
-\begin_inset Formula $h\indicate_{P}\geq\indicate_{P}$
+\begin_inset Formula $h\indicate_{G}\geq\indicate_{G}$
 \end_inset
 
  and the monotonicity of the integral.
  Since 
-\begin_inset Formula $\nu\left(P\right)<\infty$
+\begin_inset Formula $\nu\left(G\right)<\infty$
 \end_inset
 
  as 
@@ -401,7 +401,7 @@ where the inequality follows from the fact that
  to deduce
 \begin_inset Formula 
 \[
-\mu\left(P\right)\leq0
+\mu\left(G\right)\leq0
 \]
 
 \end_inset
@@ -416,7 +416,7 @@ where the inequality follows from the fact that
 \end_inset
 
  then implies that 
-\begin_inset Formula $\nu\left(P\right)=0.$
+\begin_inset Formula $\nu\left(G\right)=0.$
 \end_inset
 
 
@@ -460,7 +460,7 @@ Finally, notice that
 \begin{align*}
 \nu\left(M\right) & =\lebInt{\nu}{\indicate_{M}\frac{1-h}{1-h}}\\
  & =\lebInt{\mu}{\indicate_{M}\frac{h}{1-h}}\\
- & =\lebInt{\mu}{\indicate_{M}\frac{h}{1-h}}+\lebInt{\mu}{\indicate_{N\cup B}\frac{h}{1-h}}\\
+ & =\lebInt{\mu}{\indicate_{M}\frac{h}{1-h}}+\lebInt{\mu}{\indicate_{N\cup G}\frac{h}{1-h}}\\
  & =\lebInt{\mu}{\frac{h}{1-h}}
 \end{align*}
 
@@ -477,7 +477,7 @@ noprefix "false"
 \end_inset
 
 , the third equality is due to the fact that 
-\begin_inset Formula $\mu\left(B\right)=\mu\left(N\right)=0$
+\begin_inset Formula $\mu\left(G\right)=\mu\left(N\right)=0$
 \end_inset
 
  and the last equality is due to the linearity of integration.
@@ -504,28 +504,20 @@ Letting
  we have that 
 \begin_inset Formula 
 \[
-\mu\left(\left\{ x\in\X\mid k\left(x\right)\notin\left[0,1\right]\right\} \right)=0
+\mu\left(\left\{ x\in\X\mid k\left(x\right)\leq0\right\} \right)=0
 \]
 
 \end_inset
 
 since 
-\begin_inset Formula $\mu\left(N\right)=\mu\left(P\right)=0.$
+\begin_inset Formula $\mu\left(N\right)=\mu\left(G\right)=0.$
 \end_inset
 
- In particular, 
-\begin_inset Formula $k$
-\end_inset
-
- is 
-\begin_inset Formula $\mu-$
-\end_inset
-
-almost everywhere non-negative and
+ Therefore
 \begin_inset Formula 
 \begin{align*}
-\nu\left(A\right) & =\nu\left(\left(A\cap N\right)\cup\left(A\cap M\right)\cup\left(A\cap P\right)\right)\\
- & =\nu\left(A\cap N\right)+\nu\left(A\cap M\right)+\nu\left(A\cap P\right)\\
+\nu\left(A\right) & =\nu\left(\left(A\cap N\right)\cup\left(A\cap M\right)\cup\left(A\cap G\right)\right)\\
+ & =\nu\left(A\cap N\right)+\nu\left(A\cap M\right)+\nu\left(A\cap G\right)\\
  & =\lebInt{\mu}{k\indicate_{A}}
 \end{align*}
 
@@ -536,7 +528,7 @@ where the first equality follows from the fact that
 \end_inset
 
  and 
-\begin_inset Formula $P$
+\begin_inset Formula $G$
 \end_inset
 
  form a partition of 
@@ -549,7 +541,7 @@ where the first equality follows from the fact that
 \end_inset
 
  and 
-\begin_inset Formula $P$
+\begin_inset Formula $G$
 \end_inset
 
  are both 
@@ -594,7 +586,7 @@ almost everywhere) unique such function, suppose that
 
 \end_inset
 
-which by Proposition
+which by Proposition 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prop:intEqualFuncEqual"
@@ -649,7 +641,7 @@ and
 \begin_inset Formula $i\in\N$
 \end_inset
 
- by applying the arguments from Propositions
+ by applying the arguments from Propositions 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prop:equivSigmaFinite"
