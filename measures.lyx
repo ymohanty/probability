@@ -4600,8 +4600,8 @@ Assuming (i), let
 
 \end_inset
 
-where the first and last equality are due to finite additivity and the finitenes
-s of 
+where the first and last equality are due to finite additivity, the finiteness
+ of 
 \begin_inset Formula $\mu.$
 \end_inset
 
@@ -4740,8 +4740,540 @@ noprefix "false"
  This completes the proof.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
+\begin_inset Formula $\sigma-$
+\end_inset
 
+finite measure spaces
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:sigmaFinite"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space.
+ The measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is said to be 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+
+\emph on
+finite 
+\emph default
+if there exists some increasing sequence of sets 
+\begin_inset Formula $\left\{ E_{i}\right\} _{i\in\N}\in\F$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu\left(E_{i}\right)<\infty$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\bigcup_{i\in\N}E_{i}=\X.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Describe the Lebesgue measure on real line as a canonical example of
+ a sigma-finite measure}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:equivSigmaFinite"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space.
+ The measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ being 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite is equivalent to any of the following conditions
+\end_layout
+
+\begin_layout Proposition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=0.15
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item There exists some 
+\backslash
+textbf{pairwise disjoint} countable collection of sets $
+\backslash
+{A_i
+\backslash
+}_{i
+\backslash
+in
+\backslash
+N} 
+\backslash
+in 
+\backslash
+F$ such that $ 
+\backslash
+mu
+\backslash
+left(A_i
+\backslash
+right) < 
+\backslash
+infty $ for all $ i 
+\backslash
+in 
+\backslash
+N $ and
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\backslash
+bigcup_{i
+\backslash
+in
+\backslash
+N}A_i = 
+\backslash
+X
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item There exists some countable collection of sets $
+\backslash
+{B_i
+\backslash
+}_{i
+\backslash
+in
+\backslash
+N} 
+\backslash
+in 
+\backslash
+F$ such that $ 
+\backslash
+mu
+\backslash
+left(B_i
+\backslash
+right) < 
+\backslash
+infty $ for all $ i 
+\backslash
+in 
+\backslash
+N $ and
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+					
+\backslash
+bigcup_{i
+\backslash
+in
+\backslash
+N}B_i = 
+\backslash
+X
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First assume that the measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+is 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite and so there exists some increasing sequence 
+\begin_inset Formula $\left\{ E_{i}\right\} _{i\in\N}\in\F$
+\end_inset
+
+ such that 
+\begin_inset Formula $E_{i}\subseteq E_{I+1}$
+\end_inset
+
+, 
+\begin_inset Formula $\mu\left(E_{i}\right)<\infty$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+\bigcup_{i\in\N}E_{i}=\X.
+\]
+
+\end_inset
+
+Recall the disjointification
+\begin_inset Formula 
+\[
+A_{i}:=E_{i}\setminus\bigcup_{j=1}^{i-1}E_{j}
+\]
+
+\end_inset
+
+and notice that
+\begin_inset Formula 
+\begin{align*}
+\mu\left(A_{i}\right) & =\mu\left(E_{i}\right)-\mu\left(\bigcup_{j=1}^{i-1}E_{j}\right)\\
+ & =\mu\left(E_{i}\right)-\mu\left(E_{i-1}\right)\\
+ & <\infty
+\end{align*}
+
+\end_inset
+
+where the first equality follows from the fact that 
+\begin_inset Formula $\mu\left(E_{i}\right)<\infty$
+\end_inset
+
+ and 
+\begin_inset Formula $\bigcup_{j=1}^{i-1}E_{j}=E_{i-1}\subseteq E_{i}$
+\end_inset
+
+ along with (finite) additivity.
+ Further,
+\begin_inset Formula 
+\[
+\bigcup_{i\in\N}A_{i}=\X
+\]
+
+\end_inset
+
+ and so Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:sigmaFinite"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ implies (i).
+\end_layout
+
+\begin_layout Proof
+Next notice that (i) trivially implies (ii) and so all we just need to verify
+ (ii) 
+\begin_inset Formula $\implies$
+\end_inset
+
+Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:sigmaFinite"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ To this end, observe that if 
+\begin_inset Formula $\left\{ B_{i}\right\} _{i\in\N}\in\F$
+\end_inset
+
+ is an arbitrary collection that satisfies (ii), then
+\begin_inset Formula 
+\[
+E_{n}:=\text{\ensuremath{\bigcup_{i=1}^{n}B_{i}}}
+\]
+
+\end_inset
+
+is an increasing sequence of sets 
+\begin_inset Formula $E_{n}\subseteq E_{n+1}$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\mu\left(E_{n}\right)\leq\sum_{i=1}^{n}\mu\left(B_{i}\right)<\infty
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\bigcup_{n\in\N}E_{n}=\X.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:sumSigmaFiniteMeasures"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+ be a measurable space and let 
+\begin_inset Formula $\left\{ \mu_{i}\right\} _{i=1}^{N}$
+\end_inset
+
+be a finite collection of 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measure on 
+\begin_inset Formula $\F.$
+\end_inset
+
+ Then the total measure
+\begin_inset Formula 
+\[
+\mu:\F\longrightarrow\R
+\]
+
+\end_inset
+
+ given by
+\begin_inset Formula 
+\[
+\mu\left(A\right):=\sum_{i=1}^{N}\mu_{i}\left(A\right)
+\]
+
+\end_inset
+
+is also 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite.
+\end_layout
+
+\begin_layout Proof
+A weaker variant of Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:sumOfCountableMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that 
+\begin_inset Formula $\mu$
+\end_inset
+
+is at least a measure on 
+\begin_inset Formula $\F$
+\end_inset
+
+.
+ We show 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finiteness for 
+\begin_inset Formula $N=2$
+\end_inset
+
+; the general case follows by induction.
+ Note that if 
+\begin_inset Formula $\mu_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{2}$
+\end_inset
+
+ are both 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite then by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:equivSigmaFinite"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ there exist 
+\begin_inset Formula $\left\{ E_{1,i}\right\} _{i\in\N},\left\{ E_{2,i}\right\} _{i\in\N}\in\F$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu_{1}\left(E_{i,1}\right)<\infty$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{2}\left(E_{2,i}\right)<\infty$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+.
+ Further,
+\begin_inset Formula 
+\[
+\bigcup_{i\in\N}E_{1,i}=\bigcup_{i\in\N}E_{2,i}=\X.
+\]
+
+\end_inset
+
+Then, define
+\begin_inset Formula 
+\[
+C_{i,j}:=E_{1,i}\bigcap E_{2,j}
+\]
+
+\end_inset
+
+and observe that 
+\begin_inset Formula $C_{i,j}\in\F$
+\end_inset
+
+ and that 
+\begin_inset Formula 
+\begin{align*}
+\mu\left(C_{i,j}\right) & =\mu_{1}\left(E_{1,i}\cap E_{2,j}\right)+\mu_{2}\left(E_{1,i}\cap E_{2,j}\right)\\
+ & \leq\mu_{1}\left(E_{1,i}\right)+\mu_{2}\left(E_{2,j}\right)\\
+ & <\infty
+\end{align*}
+
+\end_inset
+
+for all 
+\begin_inset Formula $\left(i,j\right)\in\N^{2}$
+\end_inset
+
+.
+ Finally,
+\begin_inset Formula 
+\[
+\bigcup_{i\in\N}\bigcup_{j\in\N}C_{i,j}=\X
+\]
+
+\end_inset
+
+which by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:equivSigmaFinite"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ establishes the result.
 \end_layout
 
 \end_body

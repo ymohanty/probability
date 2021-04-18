@@ -1686,7 +1686,7 @@ where the third equality follows from the fact that
 \tilde{\mu}\left(\alpha f\right) & =\lebInt{\mu}{\left(\alpha f\right)^{+}}-\lebInt{\mu}{\left(\alpha f\right)^{-}}\\
  & =\lebInt{\mu}{\alpha f\indicate_{\left\{ \alpha f>0\right\} }}-\lebInt{\mu}{-\alpha f\indicate_{\left\{ \alpha f<0\right\} }}\\
  & =\lebInt{\mu}{\alpha f\indicate_{\left\{ f<0\right\} }}-\lebInt{\mu}{-\alpha f\indicate_{\left\{ f>0\right\} }}\\
- & =\lebInt{\mu}{-\alpha-f\indicate_{\left\{ f<0\right\} }}-\lebInt{\mu}{-\alpha\indicate_{\left\{ f>0\right\} }}\\
+ & =\lebInt{\mu}{-\alpha\times-f\indicate_{\left\{ f<0\right\} }}-\lebInt{\mu}{-\alpha f\indicate_{\left\{ f>0\right\} }}\\
  & =\alpha\bar{\mu}\left(f^{+}\right)-\alpha\lebInt{\mu}{f^{-}}\\
  & =\alpha\tilde{\mu}\left(f\right).
 \end{align*}
@@ -3118,19 +3118,153 @@ noprefix "false"
  the integrals from constituent summand measures in certain situations.
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hl{ADD INTEGRAL OF SUM OF MEASURES}
-\end_layout
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:integralSumOfMeasures"
 
 \end_inset
 
+Let 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+ be a measurable space and let 
+\begin_inset Formula $\left\{ \mu_{i}\right\} _{i\in\N}$
+\end_inset
+
+ be a countable collection of measures on 
+\begin_inset Formula $\F$
+\end_inset
+
+ with their respective integrals 
+\begin_inset Formula $\left\{ \lebInt{\mu_{i}}{\cdot}\right\} _{i\in\N}$
+\end_inset
+
+.
+ Then the integral associated with the sum measure
+\begin_inset Formula 
+\[
+\mu:=\sum_{i=1}^{\infty}\mu_{i}
+\]
+
+\end_inset
+
+is given by
+\begin_inset Formula 
+\[
+\lebInt{\mu}f:=\sum_{i=1}^{\infty}\lebInt{\mu}f
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $f\in\nonnegMeasurableFunctions.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We first show this holds for 
+\begin_inset Formula $f=\indicate_{A}$
+\end_inset
+
+for any 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+; indeed, an application of Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:sumOfCountableMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is sufficient for this purpose.
+ Next, for any 
+\begin_inset Formula $s\in M_{\textnormal{sim}}\left(\X,\mathcal{F}\right)$
+\end_inset
+
+, we have that
+\begin_inset Formula 
+\[
+s=\sum_{i=1}^{I}\alpha_{i}\indicate_{A_{i}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\alpha_{i}>0$
+\end_inset
+
+ , 
+\begin_inset Formula $A_{i}:=\left\{ x\in\X:s\left(x\right)=\alpha_{i}\right\} $
+\end_inset
+
+, and 
+\begin_inset Formula $I\in\N$
+\end_inset
+
+.
+ Thus,
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}s & =\sum_{i=1}^{I}\alpha_{i}\mu\left(A_{i}\right)\\
+ & =\sum_{i=1}^{I}\alpha_{i}\sum_{j=1}^{\infty}\mu_{j}\left(A_{i}\right)\\
+ & =\sum_{j=1}^{\infty}\sum_{i=1}^{I}\mu_{j}\left(A_{i}\right)\\
+ & =\sum_{j=1}^{\infty}\lebInt{\mu_{j}}s
+\end{align*}
+
+\end_inset
+
+where the first equality is by the definition of integrals on simple functions
+ and the third is by the linearity of limits of sequences.
+ This establishes the result for simple functions.
+ Finally, let 
+\begin_inset Formula $f\in\nonnegMeasurableFunctions$
+\end_inset
+
+ be arbitrary and observe by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:simpleFunctionMonotoneConvergence"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that there exists some increasing sequence 
+\begin_inset Formula $\left\{ s_{n}\right\} \in M_{\textnormal{sim}}\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $s_{n}\nearrow f$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}f & =\lebInt{\mu}{\lim_{n\to\infty}s_{n}}\\
+ & =\lim_{n\to\infty}\lebInt{\mu}{s_{n}}\\
+ & =\lim_{n\to\infty}\sum_{i=1}^{\infty}\lebInt{\mu_{i}}{s_{n}}\\
+ & =\sum_{i=1}^{\infty}\lebInt{\mu_{i}}{\lim_{n\to\infty}s_{n}}\\
+ & =\sum_{i=1}^{\infty}\lebInt{\mu_{i}}f
+\end{align*}
+
+\end_inset
+
+where the second equality follows by monotone convergence and the fourth
+ equality follows by two applications of monotone convergence (you can think
+ of the countable sum as integration with respect to the counting measure).
+ This completes the proof.
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
@@ -3933,6 +4067,164 @@ noprefix "false"
 as desired.
 \end_layout
 
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:intEqualFuncEqual"
+
+\end_inset
+
+ Let 
+\begin_inset Formula $f,g\in\nonnegMeasurableFunctions$
+\end_inset
+
+ such and let 
+\begin_inset Formula $\mu$
+\end_inset
+
+be a measure on 
+\begin_inset Formula $\F$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\lebInt{\mu}{f\indicate_{F}}=\lebInt{\mu}{g\indicate_{F}}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $F\in\F$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+f=g
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\mu-$
+\end_inset
+
+almost everywhere.
+\end_layout
+
+\begin_layout Proof
+Assume the hypothesis is true and define
+\begin_inset Formula 
+\[
+F:=\left\{ x\in\X\mid f\left(x\right)\neq g\left(x\right)\right\} =\underbrace{\left\{ x\in\X\mid f\left(x\right)>g\left(x\right)\right\} }_{A_{1}}\bigcup\underbrace{\left\{ x\in\X\mid f\left(x\right)<g\left(x\right)\right\} }_{A_{2}}
+\]
+
+\end_inset
+
+and suppose for contradiction that 
+\begin_inset Formula $\mu\left(F\right)>0.$
+\end_inset
+
+ Then one of 
+\begin_inset Formula $A_{1}$
+\end_inset
+
+ or 
+\begin_inset Formula $A_{2}$
+\end_inset
+
+ has positive measure.
+ Assume, without loss of generality, that 
+\begin_inset Formula $\mu\left(A_{1}\right)>0$
+\end_inset
+
+ and further define
+\begin_inset Formula 
+\[
+A_{1,n}:=\left\{ x\in\X\mid f\left(x\right)-\frac{1}{n}\geq g\left(x\right)\right\} =\left\{ x\in\X\mid z(\left(x\right)\geq\frac{1}{n}\right\} 
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $z=f-g$
+\end_inset
+
+ and so is measurable, which in turn imples that 
+\begin_inset Formula $A_{1,n}\in\F$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\in\N.$
+\end_inset
+
+ Further, 
+\begin_inset Formula $A_{1,n}\subseteq A_{1,n+1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bigcup_{n\in\N}A_{1,n}=A$
+\end_inset
+
+, and so by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[prop:measureProperties]{continuity from below}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\mu\left(A_{1,n}\right)=\mu\left(A_{1}\right)>0.
+\]
+
+\end_inset
+
+By the definition of limts, there exists some 
+\begin_inset Formula $n_{0}\in\N$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\mu\left(A_{1,n}\right)>0\ \forall n\geq n_{0}
+\]
+
+\end_inset
+
+and for such 
+\begin_inset Formula $n$
+\end_inset
+
+we also have, by the monotonicty of integration
+\begin_inset Formula 
+\[
+\lebInt{\mu}{z\indicate_{A_{1,n}}}\geq\lebInt{\mu}{\frac{1}{n}\indicate_{A_{1,n}}}=\frac{1}{n}\mu\left(A_{1,n}\right)>0
+\]
+
+\end_inset
+
+which implies, by the linearity of integration, that
+\begin_inset Formula 
+\[
+\lebInt{\mu}{f\indicate_{A_{1,n}}}>\lebInt{\mu}{g\indicate_{A_{1,n}}}
+\]
+
+\end_inset
+
+which contradicts our hypotehsis.
+ This completes the proof.
+\end_layout
+
 \begin_layout Definition
 \begin_inset Argument 1
 status open
@@ -4276,7 +4568,7 @@ for all
 \end_inset
 
 and observe that 
-\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp 1{\mu}$
+\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp1{\mu}$
 \end_inset
 
  since 
@@ -4519,11 +4811,11 @@ name "def:L1Convergence"
 \end_inset
 
 A sequence of functions 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  is said to converge to a function 
-\begin_inset Formula $f\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  in 
