@@ -2424,7 +2424,7 @@ For any
 \end_inset
 
  define 
-\begin_inset Formula $g\left(x,\theta\right)\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $g\left(x,\theta\right)\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  to be differentiable with respect to 
@@ -2453,7 +2453,7 @@ where the subscript
 
  clarifies the variable of integration.
  If there exists a function 
-\begin_inset Formula $G\in\Lp 1{\mu}$
+\begin_inset Formula $G\in\Lp1{\mu}$
 \end_inset
 
  such that 
@@ -3954,8 +3954,8 @@ noprefix "false"
 and so, integrating both sides, we have
 \begin_inset Formula 
 \begin{align*}
-\lebInt{\mu}{\min\left\{ g,n\right\} } & \leq n\mu\left(A\right)+\lebInt{\mu}f\\
- & =\lebInt{\mu}f
+\lebInt\mu{\min\left\{ g,n\right\} } & \leq n\mu\left(A\right)+\lebInt\mu f\\
+ & =\lebInt\mu f
 \end{align*}
 
 \end_inset
@@ -3975,7 +3975,7 @@ since
  Then, applying the monotone convergence theorem, we have 
 \begin_inset Formula 
 \[
-\lebInt{\mu}g=\lim_{n\to\infty}\lebInt{\mu}{\min\left\{ g,n\right\} }\leq\lebInt{\mu}f.
+\lebInt\mu g=\lim_{n\to\infty}\lebInt\mu{\min\left\{ g,n\right\} }\leq\lebInt\mu f.
 \]
 
 \end_inset
@@ -4006,7 +4006,7 @@ Let
  Then
 \begin_inset Formula 
 \[
-\lebInt{\mu}f=\lebInt{\mu}g.
+\lebInt\mu f=\lebInt\mu g.
 \]
 
 \end_inset
@@ -4040,7 +4040,7 @@ noprefix "false"
  we have
 \begin_inset Formula 
 \[
-\lebInt{\mu}{f^{+}+g^{-}}=\lebInt{\mu}{g^{+}+f^{-}}.
+\lebInt\mu{f^{+}+g^{-}}=\lebInt\mu{g^{+}+f^{-}}.
 \]
 
 \end_inset
@@ -4059,7 +4059,7 @@ noprefix "false"
 , we get 
 \begin_inset Formula 
 \[
-\lebInt{\mu}f=\lebInt{\mu}{f^{+}}-\lebInt{\mu}{f^{-}}=\lebInt{\mu}{g^{+}}-\lebInt{\mu}{g^{-}}=\lebInt{\mu}g
+\lebInt\mu f=\lebInt\mu{f^{+}}-\lebInt\mu{f^{-}}=\lebInt\mu{g^{+}}-\lebInt\mu{g^{-}}=\lebInt\mu g
 \]
 
 \end_inset
@@ -4089,7 +4089,7 @@ be a measure on
  such that 
 \begin_inset Formula 
 \[
-\lebInt{\mu}{f\indicate_{F}}=\lebInt{\mu}{g\indicate_{F}}
+\lebInt\mu{f\indicate_{F}}=\lebInt\mu{g\indicate_{F}}
 \]
 
 \end_inset
@@ -4143,7 +4143,7 @@ and suppose for contradiction that
  and further define
 \begin_inset Formula 
 \[
-A_{1,n}:=\left\{ x\in\X\mid f\left(x\right)-\frac{1}{n}\geq g\left(x\right)\right\} =\left\{ x\in\X\mid z(\left(x\right)\geq\frac{1}{n}\right\} 
+A_{1,n}:=\left\{ x\in\X\mid f\left(x\right)-\frac{1}{n}\geq g\left(x\right)\right\} =\left\{ x\in\X\mid z\left(x\right)\geq\frac{1}{n}\right\} 
 \]
 
 \end_inset
@@ -4455,11 +4455,11 @@ name "thm:generalizedDominatedConvergence"
 \end_inset
 
 Let 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n}\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n}\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  and suppose there exists some 
-\begin_inset Formula $g\in\Lp 1{\mu}$
+\begin_inset Formula $g\in\Lp1{\mu}$
 \end_inset
 
  be such that
@@ -4488,7 +4488,7 @@ almost everywhere.
 \end_inset
 
 we have that 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
  and
@@ -4568,7 +4568,7 @@ for all
 \end_inset
 
 and observe that 
-\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp 1{\mu}$
+\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp1{\mu}$
 \end_inset
 
  since 
@@ -4811,11 +4811,11 @@ name "def:L1Convergence"
 \end_inset
 
 A sequence of functions 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  is said to converge to a function 
-\begin_inset Formula $f\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  in 
@@ -5396,7 +5396,7 @@ Markov's inequality
 Note the pointwise inequality
 \begin_inset Formula 
 \[
-\alpha\indicate_{\left\{ x\in\X\mid\lvert f\left(x\right)\rvert>a\right\} }\leq\lvert f\left(x\right)\rvert
+a\indicate_{\left\{ x\in\X\mid\lvert f\left(x\right)\rvert>a\right\} }\leq\lvert f\left(x\right)\rvert
 \]
 
 \end_inset
@@ -5404,7 +5404,7 @@ Note the pointwise inequality
 and observe that by the monotonicity of the integral
 \begin_inset Formula 
 \[
-\alpha\lebInt{\mu}{\indicate_{\{x\in\X\mid\lvert f\left(x\right)\rvert>a\}}}\leq\lebInt{\mu}{\lvert f\rvert}
+a\lebInt{\mu}{\indicate_{\{x\in\X\mid\lvert f\left(x\right)\rvert>a\}}}\leq\lebInt{\mu}{\lvert f\rvert}
 \]
 
 \end_inset

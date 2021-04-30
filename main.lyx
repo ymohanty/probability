@@ -15,12 +15,13 @@
 \end_preamble
 \use_default_options true
 \begin_removed_modules
-theorems-ams
 eqs-within-sections
 figs-within-sections
 \end_removed_modules
 \begin_modules
-theorems-ams-chap-bytype
+theorems-ams
+theorems-ams-extended
+theorems-sec
 \end_modules
 \maintain_unincluded_children false
 \language english

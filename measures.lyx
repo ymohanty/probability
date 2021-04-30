@@ -3056,7 +3056,7 @@ To see the reverse inequality, let
  Define,
 \begin_inset Formula 
 \[
-B_{i}:=A\cap\left(A_{i}\setminus\bigcup_{j=1}^{i-1}A_{i}\right)
+B_{i}:=A\cap\left(A_{i}\setminus\bigcup_{j=1}^{i-1}A_{j}\right)
 \]
 
 \end_inset

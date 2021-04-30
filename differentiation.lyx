@@ -249,7 +249,20 @@ noprefix "false"
 
 \end_inset
 
-, the Riesz representation theorem tells us there exists an (almost 
+, the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:rieszRep]{Riesz representation theorem} 
+\end_layout
+
+\end_inset
+
+tells us there exists an (almost 
 \begin_inset Formula $\psi-$
 \end_inset
 
@@ -455,18 +468,103 @@ By linearity this reduces to
 
 \end_inset
 
-Finally, notice that
+Next we define the increasing sequence of sets
+\begin_inset Formula 
+\[
+M_{n}:=\left\{ x\in\X\mid0\leq h\left(x\right)\leq1-\frac{1}{n}\right\} 
+\]
+
+\end_inset
+
+and note that
+\begin_inset Formula 
+\[
+M=\bigcup_{n\in\N}M_{n}.
+\]
+
+\end_inset
+
+Further, observe that the functions
+\begin_inset Formula 
+\[
+f_{n}:=\frac{\indicate_{M_{n}}}{1-h}\leq n\indicate_{M_{n}}
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+0\leq f_{n}\leq f_{n+1}
+\]
+
+\end_inset
+
+pointwise for all 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+.
+ This shows us that our functions 
+\begin_inset Formula $f_{n}\in\Lp 2{\psi}$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $n\indicate_{M_{n}}$
+\end_inset
+
+is square integrable since 
+\begin_inset Formula $\psi$
+\end_inset
+
+ is a finite measure; 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ then is integrable since both functions are non-negative and so 
+\begin_inset Formula 
+\[
+\lebInt{\psi}{\lvert f_{n}\rvert^{2}}\leq\lebInt{\psi}{\lvert n\indicate_{M_{n}}\rvert^{2}}=n^{2}\psi\left(\left\{ 0\leq h\leq1-\frac{1}{n}\right\} \right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ and are monotonically increasing.
+ Therefore,
 \begin_inset Formula 
 \begin{align*}
 \nu\left(M\right) & =\lebInt{\nu}{\indicate_{M}\frac{1-h}{1-h}}\\
- & =\lebInt{\mu}{\indicate_{M}\frac{h}{1-h}}\\
+ & =\lim_{n\to\infty}\lebInt{\nu}{\frac{\indicate_{M_{n}}}{1-h}1-h}\\
+ & =\lim_{n\to\infty}\lebInt{\mu}{\frac{\indicate_{M_{n}}}{1-h}h}\\
  & =\lebInt{\mu}{\indicate_{M}\frac{h}{1-h}}+\lebInt{\mu}{\indicate_{N\cup G}\frac{h}{1-h}}\\
  & =\lebInt{\mu}{\frac{h}{1-h}}
 \end{align*}
 
 \end_inset
 
-where the second equality is due to 
+where the second equality follows by the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:generalizedMonotoneConvergence]{monotone convergence theorem}
+\end_layout
+
+\end_inset
+
+, the third equality is due to 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:oneminusH"
@@ -476,7 +574,7 @@ noprefix "false"
 
 \end_inset
 
-, the third equality is due to the fact that 
+, the fourth equality is due to the fact that 
 \begin_inset Formula $\mu\left(G\right)=\mu\left(N\right)=0$
 \end_inset
 
@@ -702,7 +800,7 @@ where the last equality can be seen by first showing it for simple functions
  have
 \begin_inset Formula 
 \begin{align*}
-\nu\left(A\right) & =\sum_{i=1}^{\infty}v_{i}\left(A\right)\\
+\nu\left(A\right) & =\sum_{i=1}^{\infty}\nu_{i}\left(A\right)\\
  & =\sum_{i=1}^{\infty}\lebInt{\mu}{k_{i}\indicate_{E_{i}}\indicate_{A}}\\
  & =\lebInt{\mu}{\indicate_{A}\sum_{i=1}^{\infty}k_{i}\indicate_{E_{i}}}\\
  & =\lebInt{\mu}{k\indicate_{A}}
