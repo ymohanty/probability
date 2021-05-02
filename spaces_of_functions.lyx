@@ -939,7 +939,7 @@ f_{n_{k}}=\sum_{i=0}^{k-1}\left(f_{n_{i+1}}-f_{n_{i}}\right)
 \end_inset
 
 where 
-\begin_inset Formula $f_{n_{0}}=1.$
+\begin_inset Formula $f_{n_{0}}=0.$
 \end_inset
 
  Then, note that 
@@ -1062,7 +1062,7 @@ noprefix "false"
 \end_inset
 
  shows that 
-\begin_inset Formula $g_{k}^{p}<\infty$
+\begin_inset Formula $\lim_{k\to\infty}g_{k}^{p}<\infty$
 \end_inset
 
  
@@ -1070,7 +1070,7 @@ noprefix "false"
 \end_inset
 
 a.e and so 
-\begin_inset Formula $g_{k}<\infty$
+\begin_inset Formula $\lim_{k\to\infty}g_{k}<\infty$
 \end_inset
 
  
@@ -1078,7 +1078,7 @@ a.e and so
 \end_inset
 
 a.e.
- In other words,
+ In other words, since absolute summability implies summability
 \begin_inset Formula 
 \[
 \sum_{i=0}^{\infty}\lvert f_{n_{i+1}}-f_{n_{i}}\rvert<\infty\implies f:=\sum_{i=0}^{\infty}\left(f_{n_{i+1}}-f_{n_{i}}\right)<\infty\ \mu-\text{a.e}
@@ -2956,7 +2956,7 @@ name "cor:integrationContinuousLinearFunctional"
  and define
 \begin_inset Formula 
 \[
-\Gamma:\Lp 2{\mu}\longrightarrow\R
+\Gamma:\Lp2{\mu}\longrightarrow\R
 \]
 
 \end_inset
