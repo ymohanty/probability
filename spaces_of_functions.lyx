@@ -766,7 +766,7 @@ A sequence of functions
 \end_inset
 
  in 
-\begin_inset Formula $\mathcal{L}^{1}$
+\begin_inset Formula $\mathcal{L}^{p}$
 \end_inset
 
  if 
@@ -780,7 +780,7 @@ A sequence of functions
 In this case, we write
 \begin_inset Formula 
 \[
-f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f.
+f_{n}\stackrel{\mathcal{L}^{p}}{\longrightarrow}f.
 \]
 
 \end_inset
