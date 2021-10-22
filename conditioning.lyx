@@ -84,6 +84,13 @@ figs-within-sections
 
 \begin_layout Chapter
 Conditioning
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:conditioning"
+
+\end_inset
+
+
 \end_layout
 
 \end_body

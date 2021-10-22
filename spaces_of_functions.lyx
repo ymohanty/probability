@@ -84,6 +84,13 @@ figs-within-sections
 
 \begin_layout Chapter
 Spaces of functions
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:spaces_of_functions"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2144,7 +2151,7 @@ Let
 
  be a measure space.
  The space 
-\begin_inset Formula $\Lp2{\X,\F,\mu}$
+\begin_inset Formula $\Lp 2{\X,\F,\mu}$
 \end_inset
 
  is an inner-product space with inner product 
@@ -2164,7 +2171,7 @@ Let
 
 \begin_layout Proof
 Let us verify that 
-\begin_inset Formula $\Lp2{\mu}$
+\begin_inset Formula $\Lp 2{\mu}$
 \end_inset
 
  satisfies the parallelogram identity.
@@ -2200,7 +2207,7 @@ noprefix "false"
 \end_inset
 
  showed that 
-\begin_inset Formula $\Lp2{\mu}$
+\begin_inset Formula $\Lp 2{\mu}$
 \end_inset
 
  is an inner-product space but we also know, from Theorem 
@@ -2214,7 +2221,7 @@ noprefix "false"
 \end_inset
 
  that 
-\begin_inset Formula $\Lp2{\mu}$
+\begin_inset Formula $\Lp 2{\mu}$
 \end_inset
 
  is a complete metric space with respect to the metric induced by its norm.
@@ -2585,28 +2592,24 @@ Let
 \begin_inset Formula $h\in\mathcal{H}$
 \end_inset
 
-, the unique projection 
-\begin_inset Formula $P_{\mathcal{G}}h$
-\end_inset
-
- of 
-\begin_inset Formula $h$
-\end_inset
-
- into 
-\begin_inset Formula $\mathcal{G}$
+, then 
+\begin_inset Formula $k\in\mathcal{G}$
 \end_inset
 
  has the property that
 \begin_inset Formula 
 \[
-\innerproduct{h-P_{\mathcal{G}}h}g=0
+\innerproduct{h-k}g=0
 \]
 
 \end_inset
 
 for every 
 \begin_inset Formula $g\in G$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $k=P_{\mathcal{G}}$
 \end_inset
 
  and so
@@ -2737,6 +2740,67 @@ noprefix "false"
 \end_inset
 
 since all the terms are non-negative.
+ Conversely, assume that 
+\begin_inset Formula $\innerproduct{h-k}g=0$
+\end_inset
+
+ for some 
+\begin_inset Formula $k\in\mathcal{G}$
+\end_inset
+
+ and every 
+\begin_inset Formula $g\in\mathcal{G}$
+\end_inset
+
+.
+ Then, we have that
+\begin_inset Formula 
+\begin{align*}
+\pnorm{h-g}{}^{2} & =\pnorm{h-k+k-g}{}^{2}\\
+ & =\innerproduct{(h-k)+(k-g)}{(h-k)+(k-g)}\\
+ & =\pnorm{h-k}{}^{2}+\pnorm{k-g}{}^{2}+2\innerproduct{h-k}{k-g}.
+\end{align*}
+
+\end_inset
+
+where we have again used the linearity and symmetry of inner products.
+ But notice that 
+\begin_inset Formula $k-g\in\mathcal{G},$
+\end_inset
+
+ so by our assumption, we have 
+\begin_inset Formula $\innerproduct{h-k}{k-g}=0$
+\end_inset
+
+ and so for every 
+\begin_inset Formula $g\in\mathcal{G}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\pnorm{h-g}{}^{2} & =\pnorm{h-k}{}^{2}+\pnorm{k-g}{}^{2}\\
+ & \geq\pnorm{h-k}{}^{2}
+\end{align*}
+
+\end_inset
+
+by the non-negativity of norms.
+ Then by the uniqueness clause of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:projectionThm"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $k=P_{\mathcal{G}}h$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Proof
@@ -2956,7 +3020,7 @@ name "cor:integrationContinuousLinearFunctional"
  and define
 \begin_inset Formula 
 \[
-\Gamma:\Lp2{\mu}\longrightarrow\R
+\Gamma:\Lp 2{\mu}\longrightarrow\R
 \]
 
 \end_inset
@@ -3296,6 +3360,25 @@ for any
 \end_inset
 
 completing the proof.
+\end_layout
+
+\begin_layout Standard
+This is the classical Hilbert-space theorem that describes the duality of
+ linear operators and the vector spaces on which they act.
+ This theorem has considerable power in probability because it allows us
+ to construct conditional expectations as orhogonal projections of functions
+ into lower dimensional subspaces, tbe full power of which will become apparent
+ in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:conditioning"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \end_layout
 
 \end_body

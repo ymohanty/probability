@@ -506,7 +506,7 @@ pointwise for all
 
 .
  This shows us that our functions 
-\begin_inset Formula $f_{n}\in\Lp 2{\psi}$
+\begin_inset Formula $f_{n}\in\Lp2{\psi}$
 \end_inset
 
 
@@ -818,6 +818,40 @@ for all
 
  This completes the existence part of the proof; uniqueness follows again
  by the argument we used earlier in the finite case.
+\end_layout
+
+\begin_layout Standard
+The Radon-Nikodym theorem builds on the Hilbert space theory we described
+ earlier in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:spaces_of_functions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and is the proper converse of the comparatively simple result on constructing
+ new measures using non-negative measurable functions that we saw in Proposition
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:densities"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ This theorem is also fundamental to developing conditional expectations;
+ indeed the existence and uniqueness of conditional expectations is an almost
+ trivial corollary of the Radon-Nikodym theorem.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \end_body
