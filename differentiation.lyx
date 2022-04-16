@@ -86,20 +86,41 @@ figs-within-sections
 Differentiation
 \end_layout
 
-\begin_layout Theorem
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-Radon-Nikodym
+\begin_layout Standard
+In elementary calculus, the theory of the Riemann integral was developed
+ with a corresponding theory of differentiation, and these two operations
+ were shown to be the inverse of each other for a suitable class of functions,
+ namely the differentiable functions; this is the fundamental theorem of
+ calculus.
+ The Lebesgue theory also implies a fundamental theorem of calculus for
+ a broader class of functions.
+ The goal of this chapter is to recover this theorem and in order to do
+ so, we will develop some theory that is very important in its own right.
+ Before delving into new material, it might be worthwhile to review some
+ basic facts about differentiation in the spirit of our discussion on the
+ Riemann integral.
+ In addition, I will take this opportunity to suitably generalize the notion
+ of a derivative by defining differentiability as a property of functions
+ on arbitrary normed vector spaces.
 \end_layout
 
-\end_inset
+\begin_layout Section
+Differentiation in normed vector spaces
+\end_layout
 
+\begin_layout Section
+Decomposition of measures
+\end_layout
 
+\begin_layout Standard
+In Chapter 4, we learnt that we can decompose a given Hilbert space into
+ orthogonal subspaces.
+\end_layout
+
+\begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
-name "thm:radonNikodym"
+name "lemma:LebesgueRadonNikodym"
 
 \end_inset
 
@@ -112,43 +133,31 @@ Let
 \begin_inset Formula $\mu,\nu$
 \end_inset
 
- are two 
-\begin_inset Formula $\sigma-$
-\end_inset
-
-finite measures on 
+ are two finite measures on 
 \begin_inset Formula $\F$
 \end_inset
 
-such that 
-\begin_inset Formula $\nu<<\mu$
-\end_inset
-
- i.e.
+, then there exists some non-negative (almost everywhere with respect to
  
-\begin_inset Formula $\mu\left(F\right)=0\implies\nu\left(F\right)=0$
-\end_inset
-
- for all 
-\begin_inset Formula $F\in\F$
-\end_inset
-
-, then there exists some (
 \begin_inset Formula $\mu$
 \end_inset
 
--almost everywhere unique) non-negative (
-\begin_inset Formula $\mu$
-\end_inset
-
--almost everywhere) measurable function 
+) measurable function 
 \begin_inset Formula $k\in\nonnegMeasurableFunctions$
 \end_inset
 
- such that
+ and a set 
+\begin_inset Formula $G\in\F$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu(G)=0$
+\end_inset
+
+ and
 \begin_inset Formula 
 \[
-\nu\left(A\right)=\lebInt{\mu}{k\indicate_{A}}
+\nu\left(A\right)=\lebInt{\mu}{k\indicate_{A}}+\nu(A\cap G)
 \]
 
 \end_inset
@@ -161,13 +170,7 @@ for every
 \end_layout
 
 \begin_layout Proof
-We first prove this theorem for finite measures and then bootstrap the results
- to 
-\begin_inset Formula $\sigma-$
-\end_inset
-
-finite measures.
- Define the measure 
+Define the measure 
 \begin_inset Formula $\psi:=\mu+\nu$
 \end_inset
 
@@ -267,7 +270,7 @@ tells us there exists an (almost
 \end_inset
 
 everywhere unique) function 
-\begin_inset Formula $h\in\Lp 2{\psi}$
+\begin_inset Formula $h\in\Lp2{\psi}$
 \end_inset
 
  such that
@@ -279,7 +282,7 @@ everywhere unique) function
 \end_inset
 
 for every 
-\begin_inset Formula $f\in\Lp 2{\psi}.$
+\begin_inset Formula $f\in\Lp2{\psi}.$
 \end_inset
 
  Of course, in the context of 
@@ -420,19 +423,6 @@ where the inequality follows from the fact that
 \end_inset
 
  which reduces to equality by the non-negativity of measures.
- Absolute continuity of 
-\begin_inset Formula $\nu$
-\end_inset
-
- with respect to 
-\begin_inset Formula $\mu$
-\end_inset
-
- then implies that 
-\begin_inset Formula $\nu\left(G\right)=0.$
-\end_inset
-
-
 \end_layout
 
 \begin_layout Proof
@@ -455,12 +445,16 @@ noprefix "false"
  together to deduce (since all terms are finite) that
 \begin_inset Formula 
 \[
-\lebInt{\nu}f-\lebInt{\nu}{fh}=\lebInt{\mu}{fh}.
+\lebInt{\nu}f-\lebInt{\nu}{fh}=\lebInt{\mu}{fh}
 \]
 
 \end_inset
 
-By linearity this reduces to
+for 
+\begin_inset Formula $f\in\Lp2{\psi}.$
+\end_inset
+
+ By linearity this reduces to
 \begin_inset Formula 
 \begin{equation}
 \lebInt{\nu}{\left(1-h\right)f}=\lebInt{\mu}{hf}.\label{eq:oneminusH}
@@ -602,7 +596,7 @@ Letting
  we have that 
 \begin_inset Formula 
 \[
-\mu\left(\left\{ x\in\X\mid k\left(x\right)\leq0\right\} \right)=0
+\mu\left(\left\{ x\in\X\mid k\left(x\right)<0\right\} \right)=0
 \]
 
 \end_inset
@@ -616,7 +610,7 @@ since
 \begin{align*}
 \nu\left(A\right) & =\nu\left(\left(A\cap N\right)\cup\left(A\cap M\right)\cup\left(A\cap G\right)\right)\\
  & =\nu\left(A\cap N\right)+\nu\left(A\cap M\right)+\nu\left(A\cap G\right)\\
- & =\lebInt{\mu}{k\indicate_{A}}
+ & =\lebInt{\mu}{k\indicate_{A}}+\nu(A\cap G)
 \end{align*}
 
 \end_inset
@@ -638,29 +632,418 @@ where the first equality follows from the fact that
 \begin_inset Formula $N$
 \end_inset
 
- and 
-\begin_inset Formula $G$
-\end_inset
-
- are both 
+ is a 
 \begin_inset Formula $\nu-$
 \end_inset
 
-null sets.
- This concludes the 
-\begin_inset Quotes eld
+null set.
+\end_layout
+
+\begin_layout Standard
+This is a powerful lemma as it gives us two very important results as simple
+ corollaries.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:absoluteContinuityMeasures"
+
 \end_inset
 
-existence
-\begin_inset Quotes erd
+Let 
+\begin_inset Formula $(\X,\F)$
 \end_inset
 
- portion of the proof.
+ be a measurable space and let 
+\begin_inset Formula $\mu,\nu$
+\end_inset
+
+ be two measures on this space.
+ We say 
+\begin_inset Formula $\nu$
+\end_inset
+
+is absolutely continuous with respect to 
+\begin_inset Formula $\mu$
+\end_inset
+
+if for any 
+\begin_inset Formula $A\in F:\mu(F)=0\implies\nu(F)=0$
+\end_inset
+
+.
+ We denote this relation by 
+\begin_inset Formula $\nu<<\mu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Why is this relation labeled continuity? There are two good reasons for
+ this: first, at least for finite measures, the above definition is equivalent
+ to an 
+\begin_inset Formula $\epsilon-\delta$
+\end_inset
+
+ definition that resembles the continuity definitions that we have seen
+ before.
+ More importantly, we will see that measures that are absolutely continuous
+ with respect to the Lebesgue measure give rise to a particular class of
+ real-valued 
+\emph on
+functions 
+\emph default
+with the property of absolute continuity.
+ Such functions are exactly the class of functions for which the Lebesgue
+ fundamental theorem of calculus applies.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:epsdeltaAbsContinuity"
+
+\end_inset
+
+Let 
+\begin_inset Formula $(\X,\F)$
+\end_inset
+
+ be a measurable space and let 
+\begin_inset Formula $\mu,\nu$
+\end_inset
+
+ be two measures on this space such that 
+\begin_inset Formula $\nu(X)<\infty$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\nu<<\mu$
+\end_inset
+
+ if and only if for every 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ there exists a 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+, 
+\begin_inset Formula $\mu(A)<\delta\implies\nu(A)<\epsilon$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Suppose that 
+\begin_inset Formula $\epsilon-\delta$
+\end_inset
+
+ characterization holds.
+ Take a sequence 
+\begin_inset Formula $\epsilon_{n}>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $\epsilon_{n}\to0$
+\end_inset
+
+ and find the corresponding 
+\begin_inset Formula $\delta_{n}>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu(A)<\delta_{n}\implies\nu(A)<\epsilon_{n}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\mu(A)=0$
+\end_inset
+
+ then 
+\begin_inset Formula $\mu(A)<\delta_{n}$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\nu(A)<\epsilon_{n}$
+\end_inset
+
+ for every 
+\begin_inset Formula $n.$
+\end_inset
+
+ Taking limits yields 
+\begin_inset Formula $\nu(A)=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Conversely, assume that 
+\begin_inset Formula $\epsilon-\delta$
+\end_inset
+
+ property does not hold.
+ Then, there exists some 
+\begin_inset Formula $\epsilon_{0}>0$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+, there's some 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu(A)<\delta$
+\end_inset
+
+ but 
+\begin_inset Formula $\nu(A)\geq\epsilon$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\delta_{n}=\frac{1}{2^{n}}\to0$
+\end_inset
+
+ and let 
+\begin_inset Formula $A_{n}\in\F$
+\end_inset
+
+ be the corresponding sequence of sets such that 
+\begin_inset Formula $\mu(A_{n})<\delta_{n}$
+\end_inset
+
+ but 
+\begin_inset Formula $\nu(A_{n})\geq\epsilon.$
+\end_inset
+
+ Note then 
+\begin_inset Formula $\sum_{n=1}^{\infty}\mu(A_{n})<1$
+\end_inset
+
+ and so by the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:borelCantelli]{Borel-Cantelli lemma}
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\mu(\limsup_{n\to\infty}A_{n})=0.
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\limsup_{n\to\infty}A_{n}=\cap_{n=1}^{\infty}\cup_{i=1}^{n}A_{i}\in\F$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\nu(X)<\infty,$
+\end_inset
+
+ by the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[cor:reverseFatouLemma]{reverse Fatou lemma}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\nu(\limsup_{n\to\infty}A)\geq\limsup_{n\to\infty}\nu(A_{n})\geq\epsilon
+\]
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Standard
+While this is one way to characterize absolutely continuous measures, a
+ different characterization provides the shortest route to the fundamental
+ theorem of calculus.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Radon-Nikodym
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:radonNikodym"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+ be a measurable space.
+ If 
+\begin_inset Formula $\mu,\nu$
+\end_inset
+
+ are two 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-finite measures on 
+\begin_inset Formula $\F$
+\end_inset
+
+ then 
+\begin_inset Formula $\nu<<\mu$
+\end_inset
+
+ if and only if there exists almost-everywhere unique (with respect to both
+ measures) non-negative function 
+\begin_inset Formula $f\in\nonnegMeasurableFunctions$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\nu(A)=\lebInt{\mu}{f\indicate_{A}}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that the existence of 
+\begin_inset Formula $f$
+\end_inset
+
+ implies absolute continuity by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:densities"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The converse is far more challenging; fortunately for us, Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lemma:LebesgueRadonNikodym"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+does most of the work.
+ To see this, note that we can first do the case with finite measures by
+ observing that by our lemma
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\nu(A)=\lebInt{\mu}{\tilde{f}\indicate_{A}}+\nu(A\cap B)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+, 
+\begin_inset Formula $B\in N_{\mu}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{f}$
+\end_inset
+
+ is 
+\begin_inset Formula $\mu-$
+\end_inset
+
+almost everywhere non-negative.
+ If 
+\begin_inset Formula $\nu<<\mu$
+\end_inset
+
+ then 
+\begin_inset Formula $\nu(A\cap B)=0$
+\end_inset
+
+.
+ Letting 
+\begin_inset Formula $f=\tilde{f}\indicate_{{\tilde{f}\geq0}}$
+\end_inset
+
+, our existence result follows by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:funcEqualityAlmostEverywhere"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Proof
 To see that 
-\begin_inset Formula $k$
+\begin_inset Formula $f$
 \end_inset
 
  is the (
@@ -668,7 +1051,7 @@ To see that
 \end_inset
 
 almost everywhere) unique such function, suppose that 
-\begin_inset Formula $k_{1},k_{2}\in\nonnegMeasurableFunctions$
+\begin_inset Formula $f_{1},f_{2}\in\nonnegMeasurableFunctions$
 \end_inset
 
  both satisfy the hypothesis.
@@ -679,7 +1062,7 @@ almost everywhere) unique such function, suppose that
 
 \begin_inset Formula 
 \[
-\lebInt{\mu}{k\indicate_{A}}=\lebInt{\mu}{k\indicate_{A}}
+\lebInt{\mu}{f_{1}\indicate_{A}}=\lebInt{\mu}{f_{2}\indicate_{A}}
 \]
 
 \end_inset
@@ -695,7 +1078,7 @@ noprefix "false"
 \end_inset
 
  implies that 
-\begin_inset Formula $k_{1}\stackrel{\mu-\text{a.e}}{=}k_{2}.$
+\begin_inset Formula $f_{1}\stackrel{\mu-\text{a.e}}{=}f_{2}.$
 \end_inset
 
 
@@ -783,13 +1166,13 @@ we can easily verify that these new functions are in fact finite measures
 \end_inset
 
 a.e) unique functions 
-\begin_inset Formula $k_{i}\in\nonnegMeasurableFunctions$
+\begin_inset Formula $f_{i}\in\nonnegMeasurableFunctions$
 \end_inset
 
  such that
 \begin_inset Formula 
 \[
-\nu_{i}\left(A\right)=\lebInt{\mu_{i}}{k_{i}\indicate_{A}}=\lebInt{\mu}{k_{i}\indicate_{E_{i}}\indicate_{A}}
+\nu_{i}\left(A\right)=\lebInt{\mu_{i}}{f_{i}\indicate_{A}}=\lebInt{\mu}{f_{i}\indicate_{E_{i}}\indicate_{A}}
 \]
 
 \end_inset
@@ -801,9 +1184,9 @@ where the last equality can be seen by first showing it for simple functions
 \begin_inset Formula 
 \begin{align*}
 \nu\left(A\right) & =\sum_{i=1}^{\infty}\nu_{i}\left(A\right)\\
- & =\sum_{i=1}^{\infty}\lebInt{\mu}{k_{i}\indicate_{E_{i}}\indicate_{A}}\\
- & =\lebInt{\mu}{\indicate_{A}\sum_{i=1}^{\infty}k_{i}\indicate_{E_{i}}}\\
- & =\lebInt{\mu}{k\indicate_{A}}
+ & =\sum_{i=1}^{\infty}\lebInt{\mu}{f_{i}\indicate_{E_{i}}\indicate_{A}}\\
+ & =\lebInt{\mu}{\indicate_{A}\sum_{i=1}^{\infty}f_{i}\indicate_{E_{i}}}\\
+ & =\lebInt{\mu}{f\indicate_{A}}
 \end{align*}
 
 \end_inset
@@ -813,7 +1196,7 @@ for all
 \end_inset
 
  where 
-\begin_inset Formula $k:=\sum_{i\in\N}k_{i}\indicate_{E_{i}}.$
+\begin_inset Formula $f:=\sum_{i\in\N}f_{i}\indicate_{E_{i}}.$
 \end_inset
 
  This completes the existence part of the proof; uniqueness follows again
