@@ -1389,7 +1389,7 @@ in short) if
 \end_inset
 
 The collection of all such functions is denoted 
-\begin_inset Formula $\Lp1{\X,\F,\mu}$
+\begin_inset Formula $\Lp 1{\X,\F,\mu}$
 \end_inset
 
 .
@@ -1401,7 +1401,7 @@ When the underlying space and
 \end_inset
 
 algebra are clear, we shall simply write 
-\begin_inset Formula $\Lp1{\mu}.$
+\begin_inset Formula $\Lp 1{\mu}.$
 \end_inset
 
  The significance of the exponent 
@@ -1423,7 +1423,7 @@ A function
 \end_inset
 
  is in 
-\begin_inset Formula $\Lp1{\mu}$
+\begin_inset Formula $\Lp 1{\mu}$
 \end_inset
 
  if and only if 
@@ -1475,7 +1475,7 @@ For any measure space
 \end_inset
 
 integrable functions 
-\begin_inset Formula $\Lp1{\mu}$
+\begin_inset Formula $\Lp 1{\mu}$
 \end_inset
 
  is a vector space over 
@@ -1487,7 +1487,7 @@ integrable functions
 
 \begin_layout Proof
 First observe that the zero function 
-\begin_inset Formula $\indicate_{\emptyset}\in\Lp1{\mu}$
+\begin_inset Formula $\indicate_{\emptyset}\in\Lp 1{\mu}$
 \end_inset
 
 since 
@@ -1496,7 +1496,7 @@ since
 
  and so we have an additive identity.
  Next, notice that 
-\begin_inset Formula $f\in\Lp1{\mu}\Longleftrightarrow-f\in\Lp1{\mu}$
+\begin_inset Formula $f\in\Lp 1{\mu}\Longleftrightarrow-f\in\Lp 1{\mu}$
 \end_inset
 
  and so we have additive inverses for each function.
@@ -1508,7 +1508,7 @@ tion over addition.
 \end_inset
 
  and any functions 
-\begin_inset Formula $f,g\in\Lp1{\mu}$
+\begin_inset Formula $f,g\in\Lp 1{\mu}$
 \end_inset
 
 
@@ -1535,7 +1535,7 @@ where the first inequality follows from the triangle inequality of
 
 .
  This proves that 
-\begin_inset Formula $\Lp1{\mu}$
+\begin_inset Formula $\Lp 1{\mu}$
 \end_inset
 
  is closed under finite linear combinations and so is a vector space.
@@ -1624,7 +1624,7 @@ name "prop:linearityLebIntL1"
 \end_inset
 
 For any functions 
-\begin_inset Formula $f,g\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $f,g\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
  and scalar 
@@ -1733,7 +1733,7 @@ by linearity of
 \end_inset
 
  As 
-\begin_inset Formula $h,g,f\in\Lp1{\mu}$
+\begin_inset Formula $h,g,f\in\Lp 1{\mu}$
 \end_inset
 
 , the integrals of the individual components are not infinite and so we
@@ -1756,7 +1756,7 @@ name "cor:monotonicityLebIntL1"
 \end_inset
 
 For any functions 
-\begin_inset Formula $f,g\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $f,g\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
  such that 
@@ -1816,7 +1816,7 @@ name "cor:triangleIneqLebIntL1"
 \end_inset
 
 For any function 
-\begin_inset Formula $f\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $f\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
 
@@ -2024,11 +2024,11 @@ Let
 \end_inset
 
  be a sequence of functions in 
-\begin_inset Formula $\Lp1{\X,\F,\mu}$
+\begin_inset Formula $\Lp 1{\X,\F,\mu}$
 \end_inset
 
  and suppose there exists some 
-\begin_inset Formula $g\in\Lp1{\mu}$
+\begin_inset Formula $g\in\Lp 1{\mu}$
 \end_inset
 
  such that
@@ -2073,7 +2073,7 @@ Note that by the continuity of the absolute value function,
 \end_inset
 
  pointwise which shows 
-\begin_inset Formula $f\in\Lp1{\mu}$
+\begin_inset Formula $f\in\Lp 1{\mu}$
 \end_inset
 
 .
@@ -2110,7 +2110,7 @@ for every
 \end_inset
 
  which proves that 
-\begin_inset Formula $\phi_{i}\in\Lp1{\mu}$
+\begin_inset Formula $\phi_{i}\in\Lp 1{\mu}$
 \end_inset
 
  for every 
@@ -2424,7 +2424,7 @@ For any
 \end_inset
 
  define 
-\begin_inset Formula $g\left(x,\theta\right)\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $g\left(x,\theta\right)\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
  to be differentiable with respect to 
@@ -2453,7 +2453,7 @@ where the subscript
 
  clarifies the variable of integration.
  If there exists a function 
-\begin_inset Formula $G\in\Lp1{\mu}$
+\begin_inset Formula $G\in\Lp 1{\mu}$
 \end_inset
 
  such that 
@@ -3954,8 +3954,8 @@ noprefix "false"
 and so, integrating both sides, we have
 \begin_inset Formula 
 \begin{align*}
-\lebInt\mu{\min\left\{ g,n\right\} } & \leq n\mu\left(A\right)+\lebInt\mu f\\
- & =\lebInt\mu f
+\lebInt{\mu}{\min\left\{ g,n\right\} } & \leq n\mu\left(A\right)+\lebInt{\mu}f\\
+ & =\lebInt{\mu}f
 \end{align*}
 
 \end_inset
@@ -3975,7 +3975,7 @@ since
  Then, applying the monotone convergence theorem, we have 
 \begin_inset Formula 
 \[
-\lebInt\mu g=\lim_{n\to\infty}\lebInt\mu{\min\left\{ g,n\right\} }\leq\lebInt\mu f.
+\lebInt{\mu}g=\lim_{n\to\infty}\lebInt{\mu}{\min\left\{ g,n\right\} }\leq\lebInt{\mu}f.
 \]
 
 \end_inset
@@ -4006,7 +4006,7 @@ Let
  Then
 \begin_inset Formula 
 \[
-\lebInt\mu f=\lebInt\mu g.
+\lebInt{\mu}f=\lebInt{\mu}g.
 \]
 
 \end_inset
@@ -4040,7 +4040,7 @@ noprefix "false"
  we have
 \begin_inset Formula 
 \[
-\lebInt\mu{f^{+}+g^{-}}=\lebInt\mu{g^{+}+f^{-}}.
+\lebInt{\mu}{f^{+}+g^{-}}=\lebInt{\mu}{g^{+}+f^{-}}.
 \]
 
 \end_inset
@@ -4059,7 +4059,7 @@ noprefix "false"
 , we get 
 \begin_inset Formula 
 \[
-\lebInt\mu f=\lebInt\mu{f^{+}}-\lebInt\mu{f^{-}}=\lebInt\mu{g^{+}}-\lebInt\mu{g^{-}}=\lebInt\mu g
+\lebInt{\mu}f=\lebInt{\mu}{f^{+}}-\lebInt{\mu}{f^{-}}=\lebInt{\mu}{g^{+}}-\lebInt{\mu}{g^{-}}=\lebInt{\mu}g
 \]
 
 \end_inset
@@ -4089,7 +4089,7 @@ be a measure on
  such that 
 \begin_inset Formula 
 \[
-\lebInt\mu{f\indicate_{F}}=\lebInt\mu{g\indicate_{F}}
+\lebInt{\mu}{f\indicate_{F}}=\lebInt{\mu}{g\indicate_{F}}
 \]
 
 \end_inset
@@ -4455,11 +4455,11 @@ name "thm:generalizedDominatedConvergence"
 \end_inset
 
 Let 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n}\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n}\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
  and suppose there exists some 
-\begin_inset Formula $g\in\Lp1{\mu}$
+\begin_inset Formula $g\in\Lp 1{\mu}$
 \end_inset
 
  be such that
@@ -4488,7 +4488,7 @@ almost everywhere.
 \end_inset
 
 we have that 
-\begin_inset Formula $f\in\Lp1{\mu}$
+\begin_inset Formula $f\in\Lp 1{\mu}$
 \end_inset
 
  and
@@ -4568,7 +4568,7 @@ for all
 \end_inset
 
 and observe that 
-\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp1{\mu}$
+\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp 1{\mu}$
 \end_inset
 
  since 
@@ -4764,13 +4764,25 @@ for sets
 \end_layout
 
 \begin_layout Section
-Modes of convergence for measurable functions
+Convergence of measurable functions
 \end_layout
 
 \begin_layout Standard
 So far, we have discussed two modes of convergence for measurable functions
- explicitly: pointwise convergence and almost-everywhere convergence, the
- latter of which is implied by the former.
+ explicitly: pointwise convergence and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[def:convAlmostEverywhere]{almost-everywhere convergence}
+\end_layout
+
+\end_inset
+
+, the latter of which is implied by the former.
  We have also implicitly defined another type of convergence through the
  
 \begin_inset ERT
@@ -4811,11 +4823,11 @@ name "def:L1Convergence"
 \end_inset
 
 A sequence of functions 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
  is said to converge to a function 
-\begin_inset Formula $f\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $f\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
  in 
@@ -4899,6 +4911,406 @@ In this case, we write
 f_{n}\stackrel{\mu}{\longrightarrow}f.
 \]
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Immediately, we would like to know if these 
+\begin_inset Quotes eld
+\end_inset
+
+limits
+\begin_inset Quotes erd
+\end_inset
+
+ are well behaved in some sense.
+ That is, we woud like to ensure that they satisfy some basic properties
+ that we expect limits to satisfy.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:convFconvAbsFnMinusF"
+
+\end_inset
+
+Let 
+\begin_inset Formula $(\X,\F,\mu)$
+\end_inset
+
+ be a measure space and let 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+\end_inset
+
+ converge to 
+\begin_inset Formula $f\in\measurableFunctions$
+\end_inset
+
+ in any of the modes described earlier.
+ Then 
+\begin_inset Formula $\lvert f_{n}-f\rvert\to0$
+\end_inset
+
+ in the same mode.
+\end_layout
+
+\begin_layout Proof
+We first show this for almost everywhere convergence.
+ Suppose 
+\begin_inset Formula $f_{n}\stackrel{\text{a.e}}{\longrightarrow}f$
+\end_inset
+
+ and consider the function 
+\begin_inset Formula $g_{n}:=\lvert f_{n}-f\rvert$
+\end_inset
+
+.
+ Note that if for any 
+\begin_inset Formula $x\in\X$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}g_{n}(x)=0\Longleftrightarrow\lim_{n\to\infty}f_{n}(x)=f(x)
+\]
+
+\end_inset
+
+by the definition of convergence of sequences.
+ The result then follows by observing that the points where this does not
+ occur are identical (and thus so are their measures).
+ The result for the other two modes are trivial.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Linearity of convergence
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:linearityConvergence"
+
+\end_inset
+
+Let 
+\begin_inset Formula $(\X,\F,\mu)$
+\end_inset
+
+ be a measure space and let 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N},\left\{ g_{n}\right\} \in\measurableFunctions$
+\end_inset
+
+ converge to 
+\begin_inset Formula $f,g\in\measurableFunctions$
+\end_inset
+
+ respectively in any of the modes described earlier.
+ For any 
+\begin_inset Formula $c\in\R$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+cf_{n}+g_{n}\to cf+g
+\]
+
+\end_inset
+
+in the same mode of convergence.
+\end_layout
+
+\begin_layout Proof
+In the case of almost sure convergence, let the null sets where 
+\begin_inset Formula $\lim_{n\to\infty}f_{n}(x)\neq f(x)$
+\end_inset
+
+ and 
+\begin_inset Formula $\lim_{n\to\infty}g_{n}(x)\neq g(x)$
+\end_inset
+
+ be 
+\begin_inset Formula $N_{f}$
+\end_inset
+
+ and 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ respectively.
+ Then 
+\begin_inset Formula $N=N_{f}\cup N_{g}$
+\end_inset
+
+ is a null set and so
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}cf_{n}+g_{n}=cf+g
+\]
+
+\end_inset
+
+on 
+\begin_inset Formula $N^{C}$
+\end_inset
+
+ which establishes linearity.
+\end_layout
+
+\begin_layout Proof
+In the case of convergence in measure, fix 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and observe that 
+\begin_inset Formula 
+\begin{align*}
+\left\{ x\in\X\mid\lvert cf_{n}(x)+g(x)-cf(x)-g(x)\rvert>\epsilon\right\}  & \subseteq\left\{ x\in\X\mid\lvert c\rvert\lvert f_{n}(x)-f(x)\rvert+\lvert g_{n}(x)-g(x)\rvert>\epsilon\right\} \\
+ & \subseteq\left\{ x\in\X\mid\lvert f_{n}(x)-f(x)\rvert>\frac{\epsilon}{2c}\right\} \cup\left\{ x\in\X\mid\lvert g_{n}(x)-g(x)\rvert>\frac{\epsilon}{2}\right\} .
+\end{align*}
+
+\end_inset
+
+Subadditvity and monotonicty implies
+\begin_inset Formula 
+\begin{align*}
+\mu\left(\left\{ x\in\X\mid\lvert cf_{n}(x)+g(x)-cf(x)-g(x)\rvert>\epsilon\right\} \right) & \leq\mu\left(\left\{ x\in\X\mid\lvert f_{n}(x)-f(x)\rvert>\frac{\epsilon}{2c}\right\} \right)\\
+ & +\mu\left(\left\{ x\in\X\mid\lvert g_{n}(x)-g(x)\rvert>\frac{\epsilon}{2}\right\} \right).
+\end{align*}
+
+\end_inset
+
+Taking limits yields the result.
+\end_layout
+
+\begin_layout Proof
+The case for 
+\begin_inset Formula $L^{1}$
+\end_inset
+
+ convergence will be established in chapter 4 where we show that 
+\begin_inset Formula $L^{1}$
+\end_inset
+
+ convergence corresponds to convergence in a (semi) norm, which automatically
+ implies the result; for now we take it as given.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Squeeze theorem
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:squeezeThm"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space and let 
+\begin_inset Formula $f_{n}\leq g_{n}\leq h_{n}$
+\end_inset
+
+ be in 
+\begin_inset Formula $\measurableFunctions$
+\end_inset
+
+ such that 
+\begin_inset Formula $f_{n},h_{n}\to\psi$
+\end_inset
+
+ in one of the three modes of convergence.
+ Then 
+\begin_inset Formula $g_{n}\to\psi$
+\end_inset
+
+ in the same mode of convergence.
+\end_layout
+
+\begin_layout Proof
+Suppose that 
+\begin_inset Formula $f_{n},h_{n}\stackrel{\text{a.s}}{\longrightarrow}\psi$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $N_{f}$
+\end_inset
+
+ and 
+\begin_inset Formula $N_{h}$
+\end_inset
+
+ be the null sets where pointwise convergence fails for the sequences 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $h_{n}$
+\end_inset
+
+ respectively.
+ On the complement of their union, we have pointwise convergence.
+ Take any point 
+\begin_inset Formula $x\in N_{f}^{C}\cap N_{h}^{C};$
+\end_inset
+
+for any 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ there's some 
+\begin_inset Formula $n_{x,\epsilon}\in\N$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $n\geq n_{x,\epsilon}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lvert f_{n}(x)-\psi(x)\rvert<\epsilon
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\lvert h_{n}(x)-\psi(x)\vernal<\epsilon
+\]
+
+\end_inset
+
+and so
+\begin_inset Formula 
+\[
+-\epsilon<f_{n}(x)-\psi(x)\leq g_{n}(x)-g(x)\leq h_{n}(x)<\epsilon\Longleftrightarrow\lvert g_{n}(x)-\psi(x)\rvert<\epsilon
+\]
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Proof
+Now for the convergence in measure, observe that for any 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\left\{ x\in\X\mid\lvert h_{n}(x)-\psi(x)\rvert\leq\epsilon\right\} \bigcap\left\{ x\in\X\mid\lvert f_{n}(x)-\psi(x)\rvert\leq\epsilon\right\} \subseteq\left\{ x\in\X\mid\lvert g_{n}(x)-\psi(x)\rvert\leq\epsilon\right\} 
+\]
+
+\end_inset
+
+and so
+\begin_inset Formula 
+\[
+\left\{ x\in\X\mid\lvert g_{n}(x)-\psi(x)\rvert>\epsilon\right\} \subseteq\left\{ x\in\X\mid\lvert h_{n}(x)-\psi(x)\rvert>\epsilon\right\} \bigcup\left\{ x\in\X\mid\lvert f_{n}(x)-\psi(x)\rvert>\epsilon\right\} 
+\]
+
+\end_inset
+
+and so
+\begin_inset Formula 
+\[
+\mu\left(\left\{ x\in\X\mid\lvert g_{n}(x)-\psi(x)\rvert>\epsilon\right\} \right)\leq\mu\left(\left\{ x\in\X\mid\lvert h_{n}(x)-\psi(x)\rvert>\epsilon\right\} \right)+\mu\left(\left\{ x\in\X\mid\lvert f_{n}(x)-\psi(x)\rvert>\epsilon\right\} \right)
+\]
+
+\end_inset
+
+by monotonicty and sub-additivity.
+ Taking limits yields the result.
+\end_layout
+
+\begin_layout Proof
+Finally, for 
+\begin_inset Formula $L^{1}$
+\end_inset
+
+ convergence,
+\end_layout
+
+\begin_layout Standard
+Finally, for our limiting operations to make sense, limits should be unique.
+ Unfortunately, this is not strictly true; however all limits are almost
+ everywhere unique.
+ For the case of convergence in measure and 
+\begin_inset Formula $L^{1}$
+\end_inset
+
+ convergence, we shall show that this follows from the fact that the topologies
+ for these modes of convergence are given by (pseudo) metrics (and in the
+ case of 
+\begin_inset Formula $L^{1}$
+\end_inset
+
+, by a semi-norm); the case of almost-everywhere convergence, the result
+ follows by the fact that the union of null sets is null.
+ Therefore we have the following.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Uniqueness of limits
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:limitUnique"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space and let 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N},f,g\in\measurableFunctions$
+\end_inset
+
+ be such that 
+\begin_inset Formula $f_{n}\longrightarrow f$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{n}\longrightarrow g$
+\end_inset
+
+ in any of the modes of convergence.
+ Then 
+\begin_inset Formula $f\stackrel{\text{a.s}}{=}g.$
 \end_inset
 
 
@@ -5131,7 +5543,157 @@ Note that crucial failure here is that we cannot dominate
 The converse to this result is not true either, that is, convergence in
  measure does not imply almost everywhere convergence, even when the measure
  in question in is finite.
- However, convergence in measure implies almost everywhere subsequential
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:convMeasureDoesntImplyAEConv"
+
+\end_inset
+
+ Observe that for any 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+, there exists some 
+\begin_inset Formula $k\in\N\cup\{0\}$
+\end_inset
+
+ such that 
+\begin_inset Formula $2^{k}\leq n<2^{k+1}.$
+\end_inset
+
+ By construction, there's only one such 
+\begin_inset Formula $k$
+\end_inset
+
+ and so we can denote it 
+\begin_inset Formula $k(n).$
+\end_inset
+
+ Consider the following collection of sets in 
+\begin_inset Formula $\borel(\R)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+E_{n}:=\left[\frac{n-2^{k(n)}}{2^{k(n)}},\frac{n+1-2^{k(n)}}{2^{k(n)}}\right]
+\]
+
+\end_inset
+
+and observe that 
+\begin_inset Formula $E_{n}\subseteq[0,1]$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+.
+ To see this, note that the lower bound is smallest when 
+\begin_inset Formula $n=2^{k(n)}$
+\end_inset
+
+ and the upper bound is largest when 
+\begin_inset Formula $n=2^{k(n)+1}-1$
+\end_inset
+
+.
+ which correspond to 0 and 1 respectively.
+ Now for 
+\begin_inset Formula $\epsilon\in(0,1)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}\lambda\left(\left\{ x\in\R\mid\indicate_{E_{n}}>\epsilon\right\} \right)=\lim_{n\to\infty}\lambda\left(E_{n}\right)=\lim_{n\to\infty}\frac{1}{2^{k(n)}}=0
+\]
+
+\end_inset
+
+as 
+\begin_inset Formula $k(n)\to\infty.$
+\end_inset
+
+ Further, for 
+\begin_inset Formula $\epsilon\geq1$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lambda\left(\left\{ x\in\R\mid\indicate_{E_{n}}>\epsilon\right\} \right)=0
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\[
+\indicate_{E_{n}}\stackrel{\mu}{\longrightarrow}0.
+\]
+
+\end_inset
+
+Now for 
+\begin_inset Formula $x\in[0,1]$
+\end_inset
+
+, we have that 
+\begin_inset Formula $x\in E_{n}$
+\end_inset
+
+ for infinitely many 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+.
+ We can establish this by noting that 
+\begin_inset Formula 
+\[
+\bigcup_{2^{k(n)}\leq n\leq2^{L(n)}-1}E_{n}=[0,1]
+\]
+
+\end_inset
+
+and so for each 
+\begin_inset Formula $k\in\N\cup\{0\}$
+\end_inset
+
+ there's some 
+\begin_inset Formula $n_{k}$
+\end_inset
+
+ such that 
+\begin_inset Formula $x\in E_{n_{k}}$
+\end_inset
+
+.
+ Then the subsequence 
+\begin_inset Formula $\indicate_{E_{n_{k}}}=1$
+\end_inset
+
+ and so the our sequence 
+\begin_inset Formula $\indicate_{E_{n}}$
+\end_inset
+
+doesnt converge pointwise to zero anywhere in 
+\begin_inset Formula $[0,1].$
+\end_inset
+
+ In particular, it doesn't converge almost everywhere.
+\end_layout
+
+\begin_layout Standard
+However, convergence in measure implies almost everywhere subsequential
  convergence.
  To show this, we will first establish a useful lemma.
 \end_layout
@@ -5374,7 +5936,7 @@ Markov's inequality
 
  be a measure space.
  For any function 
-\begin_inset Formula $f\in\Lp1{\mu}$
+\begin_inset Formula $f\in\Lp 1{\mu}$
 \end_inset
 
  and any 
@@ -5420,7 +5982,7 @@ name "prop:L1impliesConvergenceInMeasure"
 \end_inset
 
 For a sequence of functions 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
 such that 
@@ -5432,7 +5994,7 @@ f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f
 \end_inset
 
 for some 
-\begin_inset Formula $f\in\Lp1{\mu},$
+\begin_inset Formula $f\in\Lp 1{\mu},$
 \end_inset
 
  we have 
@@ -5644,6 +6206,563 @@ Since
 \end_inset
 
  was unspecified, we have uniform convergence.
+\end_layout
+
+\begin_layout Subsection
+Topologies of various convergence notions
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:pseudoMetric"
+
+\end_inset
+
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a set and let 
+\begin_inset Formula 
+\[
+d:X\times X\to\R
+\]
+
+\end_inset
+
+be a function that satisfies
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $ d(x,y) = d(y,x) 
+\backslash
+forall x,y 
+\backslash
+in X$ (Symmetry)
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $ d(x,z) 
+\backslash
+leq d(x,y) + d(y,z) 
+\backslash
+forall x,y,z 
+\backslash
+in X $ (Triangle inequality)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Then 
+\begin_inset Formula $(X,d)$
+\end_inset
+
+ is called a 
+\emph on
+pseudometric space 
+\emph default
+and 
+\begin_inset Formula $d$
+\end_inset
+
+ is called a 
+\emph on
+pseudo-metric.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:pseudoMetricConvMeasure"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a finite measure space i.e.
+ 
+\begin_inset Formula $\mu(\X)<\infty$
+\end_inset
+
+.
+ Then the function
+\begin_inset Formula 
+\[
+d(f,g):=\lebInt{\mu}{\frac{\lvert f-g\rvert}{1+\lvert f-g\rvert}}
+\]
+
+\end_inset
+
+defines a pseudo-metric.
+ Moreover, for any 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N},f\in\measurableFunctions$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f_{n}\stackrel{\mu}{\longrightarrow}f
+\]
+
+\end_inset
+
+if and only if
+\begin_inset Formula 
+\[
+d(f_{n},f)\longrightarrow0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula 
+\[
+0\leq\frac{\lvert f-g\rvert}{1+\lvert f-g\rvert}\leq1
+\]
+
+\end_inset
+
+and so the function 
+\begin_inset Formula $d$
+\end_inset
+
+ is well defined as an integral on a finite measure space of bounded a function.
+ Note that the symmetry of 
+\begin_inset Formula $d$
+\end_inset
+
+ is obvious given the symmetry of the absolute value function.
+ To see the triangle inequality, first observe that the function 
+\begin_inset Formula $g(x)=\frac{x}{1+x}$
+\end_inset
+
+is increasing on 
+\begin_inset Formula $x>0$
+\end_inset
+
+ (it has a derivative 
+\begin_inset Formula $\frac{1}{(1+x)^{2}}$
+\end_inset
+
+) and so, by the triangle inequality for absolute value
+\begin_inset Formula 
+\begin{align*}
+\frac{\lvert f-h\rvert}{1+\lvert f-h\rvert} & \leq\frac{\lvert f-g\rvert+\lvert g-h\rvert}{1+\lvert f-g\rvert+\lvert g-h\rvert}\\
+ & =\frac{\lvert f-g\rvert}{1+\lvert f-g\rvert+\lvert g-h\rvert}+\frac{\lvert g-h\rvert}{1+\lvert f-g\rvert+\lvert g-h\rvert}\\
+ & \leq\frac{\lvert f-g\rvert}{1+\rvert f-g\rvert}+\frac{\lvert g-h\rvert}{1+\rvert g-h\rvert}.
+\end{align*}
+
+\end_inset
+
+Linearity and monotonicity of integration yields the triangle inequality
+ for 
+\begin_inset Formula $d.$
+\end_inset
+
+ Now suppose 
+\begin_inset Formula $f_{n}\stackrel{\mu}{\to}f$
+\end_inset
+
+ , let 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and observe that 
+\begin_inset Formula 
+\begin{align*}
+d(f_{n},f) & =\lebInt{\mu}{\frac{\lvert f_{n}-f\rvert}{1+\lvert f_{n}-f\rvert}}\\
+ & =\lebInt{\mu}{\frac{\lvert f_{n}-f\rvert}{1+\lvert f_{n}-f\rvert}\indicate_{\{\lvert f_{n}-f\rvert>\epsilon\}}}+\lebInt{\mu}{\frac{\lvert f_{n}-f\rvert}{1+\lvert f_{n}-f\rvert}\indicate_{\{\lvert f_{n}-f\rvert\leq\epsilon\}}}\\
+ & \leq\mu\left(\lvert f_{n}-f\rvert>\epsilon\right)+\frac{\epsilon}{1+\epsilon}\mu\left(\lvert f_{n}-f\rvert\leq\epsilon\right)\\
+ & \leq\mu\left(\lvert f_{n}-f\rvert>\epsilon\right)+\frac{\epsilon}{1+\epsilon}\mu\left(\X\right).
+\end{align*}
+
+\end_inset
+
+Therefore by convergence in measure 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}d(f_{n},f)\leq\frac{\epsilon}{1+\epsilon}\mu\left(\X\right).
+\]
+
+\end_inset
+
+Of course, 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ can be arbitrarily small and so we have convergence in the pseudo-metric.
+\end_layout
+
+\begin_layout Proof
+Conversely, suppose 
+\begin_inset Formula $\lim_{n\to\infty}d(f_{n},f)=0$
+\end_inset
+
+ and fix some 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+0\leq\frac{\epsilon}{1+\epsilon}\mu\left(\lvert f_{n}-f\rvert>\epsilon\right)\leq\lebInt{\mu}{\frac{\lvert f_{n}-f\rvert}{1+\lvert f_{n}-f\rvert}\indicate_{\{\lvert f_{n}-f\rvert>\epsilon\}}}\leq\lebInt{\mu}{\frac{\lvert f_{n}-f\rvert}{1+\lvert f_{n}-f\rvert}}
+\]
+
+\end_inset
+
+and in the limit 
+\begin_inset Formula 
+\[
+\frac{\epsilon}{1+\epsilon}\mu\left(\lvert f_{n}-f\rvert>\epsilon\right)\longrightarrow0\implies\mu\left(\lvert f_{n}-f\rvert>\epsilon\right)\longrightarrow0
+\]
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Standard
+Propositions 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:convInMeasureImpliesSubsequenceAE"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:finiteMeasuresAEimpliesConvInMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ gives us a sort of equivalence between almost everywhere equivalence as
+ a corollary of a basic fact about sequences in topological spaces.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:subsubSequence"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\tau\right)$
+\end_inset
+
+ be a topological space.
+ The sequence
+\begin_inset Formula $\left\{ x_{n}\right\} _{n\in\N}\in\X$
+\end_inset
+
+ converges to 
+\begin_inset Formula $x\in\X$
+\end_inset
+
+ if and only if every subsequence of 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ has a further subsequence that converges to 
+\begin_inset Formula $x.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Convergence implies subsequential convergence for every subseqeuence (and
+ in particulary, subsubsequences).
+ Conversely, suppose that 
+\begin_inset Formula $x_{n}\nrightarrow x$
+\end_inset
+
+.
+ Then there's an open set 
+\begin_inset Formula $\mathcal{U\in\tau}$
+\end_inset
+
+ that contains 
+\begin_inset Formula $x$
+\end_inset
+
+ such that there are infinitely many elements of 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ outside 
+\begin_inset Formula $\mathcal{U}$
+\end_inset
+
+.
+ In other words, there exists some subsequence 
+\begin_inset Formula $x_{n_{k}}\notin\mathcal{U}$
+\end_inset
+
+ for all 
+\begin_inset Formula $k\in\N$
+\end_inset
+
+.
+ Then no subsequence of 
+\begin_inset Formula $x_{n_{k}}$
+\end_inset
+
+ converges to 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:subsubsequenceProbAEConv"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a finite measure space i.e 
+\begin_inset Formula $\mu(\X)<\infty.$
+\end_inset
+
+ Then for any sequence 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+\end_inset
+
+ and 
+\begin_inset Formula $f\in\measurableFunctions$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+f_{n}\stackrel{\mu}{\longrightarrow}f
+\]
+
+\end_inset
+
+if and only if every subsequence 
+\begin_inset Formula $f_{n_{k}}$
+\end_inset
+
+ has a further subsequence 
+\begin_inset Formula $f_{n_{k_{j}}}$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+f_{n_{k_{j}}}\stackrel{\text{a.e}}{\longrightarrow}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Suppose 
+\begin_inset Formula $f_{n}\stackrel{\mu}{\longrightarrow}f$
+\end_inset
+
+ and let 
+\begin_inset Formula $f_{n_{k}}$
+\end_inset
+
+ be an arbitrary subsequence.
+ This subsequence also converges to 
+\begin_inset Formula $f$
+\end_inset
+
+ in measure and so by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:convInMeasureImpliesSubsequenceAE"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ there's some sub-subsequence 
+\begin_inset Formula $f_{n_{k_{j}}}\stackrel{\text{a.e}}{\longrightarrow}f$
+\end_inset
+
+.
+ Conversely, suppose every subsequence 
+\begin_inset Formula $f_{n_{k}}$
+\end_inset
+
+ has a further subsequence 
+\begin_inset Formula $f_{n_{k_{j}}}\stackrel{\text{a.e}}{\longrightarrow}f$
+\end_inset
+
+.
+ Then by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:finiteMeasuresAEimpliesConvInMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $f_{n_{k_{j}}}\stackrel{\mu}{\longrightarrow}f$
+\end_inset
+
+.
+ By Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:subsubsequenceProbAEConv"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, convergence in measure is (pseudo)-metrizable and thus topological and
+ so by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:subsubSequence"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $f_{n}\stackrel{\mu}{\longrightarrow}f.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:noTopologyForAEConv"
+
+\end_inset
+
+There is no topology for almost everywhere convergence
+\end_layout
+
+\begin_layout Proof
+Note that if almost everywhere convergence was topological, then by Lemma
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:subsubSequence"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:subsubsequenceProbAEConv"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $f_{n}\stackrel{\mu}{\longrightarrow}f\implies f_{n}\stackrel{\text{a.e}}{\longrightarrow}f$
+\end_inset
+
+.
+ But this has been ruled out by Example
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "exa:convMeasureDoesntImplyAEConv"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Thus we have established that the topology of convergence in measure comes
+ from a (pseudo)-metric, whereas almost everywhere convergence is not topologiza
+ble at all! Convergence in 
+\begin_inset Formula $L^{1}$
+\end_inset
+
+ , on the other hand, corresponds to a (semi)-normed convergence as shown
+ in Chapter 4.
+\end_layout
+
+\begin_layout Subsection
+Uniform integrability and uniform absolute continuity
+\end_layout
+
+\begin_layout Section
+Convergence of measures
 \end_layout
 
 \begin_layout Section

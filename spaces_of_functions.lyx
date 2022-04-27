@@ -93,6 +93,17 @@ name "chap:spaces_of_functions"
 
 \end_layout
 
+\begin_layout Section
+\begin_inset Formula $\mathcal{L}^{p}$
+\end_inset
+
+ spaces as almost Banach spaces over 
+\begin_inset Formula $\R$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 The central objects of study in analysis are functions, and the study of
  sets of functions is what broadly characterizes functional analysis.
@@ -617,15 +628,116 @@ lder's inequality above.
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Standard
+For finite measures , 
 \begin_inset Formula $\mathcal{L}^{p}$
 \end_inset
 
- spaces as almost Banach spaces over 
-\begin_inset Formula $\R$
+ spaces enjoy a nesting property
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:nestingLpSpace"
+
+\end_inset
+
+Let 
+\begin_inset Formula $(\X,\F,\mu)$
+\end_inset
+
+ be a measure space such that 
+\begin_inset Formula $\mu(\X)<\infty.$
+\end_inset
+
+ Then for 
+\begin_inset Formula $1\leq q<p<\infty$
 \end_inset
 
 
+\begin_inset Formula 
+\[
+\Lp p{\mu}\subseteq\Lp q{\mu}
+\]
+
+\end_inset
+
+and for any 
+\begin_inset Formula $f\in\Lp p{\mu}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\pnorm fp\geq\pnorm fq.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+By H
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\begin_inset Quotes erd
+\end_inset
+
+{o}
+\end_layout
+
+\end_inset
+
+lder's inequality, we have for any
+\begin_inset Formula $f\in\Lp p{\mu}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\pnorm{\lvert f\rvert{}^{q}}1\leq\pnorm{\lvert f\rvert{}^{q}}s\pnorm{\indicate_{\X}}{\frac{s}{s-1}}
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $s\in(1,\infty)$
+\end_inset
+
+.
+ In particular, for 
+\begin_inset Formula $s=\frac{p}{q}$
+\end_inset
+
+, the inequality is
+\begin_inset Formula 
+\[
+\pnorm{\lvert f\rvert{}^{q}}1\leq\lebInt{\mu}{\lvert f\rvert^{p}}^{\frac{q}{p}}\mu(\X)^{\frac{s-1}{s}}.
+\]
+
+\end_inset
+
+Taking the 
+\begin_inset Formula $q$
+\end_inset
+
+th root yields
+\begin_inset Formula 
+\[
+\pnorm fq\leq\pnorm fp\mu(\X)^{\frac{s-1}{sq}}<\infty
+\]
+
+\end_inset
+
+which completes the proof.
 \end_layout
 
 \begin_layout Definition
@@ -1184,10 +1296,7 @@ Convexity
 \end_layout
 
 \begin_layout Section
-\begin_inset Formula $\mathcal{L}^{2}$
-\end_inset
-
- as a Hilbert space over 
+Hilbert spaces over 
 \begin_inset Formula $\R$
 \end_inset
 
@@ -2151,7 +2260,7 @@ Let
 
  be a measure space.
  The space 
-\begin_inset Formula $\Lp 2{\X,\F,\mu}$
+\begin_inset Formula $\Lp2{\X,\F,\mu}$
 \end_inset
 
  is an inner-product space with inner product 
@@ -2171,7 +2280,7 @@ Let
 
 \begin_layout Proof
 Let us verify that 
-\begin_inset Formula $\Lp 2{\mu}$
+\begin_inset Formula $\Lp2{\mu}$
 \end_inset
 
  satisfies the parallelogram identity.
@@ -2207,7 +2316,7 @@ noprefix "false"
 \end_inset
 
  showed that 
-\begin_inset Formula $\Lp 2{\mu}$
+\begin_inset Formula $\Lp2{\mu}$
 \end_inset
 
  is an inner-product space but we also know, from Theorem 
@@ -2221,7 +2330,7 @@ noprefix "false"
 \end_inset
 
  that 
-\begin_inset Formula $\Lp 2{\mu}$
+\begin_inset Formula $\Lp2{\mu}$
 \end_inset
 
  is a complete metric space with respect to the metric induced by its norm.
@@ -2592,7 +2701,7 @@ Let
 \begin_inset Formula $h\in\mathcal{H}$
 \end_inset
 
-, then 
+, 
 \begin_inset Formula $k\in\mathcal{G}$
 \end_inset
 
@@ -2609,7 +2718,7 @@ for every
 \end_inset
 
  if and only if 
-\begin_inset Formula $k=P_{\mathcal{G}}$
+\begin_inset Formula $k=P_{\mathcal{G}}h$
 \end_inset
 
  and so
@@ -2819,6 +2928,236 @@ since
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The following result establishes some standard properties of Hilbert projections.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:propertiesHilbertProjection"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Properties of projections
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(\mathcal{H},\innerproduct{\cdot}{\cdot})$
+\end_inset
+
+ be a Hilbert space.
+ For any closed subspace 
+\begin_inset Formula $\mathcal{G\subseteq\mathcal{H}}$
+\end_inset
+
+, the projection operator 
+\begin_inset Formula $P_{\mathcal{G}}$
+\end_inset
+
+ has the following properties
+\end_layout
+
+\begin_layout Proposition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item (Linearity) For any $f,g 
+\backslash
+in 
+\backslash
+mathcal{H}$ and any $
+\backslash
+alpha,
+\backslash
+beta 
+\backslash
+in 
+\backslash
+R$
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+					P_{
+\backslash
+mathcal{G}}
+\backslash
+left(
+\backslash
+alpha f + 
+\backslash
+beta g
+\backslash
+right) = 
+\backslash
+alpha P_{
+\backslash
+mathcal{G}}f + 
+\backslash
+beta P_{
+\backslash
+mathcal{G}}.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item (Tower) For any closed subspaces $
+\backslash
+mathcal{G}_1 
+\backslash
+subseteq 
+\backslash
+mathcal{G}_2 
+\backslash
+subseteq 
+\backslash
+mathcal{H}$ and any $h 
+\backslash
+in 
+\backslash
+mathcal{H}$
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+					P_{
+\backslash
+mathcal{G}_1} P_{
+\backslash
+mathcal{G}_2}h = P_{
+\backslash
+mathcal{G}_1}h
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For (i), observe that for any 
+\begin_inset Formula $k\in\mathcal{G}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\innerproduct{\alpha f+\beta g-(\alpha P_{\mathcal{G}}f+\beta P_{\mathcal{G}}g)}k & =\alpha\innerproduct{f-P_{\mathcal{G}}f}k-\beta\innerproduct{g-P_{\mathcal{G}}g}k\\
+ & =0
+\end{align*}
+
+\end_inset
+
+where the first equality follows from the linearity of inner products (in
+ the first argument) and the second from Corollary
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:orthProjection"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Then, an application of the uniqueness clause of the same result furnishes
+ the linearity result.
+\end_layout
+
+\begin_layout Proof
+Next, pick an arbitrary 
+\begin_inset Formula $k\in\mathcal{G}_{1}$
+\end_inset
+
+ and note that for any 
+\begin_inset Formula $h\in\mathcal{H}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\innerproduct{P_{\mathcal{G}_{2}}h-P_{\mathcal{G}_{1}}h}k & =\innerproduct{P_{\mathcal{G}_{2}}h-h+h-P_{\mathcal{G}_{1}}h}k\\
+ & =\innerproduct{h-P_{\mathcal{G}_{1}}h}k-\innerproduct{h-P_{\mathcal{G}_{2}}h}k\\
+ & =0
+\end{align*}
+
+\end_inset
+
+where the second equality is due to linearity of inner products and the
+ third is due the fact that both the inner products on the second line are
+ zero due to the same uniqueness of orthogonal projections (the second inner
+ product is zero because of 
+\begin_inset Formula $k\in\mathcal{G}_{1}\implies k\in\mathcal{G}_{2}$
+\end_inset
+
+).
+ This is sufficient to deduce (ii) by yet another application of the uniqueness
+ of orthogonal projections.
 \end_layout
 
 \begin_layout Standard
@@ -3178,7 +3517,7 @@ hl{Add macro}
 \end_inset
 
  is zero everywhere, then 
-\begin_inset Formula $g=0$
+\begin_inset Formula $k=0$
 \end_inset
 
  uniquely satisfies the condition of the theorem.
@@ -3196,7 +3535,7 @@ hl{Add macro}
 
 .
  Define 
-\begin_inset Formula $\tilde{h}:=\frac{h_{0}}{\pnorm{h_{0}}{}}$
+\begin_inset Formula $\tilde{h}:=\frac{h_{0}}{\Gamma(h_{0})}$
 \end_inset
 
  so that 
@@ -3375,6 +3714,32 @@ reference "chap:conditioning"
 plural "false"
 caps "false"
 noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Banach spaces over 
+\begin_inset Formula $\R$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:banach-R"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Operators and duality
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Operators-and-duality"
 
 \end_inset
 

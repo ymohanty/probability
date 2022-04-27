@@ -239,15 +239,11 @@ frontmatter
 \end_layout
 
 \begin_layout Title
-Yale MA 330 Course Notes: Advanced Probability
+Notes on Introductory Probability Theory
 \end_layout
 
 \begin_layout Author
-Taught by: Sekhar Tatikonda (Spring 2020)
-\end_layout
-
-\begin_layout Author
-Written By: Yashaswi Mohanty
+Yashaswi Mohanty
 \end_layout
 
 \begin_layout Standard
@@ -405,7 +401,27 @@ Appendices
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
+filename "equivalent_choice.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
 filename "topological_spaces.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "basic_convex_analysis.lyx"
 
 \end_inset
 
