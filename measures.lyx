@@ -1487,7 +1487,7 @@ For clarity, we will prove finite additivity for two sets , since the general
 \begin_inset Formula 
 \begin{align*}
 A & =\bigcup_{i=1}^{n_{A}}A_{i},\left\{ A_{i}\right\} _{i=1}^{n_{A}}\text{ are disjoint in }\mathcal{L}\\
-B & =\bigcup_{i=1}^{n_{A}}B_{i},\left\{ B_{i}\right\} _{i=1}^{n_{B}}\text{ are disjoint in }\mathcal{L}
+B & =\bigcup_{i=1}^{n_{B}}B_{i},\left\{ B_{i}\right\} _{i=1}^{n_{B}}\text{ are disjoint in }\mathcal{L}
 \end{align*}
 
 \end_inset
@@ -1495,7 +1495,7 @@ B & =\bigcup_{i=1}^{n_{A}}B_{i},\left\{ B_{i}\right\} _{i=1}^{n_{B}}\text{ are d
 and so we have that
 \begin_inset Formula 
 \begin{align*}
-\lambda_{2}\left(A\cup B\right) & =\lambda_{2}\left(\left(\bigcup_{i=1}^{n_{A}}A_{i}\right)\cup\left(\bigcup_{i=1}^{n_{A}}B_{i}\right)\right)\\
+\lambda_{2}\left(A\cup B\right) & =\lambda_{2}\left(\left(\bigcup_{i=1}^{n_{A}}A_{i}\right)\cup\left(\bigcup_{i=1}^{n_{B}}B_{i}\right)\right)\\
  & =\sum_{i=1}^{n_{A}}\lambda_{2}\left(A_{i}\right)+\sum_{i=1}^{n_{B}}\lambda_{2}\left(B_{i}\right)\\
  & =\lambda_{2}\left(A\right)+\lambda_{2}\left(B\right)
 \end{align*}
@@ -1504,7 +1504,7 @@ and so we have that
 
 where the second equality follows from associativity of addition along with
  the fact that 
-\begin_inset Formula $\left(\bigcup_{i=1}^{n_{A}}A_{i}\right)\cup\left(\bigcup_{i=1}^{n_{A}}B_{i}\right)$
+\begin_inset Formula $\left(\bigcup_{i=1}^{n_{A}}A_{i}\right)\cup\left(\bigcup_{i=1}^{n_{B}}B_{i}\right)$
 \end_inset
 
  is a disjoint union of sets in 
@@ -3686,8 +3686,12 @@ noprefix "false"
 .
 \end_layout
 
-\begin_layout Subsection
-Constructing the Lebesgue measure
+\begin_layout Section
+The Lebesgue measure on 
+\begin_inset Formula $\R$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
