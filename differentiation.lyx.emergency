@@ -102,6 +102,11 @@ In elementary calculus, the theory of the Riemann integral was developed
  In addition, I will take this opportunity to suitably generalize the notion
  of a derivative by defining differentiability as a property of functions
  on arbitrary normed vector spaces.
+ 
+\begin_inset Formula $\lebInt{\mu}a$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -113,7 +118,7 @@ Decomposition of measures
 \end_layout
 
 \begin_layout Standard
-Recall that in Proposition 
+Recall that in Proposition
 \end_layout
 
 \begin_layout Lemma
@@ -194,7 +199,7 @@ noprefix "false"
 Next define an operator 
 \begin_inset Formula 
 \[
-\Gamma:\Lp 2{\psi}\longrightarrow\R
+\Gamma:\Lp2{\psi}\longrightarrow\R
 \]
 
 \end_inset
@@ -269,7 +274,7 @@ tells us there exists an (almost
 \end_inset
 
 everywhere unique) function 
-\begin_inset Formula $h\in\Lp 2{\psi}$
+\begin_inset Formula $h\in\Lp2{\psi}$
 \end_inset
 
  such that
@@ -281,7 +286,7 @@ everywhere unique) function
 \end_inset
 
 for every 
-\begin_inset Formula $f\in\Lp 2{\psi}.$
+\begin_inset Formula $f\in\Lp2{\psi}.$
 \end_inset
 
  Of course, in the context of 
@@ -450,7 +455,7 @@ noprefix "false"
 \end_inset
 
 for 
-\begin_inset Formula $f\in\Lp 2{\psi}.$
+\begin_inset Formula $f\in\Lp2{\psi}.$
 \end_inset
 
  By linearity this reduces to
@@ -499,7 +504,7 @@ pointwise for all
 
 .
  This shows us that our functions 
-\begin_inset Formula $f_{n}\in\Lp 2{\psi}$
+\begin_inset Formula $f_{n}\in\Lp2{\psi}$
 \end_inset
 
 

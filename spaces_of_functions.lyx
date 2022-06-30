@@ -3359,7 +3359,7 @@ name "cor:integrationContinuousLinearFunctional"
  and define
 \begin_inset Formula 
 \[
-\Gamma:\Lp 2{\mu}\longrightarrow\R
+\Gamma:\Lp2{\mu}\longrightarrow\R
 \]
 
 \end_inset
@@ -3736,10 +3736,10 @@ name "sec:banach-R"
 \end_layout
 
 \begin_layout Section
-Operators and duality
+Duality
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Operators-and-duality"
+name "sec:Duality"
 
 \end_inset
 

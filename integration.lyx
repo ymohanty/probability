@@ -1076,7 +1076,7 @@ noprefix "false"
 \end_inset
 
 Since 
-\begin_inset Formula $A_{n}\subseteq A_{n+1}\Longrightarrow B_{i}\cap A_{n}\subseteq B_{i}\cap A_{n=1}$
+\begin_inset Formula $A_{n}\subseteq A_{n+1}\Longrightarrow B_{i}\cap A_{n}\subseteq B_{i}\cap A_{n+1}$
 \end_inset
 
 , by 
@@ -1389,7 +1389,7 @@ in short) if
 \end_inset
 
 The collection of all such functions is denoted 
-\begin_inset Formula $\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\Lp1{\X,\F,\mu}$
 \end_inset
 
 .
@@ -1401,7 +1401,7 @@ When the underlying space and
 \end_inset
 
 algebra are clear, we shall simply write 
-\begin_inset Formula $\Lp 1{\mu}.$
+\begin_inset Formula $\Lp1{\mu}.$
 \end_inset
 
  The significance of the exponent 
@@ -1423,7 +1423,7 @@ A function
 \end_inset
 
  is in 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp1{\mu}$
 \end_inset
 
  if and only if 
@@ -1475,7 +1475,7 @@ For any measure space
 \end_inset
 
 integrable functions 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp1{\mu}$
 \end_inset
 
  is a vector space over 
@@ -1487,7 +1487,7 @@ integrable functions
 
 \begin_layout Proof
 First observe that the zero function 
-\begin_inset Formula $\indicate_{\emptyset}\in\Lp 1{\mu}$
+\begin_inset Formula $\indicate_{\emptyset}\in\Lp1{\mu}$
 \end_inset
 
 since 
@@ -1496,7 +1496,7 @@ since
 
  and so we have an additive identity.
  Next, notice that 
-\begin_inset Formula $f\in\Lp 1{\mu}\Longleftrightarrow-f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}\Longleftrightarrow-f\in\Lp1{\mu}$
 \end_inset
 
  and so we have additive inverses for each function.
@@ -1508,7 +1508,7 @@ tion over addition.
 \end_inset
 
  and any functions 
-\begin_inset Formula $f,g\in\Lp 1{\mu}$
+\begin_inset Formula $f,g\in\Lp1{\mu}$
 \end_inset
 
 
@@ -1535,7 +1535,7 @@ where the first inequality follows from the triangle inequality of
 
 .
  This proves that 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp1{\mu}$
 \end_inset
 
  is closed under finite linear combinations and so is a vector space.
@@ -1624,7 +1624,7 @@ name "prop:linearityLebIntL1"
 \end_inset
 
 For any functions 
-\begin_inset Formula $f,g\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f,g\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  and scalar 
@@ -1733,7 +1733,7 @@ by linearity of
 \end_inset
 
  As 
-\begin_inset Formula $h,g,f\in\Lp 1{\mu}$
+\begin_inset Formula $h,g,f\in\Lp1{\mu}$
 \end_inset
 
 , the integrals of the individual components are not infinite and so we
@@ -1756,7 +1756,7 @@ name "cor:monotonicityLebIntL1"
 \end_inset
 
 For any functions 
-\begin_inset Formula $f,g\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f,g\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  such that 
@@ -1816,7 +1816,7 @@ name "cor:triangleIneqLebIntL1"
 \end_inset
 
 For any function 
-\begin_inset Formula $f\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f\in\Lp1{\X,\F,\mu}$
 \end_inset
 
 
@@ -2024,11 +2024,11 @@ Let
 \end_inset
 
  be a sequence of functions in 
-\begin_inset Formula $\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\Lp1{\X,\F,\mu}$
 \end_inset
 
  and suppose there exists some 
-\begin_inset Formula $g\in\Lp 1{\mu}$
+\begin_inset Formula $g\in\Lp1{\mu}$
 \end_inset
 
  such that
@@ -2073,7 +2073,7 @@ Note that by the continuity of the absolute value function,
 \end_inset
 
  pointwise which shows 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
 .
@@ -2110,7 +2110,7 @@ for every
 \end_inset
 
  which proves that 
-\begin_inset Formula $\phi_{i}\in\Lp 1{\mu}$
+\begin_inset Formula $\phi_{i}\in\Lp1{\mu}$
 \end_inset
 
  for every 
@@ -2424,7 +2424,7 @@ For any
 \end_inset
 
  define 
-\begin_inset Formula $g\left(x,\theta\right)\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $g\left(x,\theta\right)\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  to be differentiable with respect to 
@@ -2442,7 +2442,7 @@ g_{\theta}\left(x,\theta\right)=\lim_{\epsilon\to0}\frac{g\left(x,\theta+\epsilo
 Define the function
 \begin_inset Formula 
 \[
-m\left(\theta\right):=\lebInt{\mu_{x}}{g\left(x,\theta\right)}
+m\left(\theta\right):=\lebInt{\mu}_{x}{g\left(x,\theta\right)}
 \]
 
 \end_inset
@@ -2453,7 +2453,7 @@ where the subscript
 
  clarifies the variable of integration.
  If there exists a function 
-\begin_inset Formula $G\in\Lp 1{\mu}$
+\begin_inset Formula $G\in\Lp1{\mu}$
 \end_inset
 
  such that 
@@ -2467,7 +2467,7 @@ where the subscript
  then
 \begin_inset Formula 
 \[
-\frac{dm\left(\theta\right)}{d\theta}=\frac{d\lebInt{\mu_{x}}{g\left(x,\theta\right)}}{d\theta}=\lebInt{\mu_{x}}{g_{\theta}\left(x,\theta\right)}.
+\frac{dm\left(\theta\right)}{d\theta}=\frac{d\lebInt{\mu}_{x}{g\left(x,\theta\right)}}{d\theta}=\lebInt{\mu}_{x}{g_{\theta}\left(x,\theta\right)}.
 \]
 
 \end_inset
@@ -2527,8 +2527,8 @@ for some
 Applying the dominated convergence theorem, we have that
 \begin_inset Formula 
 \begin{align*}
-\lebInt{\mu_{x}}{g_{\theta}\left(x,\theta\right)} & =\lebInt{\mu_{x}}{\lim_{n\to\infty}f_{n}\left(x,\theta\right)}\\
- & =\lim_{n\to\infty}\lebInt{\mu_{x}}{f_{n}\left(x,\theta\right)}\\
+\lebInt{\mu}_{x}{g_{\theta}\left(x,\theta\right)} & =\lebInt{\mu}_{x}{\lim_{n\to\infty}f_{n}\left(x,\theta\right)}\\
+ & =\lim_{n\to\infty}\lebInt{\mu}_{x}{f_{n}\left(x,\theta\right)}\\
  & =\lim_{n\to\infty}\frac{m\left(\theta+\frac{1}{n}\right)-m\left(\theta\right)}{\frac{1}{n}}\\
  & =\frac{dm\left(\theta\right)}{d\theta}
 \end{align*}
@@ -2724,7 +2724,13 @@ where the last equality follows from the monotonicty of measures.
 which completes the proof.
 \end_layout
 
-\begin_layout Remark*
+\begin_layout Remark
+\begin_inset CommandInset label
+LatexCommand label
+name "rem:absoluteContinuity"
+
+\end_inset
+
 A measure 
 \begin_inset Formula $\nu$
 \end_inset
@@ -3270,6 +3276,178 @@ where the second equality follows by monotone convergence and the fourth
 
 \begin_layout Subsection
 Equivalence of integrals and measures
+\end_layout
+
+\begin_layout Standard
+Note that while in Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:existenceUniquenessLebesgueIntegral"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we constructed the integral from a seemingly more primitive concept of
+ a measure, it turns out that a measure can be constructed out a linear
+ functional on the space of measurable functions such that the functional
+ is the integral with respect to the measure we have constructed.
+ In this sense, measures and integrals are really equivalent.
+ At this point, this may seem to be a trivial observation (and the proof
+ of this result is indeed trivial); this shift of perspective, however,
+ offers powerful simplifications to questions concerning the existence and
+ uniqueness of measures.
+ Indeed, our approach to product measures in Chapter 6 would rely on this
+ insight, allowing us to prove both the existence of product measures, and
+ the representation of integrals with respect to product measures as iterated
+ integrals, in a single stroke.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:integralMeasureEquivalence"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+ be a measurable space and let 
+\begin_inset Formula 
+\[
+\Lambda:\nonnegMeasurableFunctions\longrightarrow\left[0,\infty\right]
+\]
+
+\end_inset
+
+be a linear functional that satisfies monotone convergence i.e for any sequence
+ 
+\begin_inset Formula $f_{n}\in\measurableFunctions$
+\end_inset
+
+ such that 
+\begin_inset Formula $f_{n}\leq f_{n+1}$
+\end_inset
+
+ and 
+\begin_inset Formula $f:=\lim_{n\to\infty}f_{n}\in\F$
+\end_inset
+
+ we have 
+\begin_inset Formula 
+\[
+\Lambda\left(f\right)=\lim_{n\to\infty}\Lambda\left(f_{n}\right).
+\]
+
+\end_inset
+
+Further, suppose there exists a function 
+\begin_inset Formula $g\in\nonnegMeasurableFunctions$
+\end_inset
+
+ such that 
+\begin_inset Formula $\Lambda\left(g\right)<\infty$
+\end_inset
+
+.
+ Then the function 
+\begin_inset Formula 
+\[
+\lambda:\F\longrightarrow\left[0,\infty\right]
+\]
+
+\end_inset
+
+given by 
+\begin_inset Formula 
+\[
+\lambda\left(A\right):=\Lambda\left(\indicate_{A}\right)
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ is a measure and 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ is the integral with respect to 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+First, note that 
+\begin_inset Formula 
+\begin{align*}
+\Lambda\left(g\right) & =\Lambda\left(g+\indicate_{\emptyset}\right)\\
+ & =\Lambda\left(g\right)+\Lambda\left(\indicate_{\emptyset}\right)\\
+ & =\Lambda\left(g\right)+\lambda\left(\emptyset\right)
+\end{align*}
+
+\end_inset
+
+by linearity and since 
+\begin_inset Formula $\Lambda\left(g\right)<\infty$
+\end_inset
+
+, we can subtract it from both sides to deduce 
+\begin_inset Formula $\lambda\left(\emptyset\right)=0.$
+\end_inset
+
+ To establish countable additivity, note that for a disjoint collection
+ 
+\begin_inset Formula $A_{n}\in\F$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{align*}
+\lambda\left(\bigcup_{n\in\N}A_{n}\right) & =\Lambda\left(\sum_{n=1}^{\infty}\indicate_{A_{n}}\right)\\
+ & =\sum_{n=1}^{\infty}\Lambda\left(\indicate_{A_{n}}\right)\\
+ & =\sum_{n=1}^{\infty}\lambda\left(A_{n}\right)
+\end{align*}
+
+\end_inset
+
+where the first equality is by (an extension of) Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:indicatorFunctionsArbitraryOperations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and the second by linearity and monotone convergence.
+ Of course, since 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+ satisfies the properties of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:existenceUniquenessLebesgueIntegral"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, it is the unique integral induced by the measure 
+\begin_inset Formula $\lambda$
+\end_inset
+
+; this completes the proof.
 \end_layout
 
 \begin_layout Section
@@ -4455,11 +4633,11 @@ name "thm:generalizedDominatedConvergence"
 \end_inset
 
 Let 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n}\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n}\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  and suppose there exists some 
-\begin_inset Formula $g\in\Lp 1{\mu}$
+\begin_inset Formula $g\in\Lp1{\mu}$
 \end_inset
 
  be such that
@@ -4488,7 +4666,7 @@ almost everywhere.
 \end_inset
 
 we have that 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
  and
@@ -4827,7 +5005,7 @@ A sequence of functions
 \end_inset
 
  is said to converge to a function 
-\begin_inset Formula $f\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  in 
@@ -5199,7 +5377,7 @@ for any
 and
 \begin_inset Formula 
 \[
-\lvert h_{n}(x)-\psi(x)\vernal<\epsilon
+\lvert h_{n}(x)-\psi(x)\rvert<\epsilon
 \]
 
 \end_inset
@@ -5249,11 +5427,42 @@ by monotonicty and sub-additivity.
 \end_layout
 
 \begin_layout Proof
-Finally, for 
+For 
 \begin_inset Formula $L^{1}$
 \end_inset
 
- convergence,
+ convergence, note that we have 
+\begin_inset Formula $f_{n}-\psi\leq g_{n}-\psi\leq h_{n}-\psi$
+\end_inset
+
+ and so
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+If 
+\begin_inset Formula $a\leq b\leq c$
+\end_inset
+
+ then,
+\begin_inset Formula $\lvert b\rvert\leq\max\left\{ b,-b\right\} \leq\max\left\{ c,-a\right\} \leq\max\left\{ \lvert c\rvert,\lvert a\rvert\right\} .$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\lvert g_{n}-\psi\rvert\leq\max\left\{ \lvert f_{n}-\psi\rvert,\lvert h_{n}-\psi\rvert\right\} \leq\lvert f_{n}-\psi\rvert+\lvert h_{n}-\psi\rvert.
+\]
+
+\end_inset
+
+The linearity of integrals and the squeeze theorem for real sequences then
+ implies the result.
 \end_layout
 
 \begin_layout Standard
@@ -5265,7 +5474,7 @@ Finally, for our limiting operations to make sense, limits should be unique.
 \end_inset
 
  convergence, we shall show that this follows from the fact that the topologies
- for these modes of convergence are given by (pseudo) metrics (and in the
+ for these modes of convergence are given by (pseudo) metrics (in the special
  case of 
 \begin_inset Formula $L^{1}$
 \end_inset
@@ -5936,7 +6145,7 @@ Markov's inequality
 
  be a measure space.
  For any function 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
  and any 
@@ -5994,7 +6203,7 @@ f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f
 \end_inset
 
 for some 
-\begin_inset Formula $f\in\Lp 1{\mu},$
+\begin_inset Formula $f\in\Lp1{\mu},$
 \end_inset
 
  we have 
@@ -6378,7 +6587,7 @@ and so the function
 \begin_inset Formula $g(x)=\frac{x}{1+x}$
 \end_inset
 
-is increasing on 
+ is increasing on 
 \begin_inset Formula $x>0$
 \end_inset
 
@@ -6465,7 +6674,23 @@ which completes the proof.
 \end_layout
 
 \begin_layout Standard
-Propositions 
+Note that 
+\begin_inset Formula $d(f,g)=0\Longleftrightarrow f\stackrel{\text{a.e}}{=}g$
+\end_inset
+
+.
+ This is a simple corrolary of Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:intZeroFuncZero"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Propositions 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prop:convInMeasureImpliesSubsequenceAE"
@@ -6475,7 +6700,7 @@ noprefix "false"
 
 \end_inset
 
-and 
+ and 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prop:finiteMeasuresAEimpliesConvInMeasures"
@@ -6703,7 +6928,7 @@ name "cor:noTopologyForAEConv"
 
 \end_inset
 
-There is no topology for almost everywhere convergence
+There is no topology for almost everywhere convergence.
 \end_layout
 
 \begin_layout Proof
@@ -6733,7 +6958,7 @@ noprefix "false"
 \end_inset
 
 .
- But this has been ruled out by Example
+ But this has been ruled out by Example 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "exa:convMeasureDoesntImplyAEConv"
@@ -6755,14 +6980,698 @@ ble at all! Convergence in
 
  , on the other hand, corresponds to a (semi)-normed convergence as shown
  in Chapter 4.
+ Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:subsubsequenceProbAEConv"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ implies a form of dominated convergence theorem for convergence in measure.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:convMeasureDomConv"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a finite measure space i.e 
+\begin_inset Formula $\mu(\X)<\infty.$
+\end_inset
+
+ Suppose 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+\end_inset
+
+ such that 
+\begin_inset Formula $\lvert f_{n}\rvert\leq g$
+\end_inset
+
+ where 
+\begin_inset Formula $g\in\Lp1{\X,\F,\mu}.$
+\end_inset
+
+ Then
+\begin_inset Formula 
+\[
+f_{n}\stackrel{p}{\longrightarrow}f\implies f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that if 
+\begin_inset Formula $f_{n}\stackrel{p}{\longrightarrow}f$
+\end_inset
+
+, then for any subsequence 
+\begin_inset Formula $f_{n_{j}}$
+\end_inset
+
+ of 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ there exists a further subseqeunce 
+\begin_inset Formula $f_{n_{j_{k}}}$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+f_{n_{j_{k}}}\stackrel{\text{a.e}}{\longrightarrow}f.
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $\lvert f_{n_{j_{k}}}\rvert\leq g\in\Lp1{\mu}$
+\end_inset
+
+, the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:generalizedDominatedConvergence]{dominated convergence theorem}
+\end_layout
+
+\end_inset
+
+implies that 
+\begin_inset Formula 
+\[
+f_{n_{j_{k}}}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f.
+\]
+
+\end_inset
+
+But 
+\begin_inset Formula $L^{1}$
+\end_inset
+
+ convergence is topological and so by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:subsubSequence"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 Uniform integrability and uniform absolute continuity
 \end_layout
 
-\begin_layout Section
-Convergence of measures
+\begin_layout Standard
+The dominated convergence theorem says that for sequence of random variables
+ that are dominated by an integrable function, pointwise convergence implies
+ convergence in 
+\begin_inset Formula $L^{1}$
+\end_inset
+
+.
+ We would like to extend this notion more broadly.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:uniformIntegrability"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space and let 
+\begin_inset Formula $\mathcal{C}\subseteq\measurableFunctions$
+\end_inset
+
+ be a collection of measurable functions.
+ We say 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ is 
+\emph on
+uniformly integrable 
+\emph default
+if for every 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+, there exists some 
+\begin_inset Formula $M\in\N$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\lvert f\rvert\indicate_{\{\lvert f\rvert>M\}}}<\epsilon
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $f\in\mathcal{C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:uniformAbsoluteContinuity"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space and let 
+\begin_inset Formula $\mathcal{C}\subseteq\measurableFunctions$
+\end_inset
+
+ be a collection of measurable functions.
+ We say 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ is 
+\emph on
+uniformly absolutely continuous 
+\emph default
+if for every 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ there exists a 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $f\in\mathcal{C}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F\in\F,\mu(F)<\delta\implies\lvert\lebInt{\mu}{f\indicate_{F}}\rvert<\epsilon.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+\begin_inset CommandInset label
+LatexCommand label
+name "rem:uniformAbsoluteContinuity"
+
+\end_inset
+
+Note that if 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ is a trivial class i.e.
+ 
+\begin_inset Formula $\mathcal{C}=\{f\}$
+\end_inset
+
+, then the absolute continuity property always holds as observed in Proposition
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:densities"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Remark 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "rem:absoluteContinuity"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Of course, it is not clear that this 
+\begin_inset Formula $\epsilon-\delta$
+\end_inset
+
+ characterization of absolute continuity is the same as the one discussed
+ in that remark; later on in Chapter 6 (see Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:epsdeltaAbsContinuity"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) we show they are indeed equiavelent for finite measures.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:finiteMeasureUniformIntegrability"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a finite measure space i.e.
+ 
+\begin_inset Formula $\mu(\X)<\infty.$
+\end_inset
+
+ Then a class of functions 
+\begin_inset Formula $\mathcal{C}\subseteq\measurableFunctions$
+\end_inset
+
+ is uniformly integrable if and only if it is uniformly absolutely continuous
+ and
+\begin_inset Formula 
+\[
+\sup_{f\in\mathcal{C}}\lebInt{\mu}{\lvert f\rvert}<\infty.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Suppose 
+\begin_inset Formula $\mathcal{C}\subseteq\measurableFunctions$
+\end_inset
+
+ is uniformly integrable.
+ Fix some 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and observe that by uniform integrability there is some 
+\begin_inset Formula $M\in\N$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\lvert f\rvert\indicate_{\{\lvert f\rvert>M\}}}<\frac{\epsilon}{2}.
+\]
+
+\end_inset
+
+Then for any 
+\begin_inset Formula $F\in\F$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align*}
+\lvert\lebInt{\mu}{f\indicate_{F}}\rvert & \leq\lebInt{\mu}{\lvert f\rvert\indicate_{F}}\\
+ & =\lebInt{\mu}{\lvert f\rvert\left(\indicate_{\{\lvert f\rvert>M\}}+\indicate_{\{\lvert f\rvert\leq M\}}\right)\indicate_{F}}\\
+ & =\lebInt{\mu}{\lvert f\rvert\indicate_{\{\lvert f\rvert>M\}}\indicate_{F}}+\lebInt{\mu}{\lvert f\rvert\indicate_{\{\lvert f\rvert\leq M\}}\indicate_{F}}\\
+ & \leq\lebInt{\mu}{\lvert f\rvert\indicate_{\{\lvert f\rvert>M\}}}+\lebInt{\mu}{\lvert f\rvert\indicate_{\{\lvert f\rvert\leq M\}}\indicate_{F}}\\
+ & \leq\lebInt{\mu}{\lvert f\rvert\indicate_{\{\lvert f\rvert>M\}}}+\lebInt{\mu}{M\indicate_{\{\lvert f\rvert\leq M\}}\indicate_{F}}\\
+ & \leq\frac{\epsilon}{2}+M\mu(\{\lvert f\rvert\leq M\}\cap F)\\
+ & \leq\frac{\epsilon}{2}+M\mu(F)
+\end{align*}
+
+\end_inset
+
+where all the inequalities follow by the monotonicity of the integral.
+ Letting 
+\begin_inset Formula $\delta=\frac{\epsilon}{2M}$
+\end_inset
+
+ then shows uniform absolute continuity.
+ Letting 
+\begin_inset Formula $F=\X$
+\end_inset
+
+ then yields 
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\lvert f\rvert}\leq\frac{\epsilon}{2}+M\mu(\X)
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $f\in\mathcal{C}$
+\end_inset
+
+ which gives us the boundedness in 
+\begin_inset Formula $L^{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Conversely, assume that 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ is uniformly absolutely continuous and 
+\begin_inset Formula $\sup_{f\in\mathcal{C}}\lebInt{\mu}{\lvert f\rvert}<\infty.$
+\end_inset
+
+ Let 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and note that there exists some 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $F\in\F,\mu(F)<\delta\implies\lvert\lebInt{\mu}{f\indicate_{F}}\rvert<\epsilon$
+\end_inset
+
+.
+ Note that by Markov's inequality
+\begin_inset Formula 
+\[
+\mu\left(\lvert f\rvert>M\right)\leq\frac{\lebInt{\mu}{\lvert f\rvert}}{M}.
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $M\in\N$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\lebInt{\mu}{\lvert f\rvert}<\infty,$
+\end_inset
+
+we can take 
+\begin_inset Formula $M$
+\end_inset
+
+ large enough to so that 
+\begin_inset Formula $\mu\left(\lvert f\rvert>M\right)<\delta$
+\end_inset
+
+ which by uniform absolute continuity implies 
+\begin_inset Formula $\lvert\lebInt{\mu}{\lvert f\lvert\indicate_{\{\lvert f\rvert>M\}}}\rvert=\lebInt{\mu}{\lvert f\lvert\indicate_{\{\lvert f\rvert>M\}}}<\epsilon.$
+\end_inset
+
+ This shows uniform integrability, completing the proof.
+\end_layout
+
+\begin_layout Standard
+The above implies that integrable functions on finite measure spaces are
+ uniformly integrable on their own.
+ Classes of uniformly integrable functions are preserved under linear combinatio
+ns.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:uniformlyIntegrableLinearCombination"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space and let 
+\begin_inset Formula $c\in\R$
+\end_inset
+
+ be a scalar.
+ Further, let 
+\begin_inset Formula $\mathcal{C},\mathcal{D}\subseteq\measurableFunctions$
+\end_inset
+
+ be uniformly integrable collections of functions.
+ Then 
+\begin_inset Formula 
+\[
+\mathcal{C}+c\mathcal{D}:=\left\{ f+cg\mid f\in\mathcal{C},g\in\mathcal{D}\right\} 
+\]
+
+\end_inset
+
+is a uniformly integrable collection.
+\end_layout
+
+\begin_layout Proof
+Note that when 
+\begin_inset Formula $c=0$
+\end_inset
+
+ then the result is triviall true so let 
+\begin_inset Formula $c\neq0.$
+\end_inset
+
+ Fix 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and note that there exists some 
+\begin_inset Formula $M$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $g\in\mathcal{D}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\lvert g\rvert\indicate_{\{\lvert g\rvert>M\}}}<\frac{\epsilon}{\lvert c\rvert}.
+\]
+
+\end_inset
+
+Then, for 
+\begin_inset Formula $N=M\lvert c\rvert$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\lvert cg\rvert\indicate_{\{\lvert cg\rvert>N\}}}=\lvert c\rvert\lebInt{\mu}{\lvert g\rvert\indicate_{\{\lvert g\rvert>M\}}}<\epsilon.
+\]
+
+\end_inset
+
+Next, observe that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{COMPLETE LATER}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:vitaliConvergence"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Vitali's Convergence Theorem
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a finite measure space i.e.
+ 
+\begin_inset Formula $\mu(\X)<\infty.$
+\end_inset
+
+ If 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+\end_inset
+
+ are uniformly integrable and 
+\begin_inset Formula $f_{n}\stackrel{\mu}{\longrightarrow}f$
+\end_inset
+
+ then 
+\begin_inset Formula $f\in\Lp 1{\mu}$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that if 
+\begin_inset Formula $f_{n}\stackrel{\mu}{\longrightarrow}f$
+\end_inset
+
+ then by Proposition
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:convInMeasureImpliesSubsequenceAE"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+there exists some subsequence 
+\begin_inset Formula $f_{n_{j}}\stackrel{\text{a.e}}{\longrightarrow}f$
+\end_inset
+
+.
+ By Fatou's lemma and the fact that absolute value is continuous, we have
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\lvert f\rvert}=\lebInt{\mu}{\liminf_{n\to\infty}\lvert f_{n_{j}}\rvert}\leq\liminf_{n\to\infty}\lebInt{\mu}{\lvert f_{n_{j}}\rvert}\leq\sup_{n\in\N}\lebInt{\mu}{\lvert f_{n}\rvert}<\infty
+\]
+
+\end_inset
+
+where the last inequality follows by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:finiteMeasureUniformIntegrability"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, which shows 
+\begin_inset Formula $f\in\Lp 1{\mu}.$
+\end_inset
+
+ Since 
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N},\left\{ f\right\} $
+\end_inset
+
+ are uniformly integrable, 
+\begin_inset Formula $g_{n}:=f_{n}-f$
+\end_inset
+
+ is uniormly integrable by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:uniformlyIntegrableLinearCombination"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Note that by uniform absolute continuity, for any 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+, there exists some 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $A\in\F:P(A)<\delta\implies\lebInt{\mu}{\lvert g_{n}\rvert\indicate_{A}}<\frac{\epsilon}{2}.$
+\end_inset
+
+ Note that by convergence in probability, there exists some 
+\begin_inset Formula $n_{0}\in\N$
+\end_inset
+
+ 
+\begin_inset Formula $\mu\left(\lvert g_{n}\rvert>\frac{\epsilon}{2}\right)<\delta$
+\end_inset
+
+ and so
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\lvert g_{n}\rvert}=\lebInt{\mu}{\lvert g_{n}\rvert\indicate_{\{\lvert g_{n}\rvert\leq\frac{\epsilon}{2}\}}}+\lebInt{\mu}{\lvert g_{n}\rvert\indicate_{\{\lvert g_{n}\rvert>\frac{\epsilon}{2}\}}}\leq\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon
+\]
+
+\end_inset
+
+which shows 
+\begin_inset Formula $L^{1}$
+\end_inset
+
+ convergence.
 \end_layout
 
 \begin_layout Section
