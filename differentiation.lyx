@@ -114,6 +114,129 @@ Decomposition of measures
 
 \begin_layout Standard
 Recall that in Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:densities"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we showed that for a measure space 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ and a non-negative measurable function 
+\begin_inset Formula $f\in\nonnegMeasurableFunctions$
+\end_inset
+
+ , the function 
+\begin_inset Formula $\nu\left(A\right):=\lebInt{\mu}{f\indicate_{A}}$
+\end_inset
+
+is a measure.
+ Moreover, in the remark following the proposition, we observed that such
+ a measure 
+\begin_inset Formula $\nu$
+\end_inset
+
+ was 
+\emph on
+absolutely continuous 
+\emph default
+with respect to 
+\begin_inset Formula $\mu$
+\end_inset
+
+, that is to say, for any 
+\begin_inset Formula $A\in\F,\mu(A)=0\implies\nu(A)=0.$
+\end_inset
+
+ Further, we also claimed that every absolutely continuous measure could
+ be represented this way i.e as an integral with respect to the dominating
+ measure.
+ In other words, we claimed that there was always an 
+\begin_inset Formula $f\in\nonnegMeasurableFunctions$
+\end_inset
+
+ such that this relation would hold.
+ It turns out we can establish a slightly stronger result, which in turn
+ is key to establishing the fundamental theorem of calculus for the Lebesgue
+ measure.
+ What we can show, using the Hilbert space machinery we developed earlier,
+ is that in some sense we can decompose a measure (relative to another measure)
+ into two meausures that are in some sense orthogonal.
+ This is in direct correspondence with the decomposition of Hilbert spaces
+ given to us by the projection theorem (Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:projectionThm"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+To motivate how the Hilbert space theory can be useful in this context,
+ we can begin with a change of perspective in the spirit of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:integralMeasureEquivalence"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Note that saying 
+\begin_inset Formula $\nu(A)=\lebInt{\mu}{f\indicate_{A}}$
+\end_inset
+
+ for every 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ is equivalent to saying 
+\begin_inset Formula $\lebInt{\nu}g=\lebInt{\mu}{fg}\forall g\in\Lp1{\X,\F,\nu}.$
+\end_inset
+
+ The right hand side is the inner product associated with the space 
+\begin_inset Formula $\Lp2{\mu}$
+\end_inset
+
+ and so we wish to show that a linear functional 
+\begin_inset Formula $g\to\lebInt{\nu}g$
+\end_inset
+
+ can be represented as an inner product on 
+\begin_inset Formula $\Lp2{\mu}.$
+\end_inset
+
+ At this juncture, one can guess that the Riesz representation theorem for
+ Hilbert spaces is clearly right tool to finish off the proof; however,
+ several hurdles remain.
+ For one, 
+\begin_inset Formula $g\to\lebInt{\mu}g$
+\end_inset
+
+ a linear functional on 
+\begin_inset Formula $\Lp1{\nu}$
+\end_inset
+
+ and it is not 
+\begin_inset Formula $\Lp2{\mu}.$
+\end_inset
+
+ Further, it is unclear whether our functional is bounded, which is a necessary
+ condition for the theorem to apply.
+ The following lemma provides the conditions under which the theorem finds
+ purchase.
 \end_layout
 
 \begin_layout Lemma
@@ -194,7 +317,7 @@ noprefix "false"
 Next define an operator 
 \begin_inset Formula 
 \[
-\Gamma:\Lp 2{\psi}\longrightarrow\R
+\Gamma:\Lp2{\psi}\longrightarrow\R
 \]
 
 \end_inset
@@ -269,7 +392,7 @@ tells us there exists an (almost
 \end_inset
 
 everywhere unique) function 
-\begin_inset Formula $h\in\Lp 2{\psi}$
+\begin_inset Formula $h\in\Lp2{\psi}$
 \end_inset
 
  such that
@@ -281,7 +404,7 @@ everywhere unique) function
 \end_inset
 
 for every 
-\begin_inset Formula $f\in\Lp 2{\psi}.$
+\begin_inset Formula $f\in\Lp2{\psi}.$
 \end_inset
 
  Of course, in the context of 
@@ -477,10 +600,14 @@ M=\bigcup_{n\in\N}M_{n}.
 
 \end_inset
 
-Further, observe that the functions
+Further, observe that for any 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ the functions
 \begin_inset Formula 
 \[
-f_{n}:=\frac{\indicate_{M_{n}}}{1-h}\leq n\indicate_{M_{n}}
+f_{n}:=\frac{\indicate_{M_{n}}\indicate_{A}}{1-h}\leq n\indicate_{M_{n}}\indicate_{A}
 \]
 
 \end_inset
@@ -521,7 +648,7 @@ is square integrable since
  then is integrable since both functions are non-negative and so 
 \begin_inset Formula 
 \[
-\lebInt{\psi}{\lvert f_{n}\rvert^{2}}\leq\lebInt{\psi}{\lvert n\indicate_{M_{n}}\rvert^{2}}=n^{2}\psi\left(\left\{ 0\leq h\leq1-\frac{1}{n}\right\} \right)
+\lebInt{\psi}{\lvert f_{n}\rvert^{2}}\leq\lebInt{\psi}{\lvert n\indicate_{M_{n}}\indicate_{A}\rvert^{2}}\leq n^{2}\psi\left(\left\{ 0\leq h\leq1-\frac{1}{n}\right\} \right)
 \]
 
 \end_inset
@@ -535,11 +662,11 @@ is square integrable since
  Therefore,
 \begin_inset Formula 
 \begin{align*}
-\nu\left(M\right) & =\lebInt{\nu}{\indicate_{M}\frac{1-h}{1-h}}\\
- & =\lim_{n\to\infty}\lebInt{\nu}{\frac{\indicate_{M_{n}}}{1-h}1-h}\\
- & =\lim_{n\to\infty}\lebInt{\mu}{\frac{\indicate_{M_{n}}}{1-h}h}\\
- & =\lebInt{\mu}{\indicate_{M}\frac{h}{1-h}}+\lebInt{\mu}{\indicate_{N\cup G}\frac{h}{1-h}}\\
- & =\lebInt{\mu}{\frac{h}{1-h}}
+\nu\left(M\cap A\right) & =\lebInt{\nu}{\indicate_{M}\indicate_{A}\frac{1-h}{1-h}}\\
+ & =\lim_{n\to\infty}\lebInt{\nu}{\frac{\indicate_{M_{n}}\indicate_{A}}{1-h}1-h}\\
+ & =\lim_{n\to\infty}\lebInt{\mu}{\frac{\indicate_{M_{n}}\indicate_{A}}{1-h}h}\\
+ & =\lebInt{\mu}{\indicate_{M}\indicate_{A}\frac{h}{1-h}}+\lebInt{\mu}{\indicate_{N\cup G}\indicate_{A}\frac{h}{1-h}}\\
+ & =\lebInt{\mu}{\frac{h}{1-h}\indicate_{A}}
 \end{align*}
 
 \end_inset
@@ -572,19 +699,7 @@ noprefix "false"
 \end_inset
 
  and the last equality is due to the linearity of integration.
- Then for any 
-\begin_inset Formula $A\in\F$
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\nu\left(M\cap A\right)=\lebInt{\mu}{\frac{h}{1-h}\indicate_{A}}.
-\]
-
-\end_inset
-
-
+ 
 \end_layout
 
 \begin_layout Proof
