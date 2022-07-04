@@ -90,6 +90,23 @@ Product measures
 Product measures on finite product spaces
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{SEE SCHiLLING THEOREM 13.10 FOR ALTERNATIVE CONSTRUCTION OF PRODUCT SIGMA
+ ALGEBRAS}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 The Lebesgue measure on 
 \begin_inset Formula $\R^{n}$
