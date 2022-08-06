@@ -2442,7 +2442,7 @@ g_{\theta}\left(x,\theta\right)=\lim_{\epsilon\to0}\frac{g\left(x,\theta+\epsilo
 Define the function
 \begin_inset Formula 
 \[
-m\left(\theta\right):=\lebInt{\mu}_{x}{g\left(x,\theta\right)}
+m\left(\theta\right):=\lebInt{{\mu}_{x}}{g\left(x,\theta\right)}
 \]
 
 \end_inset
@@ -2467,7 +2467,7 @@ where the subscript
  then
 \begin_inset Formula 
 \[
-\frac{dm\left(\theta\right)}{d\theta}=\frac{d\lebInt{\mu}_{x}{g\left(x,\theta\right)}}{d\theta}=\lebInt{\mu}_{x}{g_{\theta}\left(x,\theta\right)}.
+\frac{dm\left(\theta\right)}{d\theta}=\frac{d\lebInt{{\mu}_{x}}{g\left(x,\theta\right)}}{d\theta}=\lebInt{{\mu}_{x}}{g_{\theta}\left(x,\theta\right)}.
 \]
 
 \end_inset
@@ -2527,8 +2527,8 @@ for some
 Applying the dominated convergence theorem, we have that
 \begin_inset Formula 
 \begin{align*}
-\lebInt{\mu}_{x}{g_{\theta}\left(x,\theta\right)} & =\lebInt{\mu}_{x}{\lim_{n\to\infty}f_{n}\left(x,\theta\right)}\\
- & =\lim_{n\to\infty}\lebInt{\mu}_{x}{f_{n}\left(x,\theta\right)}\\
+\lebInt{{\mu}_{x}}{g_{\theta}\left(x,\theta\right)} & =\lebInt{{\mu}_{x}}{\lim_{n\to\infty}f_{n}\left(x,\theta\right)}\\
+ & =\lim_{n\to\infty}\lebInt{{\mu}_{x}}{f_{n}\left(x,\theta\right)}\\
  & =\lim_{n\to\infty}\frac{m\left(\theta+\frac{1}{n}\right)-m\left(\theta\right)}{\frac{1}{n}}\\
  & =\frac{dm\left(\theta\right)}{d\theta}
 \end{align*}
@@ -2829,7 +2829,7 @@ Let
 \begin_inset Formula $f$
 \end_inset
 
- a density of 
+ be a density of 
 \begin_inset Formula $\nu$
 \end_inset
 
@@ -2841,7 +2841,7 @@ Let
 \begin_inset Formula $\nu$
 \end_inset
 
-is given by 
+ is given by 
 \begin_inset Formula 
 \[
 \lebInt{\nu}g=\lebInt{\mu}{fg},
@@ -3730,6 +3730,103 @@ Sometimes, this is denoted even more compactly as
 \end_inset
 
  by the monotonicity of measures.
+\end_layout
+
+\begin_layout Remark*
+Corresponding to the notion of almost-everywhere equality of measurable
+ functions, there's a notion of almost-everywhere equality of sets.
+ Recall from set theory that the symmetric difference of two sets 
+\begin_inset Formula $A,B$
+\end_inset
+
+ is given
+\begin_inset Formula 
+\[
+A\Delta B:=\left(A\setminus B\right)\bigcup\left(B\setminus A\right)
+\]
+
+\end_inset
+
+Given a measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+on some measurable space 
+\begin_inset Formula $\measurablespace$
+\end_inset
+
+ and sets 
+\begin_inset Formula $A,B\in\F$
+\end_inset
+
+, we say 
+\begin_inset Formula $A\stackrel{\mu-\text{a.e}}{=}B$
+\end_inset
+
+ if 
+\begin_inset Formula $\mu\left(A\Delta B\right)=0.$
+\end_inset
+
+ Of course, in the spirit of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:integralMeasureEquivalence"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, this definition must coincide with the one for measurable functions in
+ that we must have that 
+\begin_inset Formula $\indicate_{A}\stackrel{\mu-\text{a.e}}{=}\indicate_{B}$
+\end_inset
+
+.
+ This is easily shown in the following result.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:almostEverywhereEqualSets"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\measurespace$
+\end_inset
+
+ be a measure space.
+ For any 
+\begin_inset Formula $A,B\in\F$
+\end_inset
+
+, 
+\begin_inset Formula $A\stackrel{\mu-\text{a.e}}{=}B$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $\indicate_{A}\stackrel{\mu-\text{a.e}}{=}\indicate_{B}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $\mu\left(A\Delta B\right)=0\Longleftrightarrow\mu\left(A\cap B^{C}\right)=\mu\left(B\cap A^{C}\right)=0.$
+\end_inset
+
+ Further, observe that
+\begin_inset Formula 
+\[
+\left\{ x\in\X\mid\indicate_{A}\left(x\right)\neq\indicate_{B}\left(x\right)\right\} =\underbrace{\left\{ x\in\X\mid\indicate_{A}\left(x\right)>\indicate_{B}\left(x\right)\right\} }_{=A\cap B^{C}}\bigcup\underbrace{\left\{ x\in\X\mid\indicate_{A}\left(x\right)<\indicate_{B}\left(x\right)\right\} }_{=B\cap A^{C}}
+\]
+
+\end_inset
+
+which completes the proof.
 \end_layout
 
 \begin_layout Lemma
