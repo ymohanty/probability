@@ -168,6 +168,14 @@ theorems-sec
 
 \begin_layout Standard
 \begin_inset FormulaMacro
+\newcommand{\measurespace}{\left(\X,\F,\mu\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
 \newcommand{\measurableFunctions}{\mathcal{M}\left(\X,\F\right)}
 \end_inset
 
