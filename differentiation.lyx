@@ -203,11 +203,11 @@ noprefix "false"
 \end_inset
 
  is equivalent to saying 
-\begin_inset Formula $\lebInt{\nu}g=\lebInt{\mu}{fg}\forall g\in\Lp1{\X,\F,\nu}.$
+\begin_inset Formula $\lebInt{\nu}g=\lebInt{\mu}{fg}\forall g\in\Lp 1{\X,\F,\nu}.$
 \end_inset
 
  The right hand side is the inner product associated with the space 
-\begin_inset Formula $\Lp2{\mu}$
+\begin_inset Formula $\Lp 2{\mu}$
 \end_inset
 
  and so we wish to show that a linear functional 
@@ -215,7 +215,7 @@ noprefix "false"
 \end_inset
 
  can be represented as an inner product on 
-\begin_inset Formula $\Lp2{\mu}.$
+\begin_inset Formula $\Lp 2{\mu}.$
 \end_inset
 
  At this juncture, one can guess that the Riesz representation theorem for
@@ -226,11 +226,11 @@ noprefix "false"
 \end_inset
 
  a linear functional on 
-\begin_inset Formula $\Lp1{\nu}$
+\begin_inset Formula $\Lp 1{\nu}$
 \end_inset
 
  and it is not 
-\begin_inset Formula $\Lp2{\mu}.$
+\begin_inset Formula $\Lp 2{\mu}.$
 \end_inset
 
  Further, it is unclear whether our functional is bounded, which is a necessary
@@ -255,7 +255,11 @@ Let
 \begin_inset Formula $\mu,\nu$
 \end_inset
 
- are two finite measures on 
+ are two 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measures on 
 \begin_inset Formula $\F$
 \end_inset
 
@@ -289,10 +293,36 @@ for every
 \end_inset
 
 .
+ Moreover, the function 
+\begin_inset Formula $k$
+\end_inset
+
+ is unique 
+\begin_inset Formula $\mu-$
+\end_inset
+
+almost-everywhere and the set 
+\begin_inset Formula $G$
+\end_inset
+
+ is unique 
+\begin_inset Formula $\mu+\nu$
+\end_inset
+
+-almost everywhere.
 \end_layout
 
 \begin_layout Proof
-Define the measure 
+Suppose first that the measures 
+\begin_inset Formula $\mu$
+\end_inset
+
+and 
+\begin_inset Formula $\nu$
+\end_inset
+
+are finite.
+ Define the measure 
 \begin_inset Formula $\psi:=\mu+\nu$
 \end_inset
 
@@ -317,7 +347,7 @@ noprefix "false"
 Next define an operator 
 \begin_inset Formula 
 \[
-\Gamma:\Lp2{\psi}\longrightarrow\R
+\Gamma:\Lp 2{\psi}\longrightarrow\R
 \]
 
 \end_inset
@@ -392,7 +422,7 @@ tells us there exists an (almost
 \end_inset
 
 everywhere unique) function 
-\begin_inset Formula $h\in\Lp2{\psi}$
+\begin_inset Formula $h\in\Lp 2{\psi}$
 \end_inset
 
  such that
@@ -404,7 +434,7 @@ everywhere unique) function
 \end_inset
 
 for every 
-\begin_inset Formula $f\in\Lp2{\psi}.$
+\begin_inset Formula $f\in\Lp 2{\psi}.$
 \end_inset
 
  Of course, in the context of 
@@ -577,6 +607,10 @@ for
 \end_inset
 
  By linearity this reduces to
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset Formula 
 \begin{equation}
 \lebInt{\nu}{\left(1-h\right)f}=\lebInt{\mu}{hf}.\label{eq:oneminusH}
@@ -753,6 +787,277 @@ where the first equality follows from the fact that
 null set.
 \end_layout
 
+\begin_layout Proof
+The extension to 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measures is relatively straightforward.
+ Let 
+\begin_inset Formula $\left\{ E_{i}\right\} _{i\in\N}\in\F$
+\end_inset
+
+ be a partition of 
+\begin_inset Formula $\X$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu$
+\end_inset
+
+and 
+\begin_inset Formula $\nu$
+\end_inset
+
+are finite on each 
+\begin_inset Formula $E_{i}$
+\end_inset
+
+ (this is possible by Propositions 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:equivSigmaFinite"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:sumSigmaFiniteMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ Then the measures given by
+\begin_inset Formula 
+\begin{align*}
+\nu_{i}\left(A\right) & :=\nu\left(A\cap E_{i}\right),\\
+\mu_{i}\left(A\right) & :=\mu\left(A\cap E_{i}\right)
+\end{align*}
+
+\end_inset
+
+are finite on 
+\begin_inset Formula $\F$
+\end_inset
+
+ and so the finite version of theorem implies the existence of functions
+ 
+\begin_inset Formula $k_{i}\in\nonnegMeasurableFunctions$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{i}-$
+\end_inset
+
+null sets 
+\begin_inset Formula $B_{i}$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\nu_{i}\left(A\right)=\lebInt{\mu_{i}}{k_{i}\indicate_{A}}+\nu_{i}\left(A\cap B_{i}\right)
+\]
+
+\end_inset
+
+which is equivalent to saying that 
+\begin_inset Formula 
+\[
+\nu\left(A\cap E_{i}\right)=\lebInt{\mu}{k_{i}\indicate_{A}\indicate_{E_{i}}}+\nu\left(A\cap B_{i}\cap E_{i}\right)
+\]
+
+\end_inset
+
+for each 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+.
+ Summing over 
+\begin_inset Formula $i$
+\end_inset
+
+ we have 
+\begin_inset Formula 
+\begin{align*}
+\nu\left(A\right) & =\sum_{i=1}^{\infty}\nu\left(A\cap E_{i}\right)\\
+ & =\sum_{i=1}^{\infty}\lebInt{\mu}{k_{i}\indicate_{E_{i}}\indicate_{A}}+\sum_{i=1}^{\infty}\nu\left(A\cap B_{i}\cap E_{i}\right)\\
+ & =\lebInt{\mu}{\sum_{i=1}^{\infty}k_{i}\indicate_{E_{i}}\indicate_{A}}+\nu\left(A\cap\left(\cup_{i\in\N}\left(B_{i}\cap E_{i}\right)\right)\right).
+\end{align*}
+
+\end_inset
+
+where the last equality follows by monotone convergence and countable additivity.
+ Note that 
+\begin_inset Formula $\mu\left(\bigcup_{i\in\N}\left(B_{i}\cap E_{i}\right)\right)=\sum_{i=1}^{\infty}\mu\left(B_{i}\cap E_{i}\right)=\sum_{i=1}^{\infty}\mu_{i}\left(B_{i}\right)=0.$
+\end_inset
+
+ This completes the proof of existence with 
+\begin_inset Formula $k=\sum_{i=1}^{\infty}k_{i}\indicate_{E_{i}}$
+\end_inset
+
+ and 
+\begin_inset Formula $B=\bigcup_{i\in\N}\left(B_{i}\cap E_{i}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Finally, for uniqueness, consider two pairs 
+\begin_inset Formula $\left(k_{1},G_{1}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(k_{2},G_{2}\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $k_{1},k_{2}\in\nonnegMeasurableFunctions,$
+\end_inset
+
+ and 
+\begin_inset Formula $G_{1},G_{2}\in N_{\mu},$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\nu\left(A\right)=\lebInt{\mu}{k_{1}\indicate_{A}}+\nu\left(A\cap G_{1}\right)=\lebInt{\mu}{k_{2}\indicate_{A}}+\nu\left(A\cap G_{2}\right)
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $A\in\F.$
+\end_inset
+
+ Then,
+\begin_inset Formula 
+\begin{align*}
+\nu\left(G_{2}\cap G_{1}^{C}\right) & =\lebInt{\mu}{k_{1}\indicate_{G_{2}}\indicate_{G_{1}}}+\nu\left(\underbrace{G_{2}\cap G_{1}^{C}\cap G_{1}}_{=\emptyset}\right)\\
+ & =0
+\end{align*}
+
+\end_inset
+
+where the first term is zero because 
+\begin_inset Formula $G_{1}\in N_{\mu}.$
+\end_inset
+
+ Similarly, we can show that 
+\begin_inset Formula 
+\begin{align*}
+\nu\left(G_{1}\cap G_{2}^{C}\right) & =\lebInt{\mu}{k_{2}\indicate_{G_{1}}\indicate_{G_{2}^{C}}}+\nu\left(\underbrace{G_{1}\cap G_{2}^{C}\cap G_{2}}_{=\emptyset}\right)\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+In other words, 
+\begin_inset Formula $\nu\left(G_{1}\Delta G_{2}\right)=0$
+\end_inset
+
+ which by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:almostEverywhereEqualSets"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ implies that 
+\begin_inset Formula $G_{1}\stackrel{\nu-\text{a.e}}{=}G_{2}.$
+\end_inset
+
+ Of course, since 
+\begin_inset Formula $G_{1},G_{2}\in N_{\mu},$
+\end_inset
+
+ we have that 
+\begin_inset Formula $\mu\left(A\Delta B\right)=0$
+\end_inset
+
+ and so 
+\begin_inset Formula $G_{1}\stackrel{\mu+\nu-\text{a.e}}{=}G_{2}.$
+\end_inset
+
+ Note that since 
+\begin_inset Formula $G_{1}^{C}\Delta G_{2}^{C}=G_{1}\Delta G_{2}$
+\end_inset
+
+, we have that 
+\begin_inset Formula $G_{1}^{C}\stackrel{\mu+\nu-\text{a.e}}{=}G_{2}^{C}$
+\end_inset
+
+ and so for any 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\nu\left(A\cap G_{1}^{C}\right)=\nu\left(A\cap G_{2}^{C}\right).
+\]
+
+\end_inset
+
+But
+\begin_inset Formula 
+\begin{align*}
+\nu\left(A\cap G_{1}^{C}\right) & =\lebInt{\mu}{k_{1}\indicate_{A}\indicate_{G_{!}^{C}}}+\nu\left(\underbrace{A\cap G_{1}^{C}\cap G_{1}}_{=\emptyset}\right)\\
+\nu\left(A\cap G_{2}^{C}\right) & =\lebInt{\mu}{k_{2}\indicate_{A}\indicate_{G_{2}^{C}}}+\nu\left(\underbrace{A\cap G_{2}^{C}\cap G_{2}}_{=\emptyset}\right)
+\end{align*}
+
+\end_inset
+
+This combined with the fact that 
+\begin_inset Formula $G_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $G_{2}$
+\end_inset
+
+ are 
+\begin_inset Formula $\mu-$
+\end_inset
+
+null show that for every 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ we have 
+\begin_inset Formula $\lebInt{\mu}{k_{1}\indicate_{A}}=\lebInt{\mu}{k_{2}\indicate_{A}}$
+\end_inset
+
+ which by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:intEqualFuncEqual"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ implies that 
+\begin_inset Formula $k_{1}\stackrel{\mu-\text{a.e}}{=}k_{2}.$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 This is a powerful lemma as it gives us two very important results as simple
  corollaries.
@@ -778,11 +1083,11 @@ Let
 \begin_inset Formula $\nu$
 \end_inset
 
-is absolutely continuous with respect to 
+ is absolutely continuous with respect to 
 \begin_inset Formula $\mu$
 \end_inset
 
-if for any 
+ if for any 
 \begin_inset Formula $A\in F:\mu(F)=0\implies\nu(F)=0$
 \end_inset
 
@@ -1099,9 +1404,8 @@ noprefix "false"
 
 \end_inset
 
-does most of the work.
- To see this, note that we can first do the case with finite measures by
- observing that by our lemma
+does all of the work.
+ To see this, note that by our lemma
 \end_layout
 
 \begin_layout Proof
@@ -1128,7 +1432,7 @@ where
 \begin_inset Formula $\mu-$
 \end_inset
 
-almost everywhere non-negative.
+almost everywhere non-negative and unique.
  If 
 \begin_inset Formula $\nu<<\mu$
 \end_inset
@@ -1142,7 +1446,7 @@ almost everywhere non-negative.
 \begin_inset Formula $f=\tilde{f}\indicate_{{\tilde{f}\geq0}}$
 \end_inset
 
-, our existence result follows by Proposition 
+, our result follows by Proposition 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prop:funcEqualityAlmostEverywhere"
@@ -1153,168 +1457,6 @@ noprefix "false"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Proof
-To see that 
-\begin_inset Formula $f$
-\end_inset
-
- is the (
-\begin_inset Formula $\mu-$
-\end_inset
-
-almost everywhere) unique such function, suppose that 
-\begin_inset Formula $f_{1},f_{2}\in\nonnegMeasurableFunctions$
-\end_inset
-
- both satisfy the hypothesis.
- Then, we have for every 
-\begin_inset Formula $A\in\F$
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\lebInt{\mu}{f_{1}\indicate_{A}}=\lebInt{\mu}{f_{2}\indicate_{A}}
-\]
-
-\end_inset
-
-which by Proposition 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prop:intEqualFuncEqual"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- implies that 
-\begin_inset Formula $f_{1}\stackrel{\mu-\text{a.e}}{=}f_{2}.$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-In order to extend the theorem to 
-\begin_inset Formula $\sigma-$
-\end_inset
-
-finite measures, we shall successively apply the finite measure version.
- Note that if 
-\begin_inset Formula $\nu$
-\end_inset
-
- and 
-\begin_inset Formula $\mu$
-\end_inset
-
- are 
-\begin_inset Formula $\sigma-$
-\end_inset
-
-finite, we can find a disjoint countable sequence 
-\begin_inset Formula $\left\{ E_{i}\right\} _{i\in\N}\in\F$
-\end_inset
-
- such that 
-\begin_inset Formula 
-\[
-\bigcup_{i\in\N}E_{i}=\X
-\]
-
-\end_inset
-
-and 
-\begin_inset Formula $\mu\left(E_{i}\right),\nu\left(E_{i}\right)<\infty$
-\end_inset
-
- for all 
-\begin_inset Formula $i\in\N$
-\end_inset
-
- by applying the arguments from Propositions 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prop:equivSigmaFinite"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prop:sumSigmaFiniteMeasures"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
- Then, defining 
-\begin_inset Formula 
-\begin{align*}
-\nu_{i}\left(A\right) & :=\nu\left(A\cap E_{i}\right),\\
-\mu_{i}\left(A\right) & :=\mu\left(A\cap E_{i}\right)
-\end{align*}
-
-\end_inset
-
-we can easily verify that these new functions are in fact finite measures
- on 
-\begin_inset Formula $\F$
-\end_inset
-
- such that 
-\begin_inset Formula $\nu_{i}<<\mu_{i}$
-\end_inset
-
- and so we can apply the finite version of the theorem to yield (
-\begin_inset Formula $\mu-$
-\end_inset
-
-a.e) unique functions 
-\begin_inset Formula $f_{i}\in\nonnegMeasurableFunctions$
-\end_inset
-
- such that
-\begin_inset Formula 
-\[
-\nu_{i}\left(A\right)=\lebInt{\mu_{i}}{f_{i}\indicate_{A}}=\lebInt{\mu}{f_{i}\indicate_{E_{i}}\indicate_{A}}
-\]
-
-\end_inset
-
-where the last equality can be seen by first showing it for simple functions
- and then approximating non-negative measurable functions by simple functions.
- Applying countable additivity and the monotone convergence theorem, we
- have
-\begin_inset Formula 
-\begin{align*}
-\nu\left(A\right) & =\sum_{i=1}^{\infty}\nu_{i}\left(A\right)\\
- & =\sum_{i=1}^{\infty}\lebInt{\mu}{f_{i}\indicate_{E_{i}}\indicate_{A}}\\
- & =\lebInt{\mu}{\indicate_{A}\sum_{i=1}^{\infty}f_{i}\indicate_{E_{i}}}\\
- & =\lebInt{\mu}{f\indicate_{A}}
-\end{align*}
-
-\end_inset
-
-for all 
-\begin_inset Formula $A\in\F$
-\end_inset
-
- where 
-\begin_inset Formula $f:=\sum_{i\in\N}f_{i}\indicate_{E_{i}}.$
-\end_inset
-
- This completes the existence part of the proof; uniqueness follows again
- by the argument we used earlier in the finite case.
 \end_layout
 
 \begin_layout Standard
@@ -1345,6 +1487,1270 @@ noprefix "false"
  This theorem is also fundamental to developing conditional expectations;
  indeed the existence and uniqueness of conditional expectations is an almost
  trivial corollary of the Radon-Nikodym theorem.
+ In the context of probability theory, the functions described by the Radon-Niko
+dym theorem are probability density functions.
+ Recall from undergraduate probability that probability density functions
+ could be recovered as derivatives of cumulative distribution functions,
+ provided those distribution functions were sufficiently well behaved.
+ It turns out such densities can be thought of as derivatives generally
+ in an admittedly contrived sense: if we write the Radon Nikodym theorem
+ in traditional notation, then we have can write for 
+\begin_inset Formula $\nu<<\mu$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\nu\left(A\right)=\int_{A}fd\mu.
+\]
+
+\end_inset
+
+Then, in Leibniz notation, we could write 
+\begin_inset Formula $f$
+\end_inset
+
+ as 
+\begin_inset Formula $\frac{d\nu}{d\mu}$
+\end_inset
+
+ and refer to 
+\begin_inset Formula $f$
+\end_inset
+
+ as the 
+\emph on
+Radon-Nikodym derivative 
+\emph default
+of 
+\begin_inset Formula $\nu$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ Of course, for function to actually be some sort of derivative of measures,
+ we need to be able to represent it as a limiting ratio of the two measures;
+ in the special case of the Lebesgue measure, we can indeed do this.
+ However, the notation is useful more generally, partly due to the following
+ facts
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:RadonNikodymFacts"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\measurablespace$
+\end_inset
+
+ be a measurable space and let 
+\begin_inset Formula $\mu,\nu$
+\end_inset
+
+, and 
+\begin_inset Formula $\gamma$
+\end_inset
+
+be 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measures on the space.
+ Then
+\end_layout
+
+\begin_layout Proposition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item If $
+\backslash
+mu<<
+\backslash
+nu$ and $
+\backslash
+nu<<
+\backslash
+gamma$  then $
+\backslash
+mu << 
+\backslash
+gamma$  and
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tag{Chain rule}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+frac{d
+\backslash
+mu}{d
+\backslash
+gamma}
+\backslash
+stackrel{
+\backslash
+text{a.e}}{=}
+\backslash
+frac{d
+\backslash
+mu}{d
+\backslash
+nu}
+\backslash
+frac{d
+\backslash
+nu}{d
+\backslash
+gamma}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{eq:chainRule}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item  If $
+\backslash
+mu << 
+\backslash
+gamma $ and $
+\backslash
+nu << 
+\backslash
+gamma $ then the sum measure $
+\backslash
+mu + 
+\backslash
+nu$ is $
+\backslash
+sigma-$finite, $
+\backslash
+mu + 
+\backslash
+nu << 
+\backslash
+gamma$, and 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tag{Sum Rule}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+frac{d
+\backslash
+mu+
+\backslash
+nu}{d
+\backslash
+gamma}
+\backslash
+stackrel{
+\backslash
+gamma-
+\backslash
+text{a.e}}{=}
+\backslash
+frac{d
+\backslash
+mu}{d
+\backslash
+gamma}+
+\backslash
+frac{d
+\backslash
+nu}{d
+\backslash
+gamma}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{eq:sumRule}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item If $
+\backslash
+mu << 
+\backslash
+nu$ then $
+\backslash
+nu << 
+\backslash
+mu$ if and only if $
+\backslash
+frac{d
+\backslash
+mu}{d
+\backslash
+nu}>0$ $
+\backslash
+nu-$a.e and then
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tag{Inverse ``function
+\begin_inset Quotes erd
+\end_inset
+
+ rule}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+frac{d
+\backslash
+nu}{d
+\backslash
+mu}=
+\backslash
+frac{1}{
+\backslash
+frac{d
+\backslash
+mu}{d
+\backslash
+nu}}.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{eq:invFunctionRule}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+To show 
+\emph on
+(i),
+\emph default
+ let 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ be such that 
+\begin_inset Formula $\gamma\left(A\right)=0.$
+\end_inset
+
+Then 
+\begin_inset Formula $\nu\left(A\right)=0$
+\end_inset
+
+ since 
+\begin_inset Formula $\nu<<\gamma.$
+\end_inset
+
+ Then 
+\begin_inset Formula $\mu\left(A\right)=0$
+\end_inset
+
+ since 
+\begin_inset Formula $\mu<<\nu$
+\end_inset
+
+ which establishes that absolute continuity is transitive.
+ Note that since the measures are 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite, by the Radon Nikodym theorem there exists some almost everywhere
+ unique non-negative measurable functions 
+\begin_inset Formula $f,g,h$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mu\left(A\right) & =\lebInt{\gamma}{h\indicate_{A}}\\
+\mu\left(A\right) & =\lebInt{\nu}{f\indicate_{A}}\\
+\nu\left(A\right) & =\lebInt{\gamma}{g\indicate_{A}}
+\end{align*}
+
+\end_inset
+
+and so by Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:densityIntegral"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we have that - for any 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu\left(A\right)=\lebInt{\nu}{f\indicate_{A}}=\lebInt{\gamma}{fg\indicate_{A}}.
+\]
+
+\end_inset
+
+Since the function 
+\begin_inset Formula $fg$
+\end_inset
+
+ is non-negative measurable, we have by the uniqueness of Radon-Nikodym
+ derivatives that 
+\begin_inset Formula 
+\[
+h\stackrel{\text{a.e}}{=}fg
+\]
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Proof
+For 
+\emph on
+(ii), 
+\emph default
+note that 
+\begin_inset Formula $\mu+\nu$
+\end_inset
+
+ is 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:sumSigmaFiniteMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Absolute continuity follows trivially.
+ To show the almost sure equivalence of the Radon-Nikodym derivatives, let
+ 
+\begin_inset Formula $f,g,h\in\nonnegMeasurableFunctions$
+\end_inset
+
+ be Radon-Nikodym derivatives such that for every 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mu\left(A\right)+\nu\left(A\right) & =\lebInt{\gamma}{h\indicate_{A}}\\
+\mu\left(A\right) & =\lebInt{\gamma}{f\indicate_{A}}\\
+\nu\left(A\right) & =\lebInt{\gamma}{g\indicate_{A}}.
+\end{align*}
+
+\end_inset
+
+By linearity of the Lebesgue integral, we have that for every 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lebInt{\gamma}{\left(f+g\right)\indicate_{A}}=\lebInt{\gamma}{h\indicate_{A}}.
+\]
+
+\end_inset
+
+By Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:intEqualFuncEqual"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we have that 
+\begin_inset Formula 
+\[
+h\stackrel{\gamma-\text{a.e}}{=}f+g.
+\]
+
+\end_inset
+
+Finally, to show 
+\emph on
+(iii), 
+\emph default
+let 
+\begin_inset Formula $f$
+\end_inset
+
+ denote 
+\begin_inset Formula $\frac{d\mu}{d\nu}$
+\end_inset
+
+ and suppose that that 
+\begin_inset Formula $f\stackrel{\nu-\text{a.e}}{>}0$
+\end_inset
+
+ and that 
+\begin_inset Formula $\mu\left(A\right)=0$
+\end_inset
+
+ for some 
+\begin_inset Formula $A\in\F.$
+\end_inset
+
+ The Radon-Nikodym theorem implies then that 
+\begin_inset Formula $\lebInt{\nu}{f\text{}\indicate_{A}}=0$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $f$
+\end_inset
+
+ is positive almost everywhere, Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:intZeroFuncZero"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ implies that 
+\begin_inset Formula $\indicate_{A}\stackrel{\nu-\text{a.e}}{=}0\Longleftrightarrow\nu\left(A\right)=0.$
+\end_inset
+
+ Conversely, suppose 
+\begin_inset Formula $\nu<<\mu$
+\end_inset
+
+ and there's a set of positive (with respect to both measures) mass 
+\begin_inset Formula $B\in\F$
+\end_inset
+
+ such that 
+\begin_inset Formula $f=0$
+\end_inset
+
+ on 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mu\left(B\right)=\lebInt{\nu}{f\indicate_{B}}=0$
+\end_inset
+
+ which is a contradiction.
+ To conclude, observe that when 
+\begin_inset Formula $\frac{d\mu}{d\nu}\stackrel{\text{a.e}}{>}0$
+\end_inset
+
+, both measures are 
+\emph on
+mutually 
+\emph default
+absolutely continuous (or equivalent) and so 
+\begin_inset Formula $\frac{d\nu}{d\mu}$
+\end_inset
+
+ exists and by part 
+\emph on
+(i) 
+\emph default
+above
+\begin_inset Formula 
+\[
+1=\frac{d\mu}{d\mu}=\frac{d\mu}{d\nu}\frac{d\nu}{d\mu}.
+\]
+
+\end_inset
+
+Taking reciprocals yields the result.
+\end_layout
+
+\begin_layout Standard
+Absolute continuity is a special property between pairs of measures characterize
+d by the notion that the null sets of a measure are a subset of the other;
+ that is to say 
+\begin_inset Formula $\mu<<\nu\Longleftrightarrow N_{\nu}\subseteq N_{\mu}$
+\end_inset
+
+.
+ Of course, if the two measures 
+\begin_inset Formula $\mu,\nu$
+\end_inset
+
+ are mututally absolutely continuous (or equivalent), then 
+\begin_inset Formula $N_{\mu}=N_{\nu}.$
+\end_inset
+
+ Dual to this notion of absolute continuity, we can define the concept of
+ mutual singularity, which corresponds to the situation where 
+\begin_inset Formula $N_{\nu}$
+\end_inset
+
+ and 
+\begin_inset Formula $N_{\mu}$
+\end_inset
+
+ can together cover 
+\begin_inset Formula $\X$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:concentrationOfMeasure"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\measurespace$
+\end_inset
+
+ be a measure space.
+ The measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is said to 
+\emph on
+concentrate 
+\emph default
+on a set 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ if 
+\begin_inset Formula $\mu\left(E\right)=\mu\left(A\cap E\right).$
+\end_inset
+
+ Equivalenty, one can say that 
+\begin_inset Formula $\mu$
+\end_inset
+
+ concentrates on 
+\begin_inset Formula $A$
+\end_inset
+
+ if 
+\begin_inset Formula $\mu\left(E\right)=0$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $E\cap A=\emptyset.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:mutualSingularity"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\measurablespace$
+\end_inset
+
+ be a measurable space.
+ Two measures 
+\begin_inset Formula $\mu,\nu$
+\end_inset
+
+ on 
+\begin_inset Formula $\F$
+\end_inset
+
+ are said to be 
+\emph on
+mutually singular 
+\emph default
+if there exists two disjoint sets 
+\begin_inset Formula $A,B\in\F$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu$
+\end_inset
+
+ concentrates on 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $\nu$
+\end_inset
+
+ concentrates on 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ We can then write 
+\begin_inset Formula $\mu\perp\nu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In the next result we summarize some basic properties of mutual singularity
+ and its relationship with absolute continuity.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:propertiesSingularityAbsContinuity"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\measurablespace$
+\end_inset
+
+ be a measurable space and let 
+\begin_inset Formula $\mu,\nu,$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ be three measures on 
+\begin_inset Formula $\F$
+\end_inset
+
+.
+ Then
+\end_layout
+
+\begin_layout Proposition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+mu 
+\backslash
+perp 
+\backslash
+nu$ if and only if there exist two disjoint sets $A,B 
+\backslash
+in 
+\backslash
+F$ such that $A 
+\backslash
+cup B= 
+\backslash
+X$ and $
+\backslash
+mu(A) = 0 , 
+\backslash
+nu(A) = 0 $ .
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item  If $
+\backslash
+mu 
+\backslash
+perp 
+\backslash
+gamma $ and $
+\backslash
+nu 
+\backslash
+perp 
+\backslash
+gamma $ then $
+\backslash
+mu + 
+\backslash
+nu 
+\backslash
+perp 
+\backslash
+gamma$.
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item If $
+\backslash
+mu << 
+\backslash
+gamma $ and $
+\backslash
+nu 
+\backslash
+perp 
+\backslash
+gamma$ then $
+\backslash
+mu 
+\backslash
+perp 
+\backslash
+nu$.
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item If $
+\backslash
+mu << 
+\backslash
+nu $ and $
+\backslash
+mu 
+\backslash
+perp 
+\backslash
+nu$ then $
+\backslash
+mu = 0$.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For 
+\emph on
+(i), 
+\emph default
+observe that if 
+\begin_inset Formula $\mu\perp\nu$
+\end_inset
+
+ then there exist disjoint sets 
+\begin_inset Formula $C,D\in\F$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu$
+\end_inset
+
+ concentrates on 
+\begin_inset Formula $C$
+\end_inset
+
+ and 
+\begin_inset Formula $\nu$
+\end_inset
+
+ concentrates on 
+\begin_inset Formula $D.$
+\end_inset
+
+ By definition, we have that 
+\begin_inset Formula $\mu\left(C^{C}\right)=\mu\left(C\cap C^{C}\right)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\nu\left(D^{C}\right)=\nu\left(D\cap D^{C}\right)=0.$
+\end_inset
+
+ Note that 
+\begin_inset Formula $\nu\left(C\right)=\nu\left(C\cap D\right)=0$
+\end_inset
+
+ and so 
+\begin_inset Formula $A=C^{C}$
+\end_inset
+
+and 
+\begin_inset Formula $B=D^{C}$
+\end_inset
+
+ does the trick.
+ Conversely, let 
+\begin_inset Formula $A,B$
+\end_inset
+
+ be as given in the hypothesis.
+ Then 
+\begin_inset Formula $\mu\left(F\right)=\mu\left(F\cap A\right)+\mu\left(F\cap B\right)=\mu\left(F\cap B\right)$
+\end_inset
+
+ and similarly 
+\begin_inset Formula $\nu\left(F\right)=\nu\left(F\cap A\right)$
+\end_inset
+
+ for every 
+\begin_inset Formula $F\in\F$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+For 
+\emph on
+(ii), 
+\emph default
+let 
+\begin_inset Formula $A_{1},B_{1}\in\F$
+\end_inset
+
+ be a partition of 
+\begin_inset Formula $\X$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu\left(A_{1}\right)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma\left(B_{1}\right)=0.$
+\end_inset
+
+ Similarly, let 
+\begin_inset Formula $A_{2},B_{2}\in\F$
+\end_inset
+
+ be a partition of 
+\begin_inset Formula $\X$
+\end_inset
+
+ such that 
+\begin_inset Formula $\nu\left(A_{2}\right)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma\left(B_{2}\right)=0.$
+\end_inset
+
+ Let 
+\begin_inset Formula $C=A_{1}\cap A_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $D=\left(A_{1}\cap A_{2}\right)^{C}=B_{1}^{C}\cup B_{2}^{C}.$
+\end_inset
+
+ Clearly, 
+\begin_inset Formula $C$
+\end_inset
+
+ and 
+\begin_inset Formula $D$
+\end_inset
+
+ form a partition of 
+\begin_inset Formula $\X$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu+\nu\left(A_{1}\cap A_{2}\right)=\mu\left(A_{1}\cap A_{2}\right)+\nu\left(A_{1}\cap A_{2}\right)=0$
+\end_inset
+
+ by subadditivity.
+ Similarly, 
+\begin_inset Formula $\gamma\left(B_{1}\cup B_{2}\right)\leq\gamma\left(B_{1}\right)+\gamma\left(B_{2}\right)=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Next, for 
+\emph on
+(iii) 
+\emph default
+let 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ such that 
+\begin_inset Formula $\nu\left(A\right)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma\left(A^{C}\right)=0$
+\end_inset
+
+.
+ Absolute continuity implies that 
+\begin_inset Formula $\mu\left(A^{C}\right)=0.$
+\end_inset
+
+ This shows 
+\begin_inset Formula $\mu\perp\nu.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Finally, suppose that 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu\left(A\right)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\nu\left(A^{C}\right)=0.$
+\end_inset
+
+ By absolute continuity, 
+\begin_inset Formula $\mu\left(A\right)=0.$
+\end_inset
+
+ Then, 
+\begin_inset Formula $\mu\left(\X\right)=\mu\left(A\right)+\mu\left(A^{C}\right)=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It turns out that absolute continuity and singularity represent a sort of
+ 
+\emph on
+orthogonality 
+\emph default
+notion for measures.
+ Considering that the spaces of measures is a subset of the dual space of
+ 
+\begin_inset Formula $L^{1}$
+\end_inset
+
+ functions, this does not correspond to the canonical notion of orthogonality.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{MAKE PRECISE USING TARCSAY 2014}
+\end_layout
+
+\end_inset
+
+Again, this result falls trivially out of Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lemma:LebesgueRadonNikodym"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:lebesgueDecomposition"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Lebesgue Decomposition
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $\measurablespace$
+\end_inset
+
+ be a measurable space and let 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\nu$
+\end_inset
+
+ be two 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measures on 
+\begin_inset Formula $\F$
+\end_inset
+
+.
+ Then there exist two unique measures 
+\begin_inset Formula $\mu_{1},\mu_{2}$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\mu=\mu_{1}+\mu_{2}
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula $\mu_{1}<<\nu$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{2}\perp\nu$
+\end_inset
+
+.
+ Such a pair 
+\begin_inset Formula $\left(\mu_{1},\mu_{2}\right)$
+\end_inset
+
+ is called a Lebesgue decomposition of 
+\begin_inset Formula $\mu$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $\nu$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Note that existence follows from Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lemma:LebesgueRadonNikodym"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ To see this, write 
+\begin_inset Formula 
+\[
+\mu\left(A\right)=\lebInt{\nu}{k\indicate_{A}}+\mu\left(A\cap B\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $B\in N_{\nu}$
+\end_inset
+
+ and 
+\begin_inset Formula $k$
+\end_inset
+
+ is non-negative almost-everywhere with respect to 
+\begin_inset Formula $\nu.$
+\end_inset
+
+ Then setting 
+\begin_inset Formula $\text{\ensuremath{\mu_{1}\left(A\right):=\lebInt{\nu}{k\indicate_{A}}}}$
+\end_inset
+
+we have that 
+\begin_inset Formula $\mu_{1}<<\nu$
+\end_inset
+
+.
+ Similarly, setting 
+\begin_inset Formula $\mu_{2}\left(A\right):=\mu\left(A\cap B\right)$
+\end_inset
+
+ which is a measure since it satisfies countable additivity and is null
+ on the empty set.
+ Then note that 
+\begin_inset Formula $\nu\left(B\right)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{2}\left(B^{C}\right)=0$
+\end_inset
+
+ which implies that 
+\begin_inset Formula $\mu_{2}\perp\nu$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
