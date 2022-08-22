@@ -1065,7 +1065,13 @@ right
 \backslash
 in 
 \backslash
-mathcal{F}$ such that 
+mathcal{F}$ such that $ A_i 
+\backslash
+cap A_j = 
+\backslash
+emptyset$ for $i 
+\backslash
+neq j$ and
 \end_layout
 
 \begin_layout Plain Layout
