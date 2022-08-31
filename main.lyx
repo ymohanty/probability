@@ -425,6 +425,16 @@ filename "central_limit_theorems.lyx"
 Decision Theory
 \end_layout
 
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "correspondences.lyx"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Part
 \start_of_appendix
 Appendices
