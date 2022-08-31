@@ -2316,7 +2316,11 @@ Property (i) is inherited from
 \begin_inset Formula $A:=\bigcup_{i=1}^{\infty}A_{i}$
 \end_inset
 
-.
+ where 
+\begin_inset Formula $A\in\mathcal{J}$
+\end_inset
+
+ by assumption.
  First, note that if 
 \begin_inset Formula $\lambda_{2}\left(A_{i}\right)=\infty$
 \end_inset
@@ -2373,7 +2377,7 @@ For any
 , we have that
 \begin_inset Formula 
 \[
-\lambda_{2}\left(A\right)\geq\sum_{i=1}^{n}\lambda_{2}\left(A_{i}\right)
+\lambda_{2}\left(A\right)\geq\lambda_{2}\left(\bigcup_{i=1}^{n}A_{i}\right)=\sum_{i=1}^{n}\lambda_{2}\left(A_{i}\right)
 \]
 
 \end_inset
@@ -2391,32 +2395,166 @@ for every
 
 \end_inset
 
-In order to deduce the reverse inequality, 
-\begin_inset Note Note
-status open
+In order to deduce the reverse inequality, first suppose that both 
+\begin_inset Formula $A$
+\end_inset
 
-\begin_layout Plain Layout
-TODO: Figure out proof of the reverse inequality.
- Use Proposition 4.1 in Caratheodory note.
- See 6.1 as well
-\end_layout
+ and 
+\begin_inset Formula $\left\{ A_{i}\right\} $
+\end_inset
+
+ are in 
+\begin_inset Formula $\mathcal{L}.$
+\end_inset
+
+ Then, we can write 
+\begin_inset Formula 
+\[
+A:=\left(a,b\right]
+\]
 
 \end_inset
 
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hl{TODO: Figure out proof of the reverse inequality}
-\end_layout
+and
+\begin_inset Formula 
+\[
+A_{i}=\left(a_{i},b_{i}\right]
+\]
 
 \end_inset
 
+for each 
+\begin_inset Formula $i\in\N.$
+\end_inset
 
+ Pick an arbitrary 
+\begin_inset Formula $0<\epsilon<b-a$
+\end_inset
+
+ and observe that 
+\begin_inset Formula 
+\[
+\left[a+\epsilon,b\right]\subseteq\bigcup_{i=1}^{\infty}\left(a_{i},b_{i}+\frac{\epsilon}{2^{i}}\right)
+\]
+
+\end_inset
+
+and so by the Heine-Borel theorem, there exists some finite 
+\begin_inset Formula $K$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\left[a+\epsilon,b\right]\subseteq\bigcup_{i=1}^{K}\left(a_{i},b_{i}+\frac{\epsilon}{2^{i}}\right).
+\]
+
+\end_inset
+
+By the finite additivity established in Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:ringMeasureFinitelyAdditive"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we have that
+\begin_inset Formula 
+\[
+\underbrace{b-a}_{\lambda_{2}\left(A\right)}-\epsilon\leq\sum_{i=1}^{K}b_{i}+\frac{\epsilon}{2^{i}}-a_{i}\leq\underbrace{\sum_{i=1}^{\infty}\left(b_{i}-a_{i}\right)}_{\sum_{i\in\N}\lambda_{2}\left(A_{i}\right)}+\epsilon
+\]
+
+\end_inset
+
+and since 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ can be arbitrary small the claim follows.
+\end_layout
+
+\begin_layout Proof
+Deducing the general case from the special one outlined above is straightforward.
+ If 
+\begin_inset Formula $A,\left\{ A_{i}\right\} \in\mathcal{J}$
+\end_inset
+
+ then 
+\begin_inset Formula 
+\[
+A=\bigcup_{j=1}^{J}B_{j}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\left\{ B_{j}\right\} \in\mathcal{L}$
+\end_inset
+
+ are pairwise disjoint.
+ Similarly, 
+\begin_inset Formula 
+\[
+A_{i}=\bigcup_{k=1}^{n_{i}}C_{ik}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\left\{ C_{ij}\right\} _{i\in\N,j\in\N}\in\mathcal{L}$
+\end_inset
+
+ are pairwise disjoint and 
+\begin_inset Formula $n_{i}\in\N$
+\end_inset
+
+.
+ Note that then
+\begin_inset Formula 
+\[
+\lambda_{2}\left(A\right)=\sum_{j=1}^{J}\lambda_{2}\left(B_{j}\right)\leq\sum_{i=1}^{\infty}\sum_{k=1}^{n_{i}}\lambda_{2}\left(C_{ik}\right)=\sum_{i=1}^{\infty}\lambda_{2}\left(A_{i}\right)
+\]
+
+\end_inset
+
+where the first equality follow from the finite additivity of 
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+ on 
+\begin_inset Formula $\mathcal{J},$
+\end_inset
+
+ the inequality by the fact that for any 
+\begin_inset Formula $j\in\left\{ 1,2,\ldots,J\right\} ,$
+\end_inset
+
+ there exists a partition of the collection 
+\begin_inset Formula $\left\{ C_{ik}\right\} $
+\end_inset
+
+ into subcollections 
+\begin_inset Formula $\left\{ C_{ik}^{j}\right\} _{1\leq j\leq J}$
+\end_inset
+
+such that 
+\begin_inset Formula 
+\[
+B_{j}=\bigcup_{i,k}C_{ik}^{j}
+\]
+
+\end_inset
+
+and so the special case of our result on 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ applies.
+ The final equality again follows by finite additivity.
+ 
 \end_layout
 
 \begin_layout Subsection
