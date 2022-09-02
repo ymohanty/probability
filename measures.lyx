@@ -2170,6 +2170,196 @@ Now we are ready to prove that our proto-measure
 \end_inset
 
 .
+ But first, we need a lemma about double sums!
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:TonelliForSeries"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Tonelli for series
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left\{ x_{ij}\right\} _{i,j\in\N\times\N}$
+\end_inset
+
+ be a sequence of non-negative (extended) real numbers.
+ Then
+\end_layout
+
+\begin_layout Lemma
+\begin_inset Formula 
+\[
+\sum_{i,j\in\N^{2}}x_{ij}=\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}=\sum_{j=1}^{\infty}\sum_{i=1}^{\infty}x_{ij}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We will prove the first equality since the second then follows by symmetry.
+ Let 
+\begin_inset Formula $F\subset\N^{2}$
+\end_inset
+
+ be arbitrary and finite.
+ Then, there exists some 
+\begin_inset Formula $N\in\N$
+\end_inset
+
+ such that 
+\begin_inset Formula $F\subseteq\left\{ 1,2\ldots,N\right\} ^{2}$
+\end_inset
+
+ and so, by the non-negativity of 
+\begin_inset Formula $x_{ij}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sum_{i,j\in F}x_{ij}\leq\sum_{i,j\in\left\{ 1,2\ldots,N\right\} ^{2}}x_{ij}=\sum_{i=1}^{N}\sum_{j=1}^{N}x_{ij}\leq\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}.
+\]
+
+\end_inset
+
+This inequality holds for any finite 
+\begin_inset Formula $F\subset\N^{2}$
+\end_inset
+
+ and so it holds for the supremum of all such finite sums.
+ That is to say,
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\sup_{F\subset\N^{2}\mid F\text{ is finite}}\sum_{i,j\in F}x_{ij}\leq\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}.
+\]
+
+\end_inset
+
+But recall that for any 
+\begin_inset Formula $\left\{ a_{i}\right\} _{i\in\mathcal{I}}\in\left[0,\infty\right]$
+\end_inset
+
+ where 
+\begin_inset Formula $\mathcal{I}$
+\end_inset
+
+ is any index set
+\begin_inset Formula 
+\[
+\sum_{i\in\mathcal{I}}a_{i}:=\sup_{I\subset\mathcal{I}\mid I\text{ is finite}}\sum_{i\in I}a_{i},
+\]
+
+\end_inset
+
+and so we have that
+\begin_inset Formula 
+\[
+\sum_{i,j\in\N^{2}}x_{ij}\leq\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+To derive the other inequality, observe that it is sufficient to prove that
+\begin_inset Formula 
+\[
+\sum_{i,j\in\N^{2}}x_{ij}\geq\sum_{i=1}^{I}\sum_{j=1}^{\infty}x_{ij}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $I\in\N$
+\end_inset
+
+.
+ Fix 
+\begin_inset Formula $I=I_{0}$
+\end_inset
+
+ and note that
+\begin_inset Formula 
+\[
+\sum_{i=1}^{I_{0}}\sum_{j=1}^{\infty}x_{ij}=\sum_{i=1}^{I_{0}}\lim_{J\to\infty}\sum_{j=1}^{J}x_{ij}=\lim_{J\to\infty}\sum_{i=1}^{I_{0}}\sum_{j=1}^{J}x_{ij}.
+\]
+
+\end_inset
+
+Thus to prove 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\sum_{i,j\in\N^{2}}x_{ij}\geq\sum_{i=1}^{I_{0}}\sum_{j=1}^{\infty}x_{ij}$
+\end_inset
+
+ we need to prove that 
+\begin_inset Formula 
+\[
+\sum_{i,j\in\N^{2}}x_{ij}\geq\sum_{i=1}^{I_{0}}\sum_{j=1}^{J}x_{ij}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $J\in\N$
+\end_inset
+
+.
+ Fix 
+\begin_inset Formula $J=J_{0}$
+\end_inset
+
+ and then observe that
+\begin_inset Formula 
+\[
+\sum_{i=1}^{I_{0}}\sum_{j=1}^{J_{0}}x_{ij}=\sum_{i,j\in\left\{ 1,2,\ldots,I_{0}\right\} \times\left\{ 1,2,\ldots,J_{0}\right\} }x_{ij}\leq\sum_{i,j\in\N^{2}}x_{ij}
+\]
+
+\end_inset
+
+where the inequality follows due to non-negativity of 
+\begin_inset Formula $x_{ij}$
+\end_inset
+
+.
+ This concludes the proof.
+\end_layout
+
+\begin_layout Remark*
+This lemma is a special case of Tonelli's theorem, a fundamental theorem
+ that allows us to construct measures on Cartesian products of measure spaces
+ from the measures on those spaces themselves.
+ This theorem will be motivated and proved in Chapter 5.
 \end_layout
 
 \begin_layout Proposition
@@ -2446,7 +2636,7 @@ and so by the Heine-Borel theorem, there exists some finite
  such that 
 \begin_inset Formula 
 \[
-\left[a+\epsilon,b\right]\subseteq\bigcup_{i=1}^{K}\left(a_{i},b_{i}+\frac{\epsilon}{2^{i}}\right).
+\left[a+\epsilon,b\right]\subseteq\bigcup_{k=1}^{K}\left(a_{i_{k}},b_{i_{k}}+\frac{\epsilon}{2^{i_{k}}}\right).
 \]
 
 \end_inset
@@ -2461,10 +2651,10 @@ noprefix "false"
 
 \end_inset
 
-, we have that
+ and monotonicity, we have that
 \begin_inset Formula 
 \[
-\underbrace{b-a}_{\lambda_{2}\left(A\right)}-\epsilon\leq\sum_{i=1}^{K}b_{i}+\frac{\epsilon}{2^{i}}-a_{i}\leq\underbrace{\sum_{i=1}^{\infty}\left(b_{i}-a_{i}\right)}_{\sum_{i\in\N}\lambda_{2}\left(A_{i}\right)}+\epsilon
+\underbrace{b-a}_{\lambda_{2}\left(A\right)}-\epsilon\leq\sum_{k=1}^{K}b_{i_{k}}+\frac{\epsilon}{2^{i_{k}}}-a_{i_{k}}\leq\underbrace{\sum_{i=1}^{\infty}\left(b_{i}-a_{i}\right)}_{\sum_{i\in\N}\lambda_{2}\left(A_{i}\right)}+\epsilon
 \]
 
 \end_inset
@@ -2552,7 +2742,17 @@ and so the special case of our result on
 \begin_inset Formula $\mathcal{L}$
 \end_inset
 
- applies.
+ applies (along with an application of Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:TonelliForSeries"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
  The final equality again follows by finite additivity.
  
 \end_layout
@@ -2729,7 +2929,7 @@ Given a countably additive pre-measure
 \begin_inset Formula $\mu$
 \end_inset
 
- on a ring 
+ on a collection 
 \begin_inset Formula $\mathcal{A\subseteq}2^{\mathcal{X}}$
 \end_inset
 
@@ -2762,197 +2962,7 @@ Note that this function is defined on
 
  since every bounded below subset of the (extended) real numbers has an
  infimum.
- In order to prove that the function in our example is indeed an outer measure,
- the following lemma is useful.
-\end_layout
-
-\begin_layout Lemma
-\begin_inset CommandInset label
-LatexCommand label
-name "lem:TonelliForSeries"
-
-\end_inset
-
-
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-Tonelli for series
-\end_layout
-
-\end_inset
-
-Let 
-\begin_inset Formula $\left\{ x_{ij}\right\} _{i,j\in\N\times\N}$
-\end_inset
-
- be a sequence of non-negative (extended) real numbers.
- Then
-\end_layout
-
-\begin_layout Lemma
-\begin_inset Formula 
-\[
-\sum_{i,j\in\N^{2}}x_{ij}=\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}=\sum_{j=1}^{\infty}\sum_{i=1}^{\infty}x_{ij}.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-We will prove the first equality since the second then follows by symmetry.
- Let 
-\begin_inset Formula $F\subset\N^{2}$
-\end_inset
-
- be arbitrary and finite.
- Then, there exists some 
-\begin_inset Formula $N\in\N$
-\end_inset
-
- such that 
-\begin_inset Formula $F\subseteq\left\{ 1,2\ldots,N\right\} ^{2}$
-\end_inset
-
- and so, by the non-negativity of 
-\begin_inset Formula $x_{ij}$
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\sum_{i,j\in F}x_{ij}\leq\sum_{i,j\in\left\{ 1,2\ldots,N\right\} ^{2}}x_{ij}=\sum_{i=1}^{N}\sum_{j=1}^{N}x_{ij}\leq\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}.
-\]
-
-\end_inset
-
-This inequality holds for any finite 
-\begin_inset Formula $F\subset\N^{2}$
-\end_inset
-
- and so it holds for the supremum of all such finite sums.
- That is to say,
-\end_layout
-
-\begin_layout Proof
-\begin_inset Formula 
-\[
-\sup_{F\subset\N^{2}\mid F\text{ is finite}}\sum_{i,j\in F}x_{ij}\leq\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}.
-\]
-
-\end_inset
-
-But recall that for any 
-\begin_inset Formula $\left\{ a_{i}\right\} _{i\in\mathcal{I}}\in\left[0,\infty\right]$
-\end_inset
-
- where 
-\begin_inset Formula $\mathcal{I}$
-\end_inset
-
- is any index set
-\begin_inset Formula 
-\[
-\sum_{i\in\mathcal{I}}a_{i}:=\sup_{I\subset\mathcal{I}\mid I\text{ is finite}}\sum_{i\in I}a_{i},
-\]
-
-\end_inset
-
-and so we have that
-\begin_inset Formula 
-\[
-\sum_{i,j\in\N^{2}}x_{ij}\leq\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-To derive the other inequality, observe that it is sufficient to prove that
-\begin_inset Formula 
-\[
-\sum_{i,j\in\N^{2}}x_{ij}\geq\sum_{i=1}^{I}\sum_{j=1}^{\infty}x_{ij}
-\]
-
-\end_inset
-
-for every 
-\begin_inset Formula $I\in\N$
-\end_inset
-
-.
- Fix 
-\begin_inset Formula $I=I_{0}$
-\end_inset
-
- and note that
-\begin_inset Formula 
-\[
-\sum_{i=1}^{I_{0}}\sum_{j=1}^{\infty}x_{ij}=\sum_{i=1}^{I_{0}}\lim_{J\to\infty}\sum_{j=1}^{J}x_{ij}=\lim_{J\to\infty}\sum_{i=1}^{I_{0}}\sum_{j=1}^{J}x_{ij}.
-\]
-
-\end_inset
-
-Thus to prove 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $\sum_{i,j\in\N^{2}}x_{ij}\geq\sum_{i=1}^{I_{0}}\sum_{j=1}^{\infty}x_{ij}$
-\end_inset
-
- we need to prove that 
-\begin_inset Formula 
-\[
-\sum_{i,j\in\N^{2}}x_{ij}\geq\sum_{i=1}^{I_{0}}\sum_{j=1}^{J}x_{ij}
-\]
-
-\end_inset
-
-for every 
-\begin_inset Formula $J\in\N$
-\end_inset
-
-.
- Fix 
-\begin_inset Formula $J=J_{0}$
-\end_inset
-
- and then observe that
-\begin_inset Formula 
-\[
-\sum_{i=1}^{I_{0}}\sum_{j=1}^{J_{0}}x_{ij}=\sum_{i,j\in\left\{ 1,2,\ldots,I_{0}\right\} \times\left\{ 1,2,\ldots,J_{0}\right\} }x_{ij}\leq\sum_{i,j\in\N^{2}}x_{ij}
-\]
-
-\end_inset
-
-where the inequality follows due to non-negativity of 
-\begin_inset Formula $x_{ij}$
-\end_inset
-
-.
- This concludes the proof.
-\end_layout
-
-\begin_layout Remark*
-This lemma is a special case of Tonelli's theorem, a fundamental theorem
- that allows us to construct measures on Cartesian products of measure spaces
- from the measures on those spaces themselves.
- This theorem will be motivated and proved in Chapter 5.
+ Now we prove that the set-function descibed above is indeed an outer measure.
 \end_layout
 
 \begin_layout Proposition
@@ -3103,6 +3113,44 @@ noprefix "false"
  was arbitrary, the claim folllows.
 \end_layout
 
+\begin_layout Remark
+The outer measure described above is called the 
+\emph on
+canonical 
+\emph default
+outer-measure as it as by far the most useful type of outer measure in measure
+ theory.
+ Given a space 
+\begin_inset Formula $\X$
+\end_inset
+
+, a collection of subsets 
+\begin_inset Formula $\mathcal{A}\subseteq2^{\X}$
+\end_inset
+
+, and a countably additive pre-measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ on 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+, we can call
+\begin_inset Formula 
+\[
+\mu^{*}\left(E\right):=\inf\left\{ \sum_{i=1}^{\infty}\mu\left(A_{i}\right)\mid A_{i}\in\mathcal{A},E\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} 
+\]
+
+\end_inset
+
+the canonical outer measure generated by 
+\begin_inset Formula $\left(\mu,\mathcal{A}\right)$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Proposition
 \begin_inset CommandInset label
 LatexCommand label
@@ -3209,7 +3257,11 @@ and notice that the
 \begin_inset Formula $\left\{ B_{i}\right\} $
 \end_inset
 
- is a pairwise disjoint collections whose union is A such that 
+ is a pairwise disjoint collections whose union is 
+\begin_inset Formula $A$
+\end_inset
+
+ such that 
 \begin_inset Formula $B_{i}\subseteq A_{i}$
 \end_inset
 
@@ -3274,7 +3326,12 @@ Caratheodory's Extension Theorem
 
 \end_inset
 
-Given a countably-additive pre-measure 
+Let 
+\begin_inset Formula $\X$
+\end_inset
+
+ be a set.
+ Given a countably-additive pre-measure 
 \begin_inset Formula $\mu$
 \end_inset
 
@@ -3282,24 +3339,18 @@ Given a countably-additive pre-measure
 \begin_inset Formula $\mathcal{A\subseteq}2^{\mathcal{X}}$
 \end_inset
 
- with outer measure 
+ with canonical outer measure 
 \begin_inset Formula $\mu^{*}$
 \end_inset
 
- as in Example 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "exa:canonicalOuterMeasure"
-plural "false"
-caps "false"
-noprefix "false"
-
+ generated by 
+\begin_inset Formula $\left(\mu,\mathcal{A}\right)$
 \end_inset
 
-, define the set 
+, define the collection 
 \begin_inset Formula 
 \[
-\mathcal{C}=\left\{ A\subseteq\mathcal{X}\mathrm{\ such\ that\ }\mu^{*}\left(E\right)=\mu^{*}\left(A\cap E\right)+\mu^{*}\left(A^{C}\cap E\right)\forall E\in2^{\mathcal{X}}\right\} .
+\mathcal{C}\left(\mu^{*}\right):=\left\{ A\subseteq\mathcal{X}\mathrm{\ such\ that\ }\mu^{*}\left(E\right)=\mu^{*}\left(A\cap E\right)+\mu^{*}\left(A^{C}\cap E\right)\forall E\in2^{\mathcal{X}}\right\} .
 \]
 
 \end_inset
@@ -3343,7 +3394,13 @@ mathcal{C}$.
 \backslash
 item $ 
 \backslash
-mathcal{C}$ is a $
+mathcal{C}
+\backslash
+left(
+\backslash
+mu^*
+\backslash
+right) $ is a $
 \backslash
 sigma$-algebra.
 \end_layout
@@ -3815,6 +3872,44 @@ Since the reverse inequality follows by the subadditivity of the outer measure,
  our proof is complete.
 \end_layout
 
+\begin_layout Remark
+\begin_inset CommandInset label
+LatexCommand label
+name "rem:noRingReqd"
+
+\end_inset
+
+Note that the proof of the facts that 
+\begin_inset Formula $\mathcal{C}\left(\mu^{*}\right)$
+\end_inset
+
+ is a 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra and 
+\begin_inset Formula $\mu^{*}|_{\mathcal{C}}$
+\end_inset
+
+ is countably additive do not depend on the fact 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ is a ring; the proofs would hold if 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ was any collection of sets and 
+\begin_inset Formula $\mu^{*}$
+\end_inset
+
+ was any outer measure (as opposed to a 
+\emph on
+canonical 
+\emph default
+outer measure).
+\end_layout
+
 \begin_layout Standard
 Note that in general such an extension may not be unique and we provide
  sufficient conditions for uniqueness in Theorem 
@@ -3831,7 +3926,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
-The Lebesgue measure on 
+The Steiltjes measure on 
 \begin_inset Formula $\R$
 \end_inset
 
@@ -3839,12 +3934,750 @@ The Lebesgue measure on
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+We now have enough machinery to construct the Lebesgue measure on 
+\begin_inset Formula $\borel\left(\R\right)$
+\end_inset
+
+; in fact, the Caratheodory measurabality critierion discussed in the proof
+ of the extension theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:caratheodoryExtn"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is strictly larger than the Borel sets, a fact that we shall be able to
+ establish soon.
+ To show the Lebesgue measure exists, we observe that 
+\begin_inset Formula $\lambda_{2}$
+\end_inset
+
+ is a countably-additive pre-measure on 
+\begin_inset Formula $\mathcal{J}$
+\end_inset
+
+ which is a ring.
+ The canonical outer measure 
+\begin_inset Formula $\lambda^{*}$
+\end_inset
+
+ generated from 
+\begin_inset Formula $\left(\lambda_{2},\mathcal{J}\right)$
+\end_inset
+
+ then can be restricted to the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra of measurable sets 
+\begin_inset Formula $\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+ as a measure via Caratheodory's extension theorem.
+ That the Borel sets 
+\begin_inset Formula $\borel\left(\R\right)\subseteq\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+ is clear from the fact that 
+\begin_inset Formula $\mathcal{L}\subseteq\mathcal{\mathcal{J}\subseteq C}\left(\lambda^{*}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma\left(\mathcal{L}\right)=\borel\left(\R\right)$
+\end_inset
+
+ (see Proposition
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:sigmaAlgebraGeneratedbyLisBorel"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ The fact that this inclusion is strict is, of course, not obvious; we will
+ return to this point later.
+\end_layout
+
+\begin_layout Standard
+While this strategy to build the Lebesgue meaure works, we can in fact do
+ something more general, which will incidentally also help us establish
+ the properties of the Lebesgue measure.
+ This involves the notion of what is called a 
+\emph on
+Steiljes 
+\emph default
+measure, a concept which is particularly useful in probability theory.
+ To start, we prove a stronger version of Caratheodory's theorem.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:semiRingCaratheodoryExtn"
+
+\end_inset
+
+
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
-TODO: Corollary for Lebesgue measure along with a proof that the properties
- of the Lebesgue measure hold.
+Extension from semi-rings
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $\X$
+\end_inset
+
+ be a set and 
+\begin_inset Formula $\mathcal{A}\subseteq2^{\X}$
+\end_inset
+
+ be a semi-ring.
+ Suppose 
+\begin_inset Formula $\mu:\mathcal{A}\longrightarrow\left[0,\infty\right]$
+\end_inset
+
+ is a set function such that
+\end_layout
+
+\begin_layout Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+mu
+\backslash
+left(
+\backslash
+emptyset
+\backslash
+right) = 0 $
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item  For any disjoint $A,B 
+\backslash
+in 
+\backslash
+mathcal{A}$ such that $A
+\backslash
+cup B 
+\backslash
+in 
+\backslash
+mathcal{A}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+mu
+\backslash
+left(A
+\backslash
+cup B
+\backslash
+right) = 
+\backslash
+mu
+\backslash
+left(A
+\backslash
+right) + 
+\backslash
+mu
+\backslash
+left(B
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For any collection $A_i 
+\backslash
+in 
+\backslash
+mathcal{A}$ such that $
+\backslash
+bigcup_{i
+\backslash
+in 
+\backslash
+mathds{N}} A_i 
+\backslash
+in 
+\backslash
+mathcal{A}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+mu
+\backslash
+left(
+\backslash
+bigcup_{i
+\backslash
+in
+\backslash
+mathds{N}} A_i 
+\backslash
+right) 
+\backslash
+leq 
+\backslash
+sum_{i 
+\backslash
+in 
+\backslash
+mathds{N}} 
+\backslash
+mu 
+\backslash
+left(A_i
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+then the restriction of the canonical outer measure 
+\begin_inset Formula $\mu^{*}$
+\end_inset
+
+ generated by 
+\begin_inset Formula $\left(\mu,\mathcal{A}\right)$
+\end_inset
+
+ to 
+\begin_inset Formula $\mathcal{C}\left(\mu^{*}\right)$
+\end_inset
+
+ is a measure.
+\end_layout
+
+\begin_layout Proof
+Note that Remark 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "rem:noRingReqd"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ tells us that 
+\begin_inset Formula $\mathcal{C}\left(\mu^{*}\right)$
+\end_inset
+
+ is a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra and 
+\begin_inset Formula $\mu^{*}|_{\mathcal{C}}$
+\end_inset
+
+ is a measure.
+ Thus our two tasks are to show 
+\emph on
+(i)
+\emph default
+ that 
+\begin_inset Formula $\mu^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu$
+\end_inset
+
+ agree on
+\emph on
+ 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ 
+\emph default
+and
+\emph on
+ (ii)
+\emph default
+ that 
+\begin_inset Formula $\mathcal{A}\subseteq\mathcal{C}\left(\mu^{*}\right)$
+\end_inset
+
+.
+ The first result is mostly straightforward; to see that 
+\begin_inset Formula $\mu^{*}\left(A\right)\leq\mu\left(A\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $A\in\mathcal{A}$
+\end_inset
+
+ we can simply observe that 
+\begin_inset Formula $A$
+\end_inset
+
+ is a cover for itself.
+ For the reverse inequality, first note that finite additivity and the fact
+ that 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ is a semi-ring implies that for any 
+\begin_inset Formula $A,B\in\mathcal{A}$
+\end_inset
+
+ such that 
+\begin_inset Formula $A\subseteq B,\mu\left(A\right)\leq\mu\left(B\right).$
+\end_inset
+
+ Indeed, there exist disjoint 
+\begin_inset Formula $\left\{ C_{i}\right\} _{1\leq i\leq n}\in\mathcal{A}$
+\end_inset
+
+ where 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ such that 
+\begin_inset Formula $B\setminus A=\cup_{1\leq i\leq n}C_{i}$
+\end_inset
+
+ and so 
+\begin_inset Formula $B=A\cup\cup_{1\leq i\leq n}C_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu\left(B\right)=\mu\left(A\right)+\sum_{1\leq i\leq n}\mu\left(C_{i}\right)\geq\mu\left(A\right).$
+\end_inset
+
+ Then for any cover 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{A}$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+, we have that 
+\begin_inset Formula 
+\[
+\mu\left(A\right)=\sum_{i=1}^{\infty}\mu\left(A\cap A_{i}\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right)
+\]
+
+\end_inset
+
+where the equality follows from the fact that 
+\begin_inset Formula $A\cap A_{i}\in\mathcal{A}$
+\end_inset
+
+ since semi-rings are closed under intersection along with the fact that
+ 
+\begin_inset Formula $\left\{ A\cap A_{i}\right\} _{i\in\N}$
+\end_inset
+
+ forms a partition of 
+\begin_inset Formula $A$
+\end_inset
+
+ and the inequality follows from monotonicty.
+ Since the cover was arbitrary, we have 
+\begin_inset Formula $\mu^{*}\left(A\right)\geq\mu\left(A\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+To prove 
+\emph on
+(ii), 
+\emph default
+note that for any 
+\begin_inset Formula $A\in\mathcal{A}$
+\end_inset
+
+, countable subadditivity of the outer measure implies that 
+\begin_inset Formula 
+\[
+\mu^{*}\left(E\right)\leq\mu^{*}\left(A\cap E\right)+\mu^{*}\left(A^{C}\cap E\right)
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $E\in2^{\X}.$
+\end_inset
+
+ To deduce the other inequality, we follow almost exactly the same steps
+ as we did in the proof of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:caratheodoryExtn"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ First, we pick an 
+\begin_inset Formula $E\subseteq2^{\X}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu^{*}\left(E\right)<\infty$
+\end_inset
+
+since otherwise the claim follows trivially.
+ Then we use this fact (since only empty subsets of the reals have inifinite
+ infima) to deduce that for any 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+, there exists a cover 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{A}$
+\end_inset
+
+of 
+\begin_inset Formula $E$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\mu^{*}\left(E\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right)<\mu^{*}\left(E\right)+\epsilon.
+\]
+
+\end_inset
+
+Again, we observe that 
+\begin_inset Formula 
+\begin{align*}
+E\cap A & \subseteq\bigcup_{i=1}^{\infty}A_{i}\cap A\\
+E\cap A^{C} & \subseteq\bigcup_{i=1}^{\infty}A_{i}\cap A^{C}
+\end{align*}
+
+\end_inset
+
+Note that 
+\begin_inset Formula $A_{i}\cap A^{C}=A_{i}\setminus A$
+\end_inset
+
+ and so by the properties of semi-rings there exists, for each 
+\begin_inset Formula $i,$
+\end_inset
+
+a disjoint collection of sets 
+\begin_inset Formula $\left\{ C_{j}^{i}\right\} _{1\leq j\leq n_{i}}\in\mathcal{A}$
+\end_inset
+
+ such that 
+\begin_inset Formula $A_{i}\cap A^{C}=\bigcup_{1\leq j\leq n_{i}}C_{j}^{i}.$
+\end_inset
+
+ Using the monotonicty and countable-subadditivity of outer measures as
+ before, we have that
+\begin_inset Formula 
+\begin{align*}
+\mu^{*}\left(E\cap A\right)+\mu^{*}\left(E\cap A^{C}\right) & \leq\sum_{i=1}^{\infty}\left(\mu^{*}\left(A_{i}\cap A\right)+\mu^{*}\left(\bigcup_{1\leq j\leq n_{i}}C_{j}^{i}\right)\right)\\
+ & \leq\sum_{i=1}^{\infty}\left(\mu^{*}\left(A_{i}\cap A\right)+\sum_{j=1}^{n_{i}}\mu^{*}\left(C_{j}^{i}\right)\right)\\
+ & =\sum_{i=1}^{\infty}\left(\mu\left(A_{i}\cap A\right)+\sum_{j=1}^{n_{i}}\mu\left(C_{j}^{i}\right)\right)\\
+ & =\sum_{i=1}^{\infty}\left(\mu\left(A_{i}\right)\right)\\
+ & <\mu^{*}\left(E\right)+\epsilon
+\end{align*}
+
+\end_inset
+
+where the first equality follows from part 
+\emph on
+(i) 
+\emph default
+and the fact that 
+\begin_inset Formula $A_{i}\cap A,\left\{ C_{j}^{i}\right\} _{1\leq j\leq n_{i}}\in\mathcal{A}$
+\end_inset
+
+ whereas the second equality follows from finite additivity.
+ Since 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+can be as small as one wants, our result follows.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:existenceLebesgueR"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Existence of the Lebesgue measure
+\end_layout
+
+\end_inset
+
+There exists a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra 
+\begin_inset Formula $\F$
+\end_inset
+
+ which contains all the open sets in 
+\begin_inset Formula $\R$
+\end_inset
+
+ and a set function 
+\begin_inset Formula $\lambda:\F\longrightarrow\left[0,\infty\right]$
+\end_inset
+
+ such that
+\end_layout
+
+\begin_layout Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+lambda
+\backslash
+left((a,b]
+\backslash
+right) = b - a $ for any $a 
+\backslash
+leq b 
+\backslash
+in 
+\backslash
+mathds{R}$
+\backslash
+footnote{The intervals could be open, closed or neither.}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For any disjoint $A_i 
+\backslash
+in 
+\backslash
+mathcal{F}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+lambda
+\backslash
+left(
+\backslash
+bigcup_{i
+\backslash
+in
+\backslash
+mathds{N}}
+\backslash
+right) = 
+\backslash
+sum_{i 
+\backslash
+in 
+\backslash
+mathds{N}} 
+\backslash
+lambda
+\backslash
+left(A_i
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For disjoint $
+\backslash
+{A_i
+\backslash
+}_{i
+\backslash
+in 
+\backslash
+N} 
+\backslash
+in 
+\backslash
+mathcal{F}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+mu
+\backslash
+left(
+\backslash
+bigcup_{i=1}^{
+\backslash
+infty}A_i
+\backslash
+right) = 
+\backslash
+sum_{i=1}^{
+\backslash
+infty}
+\backslash
+mu
+\backslash
+left(A_i
+\backslash
+right).
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
 \end_layout
 
 \end_inset
