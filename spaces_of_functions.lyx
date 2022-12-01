@@ -1295,6 +1295,247 @@ Convexity
  spaces
 \end_layout
 
+\begin_layout Standard
+In the context of 
+\begin_inset Formula $L^{p}$
+\end_inset
+
+paces, we replace the notion of boundedness (i.e.
+ the quality of a function in a space being bounded) with the related notion
+ of 
+\emph on
+essentially boundedness.
+ 
+\emph default
+A function is said to be essentially bounded if it is bounded except on
+ a null set.
+ Then the space of essentially bounded functions from a measure space 
+\begin_inset Formula $\measurespace$
+\end_inset
+
+ to 
+\begin_inset Formula $\left(\R,\borel\left(\R\right)\right)$
+\end_inset
+
+is denoted 
+\begin_inset Formula $\Lp{\infty}{\X,\F,\mu}$
+\end_inset
+
+.
+ This space comes equipped with a (semi) norm 
+\begin_inset Formula $\pnorm{\cdot}{\infty}$
+\end_inset
+
+ so that for 
+\begin_inset Formula $f\in\Lp{\infty}{\mu},$
+\end_inset
+
+we have that 
+\begin_inset Formula 
+\[
+\pnorm f{\infty}:=\inf\left\{ C\in\R\mid\mu\left(\left\{ \lvert f\rvert>C\right\} \right)=0\right\} .
+\]
+
+\end_inset
+
+To see this is indeed a norm, we can verify that positivity non-negativity
+ is satisfied by definition.
+ To see homogeneity, observe that for any 
+\begin_inset Formula $\alpha\neq0$
+\end_inset
+
+, the collection 
+\begin_inset Formula $\left\{ C\in\R\mid\mu\left(\lvert\alpha f\rvert>C\right)\right\} =\left\{ \lvert\alpha\rvert C\in\R\mid\mu\left(\lvert f\rvert>C\right)\right\} $
+\end_inset
+
+ and so we have homogeneity.
+ For the triangle inequality, consider the fact that for any 
+\begin_inset Formula $C\in\R$
+\end_inset
+
+ and any 
+\begin_inset Formula $f,g\in\Lp{\infty}{\mu}$
+\end_inset
+
+, we have 
+\begin_inset Formula $\lvert f\left(x\right)\rvert\leq\pnorm f{\infty},\lvert g\left(x\right)\rvert\leq\pnorm g{\infty}$
+\end_inset
+
+ for almost all 
+\begin_inset Formula $x\in\X$
+\end_inset
+
+ and so
+\begin_inset Formula 
+\[
+\lvert f\left(x\right)+g\left(x\right)\rvert\leq\lvert f\left(x\right)\rvert+\lvert g\left(x\right)\rvert\leq\pnorm f{\infty}+\pnorm g{\infty}
+\]
+
+\end_inset
+
+almost everywhere.
+ In words, 
+\begin_inset Formula $\pnorm f{\infty}+\pnorm g{\infty}$
+\end_inset
+
+ is an 
+\emph on
+essential upper-bound 
+\emph default
+for 
+\begin_inset Formula $\lvert f\left(x\right)+g\left(x\right)\rvert$
+\end_inset
+
+ and so 
+\begin_inset Formula $\pnorm f{\infty}+\pnorm g{\infty}\in\left\{ C\in\R\mid\mu\left(\left\{ \lvert f\rvert>C\right\} \right)=0\right\} .$
+\end_inset
+
+ The inequality then follows since 
+\begin_inset Formula $\pnorm{f+g}{\infty}$
+\end_inset
+
+ is the infimum of that set.
+ The notation 
+\begin_inset Formula $\Lp{\infty}{\mu}$
+\end_inset
+
+ of course deserves some scrutinity; one potential justification for the
+ choice of notation is the following result.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:limLp"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\measurespace$
+\end_inset
+
+ be a measure space and let 
+\begin_inset Formula $f\in\cap_{p\in\N}\Lp p{\mu}.$
+\end_inset
+
+Then 
+\begin_inset Formula 
+\[
+\lim_{p\to\infty}\pnorm fp=\pnorm f{\infty}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First, suppose that 
+\begin_inset Formula $\pnorm f{\infty}<\infty.$
+\end_inset
+
+ Then, for any sequence 
+\begin_inset Formula $q_{n}\to\infty,$
+\end_inset
+
+ we have that 
+\begin_inset Formula 
+\begin{align*}
+\pnorm f{p+q_{n}} & =\lebInt{\mu}{\lvert f\rvert^{p+q_{n}}}^{\frac{1}{p+q_{n}}}\\
+ & \leq\lebInt{\mu}{\lVert f\rVert_{\infty}^{q_{n}}\lvert f\rvert^{p}}^{\frac{1}{p+q_{n}}}\\
+ & =\lVert f\rVert_{\infty}^{\frac{q_{n}}{p+q_{n}}}\lebInt{\mu}{\lvert f\rvert^{p}}^{\frac{1}{p+q_{n}}}
+\end{align*}
+
+\end_inset
+
+where we used the fact that 
+\begin_inset Formula $\lvert f\rvert\leq\pnorm f{\infty}$
+\end_inset
+
+ almost everywhere and the monotonicity and linearity of the integral.
+ Taking lim-sups
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+We don't know if the limit on the left side exists; the right-hand side
+ has a proper limit and so is equal to its lim-sup.
+\end_layout
+
+\end_inset
+
+ on both sides we have 
+\begin_inset Formula 
+\[
+\limsup_{q_{n}\to\infty}\pnorm f{p+q_{n}}\leq\pnorm f{\infty}.
+\]
+
+\end_inset
+
+Conversely, note that for any 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+, we have the fact that 
+\begin_inset Formula $\lvert f\rvert\geq\left(\pnorm f{\infty}-\epsilon\right)$
+\end_inset
+
+
+\begin_inset Formula $\indicate\left\{ \lvert f\rvert>\pnorm f{\infty}-\epsilon\right\} $
+\end_inset
+
+ and so since p-norms respect monotonicty, we have that 
+\begin_inset Formula 
+\begin{align*}
+\pnorm fp & \geq\pnorm{\left(\pnorm f{\infty}-\epsilon\right)\indicate\left\{ \lvert f\rvert>\pnorm f{\infty}-\epsilon\right\} }p\\
+ & =\lvert\pnorm f{\infty}-\epsilon\rvert\mu\left(\lvert f\rvert>\pnorm f{\infty}-\epsilon\right)^{\frac{1}{p}}
+\end{align*}
+
+\end_inset
+
+where we have used homogeneity in the second line.
+ Note that the right hand side is finite by Markov's inequality since 
+\begin_inset Formula $f\in\Lp1{\mu}$
+\end_inset
+
+ and 
+\begin_inset Formula $\pnorm f{\infty}<\infty$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mu\left(\lvert f\rvert>\pnorm f{\infty}-\epsilon\right)\leq\frac{\lebInt{\mu}{\lvert f\rvert}}{\pnorm f{\infty}-\epsilon}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ and positive by the fact that 
+\begin_inset Formula $\pnorm f{\infty}$
+\end_inset
+
+is an essential supremum so any smaller real number cannot be an essential
+ upper bound.
+ Letting 
+\begin_inset Formula $p\to\infty,\epsilon\to0$
+\end_inset
+
+ on the right hand side ( while taking a lim-inf on the left), we have
+\begin_inset Formula 
+\[
+\liminf_{p\to\infty}\pnorm fp\geq\pnorm f{\infty}
+\]
+
+\end_inset
+
+which completes the proof for the essentially bounded case.
+\end_layout
+
 \begin_layout Section
 Hilbert spaces over 
 \begin_inset Formula $\R$
@@ -2705,7 +2946,7 @@ Let
 \begin_inset Formula $k\in\mathcal{G}$
 \end_inset
 
- has the property that
+ we have that
 \begin_inset Formula 
 \[
 \innerproduct{h-k}g=0
@@ -2714,7 +2955,7 @@ Let
 \end_inset
 
 for every 
-\begin_inset Formula $g\in G$
+\begin_inset Formula $g\in\mathcal{G}$
 \end_inset
 
  if and only if 
