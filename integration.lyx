@@ -4843,7 +4843,7 @@ for all
 \end_inset
 
 and observe that 
-\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp 1{\mu}$
+\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp1{\mu}$
 \end_inset
 
  since 
@@ -5098,7 +5098,7 @@ name "def:L1Convergence"
 \end_inset
 
 A sequence of functions 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  is said to converge to a function 
@@ -7680,7 +7680,7 @@ Note that if
 \begin_inset Formula $f_{n}\stackrel{\mu}{\longrightarrow}f$
 \end_inset
 
- then by Proposition
+ then by Proposition 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prop:convInMeasureImpliesSubsequenceAE"
@@ -7690,7 +7690,7 @@ noprefix "false"
 
 \end_inset
 
-there exists some subsequence 
+ there exists some subsequence 
 \begin_inset Formula $f_{n_{j}}\stackrel{\text{a.e}}{\longrightarrow}f$
 \end_inset
 

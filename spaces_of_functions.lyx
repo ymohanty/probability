@@ -1387,7 +1387,7 @@ for
 \end_inset
 
  and so 
-\begin_inset Formula $\pnorm f{\infty}+\pnorm g{\infty}\in\left\{ C\in\R\mid\mu\left(\left\{ \lvert f\rvert>C\right\} \right)=0\right\} .$
+\begin_inset Formula $\pnorm f{\infty}+\pnorm g{\infty}\in\left\{ C\in\R\mid\mu\left(\left\{ \lvert f+g\rvert>C\right\} \right)=0\right\} .$
 \end_inset
 
  The inequality then follows since 
@@ -1399,8 +1399,8 @@ for
 \begin_inset Formula $\Lp{\infty}{\mu}$
 \end_inset
 
- of course deserves some scrutinity; one potential justification for the
- choice of notation is the following result.
+ of course deserves some scrutiny; one potential justification for the choice
+ of notation is the following result.
 \end_layout
 
 \begin_layout Proposition

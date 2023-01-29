@@ -360,7 +360,7 @@ filename "differentiation.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "convergence_of_measures.lyx"
+filename "fourier_transforms.lyx"
 
 \end_inset
 
