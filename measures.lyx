@@ -4480,6 +4480,22 @@ and the fact that
 can be as small as one wants, our result follows.
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{ADD STIELJES MEASURE CONSTRUCTION FROM ASH PROBABILITY
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Theorem
 \begin_inset CommandInset label
 LatexCommand label

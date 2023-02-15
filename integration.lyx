@@ -7698,7 +7698,7 @@ noprefix "false"
  By Fatou's lemma and the fact that absolute value is continuous, we have
 \begin_inset Formula 
 \[
-\lebInt{\mu}{\lvert f\rvert}=\lebInt{\mu}{\liminf_{n\to\infty}\lvert f_{n_{j}}\rvert}\leq\liminf_{n\to\infty}\lebInt{\mu}{\lvert f_{n_{j}}\rvert}\leq\sup_{n\in\N}\lebInt{\mu}{\lvert f_{n}\rvert}<\infty
+\lebInt{\mu}{\lvert f\rvert}=\lebInt{\mu}{\liminf_{j\to\infty}\lvert f_{n_{j}}\rvert}\leq\liminf_{j\to\infty}\lebInt{\mu}{\lvert f_{n_{j}}\rvert}\leq\sup_{n\in\N}\lebInt{\mu}{\lvert f_{n}\rvert}<\infty
 \]
 
 \end_inset
