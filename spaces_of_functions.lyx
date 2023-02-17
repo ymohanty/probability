@@ -3033,7 +3033,7 @@ where the last equality follows by linearity of inner products.
 \begin_inset Formula $\pnorm g{}>0$
 \end_inset
 
- and so notice that equation 
+ and so notice that the right hand side of 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:convxPoly"
@@ -3955,6 +3955,27 @@ reference "chap:conditioning"
 plural "false"
 caps "false"
 noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Orthonormal bases
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Use proposition 19.14 in Bass for proof of existence.
+ Use Schilling for other parts}
+\end_layout
 
 \end_inset
 

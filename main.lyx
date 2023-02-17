@@ -340,7 +340,7 @@ filename "measure_and_topology.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "product_measures.lyx"
+filename "differentiation.lyx"
 
 \end_inset
 
@@ -350,7 +350,7 @@ filename "product_measures.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "differentiation.lyx"
+filename "product_measures.lyx"
 
 \end_inset
 
@@ -422,16 +422,10 @@ filename "central_limit_theorems.lyx"
 \end_layout
 
 \begin_layout Part
-Decision Theory
+Applications to Economics
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "correspondences.lyx"
-
-\end_inset
-
 
 \end_layout
 
