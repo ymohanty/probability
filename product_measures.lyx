@@ -135,6 +135,42 @@ hl{FUBINI IMPLIES YOUNGS THEOREM ON SYMMETRY}
 Extension to infinite product spaces
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{ASH or KLENKE?}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Kernels
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Refer to Tatikonda notes}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Disintegration
 \end_layout

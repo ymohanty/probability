@@ -86,5 +86,45 @@ figs-within-sections
 Independence
 \end_layout
 
+\begin_layout Section
+*Foundations
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Use Tao blog}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Exchangeability
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Tatikonda notes}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

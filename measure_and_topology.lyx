@@ -90,5 +90,43 @@ Measure and Topology
 Convergence of measures
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Ash + Klenke + Royden background on weak* convergence covered in the
+ section on Duality}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Topological approximation theorems
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Use Tao (epsilon of room) + Royden (chap 12).
+ Background in appendix chapter on topological spaces}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

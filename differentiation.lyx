@@ -2761,8 +2761,60 @@ we have that
  spaces, and the Riesz representation theorem.
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Tao (epsilon of room vol 1, section 1.3.2)?}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Derivatives of measures
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Bass chapter 14 117-123}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Fundamental theorems of calculus
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Bass Chapter 14 pg 123 onwards} 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
