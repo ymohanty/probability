@@ -4843,7 +4843,7 @@ for all
 \end_inset
 
 and observe that 
-\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp 1{\mu}$
+\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp1{\mu}$
 \end_inset
 
  since 
@@ -5098,7 +5098,7 @@ name "def:L1Convergence"
 \end_inset
 
 A sequence of functions 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  is said to converge to a function 
@@ -6288,7 +6288,7 @@ name "prop:L1impliesConvergenceInMeasure"
 \end_inset
 
 For a sequence of functions 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp1{\X,\F,\mu}$
 \end_inset
 
 such that 
@@ -7120,7 +7120,7 @@ Let
  Then
 \begin_inset Formula 
 \[
-f_{n}\stackrel{p}{\longrightarrow}f\implies f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f.
+f_{n}\stackrel{\mu}{\longrightarrow}f\implies f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f.
 \]
 
 \end_inset
@@ -7130,7 +7130,7 @@ f_{n}\stackrel{p}{\longrightarrow}f\implies f_{n}\stackrel{\mathcal{L}^{1}}{\lon
 
 \begin_layout Proof
 Note that if 
-\begin_inset Formula $f_{n}\stackrel{p}{\longrightarrow}f$
+\begin_inset Formula $f_{n}\stackrel{\mu}{\longrightarrow}f$
 \end_inset
 
 , then for any subsequence 
@@ -7170,7 +7170,7 @@ hyperref[thm:generalizedDominatedConvergence]{dominated convergence theorem}
 
 \end_inset
 
-implies that 
+ implies that 
 \begin_inset Formula 
 \[
 f_{n_{j_{k}}}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f.
@@ -7661,7 +7661,7 @@ Let
 \end_inset
 
  then 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
  and 
@@ -7714,7 +7714,7 @@ noprefix "false"
 \end_inset
 
 , which shows 
-\begin_inset Formula $f\in\Lp 1{\mu}.$
+\begin_inset Formula $f\in\Lp1{\mu}.$
 \end_inset
 
  Since 
