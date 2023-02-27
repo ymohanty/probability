@@ -4870,13 +4870,16 @@ Let
 \begin_inset Formula $\left\{ E_{i}\cap F\right\} _{i\in\N}\nearrow\X\cap F=F.$
 \end_inset
 
- Then, by Proposition 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prop:measureProperties"
-plural "false"
-caps "false"
-noprefix "false"
+ Then, by the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[prop:measureProperties]{continuity of measures}
+\end_layout
 
 \end_inset
 
