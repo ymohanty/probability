@@ -433,7 +433,7 @@ Appendices
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "equivalent_choice.lyx"
+filename "naive_set_theory.lyx"
 
 \end_inset
 
