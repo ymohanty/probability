@@ -83,7 +83,23 @@ figs-within-sections
 \begin_body
 
 \begin_layout Chapter
-Equivalents forms of Choice
+Naive set theory
+\end_layout
+
+\begin_layout Section
+Construction of the real numbers
+\end_layout
+
+\begin_layout Section
+Basic order theory
+\end_layout
+
+\begin_layout Section
+Cardinality
+\end_layout
+
+\begin_layout Section
+Equivalent forms of choice
 \end_layout
 
 \end_body
