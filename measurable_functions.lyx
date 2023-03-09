@@ -3300,7 +3300,7 @@ Let
 \begin_inset Formula $\X$
 \end_inset
 
- and let 
+ be an arbitrary set and let 
 \begin_inset Formula $f:\X\to\mathcal{\R}$
 \end_inset
 
@@ -3332,7 +3332,7 @@ First suppose that
 \begin_inset Formula $g=\indicate_{A}$
 \end_inset
 
- or some 
+ for some 
 \begin_inset Formula $A\in\sigma\left(f\right).$
 \end_inset
 
@@ -3344,7 +3344,7 @@ g=\indicate_{A}\left(x\right)=\indicate_{f^{-1}\left[B\right]}\left(x\right)=\in
 
 \end_inset
 
-for 
+for some 
 \begin_inset Formula $B\in\mathcal{G}.$
 \end_inset
 
