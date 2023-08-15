@@ -222,7 +222,7 @@ noprefix "false"
  Hilbert spaces is clearly right tool to finish off the proof; however,
  several hurdles remain.
  For one, 
-\begin_inset Formula $g\to\lebInt{\mu}g$
+\begin_inset Formula $g\to\lebInt{\nu}g$
 \end_inset
 
  a linear functional on 
