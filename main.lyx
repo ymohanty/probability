@@ -422,7 +422,7 @@ filename "central_limit_theorems.lyx"
 \end_layout
 
 \begin_layout Part
-Applications to Economics
+Statistics and Economics
 \end_layout
 
 \begin_layout Part
@@ -454,6 +454,16 @@ filename "topological_spaces.lyx"
 \begin_inset CommandInset include
 LatexCommand include
 filename "basic_convex_analysis.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "combinatorics.lyx"
 
 \end_inset
 

@@ -86,8 +86,682 @@ figs-within-sections
 Product measures
 \end_layout
 
+\begin_layout Standard
+In calculus, we learnt that the theory of integration readily extends from
+ from real valued functions on 
+\begin_inset Formula $\R$
+\end_inset
+
+ to real valued functions on the Euclidean space 
+\begin_inset Formula $\R^{n}.$
+\end_inset
+
+ The extension is usually motivated geometrically by studying the volume
+ under the surface of a sufficiently smooth function 
+\begin_inset Formula $f:\R^{2}\to\R$
+\end_inset
+
+.
+ The idea is that if a function is sufficiently well behaved, then one can
+ recover the volume under the surface by looking at the areas under various
+ ``slices
+\begin_inset Quotes erd
+\end_inset
+
+ of the function and then summing up those areas.
+ Importantly, under the requisite smoothness conditions, the ``slices
+\begin_inset Quotes erd
+\end_inset
+
+ could have been made horizontally or vertically, and we would get the same
+ result.
+ This intuition leads to the Fubini theorem for multiple integration in
+ the Riemann setting:
+\begin_inset Formula 
+\[
+\int_{a}^{b}\int_{c}^{d}f(x,y)dydx=\int_{c}^{d}\int_{a}^{b}f(x,y)dxdy.
+\]
+
+\end_inset
+
+The main goal of this chapter is to recover this result for the Lebesgue
+ integral.
+ While important in its own right for the study of analysis on Euclidean
+ spaces, in the context of probability theory, this result takes a far more
+ important role.
+ In particular, the ability to write a multiple integral as an iterated
+ integral corresponds directly with the ability to factor the joint distribution
+ of random variables into the marginal distribution; that is, it underpins
+ the theory of 
+\emph on
+independent 
+\emph default
+random variables.
+ Independence, and the departures from independence, constitute the central
+ concepts of probabiliy theory.
+\end_layout
+
 \begin_layout Section
 Product measures on finite product spaces
+\end_layout
+
+\begin_layout Subsection
+Iterated integrals
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G},\nu\right)$
+\end_inset
+
+ be measure spaces.
+ Our interest is in defining measurable functions on the product space 
+\begin_inset Formula $\X\times\mathcal{Y}.$
+\end_inset
+
+ The principle hurdle that is immediately apparent here is that the product
+ of the 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras 
+\begin_inset Formula $\F\times\mathcal{G}:=\left\{ F\times G\mid F\in\F,G\in\mathcal{G}\right\} $
+\end_inset
+
+ is not necessarily a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{ADD CE}
+\end_layout
+
+\end_inset
+
+.
+ It is easy to see, however, that it is a 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system (this fact will turn out to be important!).
+ Any 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra we use should certainly 
+\emph on
+contain 
+\emph default
+
+\begin_inset Formula $\mathcal{F}\times\mathcal{G}$
+\end_inset
+
+ and so the canonical choice is given by 
+\begin_inset Formula $\mathcal{F}\otimes\mathcal{G:=\sigma\left(F\times G\right)}$
+\end_inset
+
+.
+ A series of natural questions follow if we want iterated integrals to make
+ sense.
+ In particular, for a measurable map 
+\begin_inset Formula $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right),$
+\end_inset
+
+we want to know if the projections 
+\begin_inset Formula $x\to f(x,y)$
+\end_inset
+
+ and 
+\begin_inset Formula $y\to\mu^{x}\left(f\left(x,y\right)\right)$
+\end_inset
+
+ are 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+ measurable, respectively.
+ Thankfully, this turns out to be the case.
+ We will use a long lost result from Chapter 2: the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:piLambdaThmFunctions]{$
+\backslash
+pi-
+\backslash
+lambda$ theorem for functions}
+\end_layout
+
+\end_inset
+
+.
+ Go over the hypotheses of this theorem before reading the following results.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:partialFunctionMeasurability"
+
+\end_inset
+
+For every 
+\begin_inset Formula $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+\end_inset
+
+, the maps 
+\begin_inset Formula $x\to f(x,y)$
+\end_inset
+
+ and 
+\begin_inset Formula $y\to f(x,y)$
+\end_inset
+
+ are 
+\begin_inset Formula $\mathcal{F}/\borel\left(\R\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{G}/\borel\left(\R\right)$
+\end_inset
+
+ measurable for every 
+\begin_inset Formula $y\in\mathcal{Y}$
+\end_inset
+
+ and 
+\begin_inset Formula $x\in\X$
+\end_inset
+
+, respectively.
+\end_layout
+
+\begin_layout Proof
+First we note, due to the fact that 
+\begin_inset Formula $\left(A_{1}\times B_{1}\right)\cap\left(A_{2}\times B_{2}\right)=\left(A_{1}\cap A_{2}\right)\times\left(B_{1}\times B_{2}\right),$
+\end_inset
+
+that 
+\begin_inset Formula $\mathcal{\mathcal{E:=}F}\times\mathcal{G}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system.
+ Next, we claim that the space
+\begin_inset Formula 
+\[
+\mathcal{H:=}\left\{ f\in\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\mid\forall y\in\mathcal{Y}:x\to f\left(x,y\right)\text{is }\mathcal{G}/\borel\left(\R\right)\text{ measurable }\right\} 
+\]
+
+\end_inset
+
+is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+space of functions.
+ Note that 
+\begin_inset Formula $\indicate_{\X\times\mathcal{Y}}$
+\end_inset
+
+is constant and bounded (and evidently partially measurable in our sense).
+ Further, our space 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ is a vector space, since linear combinations of bounded measurable functions
+ is bounded, and the partial measurability condition is also preserved under
+ linear combinations (both results of Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:binaryOperationsMeasurableFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ Finally, 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ is closed under monotone limits (if they exist) since measurability (resp.
+ partial measurability) is preserved under limits.
+\end_layout
+
+\begin_layout Proof
+Now, observe that 
+\begin_inset Formula $\left\{ \indicate_{A}\mid A\in\mathcal{E}\right\} \subseteq\mathcal{H}$
+\end_inset
+
+, since 
+\begin_inset Formula $\indicate_{F\times G}=\indicate_{F}\indicate_{G}$
+\end_inset
+
+which is clearly bounded, measurable, and partially measurable in our sense.
+ Thus applying the 
+\begin_inset Formula $\pi-\lambda$
+\end_inset
+
+ theorem as discussed, we have that
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\subseteq\mathcal{H}
+\]
+
+\end_inset
+
+which completes the proof for bounded functions.
+\end_layout
+
+\begin_layout Proof
+Now we can simply take a function 
+\begin_inset Formula $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+\end_inset
+
+ and construct the bounded monotone sequence 
+\begin_inset Formula $f_{n}:=\min\left\{ f,n\right\} \in\mathcal{H}$
+\end_inset
+
+ by our results.
+ We complete the proof by taking limits and noting that partial measurability
+ is preserved.
+ The same argument, of course, holds for 
+\begin_inset Formula $y\to f\left(x,y\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Virtually the same argument shows that 
+\begin_inset Formula $y\to\mu^{x}\left(f\left(x,y\right)\right)$
+\end_inset
+
+ is measurable (although we need this previous lemma to show that this function
+ is indeed well-defined).
+ We include this result here for completeness
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:partialIntegralMeasurability"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G},\nu\right)$
+\end_inset
+
+ be measure spaces.
+ For every function 
+\begin_inset Formula $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+\end_inset
+
+, the maps 
+\begin_inset Formula $x\to\nu^{y}\left(f\left(x,y\right)\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $y\to\mu^{x}\left(f\left(x,y\right)\right)$
+\end_inset
+
+ are 
+\begin_inset Formula $\mathcal{F}/\borel\left(\R\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{G}/\borel\left(\R\right)$
+\end_inset
+
+ measurable respectively.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+ be as before and this time let
+\begin_inset Formula 
+\[
+\mathcal{H:=}\left\{ f\in\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\mid y\to\mu^{x}f\left(x,y\right)\text{is }\mathcal{G}/\borel\left(\R\right)\text{ measurable }\right\} ,
+\]
+
+\end_inset
+
+noting that 
+\begin_inset Formula $\indicate_{\X\times\mathcal{Y}}\in\mathcal{H}$
+\end_inset
+
+ since 
+\begin_inset Formula $\mu^{x}\left(\indicate_{\X\times\mathcal{Y}}\right)=\indicate_{\mathcal{Y}}\mu\left(\X\right)$
+\end_inset
+
+ which is 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+ measurable.
+ 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ is a vector space closed under monotone limits with the same arguments
+ as before along with the linearity and monotone convergence properties
+ of 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ Applying the 
+\begin_inset Formula $\pi-\lambda$
+\end_inset
+
+ theorem for functions, we have that 
+\begin_inset Formula 
+\[
+\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\subseteq\mathcal{H}.
+\]
+
+\end_inset
+
+Finally, take some 
+\begin_inset Formula $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+\end_inset
+
+ and construct 
+\begin_inset Formula $f_{n}:=\min\left\{ f,n\right\} \in\mathcal{H}$
+\end_inset
+
+ and note that 
+\begin_inset Formula $y\to\mu^{x}\left(f_{n}\left(x,y\right)\right)$
+\end_inset
+
+ is measurable and by monotone convergence 
+\begin_inset Formula $y\to\mu^{x}\left(f\left(x,y\right)\right)$
+\end_inset
+
+ is measurable completing the proof.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With the technicalities out of the way, we can show that iterated integrals
+ give the same result under certain conditions.
+ This is a generalization of the result we saw all the way back in Lemma
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:TonelliForSeries"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Tonelli
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:tonelli"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G},\nu\right)$
+\end_inset
+
+ be 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measure spaces.
+ Then, for any 
+\begin_inset Formula $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+\end_inset
+
+, the functions 
+\begin_inset Formula 
+\[
+\gamma_{1}\left(f\right):=\nu^{y}\mu^{x}\left(f\right)
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\gamma_{2}\left(f\right):\mu^{x}\nu^{y}\left(f\right)
+\]
+
+\end_inset
+
+are integrals on 
+\begin_inset Formula $\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right).$
+\end_inset
+
+ Moreover, 
+\begin_inset Formula $\gamma_{1}\left(f\right)=\gamma_{2}\left(f\right)$
+\end_inset
+
+ for every 
+\begin_inset Formula $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We show that 
+\begin_inset Formula $\gamma_{1}$
+\end_inset
+
+ is an integral; the argument for 
+\begin_inset Formula $\gamma_{2}$
+\end_inset
+
+ is the analagous.
+ First, observe that 
+\begin_inset Formula $\gamma_{1}\left(0\right)=\nu^{y}\mu^{x}\left(0\right)=\nu^{y}\left(0\right)=0$
+\end_inset
+
+, given that 
+\begin_inset Formula $\nu$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu$
+\end_inset
+
+ are integrals.
+ Second, note that for 
+\begin_inset Formula $\alpha,\beta\geq0$
+\end_inset
+
+, and 
+\begin_inset Formula $f,g\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\gamma_{1}\left(\alpha f+\beta g\right) & =\nu^{y}\mu^{x}\left(\alpha f+\beta g\right)\\
+ & =\nu^{y}\left(\alpha\mu^{x}f+\beta\mu^{x}g\right)\\
+ & =\alpha\nu^{y}\mu^{x}\left(f\right)+\beta\nu^{y}\mu^{x}\left(g\right)\\
+ & =\alpha\gamma_{1}\left(f\right)+\beta\gamma_{1}\left(g\right).
+\end{align*}
+
+\end_inset
+
+Finally, observe that for 
+\begin_inset Formula $f_{n}\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $f_{n}\leq f_{n+1}$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{n}\to f$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+\lim_{n\to\infty}\gamma_{1}\left(f_{n}\right) & =\lim_{n\to\infty}\nu^{y}\mu^{x}\left(f_{n}\right)\\
+ & =\nu^{y}\mu^{x}\left(\lim_{n\to\infty}f_{n}\right)\\
+ & =\gamma_{1}\left(f\right)
+\end{align*}
+
+\end_inset
+
+by applying monotone convergence twice.
+\end_layout
+
+\begin_layout Proof
+Therefore, by Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:integralMeasureEquivalence"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $\gamma_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma_{2}$
+\end_inset
+
+ are integrals on 
+\begin_inset Formula $\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+\end_inset
+
+ with respect to measures defined by integrating indicator functions in
+ 
+\begin_inset Formula $\mathcal{F\otimes\mathcal{G}}.$
+\end_inset
+
+ The two integrals can be shown to be equal by showing that the corresponding
+ measures are equal on a generating 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system that can approximate the full space (courtesy of our 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:uniquenessMeasures]{uniqueness theorem}
+\end_layout
+
+\end_inset
+
+).
+ Of course, since 
+\begin_inset Formula $\mathcal{F\times\mathcal{G}}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system, for 
+\begin_inset Formula $F\in\F,G\in\mathcal{G}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\gamma_{1}\left(\indicate_{F\times G}\right) & =\nu^{y}\mu^{x}\left(\indicate_{F\times G}\left(x,y\right)\right)\\
+ & =\nu^{y}\mu^{x}\left(\indicate_{F}\left(x\right)\indicate_{G}\left(y\right)\right)\\
+ & =\nu\left(G\right)\mu\left(F\right)\\
+ & =\mu^{x}\nu^{y}\left(\indicate_{F}\left(x\right)\indicate_{G}\left(y\right)\right)\\
+ & =\gamma_{2}\left(\indicate_{F\times G}\right)
+\end{align*}
+
+\end_inset
+
+completing the proof.
+ Since our measures 
+\begin_inset Formula $\mu,\nu$
+\end_inset
+
+ are 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite, we know that there exist sets 
+\begin_inset Formula $E_{i}\in\mathcal{F\times\mathcal{G}}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\bigcup E_{i}=\X\times\mathcal{Y}.$
+\end_inset
+
+ This completes the proof.
 \end_layout
 
 \begin_layout Standard
