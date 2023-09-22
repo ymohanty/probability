@@ -2925,12 +2925,16 @@ name "exa:canonicalOuterMeasure"
 
 \end_inset
 
-Given a countably additive pre-measure 
+Given a non-negative extended-real valued function 
 \begin_inset Formula $\mu$
 \end_inset
 
  on a collection 
 \begin_inset Formula $\mathcal{A\subseteq}2^{\mathcal{X}}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu\left(\emptyset\right)=0$
 \end_inset
 
 , define for any 
