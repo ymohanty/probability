@@ -453,6 +453,16 @@ filename "topological_spaces.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
+filename "finite_dimensional_vector_spaces.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
 filename "basic_convex_analysis.lyx"
 
 \end_inset
