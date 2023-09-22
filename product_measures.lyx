@@ -764,6 +764,38 @@ finite, we know that there exist sets
  This completes the proof.
 \end_layout
 
+\begin_layout Subsection
+Product measures
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Prove that 
+\backslash
+sigma(
+\backslash
+left(f,g
+\backslash
+right)) = 
+\backslash
+sigma(f,g)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Convolutions
+\end_layout
+
 \begin_layout Standard
 \begin_inset ERT
 status open

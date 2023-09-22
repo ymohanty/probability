@@ -86,6 +86,65 @@ figs-within-sections
 Topological spaces
 \end_layout
 
+\begin_layout Standard
+For completeness, we state and prove all theorems from basic real analysis
+ and general topology that were used in the main text.
+\end_layout
+
+\begin_layout Section
+The Euclidean spaces 
+\begin_inset Formula $\R^{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:realDecimalExpansion"
+
+\end_inset
+
+For any real number 
+\begin_inset Formula $x\in\left[0,1\right)$
+\end_inset
+
+ and any positive integer 
+\begin_inset Formula $b\geq2,$
+\end_inset
+
+ there exists a sequence of non-negative integers 
+\begin_inset Formula $\left\{ a_{i}\right\} _{i=1}^{\infty}\in\left\{ 0,1,2,\ldots,b-1\right\} $
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\sum_{i=1}^{\infty}\frac{a_{i}}{b^{i}}=x.
+\]
+
+\end_inset
+
+Moreover, if there is no 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $n\geq n_{0}:a_{n}=b-1,$
+\end_inset
+
+ then the sequence 
+\begin_inset Formula $\left\{ a_{i}\right\} $
+\end_inset
+
+ is unique.
+\end_layout
+
+\begin_layout Proof
+Note that we can partition
+\end_layout
+
 \begin_layout Section
 Metric spaces
 \end_layout
