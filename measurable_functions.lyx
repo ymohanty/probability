@@ -710,7 +710,7 @@ We prove the first assertion as the second one follows by the same argument.
 \limsup_{n\to\infty}\indicate_{A_{n}} & =\inf_{n\in\N}\left\{ \sup_{i\geq n}\indicate_{A_{i}}\right\} \\
  & =\inf_{n\in\N}\left\{ \indicate_{\bigcup_{i\geq n}A_{i}}\right\} \\
  & =\indicate_{\bigcap_{n\in\N}\bigcup_{i\geq n}A_{i}}\\
- & =\indicate_{\liminf_{n\to\infty}A_{n}}
+ & =\indicate_{\limsup_{n\to\infty}A_{n}}
 \end{align*}
 
 \end_inset

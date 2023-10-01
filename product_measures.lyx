@@ -776,7 +776,7 @@ status open
 
 
 \backslash
-hl{Prove that 
+hl{Prove that $
 \backslash
 sigma(
 \backslash
@@ -784,7 +784,7 @@ left(f,g
 \backslash
 right)) = 
 \backslash
-sigma(f,g)
+sigma(f,g)$ }
 \end_layout
 
 \end_inset
