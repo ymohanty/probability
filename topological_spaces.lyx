@@ -92,8 +92,822 @@ For completeness, we state and prove all theorems from basic real analysis
 \end_layout
 
 \begin_layout Section
-The Euclidean spaces 
-\begin_inset Formula $\R^{n}$
+Elementary real analysis
+\end_layout
+
+\begin_layout Subsection
+Construction of the real numbers
+\end_layout
+
+\begin_layout Subsection
+Sequences and series
+\end_layout
+
+\begin_layout Subsubsection
+Properties of Limit Inferiors and Superiors
+\end_layout
+
+\begin_layout Standard
+We collect here the following properties of the limit superiors and limit
+ inferiors.
+ In all of the following, 
+\begin_inset Formula $\left\{ a_{n}\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ b_{n}\right\} $
+\end_inset
+
+ are real sequences.
+ Recall that 
+\begin_inset Formula $\limsup_{n\to\infty}a_{n}=\inf_{n\geq1}\left\{ \sup_{i\geq n}\left\{ a_{i}\right\} \right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\liminf_{n\to\infty}a_{n}=\sup_{n\geq1}\left\{ \inf_{i\geq n}\left\{ a_{i}\right\} \right\} $
+\end_inset
+
+.
+ Note that these always exist (in the extended reals) by the completeness
+ of the real numbers.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:.limInfNegLimSupNeg"
+
+\end_inset
+
+
+\begin_inset Formula $\liminf_{n\to\infty}a_{n}=-\limsup_{n\to\infty}-a_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $\inf_{i\geq n}a_{i}=-\sup_{i\geq n}-a_{i}$
+\end_inset
+
+ and so taking limits completes the proof.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:limSupDominatesLimInf"
+
+\end_inset
+
+
+\begin_inset Formula $\liminf_{n\to\infty}a_{n}\leq\limsup_{n\to\infty}a_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\inf_{i\geq n}a_{i}\leq\sup_{i\geq n}a_{i}$
+\end_inset
+
+ and so the result follows by taking limits.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:limSupSubsequential"
+
+\end_inset
+
+
+\begin_inset Formula $\liminf_{n\to\infty}a_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $\limsup_{n\to\infty}a_{n}$
+\end_inset
+
+ are subsequential limits of 
+\begin_inset Formula $a_{n}$
+\end_inset
+
+ such that for any other subsequential limit 
+\begin_inset Formula $L$
+\end_inset
+
+ we have that 
+\begin_inset Formula 
+\[
+\liminf_{n\to\infty}a_{n}\leq L\leq\limsup_{n\to\infty}a_{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that if 
+\begin_inset Formula $L<\liminf_{n\to\infty}a_{n}$
+\end_inset
+
+ , then there are infinitely many elements of 
+\begin_inset Formula $\left\{ a_{n}\right\} $
+\end_inset
+
+ in 
+\begin_inset Formula $\left(L-\epsilon,L+\epsilon\right)$
+\end_inset
+
+where 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ is small enough that 
+\begin_inset Formula $L+\epsilon<\liminf_{n\to\infty}a_{n}$
+\end_inset
+
+.
+ Note that since 
+\begin_inset Formula $\left\{ \inf_{i\geq n}a_{i}\right\} $
+\end_inset
+
+ is a nondecreasing sequence, there exists some 
+\begin_inset Formula $n_{0}\in\N$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $n\geq n_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\inf_{i\geq n}a_{i}>L+\epsilon$
+\end_inset
+
+.
+ But then 
+\begin_inset Formula $a_{i}\geq\inf_{i\geq n_{0}}a_{i}>L+\epsilon$
+\end_inset
+
+ for all every 
+\begin_inset Formula $i\geq n_{0}$
+\end_inset
+
+ which contradicts the fact that infinitely many of our 
+\begin_inset Formula $\left\{ a_{n}\right\} $
+\end_inset
+
+ were in 
+\begin_inset Formula $\left[L,L+\epsilon\right)$
+\end_inset
+
+.
+ The proof for the limit superior case is analagous.
+\end_layout
+
+\begin_layout Proof
+Next fix 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ , let 
+\begin_inset Formula $c_{n}:=\inf_{i\geq n}a_{i}$
+\end_inset
+
+., and let 
+\begin_inset Formula $I:=\lim c_{n}.$
+\end_inset
+
+By the definition of infimum, there exists some 
+\begin_inset Formula $k_{n}\geq n$
+\end_inset
+
+ such that 
+\begin_inset Formula $\lvert c_{n}-a_{k_{n}}\rvert<\frac{\epsilon}{2}$
+\end_inset
+
+.
+ By definition of limit inferiors, we have that for large enough 
+\begin_inset Formula $n$
+\end_inset
+
+, 
+\begin_inset Formula $\lvert c_{n}-I\rvert<\frac{\epsilon}{2}$
+\end_inset
+
+ and so
+\begin_inset Formula 
+\[
+\lvert a_{k_{n}}-I\rvert\leq\lvert c_{n}-a_{k_{n}}\rvert+\lvert c_{n}-I\rvert<\epsilon
+\]
+
+\end_inset
+
+which completes the proof.
+ The proof for limit superiors is analagous (or you can use Proposition
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:.limInfNegLimSupNeg"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:limSupEqualLimInf"
+
+\end_inset
+
+The sequence 
+\begin_inset Formula $\left\{ a_{n}\right\} $
+\end_inset
+
+ converges if and only if 
+\begin_inset Formula $\limsup_{n\to\infty}a_{n}=\liminf_{n\to\infty}a_{n}$
+\end_inset
+
+ in which case 
+\begin_inset Formula 
+\[
+\lim_{n\to\infty}a_{n}=\limsup_{n\to\infty}a_{n}=\liminf_{n\to\infty}a_{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+If 
+\begin_inset Formula $\lim_{n\to\infty}a_{n}=L$
+\end_inset
+
+, then all subsequential limits are also equal to 
+\begin_inset Formula $L$
+\end_inset
+
+, which implies (by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:limSupSubsequential"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) that 
+\begin_inset Formula $\lim_{n\to\infty}a_{n}=\limsup_{n\to\infty}a_{n}=\liminf_{n\to\infty}a_{n}.$
+\end_inset
+
+ Conversely, assuming that 
+\begin_inset Formula $L:=\limsup_{n\to\infty}a_{n}=\liminf_{n\to\infty}a_{n},$
+\end_inset
+
+ we can show that for any 
+\begin_inset Formula $\epsilon>0,$
+\end_inset
+
+there's some large enough 
+\begin_inset Formula $n_{0}\in\N$
+\end_inset
+
+, 
+\begin_inset Formula $\lvert$
+\end_inset
+
+such that
+\begin_inset Formula 
+\[
+\sup_{i\geq n_{0}}x_{i}-\inf_{i\geq n_{0}}x_{i}\leq\lvert\inf_{i\geq n_{0}}x_{i}-L\rvert+\lvert\sup_{i\geq n_{0}}x_{i}-L\rvert<\epsilon.
+\]
+
+\end_inset
+
+Then for any 
+\begin_inset Formula $m,n\geq n_{0}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\rvert x_{m}-x_{n}\rvert\leq\sup_{i\geq n_{0}}x_{i}-\inf_{i\geq n_{0}}x_{i}\leq\epsilon
+\]
+
+\end_inset
+
+and thus the sequence is Cauchy and converges to 
+\begin_inset Formula $L$
+\end_inset
+
+ by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:limSupSubsequential"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:SumLimInf"
+
+\end_inset
+
+
+\begin_inset Formula $\liminf_{n\to\infty}a_{n}+\liminf_{n\to\infty}b_{n}\leq\liminf_{n\to\infty}\left(a_{n}+b_{n}\right)\leq\limsup_{n\to\infty}\left(a_{n}+b_{n}\right)\leq\limsup_{n\to\infty}a_{n}+\limsup_{n\to\infty}b_{n}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $\inf_{i\geq n}a_{i}+\inf_{i\geq n}b_{i}\leq\inf_{i\geq n}\left(a_{i}+b_{i}\right)$
+\end_inset
+
+ and take limits.
+ The other inequalities follow by Propositions 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:limSupDominatesLimInf"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:.limInfNegLimSupNeg"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+We are implicitly excluding the 
+\begin_inset Formula $\infty-\infty$
+\end_inset
+
+ situations in the limits.
+ This should be assumed throughout this section.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:prodLimInf"
+
+\end_inset
+
+For 
+\begin_inset Formula $a_{n},b_{n}\geq0$
+\end_inset
+
+ we have that 
+\begin_inset Formula $\liminf a_{n}\liminf b_{n}\leq\liminf a_{n}b_{n}\leq\limsup a_{n}b_{n}\leq\limsup a_{n}\limsup b_{n}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that we have the inequalities 
+\begin_inset Formula 
+\begin{align*}
+0 & \leq\inf_{i\geq n}a_{i}\leq a_{i}\\
+0 & \leq\inf_{i\geq n}b_{i}\leq b_{i}
+\end{align*}
+
+\end_inset
+
+for all 
+\begin_inset Formula $i\geq n$
+\end_inset
+
+ and so by multiplying the inequalities we get 
+\begin_inset Formula 
+\[
+0\leq\inf_{i\geq n}a_{i}\inf_{i\geq n}b_{i}\leq a_{i}b_{i}\implies0\leq\inf_{i\geq n}a_{i}\inf_{i\geq n}b_{i}\leq\inf_{i\geq n}a_{i}b_{i}
+\]
+
+\end_inset
+
+and taking limits finishes the proof.
+\end_layout
+
+\begin_layout Remark
+Note that the condition that 
+\begin_inset Formula $a_{n},b_{n}\geq0$
+\end_inset
+
+ is necessary: see 
+\begin_inset Formula $a_{n}=\left(-1\right)^{n},b_{n}=(-1)^{n+1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:limInfMid"
+
+\end_inset
+
+
+\begin_inset Formula $\liminf_{n\to\infty}\left(a_{n}+b_{n}\right)\leq\liminf_{n\to\infty}a_{n}+\limsup_{n\to\infty}b_{n}\leq\limsup_{n\to\infty}\left(a_{n}+b_{n}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula 
+\[
+a_{n}+b_{n}\leq a_{n}+\sup_{i\geq n}b_{i}\implies\inf_{i\geq n}\left(a_{n}+b_{n}\right)\leq\inf_{i\geq n}\left(a_{n}+\sup_{i\geq n}b_{n}\right)=\inf_{i\geq n}a_{i}+\sup_{i\geq n}b_{i}
+\]
+
+\end_inset
+
+where the last equality follows because 
+\begin_inset Formula $\sup b_{i}$
+\end_inset
+
+ is a constant for a fixed 
+\begin_inset Formula $n.$
+\end_inset
+
+ Taking limits then yields the result.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:sumLimInfLim"
+
+\end_inset
+
+If 
+\begin_inset Formula $\lim_{n\to\infty}a_{n}=L$
+\end_inset
+
+ then 
+\begin_inset Formula 
+\begin{align*}
+\liminf_{n\to\infty}\left(a_{n}+b_{n}\right) & =L+\liminf_{n\to\infty}b_{n}\\
+\limsup_{n\to\infty}\left(a_{n}+b_{n}\right) & =L+\limsup b_{n}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note first that 
+\begin_inset Formula 
+\begin{align*}
+L+\liminf_{n\to\infty}b_{n} & =\liminf_{n\to\infty}a_{n}+\liminf_{n\to\infty}b_{N}\\
+ & \leq\liminf_{n\to\infty}\left(a_{n}+b_{n}\right)\\
+ & \leq\limsup_{n\to\infty}a_{n}+\liminf_{n\to\infty}b_{n}\\
+ & =L+\liminf_{n\to\infty}b_{n}
+\end{align*}
+
+\end_inset
+
+by Propositions
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:limSupEqualLimInf"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:SumLimInf"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:limInfMid"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+If 
+\begin_inset Formula $a_{n},b_{n}\geq0$
+\end_inset
+
+ then
+\begin_inset Formula 
+\[
+\liminf_{n\to\infty}a_{n}b_{n}\leq\liminf_{n\to\infty}a_{n}\limsup_{n\to\infty}b_{n}\leq\limsup_{n\to\infty}a_{n}b_{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The proof proceeds in the exact same way as in Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:limInfMid"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:prodLimInfExists"
+
+\end_inset
+
+If 
+\begin_inset Formula $a_{n},b_{n}\geq0$
+\end_inset
+
+ , 
+\begin_inset Formula $\lim a_{n}=L$
+\end_inset
+
+ and 
+\begin_inset Formula $\limsup_{n\to\infty}b_{n}<\infty$
+\end_inset
+
+ then 
+\begin_inset Formula 
+\begin{align*}
+\liminf\left(a_{n}b_{n}\right) & =L\liminf b_{n}\\
+\limsup\left(a_{n}b_{n}\right) & =L\limsup b_{n}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+This is akin to Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:prodLimInfExists"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+; the following chain of inequalities establish the claim
+\begin_inset Formula 
+\begin{align*}
+L\liminf b_{n} & =\liminf a_{n}\liminf b_{n}\\
+ & \leq\liminf a_{n}b_{n}\\
+ & \leq\limsup a_{n}\liminf b_{n}\\
+ & =L\liminf b_{n}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:limInfContinuity"
+
+\end_inset
+
+Let 
+\begin_inset Formula $a_{n}$
+\end_inset
+
+ be a real sequence and let 
+\begin_inset Formula $f:\R\to\R$
+\end_inset
+
+ be a continuous and increasing function, then
+\begin_inset Formula 
+\begin{align*}
+f\left(\liminf_{n\to\infty}a_{n}\right) & =\liminf_{n\to\infty}f\left(a_{n}\right)\\
+f\left(\limsup_{n\to\infty}a_{n}\right) & =\limsup_{n\to\infty}f\left(a_{n}\right).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First observe that since 
+\begin_inset Formula $f$
+\end_inset
+
+ is increasing, we have that 
+\begin_inset Formula $\inf_{i\geq n}a_{i}\leq a_{i}\implies f\left(\inf_{i\geq n}a_{i}\right)\leq f\left(a_{i}\right)$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\geq n$
+\end_inset
+
+ and so
+\begin_inset Formula 
+\[
+f\left(\inf_{i\geq n}a_{i}\right)\leq\inf_{i\geq n}f\left(a_{i}\right).
+\]
+
+\end_inset
+
+Conversely, fix 
+\begin_inset Formula $n$
+\end_inset
+
+ and suppose that 
+\begin_inset Formula $f\left(\inf_{i\geq n}a_{i}\right)<\inf_{i\geq n}f\left(a_{i}\right)$
+\end_inset
+
+.
+ Fixing 
+\begin_inset Formula $\epsilon=\frac{\inf_{i\geq n}f\left(a_{i}\right)-f\left(\inf_{i\geq n}a_{i}\right)}{2}$
+\end_inset
+
+ , note that by continuity there exists a 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $\lvert\inf_{i\geq n}a_{i}-x\rvert<\delta\implies\lvert f\left(\inf_{i\geq n}a\right)-f\left(x\right)\rvert<\epsilon$
+\end_inset
+
+.
+ By the definition of infimum, there is some 
+\begin_inset Formula $i_{0}\geq n$
+\end_inset
+
+ where 
+\begin_inset Formula $a_{i_{0}}-\inf_{i\geq n}a_{i}<\delta$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\[
+f\left(a_{i_{0}}\right)-f\left(\inf_{i\geq n}a_{i}\right)<\epsilon
+\]
+
+\end_inset
+
+which is a contradiction and hence 
+\begin_inset Formula 
+\[
+f\left(\inf_{i\geq n}a_{i}\right)\geq\inf_{i\geq n}f\left(a_{i}\right).
+\]
+
+\end_inset
+
+Taking limits and applying the continuity of 
+\begin_inset Formula $f$
+\end_inset
+
+ once again yields the result.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset Formula $\limsup_{n\to\infty}\max\left\{ a_{n},b_{n}\right\} =\max\left\{ \limsup_{n\to\infty}a_{n},\limsup_{n\to\infty}b_{n}\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\liminf_{n\to\infty}\min\left\{ a_{n},b_{n}\right\} =\min\left\{ \liminf_{n\to\infty}a_{n},\liminf_{n\to\infty}b_{n}\right\} .$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Exercise
+Let 
+\begin_inset Formula $\left\{ a_{n}\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ b_{n}\right\} $
+\end_inset
+
+ be positive real sequences with such that 
+\begin_inset Formula $\limsup_{n\to\infty}\frac{\log\left(b_{n}\right)}{n}=-\infty$
+\end_inset
+
+.
+ Prove that 
+\begin_inset Formula 
+\[
+\liminf_{n\to\infty}\frac{\log\left(a_{n}+b_{n}\right)}{n}=\liminf_{n\to\infty}\frac{\log\left(a_{n}\right)}{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution*
+Note that since exponential function is increasing and continuous, by Propositio
+n 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:limInfContinuity"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\exp\left(\limsup_{n\to\infty}\log\left(b_{n}^{\frac{1}{n}}\right)\right)=\limsup_{n\to\infty}b_{n}^{\frac{1}{n}}=0
+\]
+
+\end_inset
+
+which implies that 
+\begin_inset Formula $\lim_{n\to\infty}b_{n}^{\frac{1}{n}}=0$
+\end_inset
+
+ since 
+\begin_inset Formula $b_{n}>0$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\in\N.$
+\end_inset
+
+ Since eventually, 
+\begin_inset Formula $b_{n}<b_{n}^{\frac{1}{n}}$
+\end_inset
+
+ we have that 
+\begin_inset Formula $\lim_{n\to\infty}b_{n}=0.$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\frac{\log\left(a_{n}+b_{n}\right)}{n}=\frac{\log\left(a_{n}\right)}{n}+\frac{\log\left(1+\frac{b_{n}}{a_{n}}\right)}{n}\leq\frac{\log\left(a_{n}\right)}{n}+
+\]
+
 \end_inset
 
 
@@ -145,12 +959,806 @@ Moreover, if there is no
 Note that we can partition
 \end_layout
 
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Metric spaces
 \end_layout
 
+\begin_layout Subsection
+Topology of metric spaces
+\end_layout
+
+\begin_layout Subsection
+Complete metric spaces
+\end_layout
+
+\begin_layout Subsection
+Compact metric spaces
+\end_layout
+
+\begin_layout Subsection
+Continuity of functions between metric spaces
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:lipschitz"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(X,d_{X}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(Y,d_{Y}\right)$
+\end_inset
+
+ be a metric spaces.
+ A function 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ is called 
+\emph on
+Lipschitz continuous 
+\emph default
+if there exists some 
+\begin_inset Formula $K>0$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+d_{Y}\left(f\left(x\right),f\left(y\right)\right)\leq Kd_{X}\left(x,y\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:lipschitzContinuous"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(X,d_{X}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(Y,d_{Y}\right)$
+\end_inset
+
+ be a metric spaces.
+ Every Lipschitz continuous function 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ is uniformly continuous.
+\end_layout
+
+\begin_layout Proof
+Fix 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and note that if 
+\begin_inset Formula $\delta=\frac{\epsilon}{K}$
+\end_inset
+
+ then 
+\begin_inset Formula $d_{X}\left(x,y\right)<\delta\implies d_{Y}\left(f\left(x\right),f\left(y\right)\right)<\epsilon.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:lipschitzBoundedDerivative"
+
+\end_inset
+
+
+\begin_inset Formula $Let$
+\end_inset
+
+
+\begin_inset Formula $f:D\subseteq\R\to\R$
+\end_inset
+
+ be a differentiable function.
+ Then 
+\begin_inset Formula $f$
+\end_inset
+
+ is Lipschitz if and only if it has a bounded derivative.
+\end_layout
+
+\begin_layout Proof
+First suppose that the function has a bounded derivative.
+ Then there exists some 
+\begin_inset Formula $M>0$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $x\in D$
+\end_inset
+
+, 
+\begin_inset Formula $\lvert f^{\prime}\left(x\right)\rvert\leq M.$
+\end_inset
+
+ Then for any 
+\begin_inset Formula $x,y\in D$
+\end_inset
+
+, the mean value theorem implies that there exists some 
+\begin_inset Formula $c\in\left(\min\left\{ x,y\right\} ,\max\left\{ x,y\right\} \right)$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\left\lvert \frac{f\left(x\right)-f\left(y\right)}{x-y}\right\rvert =\lvert f^{\prime}\left(c\right)\rvert\leq M
+\]
+
+\end_inset
+
+Taking limits as 
+\begin_inset Formula $x\to y$
+\end_inset
+
+ gives the result.
+\end_layout
+
+\begin_layout Proof
+Conversely, suppose that the function is Lipschitz with constant 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+\left\lvert \frac{f\left(x\right)-f\left(y\right)}{x-y}\right\rvert \leq K
+\]
+
+\end_inset
+
+and taking limits gives the result.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:cauchyContinuity"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(X,d_{X}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(Y,d_{Y}\right)$
+\end_inset
+
+ be metric spaces.
+ A function 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ is called 
+\emph on
+Cauchy-continuous 
+\emph default
+if for any Cauchy sequence 
+\begin_inset Formula $\left\{ x_{n}\right\} \in X$
+\end_inset
+
+, the image 
+\begin_inset Formula $\left\{ f\left(x_{n}\right)\right\} $
+\end_inset
+
+ is Cauchy.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:CauchyContinuityImpliesContinuity"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(X,d_{X}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(Y,d_{Y}\right)$
+\end_inset
+
+ be metric spaces.
+ If 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ is Cauchy continuous then it is continuous.
+ Moreover, if 
+\begin_inset Formula $X$
+\end_inset
+
+ is complete then every continuous function 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ is also Cauchy-continuous.
+\end_layout
+
+\begin_layout Proof
+Fix 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and let 
+\begin_inset Formula $c\in X$
+\end_inset
+
+ be arbitrary.
+ Then there exists at least one (possibly eventually constant) Cauchy sequence
+ 
+\begin_inset Formula $x_{m}\to c.$
+\end_inset
+
+.
+ Now consider a new sequence 
+\begin_inset Formula $y_{n}$
+\end_inset
+
+ such that 
+\begin_inset Formula $y_{n}=x_{n}$
+\end_inset
+
+ for even 
+\begin_inset Formula $n$
+\end_inset
+
+and 
+\begin_inset Formula $y_{n}=c$
+\end_inset
+
+ for odd 
+\begin_inset Formula $n.$
+\end_inset
+
+ Then 
+\begin_inset Formula $y_{n}\to c$
+\end_inset
+
+ (and is Cauchy) and so 
+\begin_inset Formula $f\left(y_{n}\right)$
+\end_inset
+
+ is Cauchy.
+ This implies that for large 
+\begin_inset Formula $n$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d\left(f\left(x_{n}\right),f\left(c\right)\right)<\epsilon
+\]
+
+\end_inset
+
+which implies 
+\begin_inset Formula $f\left(y_{n}\right)\to f\left(c\right).$
+\end_inset
+
+ Extracting the even indexed subsequence shows that 
+\begin_inset Formula $f\left(x_{n}\right)\to c.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Next, suppose that 
+\begin_inset Formula $X$
+\end_inset
+
+ is complete and 
+\begin_inset Formula $f$
+\end_inset
+
+ is continuous.
+ Let 
+\begin_inset Formula $\left\{ x_{n}\right\} $
+\end_inset
+
+ be a Cauchy sequence.
+ Then by completenes 
+\begin_inset Formula $x_{n}\to c\in X$
+\end_inset
+
+.
+ By continuity, 
+\begin_inset Formula $f\left(x_{n}\right)\to f\left(c\right)$
+\end_inset
+
+ and so 
+\begin_inset Formula $\left\{ f\left(x_{n}\right)\right\} $
+\end_inset
+
+ is Cauchy.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:uniformContinuityImpliesCauchyContinuity"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(X,d_{X}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(Y,d_{Y}\right)$
+\end_inset
+
+ be a metric spaces.
+ If a function 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ is uniformly continuous, it is Cauchy continuous.
+\end_layout
+
+\begin_layout Proof
+Fix 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and let 
+\begin_inset Formula $\left\{ x_{n}\right\} \in X$
+\end_inset
+
+ be a Cauchy sequence.
+ By uniform continuity, there exists some 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $m,n\in\N$
+\end_inset
+
+ 
+\begin_inset Formula $d_{X}\left(x_{n},x_{m}\right)<\delta\implies d_{Y}\left(f\left(x_{n}\right),f\left(x_{m}\right)\right)<\epsilon.$
+\end_inset
+
+ Since 
+\begin_inset Formula $\left\{ x_{n}\right\} $
+\end_inset
+
+ is Cauchy, there exists some 
+\begin_inset Formula $N$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $m,n\geq N$
+\end_inset
+
+ 
+\begin_inset Formula $d_{X}\left(x_{n},x_{m}\right)<\delta$
+\end_inset
+
+ which completes the proof.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:compactUniformContinuity"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(X,d_{X}\right)$
+\end_inset
+
+ be a compact metric space and let 
+\begin_inset Formula $\left(Y,d_{Y}\right)$
+\end_inset
+
+ be an arbitrary metric space.
+ The following are equivalent for a function 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item f is continuous
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item f is uniformly continuous
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item f is Cauchy continuous.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We prove 
+\begin_inset Formula $(i)\implies(ii)$
+\end_inset
+
+; 
+\begin_inset Formula $(ii)\implies(iii)$
+\end_inset
+
+ is Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:uniformContinuityImpliesCauchyContinuity"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset Formula $(iii)\implies(i)$
+\end_inset
+
+ is Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:CauchyContinuityImpliesContinuity"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ be fixed.
+ By continuity, we know that for every 
+\begin_inset Formula $c\in X$
+\end_inset
+
+ there exists some 
+\begin_inset Formula $\delta_{c}>0$
+\end_inset
+
+ such that when 
+\begin_inset Formula $d_{X}\left(x,c\right)<\delta_{c}\implies d_{Y}\left(f\left(x\right),f\left(c\right)\right)<\frac{\epsilon}{2}$
+\end_inset
+
+.
+ Note that the balls 
+\begin_inset Formula $\left\{ B_{d_{X}}\left(c,\frac{\delta_{c}}{2}\right)\right\} _{c\in X}$
+\end_inset
+
+ form a cover of 
+\begin_inset Formula $X$
+\end_inset
+
+ and by compactness we can extract a finite subcover 
+\begin_inset Formula $\left\{ B_{d_{X}}\left(c_{i},\frac{\delta_{c_{i}}}{2}\right)\right\} _{i=1}^{n}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\delta:=\min_{i}\frac{\delta_{c_{i}}}{2}$
+\end_inset
+
+ and note that for any 
+\begin_inset Formula $x,y\in X$
+\end_inset
+
+ , there's some 
+\begin_inset Formula $1\leq i_{0}\leq n$
+\end_inset
+
+ such that 
+\begin_inset Formula $x\in B_{d_{X}}\left(c_{i_{0}}\frac{d_{c_{i_{0}}}}{2}\right).$
+\end_inset
+
+ Then, if 
+\begin_inset Formula $d_{X}\left(x,y\right)<\delta$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+d_{X}\left(c_{i_{0}},y\right) & \leq d_{X}\left(x,y\right)+d_{X}\left(x,c_{i_{0}}\right)\\
+ & <\delta+\frac{\delta_{c_{i_{0}}}}{2}\\
+ & \leq\delta_{c_{i_{0}}}
+\end{align*}
+
+\end_inset
+
+Then,
+\begin_inset Formula 
+\begin{align*}
+d_{Y}\left(f\left(x\right),f\left(y\right)\right) & \leq d_{Y}\left(f\left(x\right),f\left(c_{i_{0}}\right)\right)+\delta_{Y}\left(f\left(y\right),f\left(c_{i_{0}}\right)\right)\\
+ & <\frac{\epsilon}{2}+\frac{\epsilon}{2}\\
+ & =\epsilon
+\end{align*}
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Definition
+Let 
+\begin_inset Formula $\left(X,d_{X}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(Y,d_{Y}\right)$
+\end_inset
+
+ be a metric spaces.
+ A function 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ is called a contraction if it is Lipschitz with a Lipschitz constant 
+\begin_inset Formula $0<K<1$
+\end_inset
+
+.
+ In other words, for any 
+\begin_inset Formula $x,y\in X$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d_{Y}\left(f\left(x\right),f\left(y\right)\right)\leq Kd_{X}\left(x,y\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:banachFixedPoint"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Banach Fixed Point Theorem
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(X,d\right)$
+\end_inset
+
+ be a complete metric space and let a function 
+\begin_inset Formula $f:X\to X$
+\end_inset
+
+ be a contraction.
+ Then there exists a unique 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ such that 
+\begin_inset Formula $f\left(x\right)=x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $x_{0}\in X$
+\end_inset
+
+ be arbitrary, define a sequence 
+\begin_inset Formula $x_{n+1}=f\left(x_{n}\right)$
+\end_inset
+
+ and fix 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+.
+ For any 
+\begin_inset Formula $n\geq m\geq1$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+d\left(x_{n},x_{m}\right) & \leq d\left(x_{n},x_{n-1}\right)+d\left(x_{n-1},x_{n-2}\right)+\ldots+d\left(x_{m+1},x_{m}\right)\nonumber \\
+ & \leq K^{n-1}d\left(x_{1},x_{0}\right)+K^{n-2}d\left(x_{1},x_{0}\right)+\ldots+K^{m}d\left(x_{1},x_{0}\right)\nonumber \\
+ & =d\left(x_{1},x_{0}\right)\sum_{i=m}^{n-1}K^{i}\label{eq:contractionCauchy}
+\end{align}
+
+\end_inset
+
+where the first inequalitity is simply the triangle inequality and the second
+ is induction on the contraction property.
+ Note that since 
+\begin_inset Formula $\left\{ \sum_{i=1}^{n}K^{i}\right\} _{i=1}^{\infty}$
+\end_inset
+
+ is a convergent geometric series, it's Cauchy as in we can find an 
+\begin_inset Formula $N\in\N$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $n,m\geq N$
+\end_inset
+
+ we have that 
+\begin_inset Formula $\lvert\sum_{i=1}^{n}K_{i}-\sum_{i=1}^{m}K_{i}\rvert=\sum_{i=\min\left\{ n.m\right\} -1}^{\max\left\{ n.m\right\} }K^{i}<\epsilon.$
+\end_inset
+
+ Therefore, for 
+\begin_inset Formula $m,n\geq N$
+\end_inset
+
+, the inequality 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:contractionCauchy"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ implies
+\begin_inset Formula 
+\[
+d\left(x_{m},x_{n}\right)\leq d\left(x_{1},x_{0}\right)\epsilon.
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ can be arbitrarily small, our sequence 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ is Cauchy and so by the completeness of 
+\begin_inset Formula $X$
+\end_inset
+
+ it converges to some limit 
+\begin_inset Formula $x.$
+\end_inset
+
+ Then, by the continuity of 
+\begin_inset Formula $f$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+x & =\lim_{n\to\infty}x_{n}\\
+ & =\lim_{n\to\infty}f(x_{n-1})\\
+ & =f(x).
+\end{align*}
+
+\end_inset
+
+which yields our fixed point.
+\end_layout
+
+\begin_layout Proof
+Now suppose that there were two fixed points i.e.
+ 
+\begin_inset Formula $x\neq y$
+\end_inset
+
+ such that 
+\begin_inset Formula $f\left(x\right)=x$
+\end_inset
+
+ and 
+\begin_inset Formula $f\left(y\right)=y$
+\end_inset
+
+.
+ By the contraction property,
+\begin_inset Formula 
+\[
+d\left(x,y\right)\leq Kd\left(x,y\right)
+\]
+
+\end_inset
+
+which is a contradiction.
+\end_layout
+
 \begin_layout Section
 Topological spaces
+\end_layout
+
+\begin_layout Section
+Special functions
 \end_layout
 
 \end_body
