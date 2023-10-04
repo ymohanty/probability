@@ -96,10 +96,6 @@ Elementary real analysis
 \end_layout
 
 \begin_layout Subsection
-Construction of the real numbers
-\end_layout
-
-\begin_layout Subsection
 Sequences and series
 \end_layout
 
@@ -984,6 +980,387 @@ Compact metric spaces
 
 \begin_layout Subsection
 Continuity of functions between metric spaces
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:continousFunction"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(X,d_{X}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(Y,d_{Y}\right)$
+\end_inset
+
+ be a metric space.
+ A function 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ is said to be 
+\emph on
+continuous at a point
+\emph default
+ 
+\begin_inset Formula $c\in X$
+\end_inset
+
+ if for any sequence 
+\begin_inset Formula $x_{n}\to c$
+\end_inset
+
+ we have that 
+\begin_inset Formula $f\left(x_{n}\right)\to f\left(c\right)$
+\end_inset
+
+.
+ The function 
+\begin_inset Formula $f$
+\end_inset
+
+ is called 
+\emph on
+continuous 
+\emph default
+if it is continuous at every point 
+\begin_inset Formula $c\in X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:equivalentContinuity"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(X,d_{X}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(Y,d_{Y}\right)$
+\end_inset
+
+ be a metric space.
+ A function 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ is said to be 
+\emph on
+continuous at a point
+\emph default
+ 
+\begin_inset Formula $c\in X$
+\end_inset
+
+ if and only if for every 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ there exists a 
+\begin_inset Formula $\delta$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ 
+\begin_inset Formula $d_{X}\left(x,c\right)<\delta\implies d_{Y}\left(f\left(x\right),f\left(c\right)\right)<\epsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Suppose that the 
+\begin_inset Formula $\epsilon-\delta$
+\end_inset
+
+ definition doesnt hold i.e.
+ there exists some 
+\begin_inset Formula $\epsilon_{0}>0$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ there exists some 
+\begin_inset Formula $x$
+\end_inset
+
+ such that 
+\begin_inset Formula $d_{X}\left(x,c\right)<\delta$
+\end_inset
+
+ but 
+\begin_inset Formula $d_{Y}\left(f\left(x\right),f\left(c\right)\right)\geq\epsilon_{0}.$
+\end_inset
+
+ Letting 
+\begin_inset Formula $\delta=1/n,$
+\end_inset
+
+ we can find a corresponding 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ such that 
+\begin_inset Formula $d_{X}\left(x_{n},c\right)<\frac{1}{n}$
+\end_inset
+
+ but 
+\begin_inset Formula $d_{Y}\left(f\left(x_{n}\right),f\left(c\right)\right)\geq\epsilon_{0}$
+\end_inset
+
+.
+ Since this can be done for any 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+, we have a seqeunce 
+\begin_inset Formula $x_{n}\to c$
+\end_inset
+
+ but 
+\begin_inset Formula $f\left(x_{n}\right)\not\to c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Conversely, suppose the 
+\begin_inset Formula $\epsilon-\delta$
+\end_inset
+
+ definition holds and let 
+\begin_inset Formula $x_{n}\to c$
+\end_inset
+
+ by arbitrary.
+ For a large enough 
+\begin_inset Formula $N,$
+\end_inset
+
+ 
+\begin_inset Formula $d_{X}\left(x_{n},c\right)<\delta$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\geq N$
+\end_inset
+
+ and so 
+\begin_inset Formula $d_{Y}\left(f\left(x_{n}\right),f\left(c\right)\right)<\epsilon$
+\end_inset
+
+ which completes the proof.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:openPreImageMetric"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(X,d_{X}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(Y,d_{Y}\right)$
+\end_inset
+
+ be a metric space.
+ A function 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ is said to be 
+\emph on
+continuous if and only if for every open set 
+\begin_inset Formula $O_{Y}\in\tau_{Y}$
+\end_inset
+
+ (here 
+\begin_inset Formula $\tau_{y}$
+\end_inset
+
+ denotes the topology on 
+\begin_inset Formula $Y$
+\end_inset
+
+) the preimage 
+\begin_inset Formula $f^{-1}\left[o_{Y}\right]\in\tau_{X}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+First assume that 
+\begin_inset Formula $f$
+\end_inset
+
+ is continuous and let 
+\begin_inset Formula $O_{Y}$
+\end_inset
+
+ be an open set in 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+ We wish to show that for any 
+\begin_inset Formula $x\in f^{-1}\left[O_{Y}\right],$
+\end_inset
+
+there is some open ball 
+\begin_inset Formula $B\left(x,\delta\right)\subseteq f^{-1}\left[O_{y}\right].$
+\end_inset
+
+ Note that since 
+\begin_inset Formula $O_{Y}$
+\end_inset
+
+ is open, there exists some ball 
+\begin_inset Formula $B\left(f\left(x\right),\epsilon\right)\subseteq O_{Y}.$
+\end_inset
+
+ Note that by continuity, there exists some 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $f\left[B\left(x,\delta\right)\right]\subseteq B\left(f\left(x\right),\epsilon\right)$
+\end_inset
+
+.
+ Then by the property of preimages
+\begin_inset Formula 
+\[
+B\left(x,\delta\right)\subseteq f^{-1}f\left[B\left(x,\delta\right)\right]\subseteq f^{-1}\left[o_{Y}\right]
+\]
+
+\end_inset
+
+which proves the claim.
+\end_layout
+
+\begin_layout Proof
+Conversely, suppose that preimages of open sets are open.
+ Fix 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and note that for any 
+\begin_inset Formula $x\in X$
+\end_inset
+
+, the preimage of the ball 
+\begin_inset Formula $f^{-1}\left[B\left(f\left(x\right),\epsilon\right)\right]$
+\end_inset
+
+ is open and thus there exists some 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $B\left(x,\delta\right)\subseteq f^{-1}\left[B\left(f\left(x\right),\epsilon\right)\right].$
+\end_inset
+
+ Then
+\begin_inset Formula 
+\[
+f\left[B\left(x,\delta\right)\right]\subseteq ff^{-1}\left[B\left(f\left(x\right),\epsilon\right)\right]\subseteq B\left(f\left(x\right),\epsilon\right)
+\]
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Proposition
+Let 
+\begin_inset Formula $\left(X,d_{X}\right),\left(Y,d_{Y}\right),$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(Z,d_{Z}\right)$
+\end_inset
+
+ be metric spaces.
+ Then for any continuous functions 
+\begin_inset Formula $f:X\to Y$
+\end_inset
+
+ and 
+\begin_inset Formula $g:Y\to Z$
+\end_inset
+
+, the composition 
+\begin_inset Formula $g\circ f:X\to Z$
+\end_inset
+
+ given by
+\begin_inset Formula 
+\[
+g\circ f\left(x\right)=g\left(f\left(x\right)\right)
+\]
+
+\end_inset
+
+is continuous.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $O_{Z}$
+\end_inset
+
+ be an open set in 
+\begin_inset Formula $Z$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $\left(g\circ f\right)^{-1}\left[O_{Z}\right]=f^{-1}\left[g^{-1}\left[O_{Z}\right]\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $g^{-1}\left[O_{Z}\right]$
+\end_inset
+
+ is open since 
+\begin_inset Formula $g$
+\end_inset
+
+ is continuous and so 
+\begin_inset Formula $f^{-1}\left[g^{-1}\left[O_{Z}\right]\right]$
+\end_inset
+
+ is open.
+\end_layout
+
+\begin_layout Remark*
+This proof applies 
+\emph on
+mutis mutandis 
+\emph default
+to continuous functions between general topological spaces, of which metric
+ spaces are a special case.
 \end_layout
 
 \begin_layout Definition
