@@ -823,11 +823,19 @@ Taking limits and applying the continuity of
 \end_layout
 
 \begin_layout Proposition
-\begin_inset Formula $\limsup_{n\to\infty}\max\left\{ a_{n},b_{n}\right\} =\max\left\{ \limsup_{n\to\infty}a_{n},\limsup_{n\to\infty}b_{n}\right\} $
+\begin_inset Formula 
+\[
+\limsup_{n\to\infty}\max\left\{ a_{n},b_{n}\right\} =\max\left\{ \limsup_{n\to\infty}a_{n},\limsup_{n\to\infty}b_{n}\right\} 
+\]
+
 \end_inset
 
  and 
-\begin_inset Formula $\liminf_{n\to\infty}\min\left\{ a_{n},b_{n}\right\} =\min\left\{ \liminf_{n\to\infty}a_{n},\liminf_{n\to\infty}b_{n}\right\} .$
+\begin_inset Formula 
+\[
+\liminf_{n\to\infty}\min\left\{ a_{n},b_{n}\right\} =\min\left\{ \liminf_{n\to\infty}a_{n},\liminf_{n\to\infty}b_{n}\right\} .
+\]
+
 \end_inset
 
 
@@ -1494,11 +1502,7 @@ First suppose that the function has a bounded derivative.
 
 \end_inset
 
-Taking limits as 
-\begin_inset Formula $x\to y$
-\end_inset
-
- gives the result.
+Rearranging yields the result.
 \end_layout
 
 \begin_layout Proof
@@ -1515,7 +1519,11 @@ Conversely, suppose that the function is Lipschitz with constant
 
 \end_inset
 
-and taking limits gives the result.
+and taking limits 
+\begin_inset Formula $x\to y$
+\end_inset
+
+ gives the result.
 \end_layout
 
 \begin_layout Definition
@@ -2128,6 +2136,14 @@ d\left(x,y\right)\leq Kd\left(x,y\right)
 \end_inset
 
 which is a contradiction.
+\end_layout
+
+\begin_layout Subsubsection
+Continuity of real valued function on 
+\begin_inset Formula $\R$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
