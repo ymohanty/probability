@@ -2509,14 +2509,18 @@ f_{n}\left(x,\theta\right)=g_{\theta}\left(x,\tilde{\theta}_{n}\right)
 \end_inset
 
 for some 
-\begin_inset Formula $0<\tilde{\theta}_{n}<\frac{1}{n}$
+\begin_inset Formula $\theta<\tilde{\theta}_{n}<\theta+\frac{1}{n}$
 \end_inset
 
  for every 
 \begin_inset Formula $n\in\N$
 \end_inset
 
-, which implies that
+, which implies that for large enough 
+\begin_inset Formula $n$
+\end_inset
+
+
 \begin_inset Formula 
 \[
 \left|f_{n}\left(x,\theta\right)\right|=\left|g_{\theta}\left(x,\tilde{\theta}_{n}\right)\right|\leq G\left(x\right).
@@ -4843,7 +4847,7 @@ for all
 \end_inset
 
 and observe that 
-\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp1{\mu}$
+\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp 1{\mu}$
 \end_inset
 
  since 
@@ -5098,7 +5102,7 @@ name "def:L1Convergence"
 \end_inset
 
 A sequence of functions 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
  is said to converge to a function 
