@@ -108,10 +108,230 @@ In elementary calculus, the theory of the Riemann integral was developed
 Differentiation in normed vector spaces
 \end_layout
 
+\begin_layout Subsection
+Review of derivatives on the line
+\end_layout
+
+\begin_layout Standard
+We first review some basic material from singe variable calculus for completenes
+s; note that this section is technically presumed knowledge and so results
+ appearing previously in the text use some of the facts established here.
+ I will avoid circularity by keeping this section self-contained without
+ any reference to the material we have developed so far in the body of the
+ text (we will use results from the appendices).
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:differentiable"
+
+\end_inset
+
+A function 
+\begin_inset Formula $f:\left[a,b\right]\to\R$
+\end_inset
+
+ is said to be 
+\emph on
+differentiable at a point 
+\emph default
+
+\begin_inset Formula $c\in\left(a,b\right)$
+\end_inset
+
+ if 
+\begin_inset Formula 
+\[
+\lim_{x\to a}\frac{f\left(x\right)-f\left(a\right)}{x-a}
+\]
+
+\end_inset
+
+exists as a real number.
+ The function is said to be 
+\emph on
+differentiable 
+\emph default
+if it is differentiable at every point in the interior of its domain.
+ If a function 
+\begin_inset Formula $f$
+\end_inset
+
+ is differentiable everywhere, the derivative function is denoted 
+\begin_inset Formula $f^{\prime}$
+\end_inset
+
+as in 
+\begin_inset Formula 
+\[
+f^{\prime}\left(y\right)=\lim_{x\to y}\frac{f\left(x\right)-f\left(y\right)}{x-y}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:differentiableImpliesContinuous"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f:\left[a,b\right]\to\R$
+\end_inset
+
+ be differentiable at a point 
+\begin_inset Formula $c\in\left(a,b\right).$
+\end_inset
+
+Then it is continuous at 
+\begin_inset Formula $c.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Recall that the limit of the product of two functions is the product of
+ the limit, provided those individual limits exist.
+ 
+\begin_inset Formula 
+\begin{align*}
+\lim_{x\to c}f\left(x\right)-f\left(c\right) & =\lim_{x\to c}\frac{f\left(x\right)-f\left(c\right)}{x-c}x-c\\
+ & =\lim_{x\to c}\frac{f\left(x\right)-f\left(c\right)}{x-c}\lim_{x\to\c}x-c\\
+ & =f^{\prime}\left(c\right)0\\
+ & =0
+\end{align*}
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Remark*
+The converse of this theorem is not true; for instance, consider that 
+\begin_inset Formula $\lvert x\rvert$
+\end_inset
+
+ is continuous (this follows by the 
+\begin_inset Quotes eld
+\end_inset
+
+reverse
+\begin_inset Quotes erd
+\end_inset
+
+ triangle inequality 
+\begin_inset Formula $\lvert\lvert x\rvert-\lvert y\rvert\rvert\leq\lvert x-y\rvert)$
+\end_inset
+
+.
+ That it is not differentiable can be seen by looking at 
+\begin_inset Formula 
+\[
+\lim_{x\to0^{-}}\frac{\lvert x\rvert}{x}=-1\neq1=\lim_{x\to0^{+}}\frac{\lvert x\rvert}{x}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:algebraOfDifferentiableFunctions"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f,g$
+\end_inset
+
+ be real-valued functions on 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ that are differentiable at some 
+\begin_inset Formula $x\in\left[a,b\right]$
+\end_inset
+
+ .
+ Then 
+\begin_inset Formula $f+g$
+\end_inset
+
+ and 
+\begin_inset Formula $fg$
+\end_inset
+
+ are differentiable at 
+\begin_inset Formula $x.$
+\end_inset
+
+ If 
+\begin_inset Formula $g\left(x\right)\neq0$
+\end_inset
+
+ then 
+\begin_inset Formula $\frac{f}{g}$
+\end_inset
+
+is also differentaible.
+ The derivatives are given
+\begin_inset Formula 
+\begin{align}
+\left(f+g\right)^{\prime}\left(x\right) & =f^{\prime}\left(x\right)+g^{\prime}\left(x\right)\\
+\left(fg\right)^{\prime}\left(x\right) & =f^{\prime}\left(x\right)g\left(x\right)+g^{\prime}\left(x\right)f\left(x\right)\\
+\left(\frac{f}{g}\right)^{\prime} & \left(x\right)=\frac{f^{\prime}\left(x\right)g\left(x\right)-g^{\prime}\left(x\right)f\left(x\right)}{\left(g\left(x\right)\right)^{2}}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The first one, called the sum rule, follows by algebra of limits.
+ The second, known as the product rule, follows by the same trick that is
+ used to prove that the product of two sequences converges to the product
+ of their limits.
+ To reiterate, note that 
+\begin_inset Formula 
+\begin{align*}
+\frac{f\left(y\right)g\left(y\right)-f\left(x\right)g\left(x\right)}{y-x} & =\frac{f\left(y\right)g\left(y\right)-f\left(y\right)g\left(x\right)+f\left(y\right)g\left(x\right)-f\left(x\right)g\left(x\right)}{x-c}\\
+ & =\frac{f\left(y\right)\left(g\left(y\right)-g\left(x\right)\right)}{y-x}+\frac{g\left(x\right)\left(f\left(y\right)-f\left(x\right)\right)}{y-x}.
+\end{align*}
+
+\end_inset
+
+Taking limits and applying Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:differentiableImpliesContinuous"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ gets the result.
+\end_layout
+
+\begin_layout Proof
+Finally, the
+\end_layout
+
+\begin_deeper
 \begin_layout Section
 Decomposition of measures
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 Recall that in Proposition 
 \begin_inset CommandInset ref
@@ -203,11 +423,11 @@ noprefix "false"
 \end_inset
 
  is equivalent to saying 
-\begin_inset Formula $\lebInt{\nu}g=\lebInt{\mu}{fg}\forall g\in\Lp1{\X,\F,\nu}.$
+\begin_inset Formula $\lebInt{\nu}g=\lebInt{\mu}{fg}\forall g\in\Lp 1{\X,\F,\nu}.$
 \end_inset
 
  The right hand side is the inner product associated with the space 
-\begin_inset Formula $\Lp2{\mu}$
+\begin_inset Formula $\Lp 2{\mu}$
 \end_inset
 
  and so we wish to show that a linear functional 
@@ -215,7 +435,7 @@ noprefix "false"
 \end_inset
 
  can be represented as an inner product on 
-\begin_inset Formula $\Lp2{\mu}.$
+\begin_inset Formula $\Lp 2{\mu}.$
 \end_inset
 
  At this juncture, one can guess that the Riesz representation theorem for
@@ -226,11 +446,11 @@ noprefix "false"
 \end_inset
 
  a linear functional on 
-\begin_inset Formula $\Lp1{\nu}$
+\begin_inset Formula $\Lp 1{\nu}$
 \end_inset
 
  and it is not 
-\begin_inset Formula $\Lp2{\mu}.$
+\begin_inset Formula $\Lp 2{\mu}.$
 \end_inset
 
  Further, it is unclear whether our functional is bounded, which is a necessary
@@ -347,7 +567,7 @@ noprefix "false"
 Next define an operator 
 \begin_inset Formula 
 \[
-\Gamma:\Lp2{\psi}\longrightarrow\R
+\Gamma:\Lp 2{\psi}\longrightarrow\R
 \]
 
 \end_inset
@@ -422,7 +642,7 @@ tells us there exists an (almost
 \end_inset
 
 everywhere unique) function 
-\begin_inset Formula $h\in\Lp2{\psi}$
+\begin_inset Formula $h\in\Lp 2{\psi}$
 \end_inset
 
  such that
@@ -434,7 +654,7 @@ everywhere unique) function
 \end_inset
 
 for every 
-\begin_inset Formula $f\in\Lp2{\psi}.$
+\begin_inset Formula $f\in\Lp 2{\psi}.$
 \end_inset
 
  Of course, in the context of 
