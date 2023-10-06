@@ -173,6 +173,33 @@ f^{\prime}\left(y\right)=\lim_{x\to y}\frac{f\left(x\right)-f\left(y\right)}{x-y
 
 \end_layout
 
+\begin_layout Remark*
+The derivative is also denoted 
+\begin_inset Formula $\frac{df}{dy}=f^{\prime}\left(y\right)$
+\end_inset
+
+ which captures the heuristic that the derivative can be thought as the
+ ratio of small quantities.
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:derivativeConstant"
+
+\end_inset
+
+It should be immediately clearly that for any constant function 
+\begin_inset Formula $f\left(x\right)=a$
+\end_inset
+
+, its derivative is zero everywhere, and for the function 
+\begin_inset Formula $f\left(x\right)=x$
+\end_inset
+
+, its derivative is 1 is everywhere.
+\end_layout
+
 \begin_layout Proposition
 \begin_inset CommandInset label
 LatexCommand label
@@ -202,7 +229,7 @@ Recall that the limit of the product of two functions is the product of
 \begin_inset Formula 
 \begin{align*}
 \lim_{x\to c}f\left(x\right)-f\left(c\right) & =\lim_{x\to c}\frac{f\left(x\right)-f\left(c\right)}{x-c}x-c\\
- & =\lim_{x\to c}\frac{f\left(x\right)-f\left(c\right)}{x-c}\lim_{x\to\c}x-c\\
+ & =\lim_{x\to c}\frac{f\left(x\right)-f\left(c\right)}{x-c}\lim_{x\to c}x-c\\
  & =f^{\prime}\left(c\right)0\\
  & =0
 \end{align*}
@@ -323,15 +350,767 @@ noprefix "false"
 \end_layout
 
 \begin_layout Proof
-Finally, the
+Finally, the third result, called the quotient rule, follows as 
+\begin_inset Formula 
+\begin{align*}
+\frac{\frac{f\left(y\right)}{g\left(y\right)}-\frac{f\left(x\right)}{g\left(x\right)}}{y-x} & =\frac{1}{g\left(x\right)g\left(y\right)}\left(\frac{f\left(y\right)g\left(x\right)-f\left(x\right)g\left(y\right)}{y-x}\right)\\
+ & =\frac{1}{g\left(x\right)g\left(y\right)}\left(\frac{f\left(y\right)g\left(x\right)-f\left(y\right)g\left(y\right)+f\left(y\right)g\left(y\right)-f\left(x\right)g\left(y\right)}{y-x}\right)\\
+ & =\frac{1}{g\left(x\right)g\left(y\right)}\left(\frac{f\left(y\right)\left[g\left(x\right)-g\left(y\right)\right]}{y-x}+\frac{g\left(y\right)\left[f\left(y\right)-f\left(x\right)\right]}{y-x}\right)
+\end{align*}
+
+\end_inset
+
+and taking limits and again applying the continuity of differentiable functions
+ completes the proof.
 \end_layout
 
-\begin_deeper
+\begin_layout Corollary
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Power rule
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:powerRule"
+
+\end_inset
+
+The derivative of a real-valued function on 
+\begin_inset Formula $\R$
+\end_inset
+
+ defined 
+\begin_inset Formula $f\left(x\right)=x^{n}$
+\end_inset
+
+ where 
+\begin_inset Formula $n\in\mathds{Z}$
+\end_inset
+
+ is given by 
+\begin_inset Formula $f^{\prime}\left(x\right)=nx^{n-1}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First we examine the case when 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+.
+ For the base cases of 
+\begin_inset Formula $n=0$
+\end_inset
+
+ and 
+\begin_inset Formula $n=1$
+\end_inset
+
+ look at the remark above.
+ Now suppose that the rule holds for 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+.
+ Then, writing 
+\begin_inset Formula $x^{n+1}=xx^{n},$
+\end_inset
+
+ we apply the product rule to yield
+\begin_inset Formula 
+\[
+\frac{dx^{n+1}}{dx}=xnx^{n-1}+x^{n}=\left(n+1\right)x^{n}
+\]
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Proof
+To extend the result to negative integers, we can apply the quotient rule.
+ Note that for a negative integer 
+\begin_inset Formula $m$
+\end_inset
+
+, we have some positive integern 
+\begin_inset Formula $n$
+\end_inset
+
+ such that 
+\begin_inset Formula $m=-n$
+\end_inset
+
+ and so 
+\begin_inset Formula $f\left(x\right)=x^{m}=\frac{1}{x^{n}}$
+\end_inset
+
+ which has derivative (by applying the power rule for positive integers
+ and the quoteint rule)
+\begin_inset Formula 
+\[
+f^{\prime}\left(x\right)=\frac{-nx^{n-1}}{x^{2n}}=mx^{m-1}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+The power rule also holds for rational exponents; we shall establish this
+ fact after we state the chain rule.
+ For real exponents, the power rule holds if 
+\begin_inset Formula $x\geq0$
+\end_inset
+
+ since we define 
+\begin_inset Formula $x^{a}:=\exp\left(a\log\left(x\right)\right)$
+\end_inset
+
+ when 
+\begin_inset Formula $a\in\R$
+\end_inset
+
+.
+ Since the logarithm is only defined on the positive reals, the result only
+ extends to that case (the case of 
+\begin_inset Formula $x=0$
+\end_inset
+
+ is trivial).
+ We shall prove this after we construct the exponential and natural logarithm
+ functions in Appendix section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:specialFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:differentiabilityOfPolynomials"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f\in P_{n}\left(x\right)$
+\end_inset
+
+ the space of 
+\begin_inset Formula $n-$
+\end_inset
+
+degree polynomials.
+ Then 
+\begin_inset Formula $f$
+\end_inset
+
+ is differentiable and its derivative 
+\begin_inset Formula $f^{\prime}\in P_{n-1}\left(x\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $f\left(x\right)=\sum_{i=0}^{n}a_{i}x^{i}.$
+\end_inset
+
+ By the 
+\begin_inset Quotes eld
+\end_inset
+
+sum rule
+\begin_inset Quotes erd
+\end_inset
+
+,
+\begin_inset Quotes erd
+\end_inset
+
+product rule
+\begin_inset Quotes erd
+\end_inset
+
+ and the 
+\begin_inset Quotes eld
+\end_inset
+
+power rule
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+f^{\prime}\left(x\right)=\sum_{i=0}^{n}a_{i}ix^{i-1}\in P_{n-1}\left(x\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+An immediate corrolary is that every polynomial is infinitely differentiable.
+ Infinitely differentiable functions are called 
+\emph on
+smooth.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+Chain rule
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:chainRuleR"
+
+\end_inset
+
+Let 
+\begin_inset Formula $g:C\subseteq\R\to\R$
+\end_inset
+
+ be differentiable at some 
+\begin_inset Formula $c\in D$
+\end_inset
+
+ and let 
+\begin_inset Formula $f:D\subseteq\R\to\R$
+\end_inset
+
+ be differentiable at 
+\begin_inset Formula $g\left(c\right)\in D.$
+\end_inset
+
+ Then the composition 
+\begin_inset Formula $f\circ g$
+\end_inset
+
+ is differentiable at 
+\begin_inset Formula $c$
+\end_inset
+
+ with derivative 
+\begin_inset Formula 
+\[
+\left(f\circ g\right)^{\prime}\left(c\right)=f^{\prime}\left(g\left(c\right)\right)g^{\prime}\left(c\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We omit the proof of this theorem right now; we will prove it in the more
+ general setting of derivatves on functions between Banach spaces in the
+ next section.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:rationalPowerRule"
+
+\end_inset
+
+A function 
+\begin_inset Formula $f\left(x\right)=x^{r}$
+\end_inset
+
+ where 
+\begin_inset Formula $r\in\mathds{Q}$
+\end_inset
+
+ and 
+\begin_inset Formula $x\in\R$
+\end_inset
+
+ is differentiable with derivative 
+\begin_inset Formula $f^{\prime}\left(x\right)=rx^{r-1}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We will establish the result when 
+\begin_inset Formula $x\neq0$
+\end_inset
+
+ (when 
+\begin_inset Formula $x=0$
+\end_inset
+
+, the derivative is 0 as established in an earlier remark).
+ Let 
+\begin_inset Formula $r=\frac{p}{q}$
+\end_inset
+
+ where 
+\begin_inset Formula $p,q\in\mathds{Z}$
+\end_inset
+
+ and note that 
+\begin_inset Formula $g\left(x\right):=x^{q}$
+\end_inset
+
+ has derivative 
+\begin_inset Formula $g^{\prime}\left(x\right)=qx^{q-1}$
+\end_inset
+
+ by the integral power rule
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:powerRule"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Then, observe that 
+\begin_inset Formula $g\left(f\left(x\right)\right)=x^{p}$
+\end_inset
+
+ and so applying the chain rule on the left hand hand side and the integral
+ power rule on the right hand side, we have
+\begin_inset Formula 
+\begin{align*}
+qf\left(x\right)^{q-1}f^{\prime}\left(x\right) & =px^{p-1}
+\end{align*}
+
+\end_inset
+
+which can be re-arranged to yield
+\begin_inset Formula 
+\begin{align*}
+f^{\prime}\left(x\right) & =\frac{px^{p-1}}{qf\left(x\right)^{q-1}}\\
+ & =\left(\frac{p}{q}\right)x^{p-1-\frac{p}{q}\left(q-1\right)}\\
+ & =\frac{p}{q}x^{\frac{p}{q}-1}\\
+ & =rx^{r-1}
+\end{align*}
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Subsubsection
+Mean value theorems
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:localMax"
+
+\end_inset
+
+A function 
+\begin_inset Formula $f:\left[a,b\right]\to\R$
+\end_inset
+
+ is set to have a local maximum at 
+\begin_inset Formula $c\in\left[a,b\right]$
+\end_inset
+
+ if there exists some 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ such that for every 
+\begin_inset Formula $x\in\left(c-\delta,c+\delta\right)\cap\left[a,b\right]$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f\left(c\right)\geq f\left(x\right).
+\]
+
+\end_inset
+
+Local minima are defined analagously.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:firstOrderConditionR"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f:\left[a,b\right]\to\R$
+\end_inset
+
+ have a local maximum or minimum at 
+\begin_inset Formula $c\in\left(a,b\right).$
+\end_inset
+
+ If 
+\begin_inset Formula $f^{\prime}\left(c\right)$
+\end_inset
+
+ exists then 
+\begin_inset Formula $f^{\prime}\left(c\right)=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We consider the case of the local maximum; the case of the local minimum
+ follows by applying the maximum result to 
+\begin_inset Formula $-f.$
+\end_inset
+
+ Suppose 
+\begin_inset Formula $c\in\left(a,b\right)$
+\end_inset
+
+ is a local maximum for 
+\begin_inset Formula $f$
+\end_inset
+
+, in which case we can choose some 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ small enough that 
+\begin_inset Formula 
+\[
+\left(c-\delta,c+\delta\right)\subseteq\left(a,b\right)
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula $f\left(c\right)\geq f\left(x\right)$
+\end_inset
+
+ on 
+\begin_inset Formula $\left(c-\delta,c+\delta\right).$
+\end_inset
+
+ Note that for 
+\begin_inset Formula $c-\delta<x<c$
+\end_inset
+
+ we have that 
+\begin_inset Formula 
+\[
+\frac{f\left(x\right)-f\left(c\right)}{x-c}\geq0
+\]
+
+\end_inset
+
+and so 
+\begin_inset Formula 
+\[
+f^{\prime}\left(c^{-}\right):=\lim_{x\to c^{-}}\frac{f\left(x\right)-f\left(c\right)}{x-c}\geq0.
+\]
+
+\end_inset
+
+Similarly, for 
+\begin_inset Formula $c<x<c+\delta$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{f\left(x\right)-f\left(c\right)}{x-c}\leq0
+\]
+
+\end_inset
+
+and so 
+\begin_inset Formula 
+\[
+f^{\prime}\left(c^{+}\right):=\lim_{x\to c^{+}}\frac{f\left(x\right)-f\left(c\right)}{x-c}\leq0.
+\]
+
+\end_inset
+
+But of course, 
+\begin_inset Formula $f^{\prime}\left(c\right)=f^{\prime}\left(c^{-}\right)=f^{\prime}\left(c^{+}\right)$
+\end_inset
+
+ since left and right hand limits are always equal to the limit when it
+ exists and thus 
+\begin_inset Formula 
+\[
+f^{\prime}\left(c\right)=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Cauchy's mean value theorem
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:cauchyMeanValue"
+
+\end_inset
+
+If 
+\begin_inset Formula $f,g$
+\end_inset
+
+ are real-valued continuous functions on 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ such that the derivative functions 
+\begin_inset Formula $f^{\prime},g^{\prime}$
+\end_inset
+
+ exist on 
+\begin_inset Formula $\left(a,b\right)$
+\end_inset
+
+ , there exists some 
+\begin_inset Formula $x\in\left(a,b\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\left(f\left(b\right)-f\left(a\right)\right)g^{\prime}\left(x\right)=\left(g\left(b\right)-g\left(a\right)\right)f^{\prime}\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Write 
+\begin_inset Formula 
+\[
+h\left(t\right):=\left(f\left(b\right)-f\left(a\right)\right)g\left(t\right)-\left(g\left(b\right)-g\left(a\right)\right)f\left(t\right)
+\]
+
+\end_inset
+
+and observe that since it's built out of differeniable functions by adding
+ and multiplying them, 
+\begin_inset Formula $h$
+\end_inset
+
+ is continuous and differentiable.
+ Since 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ is compact, 
+\begin_inset Formula $h$
+\end_inset
+
+ has a minimum and maximum.
+ If the minimum and maximum are both at the end points 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+, then the function is constant and the derivative is zero everywhere, which
+ yields the result.
+ If at least one of the minimum or maximum is interior, say at 
+\begin_inset Formula $x\in\left(a,b\right)$
+\end_inset
+
+, then by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:firstOrderConditionR"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $f^{\prime}\left(x\right)=0$
+\end_inset
+
+ which again yields the result.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Mean value theorem
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:meanValueThm"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f:\left[a,b\right]\to\R$
+\end_inset
+
+ be continuous on 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ and differentiable on 
+\begin_inset Formula $\left(a,b\right).$
+\end_inset
+
+ Then there exists some 
+\begin_inset Formula $x\in\left(a,b\right)$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+f^{\prime}\left(c\right)=\frac{f\left(b\right)-f\left(a\right)}{b-a}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Apply Cauchy's mean value theorem with 
+\begin_inset Formula $g\left(x\right)=x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:derivativeAndMonotonicity"
+
+\end_inset
+
+If 
+\begin_inset Formula $f:\left[a,b\right]\to\R$
+\end_inset
+
+ is differentiable on 
+\begin_inset Formula $\left(a,b\right)$
+\end_inset
+
+ then
+\begin_inset Formula 
+\begin{align*}
+\forall x\in\left(a,b\right):f^{\prime}\left(x\right) & \geq0\implies\left(x_{1}\geq x_{2}\implies f\left(x_{1}\right)\geq f\left(x_{2}\right)\right)\\
+\forall x\in\left(a,b\right):f^{\prime}\left(x\right) & \leq0\implies\left(x_{1}\geq x_{2}\geq f\left(x_{1}\right)\leq f\left(x_{2}\right)\right)\\
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Applying the mean value theorem, we have 
+\begin_inset Formula 
+\[
+f\left(x_{1}\right)-f\left(x_{2}\right)=f^{\prime}\left(c\right)\left(x_{1}-x_{2}\right)
+\]
+
+\end_inset
+
+for 
+\begin_inset Formula $c\in\left(a,b\right)$
+\end_inset
+
+ and if 
+\begin_inset Formula $f^{\prime}\left(c\right)\geq0$
+\end_inset
+
+ then 
+\begin_inset Formula $x_{1}\geq x_{2}$
+\end_inset
+
+ implies that 
+\begin_inset Formula $f\left(x_{!}\right)\geq f\left(x_{2}\right)$
+\end_inset
+
+ and the other implication follows in the same way.
+\end_layout
+
+\begin_layout Remark*
+An obvious corollary of the above result is that if 
+\begin_inset Formula $\forall x\in\left(a,b\right)$
+\end_inset
+
+
+\begin_inset Formula $:f^{\prime}\left(x\right)=0\implies f$
+\end_inset
+
+ is constant on 
+\begin_inset Formula $\left(a,b\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Derivatives of functions between Banach spaces
+\end_layout
+
 \begin_layout Section
 Decomposition of measures
 \end_layout
 
-\end_deeper
 \begin_layout Standard
 Recall that in Proposition 
 \begin_inset CommandInset ref
