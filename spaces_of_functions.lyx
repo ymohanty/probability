@@ -2010,7 +2010,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-We are finally read to present the main result from this section.
+We are finally ready to present the main result from this section.
 \end_layout
 
 \begin_layout Theorem
@@ -2039,7 +2039,7 @@ Let
 \end_inset
 
  For any integrable function 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
  and a convex function 
@@ -2150,7 +2150,7 @@ where in the second line we have used the linearity of integration along
 \begin_inset Formula $\mu\left(\X\right)=1.$
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Subsection
@@ -2169,7 +2169,7 @@ In the context of
 \begin_inset Formula $L^{p}$
 \end_inset
 
-paces, we replace the notion of boundedness (i.e.
+ spaces, we replace the notion of boundedness (i.e.
  the quality of a function in a space being bounded) with the related notion
  of 
 \emph on
@@ -2364,7 +2364,7 @@ Conversely, note that for any
 
 where we have used homogeneity in the second line.
  Note that the right hand side is finite by Markov's inequality since 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
  and 
