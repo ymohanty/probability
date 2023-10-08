@@ -116,7 +116,7 @@ Review of derivatives on the line
 We first review some basic material from singe variable calculus for completenes
 s; note that this section is technically presumed knowledge and so results
  appearing previously in the text use some of the facts established here.
- I will avoid circularity by keeping this section self-contained without
+ We will avoid circularity by keeping this section self-contained without
  any reference to the material we have developed so far in the body of the
  text (we will use results from the appendices).
 \end_layout
@@ -948,7 +948,7 @@ and observe that since it's built out of differeniable functions by adding
 \begin_inset Formula $h$
 \end_inset
 
- has a minimum and maximum.
+ has a minimum and maximum by Weierstrass'.
  If the minimum and maximum are both at the end points 
 \begin_inset Formula $a$
 \end_inset
@@ -985,7 +985,11 @@ noprefix "false"
 status open
 
 \begin_layout Plain Layout
-Mean value theorem
+Mean
+\begin_inset space ~
+\end_inset
+
+ value theorem
 \end_layout
 
 \end_inset
@@ -1101,6 +1105,233 @@ An obvious corollary of the above result is that if
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Subsubsection
+Continuity of derivatives
+\end_layout
+
+\begin_layout Standard
+For a function 
+\begin_inset Formula $f$
+\end_inset
+
+ on 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ that is differentiable everywhere on 
+\begin_inset Formula $\left(a,b\right)$
+\end_inset
+
+, it need not be the case that the derivative function 
+\begin_inset Formula $f^{\prime}$
+\end_inset
+
+ is continuous everywhere.
+ In fact, the points of discontinuity of a derivative can be dense in the
+ domain and have positive Lebesgue measure.
+ We postpone the discussion of these more complicated examples until we
+ prove the fundamental theore of calculus.
+ The simplest canonical example of a discontinuous derivative is the following
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:discontinuousDerivative"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f\left(x\right)=x^{2}\sin\left(\frac{1}{x}\right)\indicate\left\{ x\neq0\right\} .$
+\end_inset
+
+We take on faith the fact that the function 
+\begin_inset Formula $\sin\left(x\right)$
+\end_inset
+
+ is bounded between 
+\begin_inset Formula $-1$
+\end_inset
+
+ and 1, is infinitely differentiable and that its derivative is 
+\begin_inset Formula $\cos\left(x\right)$
+\end_inset
+
+.
+ We construct these functions from first principles in Appendix section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:specialFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Note that the derivative of this function away from zero is given by the
+ chain and product rules as 
+\begin_inset Formula 
+\[
+f^{\prime}\left(x\right)=2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right).
+\]
+
+\end_inset
+
+The derivative at zero can be computed from first principles by looking
+ at the limit
+\begin_inset Formula 
+\[
+\lim_{x\to0}\frac{x^{2}\sin\left(\frac{1}{x}\right)\indicate\left\{ x\neq0\right\} }{x}=\lim_{x\to0}x\sin\left(\frac{1}{x}\right)\indicate\left\{ x\neq0\right\} =0
+\]
+
+\end_inset
+
+since 
+\begin_inset Formula $\lvert\sin\left(\frac{1}{x}\right)\rvert\leq1$
+\end_inset
+
+.
+ Then we have that 
+\begin_inset Formula 
+\[
+f^{\prime}\left(x\right)=\begin{cases}
+2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right), & x\neq0\\
+0, & x=0
+\end{cases}
+\]
+
+\end_inset
+
+but 
+\begin_inset Formula $\lim_{x\to0}f^{\prime}\left(x\right)$
+\end_inset
+
+ does not exist since 
+\begin_inset Formula $\cos\left(\frac{1}{x}\right)$
+\end_inset
+
+ oscillates widlly near zero.
+\end_layout
+
+\begin_layout Standard
+While derivatives can be discontinuous, they share the intermediate value
+ property with continuous functions.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Darboux's theorem
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:darbouxTheorem"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f:\left[a,b\right]\to\R$
+\end_inset
+
+ be differentiable on 
+\begin_inset Formula $\left(a,b\right).$
+\end_inset
+
+ Then the derivative function 
+\begin_inset Formula $f^{\prime}:\left(a,b\right)\to\R$
+\end_inset
+
+ has the intermediate value property that the image 
+\begin_inset Formula $f\left[\left(a,b\right)\right]$
+\end_inset
+
+ is an interval.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $c,d\in\left(a,b\right)$
+\end_inset
+
+ be such that, without loss generality, 
+\begin_inset Formula $f^{\prime}\left(c\right)>f^{\prime}\left(d\right).$
+\end_inset
+
+ Take any 
+\begin_inset Formula $y\in\left(f^{\prime}\left(c\right),f^{\prime}\left(d\right)\right)$
+\end_inset
+
+.
+ The function 
+\begin_inset Formula $g\left(x\right)=f\left(x\right)-yx$
+\end_inset
+
+ is continuous on 
+\begin_inset Formula $\left[\min\left\{ c,d\right\} ,\max\left\{ c,d\right\} \right]$
+\end_inset
+
+ and thus achieves a maximum and a minimum by Weierstrass' theorem.
+ If both the minimum and maximum occur at the end points then the function
+ 
+\begin_inset Formula $g$
+\end_inset
+
+ is constant on 
+\begin_inset Formula $\left[\min\left\{ c,d\right\} ,\max\left\{ c,d\right\} \right]$
+\end_inset
+
+ and so its derivative is zero everywhere, completing the proof.
+ If there's at least one interior extrema, say at 
+\begin_inset Formula $t\in\left(\min\left\{ c,d\right\} ,\max\left\{ c,d\right\} \right),$
+\end_inset
+
+ then
+\begin_inset Formula 
+\[
+f^{\prime}\left(t\right)=y
+\]
+
+\end_inset
+
+by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:firstOrderConditionR"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:derivativeJumpDiscontinuity"
+
+\end_inset
+
+For any differentiable function 
+\begin_inset Formula $f$
+\end_inset
+
+, its derivative cannot have jump diiscontinuities.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Subsection
@@ -1602,7 +1833,7 @@ noprefix "false"
 \end_inset
 
 for 
-\begin_inset Formula $f\in\Lp2{\psi}.$
+\begin_inset Formula $f\in\Lp 2{\psi}.$
 \end_inset
 
  By linearity this reduces to
@@ -1659,7 +1890,7 @@ pointwise for all
 
 .
  This shows us that our functions 
-\begin_inset Formula $f_{n}\in\Lp2{\psi}$
+\begin_inset Formula $f_{n}\in\Lp 2{\psi}$
 \end_inset
 
 
