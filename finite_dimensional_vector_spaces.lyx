@@ -83,7 +83,178 @@ figs-within-sections
 \begin_body
 
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:finiteVectorSpace"
+
+\end_inset
+
 Finite Dimensional Vector Spaces
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:vectorSpace"
+
+\end_inset
+
+A 
+\emph on
+vector space 
+\emph default
+is a non-empty set 
+\emph on
+
+\begin_inset Formula $V$
+\end_inset
+
+ 
+\emph default
+over a field 
+\begin_inset Formula $\mathbb{K}$
+\end_inset
+
+ together with two binary operations 
+\begin_inset Formula $+:V\times V\to V$
+\end_inset
+
+ and 
+\begin_inset Formula $\cdot:\mathbb{K}\times V\to V$
+\end_inset
+
+ , called 
+\emph on
+vector addition 
+\emph default
+and 
+\emph on
+scalar multiplication, 
+\emph default
+respectively, that satisfy
+\end_layout
+
+\begin_layout Enumerate
+Closure under vector addition and scalar multiplication: For any 
+\begin_inset Formula $\alpha\in K$
+\end_inset
+
+ and any 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+: 
+\begin_inset Formula $\alpha u\in V$
+\end_inset
+
+ and 
+\begin_inset Formula $u+v\in V.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Associativity of vector addition: For any 
+\begin_inset Formula $u,v,w\in V:u+\left(v+w\right)=\left(v+u\right)+w$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Commutativity of vector addition: For any 
+\begin_inset Formula $u,v\in V:u+v=v+u$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Identity element of vector addition: There exists some element 
+\begin_inset Formula $\mathbf{0}\in V$
+\end_inset
+
+, called the 
+\emph on
+zero vector 
+\emph default
+such that for any 
+\begin_inset Formula $v\in V:\mathbf{0}+v=v.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Inverse element of vector addition: For any 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, there exists a vector 
+\begin_inset Formula $-v\in V$
+\end_inset
+
+ such that 
+\begin_inset Formula $v+\left(-v\right)=\mathbf{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Compatibility of scalar multiplication with field multiplication: For any
+ 
+\begin_inset Formula $\alpha,\beta\in\mathbb{K}$
+\end_inset
+
+ and 
+\begin_inset Formula $u\in V:\left(\alpha\beta\right)\cdot u=\alpha\cdot\left(\beta\cdot u\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Identity element of scalar multiplication: There exists some element 
+\begin_inset Formula $1\in\mathbb{K}$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $u\in V:1v=v.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Distributivity of scalar multiplication with respect to vector addition:
+ For any 
+\begin_inset Formula $\alpha\in\mathbb{K}$
+\end_inset
+
+ and any 
+\begin_inset Formula $u,v\in V:\alpha\cdot\left(u+v\right)=\alpha\cdot u+\alpha\cdot v$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Distributivity of scalar multiplication with respect to field addition:
+ For all 
+\begin_inset Formula $\alpha,\beta\in\mathbb{K}$
+\end_inset
+
+ and 
+\begin_inset Formula $u\in V:\left(\alpha+\beta\right)\cdot u=\alpha\cdot u+\beta\cdot u.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Determinants
 \end_layout
 
 \end_body
