@@ -8536,5 +8536,18 @@ We first prove that (i)
 
 \end_layout
 
+\begin_layout Proof
+Next, we prove (ii) 
+\begin_inset Formula $\implies$
+\end_inset
+
+(iii).
+ Fix 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and note that
+\end_layout
+
 \end_body
 \end_document
