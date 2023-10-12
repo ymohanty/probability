@@ -5162,8 +5162,8 @@ noprefix "false"
 
 \end_inset
 
-where the first second equality is due countably additiivity and the third
- equality is due to property (i).
+where the second equality is due countably additiivity and the third equality
+ is due to property (i).
  To see property (iii), let 
 \begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
 \end_inset
