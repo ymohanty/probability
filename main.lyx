@@ -128,6 +128,22 @@ theorems-sec
 
 \begin_layout Standard
 \begin_inset FormulaMacro
+\newcommand{\mesh}{\mathrm{mesh}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\spans}{\mathrm{span}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
 \newcommand{\R}{\mathds{R}}
 \end_inset
 
