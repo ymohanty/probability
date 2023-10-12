@@ -2424,7 +2424,7 @@ For any
 \end_inset
 
  define 
-\begin_inset Formula $g\left(x,\theta\right)\in\Lp1{\X,\F,\mu}$
+\begin_inset Formula $g\left(x,\theta\right)\in\Lp 1{\X,\F,\mu}$
 \end_inset
 
  to be differentiable with respect to 
@@ -2453,7 +2453,7 @@ where the subscript
 
  clarifies the variable of integration.
  If there exists a function 
-\begin_inset Formula $G\in\Lp1{\mu}$
+\begin_inset Formula $G\in\Lp 1{\mu}$
 \end_inset
 
  such that 
@@ -4847,7 +4847,7 @@ for all
 \end_inset
 
 and observe that 
-\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp 1{\mu}$
+\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp1{\mu}$
 \end_inset
 
  since 
@@ -5102,7 +5102,7 @@ name "def:L1Convergence"
 \end_inset
 
 A sequence of functions 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  is said to converge to a function 
@@ -7665,7 +7665,7 @@ Let
 \end_inset
 
  then 
-\begin_inset Formula $f\in\Lp1{\mu}$
+\begin_inset Formula $f\in\Lp 1{\mu}$
 \end_inset
 
  and 
@@ -7718,7 +7718,7 @@ noprefix "false"
 \end_inset
 
 , which shows 
-\begin_inset Formula $f\in\Lp1{\mu}.$
+\begin_inset Formula $f\in\Lp 1{\mu}.$
 \end_inset
 
  Since 
@@ -7777,6 +7777,763 @@ which shows
 
 \begin_layout Section
 The Riemann integral
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:riemannIntegral"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The theory of integration that we have developed so far is only useful if
+ (1) it is, in some sense, a suitable generalization of Riemann's theory
+ of integration, and (2) if it obeys the fundamental theorem of calculus.
+ We leave (2) to section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:ftc"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and in this section review and characterize the Riemann integral.
+ In particular, we give a precise characterization of Riemann integrable
+ functions using the Lebesgue theory we have developed so far, and show
+ that for such functions, their Lebesgue integrals (with respect to the
+ Lebesgue measure) and Riemann integrals coincide.
+\end_layout
+
+\begin_layout Section
+The Riemann integral of bounded functions on compact intervals
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:partitionInterval"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left[a,b\right]\subset\R$
+\end_inset
+
+ be a closed and bounded interval.
+ A 
+\emph on
+partition 
+\begin_inset Formula $\pi$
+\end_inset
+
+ 
+\emph default
+of 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ is a finite set
+\begin_inset Formula 
+\[
+\pi=\left\{ t_{i}\mid t_{0}=a,t_{k}=b,t_{i}<t_{i+1}\right\} 
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $k\in\N$
+\end_inset
+
+ is the 
+\emph on
+size 
+\emph default
+of the partition.
+ The size of a partition 
+\begin_inset Formula $\pi$
+\end_inset
+
+is often denoted 
+\begin_inset Formula $k\left(\pi\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A second notion of size is given by th concept of a mesh (which is closely
+ related to, and a special case of, the Lebesgue measure).
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:meshPartition"
+
+\end_inset
+
+Given a partition 
+\begin_inset Formula $\pi$
+\end_inset
+
+of 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+, the
+\emph on
+ mesh 
+\emph default
+of 
+\begin_inset Formula $\pi$
+\end_inset
+
+is given by 
+\begin_inset Formula 
+\[
+\mesh\left(\pi\right):=\max_{1\leq i\leq k}t_{i}-t_{i-1}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As one can see, the mesh is basically given by 
+\begin_inset Formula $\max_{i}\lambda\left(\left[t_{i-1},t_{i}\right]\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is the Lebesgue measure.
+ We now introduce the notion of a 
+\emph on
+Darboux 
+\emph default
+sum, which are the building blocks of Riemann integrals much in the way
+ that integrals of simple functions are in the Lebesgue theory.
+ In fact, Darboux sums are the Lebesgue integrals of a special type of signed
+ simple function called a step function.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:darbouxSums"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f:\left[a,b\right]\to\R$
+\end_inset
+
+ be a bounded function and let 
+\begin_inset Formula $\pi$
+\end_inset
+
+ be a partition of 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ with size 
+\begin_inset Formula $k.$
+\end_inset
+
+ Then the 
+\emph on
+upper Darboux sum 
+\emph default
+is given by 
+\begin_inset Formula 
+\[
+U\left(f,\pi\right):=\sum_{i=1}^{k}\sup_{x\in\left[t_{i-1},t_{i}\right)}f\left(x\right)\left(t_{i}-t_{i-1}\right)
+\]
+
+\end_inset
+
+whereas the 
+\emph on
+lower Darboux sum 
+\emph default
+is given
+\begin_inset Formula 
+\[
+L\left(f,\pi\right):=\sum_{i=1}^{k}\inf_{x\in\left[t_{i-1},t_{i}\right)}f\left(x\right)\left(t_{i}-t_{i-1}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that the upper and lower Darboux sums are Lebesgue integrals (with
+ respect to the Lebesgue measure) of the functions 
+\begin_inset Formula $\sum_{i=1}^{k}\sup_{x\in\left[t_{i-1},t\right]}\indicate\left\{ \left[t_{i-1},t_{i}\right)\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\sum_{i=1}^{k}\inf_{x\in\left[t_{i-1},t\right]}\indicate\left\{ \left[t_{i-1},t_{i}\right)\right\} $
+\end_inset
+
+, respectively.
+ It is clear that the lower Darboux simple function is dominated pointwise
+ by 
+\begin_inset Formula $f.$
+\end_inset
+
+ The standard Lebesgue theory would, for any non-negative bounded function
+ 
+\begin_inset Formula $f,$
+\end_inset
+
+ aim to approximate 
+\begin_inset Formula $f$
+\end_inset
+
+ by Darboux functions from below using a monotone convergence type argument.
+ The Riemann theory does this in disguise, but since non-negative functions
+ are not dealt with separately in the approach, we need to do some additional
+ legwork over and above the Lebesgue theory (the Lebesgue theory can be
+ reformulated this way by looking at both outer and inner measures, and
+ hence outer and inner integrals of integrable functions).
+ The following proposition sets up how Darboux sums behave under finer and
+ finer partitions (analagous to the behavior of the outer measure when 
+\begin_inset Quotes eld
+\end_inset
+
+allowed
+\begin_inset Quotes erd
+\end_inset
+
+ to use more complicated covers).
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:darbouxSumInequality"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\pi^{\prime}\supseteq\pi$
+\end_inset
+
+ be a refinement of 
+\begin_inset Formula $\pi$
+\end_inset
+
+; that is a partition of 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ that contains the coarser partition 
+\begin_inset Formula $\pi$
+\end_inset
+
+ as a subset.
+ Then
+\begin_inset Formula 
+\[
+L\left(f,\pi\right)\leq L\left(f,\pi^{\prime}\right)\leq U\left(f,\pi^{\prime}\right)\leq U\left(f,\pi\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that the second inequality is obvious and so we focus on proving the
+ first (the third inequality is analagous).
+ First suppose 
+\begin_inset Formula $\pi^{\prime}\setminus\pi=\left\{ t^{*}\right\} $
+\end_inset
+
+; that is, the refinement contains only one additional element 
+\begin_inset Formula $t^{*}.$
+\end_inset
+
+ Then, there is some 
+\begin_inset Formula $1\leq i\leq k$
+\end_inset
+
+ such that 
+\begin_inset Formula $t_{i-1}<t^{*}<t_{i}.$
+\end_inset
+
+ Then
+\begin_inset Formula 
+\begin{align*}
+\inf_{x\in\left[t_{i-1},t_{i}\right)}f\left(x\right)\left(t_{i}-t_{i-1}\right) & \leq\min\left\{ \inf_{x\in\left[t_{i-1},t^{*}\right)}f\left(x\right),\inf_{x\in\left[t^{*},t_{i}\right)}f\left(x\right)\right\} \left(t_{i}-t_{i-1}\right)\\
+ & \leq\inf_{x\in\left[t_{i-1},t^{*}\right)}f\left(x\right)\left(t^{*}-t_{i-1}\right)+\inf_{x\in\left[t^{*},t_{i}\right)}f\left(x\right)\left(t_{i}-t^{*}\right)
+\end{align*}
+
+\end_inset
+
+and so the first inequality follows since
+\begin_inset Formula 
+\begin{align*}
+L\left(f,\pi\right) & =\sum_{j\neq i,1\leq j\leq k}\inf_{x\in\left[t_{j-1},t_{j}\right)}f\left(x\right)\left(t_{j}-t_{j-1}\right)+\inf_{x\in\left[t_{i-1},t_{i}\right)}f\left(x\right)\left(t_{i}-t_{i-1}\right)=L\left(f,\pi^{\prime}\right).\\
+ & \leq\sum_{j\neq i,1\leq j\leq k}\inf_{x\in\left[t_{j-1},t_{j}\right)}f\left(x\right)\left(t_{j}-t_{j-1}\right)+\inf_{x\in\left[t_{i-1},t^{*}\right)}f\left(x\right)\left(t^{*}-t_{i-1}\right)+\inf_{x\in\left[t^{*},t_{i}\right)}f\left(x\right)\left(t_{i}-t^{*}\right)\\
+ & =L\left(f,\pi^{\prime}\right)
+\end{align*}
+
+\end_inset
+
+The general case then follows by forming nested sequence 
+\begin_inset Formula $\pi\subset\pi_{1}\subset\ldots\subset\pi_{m}\subset\pi^{\prime}$
+\end_inset
+
+, each of which contain one additional element, and then applying the above
+ result in sequence.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:riemannIntegrable"
+
+\end_inset
+
+A bounded real-valued function 
+\begin_inset Formula $f:\left[a,b\right]\to\R$
+\end_inset
+
+is said to be 
+\emph on
+Riemann integrable 
+\emph default
+(or just 
+\emph on
+integrable, 
+\emph default
+in context) if
+\begin_inset Formula 
+\[
+L^{*}\left(f\right):=\sup_{\pi}L\left(f,\pi\right)=\inf_{\pi}U\left(f,\pi\right)=:U^{*}\left(f\right)
+\]
+
+\end_inset
+
+where the supremum and infimum are taken over the collection of all finite
+ partitions 
+\begin_inset Formula $\pi$
+\end_inset
+
+ of 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+.
+ The 
+\emph on
+Riemann integral 
+\emph default
+of an integrable 
+\begin_inset Formula $f$
+\end_inset
+
+ on 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ is then denoted
+\begin_inset Formula 
+\[
+\int_{a}^{b}f\left(x\right)dx:=L^{*}\left(f\right)=U^{*}\left(f\right).
+\]
+
+\end_inset
+
+The collection of Riemann integrable functions on 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ is denoted 
+\begin_inset Formula $\mathcal{R}\left[a,b\right].$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:upperAndLowerSumRelation"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f:\left[a,b\right]\to\R$
+\end_inset
+
+ be a bounded function.
+ Then 
+\begin_inset Formula 
+\[
+L^{*}\left(f\right)\leq U^{*}\left(f\right)
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+L^{*}\left(f\right)=-U^{*}\left(-f\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For the first claim, note that for any partitions 
+\begin_inset Formula $\pi$
+\end_inset
+
+and 
+\begin_inset Formula $\pi^{\prime}$
+\end_inset
+
+ , Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:darbouxSumInequality"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ implies that
+\begin_inset Formula 
+\[
+L\left(f,\pi\right)\leq L\left(f,\pi^{\prime}\cup\pi\right)\leq U\left(f,\pi^{\prime}\cup\pi\right)\leq U\left(f,\pi^{\prime}\right)
+\]
+
+\end_inset
+
+and so 
+\begin_inset Formula 
+\[
+L\left(f,\pi\right)\leq\inf_{\pi^{\prime}}U\left(f,\pi^{\prime}\right)
+\]
+
+\end_inset
+
+and similarly
+\begin_inset Formula 
+\[
+\sup_{\pi}L\left(f,\pi\right)\leq\inf_{\pi^{\prime}}U\left(f,\pi^{\prime}\right).
+\]
+
+\end_inset
+
+For the second claim, notice that 
+\begin_inset Formula $\inf_{x\in\left[t_{i-1},t_{i}\right)}f\left(x\right)=-\sup_{x\in\left[t_{i-1},t_{i}\right)}-f\left(x\right)$
+\end_inset
+
+ and so for any partition 
+\begin_inset Formula $\pi$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+L\left(f,\pi\right)=-U\left(-f,\pi\right)
+\]
+
+\end_inset
+
+and the result follows by noting that 
+\begin_inset Formula 
+\[
+L^{*}\left(f\right)=\sup_{\pi}L\left(f,\pi\right)=\sup_{\pi}-U\left(-f,\pi\right)=-\inf_{\pi}U\left(-f,\pi\right)=-U^{*}\left(-f\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:riemannIntegrability"
+
+\end_inset
+
+The following are equivalent for any bounded function 
+\begin_inset Formula $f:\left[a,b\right]\to\R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $ f 
+\backslash
+in 
+\backslash
+mathcal{R}
+\backslash
+left[a,b
+\backslash
+right]$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For every $
+\backslash
+epsilon > 0$ there exists some partition $
+\backslash
+pi$ such that 
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+			U
+\backslash
+left(f,
+\backslash
+pi
+\backslash
+right) - L
+\backslash
+left(f,
+\backslash
+pi
+\backslash
+right) < 
+\backslash
+epsilon.
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For every $
+\backslash
+epsilon >0$ there exists some $
+\backslash
+delta > 0$ such that for any partition $
+\backslash
+pi$ with $
+\backslash
+mesh 
+\backslash
+left(
+\backslash
+pi
+\backslash
+right) < 
+\backslash
+delta$
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+			U
+\backslash
+left(f,
+\backslash
+pi
+\backslash
+right) - L
+\backslash
+left(f,
+\backslash
+pi
+\backslash
+right) < 
+\backslash
+epsilon
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item The limit 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+		I := 
+\backslash
+lim_{
+\backslash
+mesh
+\backslash
+left(
+\backslash
+pi
+\backslash
+right) 
+\backslash
+to 0}
+\backslash
+sum_{i: t_i 
+\backslash
+in 
+\backslash
+pi } f
+\backslash
+left( c_i 
+\backslash
+right)
+\backslash
+left(t_i - t_{i-1}
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+	exists for any choice of intermediate values $t_{i-1} 
+\backslash
+leq c_i 
+\backslash
+leq t_i $.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We first prove that (i)
+\begin_inset Formula $\implies$
+\end_inset
+
+(ii).
+ Suppose that 
+\begin_inset Formula $f\in\mathcal{R}\left[a,b\right]$
+\end_inset
+
+, and so 
+\begin_inset Formula $L^{*}\left(f\right)=U^{*}\left(f\right).$
+\end_inset
+
+ Fix 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and observe that by the definition of supremum and infimum, there exist
+ partitions 
+\begin_inset Formula $\pi$
+\end_inset
+
+ and 
+\begin_inset Formula $\pi^{\prime}$
+\end_inset
+
+ such that 
+\begin_inset Formula $L^{*}\left(f\right)-L\left(f,\pi\right)<\frac{\epsilon}{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $U\left(f,\pi^{\prime}\right)-L^{*}\left(f\right)<\frac{\epsilon}{2}$
+\end_inset
+
+.
+ Then clearly, for the common refinement 
+\begin_inset Formula $\pi\cup\pi^{\prime}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lvert L\left(f,\pi\cup\pi^{\prime}\right)-U\left(f,\pi\cup\pi^{\prime}\right)\rvert\leq\lvert L\left(f,\pi\cup\pi^{\prime}\right)-L^{*}\left(f\right)\rvert+\lvert L^{*}\left(f\right)-U\left(f,\pi\cup\pi^{\prime}\right)\rvert<\epsilon.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \end_body

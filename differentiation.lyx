@@ -83,6 +83,12 @@ figs-within-sections
 \begin_body
 
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Differentiation"
+
+\end_inset
+
 Differentiation
 \end_layout
 
@@ -1408,6 +1414,10 @@ such that
  which is a contradiciton.
 \end_layout
 
+\begin_layout Subsubsection
+Differentiability classes and local approximation by polynomials
+\end_layout
+
 \begin_layout Subsection
 Derivatives of functions between Banach spaces
 \end_layout
@@ -1507,11 +1517,11 @@ noprefix "false"
 \end_inset
 
  is equivalent to saying 
-\begin_inset Formula $\lebInt{\nu}g=\lebInt{\mu}{fg}\forall g\in\Lp1{\X,\F,\nu}.$
+\begin_inset Formula $\lebInt{\nu}g=\lebInt{\mu}{fg}\forall g\in\Lp 1{\X,\F,\nu}.$
 \end_inset
 
  The right hand side is the inner product associated with the space 
-\begin_inset Formula $\Lp2{\mu}$
+\begin_inset Formula $\Lp 2{\mu}$
 \end_inset
 
  and so we wish to show that a linear functional 
@@ -1519,7 +1529,7 @@ noprefix "false"
 \end_inset
 
  can be represented as an inner product on 
-\begin_inset Formula $\Lp2{\mu}.$
+\begin_inset Formula $\Lp 2{\mu}.$
 \end_inset
 
  At this juncture, one can guess that the Riesz representation theorem for
@@ -1530,11 +1540,11 @@ noprefix "false"
 \end_inset
 
  a linear functional on 
-\begin_inset Formula $\Lp1{\nu}$
+\begin_inset Formula $\Lp 1{\nu}$
 \end_inset
 
  and it is not 
-\begin_inset Formula $\Lp2{\mu}.$
+\begin_inset Formula $\Lp 2{\mu}.$
 \end_inset
 
  Further, it is unclear whether our functional is bounded, which is a necessary
@@ -1651,7 +1661,7 @@ noprefix "false"
 Next define an operator 
 \begin_inset Formula 
 \[
-\Gamma:\Lp2{\psi}\longrightarrow\R
+\Gamma:\Lp 2{\psi}\longrightarrow\R
 \]
 
 \end_inset
@@ -1726,7 +1736,7 @@ tells us there exists an (almost
 \end_inset
 
 everywhere unique) function 
-\begin_inset Formula $h\in\Lp2{\psi}$
+\begin_inset Formula $h\in\Lp 2{\psi}$
 \end_inset
 
  such that
@@ -1738,7 +1748,7 @@ everywhere unique) function
 \end_inset
 
 for every 
-\begin_inset Formula $f\in\Lp2{\psi}.$
+\begin_inset Formula $f\in\Lp 2{\psi}.$
 \end_inset
 
  Of course, in the context of 
@@ -1907,7 +1917,7 @@ noprefix "false"
 \end_inset
 
 for 
-\begin_inset Formula $f\in\Lp2{\psi}.$
+\begin_inset Formula $f\in\Lp 2{\psi}.$
 \end_inset
 
  By linearity this reduces to
@@ -1964,7 +1974,7 @@ pointwise for all
 
 .
  This shows us that our functions 
-\begin_inset Formula $f_{n}\in\Lp2{\psi}$
+\begin_inset Formula $f_{n}\in\Lp 2{\psi}$
 \end_inset
 
 
@@ -4104,6 +4114,13 @@ hl{Bass chapter 14 117-123}
 
 \begin_layout Section
 Fundamental theorems of calculus
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:ftc"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
