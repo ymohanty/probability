@@ -838,9 +838,12 @@ While this construction is useful to illustrate the fact that
 
 norms can be transformed into proper norms, in practice people do not think
  of spaces of functions as collections of equivalence classes of functions.
- We shall adopt the more pragmatic approach of not worrying about whether
- our norm is a semi norm or a proper norm and explore the more substantive
- questions.
+ For now, shall adopt the more pragmatic approach of not worrying about
+ whether our norm is a semi norm or a proper norm and explore the more substanti
+ve questions.
+ When we begin our investigation of continuous time stochastic processes,
+ the distinction between spaces of functions and spaces of equivalence classes
+ of functions shall become more important.
 \end_layout
 
 \begin_layout Standard
@@ -853,6 +856,33 @@ In order to discuss completeness, we need a good notion of limits.
 
  spaces, limits may not be unique unless we adopt the quotient space constructio
 n above.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:LpNormedVectorSpace"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\measurespace$
+\end_inset
+
+ be a measure space.
+ For 
+\begin_inset Formula $p\in[1,\infty)$
+\end_inset
+
+ , 
+\begin_inset Formula $\Lp p{\X,\F,\mu}$
+\end_inset
+
+ is a semi-normed vector space and 
+\begin_inset Formula $L^{p}\measurespace$
+\end_inset
+
+ is a normed vector space.
 \end_layout
 
 \begin_layout Definition
@@ -1935,8 +1965,12 @@ Let
 \begin_inset Formula $f:\left[a,b\right]\to\R$
 \end_inset
 
- be a twice continuously differentiable convex function.
- Then at any point 
+ be a twice continuously differentiable function.
+ Then 
+\begin_inset Formula $f$
+\end_inset
+
+ is a convex function if and only if at every point 
 \begin_inset Formula $x_{0}\in\left(a,b\right)$
 \end_inset
 
@@ -1969,17 +2003,11 @@ where
 \end_inset
 
 .
- Note that by Proposition 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prop:subderivatives"
-plural "false"
-caps "false"
-noprefix "false"
-
+ Then if 
+\begin_inset Formula $f^{\prime\prime}\left(c\right)\geq0$
 \end_inset
 
-, 
+ then
 \begin_inset Formula 
 \[
 f\left(x\right)\geq f\left(x_{0}\right)+f^{\prime}\left(x_{0}\right)\left(x-x_{0}\right)
@@ -1987,26 +2015,26 @@ f\left(x\right)\geq f\left(x_{0}\right)+f^{\prime}\left(x_{0}\right)\left(x-x_{0
 
 \end_inset
 
-and so 
-\begin_inset Formula $f^{\prime\prime}\left(c\right)\frac{\left(x-x_{0}\right)^{2}}{2}\geq0$
-\end_inset
-
- for equality to hold in 
+and so by Proposition 
 \begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:taylorConvex"
+LatexCommand ref
+reference "prop:convexSupportingLines"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
-.
- Since 
-\begin_inset Formula $\left(x-x_{0}\right)^{2}/2\geq0$
+ our 
+\begin_inset Formula $f$
 \end_inset
 
- our result follows.
+ is convex.
+ Conversely, if 
+\begin_inset Formula $f$
+\end_inset
+
+ is convex then
 \end_layout
 
 \begin_layout Standard
@@ -2039,7 +2067,7 @@ Let
 \end_inset
 
  For any integrable function 
-\begin_inset Formula $f\in\Lp1{\mu}$
+\begin_inset Formula $f\in\Lp 1{\mu}$
 \end_inset
 
  and a convex function 
@@ -2364,7 +2392,7 @@ Conversely, note that for any
 
 where we have used homogeneity in the second line.
  Note that the right hand side is finite by Markov's inequality since 
-\begin_inset Formula $f\in\Lp1{\mu}$
+\begin_inset Formula $f\in\Lp 1{\mu}$
 \end_inset
 
  and 
@@ -2710,7 +2738,7 @@ The claim is trivially true if either
 \end_inset
 
  as 
-\begin_inset Formula $\innerproduct0w=0\innerproduct vw$
+\begin_inset Formula $\innerproduct 0w=0\innerproduct vw$
 \end_inset
 
  by linearity.
@@ -3370,7 +3398,7 @@ Let
 
  be a measure space.
  The space 
-\begin_inset Formula $\Lp2{\X,\F,\mu}$
+\begin_inset Formula $\Lp 2{\X,\F,\mu}$
 \end_inset
 
  is an inner-product space with inner product 
@@ -3390,7 +3418,7 @@ Let
 
 \begin_layout Proof
 Let us verify that 
-\begin_inset Formula $\Lp2{\mu}$
+\begin_inset Formula $\Lp 2{\mu}$
 \end_inset
 
  satisfies the parallelogram identity.
@@ -3426,7 +3454,7 @@ noprefix "false"
 \end_inset
 
  showed that 
-\begin_inset Formula $\Lp2{\mu}$
+\begin_inset Formula $\Lp 2{\mu}$
 \end_inset
 
  is an inner-product space but we also know, from Theorem 
@@ -3440,7 +3468,7 @@ noprefix "false"
 \end_inset
 
  that 
-\begin_inset Formula $\Lp2{\mu}$
+\begin_inset Formula $\Lp 2{\mu}$
 \end_inset
 
  is a complete metric space with respect to the metric induced by its norm.
@@ -4469,7 +4497,7 @@ name "cor:integrationContinuousLinearFunctional"
  and define
 \begin_inset Formula 
 \[
-\Gamma:\Lp2{\mu}\longrightarrow\R
+\Gamma:\Lp 2{\mu}\longrightarrow\R
 \]
 
 \end_inset
@@ -4864,6 +4892,354 @@ name "sec:banach-R"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+We have discussed some important special cases of complete normed vector
+ spacs in the form of the 
+\begin_inset Formula $L^{p}$
+\end_inset
+
+ spaces and Hilbert spaces.
+ In this section, we discuss some of the properties of complete normed vector
+ spaces over the reals that hold without reference to any measure or any
+ notion of orthogonality.
+ Without the additional structure afforded by these ideas, the study of
+ normed spaces becomes considerably more complicated.
+ Nevertheless, there are some important results in the theory of general
+ Banach spaces that serve as important tools in analysis, probability, statistic
+s, and economics.
+ As we have already discussed the notion of a normed vector space in the
+ previous sections, we first start with a discussion on the basic properties
+ of such spaces.
+ Most of these should be already known to the reader (indeed, we have implicitly
+ used these concepts throughout this chapter).
+\end_layout
+
+\begin_layout Subsection
+Review of the basic properties of normed vector spaces
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:normedVectorSpace"
+
+\end_inset
+
+Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[def:vectorSpace]{vector space}
+\end_layout
+
+\end_inset
+
+ over 
+\begin_inset Formula $\R$
+\end_inset
+
+.
+ A function 
+\begin_inset Formula $\lVert\cdot\rVert:V\times V\to\left[0,\infty\right]$
+\end_inset
+
+ is called a norm if for any 
+\begin_inset Formula $u,v\in V$
+\end_inset
+
+ and any 
+\begin_inset Formula $\alpha\in\R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lVert v\rVert=0\implies v=0$
+\end_inset
+
+ (Positive definiteness)
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lVert\alpha v\rVert=\lvert\alpha\rvert\lVert v\rVert$
+\end_inset
+
+ (Absolute homogeneity)
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\lVert u+v\rVert\leq\lVert u\rVert+\lVert v\rVert$
+\end_inset
+
+ (Triangle inequality).
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:normMetric"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(V,\lVert\rVert\right)$
+\end_inset
+
+ be a normed vector space over 
+\begin_inset Formula $\R$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\left(V,d\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $d\left(u,v\right):=\lVert u-v\rVert$
+\end_inset
+
+ is a metric space.
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $d\left(u,v\right)=0\implies\lVert u-v\rVert=0\implies u=v$
+\end_inset
+
+ by definiteness.
+ Symmetry is follows from absolute homogeneity and the fact that 
+\begin_inset Formula $v-u=-1\left(u-v\right).$
+\end_inset
+
+ The triangle inequality follows from the fact that for any 
+\begin_inset Formula $u,v,w\in V$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+d\left(u,w\right) & =\lVert u-w\rVert\\
+ & =\lVert u-v+v-w\rVert\\
+ & \leq\lVert u-v\rVert+\lVert v-w\rVert\\
+ & =d\left(u,v\right)+d\left(v,w\right)
+\end{align*}
+
+\end_inset
+
+where the inequality is the triangle inequality for norms.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:linearCombintation"
+
+\end_inset
+
+Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be a vector space over 
+\begin_inset Formula $\R$
+\end_inset
+
+.
+ Given a finite collection of vectors 
+\begin_inset Formula $v_{1},\ldots v_{n}$
+\end_inset
+
+ and scalars 
+\begin_inset Formula $\alpha_{1},\ldots,\alpha_{n}$
+\end_inset
+
+, the sum
+\begin_inset Formula 
+\[
+\sum_{i=1}^{n}a_{i}v_{i}\in V
+\]
+
+\end_inset
+
+is called a 
+\emph on
+linear combination 
+\emph default
+of 
+\begin_inset Formula $V.$
+\end_inset
+
+ For any subset 
+\begin_inset Formula $S\subseteq V$
+\end_inset
+
+, the 
+\begin_inset Formula $\spans\left(S\right)$
+\end_inset
+
+ is the set of all linear combinations of 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:spanIsSubspace"
+
+\end_inset
+
+Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be a vector space over 
+\begin_inset Formula $\R$
+\end_inset
+
+ and let 
+\begin_inset Formula $S\subseteq V$
+\end_inset
+
+ be a subset.
+ Then 
+\begin_inset Formula $\spans\left(S\right)\subseteq V$
+\end_inset
+
+ and is a vector space i.e.
+ 
+\begin_inset Formula $\spans\left(S\right)$
+\end_inset
+
+ is a subspace of 
+\begin_inset Formula $V.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that we only need to show closure under addition and scalar multiplication,
+ along the existence of the additive identity; the other properties are
+ inherited from 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $u,v\in\spans\left(S\right).$
+\end_inset
+
+Then 
+\begin_inset Formula $u=\sum_{i=1}^{m}a_{i}u_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $v=\sum_{i=1}^{n}b_{i}v_{i}$
+\end_inset
+
+ where 
+\begin_inset Formula $u_{i},v_{i}\in S$
+\end_inset
+
+ and 
+\begin_inset Formula $a_{i},b_{i}\in\R.$
+\end_inset
+
+ Then 
+\begin_inset Formula $u+v=\sum_{i=1}^{m}a_{i}u_{i}+\sum_{i=1}^{n}b_{i}v_{i}$
+\end_inset
+
+ which is another linear combination of vectors in 
+\begin_inset Formula $S$
+\end_inset
+
+ and so 
+\begin_inset Formula $u+v\in\spans\left(S\right).$
+\end_inset
+
+ Similarly, 
+\begin_inset Formula $\alpha v=\sum_{i=1}^{m}\left(\alpha a_{i}\right)v_{i}$
+\end_inset
+
+ which is another linear combination of vectors in 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ The additive identity 
+\begin_inset Formula $\mathbf{0}\in\spans\left(S\right)$
+\end_inset
+
+ because 
+\begin_inset Formula $0\times v=\mathbf{0}$
+\end_inset
+
+ where 
+\begin_inset Formula $v$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:equivalentNorm"
+
+\end_inset
+
+Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be a vector space over 
+\begin_inset Formula $\R$
+\end_inset
+
+.
+ Two norms 
+\begin_inset Formula $\lVert\cdot\rVert_{a}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lVert\cdot\rVert_{b}$
+\end_inset
+
+ are considered equivalent if there exist 
+\begin_inset Formula $c,C>0$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $v\in V$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+c\lVert v\rVert_{a}\leq\lVert v\rVert_{b}\leq C\lVert v\rVert_{b}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Finite-dimensional normed vector spaces
 \end_layout
 
 \begin_layout Section
