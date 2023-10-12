@@ -963,6 +963,10 @@ Moreover, if there is no
 Note that we can partition
 \end_layout
 
+\begin_layout Subsection
+Limits of functions
+\end_layout
+
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -2146,12 +2150,23 @@ Continuity of real valued function on
 
 \end_layout
 
+\begin_layout Standard
+
+\end_layout
+
 \begin_layout Section
 Topological spaces
 \end_layout
 
 \begin_layout Section
 Special functions
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:specialFunctions"
+
+\end_inset
+
+
 \end_layout
 
 \end_body
