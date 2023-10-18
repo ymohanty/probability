@@ -119,8 +119,8 @@ Review of derivatives on the line
 \end_layout
 
 \begin_layout Standard
-We first review some basic material from singe variable calculus for completenes
-s; note that this section is technically presumed knowledge and so results
+We first review some basic material from single variable calculus for completene
+ss; note that this section is technically presumed knowledge and so results
  appearing previously in the text use some of the facts established here.
  We will avoid circularity by keeping this section self-contained without
  any reference to the material we have developed so far in the body of the
@@ -1517,11 +1517,11 @@ noprefix "false"
 \end_inset
 
  is equivalent to saying 
-\begin_inset Formula $\lebInt{\nu}g=\lebInt{\mu}{fg}\forall g\in\Lp 1{\X,\F,\nu}.$
+\begin_inset Formula $\lebInt{\nu}g=\lebInt{\mu}{fg}\forall g\in\Lp1{\X,\F,\nu}.$
 \end_inset
 
  The right hand side is the inner product associated with the space 
-\begin_inset Formula $\Lp 2{\mu}$
+\begin_inset Formula $\Lp2{\mu}$
 \end_inset
 
  and so we wish to show that a linear functional 
@@ -1529,7 +1529,7 @@ noprefix "false"
 \end_inset
 
  can be represented as an inner product on 
-\begin_inset Formula $\Lp 2{\mu}.$
+\begin_inset Formula $\Lp2{\mu}.$
 \end_inset
 
  At this juncture, one can guess that the Riesz representation theorem for
@@ -1540,11 +1540,11 @@ noprefix "false"
 \end_inset
 
  a linear functional on 
-\begin_inset Formula $\Lp 1{\nu}$
+\begin_inset Formula $\Lp1{\nu}$
 \end_inset
 
  and it is not 
-\begin_inset Formula $\Lp 2{\mu}.$
+\begin_inset Formula $\Lp2{\mu}.$
 \end_inset
 
  Further, it is unclear whether our functional is bounded, which is a necessary
@@ -1736,7 +1736,7 @@ tells us there exists an (almost
 \end_inset
 
 everywhere unique) function 
-\begin_inset Formula $h\in\Lp 2{\psi}$
+\begin_inset Formula $h\in\Lp2{\psi}$
 \end_inset
 
  such that
@@ -1748,7 +1748,7 @@ everywhere unique) function
 \end_inset
 
 for every 
-\begin_inset Formula $f\in\Lp 2{\psi}.$
+\begin_inset Formula $f\in\Lp2{\psi}.$
 \end_inset
 
  Of course, in the context of 
@@ -1917,7 +1917,7 @@ noprefix "false"
 \end_inset
 
 for 
-\begin_inset Formula $f\in\Lp 2{\psi}.$
+\begin_inset Formula $f\in\Lp2{\psi}.$
 \end_inset
 
  By linearity this reduces to
@@ -1974,7 +1974,7 @@ pointwise for all
 
 .
  This shows us that our functions 
-\begin_inset Formula $f_{n}\in\Lp 2{\psi}$
+\begin_inset Formula $f_{n}\in\Lp2{\psi}$
 \end_inset
 
 
@@ -4113,7 +4113,7 @@ hl{Bass chapter 14 117-123}
 \end_layout
 
 \begin_layout Section
-Fundamental theorems of calculus
+Integrals of almost sure derivatives
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:ftc"
