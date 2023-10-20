@@ -12,3 +12,5 @@ static_misc/
 *.gz
 *.out
 *.log
+build.sh
+*.tex
