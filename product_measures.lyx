@@ -146,7 +146,7 @@ Product measures on finite product spaces
 \end_layout
 
 \begin_layout Subsection
-Iterated integrals
+Iterated integrals on non-negative measurable function
 \end_layout
 
 \begin_layout Standard
@@ -566,11 +566,7 @@ Let
 \begin_inset Formula $\left(\mathcal{Y},\mathcal{G},\nu\right)$
 \end_inset
 
- be 
-\begin_inset Formula $\sigma-$
-\end_inset
-
-finite measure spaces.
+ be measure spaces.
  Then, for any 
 \begin_inset Formula $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
 \end_inset
@@ -595,7 +591,19 @@ are integrals on
 \begin_inset Formula $\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right).$
 \end_inset
 
- Moreover, 
+ Moreover, if 
+\begin_inset Formula $\mu$
+\end_inset
+
+and 
+\begin_inset Formula $\nu$
+\end_inset
+
+ are 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite, 
 \begin_inset Formula $\gamma_{1}\left(f\right)=\gamma_{2}\left(f\right)$
 \end_inset
 
@@ -701,8 +709,20 @@ noprefix "false"
 \begin_inset Formula $\mathcal{F\otimes\mathcal{G}}.$
 \end_inset
 
- The two integrals can be shown to be equal by showing that the corresponding
- measures are equal on a generating 
+ If 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\nu$
+\end_inset
+
+ are 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite, the two integrals can be shown to be equal by showing that the correspon
+ding measures are equal on a generating 
 \begin_inset Formula $\pi-$
 \end_inset
 
@@ -764,8 +784,120 @@ finite, we know that there exist sets
  This completes the proof.
 \end_layout
 
+\begin_layout Standard
+Note that the 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finiteness condition is actually necessary for the uniqueness of the integrals,
+ as the following example illustrates.
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:tonelliFailNonSigmaFinite"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\left[0,1\right],\borel\left(\left[0,1\right]\right),\lambda\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\left[0,1\right],2^{\left[0,1\right]},\mu_{0}\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{0}$
+\end_inset
+
+ are the Lebesgue and counting measures, respectively.
+ Now consider the product space 
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Product measures
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:productMeasure"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\measurespace$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G},\nu\right)$
+\end_inset
+
+ be measure spaces and let 
+\begin_inset Formula $\left(\X\times\mathcal{Y},\F\otimes\mathcal{G}\right)$
+\end_inset
+
+ be the product measurable space.
+ Then a measure 
+\begin_inset Formula $\mu\otimes\nu:\F\otimes\mathcal{G}\to\left[0,\infty\right]$
+\end_inset
+
+ is called a 
+\emph on
+product measure 
+\emph default
+if
+\begin_inset Formula 
+\[
+\mu\otimes\nu\left(F\times G\right)=\mu\left(F\right)\nu\left(G\right)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $F\in\F,G\in\mathcal{G}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Of course, the way we have set this up, Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:tonelli"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+(Tonelli) guarantees existence of this measure, since measures and integrals
+ are equivalent.
+ Uniqueness, when 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\nu$
+\end_inset
+
+ are 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite, also follows from the uniqueness theorem, as outlined in the proof
+ of Tonelli.
 \end_layout
 
 \begin_layout Standard
