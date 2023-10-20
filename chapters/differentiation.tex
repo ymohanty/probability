@@ -1,0 +1,945 @@
+
+\chapter{\label{chap:Differentiation}Differentiation}
+
+In elementary calculus, the theory of the Riemann integral was developed
+with a corresponding theory of differentiation, and these two operations
+were shown to be the inverse of each other for a suitable class of
+functions, namely the differentiable functions; this is the fundamental
+theorem of calculus. The Lebesgue theory also implies a fundamental
+theorem of calculus for a broader class of functions. The goal of
+this chapter is to recover this theorem and in order to do so, we
+will develop some theory that is very important in its own right.
+Before delving into new material, it might be worthwhile to review
+some basic facts about differentiation in the spirit of our discussion
+on the Riemann integral. In addition, I will take this opportunity
+to suitably generalize the notion of a derivative by defining differentiability
+as a property of functions on arbitrary normed vector spaces.
+
+\section{Differentiation in normed vector spaces}
+
+\subsection{Review of derivatives on the line}
+
+We first review some basic material from single variable calculus
+for completeness; note that this section is technically presumed knowledge
+and so results appearing previously in the text use some of the facts
+established here. We will avoid circularity by keeping this section
+self-contained without any reference to the material we have developed
+so far in the body of the text (we will use results from the appendices).
+\begin{defn}
+\label{def:differentiable}A function $f:\left[a,b\right]\to\R$ is
+said to be \emph{differentiable at a point }$c\in\left(a,b\right)$
+if 
+\[
+\lim_{x\to a}\frac{f\left(x\right)-f\left(a\right)}{x-a}
+\]
+exists as a real number. The function is said to be \emph{differentiable
+}if it is differentiable at every point in the interior of its domain.
+If a function $f$ is differentiable everywhere, the derivative function
+is denoted $f^{\prime}$as in 
+\[
+f^{\prime}\left(y\right)=\lim_{x\to y}\frac{f\left(x\right)-f\left(y\right)}{x-y}.
+\]
+\end{defn}
+
+\begin{rem*}
+The derivative is also denoted $\frac{df}{dy}=f^{\prime}\left(y\right)$
+which captures the heuristic that the derivative can be thought as
+the ratio of small quantities.
+\end{rem*}
+\begin{example}
+\label{exa:derivativeConstant}It should be immediately clearly that
+for any constant function $f\left(x\right)=a$, its derivative is
+zero everywhere, and for the function $f\left(x\right)=x$, its derivative
+is 1 is everywhere.
+\end{example}
+
+\begin{prop}
+\label{prop:differentiableImpliesContinuous}Let $f:\left[a,b\right]\to\R$
+be differentiable at a point $c\in\left(a,b\right).$Then it is continuous
+at $c.$
+\end{prop}
+
+\begin{proof}
+Recall that the limit of the product of two functions is the product
+of the limit, provided those individual limits exist. 
+\begin{align*}
+\lim_{x\to c}f\left(x\right)-f\left(c\right) & =\lim_{x\to c}\frac{f\left(x\right)-f\left(c\right)}{x-c}x-c\\
+ & =\lim_{x\to c}\frac{f\left(x\right)-f\left(c\right)}{x-c}\lim_{x\to c}x-c\\
+ & =f^{\prime}\left(c\right)0\\
+ & =0
+\end{align*}
+which completes the proof.
+\end{proof}
+\begin{rem*}
+The converse of this theorem is not true; for instance, consider that
+$\lvert x\rvert$ is continuous (this follows by the ``reverse''
+triangle inequality $\lvert\lvert x\rvert-\lvert y\rvert\rvert\leq\lvert x-y\rvert)$.
+That it is not differentiable can be seen by looking at 
+\[
+\lim_{x\to0^{-}}\frac{\lvert x\rvert}{x}=-1\neq1=\lim_{x\to0^{+}}\frac{\lvert x\rvert}{x}.
+\]
+\end{rem*}
+\begin{prop}
+\label{prop:algebraOfDifferentiableFunctions}Let $f,g$ be real-valued
+functions on $\left[a,b\right]$ that are differentiable at some $x\in\left[a,b\right]$
+. Then $f+g$ and $fg$ are differentiable at $x.$ If $g\left(x\right)\neq0$
+then $\frac{f}{g}$is also differentaible. The derivatives are given
+\begin{align}
+\left(f+g\right)^{\prime}\left(x\right) & =f^{\prime}\left(x\right)+g^{\prime}\left(x\right)\\
+\left(fg\right)^{\prime}\left(x\right) & =f^{\prime}\left(x\right)g\left(x\right)+g^{\prime}\left(x\right)f\left(x\right)\\
+\left(\frac{f}{g}\right)^{\prime} & \left(x\right)=\frac{f^{\prime}\left(x\right)g\left(x\right)-g^{\prime}\left(x\right)f\left(x\right)}{\left(g\left(x\right)\right)^{2}}
+\end{align}
+\end{prop}
+
+\begin{proof}
+The first one, called the sum rule, follows by algebra of limits.
+The second, known as the product rule, follows by the same trick that
+is used to prove that the product of two sequences converges to the
+product of their limits. To reiterate, note that 
+\begin{align*}
+\frac{f\left(y\right)g\left(y\right)-f\left(x\right)g\left(x\right)}{y-x} & =\frac{f\left(y\right)g\left(y\right)-f\left(y\right)g\left(x\right)+f\left(y\right)g\left(x\right)-f\left(x\right)g\left(x\right)}{x-c}\\
+ & =\frac{f\left(y\right)\left(g\left(y\right)-g\left(x\right)\right)}{y-x}+\frac{g\left(x\right)\left(f\left(y\right)-f\left(x\right)\right)}{y-x}.
+\end{align*}
+Taking limits and applying Proposition \ref{prop:differentiableImpliesContinuous}
+gets the result.
+
+Finally, the third result, called the quotient rule, follows as 
+\begin{align*}
+\frac{\frac{f\left(y\right)}{g\left(y\right)}-\frac{f\left(x\right)}{g\left(x\right)}}{y-x} & =\frac{1}{g\left(x\right)g\left(y\right)}\left(\frac{f\left(y\right)g\left(x\right)-f\left(x\right)g\left(y\right)}{y-x}\right)\\
+ & =\frac{1}{g\left(x\right)g\left(y\right)}\left(\frac{f\left(y\right)g\left(x\right)-f\left(y\right)g\left(y\right)+f\left(y\right)g\left(y\right)-f\left(x\right)g\left(y\right)}{y-x}\right)\\
+ & =\frac{1}{g\left(x\right)g\left(y\right)}\left(\frac{f\left(y\right)\left[g\left(x\right)-g\left(y\right)\right]}{y-x}+\frac{g\left(y\right)\left[f\left(y\right)-f\left(x\right)\right]}{y-x}\right)
+\end{align*}
+and taking limits and again applying the continuity of differentiable
+functions completes the proof.
+\end{proof}
+\begin{cor}[Power rule]
+\label{cor:powerRule}The derivative of a real-valued function on
+$\R$ defined $f\left(x\right)=x^{n}$ where $n\in\mathds{Z}$ is
+given by $f^{\prime}\left(x\right)=nx^{n-1}.$
+\end{cor}
+
+\begin{proof}
+First we examine the case when $n\in\N$. For the base cases of $n=0$
+and $n=1$ look at the remark above. Now suppose that the rule holds
+for $n\in\N$. Then, writing $x^{n+1}=xx^{n},$ we apply the product
+rule to yield
+\[
+\frac{dx^{n+1}}{dx}=xnx^{n-1}+x^{n}=\left(n+1\right)x^{n}
+\]
+which completes the proof.
+
+To extend the result to negative integers, we can apply the quotient
+rule. Note that for a negative integer $m$, we have some positive
+integern $n$ such that $m=-n$ and so $f\left(x\right)=x^{m}=\frac{1}{x^{n}}$
+which has derivative (by applying the power rule for positive integers
+and the quoteint rule)
+\[
+f^{\prime}\left(x\right)=\frac{-nx^{n-1}}{x^{2n}}=mx^{m-1}.
+\]
+\end{proof}
+\begin{rem*}
+The power rule also holds for rational exponents; we shall establish
+this fact after we state the chain rule. For real exponents, the power
+rule holds if $x\geq0$ since we define $x^{a}:=\exp\left(a\log\left(x\right)\right)$
+when $a\in\R$. Since the logarithm is only defined on the positive
+reals, the result only extends to that case (the case of $x=0$ is
+trivial). We shall prove this after we construct the exponential and
+natural logarithm functions in Appendix section \ref{sec:specialFunctions}.
+\end{rem*}
+\begin{prop}
+\label{prop:differentiabilityOfPolynomials}Let $f\in P_{n}\left(x\right)$
+the space of $n-$degree polynomials. Then $f$ is differentiable
+and its derivative $f^{\prime}\in P_{n-1}\left(x\right).$
+\end{prop}
+
+\begin{proof}
+Let $f\left(x\right)=\sum_{i=0}^{n}a_{i}x^{i}.$ By the ``sum rule'',''product
+rule'' and the ``power rule'', 
+\[
+f^{\prime}\left(x\right)=\sum_{i=0}^{n}a_{i}ix^{i-1}\in P_{n-1}\left(x\right).
+\]
+\end{proof}
+\begin{rem*}
+An immediate corrolary is that every polynomial is infinitely differentiable.
+Infinitely differentiable functions are called \emph{smooth.}
+\end{rem*}
+\begin{thm}[Chain rule]
+\label{thm:chainRuleR}Let $g:C\subseteq\R\to\R$ be differentiable
+at some $c\in D$ and let $f:D\subseteq\R\to\R$ be differentiable
+at $g\left(c\right)\in D.$ Then the composition $f\circ g$ is differentiable
+at $c$ with derivative 
+\[
+\left(f\circ g\right)^{\prime}\left(c\right)=f^{\prime}\left(g\left(c\right)\right)g^{\prime}\left(c\right).
+\]
+\end{thm}
+
+We omit the proof of this theorem right now; we will prove it in the
+more general setting of derivatves on functions between Banach spaces
+in the next section.
+\begin{prop}
+\label{prop:rationalPowerRule}A function $f\left(x\right)=x^{r}$
+where $r\in\mathds{Q}$ and $x\in\R$ is differentiable with derivative
+$f^{\prime}\left(x\right)=rx^{r-1}.$
+\end{prop}
+
+\begin{proof}
+We will establish the result when $x\neq0$ (when $x=0$, the derivative
+is 0 as established in an earlier remark). Let $r=\frac{p}{q}$ where
+$p,q\in\mathds{Z}$ and note that $g\left(x\right):=x^{q}$ has derivative
+$g^{\prime}\left(x\right)=qx^{q-1}$ by the integral power rule\ref{cor:powerRule}.
+Then, observe that $g\left(f\left(x\right)\right)=x^{p}$ and so applying
+the chain rule on the left hand hand side and the integral power rule
+on the right hand side, we have
+\begin{align*}
+qf\left(x\right)^{q-1}f^{\prime}\left(x\right) & =px^{p-1}
+\end{align*}
+which can be re-arranged to yield
+\begin{align*}
+f^{\prime}\left(x\right) & =\frac{px^{p-1}}{qf\left(x\right)^{q-1}}\\
+ & =\left(\frac{p}{q}\right)x^{p-1-\frac{p}{q}\left(q-1\right)}\\
+ & =\frac{p}{q}x^{\frac{p}{q}-1}\\
+ & =rx^{r-1}
+\end{align*}
+which completes the proof.
+\end{proof}
+
+\subsubsection{Mean value theorems}
+\begin{defn}
+\label{def:localMax}A function $f:\left[a,b\right]\to\R$ is set
+to have a local maximum at $c\in\left[a,b\right]$ if there exists
+some $\delta>0$ such that for every $x\in\left(c-\delta,c+\delta\right)\cap\left[a,b\right]$
+\[
+f\left(c\right)\geq f\left(x\right).
+\]
+Local minima are defined analagously.
+\end{defn}
+
+\begin{prop}
+\label{prop:firstOrderConditionR}Let $f:\left[a,b\right]\to\R$ have
+a local maximum or minimum at $c\in\left(a,b\right).$ If $f^{\prime}\left(c\right)$
+exists then $f^{\prime}\left(c\right)=0.$
+\end{prop}
+
+\begin{proof}
+We consider the case of the local maximum; the case of the local minimum
+follows by applying the maximum result to $-f.$ Suppose $c\in\left(a,b\right)$
+is a local maximum for $f$, in which case we can choose some $\delta>0$
+small enough that 
+\[
+\left(c-\delta,c+\delta\right)\subseteq\left(a,b\right)
+\]
+and $f\left(c\right)\geq f\left(x\right)$ on $\left(c-\delta,c+\delta\right).$
+Note that for $c-\delta<x<c$ we have that 
+\[
+\frac{f\left(x\right)-f\left(c\right)}{x-c}\geq0
+\]
+and so 
+\[
+f^{\prime}\left(c^{-}\right):=\lim_{x\to c^{-}}\frac{f\left(x\right)-f\left(c\right)}{x-c}\geq0.
+\]
+Similarly, for $c<x<c+\delta$
+\[
+\frac{f\left(x\right)-f\left(c\right)}{x-c}\leq0
+\]
+and so 
+\[
+f^{\prime}\left(c^{+}\right):=\lim_{x\to c^{+}}\frac{f\left(x\right)-f\left(c\right)}{x-c}\leq0.
+\]
+But of course, $f^{\prime}\left(c\right)=f^{\prime}\left(c^{-}\right)=f^{\prime}\left(c^{+}\right)$
+since left and right hand limits are always equal to the limit when
+it exists and thus 
+\[
+f^{\prime}\left(c\right)=0.
+\]
+\end{proof}
+\begin{thm}[Cauchy's mean value theorem]
+\label{thm:cauchyMeanValue}If $f,g$ are real-valued continuous
+functions on $\left[a,b\right]$ such that the derivative functions
+$f^{\prime},g^{\prime}$ exist on $\left(a,b\right)$ , there exists
+some $x\in\left(a,b\right)$ such that 
+\[
+\left(f\left(b\right)-f\left(a\right)\right)g^{\prime}\left(x\right)=\left(g\left(b\right)-g\left(a\right)\right)f^{\prime}\left(x\right)
+\]
+\end{thm}
+
+\begin{proof}
+Write 
+\[
+h\left(t\right):=\left(f\left(b\right)-f\left(a\right)\right)g\left(t\right)-\left(g\left(b\right)-g\left(a\right)\right)f\left(t\right)
+\]
+and observe that since it's built out of differeniable functions by
+adding and multiplying them, $h$ is continuous and differentiable.
+Since $\left[a,b\right]$ is compact, $h$ has a minimum and maximum
+by Weierstrass'. If the minimum and maximum are both at the end points
+$a$ and $b$, then the function is constant and the derivative is
+zero everywhere, which yields the result. If at least one of the minimum
+or maximum is interior, say at $x\in\left(a,b\right)$, then by Proposition
+\ref{prop:firstOrderConditionR}, $f^{\prime}\left(x\right)=0$ which
+again yields the result.
+\end{proof}
+\begin{cor}[Mean~ value theorem]
+\label{cor:meanValueThm}Let $f:\left[a,b\right]\to\R$ be continuous
+on $\left[a,b\right]$ and differentiable on $\left(a,b\right).$
+Then there exists some $x\in\left(a,b\right)$ such that
+\[
+f^{\prime}\left(c\right)=\frac{f\left(b\right)-f\left(a\right)}{b-a}.
+\]
+\end{cor}
+
+\begin{proof}
+Apply Cauchy's mean value theorem with $g\left(x\right)=x$.
+\end{proof}
+\begin{prop}
+\label{prop:derivativeAndMonotonicity}If $f:\left[a,b\right]\to\R$
+is differentiable on $\left(a,b\right)$ then
+\begin{align*}
+\forall x\in\left(a,b\right):f^{\prime}\left(x\right) & \geq0\implies\left(x_{1}\geq x_{2}\implies f\left(x_{1}\right)\geq f\left(x_{2}\right)\right)\\
+\forall x\in\left(a,b\right):f^{\prime}\left(x\right) & \leq0\implies\left(x_{1}\geq x_{2}\geq f\left(x_{1}\right)\leq f\left(x_{2}\right)\right)\\
+\end{align*}
+\end{prop}
+
+\begin{proof}
+Applying the mean value theorem, we have 
+\[
+f\left(x_{1}\right)-f\left(x_{2}\right)=f^{\prime}\left(c\right)\left(x_{1}-x_{2}\right)
+\]
+for $c\in\left(a,b\right)$ and if $f^{\prime}\left(c\right)\geq0$
+then $x_{1}\geq x_{2}$ implies that $f\left(x_{!}\right)\geq f\left(x_{2}\right)$
+and the other implication follows in the same way.
+\end{proof}
+\begin{rem*}
+An obvious corollary of the above result is that if $\forall x\in\left(a,b\right)$$:f^{\prime}\left(x\right)=0\implies f$
+is constant on $\left(a,b\right)$.
+\end{rem*}
+
+\subsubsection{Continuity of derivatives}
+
+For a function $f$ on $\left[a,b\right]$ that is differentiable
+everywhere on $\left(a,b\right)$, it need not be the case that the
+derivative function $f^{\prime}$ is continuous everywhere. In fact,
+the points of discontinuity of a derivative can be dense in the domain
+and have positive Lebesgue measure. We postpone the discussion of
+these more complicated examples until we prove the fundamental theorem
+of calculus. The simplest canonical example of a discontinuous derivative
+is the following
+\begin{example}
+\label{exa:discontinuousDerivative}Let $f\left(x\right)=x^{2}\sin\left(\frac{1}{x}\right)\indicate\left\{ x\neq0\right\} .$We
+take on faith the fact that the function $\sin\left(x\right)$ is
+bounded between $-1$ and 1, is infinitely differentiable and that
+its derivative is $\cos\left(x\right)$. We construct these functions
+from first principles in Appendix section \ref{sec:specialFunctions}.
+Note that the derivative of this function away from zero is given
+by the chain and product rules as 
+\[
+f^{\prime}\left(x\right)=2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right).
+\]
+The derivative at zero can be computed from first principles by looking
+at the limit
+\[
+\lim_{x\to0}\frac{x^{2}\sin\left(\frac{1}{x}\right)\indicate\left\{ x\neq0\right\} }{x}=\lim_{x\to0}x\sin\left(\frac{1}{x}\right)\indicate\left\{ x\neq0\right\} =0
+\]
+since $\lvert\sin\left(\frac{1}{x}\right)\rvert\leq1$. Then we have
+that 
+\[
+f^{\prime}\left(x\right)=\begin{cases}
+2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right), & x\neq0\\
+0, & x=0
+\end{cases}
+\]
+but $\lim_{x\to0}f^{\prime}\left(x\right)$ does not exist since $\cos\left(\frac{1}{x}\right)$
+oscillates rapidly near zero.
+\end{example}
+
+While derivatives can be discontinuous, they share the intermediate
+value property with continuous functions.
+\begin{prop}[Darboux's theorem]
+\label{prop:darbouxTheorem}Let $f:\left[a,b\right]\to\R$ be differentiable
+on $\left(a,b\right).$ Then the derivative function $f^{\prime}:\left(a,b\right)\to\R$
+has the intermediate value property that the image $f\left[\left(a,b\right)\right]$
+is an interval.
+\end{prop}
+
+\begin{proof}
+Let $c,d\in\left(a,b\right)$ be such that, without loss generality,
+$f^{\prime}\left(c\right)>f^{\prime}\left(d\right).$ Take any $y\in\left(f^{\prime}\left(c\right),f^{\prime}\left(d\right)\right)$.
+The function $g\left(x\right)=f\left(x\right)-yx$ is continuous on
+$\left[\min\left\{ c,d\right\} ,\max\left\{ c,d\right\} \right]$
+and thus achieves a maximum and a minimum by Weierstrass' theorem.
+If both the minimum and maximum occur at the end points then the function
+$g$ is constant on $\left[\min\left\{ c,d\right\} ,\max\left\{ c,d\right\} \right]$
+and so its derivative is zero everywhere, completing the proof. If
+there's at least one interior extrema, say at $t\in\left(\min\left\{ c,d\right\} ,\max\left\{ c,d\right\} \right),$
+then
+\[
+f^{\prime}\left(t\right)=y
+\]
+by Proposition \ref{prop:firstOrderConditionR}.
+\end{proof}
+\begin{lem}
+\label{lem:IVTJump}Any function that satisifies the intermediate
+value property cannot have removable or jump discontinuities.
+\end{lem}
+
+\begin{proof}
+Let $f:\left[a,b\right]\to\R$ be a function that satisfies the intermediate
+value property and let $c\in\left(a,b\right)$ such that $\lim_{x\to c^{-}}f\left(x\right)=L$
+and $\lim_{x\to c^{+}}f\left(x\right)=M$. Suppose, without loss of
+generality, that $L\neq f\left(c\right)$ and let $\epsilon=\frac{\lvert L-f\left(c\right)\rvert}{2}.$
+Note that by definition, there exists some $\delta>0$ such that for
+any $x$ with $0<c-x<\delta\implies\lvert f\left(x\right)-L\rvert<\epsilon$
+which implies that $\lvert f\left(x\right)-f\left(c\right)\rvert\geq\epsilon.$
+By the intermediate value property, for any $y$ in between $f\left(x\right)$
+and $f\left(c\right)$, there exists some $z\in\left(x,c\right)$
+such that $f\left(z\right)=y.$ In particular, this holds true for
+any $\text{y}.$such that $\lvert y-f\left(c\right)\rvert<\epsilon.$
+But then $0<c-z<\delta$ which implies that $\lvert y-f\left(c\right)\rvert\geq\epsilon$
+which is a contradiciton.
+\end{proof}
+
+\subsubsection{Differentiability classes and local approximation by polynomials}
+
+\subsection{Derivatives of functions between Banach spaces}
+
+\section{Decomposition of measures}
+
+Recall that in Proposition \ref{prop:densities}, we showed that for
+a measure space $\left(\X,\F,\mu\right)$ and a non-negative measurable
+function $f\in\nonnegMeasurableFunctions$ , the function $\nu\left(A\right):=\lebInt{\mu}{f\indicate_{A}}$is
+a measure. Moreover, in the remark following the proposition, we observed
+that such a measure $\nu$ was \emph{absolutely continuous }with respect
+to $\mu$, that is to say, for any $A\in\F,\mu(A)=0\implies\nu(A)=0.$
+Further, we also claimed that every absolutely continuous measure
+could be represented this way i.e as an integral with respect to the
+dominating measure. In other words, we claimed that there was always
+an $f\in\nonnegMeasurableFunctions$ such that this relation would
+hold. It turns out we can establish a slightly stronger result, which
+in turn is key to establishing the fundamental theorem of calculus
+for the Lebesgue measure. What we can show, using the Hilbert space
+machinery we developed earlier, is that we can decompose a measure
+(relative to another measure) into two measures that are in some sense
+orthogonal. This is in direct correspondence with the decomposition
+of Hilbert spaces given to us by the projection theorem (Theorem \ref{thm:projectionThm}).
+
+To motivate how the Hilbert space theory can be useful in this context,
+we can begin with a change of perspective in the spirit of Theorem
+\ref{thm:integralMeasureEquivalence}. Note that saying $\nu(A)=\lebInt{\mu}{f\indicate_{A}}$
+for every $A\in\F$ is equivalent to saying $\lebInt{\nu}g=\lebInt{\mu}{fg}\forall g\in\Lp 1{\X,\F,\nu}.$
+The right hand side is the inner product associated with the space
+$\Lp 2{\mu}$ and so we wish to show that a linear functional $g\to\lebInt{\nu}g$
+can be represented as an inner product on $\Lp 2{\mu}.$ At this juncture,
+one can guess that the Riesz representation theorem for Hilbert spaces
+is clearly right tool to finish off the proof; however, several hurdles
+remain. For one, $g\to\lebInt{\nu}g$ a linear functional on $\Lp 1{\nu}$
+and it is not $\Lp 2{\mu}.$ Further, it is unclear whether our functional
+is bounded, which is a necessary condition for the theorem to apply.
+The following lemma provides the conditions under which the theorem
+finds purchase.
+\begin{lem}
+\label{lemma:LebesgueRadonNikodym}Let $\left(\X,\F\right)$ be a
+measurable space. If $\mu,\nu$ are two $\sigma-$finite measures
+on $\F$, then there exists some non-negative (almost everywhere with
+respect to $\mu$) measurable function $k\in\nonnegMeasurableFunctions$
+and a set $G\in\F$ such that $\mu(G)=0$ and
+\[
+\nu\left(A\right)=\lebInt{\mu}{k\indicate_{A}}+\nu(A\cap G)
+\]
+for every $A\in\F$. Moreover, the function $k$ is unique $\mu-$almost-everywhere
+and the set $G$ is unique $\mu+\nu$-almost everywhere.
+\end{lem}
+
+\begin{proof}
+Suppose first that the measures $\mu$and $\nu$are finite. Define
+the measure $\psi:=\mu+\nu$ and observe that by Proposition \ref{prop:integralSumOfMeasures}
+\[
+\lebInt{\psi}f=\lebInt{\mu}f+\lebInt{\nu}f.
+\]
+Next define an operator 
+\[
+\Gamma:\Lp 2{\psi}\longrightarrow\R
+\]
+by
+\[
+\Gamma\left(f\right):=\lebInt{\nu}f
+\]
+and notice that $\Gamma$ is a continuous linear functional by a slight
+variant of the argument presented in the proof of Corollary \ref{cor:integrationContinuousLinearFunctional},
+using the fact that $\mu\left(\X\right),\nu\left(\X\right)<\infty$.
+Since $\mathcal{L}^{2}\left(\psi\right)$ is a Hilbert space by Corollary
+\ref{cor:L2Hilbert} and Theorem \ref{thm:completenessLp}, the \hyperref[thm:rieszRep]{Riesz representation theorem} tells
+us there exists an (almost $\psi-$everywhere unique) function $h\in\Lp 2{\psi}$
+such that
+\begin{align*}
+\Gamma\left(f\right) & =\innerproduct fh
+\end{align*}
+for every $f\in\Lp 2{\psi}.$ Of course, in the context of $\mathcal{L}^{2}$,
+\begin{equation}
+\innerproduct fh=\pnorm{fh}1=\lebInt{\psi}{fh}=\lebInt{\mu}{fh}+\lebInt{\nu}{fh}.\label{eq:rieszRepresenterL2}
+\end{equation}
+Next consider the following measurable partition of $\X$
+\[
+N:=\left\{ x\in\X\mid h\left(x\right)<0\right\} ,M:=\left\{ x\in\X\mid0\leq h\left(x\right)<1\right\} ,G:=\left\{ x\in\X\mid h\left(x\right)\geq1\right\} .
+\]
+Note that by the fact that $0\geq h\indicate_{N}$ and the monotonicity
+of integration
+\begin{align*}
+0 & \geq\lebInt{\psi}{h\indicate_{N}}\\
+ & =\lebInt{\mu}{h\indicate_{N}}+\lebInt{\nu}{h\indicate_{N}}\\
+ & =\lebInt{\nu}{\indicate_{N}}
+\end{align*}
+where the last equality is due to (\ref{eq:rieszRepresenterL2}).
+But since $\lebInt{\nu}{\indicate_{N}}=\nu\left(N\right),$we have
+$\nu\left(N\right)=0$ by non-negativity of measures. Then
+\[
+\lebInt{\mu}{h\indicate_{N}}+\lebInt{\nu}{h\indicate_{N}}=0
+\]
+where the second term is automatically zero since $h\indicate_{N}\stackrel{\nu-\text{a.e}}{=}0$.
+Therefore, 
+\[
+\lebInt{\mu}{h\indicate_{N}}=0
+\]
+which by Proposition \ref{prop:intZeroFuncZero} implies that
+\[
+h\indicate_{N}\stackrel{\mu-\text{a.e}}{=}0\implies\mu\left(N\right)=0
+\]
+and so both $\mu\left(N\right)=\nu\left(N\right)=0.$
+
+On the other hand, observe that 
+\begin{align*}
+\Gamma\left(\indicate_{G}\right) & =\nu\left(G\right)\\
+ & =\lebInt{\mu}{h\indicate_{G}}+\lebInt{\nu}{h\indicate_{G}}\\
+ & \geq\mu\left(G\right)+\nu\left(G\right)
+\end{align*}
+where the inequality follows from the fact that $h\indicate_{G}\geq\indicate_{G}$
+and the monotonicity of the integral. Since $\nu\left(G\right)<\infty$
+as $\nu$ is a finite measure, we can subtract if from both sides
+of the inequality to deduce
+\[
+\mu\left(G\right)\leq0
+\]
+ which reduces to equality by the non-negativity of measures.
+
+To control the final piece of the partition, observe that we can use
+the definition $\Gamma\left(f\right)=\lebInt{\nu}f$ and Eq. (\ref{eq:rieszRepresenterL2})
+together to deduce (since all terms are finite) that
+\[
+\lebInt{\nu}f-\lebInt{\nu}{fh}=\lebInt{\mu}{fh}
+\]
+for $f\in\Lp 2{\psi}.$ By linearity this reduces to~
+\begin{equation}
+\lebInt{\nu}{\left(1-h\right)f}=\lebInt{\mu}{hf}.\label{eq:oneminusH}
+\end{equation}
+Next we define the increasing sequence of sets
+\[
+M_{n}:=\left\{ x\in\X\mid0\leq h\left(x\right)\leq1-\frac{1}{n}\right\} 
+\]
+and note that
+\[
+M=\bigcup_{n\in\N}M_{n}.
+\]
+Further, observe that for any $A\in\F$ the functions
+\[
+f_{n}:=\frac{\indicate_{M_{n}}\indicate_{A}}{1-h}\leq n\indicate_{M_{n}}\indicate_{A}
+\]
+and
+\[
+0\leq f_{n}\leq f_{n+1}
+\]
+pointwise for all $n\in\N$. This shows us that our functions $f_{n}\in\Lp 2{\psi}$\footnote{$n\indicate_{M_{n}}$is square integrable since $\psi$ is a finite
+measure; $f_{n}$ then is integrable since both functions are non-negative
+and so 
+\[
+\lebInt{\psi}{\lvert f_{n}\rvert^{2}}\leq\lebInt{\psi}{\lvert n\indicate_{M_{n}}\indicate_{A}\rvert^{2}}\leq n^{2}\psi\left(\left\{ 0\leq h\leq1-\frac{1}{n}\right\} \right)
+\]
+} and are monotonically increasing. Therefore,
+\begin{align*}
+\nu\left(M\cap A\right) & =\lebInt{\nu}{\indicate_{M}\indicate_{A}\frac{1-h}{1-h}}\\
+ & =\lim_{n\to\infty}\lebInt{\nu}{\frac{\indicate_{M_{n}}\indicate_{A}}{1-h}1-h}\\
+ & =\lim_{n\to\infty}\lebInt{\mu}{\frac{\indicate_{M_{n}}\indicate_{A}}{1-h}h}\\
+ & =\lebInt{\mu}{\indicate_{M}\indicate_{A}\frac{h}{1-h}}+\lebInt{\mu}{\indicate_{N\cup G}\indicate_{A}\frac{h}{1-h}}\\
+ & =\lebInt{\mu}{\frac{h}{1-h}\indicate_{A}}
+\end{align*}
+where the second equality follows by the \hyperref[thm:generalizedMonotoneConvergence]{monotone convergence theorem},
+the third equality is due to (\ref{eq:oneminusH}), the fourth equality
+is due to the fact that $\mu\left(G\right)=\mu\left(N\right)=0$ and
+the last equality is due to the linearity of integration. 
+
+Letting $k=\frac{h}{1-h}$ we have that 
+\[
+\mu\left(\left\{ x\in\X\mid k\left(x\right)<0\right\} \right)=0
+\]
+since $\mu\left(N\right)=\mu\left(G\right)=0.$ Therefore
+\begin{align*}
+\nu\left(A\right) & =\nu\left(\left(A\cap N\right)\cup\left(A\cap M\right)\cup\left(A\cap G\right)\right)\\
+ & =\nu\left(A\cap N\right)+\nu\left(A\cap M\right)+\nu\left(A\cap G\right)\\
+ & =\lebInt{\mu}{k\indicate_{A}}+\nu(A\cap G)
+\end{align*}
+where the first equality follows from the fact that $N,M,$ and $G$
+form a partition of $\X$, the second equality by finite additivity,
+and the final equality by the fact that $N$ is a $\nu-$null set.
+
+The extension to $\sigma-$finite measures is relatively straightforward.
+Let $\left\{ E_{i}\right\} _{i\in\N}\in\F$ be a partition of $\X$
+such that $\mu$and $\nu$are finite on each $E_{i}$ (this is possible
+by Propositions \ref{prop:equivSigmaFinite} and \ref{prop:sumSigmaFiniteMeasures}).
+Then the measures given by
+\begin{align*}
+\nu_{i}\left(A\right) & :=\nu\left(A\cap E_{i}\right),\\
+\mu_{i}\left(A\right) & :=\mu\left(A\cap E_{i}\right)
+\end{align*}
+are finite on $\F$ and so the finite version of theorem implies the
+existence of functions $k_{i}\in\nonnegMeasurableFunctions$ and $\mu_{i}-$null
+sets $B_{i}$ such that 
+\[
+\nu_{i}\left(A\right)=\lebInt{\mu_{i}}{k_{i}\indicate_{A}}+\nu_{i}\left(A\cap B_{i}\right)
+\]
+which is equivalent to saying that 
+\[
+\nu\left(A\cap E_{i}\right)=\lebInt{\mu}{k_{i}\indicate_{A}\indicate_{E_{i}}}+\nu\left(A\cap B_{i}\cap E_{i}\right)
+\]
+for each $i\in\N$. Summing over $i$ we have 
+\begin{align*}
+\nu\left(A\right) & =\sum_{i=1}^{\infty}\nu\left(A\cap E_{i}\right)\\
+ & =\sum_{i=1}^{\infty}\lebInt{\mu}{k_{i}\indicate_{E_{i}}\indicate_{A}}+\sum_{i=1}^{\infty}\nu\left(A\cap B_{i}\cap E_{i}\right)\\
+ & =\lebInt{\mu}{\sum_{i=1}^{\infty}k_{i}\indicate_{E_{i}}\indicate_{A}}+\nu\left(A\cap\left(\cup_{i\in\N}\left(B_{i}\cap E_{i}\right)\right)\right).
+\end{align*}
+where the last equality follows by monotone convergence and countable
+additivity. Note that $\mu\left(\bigcup_{i\in\N}\left(B_{i}\cap E_{i}\right)\right)=\sum_{i=1}^{\infty}\mu\left(B_{i}\cap E_{i}\right)=\sum_{i=1}^{\infty}\mu_{i}\left(B_{i}\right)=0.$
+This completes the proof of existence with $k=\sum_{i=1}^{\infty}k_{i}\indicate_{E_{i}}$
+and $B=\bigcup_{i\in\N}\left(B_{i}\cap E_{i}\right)$.
+
+Finally, for uniqueness, consider two pairs $\left(k_{1},G_{1}\right)$
+and $\left(k_{2},G_{2}\right)$ such that $k_{1},k_{2}\in\nonnegMeasurableFunctions,$
+and $G_{1},G_{2}\in N_{\mu},$ and
+\[
+\nu\left(A\right)=\lebInt{\mu}{k_{1}\indicate_{A}}+\nu\left(A\cap G_{1}\right)=\lebInt{\mu}{k_{2}\indicate_{A}}+\nu\left(A\cap G_{2}\right)
+\]
+for every $A\in\F.$ Then,
+\begin{align*}
+\nu\left(G_{2}\cap G_{1}^{C}\right) & =\lebInt{\mu}{k_{1}\indicate_{G_{2}}\indicate_{G_{1}}}+\nu\left(\underbrace{G_{2}\cap G_{1}^{C}\cap G_{1}}_{=\emptyset}\right)\\
+ & =0
+\end{align*}
+where the first term is zero because $G_{1}\in N_{\mu}.$ Similarly,
+we can show that 
+\begin{align*}
+\nu\left(G_{1}\cap G_{2}^{C}\right) & =\lebInt{\mu}{k_{2}\indicate_{G_{1}}\indicate_{G_{2}^{C}}}+\nu\left(\underbrace{G_{1}\cap G_{2}^{C}\cap G_{2}}_{=\emptyset}\right)\\
+ & =0.
+\end{align*}
+In other words, $\nu\left(G_{1}\Delta G_{2}\right)=0$ which by Proposition
+\ref{prop:almostEverywhereEqualSets} implies that $G_{1}\stackrel{\nu-\text{a.e}}{=}G_{2}.$
+Of course, since $G_{1},G_{2}\in N_{\mu},$ we have that $\mu\left(A\Delta B\right)=0$
+and so $G_{1}\stackrel{\mu+\nu-\text{a.e}}{=}G_{2}.$ Note that since
+$G_{1}^{C}\Delta G_{2}^{C}=G_{1}\Delta G_{2}$, we have that $G_{1}^{C}\stackrel{\mu+\nu-\text{a.e}}{=}G_{2}^{C}$
+and so for any $A\in\F$
+\[
+\nu\left(A\cap G_{1}^{C}\right)=\nu\left(A\cap G_{2}^{C}\right).
+\]
+But
+\begin{align*}
+\nu\left(A\cap G_{1}^{C}\right) & =\lebInt{\mu}{k_{1}\indicate_{A}\indicate_{G_{!}^{C}}}+\nu\left(\underbrace{A\cap G_{1}^{C}\cap G_{1}}_{=\emptyset}\right)\\
+\nu\left(A\cap G_{2}^{C}\right) & =\lebInt{\mu}{k_{2}\indicate_{A}\indicate_{G_{2}^{C}}}+\nu\left(\underbrace{A\cap G_{2}^{C}\cap G_{2}}_{=\emptyset}\right)
+\end{align*}
+This combined with the fact that $G_{1}$ and $G_{2}$ are $\mu-$null
+show that for every $A\in\F$ we have $\lebInt{\mu}{k_{1}\indicate_{A}}=\lebInt{\mu}{k_{2}\indicate_{A}}$
+which by Proposition \ref{prop:intEqualFuncEqual} implies that $k_{1}\stackrel{\mu-\text{a.e}}{=}k_{2}.$
+\end{proof}
+This is a powerful lemma as it gives us two very important results
+as simple corollaries.
+\begin{defn}
+\label{def:absoluteContinuityMeasures}Let $(\X,\F)$ be a measurable
+space and let $\mu,\nu$ be two measures on this space. We say $\nu$
+is absolutely continuous with respect to $\mu$ if for any $A\in F:\mu(F)=0\implies\nu(F)=0$.
+We denote this relation by $\nu<<\mu$.
+
+Why is this relation labeled continuity? There are two good reasons
+for this: first, at least for finite measures, the above definition
+is equivalent to an $\epsilon-\delta$ definition that resembles the
+continuity definitions that we have seen before. More importantly,
+we will see that measures that are absolutely continuous with respect
+to the Lebesgue measure give rise to a particular class of real-valued
+\emph{functions }with the property of absolute continuity. Such functions
+are exactly the class of functions for which the Lebesgue fundamental
+theorem of calculus applies.
+\end{defn}
+
+\begin{prop}
+\label{prop:epsdeltaAbsContinuity}Let $(\X,\F)$ be a measurable
+space and let $\mu,\nu$ be two measures on this space such that $\nu(X)<\infty$.
+Then $\nu<<\mu$ if and only if for every $\epsilon>0$ there exists
+a $\delta>0$ such that for any $A\in\F$, $\mu(A)<\delta\implies\nu(A)<\epsilon$
+\end{prop}
+
+\begin{proof}
+Suppose that $\epsilon-\delta$ characterization holds. Take a sequence
+$\epsilon_{n}>0$ such that $\epsilon_{n}\to0$ and find the corresponding
+$\delta_{n}>0$ such that $\mu(A)<\delta_{n}\implies\nu(A)<\epsilon_{n}$.
+If $\mu(A)=0$ then $\mu(A)<\delta_{n}$ for all $n\in\N$. Then $\nu(A)<\epsilon_{n}$
+for every $n.$ Taking limits yields $\nu(A)=0.$
+
+Conversely, assume that $\epsilon-\delta$ property does not hold.
+Then, there exists some $\epsilon_{0}>0$ such that for any $\delta>0$,
+there's some $A\in\F$ such that $\mu(A)<\delta$ but $\nu(A)\geq\epsilon$.
+Let $\delta_{n}=\frac{1}{2^{n}}\to0$ and let $A_{n}\in\F$ be the
+corresponding sequence of sets such that $\mu(A_{n})<\delta_{n}$
+but $\nu(A_{n})\geq\epsilon.$ Note then $\sum_{n=1}^{\infty}\mu(A_{n})<1$
+and so by the \hyperref[thm:borelCantelli]{Borel-Cantelli lemma},
+\[
+\mu(\limsup_{n\to\infty}A_{n})=0.
+\]
+where $\limsup_{n\to\infty}A_{n}=\cap_{n=1}^{\infty}\cup_{i=1}^{n}A_{i}\in\F$.
+Since $\nu(X)<\infty,$ by the \hyperref[cor:reverseFatouLemma]{reverse Fatou lemma}
+\[
+\nu(\limsup_{n\to\infty}A)\geq\limsup_{n\to\infty}\nu(A_{n})\geq\epsilon
+\]
+which completes the proof.
+\end{proof}
+While this is one way to characterize absolutely continuous measures,
+a different characterization provides the shortest route to the fundamental
+theorem of calculus.
+\begin{thm}[Radon-Nikodym]
+\label{thm:radonNikodym}Let $\left(\X,\F\right)$ be a measurable
+space. If $\mu,\nu$ are two $\sigma$-finite measures on $\F$ then
+$\nu<<\mu$ if and only if there exists almost-everywhere unique (with
+respect to both measures) non-negative function $f\in\nonnegMeasurableFunctions$
+such that 
+\[
+\nu(A)=\lebInt{\mu}{f\indicate_{A}}
+\]
+for every $A\in\F$
+\end{thm}
+
+\begin{proof}
+Note that the existence of $f$ implies absolute continuity by Proposition
+\ref{prop:densities}. The converse is far more challenging; fortunately
+for us, Lemma \ref{lemma:LebesgueRadonNikodym} does all of the work.
+To see this, note that by our lemma
+
+\[
+\nu(A)=\lebInt{\mu}{\tilde{f}\indicate_{A}}+\nu(A\cap B)
+\]
+where $A\in\F$, $B\in N_{\mu}$ and $\tilde{f}$ is $\mu-$almost
+everywhere non-negative and unique. If $\nu<<\mu$ then $\nu(A\cap B)=0$.
+Letting $f=\tilde{f}\indicate_{{\tilde{f}\geq0}}$, our result follows
+by Proposition \ref{prop:funcEqualityAlmostEverywhere}.
+\end{proof}
+The Radon-Nikodym theorem builds on the Hilbert space theory we described
+earlier in Chapter \ref{chap:spaces_of_functions} and is the proper
+converse of the comparatively simple result on constructing new measures
+using non-negative measurable functions that we saw in Proposition
+\ref{prop:densities}. This theorem is also fundamental to developing
+conditional expectations; indeed the existence and uniqueness of conditional
+expectations is an almost trivial corollary of the Radon-Nikodym theorem.
+In the context of probability theory, the functions described by the
+Radon-Nikodym theorem are probability density functions. Recall from
+undergraduate probability that probability density functions could
+be recovered as derivatives of cumulative distribution functions,
+provided those distribution functions were sufficiently well behaved.
+It turns out such densities can be thought of as derivatives generally
+in an admittedly contrived sense: if we write the Radon Nikodym theorem
+in traditional notation, then we have can write for $\nu<<\mu$
+\[
+\nu\left(A\right)=\int_{A}fd\mu.
+\]
+Then, in Leibniz notation, we could write $f$ as $\frac{d\nu}{d\mu}$
+and refer to $f$ as the \emph{Radon-Nikodym derivative }of $\nu$
+with respect to $\mu$. Of course, for function to actually be some
+sort of derivative of measures, we need to be able to represent it
+as a limiting ratio of the two measures; in the special case of the
+Lebesgue measure, we can indeed do this. However, the notation is
+useful more generally, partly due to the following facts
+\begin{prop}
+\label{prop:RadonNikodymFacts}Let $\measurablespace$ be a measurable
+space and let $\mu,\nu$, and $\gamma$be $\sigma-$finite measures
+on the space. Then
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item If $\mu<<\nu$ and $\nu<<\gamma$  then $\mu << \gamma$  and
+\begin{equation}
+\tag{Chain rule}
+	\frac{d\mu}{d\gamma}\stackrel{\text{a.e}}{=}\frac{d\mu}{d\nu}\frac{d\nu}{d\gamma}
+\label{eq:chainRule}
+\end{equation}
+	\item  If $\mu << \gamma $ and $\nu << \gamma $ then the sum measure $\mu + \nu$ is $\sigma-$finite, $\mu + \nu << \gamma$, and 
+\begin{equation}
+\tag{Sum Rule}
+	\frac{d\mu+\nu}{d\gamma}\stackrel{\gamma-\text{a.e}}{=}\frac{d\mu}{d\gamma}+\frac{d\nu}{d\gamma}
+\label{eq:sumRule}
+\end{equation}
+	\item If $\mu << \nu$ then $\nu << \mu$ if and only if $\frac{d\mu}{d\nu}>0$ $\nu-$a.e and then
+\begin{equation}
+\tag{Inverse ``function" rule}
+	\frac{d\nu}{d\mu}=\frac{1}{\frac{d\mu}{d\nu}}.
+\label{eq:invFunctionRule}
+\end{equation}
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+To show \emph{(i),} let $A\in\F$ be such that $\gamma\left(A\right)=0.$Then
+$\nu\left(A\right)=0$ since $\nu<<\gamma.$ Then $\mu\left(A\right)=0$
+since $\mu<<\nu$ which establishes that absolute continuity is transitive.
+Note that since the measures are $\sigma-$finite, by the Radon Nikodym
+theorem there exists some almost everywhere unique non-negative measurable
+functions $f,g,h$ such that for any $A\in\F$
+\begin{align*}
+\mu\left(A\right) & =\lebInt{\gamma}{h\indicate_{A}}\\
+\mu\left(A\right) & =\lebInt{\nu}{f\indicate_{A}}\\
+\nu\left(A\right) & =\lebInt{\gamma}{g\indicate_{A}}
+\end{align*}
+and so by Corollary \ref{cor:densityIntegral}, we have that - for
+any $A\in\F$
+\[
+\mu\left(A\right)=\lebInt{\nu}{f\indicate_{A}}=\lebInt{\gamma}{fg\indicate_{A}}.
+\]
+Since the function $fg$ is non-negative measurable, we have by the
+uniqueness of Radon-Nikodym derivatives that 
+\[
+h\stackrel{\text{a.e}}{=}fg
+\]
+which completes the proof.
+
+For \emph{(ii), }note that $\mu+\nu$ is $\sigma-$finite by Proposition
+\ref{prop:sumSigmaFiniteMeasures}. Absolute continuity follows trivially.
+To show the almost sure equivalence of the Radon-Nikodym derivatives,
+let $f,g,h\in\nonnegMeasurableFunctions$ be Radon-Nikodym derivatives
+such that for every $A\in\F$
+\begin{align*}
+\mu\left(A\right)+\nu\left(A\right) & =\lebInt{\gamma}{h\indicate_{A}}\\
+\mu\left(A\right) & =\lebInt{\gamma}{f\indicate_{A}}\\
+\nu\left(A\right) & =\lebInt{\gamma}{g\indicate_{A}}.
+\end{align*}
+By linearity of the Lebesgue integral, we have that for every $A\in\F$
+\[
+\lebInt{\gamma}{\left(f+g\right)\indicate_{A}}=\lebInt{\gamma}{h\indicate_{A}}.
+\]
+By Proposition \ref{prop:intEqualFuncEqual} we have that 
+\[
+h\stackrel{\gamma-\text{a.e}}{=}f+g.
+\]
+Finally, to show \emph{(iii), }let $f$ denote $\frac{d\mu}{d\nu}$
+and suppose that that $f\stackrel{\nu-\text{a.e}}{>}0$ and that $\mu\left(A\right)=0$
+for some $A\in\F.$ The Radon-Nikodym theorem implies then that $\lebInt{\nu}{f\text{}\indicate_{A}}=0$.
+Since $f$ is positive almost everywhere, Proposition \ref{prop:intZeroFuncZero}
+implies that $\indicate_{A}\stackrel{\nu-\text{a.e}}{=}0\Longleftrightarrow\nu\left(A\right)=0.$
+Conversely, suppose $\nu<<\mu$ and there's a set of positive (with
+respect to both measures) mass $B\in\F$ such that $f=0$ on $B$.
+Then $\mu\left(B\right)=\lebInt{\nu}{f\indicate_{B}}=0$ which is
+a contradiction. To conclude, observe that when $\frac{d\mu}{d\nu}\stackrel{\text{a.e}}{>}0$,
+both measures are \emph{mutually }absolutely continuous (or equivalent)
+and so $\frac{d\nu}{d\mu}$ exists and by part \emph{(i) }above
+\[
+1=\frac{d\mu}{d\mu}=\frac{d\mu}{d\nu}\frac{d\nu}{d\mu}.
+\]
+Taking reciprocals yields the result.
+\end{proof}
+Absolute continuity is a special property between pairs of measures
+characterized by the notion that the null sets of a measure are a
+subset of the other; that is to say $\mu<<\nu\Longleftrightarrow N_{\nu}\subseteq N_{\mu}$.
+Of course, if the two measures $\mu,\nu$ are mututally absolutely
+continuous (or equivalent), then $N_{\mu}=N_{\nu}.$ Dual to this
+notion of absolute continuity, we can define the concept of mutual
+singularity, which corresponds to the situation where $N_{\nu}$ and
+$N_{\mu}$ can together cover $\X$
+\begin{defn}
+\label{def:concentrationOfMeasure}Let $\measurespace$ be a measure
+space. The measure $\mu$ is said to \emph{concentrate }on a set $A\in\F$
+if $\mu\left(E\right)=\mu\left(A\cap E\right).$ Equivalenty, one
+can say that $\mu$ concentrates on $A$ if $\mu\left(E\right)=0$
+if and only if $E\cap A=\emptyset.$
+\end{defn}
+
+\begin{defn}
+\label{def:mutualSingularity}Let $\measurablespace$ be a measurable
+space. Two measures $\mu,\nu$ on $\F$ are said to be \emph{mutually
+singular }if there exists two disjoint sets $A,B\in\F$ such that
+$\mu$ concentrates on $A$ and $\nu$ concentrates on $B$. We can
+then write $\mu\perp\nu$.
+\end{defn}
+
+In the next result we summarize some basic properties of mutual singularity
+and its relationship with absolute continuity.
+\begin{prop}
+\label{prop:propertiesSingularityAbsContinuity}Let $\measurablespace$
+be a measurable space and let $\mu,\nu,$ and $\gamma$ be three measures
+on $\F$. Then
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $\mu \perp \nu$ if and only if there exist two disjoint sets $A,B \in \F$ such that $A \cup B= \X$ and $\mu(A) = 0 , \nu(A) = 0 $ .
+	\item  If $\mu \perp \gamma $ and $\nu \perp \gamma $ then $\mu + \nu \perp \gamma$.
+	\item If $\mu << \gamma $ and $\nu \perp \gamma$ then $\mu \perp \nu$.
+	\item If $\mu << \nu $ and $\mu \perp \nu$ then $\mu = 0$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+For \emph{(i), }observe that if $\mu\perp\nu$ then there exist disjoint
+sets $C,D\in\F$ such that $\mu$ concentrates on $C$ and $\nu$
+concentrates on $D.$ By definition, we have that $\mu\left(C^{C}\right)=\mu\left(C\cap C^{C}\right)=0$
+and $\nu\left(D^{C}\right)=\nu\left(D\cap D^{C}\right)=0.$ Note that
+$\nu\left(C\right)=\nu\left(C\cap D\right)=0$ and so $A=C^{C}$and
+$B=D^{C}$ does the trick. Conversely, let $A,B$ be as given in the
+hypothesis. Then $\mu\left(F\right)=\mu\left(F\cap A\right)+\mu\left(F\cap B\right)=\mu\left(F\cap B\right)$
+and similarly $\nu\left(F\right)=\nu\left(F\cap A\right)$ for every
+$F\in\F$.
+
+For \emph{(ii), }let $A_{1},B_{1}\in\F$ be a partition of $\X$ such
+that $\mu\left(A_{1}\right)=0$ and $\gamma\left(B_{1}\right)=0.$
+Similarly, let $A_{2},B_{2}\in\F$ be a partition of $\X$ such that
+$\nu\left(A_{2}\right)=0$ and $\gamma\left(B_{2}\right)=0.$ Let
+$C=A_{1}\cap A_{2}$ and $D=\left(A_{1}\cap A_{2}\right)^{C}=B_{1}^{C}\cup B_{2}^{C}.$
+Clearly, $C$ and $D$ form a partition of $\X$ such that $\mu+\nu\left(A_{1}\cap A_{2}\right)=\mu\left(A_{1}\cap A_{2}\right)+\nu\left(A_{1}\cap A_{2}\right)=0$
+by subadditivity. Similarly, $\gamma\left(B_{1}\cup B_{2}\right)\leq\gamma\left(B_{1}\right)+\gamma\left(B_{2}\right)=0.$
+
+Next, for \emph{(iii) }let $A\in\F$ such that $\nu\left(A\right)=0$
+and $\gamma\left(A^{C}\right)=0$. Absolute continuity implies that
+$\mu\left(A^{C}\right)=0.$ This shows $\mu\perp\nu.$
+
+Finally, suppose that $A\in\F$ such that $\mu\left(A\right)=0$ and
+$\nu\left(A^{C}\right)=0.$ By absolute continuity, $\mu\left(A\right)=0.$
+Then, $\mu\left(\X\right)=\mu\left(A\right)+\mu\left(A^{C}\right)=0.$
+\end{proof}
+It turns out that absolute continuity and singularity represent a
+sort of \emph{orthogonality }notion for measures. Considering that
+the spaces of measures is a subset of the dual space of $L^{1}$ functions,
+this does not correspond to the canonical notion of orthogonality.
+\hl{MAKE PRECISE USING TARCSAY 2014. }Again, this result falls trivially
+out of Lemma \ref{lemma:LebesgueRadonNikodym}.
+\begin{thm}[Lebesgue Decomposition]
+\label{thm:lebesgueDecomposition}Let $\measurablespace$ be a measurable
+space and let $\mu$ and $\nu$ be two $\sigma-$finite measures on
+$\F$. Then there exist two unique measures $\mu_{1},\mu_{2}$ such
+that 
+\[
+\mu=\mu_{1}+\mu_{2}
+\]
+and $\mu_{1}<<\nu$ and $\mu_{2}\perp\nu$. Such a pair $\left(\mu_{1},\mu_{2}\right)$
+is called a Lebesgue decomposition of $\mu$ with respect to $\nu$.
+\end{thm}
+
+\begin{proof}
+Note that existence follows from Lemma \ref{lemma:LebesgueRadonNikodym}.
+To see this, write 
+\[
+\mu\left(A\right)=\lebInt{\nu}{k\indicate_{A}}+\mu\left(A\cap B\right)
+\]
+where $B\in N_{\nu}$ and $k$ is non-negative almost-everywhere with
+respect to $\nu.$ Then setting $\text{\ensuremath{\mu_{1}\left(A\right):=\lebInt{\nu}{k\indicate_{A}}}}$we
+have that $\mu_{1}<<\nu$. Similarly, setting $\mu_{2}\left(A\right):=\mu\left(A\cap B\right)$
+which is a measure since it satisfies countable additivity and is
+null on the empty set. Then note that $\nu\left(B\right)=0$ and $\mu_{2}\left(B^{C}\right)=0$
+which implies that $\mu_{2}\perp\nu$.
+\end{proof}
+
+\subsection{{*}Signed measures, Duality of $L^{p}$ spaces, and the Riesz representation
+theorem.}
+
+\hl{Tao (epsilon of room vol 1, section 1.3.2)?}
+
+\section{Derivatives of measures}
+
+\hl{Bass chapter 14 117-123}
+
+\section{Integrals of almost sure derivatives\label{sec:ftc}}
+
+\hl{Bass Chapter 14 pg 123 onwards} 
+
+

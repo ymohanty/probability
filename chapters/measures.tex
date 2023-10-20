@@ -1,0 +1,1352 @@
+
+\chapter{Measures}
+
+\section{Why is measurement hard?}
+
+On the real line $\mathds{R}$, we may want our measure to satisfy
+some properties that are consistent with our intuitive notion of ``length''.
+Formally, we want a function
+\[
+\lambda:2^{\mathds{R}}\longrightarrow\left[0,\infty\right]
+\]
+that satisfies
+\begin{enumerate}
+\item $\lambda\left(\emptyset\right)=0$
+\item $\lambda\left(\left[a,b\right]\right)=b-a$ for $a\leq b\in\mathds{R}$
+\item Countable additivity: For a countable collection of pairwise-disjoint
+sets $\left\{ A_{i}\right\} _{i\in\mathbb{N}}\subseteq\mathds{R}$
+\begin{equation}
+\lambda\left(\bigcup_{i\in\mathbb{N}}A_{i}\right)=\sum_{i\in\mathbb{N}}\lambda\left(A_{i}\right)\label{eq:countableAdditivity}
+\end{equation}
+\item Translation invariance: $\lambda\left(A+a\right)=\lambda\left(A\right)$
+for any $a\in\mathds{R}$ where $A+a:=\left\{ \alpha+a\mid\alpha\in A\right\} $.
+\end{enumerate}
+Quite counterintuitively, it turns out that no such function exists!
+To prove this assertion, we need to construct some special kinds of
+sets that only exist if we assume the Axiom of Choice.
+\begin{example}
+\label{exa:vitaliSet} Define an equivalence relation $\sim$ on $\left[0,1\right]$
+such that
+\[
+x\sim y\Leftrightarrow x-y\in\mathbb{Q}.
+\]
+Note that there are uncountably many classes in such a construction
+as the equivalence class for any given irrational number can contain
+at most countably many other irrational numbers. For example,
+\[
+\left[\frac{\pi}{4}\right]=\left\{ \frac{\pi}{4}+q\mod1\mid q\in\mathbb{Q}\right\} .
+\]
+Thus, using the Axiom of Choice, we can construct a set $E\subseteq\left[0,1\right]$
+such that $E$ consists of exactly one ``representative'' from each
+equivalence class. Next, we can define
+\[
+E_{q}:=\left\{ x+q\mod1\mid x\in E\right\} 
+\]
+so that $\left\{ E_{q}\right\} _{q\in\mathbb{Q}}$ is a partition
+of $\left[0,1\right]$. To see that the sets are disjoint, suppose
+for contradiction that for any distinct $q,\tilde{q}\in\mathbb{Q}\cap\left[0,1\right]$,
+$E_{q}\cap E_{\tilde{q}}\neq\emptyset$. If $x\in E_{q}\cap E_{\tilde{q}}$,
+then $x-q\in E$ and $x-\tilde{q}\in E$. But they clearly belong
+to the same equivalence class and this is a contradiction given our
+construction of $E.$ To see that the union of these sets is $\left[0,1\right]$,
+consider an arbitrary $y\in\left[0,1\right]$ and observe that since
+our equivalence relation $\sim$ partitions $\left[0,1\right]$, $y\in\left[x\right]$
+for some $x\in E$. Then $q^{*}=y-x\in\mathbb{Q}$ and so $y=x+q^{*}\mod1\in E_{q^{*}}$.
+Thus we have that
+\[
+\left[0,1\right]\subseteq\bigcup_{q\in\mathbb{Q}}E_{q}.
+\]
+Since the reverse inclusion follows by the definition of $E_{q}$,
+we have that $\left\{ E_{q}\right\} _{q\in\mathbb{Q}}$ is a partition
+of $\left[0,1\right]$.
+\end{example}
+
+\begin{prop}
+\label{prop:vitalitSetNotMeasurable}There exists no function $\lambda:2^{\mathds{R}}\longrightarrow\left[0,\infty\right]$
+that satisfies properties (1)-(4) described above
+\end{prop}
+
+\begin{proof}
+Suppose, for contradiction, that such a function $\lambda$ exists.
+We can define the collection of sets $\left\{ E\right\} _{q\in\mathbb{Q}}$
+as in Example \ref{exa:vitaliSet} and observe that
+\begin{align*}
+1=\lambda\left(\left[0,1\right]\right) & =\lambda\left[\bigcup_{q\in\mathbb{Q}}E_{q}\right]\\
+ & =\sum_{q\in\mathbb{Q}}\lambda\left[E_{q}\right]\\
+ & =\sum_{q\in\mathbb{Q}}c
+\end{align*}
+where the first equality follows from property (2), the second equality
+follows from the fact that $\left\{ E\right\} _{q\in\mathbb{Q}}$
+is a partition of $\left[0,1\right]$, the third equality is due to
+property (3). The last equality follows as a consequence of translation
+invariance (property (4)). Since $c\in\left[0,1\right]$
+\[
+\sum_{q\in\mathbb{Q}}c=0\text{ or }\infty\neq1
+\]
+which is a contradiction. Thus no such function $\lambda$ exists.
+\end{proof}
+This particular example of a \emph{non-measurable }set is called a
+\emph{Vitali set. }While we used the interval $\left[0,1\right]$
+to construct such a set, it turns out that this contruction can be
+extended to any set of positive length in the Lebesgue sense.
+
+\section{Constructing measures on $\sigma-$algebras}
+
+The key issue with our previous definition of a measure on $\mathds{R}$
+is that one cannot have a set-valued function that both has our four
+desired properties \emph{and }is defined on all subsets of the real
+line. As a convention, the canonical construction of a measure retains
+the desired properties in exchange for restricting the class of subsets
+on which the measure is defined. These subsets are called $measurable$
+and the standard construction of the Lebesgue measure leads to the
+class of measurable subsets on the real line to have a special structure
+of a \emph{$\sigma-$algebra. }Before we define this structure it
+might be worthwhile looking at various types of structures a class
+of sets could have
+
+\subsection{Structures of sets}
+
+In the rest of this chapter, we assume that $\left(\mathcal{X},\tau\right)$
+is an abstract topological space.
+\begin{defn}
+\label{def:ring}Let $\mathcal{F}\subseteq2^{\mathcal{X}}$. We call
+$\mathcal{F}$ a \emph{ring }if
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $\emptyset \in \mathcal{F}$
+	\item $A,B \in \mathcal{F} \Rightarrow A\cup B \in \mathcal{F}$
+	\item $A,B \in \mathcal{F} \Rightarrow A\setminus B \in \mathcal{F}$.
+\end{enumerate}
+\end{defn}
+
+\noindent Note that the above definition implies that $A\cap B=A\setminus\left(A\setminus B\right)\in\mathcal{F}$.
+\begin{defn}
+\label{def:algebra}Let $\mathcal{F}\subseteq2^{\mathcal{X}}$. We
+call $\mathcal{F}$ an \emph{algebra }if
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $\mathcal{F}$ is a ring
+	\item $\mathcal{X} \in \mathcal{F}$.
+\end{enumerate}
+\end{defn}
+
+\noindent For example, if we let $\mathcal{X}$ be an arbitrary infinite
+set, the collection of all finite subsets of $\mathcal{X}$ forms
+a ring but not an algebra.
+\begin{defn}
+\label{def:sigmaRing}Let $\mathcal{F}\subseteq2^{\mathcal{X}}$.
+We call $\mathcal{F}$ a $\sigma$-ring if
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $\mathcal{F}$ is a ring
+	\item $\mathcal{F}$ is closed under countable unions.
+\end{enumerate}
+\end{defn}
+
+\begin{defn}
+\label{def:sigmaAlgebra}Let $\mathcal{F}\subseteq2^{\mathcal{X}}$.
+We call $\mathcal{F}$ a $\sigma$-algebra if
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $\mathcal{F}$ is an algebra.
+	\item $\mathcal{F}$ is closed under countable unions.
+\end{enumerate}
+\end{defn}
+
+\noindent Naturally, the power set $2^{\mathcal{X}}$ is a ring,
+algebra, $\sigma$-ring, and $\sigma$-algebra all rolled into one.
+\begin{rem*}
+Algebras are sometimes referred to as \emph{fields} in the probability
+literature.
+\end{rem*}
+As we said earlier, the notion of a $\sigma$-algebra is important
+because the standard Lebesgue measurable sets form a $\sigma$-algebra
+of subsets of $\mathds{R}$. However, the other structures we have
+defined are also important; as we ``extend'' the notion of the length
+of an interval on the real line to more complicated sets, we shall
+first expand our class of measurable sets to a ring of sets.
+
+\subsection{Lengths of intervals}
+
+The mosts intuitive notion of a measure on $\mathds{R}$ arises from
+the length of an interval. Thus, in our construction of the Lebesgue
+measure, we start with the simplest class of sets which consists of
+intervals in $\mathds{R}.$ Define $\mathcal{L}=\left\{ \left(a,b\right]\mid-\infty<a\leq b<\infty\right\} $
+and let $\lambda_{1}:\mathcal{L}\longrightarrow\left[0,\infty\right]$
+be given by $\lambda_{1}\left(\left(a,b\right]\right)=b-a$. It turns
+out that our collection of half-open intervals in $\mathds{R}$ has
+the structure of a \emph{semi-ring.}
+\begin{defn}
+\label{def:semiRing} Let $\mathcal{F}\subseteq2^{\mathcal{X}}$.
+We call $\mathcal{F}$ a \emph{semi-ring }if
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $\emptyset \in \mathcal{F}$.
+	\item $A,B \in \mathcal{F} \Rightarrow A\cap B \in \mathcal{F}$.
+	\item $A,B \in \mathcal{F} \Rightarrow \exists \left\{A_i\right\}_{i=1}^{n} \in \mathcal{F}$ such that $ A_i \cap A_j = \emptyset$ for $i \neq j$ and
+	\[
+		A \setminus B = \bigcup_{i=1}^{n}A_i 
+	\]
+\end{enumerate}
+\end{defn}
+
+\begin{prop}
+\label{prop:intervalSigmaRing}$\mathcal{L}$ is a semi-ring.
+\end{prop}
+
+\begin{proof}
+To see (i), note that $\emptyset=\left(a,a\right]\in\mathcal{L}$.
+For (ii), note that for any intervals $A=\left(a_{1},b_{1}\right]$
+and $B=\left(a_{2},b_{2}\right]$, \footnote{If $\max\left(a_{1},a_{2}\right)>\min\left(b_{1},b_{2}\right)$, then
+$\left(\max\left(a_{1},a_{2}\right),\min\left(b_{1},b_{2}\right)\right]=\emptyset\in\mathcal{L}$}
+\[
+\left(a_{1},b_{1}\right]\cap\left(a_{2},b_{2}\right]=\left(\max\left(a_{1},a_{2}\right),\min\left(b_{1},b_{2}\right)\right]\in\mathcal{L}.
+\]
+To see (iii), we have to consider two possible cases. First, if $A,B$
+are disjoint then $A\setminus B=A\in\mathcal{L}.$ If $A,B$ have
+a non-trivial intersection, then
+\begin{align*}
+A\setminus B=A\cap B^{C} & =\left(a_{1},b_{1}\right]\cap\left\{ \left(-\infty,a_{2}\right]\cup\left(b_{2},\infty\right)\right\} \\
+ & =\left(a_{1},b_{1}\right]\cap\left(-\infty,a_{2}\right]\bigcup\left(a_{1},b_{1}\right]\cap\left(b_{2},\infty\right)\\
+ & =\left(a_{1},\min\left(b_{1},a_{2}\right)\right]\bigcup\left(\max\left(a_{1},b_{2}\right),b_{1}\right]
+\end{align*}
+where the components of the union expressed in the last equality are
+in $\mathcal{L}$. This completes the proof.
+\end{proof}
+The fact that $\mathcal{L}$ is a semi-ring is important because there's
+a relatively straightforward way to ``expand'' a semi-ring into
+a ring.
+\begin{thm}
+\label{thm:expandSemiRing}Let $\mathcal{F}$ be a semi-ring and let
+$\mathcal{B}$ be the set of all finite disjoint unions of sets in
+$\mathcal{F}$. Then $\mathcal{B}$ is a ring.
+\end{thm}
+
+\begin{proof}
+Property (i) in Definition \ref{def:ring} is trivially satisfied
+thus we need to prove properties (ii) and (iii). Let $A,B\in\mathcal{B}$.
+To prove property (iii), we first establish the weaker claim that
+$A\cap B\in\mathcal{B}$. Observe that
+\begin{align*}
+A & =\bigcup_{i=1}^{n_{A}}A_{i},\ A_{i}\in\mathcal{F},A_{i}\cap A_{j}=\emptyset\mathrm{\ for\ }i\neq j,\\
+B & =\bigcup_{i=1}^{n_{B}}B_{i},\ B_{i}\in\mathcal{F},B_{i}\cap B_{j}=\emptyset\mathrm{\ for\ }i\neq j,
+\end{align*}
+by the definition of $\mathcal{B}.$ Then
+\begin{align*}
+A\cap B & =\left(\bigcup_{i=1}^{n_{A}}A_{i}\right)\bigcap\left(\bigcup_{j=1}^{n_{B}}B_{j}\right)\\
+ & =\bigcup_{i=1}^{n_{A}}\bigcup_{j=1}^{n_{B}}\left(A_{i}\cap B_{j}\right)
+\end{align*}
+where $\forall i,j:\ A_{i}\cap B_{j}\in\mathcal{F}$ as $\mathcal{F}$
+is a semi-ring. Clearly, $A_{i}\cap B_{j}$ is disjoint from $A_{i^{\prime}}\cap B_{j^{\prime}}$,
+thus proving the claim. Next, we establish property (iii) by noting
+that
+\begin{align*}
+A\setminus B & =\left(\bigcup_{i=1}^{n_{A}}A_{i}\right)\setminus B\\
+ & =\left(\bigcup_{i=1}^{n_{A}}A_{i}\right)\bigcap B^{C}\\
+ & =\bigcup_{i=1}^{n_{A}}\left(A_{i}\cap B^{C}\right)\\
+ & =\bigcup_{i=1}^{n_{A}}\left(A_{i}\cap\left(\bigcap_{j=1}^{n_{B}}B_{j}^{C}\right)\right)\\
+ & =\bigcup_{i=1}^{n_{A}}\bigcap_{j=1}^{n_{B}}\left(A_{i}\cap B_{j}^{C}\right)\\
+ & =\bigcup_{i=1}^{n_{A}}\bigcap_{j=1}^{n_{B}}A_{i}\setminus B_{j}
+\end{align*}
+where the $A_{i}\setminus B_{j}\in\mathcal{B}$ since $A_{i},B_{j}\in\mathcal{F}$.
+By the closure under finite intersections property established earlier,
+$E_{i}=\bigcap_{j=1}^{n_{B}}A_{i}\setminus B_{j}\in\mathcal{B}$ for
+any $1\leq i\leq n_{A}$. Thus we can rewrite the chain of equalities
+above as
+\[
+A\setminus B=\bigcup_{i=1}^{n_{A}}E_{i}
+\]
+where $E_{i}\cap E_{i^{\prime}}=\emptyset$ because $A_{i}\cap A_{i^{\prime}}=\emptyset.$
+Since the finite disjoint union of elements of $\mathcal{B}$ is also
+a finite disjoint union of elements of $\mathcal{F}$, our claim follows.
+Finally, to establish property (ii), observe that
+\[
+A\cup B=\left(A\setminus B\right)\cup\left(A\cap B\right)\cup\left(B/A\right)
+\]
+which is a disjoint union of elements in $\mathcal{B}$ and so is
+also in $\mathcal{B}$ by the same argument as earlier.
+\end{proof}
+\begin{cor}
+Let $\mathcal{J}$ be the set of all finite disjoint unions of sets
+in $\mathcal{L}$. Then $\mathcal{J}$ is a ring.
+\end{cor}
+
+\begin{proof}
+By Proposition \propref{intervalSigmaRing}, $\mathcal{L}$ is a semi-ring.
+The claim then follows by an application of Theorem \thmref{expandSemiRing}.
+\end{proof}
+Now we can extend our proto-measure $\lambda_{1}$ to a new proto-measure
+$\lambda_{2}:\mathcal{J}\longrightarrow\left[0,\infty\right]$ as
+follows:
+\[
+\lambda_{2}\left(A\right):=\begin{cases}
+\lambda_{1}\left(A\right), & A\in\mathcal{L}\\
+\sum_{i=1}^{n}\lambda_{1}\left(B_{i}\right), & A=\bigcup_{i=1}^{n}B_{i},\left\{ B_{i}\right\} _{i=1}^{n}\text{ are disjoint in }\mathcal{L}
+\end{cases}
+\]
+
+\begin{prop}
+\label{prop:ringMeasureFinitelyAdditive}$\lambda_{2}$ is fiinitely
+additive on $\mathcal{J}$. That is, for any finite disjoint collection
+of sets $\left\{ A_{i}\right\} _{i=1}^{n}\in\mathcal{J}$
+\[
+\lambda_{2}\left(\bigcup_{i=1}^{n}A_{i}\right)=\sum_{i=1}^{n}\lambda_{2}\left(A_{i}\right).
+\]
+\end{prop}
+
+\begin{proof}
+For clarity, we will prove finite additivity for two sets , since
+the general case follows by induction. Let $A,B\in\mathcal{J}$ such
+that $A\cap B=\emptyset$. By definition,
+\begin{align*}
+A & =\bigcup_{i=1}^{n_{A}}A_{i},\left\{ A_{i}\right\} _{i=1}^{n_{A}}\text{ are disjoint in }\mathcal{L}\\
+B & =\bigcup_{i=1}^{n_{B}}B_{i},\left\{ B_{i}\right\} _{i=1}^{n_{B}}\text{ are disjoint in }\mathcal{L}
+\end{align*}
+and so we have that
+\begin{align*}
+\lambda_{2}\left(A\cup B\right) & =\lambda_{2}\left(\left(\bigcup_{i=1}^{n_{A}}A_{i}\right)\cup\left(\bigcup_{i=1}^{n_{B}}B_{i}\right)\right)\\
+ & =\sum_{i=1}^{n_{A}}\lambda_{2}\left(A_{i}\right)+\sum_{i=1}^{n_{B}}\lambda_{2}\left(B_{i}\right)\\
+ & =\lambda_{2}\left(A\right)+\lambda_{2}\left(B\right)
+\end{align*}
+where the second equality follows from associativity of addition along
+with the fact that $\left(\bigcup_{i=1}^{n_{A}}A_{i}\right)\cup\left(\bigcup_{i=1}^{n_{B}}B_{i}\right)$
+is a disjoint union of sets in $\mathcal{L}$.
+\end{proof}
+
+\subsection{Structures generated by a class of sets}
+
+A key way to ``expand'' a particular class of sets into a larger
+structure is to look at the structure \emph{generated }by the class
+of sets. This idea can be formalized in the following definition,
+which serves as particular example of this general concept of generation.
+\begin{defn}
+\label{def:ringGeneratedByClass}For any $\mathcal{A}\subseteq2^{\mathcal{X}},$
+we refer to the intersection of all rings that contain $\mathcal{A}$
+as the ring \emph{generated }by $\mathcal{A}$. Formally, we write
+\[
+\ring\left(\mathcal{A}\right)=\bigcap\left\{ \mathcal{R\subseteq}2^{\mathcal{X}}\text{ is a ring }\mid\mathcal{A\subseteq\mathcal{R}}\right\} .
+\]
+\end{defn}
+
+\begin{prop}
+\label{prop:ringGeneratedByClassIsRing}For any $\mathcal{A}\subseteq2^{\mathcal{X}},$
+$\ring\left(\mathcal{A}\right)$ is a ring.
+\end{prop}
+
+\begin{proof}
+First note that $\ring\left(\mathcal{A}\right)$ exists since $2^{\mathcal{X}}$
+is a ring and so $\left\{ \mathcal{R\subseteq}2^{\mathcal{X}}\text{ is a ring }\mid\mathcal{A\subseteq\mathcal{R}}\right\} $
+is non-empty. Next observe that $\emptyset\in\ring\left(\mathcal{A}\right)$
+vacuously, so property (i) in Definition \defref{ring} is easily
+satisfied. For property (ii), let $A,B\in\ring\left(\mathcal{A}\right)$
+and observe that $A,B\in\mathcal{R}$ for every $\mathcal{R}\in\left\{ \mathcal{R\subseteq}2^{\mathcal{X}}\text{ is a ring }\mid\mathcal{A\subseteq\mathcal{R}}\right\} $.
+Since $\mathcal{R}$ is a ring, $A\cup B\in\mathcal{R}$ for every
+$\mathcal{R}$ and thus $A\cup B$ is in the intersection i.e. $\ring\left(\mathcal{A}\right)$.
+A similar argument establishes property (iii) and thus we can conclude
+that $\ring\left(\mathcal{A}\right)$ is a ring (as it should, given
+its name).
+\end{proof}
+In our construction of the Lebesgue measure on $\mathds{R}$, we discovered
+that $\mathcal{J}$, which is the set of all disjoint unions of half-open
+intervals in $\mathds{R}$, is a ring. It turns out that we can make
+a stronger statement using the language of generators developed here.
+\begin{prop}
+\label{prop:JisRingGeneratedByL}$\mathcal{J}=\ring\left(\mathcal{L}\right)$
+\end{prop}
+
+\begin{proof}
+Let $A\in\mathcal{J}$ be arbitrary. Then we can write 
+\[
+A=\bigcup_{i=1}^{n_{A}}A_{i}
+\]
+where $A_{i}\in\mathcal{L}$ are pairwise disjoint. Let $\mathcal{R}$
+be an arbitrary ring that contains $\mathcal{L}$ and observe that
+since rings are closed under finite unions, $A\in\mathcal{R}.$ Since
+$\mathcal{R}$ was arbitrary, $A$ is contained by every ring that
+contains $\mathcal{L}$ and is thus contained in the intersection
+of all such rings i.e. $\ring\left(\mathcal{L}\right).$ This proves
+that $\mathcal{J}\subseteq\ring\left(\mathcal{L}\right).$
+
+To see reverse inclusion, recall that $\mathcal{J}$ is a ring that
+contains $\mathcal{L}$, and so the intersection of all rings that
+contain $\mathcal{L}$ is certaintly contained in $\mathcal{J}$.
+This completes the proof.
+\end{proof}
+In measure theory, the most important structure on sets is the $\sigma$-algebra,
+and the $\sigma$-algebra generated by a class of sets $\mathcal{A}$,
+defined analagously to Definition \ref{def:ringGeneratedByClass}
+about rings and notated as $\sigma\left(\mathcal{A}\right)$, plays
+in an important role in this theory. Using a similar argument as the
+one shown earlier, one can conclude that $\sigma\left(\mathcal{A}\right)$
+is indeed a $\sigma$-algebra. In analysis and probability theory,
+mathematicians are interested in $\sigma$-algebras generated by a
+special class of sets.
+\begin{defn}
+\label{def:borelSigma}The $\sigma$-algebra generated by the topology
+$\tau$ on set $\mathcal{X}$ is called the \emph{Borel $\sigma$-algebra
+}on $\mathcal{X}$ and is denoted $\mathscr{B}\left(\mathcal{X}\right)$.
+\end{defn}
+
+The Borel $\sigma$-algebra is interesting because it turns that it
+is the $\sigma$-algebra generated by $\mathcal{L}$ is indeed $\mathscr{B}\left(\mathds{R}\right)$,
+where $\mathds{R}$ has the usual topology. To prove this fact, we
+need a little lemma from an introductory course on analysis and topology.
+\begin{lem}
+\label{lem:openSetDisjointUnionInterval} Any open set in the usual
+topology of $\R$ can be written as a countable disjoint union of
+open intervals in $\R$.
+\end{lem}
+
+\begin{proof}
+Let $O$ be an open set in $\R$ and let $x\in O$ be arbitrary. Define
+$I_{x}\subseteq O$ to be the largest open interval that contains
+$x$ (that is, $I_{x}$ is the union of all open intervals in $O$
+that contain $x$). Note that at least one such interval exists because
+$O$ is open and so there exists some $\varepsilon>0$ such that $\left(x-\varepsilon,x+\varepsilon\right)\subseteq O.$
+Now for any distinct $x,y\in O$, $I_{x}$ and $I_{y}$ are either
+disjoint or equal since if they were neither, $I_{x}\cup I_{y}\subseteq O$
+would be a larger interval that contains both $x$ and $y$. Let $\mathcal{I}$
+denote the collection of all disjoint such intervals (that is, we
+get $\mathcal{I}$ by discarding all the ``redundant'' intervals
+in $\left\{ I_{x}\right\} _{x\in O}$). We can do this without invoking
+the Axiom of Choice since there are only countably many intervals
+in $\mathcal{I}$: every interval $I\in\mathcal{I}$ contains at least
+one rational number because the rationals are a countably dense subset
+of $\R$. Thus, since the intervals are disjoint, $\mathcal{I}$ can
+have at most countably many intervals. Of course
+\[
+O=\bigcup_{I\in\mathcal{I}}I
+\]
+and so our claim follows.
+\end{proof}
+\begin{prop}
+\label{prop:sigmaAlgebraGeneratedbyLisBorel}$\sigma\left(\mathcal{L}\right)=\borel\left(\R\right)$
+\end{prop}
+
+\begin{proof}
+Let $O$ be an open set in $\R$. Then, by Lemma \ref{lem:openSetDisjointUnionInterval}
+\begin{align*}
+O & =\bigcup_{i=1}^{\infty}\left(a_{i},b_{i}\right)\\
+ & =\bigcup_{i=1}^{\infty}\bigcup_{n=1}^{\infty}\left(a_{i},b_{i}-\frac{1}{n}\right]
+\end{align*}
+which is in $\sigma\left(\mathcal{L}\right)$ by closure under countable
+unions (property (ii) in Definition \ref{def:sigmaAlgebra}). Therefore
+the topology of $\R$ is in $\sigma\left(\mathcal{L}\right)$ which
+implies that $\borel\left(\R\right)\subseteq\sigma\left(\mathcal{L}\right)$.
+The
+
+To see the reverse inclusion, observe that for any $\left(a,b\right]\in\mathcal{L}$,
+we can write
+\[
+\left(a,b\right]=\left(a,b\right)\cup\left\{ b\right\} \in\borel\left(\R\right)
+\]
+since $\left\{ b\right\} $ is closed in $\R$ and closed sets are
+the complements of open sets and thus contained in $\borel\left(\R\right)$.\footnote{$\sigma$-algebras on $\mathcal{X}$ are closed under complements
+since they are closed under set-differences and contain $\mathcal{X}$.} Therefore $\mathcal{L\subseteq\borel\left(\R\right)}$ and so $\sigma\left(\mathcal{L}\right)\subseteq\borel\left(\R\right)$,
+completing the proof.
+\end{proof}
+Now we are ready to prove that our proto-measure $\lambda_{2}$ is
+actually a countably-additive pre-measure on $\ring\left(\mathcal{L}\right)$.
+But first, we need a lemma about double sums!
+\begin{lem}[Tonelli for series]
+\label{lem:TonelliForSeries}Let $\left\{ x_{ij}\right\} _{i,j\in\N\times\N}$
+be a sequence of non-negative (extended) real numbers. Then
+
+\[
+\sum_{i,j\in\N^{2}}x_{ij}=\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}=\sum_{j=1}^{\infty}\sum_{i=1}^{\infty}x_{ij}.
+\]
+\end{lem}
+
+\begin{proof}
+We will prove the first equality since the second then follows by
+symmetry. Let $F\subset\N^{2}$ be arbitrary and finite. Then, there
+exists some $N\in\N$ such that $F\subseteq\left\{ 1,2\ldots,N\right\} ^{2}$
+and so, by the non-negativity of $x_{ij}$
+\[
+\sum_{i,j\in F}x_{ij}\leq\sum_{i,j\in\left\{ 1,2\ldots,N\right\} ^{2}}x_{ij}=\sum_{i=1}^{N}\sum_{j=1}^{N}x_{ij}\leq\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}.
+\]
+This inequality holds for any finite $F\subset\N^{2}$ and so it holds
+for the supremum of all such finite sums. That is to say,
+
+\[
+\sup_{F\subset\N^{2}\mid F\text{ is finite}}\sum_{i,j\in F}x_{ij}\leq\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}.
+\]
+But recall that for any $\left\{ a_{i}\right\} _{i\in\mathcal{I}}\in\left[0,\infty\right]$
+where $\mathcal{I}$ is any index set
+\[
+\sum_{i\in\mathcal{I}}a_{i}:=\sup_{I\subset\mathcal{I}\mid I\text{ is finite}}\sum_{i\in I}a_{i},
+\]
+and so we have that
+\[
+\sum_{i,j\in\N^{2}}x_{ij}\leq\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}x_{ij}.
+\]
+
+To derive the other inequality, observe that it is sufficient to prove
+that
+\[
+\sum_{i,j\in\N^{2}}x_{ij}\geq\sum_{i=1}^{I}\sum_{j=1}^{\infty}x_{ij}
+\]
+for every $I\in\N$. Fix $I=I_{0}$ and note that
+\[
+\sum_{i=1}^{I_{0}}\sum_{j=1}^{\infty}x_{ij}=\sum_{i=1}^{I_{0}}\lim_{J\to\infty}\sum_{j=1}^{J}x_{ij}=\lim_{J\to\infty}\sum_{i=1}^{I_{0}}\sum_{j=1}^{J}x_{ij}.
+\]
+Thus to prove $\sum_{i,j\in\N^{2}}x_{ij}\geq\sum_{i=1}^{I_{0}}\sum_{j=1}^{\infty}x_{ij}$
+we need to prove that 
+\[
+\sum_{i,j\in\N^{2}}x_{ij}\geq\sum_{i=1}^{I_{0}}\sum_{j=1}^{J}x_{ij}
+\]
+for every $J\in\N$. Fix $J=J_{0}$ and then observe that
+\[
+\sum_{i=1}^{I_{0}}\sum_{j=1}^{J_{0}}x_{ij}=\sum_{i,j\in\left\{ 1,2,\ldots,I_{0}\right\} \times\left\{ 1,2,\ldots,J_{0}\right\} }x_{ij}\leq\sum_{i,j\in\N^{2}}x_{ij}
+\]
+where the inequality follows due to non-negativity of $x_{ij}$. This
+concludes the proof.
+\end{proof}
+\begin{rem*}
+This lemma is a special case of Tonelli's theorem, a fundamental theorem
+that allows us to construct measures on Cartesian products of measure
+spaces from the measures on those spaces themselves. This theorem
+will be motivated and proved in Chapter 5.
+\end{rem*}
+\begin{prop}
+\label{prop:ringMeasureCountablyAdditive} $\lambda_{2}$ is a countably
+additive pre-measure on $\ring\left(\mathcal{L}\right)$, that is
+to say,
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $\lambda_2\left(\emptyset\right) = 0$ 
+	\item For disjoint $\left\{A_i\right\}_{i=1}^{\infty}\in \mathcal{J}$ such that $\bigcup_{i=1}^{\infty}A_i \in \mathcal{J}$
+	\[
+			\lambda_2\left(\bigcup_{i=1}^{\infty}A_i\right) = \sum_{i=1}^{\infty}\lambda_2\left(A_i\right).
+	\]
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Property (i) is inherited from $\lambda_{1}$. To see property (ii),
+let $\left\{ A_{i}\right\} _{i=1}^{\infty}\in\mathcal{J}$ be disjoint
+and write $A:=\bigcup_{i=1}^{\infty}A_{i}$ where $A\in\mathcal{J}$
+by assumption. First, note that if $\lambda_{2}\left(A_{i}\right)=\infty$
+for any $i\in\N$, then $\infty=\lambda_{2}\left(A_{i}\right)\leq\lambda_{2}\left(\bigcup_{i=1}^{\infty}A_{i}\right)=\infty$
+where the inequality is due to the monotonicity\footnote{For any $A,B\in\ring\left(\mathcal{L}\right)\text{ such that }A\subseteq B,\lambda_{2}\left(B\right)=\lambda_{2}\left(A\right)+\lambda_{2}\left(B\setminus A\right)\geq\lambda_{2}\left(A\right)$}
+of $\lambda_{2}$. Thus, in this case, the claim follows vacuously.
+So, without loss of generality, we can assume that $\lambda_{2}\left(A_{i}\right)<\infty$
+for every $i\in\N$. First, note that for any $n\in\N$,$\bigcup_{i=1}^{n}A_{i}\subseteq A$
+and so, by the monotonictity and finite additivity of $\lambda_{2}$,
+we have that
+\[
+\lambda_{2}\left(A\right)\geq\lambda_{2}\left(\bigcup_{i=1}^{n}A_{i}\right)=\sum_{i=1}^{n}\lambda_{2}\left(A_{i}\right)
+\]
+for every $n\in\N$. Taking limits, we have countable superadditivity:
+\[
+\lambda_{2}\left(A\right)\geq\sum_{i=1}^{\infty}\lambda_{2}\left(A_{i}\right).
+\]
+In order to deduce the reverse inequality, first suppose that both
+$A$ and $\left\{ A_{i}\right\} $ are in $\mathcal{L}.$ Then, we
+can write 
+\[
+A:=\left(a,b\right]
+\]
+and
+\[
+A_{i}=\left(a_{i},b_{i}\right]
+\]
+for each $i\in\N.$ Pick an arbitrary $0<\epsilon<b-a$ and observe
+that 
+\[
+\left[a+\epsilon,b\right]\subseteq\bigcup_{i=1}^{\infty}\left(a_{i},b_{i}+\frac{\epsilon}{2^{i}}\right)
+\]
+and so by the Heine-Borel theorem, there exists some finite $K$ such
+that 
+\[
+\left[a+\epsilon,b\right]\subseteq\bigcup_{k=1}^{K}\left(a_{i_{k}},b_{i_{k}}+\frac{\epsilon}{2^{i_{k}}}\right).
+\]
+By the finite additivity established in Proposition \ref{prop:ringMeasureFinitelyAdditive}
+and monotonicity, we have that
+\[
+\underbrace{b-a}_{\lambda_{2}\left(A\right)}-\epsilon\leq\sum_{k=1}^{K}b_{i_{k}}+\frac{\epsilon}{2^{i_{k}}}-a_{i_{k}}\leq\underbrace{\sum_{i=1}^{\infty}\left(b_{i}-a_{i}\right)}_{\sum_{i\in\N}\lambda_{2}\left(A_{i}\right)}+\epsilon
+\]
+and since $\epsilon$ can be arbitrary small the claim follows.
+
+Deducing the general case from the special one outlined above is straightforward.
+If $A,\left\{ A_{i}\right\} \in\mathcal{J}$ then 
+\[
+A=\bigcup_{j=1}^{J}B_{j}
+\]
+where $\left\{ B_{j}\right\} \in\mathcal{L}$ are pairwise disjoint.
+Similarly, 
+\[
+A_{i}=\bigcup_{k=1}^{n_{i}}C_{ik}
+\]
+where $\left\{ C_{ij}\right\} _{i\in\N,j\in\N}\in\mathcal{L}$ are
+pairwise disjoint and $n_{i}\in\N$. Note that then
+\[
+\lambda_{2}\left(A\right)=\sum_{j=1}^{J}\lambda_{2}\left(B_{j}\right)\leq\sum_{i=1}^{\infty}\sum_{k=1}^{n_{i}}\lambda_{2}\left(C_{ik}\right)=\sum_{i=1}^{\infty}\lambda_{2}\left(A_{i}\right)
+\]
+where the first equality follow from the finite additivity of $\lambda_{2}$
+on $\mathcal{J},$ the inequality by the fact that for any $j\in\left\{ 1,2,\ldots,J\right\} ,$
+there exists a partition of the collection $\left\{ C_{ik}\right\} $
+into subcollections $\left\{ C_{ik}^{j}\right\} _{1\leq j\leq J}$such
+that 
+\[
+B_{j}=\bigcup_{i,k}C_{ik}^{j}
+\]
+and so the special case of our result on $\mathcal{L}$ applies (along
+with an application of Lemma \ref{lem:TonelliForSeries}). The final
+equality again follows by finite additivity. 
+\end{proof}
+
+\subsection{Outer measures}
+\begin{defn}
+\label{def:outerMeasure}A set valued function 
+\[
+\mu^{*}:2^{\mathcal{X}}\longrightarrow\left[0,\infty\right]
+\]
+is called an outer measure on $\mathcal{X}$ if
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $ \mu^*\left(\emptyset\right) = 0$ 
+	\item $A\subseteq B \in 2^\mathcal{X} \Longrightarrow \mu^*\left(A\right) \leq \mu^*\left(B\right) $
+	\item For $\left\{A_i\right\}_{i=1}^{\infty}\in 2^\mathcal{X}$ 
+	\[
+			\mu^*\left(\bigcup_{i=1}^{\infty}A_i\right) \leq \sum_{i=1}^{\infty}\mu^*\left(A_i\right).
+	\]
+\end{enumerate}
+\end{defn}
+
+\begin{example}
+\label{exa:canonicalOuterMeasure}Given a non-negative extended-real
+valued function $\mu$ on a collection $\mathcal{A\subseteq}2^{\mathcal{X}}$
+such that $\mu\left(\emptyset\right)=0$, define for any $E\subseteq\mathcal{X}$
+\[
+\mu^{*}\left(E\right):=\inf\left\{ \sum_{i=1}^{\infty}\mu\left(A_{i}\right)\mid A_{i}\in\mathcal{A},E\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} 
+\]
+\end{example}
+
+Note that this function is defined on $2^{\mathcal{X}}$ since every
+bounded below subset of the (extended) real numbers has an infimum.
+Now we prove that the set-function descibed above is indeed an outer
+measure.
+\begin{prop}
+\label{prop:canonicalOuterMeasureIsOuterMeasure}The function $\mu^{*}:2^{\mathcal{X}}\longrightarrow\left[0,\infty\right]$
+defined in Example \ref{exa:canonicalOuterMeasure} is an outer measure
+\end{prop}
+
+\begin{proof}
+For (i), observe that $\emptyset\in\mathcal{A}$ and so $\mu^{*}\left(\emptyset\right)=\mu\left(\emptyset\right)=0.$
+Next, let $A\subseteq B\subseteq\mathcal{X}$ and observe that 
+\[
+\left\{ \sum_{i=1}^{\infty}\mu\left(A_{i}\right)\mid A_{i}\in\mathcal{A},B\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} \subseteq\left\{ \sum_{i=1}^{\infty}\mu\left(A_{i}\right)\mid A_{i}\in\mathcal{A},A\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} 
+\]
+and so 
+\[
+\mu^{*}\left(B\right)=\inf\left\{ \sum_{i=1}^{\infty}\mu\left(A_{i}\right)\mid A_{i}\in\mathcal{A},B\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} \geq\inf\left\{ \sum_{i=1}^{\infty}\mu\left(A_{i}\right)\mid A_{i}\in\mathcal{A},A\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} =\mu^{*}\left(A\right)
+\]
+which gives us (ii). For (iii), let $\left\{ E_{i}\right\} _{i=1}^{\infty}\in2^{\mathcal{X}}$
+be disjoint and assume that $\sum_{i=1}^{\infty}\mu^{*}\left(E_{i}\right)<\infty$
+since otherwise the claim is trivial. Fix $\epsilon>0$ and choose
+$A_{ij}\in\mathcal{A}$ such that $E_{i}\subseteq\bigcup_{j=1}^{\infty}A_{ij}$
+and
+
+\[
+\mu^{*}\left(E_{i}\right)\leq\sum_{j=1}^{\infty}\mu(A_{ij})<\mu^{*}\left(E_{i}\right)+\frac{\epsilon}{2^{i}}
+\]
+for every $i\in\N$\footnote{This is possible due to the assumption that $\mu^{*}\left(E_{i}\right)<\infty$,
+which implies that the set $\left\{ \sum_{j=1}^{\infty}\mu\left(A_{ij}\right)\mid A_{ij}\in\mathcal{A},E_{i}\subseteq\bigcup_{j=1}^{\infty}A_{ij}\right\} $
+is non-empty. The definition of an infimum then implies that such
+a cover $\left\{ A_{ij}\right\} $ exists.}. Observe that
+\begin{align*}
+E & :=\bigcup_{i=1}^{\infty}E_{i}\subseteq\bigcup_{i=1}^{\infty}\bigcup_{j=1}^{\infty}A_{ij}
+\end{align*}
+and so 
+\[
+\mu^{*}\left(E\right)\leq\sum_{i,j\in\N^{2}}\mu\left(A_{ij}\right)=\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}\mu\left(A_{ij}\right)\leq\sum_{i=1}^{\infty}\mu^{*}(E_{i})+\epsilon
+\]
+where the equality follows by Lemma \ref{lem:TonelliForSeries} and
+the second inequality is due to properties of the geometric series.
+Since $\epsilon$ was arbitrary, the claim folllows.
+\end{proof}
+\begin{rem}
+The outer measure described above is called the \emph{canonical }outer-measure
+as it as by far the most useful type of outer measure in measure theory.
+Given a space $\X$, a collection of subsets $\mathcal{A}\subseteq2^{\X}$,
+and a countably additive pre-measure $\mu$ on $\mathcal{A}$, we
+can call
+\[
+\mu^{*}\left(E\right):=\inf\left\{ \sum_{i=1}^{\infty}\mu\left(A_{i}\right)\mid A_{i}\in\mathcal{A},E\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} 
+\]
+the canonical outer measure generated by $\left(\mu,\mathcal{A}\right)$.
+\end{rem}
+
+\begin{prop}
+\label{prop:restrictionOfOuterMeasure}Let $\mathcal{A}$, $\mu,$
+and $\mu^{*}$ be defined as in Example \ref{exa:canonicalOuterMeasure}.
+Then, for any $A\in\mathcal{A}$
+\[
+\mu^{*}\left(A\right)=\mu\left(A\right).
+\]
+\end{prop}
+
+\begin{proof}
+First, observe that $A$ is a cover for itself and that $\emptyset\in\mathcal{A}$
+and so 
+\[
+\mu^{*}\left(A\right)=\inf\left\{ \sum_{i=1}^{\infty}\mu(A_{i})\mid A_{i}\in\mathcal{A},A\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} \leq\sum_{i=1}^{\infty}\mu(A_{i})
+\]
+where $A_{1}=A$ and $A_{i}=\emptyset$ for $i\neq1.$ Therefore,
+\[
+\mu^{*}\left(A\right)\leq\mu\left(A\right).
+\]
+
+To see the reverse inequality, let $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{A}$
+be an arbitrary cover of $A.$ Define,
+\[
+B_{i}:=A\cap\left(A_{i}\setminus\bigcup_{j=1}^{i-1}A_{j}\right)
+\]
+and notice that the $\left\{ B_{i}\right\} $ is a pairwise disjoint
+collections whose union is $A$ such that $B_{i}\subseteq A_{i}$
+for every $i\in\N$. By countable additivity and monotonicity,
+
+\[
+\mu\left(A\right)=\sum_{i=1}^{\infty}\mu\left(B_{i}\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right).
+\]
+Since $\left\{ A_{i}\right\} \subseteq\mathcal{A}$ is an arbitrary
+cover of $A$ , we have that
+\[
+\mu\left(A\right)\leq\inf\left\{ \sum_{i=1}^{\infty}\mu\left(A_{i}\right)\mid A_{i}\in\mathcal{A},A\subseteq\bigcup_{i=1}^{\infty}A_{i}\right\} =\mu^{*}\left(A\right)
+\]
+which completes the proof.
+\end{proof}
+Now we are (finally!!) ready to extend our pre-measure to a bona-fide
+measure on a $\sigma$-algebra, using the following theorem.
+\begin{thm}[Caratheodory's Extension Theorem]
+\label{thm:caratheodoryExtn}Let $\X$ be a set. Given a countably-additive
+pre-measure $\mu$ on ring $\mathcal{A\subseteq}2^{\mathcal{X}}$
+with canonical outer measure $\mu^{*}$ generated by $\left(\mu,\mathcal{A}\right)$,
+define the collection 
+\[
+\mathcal{C}\left(\mu^{*}\right):=\left\{ A\subseteq\mathcal{X}\mathrm{\ such\ that\ }\mu^{*}\left(E\right)=\mu^{*}\left(A\cap E\right)+\mu^{*}\left(A^{C}\cap E\right)\forall E\in2^{\mathcal{X}}\right\} .
+\]
+Then
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $ \mathcal{A}\subseteq \mathcal{C}$.
+	\item $ \mathcal{C}\left(\mu^*\right) $ is a $\sigma$-algebra.
+	\item $\left.\mu^*\right|_{\mathcal{C}}$ is a countably additive measure on $\mathcal{C}$. 
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+First we will show (i). Let $A\in\mathcal{A}$ be arbitrary. By the
+countable subadditivity of $\mu^{*}$, we know that 
+\[
+\mu^{*}\left(E\right)=\mu^{*}\left(\left(A\cap E\right)\bigcup\left(A^{C}\cap E\right)\right)\leq\mu^{*}\left(A\cap E\right)+\mu^{*}\left(A^{C}\cap E\right)
+\]
+for every $E\subseteq\mathcal{X}$. To deduce the reverse inequality,
+fix $E$ such that $\mu^{*}\left(E\right)<\infty$ because otherwise
+the claim follows trivially. Pick an $\epsilon>0$ and find a cover
+$\left\{ A_{i}\right\} _{i=1}^{\infty}\in\mathcal{A}$ of $E$ such
+that
+\[
+\mu^{*}\left(E\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right)<\mu^{*}\left(E\right)+\epsilon
+\]
+As in the proof of Proposition \ref{prop:canonicalOuterMeasureIsOuterMeasure},
+this is possible because $\mu^{*}\left(E\right)<\infty$ and the definition
+of an infimum. Next, observe that
+\begin{align*}
+E\cap A & \subseteq\bigcup_{i=1}^{\infty}(A_{i}\cap A),\\
+E\cap A^{C} & \subseteq\bigcup_{i=1}^{\infty}(A_{i}\cap A^{C})
+\end{align*}
+and so 
+\begin{align*}
+\mu^{*}\left(E\cap A\right) & \leq\mu^{*}\left(\bigcup_{i=1}^{\infty}(A_{i}\cap A)\right)\leq\sum_{i=1}^{\infty}\mu^{*}\left(A_{i}\cap A\right)\\
+\mu^{*}\left(E\cap A^{C}\right) & \leq\mu^{*}\left(\bigcup_{i=1}^{\infty}(A_{i}\cap A^{C})\right)\leq\sum_{i=1}^{\infty}\mu^{*}\left(A_{i}\cap A^{C}\right)
+\end{align*}
+where the first inequality follows due to monotonicity and the second
+due to subadditivity. Together, these inequalities imply that
+\begin{align*}
+\mu^{*}\left(A\cap E\right)+\mu^{*}\left(A^{C}\cap E\right) & \leq\sum_{i=1}^{\infty}\mu^{*}\left(A_{i}\cap A\right)+\mu^{*}\left(A_{i}\cap A^{C}\right)\\
+ & =\sum_{i=1}^{\infty}\mu\left(A_{i}\cap A\right)+\mu\left(A_{i}\cap A^{C}\right)\\
+ & =\sum_{i=1}^{\infty}\mu\left(A_{i}\right)\\
+ & <\mu^{*}\left(E\right)+\epsilon
+\end{align*}
+where the first equality is due to the fact that rings are closed
+under intersections and set-differences along with Proposition \ref{prop:restrictionOfOuterMeasure}
+and the second equality is due to the countable additivity of $\mu.$
+Since $\epsilon$ and $E$ are arbitrary, we have that 
+\[
+\mu^{*}\left(A\cap E\right)+\mu^{*}\left(A^{C}\cap E\right)\leq\mu^{*}\left(E\right)
+\]
+for every $E\subseteq\mathcal{X},$ establishing that $\mathcal{A}\subseteq\mathcal{C}$.
+
+Next we show (ii); that is, we prove $\mathcal{C}$ is a $\sigma-$algebra.
+Recall Definition \ref{def:sigmaAlgebra} and notice that it is sufficient
+to prove that (1) $\emptyset,\mathcal{X}\in\mathcal{C}$; (2) if $A\in\mathcal{C}$
+then $A^{C}\in\mathcal{C}$; (3) if $\left\{ A_{i}\right\} _{i=1}^{\infty}\in\mathcal{C}$
+then $\bigcup_{i=1}^{\infty}A_{i}\in\mathcal{C}.$ Note that $\emptyset,\mathcal{X}\in\mathcal{C}$
+because, trivially,
+\[
+\mu^{*}\left(E\cap\mathcal{X}\right)+\mu^{*}\left(E\cap\emptyset\right)=\mu^{*}\left(E\right).
+\]
+Symmetry between $A$ and $A^{C}$ in the definition of $\mathcal{C}$
+establishes (2). For (3), we first establish closure under finite
+unions and bootstrap this weaker result to yield the stronger claim.
+Let $A,B\in\mathcal{C}$ and let $E\subseteq\mathcal{X}$ be arbitrary.
+Then
+
+\begin{align*}
+\mu^{*}\left(E\right) & =\mu^{*}\left(E\cap A\right)+\mu^{*}\left(E\cap A^{C}\right)\\
+ & =\mu^{*}\left(\left(E\cap A\right)\cap B\right)+\mu^{*}\left(\left(E\cap A\right)\cap B^{C}\right)+\mu^{*}\left(E\cap A^{C}\right)\\
+ & =\mu^{*}\left(E\cap A\cap B\right)+\mu^{*}\left(E\cap\left(A\cap B\right)^{C}\cap A\right)+\mu^{*}\left(E\cap\left(A\cap B\right)^{C}\cap A^{C}\right)\\
+ & =\mu^{*}\left(E\cap A\cap B\right)+\mu^{*}\left(E\cap\left(A\cap B\right)^{C}\right)
+\end{align*}
+where the second equality is due to the definition of $\mathcal{C}$
+and the fact that $B\in\mathcal{\mathcal{C}}$, the third equality
+is due to the identities
+\begin{align*}
+\left(A\cap B\right)^{C}\cap A & =\left(A^{C}\cup B^{C}\right)\cap A=A\cap B^{C}\\
+\left(A\cap B\right)^{C}\cap A^{C} & =\left(A^{C}\cup B^{C}\right)\cap A^{C}=A^{C},
+\end{align*}
+and the fourth equality follows from the definition of $\mathcal{C}$
+and that $A\in\mathcal{C}$. This proves that for any $A,B\in\mathcal{C}$,
+$A\cap B\in\mathcal{C}.$ Property (2) then implies that $A\cup B\in\mathcal{C}.$
+
+To establish closure under countable unions, fix $E\subseteq\mathcal{X}$
+and let $\left\{ A_{i}\right\} _{i=1}^{\infty}\in\mathcal{C}$ be
+arbitrary with $B=\bigcup_{i\in\N}A_{i}$ and define
+\[
+B_{n}:=\bigcup_{i=1}^{n}A_{i}
+\]
+where $B_{n}\in\mathcal{C}$ by our result on closure under finite
+unions. Without loss of generality, we can assume that the $\left\{ A_{i}\right\} $
+are pairwise disjoint (since we could otherwise replace $A_{i}$ with
+$C_{i}:=A_{i}\setminus\bigcup_{j=1}^{i-1}A_{j}$ which are disjoint
+such that $\bigcup_{i=1}^{\infty}A_{i}=\bigcup_{i=1}^{\infty}C_{i}$).
+Then, we have that
+\begin{align*}
+\mu^{*}\left(E\right) & =\mu^{*}\left(E\cap B_{n}^{C}\right)+\mu^{*}\left(E\cap B_{n}\right)\\
+ & =\mu^{*}\left(E\cap B_{n}^{C}\right)+\mu^{*}\left(E\cap B_{n}\cap A_{n}\right)+\mu^{*}\left(E\cap B_{n}\cap A_{n}^{C}\right)\\
+ & =\mu^{*}\left(E\cap B_{n}^{C}\right)+\mu^{*}\left(E\cap A_{n}\right)+\mu^{*}\left(E\cap B_{n-1}\right)
+\end{align*}
+where we used the fact that $A_{n}\in\mathcal{C}$ for the second
+equality and the disjointness of $A_{i}$ for the third equality.
+Observe that the equality $\mu^{*}\left(E\cap B_{n}\right)=\mu^{*}\left(E\cap A_{n}\right)+\mu^{*}\left(E\cap B_{n-1}\right)$
+is a recurrence relation that can be expanded as
+\[
+\mu^{*}\left(E\cap B_{n}\right)=\sum_{i=1}^{n}\mu^{*}\left(E\cap A_{i}\right)
+\]
+and so 
+\begin{align*}
+\mu^{*}\left(E\right) & =\mu^{*}\left(E\cap B_{n}^{C}\right)+\sum_{i=1}^{n}\mu^{*}\left(E\cap A_{i}\right)\\
+ & \geq\mu^{*}\left(E\cap B^{C}\right)+\sum_{i=1}^{n}\mu^{*}\left(E\cap A_{i}\right)
+\end{align*}
+for every $n\in\N$ where the inequality is due to the the fact that
+$B^{C}\subseteq B_{n}^{C}$ and the monotonicity of outer measures.
+After taking limits, we have that
+\begin{align*}
+\mu^{*}\left(E\right) & \geq\mu^{*}\left(E\cap B^{C}\right)+\sum_{i=1}^{\infty}\mu^{*}\left(E\cap A_{i}\right)\\
+ & \geq\mu^{*}\left(E\cap B^{C}\right)+\mu^{*}\left(\bigcup_{i\in\N}\left(E\cap A_{i}\right)\right)\\
+ & =\mu^{*}\left(E\cap B^{C}\right)+\mu^{*}\left(E\cap B\right)
+\end{align*}
+where the second inequality follows by countable subadditivity. Another
+application of countable subadditivity yields
+\[
+\mu^{*}\left(E\right)\leq\mu^{*}\left(E\cap B^{C}\right)+\mu^{*}\left(E\cap B\right)
+\]
+and together the two inequalities establish that $B\in\mathcal{C},$
+finishing the proof of (ii).
+
+Finally, in order to show that $\left.\mu^{*}\right|_{\mathcal{C}}$
+is indeed a countably additive measure on $\mathcal{C}$, let $\left\{ A\right\} _{i=1}^{\infty}\in\mathcal{C}$
+be pairwise disjoint, and observe that for $B:=\bigcup_{i\in\N}A_{i}\in\mathcal{C}$
+and any $E\subseteq\mathcal{X}$
+\[
+\mu^{*}\left(E\right)\geq\mu^{*}\left(E\cap B^{C}\right)+\sum_{i=1}^{\infty}\mu^{*}\left(E\cap A_{i}\right)
+\]
+due to our previous work. Letting $E=B$, we have 
+\begin{align*}
+\mu^{*}\left(B\right) & \geq\sum_{i=1}^{\infty}\mu^{*}\left(B\cap A_{i}\right)\\
+ & =\sum_{i=1}^{\infty}\mu^{*}\left(A_{i}\right).
+\end{align*}
+Since the reverse inequality follows by the subadditivity of the outer
+measure, our proof is complete.
+\end{proof}
+\begin{rem}
+\label{rem:noRingReqd}Note that the proof of the facts that $\mathcal{C}\left(\mu^{*}\right)$
+is a $\sigma$-algebra and $\mu^{*}|_{\mathcal{C}}$ is countably
+additive do not depend on the fact $\mathcal{A}$ is a ring; the proofs
+would hold if $\mathcal{A}$ was any collection of sets and $\mu^{*}$
+was any outer measure (as opposed to a \emph{canonical }outer measure).
+\end{rem}
+
+Note that in general such an extension may not be unique and we provide
+sufficient conditions for uniqueness in Theorem \ref{thm:uniquenessMeasures}.
+
+\section{The Steiltjes measure on $\protect\R$}
+
+We now have enough machinery to construct the Lebesgue measure on
+$\borel\left(\R\right)$; in fact, the Caratheodory measurabality
+critierion discussed in the proof of the extension theorem \ref{thm:caratheodoryExtn}
+is strictly larger than the Borel sets, a fact that we shall be able
+to establish soon. To show the Lebesgue measure exists, we observe
+that $\lambda_{2}$ is a countably-additive pre-measure on $\mathcal{J}$
+which is a ring. The canonical outer measure $\lambda^{*}$ generated
+from $\left(\lambda_{2},\mathcal{J}\right)$ then can be restricted
+to the $\sigma$-algebra of measurable sets $\mathcal{C}\left(\lambda^{*}\right)$
+as a measure via Caratheodory's extension theorem. That the Borel
+sets $\borel\left(\R\right)\subseteq\mathcal{C}\left(\lambda^{*}\right)$
+is clear from the fact that $\mathcal{L}\subseteq\mathcal{\mathcal{J}\subseteq C}\left(\lambda^{*}\right)$
+and $\sigma\left(\mathcal{L}\right)=\borel\left(\R\right)$ (see Proposition\ref{prop:sigmaAlgebraGeneratedbyLisBorel}).
+The fact that this inclusion is strict is, of course, not obvious;
+we will return to this point later.
+
+While this strategy to build the Lebesgue meaure works, we can in
+fact do something more general, which will incidentally also help
+us establish the properties of the Lebesgue measure. This involves
+the notion of what is called a \emph{Steiljes }measure, a concept
+which is particularly useful in probability theory. To start, we prove
+a stronger version of Caratheodory's theorem.
+\begin{thm}[Extension from semi-rings]
+\label{thm:semiRingCaratheodoryExtn}Let $\X$ be a set and $\mathcal{A}\subseteq2^{\X}$
+be a semi-ring. Suppose $\mu:\mathcal{A}\longrightarrow\left[0,\infty\right]$
+is a set function such that
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $\mu\left(\emptyset\right) = 0 $
+	\item  For any disjoint $A,B \in \mathcal{A}$ such that $A\cup B \in \mathcal{A}$
+	\[
+			\mu\left(A\cup B\right) = \mu\left(A\right) + \mu\left(B\right)
+	\]
+	\item For any collection $A_i \in \mathcal{A}$ such that $\bigcup_{i\in \mathds{N}} A_i \in \mathcal{A}$
+	\[
+		\mu\left(\bigcup_{i\in\mathds{N}} A_i \right) \leq \sum_{i \in \mathds{N}} \mu \left(A_i\right)
+	\]
+\end{enumerate}then the restriction of the canonical outer measure $\mu^{*}$ generated
+by $\left(\mu,\mathcal{A}\right)$ to $\mathcal{C}\left(\mu^{*}\right)$
+is a measure.
+\end{thm}
+
+\begin{proof}
+Note that Remark \ref{rem:noRingReqd} tells us that $\mathcal{C}\left(\mu^{*}\right)$
+is a $\sigma-$algebra and $\mu^{*}|_{\mathcal{C}}$ is a measure.
+Thus our two tasks are to show \emph{(i)} that $\mu^{*}$ and $\mu$
+agree on\emph{ $\mathcal{A}$ }and\emph{ (ii)} that $\mathcal{A}\subseteq\mathcal{C}\left(\mu^{*}\right)$.
+The first result is mostly straightforward; to see that $\mu^{*}\left(A\right)\leq\mu\left(A\right)$
+for $A\in\mathcal{A}$ we can simply observe that $A$ is a cover
+for itself. For the reverse inequality, first note that finite additivity
+and the fact that $\mathcal{A}$ is a semi-ring implies that for any
+$A,B\in\mathcal{A}$ such that $A\subseteq B,\mu\left(A\right)\leq\mu\left(B\right).$
+Indeed, there exist disjoint $\left\{ C_{i}\right\} _{1\leq i\leq n}\in\mathcal{A}$
+where $n\in\N$ such that $B\setminus A=\cup_{1\leq i\leq n}C_{i}$
+and so $B=A\cup\cup_{1\leq i\leq n}C_{i}$ and $\mu\left(B\right)=\mu\left(A\right)+\sum_{1\leq i\leq n}\mu\left(C_{i}\right)\geq\mu\left(A\right).$
+Then for any cover $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{A}$
+of $A$, we have that 
+\[
+\mu\left(A\right)=\sum_{i=1}^{\infty}\mu\left(A\cap A_{i}\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right)
+\]
+where the equality follows from the fact that $A\cap A_{i}\in\mathcal{A}$
+since semi-rings are closed under intersection along with the fact
+that $\left\{ A\cap A_{i}\right\} _{i\in\N}$ forms a partition of
+$A$ and the inequality follows from monotonicty. Since the cover
+was arbitrary, we have $\mu^{*}\left(A\right)\geq\mu\left(A\right).$
+
+To prove \emph{(ii), }note that for any $A\in\mathcal{A}$, countable
+subadditivity of the outer measure implies that 
+\[
+\mu^{*}\left(E\right)\leq\mu^{*}\left(A\cap E\right)+\mu^{*}\left(A^{C}\cap E\right)
+\]
+for any $E\in2^{\X}.$ To deduce the other inequality, we follow almost
+exactly the same steps as we did in the proof of Theorem \ref{thm:caratheodoryExtn}.
+First, we pick an $E\subseteq2^{\X}$ such that $\mu^{*}\left(E\right)<\infty$since
+otherwise the claim follows trivially. Then we use this fact (since
+only empty subsets of the reals have inifinite infima) to deduce that
+for any $\epsilon>0$, there exists a cover $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{A}$of
+$E$ such that
+\[
+\mu^{*}\left(E\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right)<\mu^{*}\left(E\right)+\epsilon.
+\]
+Again, we observe that 
+\begin{align*}
+E\cap A & \subseteq\bigcup_{i=1}^{\infty}A_{i}\cap A\\
+E\cap A^{C} & \subseteq\bigcup_{i=1}^{\infty}A_{i}\cap A^{C}
+\end{align*}
+Note that $A_{i}\cap A^{C}=A_{i}\setminus A$ and so by the properties
+of semi-rings there exists, for each $i,$a disjoint collection of
+sets $\left\{ C_{j}^{i}\right\} _{1\leq j\leq n_{i}}\in\mathcal{A}$
+such that $A_{i}\cap A^{C}=\bigcup_{1\leq j\leq n_{i}}C_{j}^{i}.$
+Using the monotonicty and countable-subadditivity of outer measures
+as before, we have that
+\begin{align*}
+\mu^{*}\left(E\cap A\right)+\mu^{*}\left(E\cap A^{C}\right) & \leq\sum_{i=1}^{\infty}\left(\mu^{*}\left(A_{i}\cap A\right)+\mu^{*}\left(\bigcup_{1\leq j\leq n_{i}}C_{j}^{i}\right)\right)\\
+ & \leq\sum_{i=1}^{\infty}\left(\mu^{*}\left(A_{i}\cap A\right)+\sum_{j=1}^{n_{i}}\mu^{*}\left(C_{j}^{i}\right)\right)\\
+ & =\sum_{i=1}^{\infty}\left(\mu\left(A_{i}\cap A\right)+\sum_{j=1}^{n_{i}}\mu\left(C_{j}^{i}\right)\right)\\
+ & =\sum_{i=1}^{\infty}\left(\mu\left(A_{i}\right)\right)\\
+ & <\mu^{*}\left(E\right)+\epsilon
+\end{align*}
+where the first equality follows from part \emph{(i) }and the fact
+that $A_{i}\cap A,\left\{ C_{j}^{i}\right\} _{1\leq j\leq n_{i}}\in\mathcal{A}$
+whereas the second equality follows from finite additivity. Since
+$\epsilon$can be as small as one wants, our result follows.
+\end{proof}
+\hl{ADD STIELJES MEASURE CONSTRUCTION FROM ASH PROBABILITY}
+\begin{thm}[Existence of the Lebesgue measure]
+\label{thm:existenceLebesgueR}There exists a $\sigma-$algebra $\F$
+which contains all the open sets in $\R$ and a set function $\lambda:\F\longrightarrow\left[0,\infty\right]$
+such that
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $\lambda\left((a,b]\right) = b - a $ for any $a \leq b \in \mathds{R}$\footnote{The intervals could be open, closed or neither.}
+	\item For any disjoint $A_i \in \mathcal{F}$
+	\[
+			\lambda\left(\bigcup_{i\in\mathds{N}}\right) = \sum_{i \in \mathds{N}} \lambda\left(A_i\right)
+	\]
+	\item For disjoint $\{A_i\}_{i\in \N} \in \mathcal{F}$ 
+	\[
+			\mu\left(\bigcup_{i=1}^{\infty}A_i\right) = \sum_{i=1}^{\infty}\mu\left(A_i\right).
+	\]
+	\item
+\end{enumerate}
+\end{thm}
+
+
+\section{Abstract measure spaces}
+\begin{defn}
+\label{def:measurableSpace}A pair $\left(\mathcal{X},\mathcal{F}\right)$,
+where $\mathcal{X}$ is an arbitrary set and $\mathcal{F}$ is a $\sigma-$algebra
+on $\mathcal{X}$, is called a \emph{measurable space.}
+\end{defn}
+
+Although we had implicitly defined a measure in the previous section,
+it's appopriate to write down a formal definition in this section.
+\begin{defn}
+\label{def:measureSpace}Let $\left(\mathcal{X},\mathcal{F}\right)$
+be a measurable space. A function $\mu:\mathcal{F}\longrightarrow\left[0,\infty\right]$
+is a \emph{measure }on $\mathcal{X}$ if
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $\mu\left(\emptyset\right)= 0$
+	\item For disjoint $\{A_i\}_{i\in \N} \in \mathcal{F}$ 
+	\[
+			\mu\left(\bigcup_{i=1}^{\infty}A_i\right) = \sum_{i=1}^{\infty}\mu\left(A_i\right).
+	\]
+\end{enumerate}The triple $\left(\mathcal{X},\mathcal{F},\mu\right)$ is called a
+\emph{measure space. }If $\mu\left(\mathcal{X}\right)=1$ then $\mu$
+is called a \emph{probability measure }and $\left(\mathcal{X},\mathcal{F},\mu\right)$
+is called a \emph{probability space.}
+\end{defn}
+
+\begin{defn}
+\label{def:measurableSet}Given a measurable space $\left(\mathcal{X},\mathcal{F}\right)$,
+any set $A\in\mathcal{F}$ is called a \emph{measurable }set. Conversely,
+any set $A\subset\mathcal{X}$ such that $A\notin\mathcal{F}$ is
+referred to as a \emph{non-measurable }set.
+\end{defn}
+
+While the definition of a measure is simple, it turns out to have
+some remarkable properties that are useful in the theory of integration
+and probability that is built on top of measure theory (or, as we
+shall later see, is equivalent to it).
+\begin{prop}
+\label{prop:measureProperties}Let $\left(\mathcal{X},\mathcal{F}\right)$
+be a measurabe space and let 
+\[
+\mu:\mathcal{F}\longrightarrow\left[0,\infty\right]
+\]
+be a function. Then $\mu$ is a measure if and only if
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $\mu\left(\emptyset\right)= 0$
+	\item For disjoint $A,B \in \mathcal{F}$ 
+	\[
+			\mu\left(A \cup B\right) = \mu\left(A\right) + \mu\left(B\right) .
+	\]
+	\item For any increasing sequence of sets $ A_1 \subseteq A_2 \ldots $ in $\mathcal{F}$ such that $\bigcup_{i\in\N} A_i = A $
+	\[
+			\mu\left(A\right) = \lim_{i \to \infty}\mu\left(A_i\right)
+	\]
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+First we shall establish that Definition \ref{def:measureSpace} implies
+properties (i)-(iii) above. Property (i) is inherited straight from
+the definition; to see (ii), we can let $A_{1}=A,A_{2}=B$ and $A_{j}=\emptyset$
+for all $j\geq3$. Then
+\[
+\mu\left(A\cup B\right)=\mu\left(\bigcup_{j\in\N}A_{j}\right)=\sum_{j=1}^{\infty}\mu\left(A_{j}\right)=\mu\left(A\right)+\mu\left(B\right)
+\]
+where the second equality is due countably additiivity and the third
+equality is due to property (i). To see property (iii), let $\left\{ A_{i}\right\} _{i\in\N}$
+be an increasing sequence of sets such that $A_{i}\subseteq A_{i+1}$
+for every $i\in\N$ and let $A:=\bigcup_{i\in N}A_{i}$. Define 
+\[
+B_{i}:=A_{i}\setminus\bigcup_{j=1}^{i-1}A_{j}
+\]
+which is the standard ``disjointification'' of $\left\{ A_{i}\right\} _{i\in\N}$
+as we have seen earlier. By countable additivity
+\begin{align*}
+\mu\left(A\right) & =\sum_{i=1}^{\infty}\mu\left(B_{i}\right)\\
+ & =\lim_{n\to\infty}\sum_{i=1}^{n}\mu\left(B_{i}\right)\\
+ & =\lim_{n\to\infty}\mu\left(\bigcup_{i=1}^{n}B_{i}\right)\\
+ & =\lim_{n\to\infty}\mu\left(\bigcup_{i=1}^{n}A_{i}\right)\\
+ & =\lim_{n\to\infty}\mu\left(A_{n}\right)
+\end{align*}
+where the third equality is due to property (ii). The fourth equality
+follows from the disjointification and the last equality is due to
+the increasing nature of the sequence of sets.
+
+Next, we shall establish countable additivity while assuming properties
+(i)-(iii) in order to complete the equivalence. Let $\left\{ A_{i}\right\} _{i\in\N}$
+be pairwise disjoint in $\mathcal{F}$. Then, letting $A:=\bigcup_{i\in\N}A_{i}$
+we can define
+\[
+B_{n}:=\bigcup_{i=1}^{n}A_{i}
+\]
+and observe that $\bigcup_{n\in\N}B_{n}=A$ and $B_{n}\subseteq B_{n+1}.$
+Then, by property (iii), 
+\begin{align*}
+\mu\left(A\right) & =\lim_{n\to\infty}\mu\left(B_{n}\right)\\
+ & =\lim_{n\to\infty}\sum_{i=1}^{n}\mu\left(A_{i}\right)\\
+ & =\sum_{i=1}^{\infty}\mu\left(A_{i}\right)
+\end{align*}
+where the second equality is due to finite additivity (property (ii)).
+This completes the proof.
+\end{proof}
+\begin{rem*}
+Property (iii) resembles a continuity condition, and is indeed called
+\emph{continuity from below }of measures. There is an analagous definition
+for \emph{continuity from above} which is implied by \emph{continuity
+from above }for finitely additive measures and pre-measures. If the
+measures are finite, these two notions of continuity are in fact equivalent.
+\end{rem*}
+\begin{cor}
+\label{cor:countableSubadditivity}Every measure $\mu$ on an arbitrary
+measurable space $\left(\mathcal{X},\mathcal{F}\right)$ is countably
+subadditive i.e. for any collection $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{F}$
+\[
+\mu\left(\bigcup_{i=1}^{\infty}A_{i}\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right).
+\]
+\end{cor}
+
+\begin{proof}
+We shall first establish \emph{finite }subadditivity and bootstrap
+this result to countable subadditivity. To see finite subadditivity,
+let $A,B\in\mathcal{F}$ be arbitrary, and observe that
+\[
+A\cup B=\left(A\setminus B\right)\cup B.
+\]
+The two sets on the right hand side are disjoint and so by finite
+additivity
+\begin{align*}
+\mu\left(A\cup B\right) & =\mu\left(A\setminus B\right)+\mu\left(B\right).
+\end{align*}
+Adding $\mu\left(A\cap B\right)$ and applying finite additivity again,
+we deduce that
+\[
+\mu\left(A\cup B\right)+\mu\left(A\cap B\right)=\mu\left(A\right)+\mu\left(B\right)
+\]
+which establishes finite subadditivity. To prove the countable analogue,
+let
+\[
+B_{n}:=\bigcup_{i=1}^{n}A_{i}
+\]
+and observe that by finite subadditivity
+\[
+\mu\left(B_{n}\right)\leq\sum_{i=1}^{n}\mu\left(A_{i}\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right)
+\]
+where the last inequality follows by the non-negativity of $\mu.$
+Note that since $B_{n}$ is an increasing sequence, we can apply Proposition
+\ref{prop:measureProperties} (iii) to infer that
+\[
+\mu\left(\bigcup_{i=1}^{\infty}A_{i}\right)=\lim_{n\to\infty}\mu\left(B_{n}\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right).
+\]
+\end{proof}
+\begin{prop}
+\label{prop:equivalenceContinuityMeasures}For a finitely additive
+measure $\mu:\mathcal{F}\longrightarrow\left[0,\infty\right),$ the
+following statements are equivalent:
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item For any increasing sequence of sets $\left\{ A_{i}\right\} _{i\in\N}$ such that $A_i \subseteq A_{i+1}$ for all $i\in \N$
+	\[
+					\mu\left(\bigcup_{i=1}^{\infty} A_i\right) = \lim_{i\to\infty}\mu\left(A_i\right).
+	\]
+	\item For any decreasing sequence of sets $\left\{ A_{i}\right\} _{i\in\N}$ such that $ A_{i+1}\subseteq A_i$ for all $i\in \N$ 
+	\[
+					\mu\left(\bigcap_{i=1}^{\infty} A_i\right) = \lim_{i\to\infty}\mu\left(A_i\right).
+	\]
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Assuming (i), let $\left\{ A_{i}\right\} _{i\in\N}$ be a decreasing
+sequence of sets and let $A:=\bigcap_{i\in\N}A_{i}$. Then define
+$B_{i}=A_{1}\setminus A_{i}$ which is an increasing sequence of sets
+such that $A_{1}\setminus A=\bigcup_{i\in\N}B_{i}$. By (i), 
+\[
+\mu\left(A_{1}\right)-\mu\left(A\right)=\mu\left(A_{1}\setminus A\right)=\lim_{i\to\infty}\mu\left(B_{i}\right)=\mu\left(A_{1}\right)-\lim_{i\to\infty}\mu\left(A_{i}\right)
+\]
+where the first and last equality are due to finite additivity, the
+finiteness of $\mu.$ We can subtract $\mu\left(A_{1}\right)$ from
+both sides to yield the result.
+
+To establish the converse, assume (ii) and let $\left\{ A_{i}\right\} _{i\in\N}$
+be an increasing sequence of sets and define $A:=\bigcup_{i\in\N}A_{i}$.
+Let $B_{i}:=A\setminus A_{i}$ which is a decreasing sequence of sets
+such that $\bigcap_{i\in\N}B_{i}=\emptyset$. By (ii), we have that
+\[
+0=\mu\left(\emptyset\right)=\lim_{i\to\infty}\mu\left(B_{i}\right)=\lim_{i\to\infty}\mu\left(A\setminus A_{i}\right)=\mu\left(A\right)-\lim_{i\to\infty}\mu\left(A_{i}\right)
+\]
+where the last equality is again due to finite additivity and the
+finitenesss of $\mu.$ Rearrangement yields the proof.
+\end{proof}
+Observe how the two results apply without modification to pre-measures
+as well and so we can establish the countable additivity of $\lambda_{2}$
+(see the previous section) using a continuity argument instead of
+the Heine-Borel argument we previously used (Exercise!).
+\begin{prop}
+\label{prop:sumOfCountableMeasures}Let $\left(\mathcal{X},\mathcal{F}\right)$
+be a measurable space and let $\left\{ \mu_{i}\right\} _{i\in\mathcal{I}}$
+be a collection of measures on $\mathcal{F}$ where $\mathcal{I}$
+is at most countable. Then
+\[
+\mu:=\sum_{i\in\mathcal{I}}\mu_{i}
+\]
+is a measure on $\mathcal{F}$.
+\end{prop}
+
+\begin{proof}
+First observe that 
+\[
+\mu\left(\emptyset\right)=\sum_{i\in\mathcal{I}}\mu_{i}\left(\emptyset\right)=0.
+\]
+Next, let $\left\{ A_{j}\right\} _{j\in\N}\in\mathcal{F}$ be disjoint.
+Then
+\begin{align*}
+\mu\left(\bigcup_{j\in\N}A_{j}\right) & =\sum_{i\in\mathcal{I}}\mu_{i}\left(\bigcup_{j\in\N}A_{j}\right)\\
+ & =\sum_{i\in\mathcal{I}}\sum_{j\in\N}\mu_{i}\left(A_{j}\right)\\
+ & =\sum_{j\in\N}\sum_{i\in\mathcal{I}}\mu_{i}\left(A_{j}\right)\\
+ & =\sum_{j\in\N}\mu\left(A_{j}\right)
+\end{align*}
+where the second equality follows from the countable additivity of
+$\mu_{i}$ and the third equality follows from the non-negativity
+of measures and Lemma \ref{lem:TonelliForSeries}. This completes
+the proof.
+\end{proof}
+
+\subsection{$\sigma-$finite measure spaces}
+\begin{defn}
+\label{def:sigmaFinite}Let $\left(\X,\F,\mu\right)$ be a measure
+space. The measure $\mu$ is said to be $\sigma-$\emph{finite }if
+there exists some increasing sequence of sets $\left\{ E_{i}\right\} _{i\in\N}\in\F$
+such that $\mu\left(E_{i}\right)<\infty$ and
+\[
+\bigcup_{i\in\N}E_{i}=\X.
+\]
+
+\hl{Describe the Lebesgue measure on real line as a canonical example of a sigma-finite measure}
+\end{defn}
+
+\begin{prop}
+\label{prop:equivSigmaFinite}Let $\left(\X,\F,\mu\right)$ be a measure
+space. The measure $\mu$ being $\sigma-$finite is equivalent to
+any of the following conditions
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=0.15\linewidth]
+	\item There exists some \textbf{pairwise disjoint} countable collection of sets $\{A_i\}_{i\in\N} \in \F$ such that $ \mu\left(A_i\right) < \infty $ for all $ i \in \N $ and
+	\[
+					\bigcup_{i\in\N}A_i = \X
+	\]
+	\item There exists some countable collection of sets $\{B_i\}_{i\in\N} \in \F$ such that $ \mu\left(B_i\right) < \infty $ for all $ i \in \N $ and
+	\[
+					\bigcup_{i\in\N}B_i = \X
+	\]
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+First assume that the measure $\mu$is $\sigma-$finite and so there
+exists some increasing sequence $\left\{ E_{i}\right\} _{i\in\N}\in\F$
+such that $E_{i}\subseteq E_{I+1}$, $\mu\left(E_{i}\right)<\infty$
+and 
+\[
+\bigcup_{i\in\N}E_{i}=\X.
+\]
+Recall the disjointification
+\[
+A_{i}:=E_{i}\setminus\bigcup_{j=1}^{i-1}E_{j}
+\]
+and notice that
+\begin{align*}
+\mu\left(A_{i}\right) & =\mu\left(E_{i}\right)-\mu\left(\bigcup_{j=1}^{i-1}E_{j}\right)\\
+ & =\mu\left(E_{i}\right)-\mu\left(E_{i-1}\right)\\
+ & <\infty
+\end{align*}
+where the first equality follows from the fact that $\mu\left(E_{i}\right)<\infty$
+and $\bigcup_{j=1}^{i-1}E_{j}=E_{i-1}\subseteq E_{i}$ along with
+(finite) additivity. Further,
+\[
+\bigcup_{i\in\N}A_{i}=\X
+\]
+ and so Definition \ref{def:sigmaFinite} implies (i).
+
+Next notice that (i) trivially implies (ii) and so all we just need
+to verify (ii) $\implies$Definition \ref{def:sigmaFinite}. To this
+end, observe that if $\left\{ B_{i}\right\} _{i\in\N}\in\F$ is an
+arbitrary collection that satisfies (ii), then
+\[
+E_{n}:=\text{\ensuremath{\bigcup_{i=1}^{n}B_{i}}}
+\]
+is an increasing sequence of sets $E_{n}\subseteq E_{n+1}$ such that
+\[
+\mu\left(E_{n}\right)\leq\sum_{i=1}^{n}\mu\left(B_{i}\right)<\infty
+\]
+and
+\[
+\bigcup_{n\in\N}E_{n}=\X.
+\]
+\end{proof}
+\begin{prop}
+\label{prop:sumSigmaFiniteMeasures}Let $\left(\X,\F\right)$ be a
+measurable space and let $\left\{ \mu_{i}\right\} _{i=1}^{N}$be a
+finite collection of $\sigma-$finite measure on $\F.$ Then the total
+measure
+\[
+\mu:\F\longrightarrow\R
+\]
+ given by
+\[
+\mu\left(A\right):=\sum_{i=1}^{N}\mu_{i}\left(A\right)
+\]
+is also $\sigma-$finite.
+\end{prop}
+
+\begin{proof}
+A weaker variant of Proposition \ref{prop:sumOfCountableMeasures}
+shows that $\mu$is at least a measure on $\F$. We show $\sigma-$finiteness
+for $N=2$; the general case follows by induction. Note that if $\mu_{1}$
+and $\mu_{2}$ are both $\sigma-$finite then by Proposition \ref{prop:equivSigmaFinite}
+there exist $\left\{ E_{1,i}\right\} _{i\in\N},\left\{ E_{2,i}\right\} _{i\in\N}\in\F$
+such that $\mu_{1}\left(E_{i,1}\right)<\infty$ and $\mu_{2}\left(E_{2,i}\right)<\infty$
+for all $i\in\N$. Further,
+\[
+\bigcup_{i\in\N}E_{1,i}=\bigcup_{i\in\N}E_{2,i}=\X.
+\]
+Then, define
+\[
+C_{i,j}:=E_{1,i}\bigcap E_{2,j}
+\]
+and observe that $C_{i,j}\in\F$ and that 
+\begin{align*}
+\mu\left(C_{i,j}\right) & =\mu_{1}\left(E_{1,i}\cap E_{2,j}\right)+\mu_{2}\left(E_{1,i}\cap E_{2,j}\right)\\
+ & \leq\mu_{1}\left(E_{1,i}\right)+\mu_{2}\left(E_{2,j}\right)\\
+ & <\infty
+\end{align*}
+for all $\left(i,j\right)\in\N^{2}$. Finally,
+\[
+\bigcup_{i\in\N}\bigcup_{j\in\N}C_{i,j}=\X
+\]
+which by Proposition \ref{prop:equivSigmaFinite} establishes the
+result.
+\end{proof}
+

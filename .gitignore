@@ -11,3 +11,4 @@ static_misc/
 *.aux
 *.gz
 *.out
+*.log

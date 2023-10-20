@@ -1,0 +1,1436 @@
+
+\chapter{Spaces of functions\label{chap:spaces_of_functions}}
+
+\section{$\mathcal{L}^{p}$ spaces as almost Banach spaces over $\protect\R$}
+
+The central objects of study in analysis are functions, and the study
+of sets of functions is what broadly characterizes functional analysis.
+Often, the types of function spaces studied in analysis are \emph{vector
+spaces }over some field (usually $\R$ or $\mathds{C})$. We have
+already seen one such space in Chapter 3: the $\mathcal{L}^{1}$ space
+or the space of integrable functions. $\mathcal{L}^{1}$ spaces can
+be suitably generalized to allow for $p-$th power integrability
+\begin{defn}
+\label{def:LpSpace}Let $\left(\X,\F,\mu\right)$ be a measure space.
+For any $p\in\left[1,\infty\right),$ the spaces 
+\[
+\mathcal{L}^{p}\left(\X,\F,\mu\right):=\left\{ f\in\measurableFunctions\mid\lebInt{\mu}{\lvert f\rvert^{p}}<\infty\right\} 
+\]
+are called $\mathcal{L}^{p}$ spaces over $\R$.
+\end{defn}
+
+For $p=1$ we get our original integrable functions. We will soon
+show that $\mathcal{L}^{p}$ spaces are vector spaces; in-fact, they
+are (semi)-normed vector spaces with the (semi)-norm given by the
+function
+\[
+\pnorm fp:=\lebInt{\mu}{\lvert f\rvert^{p}}^{\frac{1}{p}}.
+\]
+It should be clear that the function defined above satisfies the absolute
+homogeneity aspect of norms i.e. for any $\alpha\in\R$ 
+\[
+\pnorm{\alpha f}p=\lvert\alpha\rvert\pnorm fp.
+\]
+However, our function in question fails being positive definite in
+that $\pnorm fp=0\not\implies f=0.$ In fact, all functions that are
+almost everywhere equal to zero are mapped to zero under this function,
+which means that it cannot be a bonafide norm. Hence, if we can show
+that the function satisfies the triangle inequality, we can show that
+$\mathcal{L}^{p}$ is a semi-normed vector space. To do this, we will
+establish a series of results that will be important in their own
+right, but shall also help us get the triangle inequality
+\begin{lem}
+\label{lem:amGmInequality}Let $\left\{ a_{i}\right\} _{i=1}^{k}\in\left[0,\infty\right)$
+and let $\theta_{1},\ldots,\theta_{k}>0$ be real numbers such that
+\[
+\sum_{i=1}^{k}\theta_{i}=1.
+\]
+Then,
+\[
+\prod_{i=1}^{k}a_{i}^{\theta_{i}}\leq\sum_{i=1}^{k}a_{i}\theta_{i}.
+\]
+\end{lem}
+
+\begin{proof}
+Note that since the $\log\left(\cdot\right)$ function is concave,
+by induction on the definition of concavity, we have that
+\[
+\log\left(\prod_{i=1}^{k}a_{i}^{\theta_{i}}\right)=\sum_{i=1}^{k}\theta_{i}\log\left(a_{i}\right)\leq\log\left(\sum_{i=1}^{k}\theta_{i}a_{i}\right).
+\]
+Since $e^{x}$ is a monotonic function, the inequality is preserved
+under exponentiation which yields are result.
+\end{proof}
+\begin{rem*}
+This lemma is often referred to as the inequality between arithmetic
+and geometric means as the right hand side is the standard weighted
+average i.e. the arithmetic mean whereas the left hand side is the
+geometric mean.
+\end{rem*}
+\begin{prop}
+\label{prop:generalizedHolder}Let functions $f_{1},\ldots,f_{k}\in\measurableFunctions$
+and let $\theta_{1},\ldots,\theta_{k}>0$ be real numbers such that
+\[
+\sum_{i=1}^{k}\theta_{i}=1.
+\]
+Then, for any measure $\mu$ on $\X$
+\[
+\lebInt{\mu}{\prod_{i=1}^{k}f_{i}^{\theta_{i}}}\leq\prod_{i=1}^{k}\lebInt{\mu}{f_{i}}^{\theta_{i}}.
+\]
+\end{prop}
+
+\begin{proof}
+First notice that if $\lebInt{\mu}{f_{i}}=0$ for any $i\in\left\{ 1,\ldots,k\right\} $
+then by Proposition \ref{prop:intZeroFuncZero}, $f_{i}=0$ almost
+everywhere, which would imply that the left hand side is identically
+zero. This would make the inequality hold trivially. Conversely, if
+any $\lebInt{\mu}{f_{i}}=\infty$ and all $\mu\left(f_{i}\right)>0$
+then the right hand side is identically $\infty$ which would again
+let the inequality hold trivially.
+
+Thus, without loss of generality, assume that $0<\lebInt{\mu}{f_{i}}<\infty$
+for all $i$ and define 
+\[
+f_{i}^{*}=\frac{f_{i}}{\lebInt{\mu}{f_{i}}}.
+\]
+Clearly, $\lebInt{\mu}{f_{i}^{*}}=1$ and moreover if
+\[
+\lebInt{\mu}{\prod_{i=1}^{k}f_{i}^{*\theta_{i}}}=\frac{\lebInt{\mu}{\prod_{i=1}^{k}f_{i}^{\theta_{i}}}}{\prod_{i=1}^{k}\lebInt{\mu}{f_{i}}^{\theta_{i}}}\leq\prod_{i=1}^{k}\lebInt{\mu}{f_{i}^{*}}^{\theta_{i}}=1
+\]
+then our claim follows. To show this, note that by Lemma \ref{lem:amGmInequality}
+\[
+\prod_{i=1}^{k}f_{i}^{*\theta_{i}}\leq\sum_{i=1}\theta_{i}f_{i}^{*}
+\]
+pointwise. Integrating both sides, we have 
+\begin{align*}
+\lebInt{\mu}{\prod_{i=1}^{k}f_{i}^{*\theta_{i}}} & \leq\lebInt{\mu}{\sum_{i=1}^{k}\theta_{i}f_{i}^{*}}\\
+ & =\sum_{i=1}^{k}\theta_{i}\lebInt{\mu}{f_{i}^{*}}\\
+ & =\sum_{i=1}^{k}\theta_{i}\\
+ & =1
+\end{align*}
+where the first inequality follows from the monotonicty of the integral
+and the first equality from the linearity of integration. This completes
+the proof.
+\end{proof}
+\begin{cor}[H\"{o}lder's inequality]
+\label{cor:holdersInequality}Let $\left(\X,\F,\mu\right)$ be a
+measure space. For any real numbers $p,q\in\left(1,\infty\right)$
+such that $\frac{1}{p}+\frac{1}{q}=1$ and functions $g,h\in\measurableFunctions,$
+we have that
+\[
+\pnorm{gh}1\leq\pnorm gp\pnorm hq.
+\]
+\end{cor}
+
+\begin{proof}
+Let $k=2$ , $f_{1}=\lvert g\rvert^{p},f_{2}=\lvert h\rvert^{q},$
+$\theta_{1}=\frac{1}{p},$ and $\theta_{2}=\frac{1}{q}$ and apply
+Proposition \ref{prop:generalizedHolder}.
+\end{proof}
+Now we can finally establish the triangle inequality for the so-called
+$p-$norms.
+\begin{thm}[Minkowski's inequality]
+\label{thm:minkowskiInequality}Let $f,g\in\Lp p{\X,\F,\mu}$ for
+some $p\in\left[1,\infty\right).$ Then, $f+g\in\Lp p{\mu}$ and 
+\[
+\pnorm{f+g}p\leq\pnorm fp+\pnorm gp.
+\]
+\end{thm}
+
+\begin{proof}
+Note that if $\lebInt{\mu}{\lvert f+g\rvert^{p}}=0$ then the inequality
+follows trivially so let's assume that $\lebInt{\mu}{\lvert f+g\rvert^{p}}>0$.
+Then
+\begin{align*}
+\lebInt{\mu}{\lvert f+g\lvert^{p}} & =\lebInt{\mu}{\lvert f+g\rvert\lvert f+g\rvert^{p-1}}\\
+ & \leq\lebInt{\mu}{\lvert f\rvert\lvert f+g\rvert^{p-1}+\lvert g\rvert\lvert f+g\rvert^{p-1}}\\
+ & =\lebInt{\mu}{\lvert f\rvert\lvert f+g\rvert^{p-1}}+\lebInt{\mu}{\lvert g\rvert\lvert f+g\rvert^{p-1}}\\
+ & =\pnorm{f\lvert f+g\rvert^{p-1}}1+\pnorm{g\lvert f+g\rvert^{p-1}}1\\
+ & \leq\pnorm fp\pnorm{\lvert f+g\rvert^{p-1}}{\frac{p}{p-1}}+\pnorm gp\pnorm{\lvert f+g\rvert^{p-1}}{\frac{p}{p-1}}
+\end{align*}
+where the first inequality follows from the triangle inequality of
+$\lvert\cdot\rvert$ and the monotonicty of integration and the second
+inequality from H\"{o}lder's inequality above. Dividing both sides
+by $\pnorm{\lvert f+g\rvert^{p-1}}{\frac{p}{p-1}}=\lebInt{\mu}{\lvert f+g\rvert^{p}}^{1-\frac{1}{p}}=\frac{\lebInt{\mu}{\lvert f+g\lvert^{p}}}{\pnorm{f+g}p}$
+yields the result. Of course, this then shows that $f+g\in\Lp p{\mu}.$
+\end{proof}
+For finite measures , $\mathcal{L}^{p}$ spaces enjoy a nesting property
+\begin{prop}
+\label{prop:nestingLpSpace}Let $(\X,\F,\mu)$ be a measure space
+such that $\mu(\X)<\infty.$ Then for $1\leq q<p<\infty$
+\[
+\Lp p{\mu}\subseteq\Lp q{\mu}
+\]
+and for any $f\in\Lp p{\mu}$
+\[
+\pnorm fp\geq\pnorm fq.
+\]
+\end{prop}
+
+\begin{proof}
+By H\"{o}lder's inequality, we have for any$f\in\Lp p{\mu}$
+\[
+\pnorm{\lvert f\rvert{}^{q}}1\leq\pnorm{\lvert f\rvert{}^{q}}s\pnorm{\indicate_{\X}}{\frac{s}{s-1}}
+\]
+for any $s\in(1,\infty)$. In particular, for $s=\frac{p}{q}$, the
+inequality is
+\[
+\pnorm{\lvert f\rvert{}^{q}}1\leq\lebInt{\mu}{\lvert f\rvert^{p}}^{\frac{q}{p}}\mu(\X)^{\frac{s-1}{s}}.
+\]
+Taking the $q$th root yields
+\[
+\pnorm fq\leq\pnorm fp\mu(\X)^{\frac{s-1}{sq}}<\infty
+\]
+which completes the proof.
+\end{proof}
+\begin{defn}
+\label{def:banachSpace}A normed vector space $\left(V,\|\cdot\|\right)$
+is called a \emph{Banach space }if it's complete with respect to the
+metric induced by its norm.
+\end{defn}
+
+We would like to prove that our $\mathcal{L}^{p}$ spaces are actually
+Banach spaces but the problem is that they are not normed spaces to
+begin with; as we noted earlier, the $p-$norms map non-zero functions
+to zero, violating the definiteness condition for norms. This does
+not actually turn out to be a major impediment in practice, as it
+is easy to transform our $\mathcal{L}^{p}$ spaces into actual normed
+spaces.
+
+To see this, define a relation $\sim$ on $\mathcal{L}^{p}\left(\X,\F,\mu\right)$
+such that $f\sim g$ if $f=g$ on all but a null set. It's straightforward
+to verify that this is in fact an equivalence relation and so the
+quotient space
+\[
+L^{p}\left(\X,\F,\mu\right):=\mathcal{L}^{p}\left(\X,\F,\mu\right)/\sim
+\]
+consisting of all equivalence classes in $\mathcal{L}^{p}$ generated
+by $\sim$ is actually a normed space, where 
+\[
+\|[u]\|_{p}:=\inf\left\{ \pnorm wp\mid w\in\mathcal{L}^{p}\text{such that}\ w\sim u\right\} =\pnorm up\ \forall u\in\mathcal{L}^{p}
+\]
+Here the norm of an equivalence class is simply the norm of a element
+of the equivalence class since the norm is invariant if the function
+changes only on a null set. In this case
+\[
+\pnorm{[u]}p=0\implies[u]=[0].
+\]
+While this construction is useful to illustrate the fact that $p-$norms
+can be transformed into proper norms, in practice people do not think
+of spaces of functions as collections of equivalence classes of functions.
+For now, shall adopt the more pragmatic approach of not worrying about
+whether our norm is a semi norm or a proper norm and explore the more
+substantive questions. When we begin our investigation of continuous
+time stochastic processes, the distinction between spaces of functions
+and spaces of equivalence classes of functions shall become more important.
+
+In order to discuss completeness, we need a good notion of limits.
+In the context of a normed vector space, limits can be defined naturally
+like in Euclidean spaces. However, in $\mathcal{L}^{p}$ spaces, limits
+may not be unique unless we adopt the quotient space construction
+above.
+\begin{thm}
+\label{thm:LpNormedVectorSpace}Let $\measurespace$ be a measure
+space. For $p\in[1,\infty)$ , $\Lp p{\X,\F,\mu}$ is a semi-normed
+vector space and $L^{p}\measurespace$ is a normed vector space.
+\end{thm}
+
+\begin{defn}[Convergence in $\mathcal{L}^{p}$]
+\label{def:convergenceLp}A sequence of functions $\left\{ f_{n}\right\} _{n\in\N}\in\mathcal{L}^{p}\left(\X,\F,\mu\right)$
+converges to a function $f\in\measurableFunctions$ in $\mathcal{L}^{p}$
+if 
+\[
+\lim_{n\to\infty}\pnorm{f_{n}-f}p=0.
+\]
+In this case, we write
+\[
+f_{n}\stackrel{\mathcal{L}^{p}}{\longrightarrow}f.
+\]
+\end{defn}
+
+Note that this definition strictly subsumes Definition \ref{def:L1Convergence}
+which discussed limits in $\mathcal{L}^{1}$. There, we had implictly
+assumed that the limiting function $f$ was also $\mathcal{L}^{1}$;
+now, we shall show that this is in fact always true for all $\mathcal{L}^{p}$
+spaces, that is to say, $\mathcal{L}^{p}$ spaces contain their limit
+points. But we can show more, as every Cauchy sequence converges to
+some limit that is $\mathcal{L}^{p}$. This is the main result of
+this section.
+\begin{thm}[Completeness of $\mathcal{L}^{p}$]
+\label{thm:completenessLp} Let $\left\{ f_{n}\right\} _{n\in\N}\in\mathcal{L}^{p}\left(\X,\F.\mu\right)$
+be a Cauchy sequence in $\mathcal{L}^{p}$; that is to say, for any
+$\epsilon>0$ there exists some $n_{\epsilon}\in\N$ such that for
+all $m,n\geq n_{\epsilon}$
+\[
+\pnorm{f_{m}-f_{n}}p<\epsilon.
+\]
+Then, there exists some function $f\in\Lp p{\X,\F,\mu}$ such that
+\[
+f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f.
+\]
+\end{thm}
+
+\begin{proof}
+Note that by the definition of a Cauchy sequence and the well ordering
+principle of natural numbers, for any $k\in\N$ there exists some
+smallest natural number $n_{k}$ such that for all $m,n\geq n_{k}$
+\[
+\pnorm{f_{m}-f_{n}}p<2^{-k}.
+\]
+In particular, this implies that 
+\[
+\pnorm{f_{n_{k+1}}-f_{n_{k}}}p<2^{-k}
+\]
+as $n_{k+1}\geq n_{k}$. Further, observe that we can rewrite the
+elements of our subsequence of functions as 
+\[
+f_{n_{k}}=\sum_{i=0}^{k-1}\left(f_{n_{i+1}}-f_{n_{i}}\right)
+\]
+where $f_{n_{0}}=0.$ Then, note that 
+\begin{align*}
+\pnorm{\sum_{i=0}^{k-1}\lvert f_{n_{i+1}}-f_{n_{i}}\rvert}p & \leq\sum_{i=0}^{k-1}\pnorm{f_{n_{i+1}}-f_{n_{i}}}p\\
+ & \leq\pnorm{f_{n_{1}}}p+\sum_{i=1}^{k-1}2^{-i}
+\end{align*}
+where the first inequality follows from Theorem \ref{thm:minkowskiInequality}.
+Then, applying limits, we have
+\begin{align}
+\lim_{k\to\infty}\pnorm{\sum_{i=0}^{k-1}\lvert f_{n_{i+1}}-f_{n_{i}}\rvert}p & \leq\pnorm{f_{n_{1}}}p+\sum_{i=1}^{\infty}2^{-i}\nonumber \\
+ & =\pnorm{f_{n_{1}}}p+1.\label{eq:boundCompleteness}
+\end{align}
+Observe that the limit on the left hand side exists because the sequence
+is increasing and bounded above. Finally, note that the sequence $g_{k}:=\sum_{i=0}^{k-1}\lvert f_{n_{i+1}}-f_{n_{i}}\rvert$
+is a sequence of non-negative and increasing measurable functions
+and since $p\geq1$, $g_{k}^{p}$ is also non-negative, increasing
+and measurable. Therefore, we can apply the \hyperref[thm:generalizedMonotoneConvergence]{monotone convergence theorem}
+to deduce
+\begin{align}
+\lim_{k\to\infty}\pnorm{g_{k}}p & =\lim_{k\to\infty}\lebInt{\mu}{g_{k}^{p}}^{\frac{1}{p}}\nonumber \\
+ & =\lebInt{\mu}{\lim_{k\to\infty}g_{k}^{p}}^{\frac{1}{p}}\nonumber \\
+ & =\lebInt{\mu}{\left(\lim_{k\to\infty}g_{k}\right)^{p}}^{\frac{1}{p}}\nonumber \\
+ & =\pnorm{\lim_{k\to\infty}g_{k}}p\label{eq:monotoneConvergenceLp}
+\end{align}
+where we have also used the fact that the maps $x\to x^{p}$ and $x\to x^{\frac{1}{p}}$
+are continuous for $p\geq1.$ Together, equations (\ref{eq:boundCompleteness})
+and (\ref{eq:monotoneConvergenceLp}) tell us that 
+\[
+\pnorm{\lim_{k\to\infty}g_{k}}p<\infty
+\]
+which, by Proposition \ref{prop:intFiniteFuncFinite} shows that $\lim_{k\to\infty}g_{k}^{p}<\infty$
+$\mu-$a.e and so $\lim_{k\to\infty}g_{k}<\infty$ $\mu-$a.e. In
+other words, since absolute summability implies summability
+\[
+\sum_{i=0}^{\infty}\lvert f_{n_{i+1}}-f_{n_{i}}\rvert<\infty\implies f:=\sum_{i=0}^{\infty}\left(f_{n_{i+1}}-f_{n_{i}}\right)<\infty\ \mu-\text{a.e}
+\]
+
+Now we have a candidate function $f\in\mathcal{L}^{p}\left(\mu\right)$
+such that 
+\[
+f=\lim_{k\to\infty}f_{n_{k}}
+\]
+where the limit is taken pointwise. If we can show that $f_{n_{k}}\stackrel{\mathcal{L}^{p}}{\longrightarrow}f$
+then it will imply that our original sequence $f_{n}\stackrel{\mathcal{L}^{p}}{\longrightarrow}f$
+since by ``Cauchyness'' and Minkowski's inequality
+\begin{align*}
+\pnorm{f_{n}-f}p & \leq\pnorm{f_{n}-f_{n_{k}}}p+\pnorm{f_{n_{k}}-f}{}\\
+ & \leq\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon
+\end{align*}
+for any $\epsilon>0$ and appropriately large values of $n$ and $k.$
+To show subsequential convergence, observe that 
+\begin{align*}
+\pnorm{f-f_{n_{k}}}p & =\pnorm{\sum_{i=k}^{\infty}\left(f_{n_{i+1}}-f_{n_{i}}\right)}p\\
+ & \leq\pnorm{\sum_{i=k}^{\infty}\lvert f_{n_{i+1}}-f_{n_{i}}\rvert}p\\
+ & \leq\sum_{i=k}^{\infty}\pnorm{f_{n_{i+1}}-f_{n_{i}}}p\\
+ & \leq\sum_{i=k}^{\infty}2^{-i}\\
+ & =1-\sum_{i=1}^{k-1}2^{-i}
+\end{align*}
+where the second inequality follows from the monotone convergence
+argument from earlier. Taking the limit in $k$ yields the result.
+\end{proof}
+
+\subsection{Convexity}
+
+We take a little detour in this section to establish an important
+result in analysis and probability theory: Jensen's inequality. The
+proof of this theorem is remarkably simple once we develop a reasonable
+understanding on the behavior of convex functions; in particular,
+we need to show that convex functions always have support lines. This
+is intuitively obvious, but showing this rigorously requires a bit
+of work, which we do here.
+\begin{defn}
+\label{def:convexFunction}Let $X$ be a vector space. A function
+$f:X\to\R$ is called convex if for any $\lambda\in\left[0,1\right]$
+and any $x,y\in X$
+\[
+f\left(\lambda x+\left(1-\lambda\right)y\right)\leq\lambda f\left(x\right)+\left(1-\lambda\right)f\left(y\right).
+\]
+\end{defn}
+
+In elementary calculus, we learnt that convex functions are those
+that have a graph shaped like a smile (concave functions are frowns),
+and that the second derivative of convex functions are positive. However,
+convex functions in general need not be differentiable ($\lvert x\rvert$
+is convex but not differentiable at zero). Convex functions do have
+the property of \emph{subdifferentiability, }which is basically captures
+the fact that convex functions with ``corners'' can have tangent
+lines, even if they are not unique.
+\begin{lem}
+\label{lem:convexTangents}Let $f:\left[a,b\right]\to\R$ be a convex
+function. Then for any $x\in\left(a,b\right)$
+\[
+\frac{f\left(x\right)-f\left(a\right)}{x-a}\leq\frac{f\left(b\right)-f\left(a\right)}{b-a}\leq\frac{f\left(b\right)-f\left(x\right)}{b-x}.
+\]
+\end{lem}
+
+\begin{proof}
+Let $\lambda=\frac{b-x}{b-a}$ and so $1-\lambda=\frac{x-a}{b-a}$
+and 
+\begin{align*}
+f\left(x\right) & -f\left(a\right)=f\left(\lambda a+\left(1-\lambda\right)b\right)-f\left(a\right)\\
+ & \leq\lambda f\left(a\right)+\left(1-\lambda\right)f\left(b\right)-f\left(a\right)\\
+ & =\left(1-\lambda\right)\left(f\left(b\right)-f\left(a\right)\right)\\
+ & =\frac{x-a}{b-a}\left(f\left(b\right)-f\left(a\right)\right)
+\end{align*}
+so rearranging yields the first inequality. The second inequality
+is similarly deduced by noticing that $f\left(b\right)-f\left(x\right)\geq f\left(b\right)-\lambda f\left(a\right)-\left(1-\lambda\right)f\left(b\right)=\lambda\left(f\left(b\right)-f\left(a\right)\right)$.
+\end{proof}
+Now let $x_{0}\in\left(a,b\right)$ be fixed and define
+\begin{align*}
+m^{-}\left(x_{0}\right) & :=\sup_{\eta\in\left(a,b\right),\eta<x_{0}}\frac{f\left(x_{0}\right)-f\left(\eta\right)}{x_{0}-\eta}\\
+m^{+}\left(x_{0}\right) & :=\inf_{\xi\in\left(a,b\right),\xi>x_{0}}\frac{f\left(\xi\right)-f\left(x_{0}\right)}{\xi-x_{0}}.
+\end{align*}
+
+\begin{prop}
+\label{prop:convexLeftRightDerivative}For any $x_{0}\in\left(a,b\right)$
+and any convex function $f:\left[a,b\right]\to\R$ , $m^{-}\left(x_{0}\right)$
+and $m^{+}\left(x_{0}\right)$ are finite and $m^{-}\left(x_{0}\right)\leq m^{+}\left(x_{0}\right)$
+with equality holding if and only if $f$ is differentiable at $x_{0}$
+in which case 
+\[
+m^{-}\left(x_{0}\right)=m^{+}\left(x_{0}\right)=f^{\prime}\left(x_{0}\right).
+\]
+\end{prop}
+
+\begin{proof}
+Fix $x_{0}\in\left(a,b\right)$ and note that by our Lemma \footnote{in our lemma $a$ and $b$ are arbitrary. Here we are applying the
+Lemma to $x_{0}\in\left(\eta,b\right)$ and $x_{0}\in\left(a,\xi\right)$}, for $a<\eta<x_{0}<\xi<b$
+\[
+\frac{f\left(x_{0}\right)-f\left(\eta\right)}{x_{0}-\eta}\leq\frac{f\left(b\right)-f\left(x_{0}\right)}{b-x_{0}}
+\]
+and so its supremum 
+\[
+m^{-}\left(x_{0}\right)\leq\frac{f\left(b\right)-f\left(x_{0}\right)}{b-x_{0}}
+\]
+and similarly 
+\[
+\frac{f\left(\xi\right)-f\left(x_{0}\right)}{\xi-x_{0}}\geq\frac{f\left(x_{0}\right)-f\left(a\right)}{x_{0}-a}
+\]
+and so 
+\[
+m^{+}\left(x_{0}\right)\geq\frac{f\left(x_{0}\right)-f\left(a\right)}{x_{0}-a}.
+\]
+Next, note that applying the Lemma to $x_{0}\in\left(\eta,\xi\right)$
+tells us that 
+\[
+\frac{f\left(x_{0}\right)-f\left(\eta\right)}{x_{0}-\eta}\leq\frac{f\left(\xi\right)-f\left(x_{0}\right)}{\xi-x_{0}}
+\]
+and so
+\[
+m^{-}\left(x_{0}\right)\leq m^{+}\left(x_{0}\right).
+\]
+Finally, apply the Lemma to $\eta_{2}\in\left(\eta_{1},x_{0}\right)$
+to deduce that 
+\[
+\frac{f\left(x_{0}\right)-f\left(\eta_{2}\right)}{x_{0}-\eta_{2}}\geq\frac{f\left(x_{0}\right)-f\left(\eta_{1}\right)}{x_{0}-\eta_{1}}
+\]
+which means that $\frac{f\left(x_{0}\right)-f\left(\eta\right)}{x_{0}-\eta}$
+is increasing in $\eta<x_{0}$ and is bounded above and so
+\[
+\lim_{\eta\to x_{0}^{-}}\frac{f\left(x_{0}\right)-f\left(\eta\right)}{x_{0}-\eta}=m^{-}\left(x_{0}\right).
+\]
+Similarly, 
+\[
+\lim_{\xi\to x_{0}^{+}}\frac{f\left(\xi\right)-f\left(x_{0}\right)}{\xi-x_{0}}=m^{+}\left(x_{0}\right)
+\]
+and so our $m^{-}$and $m^{+}$ are simply left and right hand derivatives
+and our claim follows.
+\end{proof}
+Now we can construct tangent lines to convex functions in the following
+sense
+\begin{prop}
+\label{prop:subderivatives}Let $f:\left[a,b\right]\to\R$ be a convex
+function. For any $x_{0}\in\left(a,b\right),$ for any $m\in\left[m^{-}\left(x_{0}\right),m^{+}\left(x_{0}\right)\right],$we
+have that
+\[
+l\left(x\right):=f\left(x_{0}\right)+m\left(x-x_{0}\right)\leq f\left(x\right).
+\]
+\end{prop}
+
+\begin{proof}
+Note that for $x>x_{0}$
+\[
+\frac{f\left(x\right)-f\left(x_{0}\right)}{x-x_{0}}\geq m^{+}\left(x_{0}\right)\geq m
+\]
+and if $x<x_{0}$ then 
+\[
+\frac{f\left(x_{0}\right)-f\left(x\right)}{x_{0}-x}\leq m^{-}\left(x_{0}\right)\leq m.
+\]
+ The case of $x=0$ is trivial.
+\end{proof}
+\begin{rem*}
+The interval $\left[m^{-}\left(x_{0}\right),m^{+}\left(x_{0}\right)\right]$
+is called the set of \emph{subderivatives }of $f$ at $x_{0}$. It
+should be clear that $f$ is differentiable at $x_{0}$ if and only
+if the set is a singleton. The function $l$ is called a \emph{supporting
+line }at $x_{0}$. More generally, a supporting line $l$ at $x_{0}$
+is any affine function that satisfies $l\left(x_{0}\right)=f\left(x_{0}\right)$
+and $l\left(x\right)\leq f\left(x\right)$ for every $x\in\left(a,b\right)$.
+A convex function on $\left[a,b\right]$ has at least one supporting
+line at every point in $\left(a,b\right)$
+\end{rem*}
+Note that the existence of left and right derivatives at a point implies
+continuity at that point. This implies that convex functions on an
+interval are continuous.
+\begin{prop}
+\label{prop:leftRightDerivativeImpliesContinuity}Let $f:\left[a,b\right]\to\R$
+be a function such that for a point $x_{0}\in\left(a,b\right)$ the
+left and right hand derivatives 
+\[
+\lim_{x\to x_{0}^{-}}\frac{f\left(x\right)-f\left(x_{0}\right)}{x-x_{0}}=L
+\]
+and
+\[
+\lim_{x\to x_{0}^{+}}\frac{f\left(x\right)-f\left(x_{0}\right)}{x-x_{0}}=M
+\]
+then $f$ is continuous $x_{0}.$
+\end{prop}
+
+\begin{proof}
+Note that 
+\[
+\lim_{x\to x_{0}^{-}}f\left(x\right)-f\left(x_{0}\right)=L\lim_{x\to x_{0}^{-}}x-x_{0}=0
+\]
+and
+\[
+\lim_{x\to x_{0}^{+}}f\left(x\right)-f\left(x_{0}\right)=M\lim_{x\to x_{0}^{+}}x-x_{0}=0
+\]
+ which completes the proof.
+\end{proof}
+\begin{cor}
+\label{cor:convexContinuous}A convex function $f:\left[a,b\right]\to\R$
+is continuous on $\left(a,b\right).$
+\end{cor}
+
+We have proved that a convex function on $\left[a,b\right]$ has supporting
+lines; it turns out that if a function on $\left[a,b\right]$ has
+supporting lines everywhere on $\left(a,b\right)$ then it is convex
+as well.
+\begin{prop}
+\label{prop:convexSupportingLines}Let $f:\left[a,b\right]\to\R$
+be a function. Then $f$ is convex if and only if it has a supporting
+line at each point $x_{0}\in\left(a,b\right)$.
+\end{prop}
+
+\begin{proof}
+The ``only if'' part is Proposition \ref{prop:subderivatives}.
+For the converse, let $\lambda\in\left[0,1\right]$ be arbitrary and
+let $x,y\in\left(a,b\right)$. Let $x_{0}=\lambda x+\left(1-\lambda\right)y$
+and note that 
+\begin{align*}
+\lambda f\left(x\right)+\left(1-\lambda\right)f\left(y\right) & \geq\lambda l\left(x\right)+\left(1-\lambda\right)f\left(y\right)\\
+ & =l\left(x_{0}\right)\\
+ & =f\left(x_{0}\right)
+\end{align*}
+where the first equality follows from the fact that affine functions
+are both convex and concave.
+\end{proof}
+Finally, we recover the result that a twice continuously differentiable
+convex function has non-negative second derivative, a fact that follows
+from Taylor's theorem with remainder.
+\begin{prop}
+\label{prop:convexPositiveSecondDerivative}Let $f:\left[a,b\right]\to\R$
+be a twice continuously differentiable function. Then $f$ is a convex
+function if and only if at every point $x_{0}\in\left(a,b\right)$
+$f^{\prime\prime}\left(x_{0}\right)\geq0$.
+\end{prop}
+
+\begin{proof}
+Note that by Taylor's theorem
+\begin{equation}
+f\left(x\right)=f\left(x_{0}\right)+f^{\prime}\left(x_{0}\right)\left(x-x_{0}\right)+f^{\prime\prime}\left(c\right)\frac{\left(x-x_{0}\right)^{2}}{2}\label{eq:taylorConvex}
+\end{equation}
+where $c$ is between $x$ and $x_{0}$. Then if $f^{\prime\prime}\left(c\right)\geq0$
+then
+\[
+f\left(x\right)\geq f\left(x_{0}\right)+f^{\prime}\left(x_{0}\right)\left(x-x_{0}\right)
+\]
+and so by Proposition \ref{prop:convexSupportingLines} our $f$ is
+convex. Conversely, if $f$ is convex then
+\end{proof}
+We are finally ready to present the main result from this section.
+\begin{thm}[Jensen's inequality]
+\label{thm:jensenInequality}Let $\measurespace$ be a measure space
+wth $\mu\left(\X\right)=1.$ For any integrable function $f\in\Lp 1{\mu}$
+and a convex function $g:\R\to\R$, we have that
+\[
+\lebInt{\mu}{g\circ f}\geq g\left(\lebInt{\mu}f\right).
+\]
+\end{thm}
+
+\begin{proof}
+First note that for any restriction of $g$ to any interval $\left[-n,n\right],$$g$
+has supporting lines everywhere on $\left(-n,n\right)$ by Proposition
+\ref{prop:convexSupportingLines}. Since $n$can be arbitrarily large,
+$g$ admits a supporting line at $x_{0}=\lebInt{\mu}f.$That is to
+say, there exists an affine function $l$ such that 
+\[
+l\left(\lebInt{\mu}f\right)=g\left(\lebInt{\mu}f\right)
+\]
+and
+\[
+l\left(f\left(x\right)\right)\leq g\left(f\left(x\right)\right)
+\]
+for all $x\in\R$. Any affine function $l:\R\to\R$ can be written
+as $l\left(x\right)=a+bx$ where $a,b\in\R.$ Therefore, by the monotonicty
+of integration
+\begin{align*}
+\lebInt{\mu}{g\circ f} & \geq\lebInt{\mu}{l\circ f}\\
+ & =a+b\lebInt{\mu}f\\
+ & =l\left(\lebInt{\mu}f\right)\\
+ & =g\left(\lebInt{\mu}f\right)
+\end{align*}
+where in the second line we have used the linearity of integration
+along with the fact that $\mu\left(\X\right)=1.$
+\end{proof}
+
+\subsection{$L^{\infty}$ as the limit of $L^{p}$ spaces}
+
+In the context of $L^{p}$ spaces, we replace the notion of boundedness
+(i.e. the quality of a function in a space being bounded) with the
+related notion of \emph{essentially boundedness. }A function is said
+to be essentially bounded if it is bounded except on a null set. Then
+the space of essentially bounded functions from a measure space $\measurespace$
+to $\left(\R,\borel\left(\R\right)\right)$is denoted $\Lp{\infty}{\X,\F,\mu}$.
+This space comes equipped with a (semi) norm $\pnorm{\cdot}{\infty}$
+so that for $f\in\Lp{\infty}{\mu},$we have that 
+\[
+\pnorm f{\infty}:=\inf\left\{ C\in\R\mid\mu\left(\left\{ \lvert f\rvert>C\right\} \right)=0\right\} .
+\]
+To see this is indeed a norm, we can verify that positivity non-negativity
+is satisfied by definition. To see homogeneity, observe that for any
+$\alpha\neq0$, the collection $\left\{ C\in\R\mid\mu\left(\lvert\alpha f\rvert>C\right)\right\} =\left\{ \lvert\alpha\rvert C\in\R\mid\mu\left(\lvert f\rvert>C\right)\right\} $
+and so we have homogeneity. For the triangle inequality, consider
+the fact that for any $C\in\R$ and any $f,g\in\Lp{\infty}{\mu}$,
+we have $\lvert f\left(x\right)\rvert\leq\pnorm f{\infty},\lvert g\left(x\right)\rvert\leq\pnorm g{\infty}$
+for almost all $x\in\X$ and so
+\[
+\lvert f\left(x\right)+g\left(x\right)\rvert\leq\lvert f\left(x\right)\rvert+\lvert g\left(x\right)\rvert\leq\pnorm f{\infty}+\pnorm g{\infty}
+\]
+almost everywhere. In words, $\pnorm f{\infty}+\pnorm g{\infty}$
+is an \emph{essential upper-bound }for $\lvert f\left(x\right)+g\left(x\right)\rvert$
+and so $\pnorm f{\infty}+\pnorm g{\infty}\in\left\{ C\in\R\mid\mu\left(\left\{ \lvert f+g\rvert>C\right\} \right)=0\right\} .$
+The inequality then follows since $\pnorm{f+g}{\infty}$ is the infimum
+of that set. The notation $\Lp{\infty}{\mu}$ of course deserves some
+scrutiny; one potential justification for the choice of notation is
+the following result.
+\begin{prop}
+\label{prop:limLp}Let $\measurespace$ be a measure space and let
+$f\in\cap_{p\in\N}\Lp p{\mu}.$Then 
+\[
+\lim_{p\to\infty}\pnorm fp=\pnorm f{\infty}.
+\]
+\end{prop}
+
+\begin{proof}
+First, suppose that $\pnorm f{\infty}<\infty.$ Then, for any sequence
+$q_{n}\to\infty,$ we have that 
+\begin{align*}
+\pnorm f{p+q_{n}} & =\lebInt{\mu}{\lvert f\rvert^{p+q_{n}}}^{\frac{1}{p+q_{n}}}\\
+ & \leq\lebInt{\mu}{\lVert f\rVert_{\infty}^{q_{n}}\lvert f\rvert^{p}}^{\frac{1}{p+q_{n}}}\\
+ & =\lVert f\rVert_{\infty}^{\frac{q_{n}}{p+q_{n}}}\lebInt{\mu}{\lvert f\rvert^{p}}^{\frac{1}{p+q_{n}}}
+\end{align*}
+where we used the fact that $\lvert f\rvert\leq\pnorm f{\infty}$
+almost everywhere and the monotonicity and linearity of the integral.
+Taking lim-sups\footnote{We don't know if the limit on the left side exists; the right-hand
+side has a proper limit and so is equal to its lim-sup.} on both sides we have 
+\[
+\limsup_{q_{n}\to\infty}\pnorm f{p+q_{n}}\leq\pnorm f{\infty}.
+\]
+Conversely, note that for any $\epsilon>0$, we have the fact that
+$\lvert f\rvert\geq\left(\pnorm f{\infty}-\epsilon\right)$$\indicate\left\{ \lvert f\rvert>\pnorm f{\infty}-\epsilon\right\} $
+and so since p-norms respect monotonicty, we have that 
+\begin{align*}
+\pnorm fp & \geq\pnorm{\left(\pnorm f{\infty}-\epsilon\right)\indicate\left\{ \lvert f\rvert>\pnorm f{\infty}-\epsilon\right\} }p\\
+ & =\lvert\pnorm f{\infty}-\epsilon\rvert\mu\left(\lvert f\rvert>\pnorm f{\infty}-\epsilon\right)^{\frac{1}{p}}
+\end{align*}
+where we have used homogeneity in the second line. Note that the right
+hand side is finite by Markov's inequality since $f\in\Lp 1{\mu}$
+and $\pnorm f{\infty}<\infty$\footnote{$\mu\left(\lvert f\rvert>\pnorm f{\infty}-\epsilon\right)\leq\frac{\lebInt{\mu}{\lvert f\rvert}}{\pnorm f{\infty}-\epsilon}$}
+and positive by the fact that $\pnorm f{\infty}$is an essential supremum
+so any smaller real number cannot be an essential upper bound. Letting
+$p\to\infty,\epsilon\to0$ on the right hand side ( while taking a
+lim-inf on the left), we have
+\[
+\liminf_{p\to\infty}\pnorm fp\geq\pnorm f{\infty}
+\]
+which completes the proof for the essentially bounded case.
+\end{proof}
+
+\section{Hilbert spaces over $\protect\R$}
+
+\subsection{Introduction to inner product spaces}
+
+The inner product is a generalization of the dot product of Euclidean
+spaces. Recall from calculus that the dot product is defined $\bullet:\R^{n}\times\R^{n}\longrightarrow\R$
+where
+\[
+x\bullet y:=\sum_{i=1}^{n}x_{i}y_{i}
+\]
+for any $x,y\in\R^{n}.$ We can generalize this with the following
+definition.
+\begin{defn}
+\label{def:innerProduct}Let $V$ be a vector space over $\R$. The
+function $\innerproduct{\cdot}{\cdot}:V\times V\longrightarrow\R$
+is called an\emph{ inner product }if
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $\innerproduct{v}{v} \geq 0$ for all $ v \in V $
+	\item $\innerproduct{v}{v} =0 \implies v = 0$ for all $ v \in V $
+	\item For any $v,w \in V: \innerproduct{v}{w} = \innerproduct{w}{v}$
+	\item For any $\alpha,\beta \in \R$ and any $v,w,u \in V$
+	\[
+			\innerproduct{\alpha v + \beta w}{u} = \alpha\innerproduct{v}{u} + \beta\innerproduct{w}{u}.
+	\]
+\end{enumerate}
+
+If $\innerproduct{\cdot}{\cdot}$ satsifies these properties then
+$\left(V,\innerproduct{\cdot}{\cdot}\right)$ is called an \emph{inner
+product space}.
+\end{defn}
+
+The first and second properties are together called the \emph{definiteness
+}condition of inner products, analagous to the one for norms. The
+third property is called \emph{symmetry, }and the the final property
+is \emph{linearity in the first argument.} Note that symmetry and
+linearity in the first argument together imply linearity in the second
+argument. Since we are ultimately concerned with basic probability
+theory, we shall always assume the field over which $V$ is defined
+is $\R$; if the field were $\mathds{C}$ then the second property
+above would be replaced by \emph{skew-symmetry }i.e. $\innerproduct vw=\overline{\innerproduct wv}$
+where the $\overline{c}$ for any $c\in\mathds{C}$ denotes the complex
+conjugate. In this case, proper linearity in the second argument would
+not hold.
+
+We can immediately use these properties to derive a familiar result
+from a different context.
+\begin{prop}[Cauchy-Schwarz inequality]
+\label{prop:innerCauchySchwarz}Let $\left(V,\innerproduct{\cdot}{\cdot}\right)$
+be an inner product space. For any $v,w\in V$
+\[
+\innerproduct vw{}^{2}\leq\innerproduct vv\innerproduct ww
+\]
+and moreover, strict equality holds if and only if $v=\alpha w$ for
+some $\alpha\in\R.$
+\end{prop}
+
+\begin{proof}
+The claim is trivially true if either $v=0$ or $w=0$ as $\innerproduct 0w=0\innerproduct vw$
+by linearity. Thus we can assume without loss of generality both are
+non-zero. Write $v=\left(v-\alpha w\right)+\alpha w$ where $\alpha=\frac{\innerproduct vw}{\innerproduct ww}.$
+Then,
+\begin{align}
+\innerproduct vv & =\innerproduct{\left(v-\alpha w\right)+\alpha w}{\left(v-\alpha w\right)+\alpha w}\nonumber \\
+ & =\innerproduct{v-\alpha w}{v-\alpha w}+2\innerproduct{\alpha w}{v-\alpha w}+\innerproduct{\alpha w}{\alpha w}\label{eq:innerProdExpansion}
+\end{align}
+where the second equality follows from an application of linearity
+and symmetry. Note that the term
+\begin{align}
+\innerproduct{\alpha w}{v-\alpha w} & =\alpha\innerproduct wv-\alpha^{2}\innerproduct ww\nonumber \\
+ & =\alpha\left(\innerproduct vw-\alpha\innerproduct ww\right)\nonumber \\
+ & =0.\label{eq:crossProdZero}
+\end{align}
+Note that equations (\ref{eq:innerProdExpansion}) and (\ref{eq:crossProdZero}),
+together with the definiteness of inner products, imply that 
+\begin{align*}
+\innerproduct vv & \geq\innerproduct{\alpha w}{\alpha w}\\
+ & =\alpha^{2}\innerproduct ww\\
+ & =\frac{\innerproduct vw^{2}}{\innerproduct ww}
+\end{align*}
+and rearranging yields the inequality.
+
+To see the equality result, note that $\innerproduct vv=\innerproduct{\alpha w}{\alpha w}$
+in equation (\ref{eq:innerProdExpansion}) when $\innerproduct{v-\alpha w}{v-\alpha w}=0\implies v=\alpha w$
+which shows the necessity. To show sufficiency, let $v=\beta w$ for
+some $\beta\in\R$ and note that 
+\begin{align*}
+\innerproduct vw^{2} & =\innerproduct{\beta w}w^{2}\\
+ & =\beta^{2}\innerproduct ww^{2}\\
+ & =\beta^{2}\innerproduct ww\innerproduct ww\\
+ & =\innerproduct{\beta w}{\beta w}\innerproduct ww\\
+ & =\innerproduct vv\innerproduct ww
+\end{align*}
+where the second equality follows from linearity in the first argument
+and the fourth equality follows from linearity in both arguments.
+\end{proof}
+The relationship between inner-products and norms is a tight one;
+every inner-product induces a norm.
+\begin{prop}
+\label{prop:normInducedByInnerProd}Let $\left(V,\innerproduct{\cdot}{\cdot}\right)$
+be an inner product space and let the function $\pnorm{\cdot}{}:V\longrightarrow\R$
+be defined by 
+\[
+\pnorm v{}=\sqrt{\innerproduct vv}
+\]
+for any $v\in V$. Then the function $\pnorm{\cdot}{}$ is a norm.
+\end{prop}
+
+\begin{proof}
+Note that the definiteness condition of norms corresponds to the definiteness
+condition of inner-products, and so is trivially satisfied. Next,
+observe that for any $\alpha\in\R$
+\begin{align*}
+\pnorm{\alpha v}{} & =\sqrt{\innerproduct{\alpha v}{\alpha v}}\\
+ & =\sqrt{\alpha^{2}\innerproduct vv}\\
+ & =\lvert\alpha\rvert\pnorm v{}
+\end{align*}
+which gives us absolute homogeneity. Finally, for any $v,w\in V$
+\begin{align*}
+\pnorm{v+w}{}^{2} & =\innerproduct{v+w}{v+w}\\
+ & =\innerproduct vv+2\innerproduct vw+\innerproduct ww\\
+ & \leq\pnorm v{}^{2}+2\pnorm v{}\pnorm w{}+\pnorm w{}^{2}\\
+ & =\left(\pnorm v{}+\pnorm w{}\right)^{2}
+\end{align*}
+where the inequality follows from the Cauchy-Schwarz inequality. This
+completes the proof.
+\end{proof}
+We call such a norm a norm \emph{induced by }an inner product. It
+turns out that one can recover a norm from an inner product precisely
+when a particular identity is satisfied.
+\begin{defn}
+\label{def:parallelogram}Let $\left(V,\pnorm{\cdot}{}\right)$ be
+a normed vector space. The norm $\pnorm{\cdot}{}$ is said to satisfy
+the \emph{parallelogram identity }if for any $v,w\in V$
+\[
+\pnorm{\frac{v+w}{2}}{}^{2}+\pnorm{\frac{v-w}{2}}{}^{2}=\frac{1}{2}\left(\pnorm v{}^{2}+\pnorm w{}^{2}\right).
+\]
+\end{defn}
+
+Next, we need a few lemmas to aid in the proof of the main result.
+\begin{lem}
+\label{lem:polarization}Let $\left(V,\pnorm{\cdot}{}\right)$ be
+a normed vector space where the norm $\pnorm{\cdot}{}$ satisfies
+the parallelogram identity. Then, for any $u,v,w\in V$
+\[
+\pnorm{u+v+w}{}^{2}=\pnorm{u+v}{}^{2}+\pnorm{v+w}{}^{2}+\pnorm{u+w}{}^{2}-\pnorm u{}^{2}-\pnorm v{}^{2}-\pnorm w{}^{2}.
+\]
+\end{lem}
+
+\begin{proof}
+Note that by the parallelogram identity
+\begin{equation}
+\pnorm{\left(u+v\right)+w}{}^{2}=2\pnorm{u+v}{}^{2}+2\pnorm w{}^{2}-\pnorm{\left(u+v\right)-w}{}^{2}\label{eq:parallel1}
+\end{equation}
+and 
+\begin{equation}
+\pnorm{u+\left(v+w\right)}{}^{2}=2\pnorm u{}^{2}+2\pnorm{v+w}{}^{2}-\pnorm{u-v-w}{}^{2}.\label{eq:parallel2}
+\end{equation}
+Adding equations (\ref{eq:parallel1}) and (\ref{eq:parallel2}),
+then dividing by two, we have that 
+\begin{align*}
+\pnorm{u+v+w}{}^{2} & =\pnorm{u+v}{}^{2}+\pnorm w{}^{2}-\frac{1}{2}\pnorm{u+v-w}{}^{2}+\pnorm u{}^{2}+\pnorm{v+w}{}^{2}-\frac{1}{2}\pnorm{u-v-w}{}^{2}\\
+ & =\pnorm{u+v}{}^{2}+\pnorm w{}^{2}+\pnorm u{}^{2}+\pnorm{v+w}{}^{2}-\pnorm{u-w}{}^{2}-\pnorm v{}^{2}\\
+ & =\pnorm{u+v}{}^{2}+\pnorm w{}^{2}+\pnorm u{}^{2}+\pnorm{v+w}{}^{2}+\pnorm{u+w}{}^{2}-2\pnorm u{}^{2}-2\pnorm w{}^{2}-\pnorm v{}^{2}\\
+ & =\pnorm{u+v}{}^{2}+\pnorm{v+w}{}^{2}+\pnorm{u+w}{}^{2}-\pnorm u{}^{2}-\pnorm v{}^{2}-\pnorm w{}^{2}
+\end{align*}
+where the second equality follows from an application of the parallelogram
+identity on $\frac{1}{2}\pnorm{u+v-w}{}^{2}+\frac{1}{2}\pnorm{u-v-w}{}^{2}$
+and the third equality follows from another application of the identity
+to $\pnorm{u-w}{}^{2}$.
+\end{proof}
+\begin{lem}
+\label{lem:continuityNorm}For any norm $\pnorm{\cdot}{}$ on some
+vector space $V$, the map $\phi_{v,w}:\R\longrightarrow\R$ given
+by
+\[
+\phi_{v,w}\left(t\right):=\frac{1}{4}\left(\pnorm{tv+w}{}^{2}-\pnorm{tv-w}{}^{2}\right)
+\]
+is continuous for any $v,w\in V$.
+\end{lem}
+
+\begin{proof}
+Note that for any $v,w\in V$, our function $\phi_{v,w}$ is the composition
+of continous functions and thus the result follows.\footnote{The norm is continuous by the reversed triangle inequality $\lvert\pnorm x{}-\pnorm y{}\rvert\leq\pnorm{x-y}{}$}
+\end{proof}
+\begin{thm}
+\label{thm:parallelogram}Let $\left(V,\pnorm{\cdot}{}\right)$ be
+a normed vector space. The norm $\pnorm{\cdot}{}$ is induced by an
+inner product if and only if the parallelogram identity is satisfied.
+\end{thm}
+
+\begin{proof}
+First suppose that the norm $\pnorm{\cdot}{}$ is induced by the inner
+product $\innerproduct{\cdot}{\cdot}$. Then, 
+\begin{align*}
+\pnorm{\frac{v+w}{2}}{}^{2}+\pnorm{\frac{v-w}{2}}{}^{2} & =\innerproduct{\frac{v+w}{2}}{\frac{v+w}{2}}+\innerproduct{\frac{v-w}{2}}{\frac{v-w}{2}}\\
+ & =\frac{1}{4}\left(\innerproduct vv+2\innerproduct vw+\innerproduct ww\right)+\frac{1}{4}\left(\innerproduct vv-2\innerproduct vw+\innerproduct ww\right)\\
+ & =\frac{1}{2}\innerproduct vv+\frac{1}{2}\innerproduct ww\\
+ & =\frac{1}{2}\left(\pnorm v{}^{2}+\pnorm w{}^{2}\right).
+\end{align*}
+The harder part is showing that if a norm that satisfies the parallelogram
+identity, there exists an inner product that induces such a norm.
+To do so, first define a map
+\[
+\left(v,w\right):=\frac{1}{4}\left(\pnorm{v+w}{}^{2}-\pnorm{v-w}{}^{2}\right)
+\]
+ and observe that 
+\[
+\left(v,v\right)=\pnorm v{}^{2}\geq0
+\]
+and that $\left(v,v\right)=0$ if and only if $v=0$ by the definiteness
+condition of norms. Moreover, observe that $\left(v,w\right)=\left(w,v\right)$
+since$\pnorm{v-w}{}=\pnorm{w-v}{}$. Next, note that for any $v,u,w\in V$
+\begin{align*}
+\left(v+u,w\right) & =\frac{1}{4}\left(\pnorm{v+u+w}{}^{2}-\pnorm{v+u-w}{}^{2}\right)\\
+ & =\frac{1}{4}\left(\pnorm{u+v}{}^{2}+\pnorm{v+w}{}^{2}+\pnorm{u+w}{}^{2}-\pnorm u{}^{2}-\pnorm v{}^{2}-\pnorm w{}^{2}\right.\\
+ & \ \ \ \ \left.\ \ \ -\pnorm{u+v}{}^{2}-\pnorm{v-w}{}-\pnorm{u-w}{}^{2}+\pnorm u{}^{2}+\pnorm v{}^{2}+\pnorm w{}^{2}\right)\\
+ & =\frac{1}{4}\left(\pnorm{v+w}{}^{2}-\pnorm{v-w}{}^{2}\right)+\frac{1}{4}\left(\pnorm{u+w}{}^{2}-\pnorm{u-w}{}^{2}\right)\\
+ & =\left(v,w\right)+\left(u,w\right)
+\end{align*}
+where the second equality follows from Lemma \ref{lem:polarization}
+which proves additive linearity.
+
+In order to establish multiplicative linearity on $\R$, we shall
+first demonstrate it on natural numbers $\N$, then on integers $\mathds{Z},$then
+on the rationals $\mathds{Q}$ and finally the entire real line. First,
+we show that for any $n\in\N:\left(nv,w\right)=n\left(v,w\right).$
+This follows from induction on additive linearity since
+\begin{align*}
+\left(nv,w\right) & =\left(\sum_{i=1}^{n}v,w\right)\\
+ & =\sum_{i=1}^{n}\left(v,w\right)\\
+ & =n\left(v,w\right).
+\end{align*}
+Next, to show that multiplicative linearity holds over $\mathds{Z},$
+all we have to show is that 
+\[
+\left(0v,w\right)=0
+\]
+and
+\[
+\left(-v,w\right)=-\left(v,w\right).
+\]
+The first follows on inspection; for the second, note
+\begin{align*}
+\left(-v,w\right) & =\frac{1}{4}\left(\pnorm{w-v}{}^{2}-\pnorm{-\left(v+w\right)}{}^{2}\right)\\
+ & =\frac{1}{4}\left(\pnorm{v-w}{}^{2}-\pnorm{v+w}{}^{2}\right)\\
+ & =-\left(v,w\right)
+\end{align*}
+where the second equality follows from absolute homogeneity of norms.
+To extend the multiplicative linearity to $\mathds{Q}$, consider
+an arbitrary $q\in\mathds{Q}$ and note that by definition $q=\frac{a}{b},\left(a,b\right)\in\mathds{Z}\times\left(\mathds{Z}\setminus\left\{ 0\right\} \right)$
+and so
+\begin{align*}
+\left(qv,w\right) & =\left(\frac{a}{b}v,w\right)\\
+ & =a\left(\frac{v}{b},w\right)\\
+ & =\frac{a}{4}\left(\pnorm{\frac{v}{b}+w}{}^{2}-\pnorm{\frac{v}{b}-w}{}^{2}\right)\\
+ & =\frac{a}{4}\left(\pnorm{\frac{b}{b}\left(\frac{v}{b}+w\right)}{}^{2}-\pnorm{\frac{b}{b}\left(\frac{v}{b}-w\right)}{}^{2}\right)\\
+ & =\frac{a}{4b^{2}}\left(\pnorm{v+bw}{}^{2}-\pnorm{v-bw}{}^{2}\right)\\
+ & =\frac{a}{b^{2}}\left(v,bw\right)\\
+ & =\frac{a}{b}\left(v,w\right)\\
+ & =q\left(v,w\right)
+\end{align*}
+where we used the linearity on $\mathds{Z}$ (and symmetry) in the
+second and second-to-last equalities, and the absolute homogeneity
+of norms in the fifth equality. Finally, to extend this linearity
+to all of $\R$, let $\alpha\in\R$ be unspecified and observe that
+by the density of rational numbers in $\R$, there exists a sequence
+$\left\{ q_{n}\right\} \in\mathds{Q}$ such that $\lim_{n\to\infty}q_{n}=\alpha$
+and so, 
+\begin{align*}
+\left(\alpha v,w\right) & =\left(\lim_{n\to\infty}q_{n}v,w\right)\\
+ & =\lim_{n\to\infty}\left(q_{n}v,w\right)\\
+ & =\lim_{n\to\infty}q_{n}\left(v,w\right)\\
+ & =\alpha\left(v,w\right)
+\end{align*}
+where the second equality follows by Lemma \ref{lem:continuityNorm}
+and the third by our linearity result on $\mathds{Q}.$
+
+Together, we have shown that our function $\left(\cdot,\cdot\right):V\times V\longrightarrow\R$
+satisfies all the properties of the inner product, thus completing
+the proof.
+\end{proof}
+\begin{cor}
+\label{cor:L2Hilbert}Let $\left(\X,\F,\mu\right)$ be a measure space.
+The space $\Lp 2{\X,\F,\mu}$ is an inner-product space with inner
+product $\innerproduct{\cdot}{\cdot}:\X\times\X\to\R$ given by
+\[
+\innerproduct xy=\lebInt{\mu}{xy}
+\]
+\end{cor}
+
+\begin{proof}
+Let us verify that $\Lp 2{\mu}$ satisfies the parallelogram identity.
+\hl{COMPLETE LATER}
+\end{proof}
+
+\subsection{Hilbert spaces}
+
+Corollary \ref{cor:L2Hilbert} showed that $\Lp 2{\mu}$ is an inner-product
+space but we also know, from Theorem \ref{thm:completenessLp} that
+$\Lp 2{\mu}$ is a complete metric space with respect to the metric
+induced by its norm. These types of spaces play a special role in
+analysis and are important objects of study in of themselves in functional
+analysis. In the context of probability theory, they play a key role
+in the development of the theory of conditional expectations and the
+existence of probability density functions.
+\begin{defn}
+\label{def:hilbertSpace}An inner product space $\left(\mathcal{H},\innerproduct{\cdot}{\cdot}\right)$
+is called a \emph{Hilbert space }if it is complete with respect to
+the norm induced by the inner product.
+\end{defn}
+
+\begin{thm}[Projection]
+\label{thm:projectionThm}Let $\left(\mathcal{H},\innerproduct{\cdot}{\cdot}\right)$
+be a Hilbert space and let $G\subseteq\mathcal{H}$ be a nonempty
+closed convex subset. Then, for any $h\in\mathcal{H},$ there exists
+a unique $g_{0}\in G$ such that 
+\[
+\pnorm{h-g_{0}}{}=\inf_{g\in G}\pnorm{h-g}{}
+\]
+where $\pnorm{\cdot}{}$ is the norm induced by $\innerproduct{\cdot}{\cdot}.$
+\end{thm}
+
+\begin{proof}
+Let $\delta_{h}:=\inf_{g\in G}\pnorm{h-g}{}$ and note that by the
+definition of the infimum, for every $n\in\N,$ there exists some
+$g_{n}\in G$ such that 
+\[
+\delta_{h}\leq\pnorm{h-g_{n}}{}<\delta_{h}+\frac{1}{n}
+\]
+and so $\lim_{n\to\infty}\pnorm{h-g_{n}}{}=\delta_{h}.$ It turns
+out that the sequence $\left\{ g_{n}\right\} _{n\in\N}$ is a Cauchy
+sequence in $\mathcal{H}.$ To see this, fix $\epsilon>0$ observe
+that by the definition of a limit and the continuity of $x\to x^{2}$,
+there exists some $n_{0}$ such that $\pnorm{h-g_{n}}{}^{2}-\delta_{h}^{2}<\frac{\epsilon^{2}}{4}$
+for every $n\geq n_{0}.$ By the parallelogram identity \ref{def:parallelogram}with
+$v=h-g_{n}$ and $w=h-g_{m}$ where $m,n\geq n_{0}$
+\[
+\pnorm{h-\left(\frac{g_{m}+g_{n}}{2}\right)}{}^{2}+\pnorm{\frac{g_{n}-g_{m}}{2}}{}^{2}=\frac{1}{2}\left(\pnorm{h-g_{n}}{}^{2}+\pnorm{h-g_{m}}{}^{2}\right).
+\]
+Since $G$ is convex, $\frac{g_{m}+g_{n}}{2}\in G$ and so, again
+by the definition of an infimum
+\[
+\delta_{h}^{2}\leq\pnorm{h-\left(\frac{g_{m}+g_{n}}{2}\right)}{}^{2}
+\]
+which implies that
+\begin{align*}
+\delta_{h}^{2}+\pnorm{\frac{g_{n}-g_{m}}{2}}{}^{2} & \leq\frac{1}{2}\left(\pnorm{h-g_{n}}{}^{2}+\pnorm{h-g_{m}}{}^{2}\right)\\
+\implies\pnorm{g_{n}-g_{m}}{}^{2} & \leq2\left(\pnorm{h-g_{n}}{}^{2}-\delta_{h}^{2}+\pnorm{h-g_{m}}{}^{2}-\delta_{h}^{2}\right)\\
+ & <2\left(\frac{\epsilon^{2}}{4}+\frac{\epsilon^{2}}{4}\right)\\
+ & =\epsilon^{2}
+\end{align*}
+which then shows that $g_{n}$ is Cauchy and so by the completeness
+of $\mathcal{H}$ converges to a limit in $\mathcal{H}$. However,
+since $G$ is closed, it contains this limit and thus $g_{0}:=\lim_{n\to\infty}g_{n}\in G.$
+Finally, by Minkowski's inequality
+\begin{align*}
+\pnorm{h-g_{0}}{} & \leq\pnorm{h-g_{n}}{}+\pnorm{g_{n}-g_{0}}{}\\
+\end{align*}
+and by taking limits on the RHS we have
+\[
+\pnorm{h-g_{0}}{}\leq\delta_{h}.
+\]
+The definition of the infimum then implies that 
+\[
+\delta_{h}\leq\pnorm{h-g_{0}}{}
+\]
+which gives equality.
+
+Now suppose there exists some $g_{1}\in G$ such that $\pnorm{h-g_{1}}{}=\delta_{h}$.
+Then, applying the parallelogram identity \ref{def:parallelogram}
+again with $v=h-g_{0}$ and $w=h-g_{1}$ we have
+\begin{align*}
+\pnorm{h-\left(\frac{g_{0}+g_{1}}{2}\right)}{}^{2}+\pnorm{\frac{g_{0}-g_{1}}{2}}{}^{2} & =\frac{1}{2}\left(\pnorm{h-g_{0}}{}^{2}+\pnorm{h-g_{1}}{}^{2}\right)\\
+ & =\delta_{h}^{2}
+\end{align*}
+Note again by convexity, $\frac{g_{0}+g_{1}}{2}\in G$ and so $\pnorm{h-\left(\frac{g_{0}+g_{1}}{2}\right)}{}^{2}\geq\delta_{h}^{2}$
+which implies that
+\[
+\pnorm{\frac{g_{0}-g_{1}}{2}}{}^{2}\leq0
+\]
+and since norms cant be negative, we have that $\pnorm{\frac{g_{0}-g_{1}}{2}}{}^{2}=0\implies g_{0}=g_{1}$
+by the definiteness of norms.
+\end{proof}
+\begin{rem*}
+The unique vector $g_{0}\in G$ described above is called the \emph{projection
+}of $h$ into $G$ and is often denoted as $P_{G}h.$
+\end{rem*}
+Note that the projection theorem holds in general for any nonempty,
+closed, and convex subset $G$ of any Hilbert space $\mathcal{H}$
+but in particular it holds for any nonempty closed \emph{subspace
+}of $\mathcal{H}$, since every subspace is automatically convex.
+However, in the case, of a subspace, the projection is \emph{orthogonal}.
+We make this precise with the following result.
+\begin{cor}
+\label{cor:orthProjection}Let $\left(\mathcal{H},\innerproduct{\cdot}{\cdot}\right)$
+be a Hilbert space and let $\mathcal{G\subset\mathcal{H}}$ be a closed
+subspace. Then for any $h\in\mathcal{H}$, $k\in\mathcal{G}$ we have
+that
+\[
+\innerproduct{h-k}g=0
+\]
+for every $g\in\mathcal{G}$ if and only if $k=P_{\mathcal{G}}h$
+and so
+\[
+\pnorm h{}^{2}=\pnorm{P_{\mathcal{G}}h}{}^{2}+\pnorm{h-P_{\mathcal{G}}h}{}^{2}.
+\]
+\end{cor}
+
+\begin{proof}
+Fix $h\in\mathcal{H}$ and observe that $\tilde{g}=P_{\mathcal{G}}h+tg\in\mathcal{G}$
+for any $g\in\mathcal{G}$ and $t\in\R$ since $\mathcal{G}$ is a
+subspace and so by the projection theorem \ref{thm:projectionThm}
+\begin{align}
+\pnorm{h-P_{\mathcal{G}}h}{}^{2} & \leq\pnorm{h-\tilde{g}}{}^{2}\nonumber \\
+ & =\innerproduct{h-\tilde{g}}{h-\tilde{g}}\nonumber \\
+ & =\innerproduct{(h-P_{\mathcal{G}}h)-tg}{(h-P_{\mathcal{G}}h)-tg}\nonumber \\
+ & =\pnorm{h-P_{\mathcal{G}}h}{}^{2}-2t\innerproduct{h-P_{\mathcal{G}}h}g+t^{2}\pnorm g{}^{2}\label{eq:convxPoly}
+\end{align}
+where the last equality follows by linearity of inner products. Now
+if $\pnorm g{}=0$ then $g=0$ by definiteness and so $\innerproduct{h-P_{\mathcal{G}}h}g=0$
+by linearity. Thus, assume that $\pnorm g{}>0$ and so notice that
+the right hand side of (\ref{eq:convxPoly}) is a convex polynomial
+in $t$ which is minimized at $t=\frac{\innerproduct{h-P_{\mathcal{G}}h}g}{\pnorm g{}^{2}}$
+with minimum 
+\[
+\pnorm{h-P_{\mathcal{G}}h}{}^{2}-\frac{\innerproduct{h-P_{\mathcal{G}}h}g^{2}}{\pnorm g{}^{2}}.
+\]
+But since the inequality in (\ref{eq:convxPoly}) holds for any $t\in\R$,
+we have 
+\[
+\pnorm{h-P_{\mathcal{G}}h}{}^{2}\leq\pnorm{h-P_{\mathcal{G}}h}{}^{2}-\frac{\innerproduct{h-P_{\mathcal{G}}h}g^{2}}{\pnorm g{}^{2}}
+\]
+ and so
+\[
+\innerproduct{h-P_{\mathcal{G}}h}g=0
+\]
+since all the terms are non-negative. Conversely, assume that $\innerproduct{h-k}g=0$
+for some $k\in\mathcal{G}$ and every $g\in\mathcal{G}$. Then, we
+have that
+\begin{align*}
+\pnorm{h-g}{}^{2} & =\pnorm{h-k+k-g}{}^{2}\\
+ & =\innerproduct{(h-k)+(k-g)}{(h-k)+(k-g)}\\
+ & =\pnorm{h-k}{}^{2}+\pnorm{k-g}{}^{2}+2\innerproduct{h-k}{k-g}.
+\end{align*}
+where we have again used the linearity and symmetry of inner products.
+But notice that $k-g\in\mathcal{G},$ so by our assumption, we have
+$\innerproduct{h-k}{k-g}=0$ and so for every $g\in\mathcal{G}$
+\begin{align*}
+\pnorm{h-g}{}^{2} & =\pnorm{h-k}{}^{2}+\pnorm{k-g}{}^{2}\\
+ & \geq\pnorm{h-k}{}^{2}
+\end{align*}
+by the non-negativity of norms. Then by the uniqueness clause of Theorem
+\ref{thm:projectionThm} $k=P_{\mathcal{G}}h$.
+
+Finally, observe that
+\begin{align*}
+\pnorm h{}^{2} & =\pnorm{P_{\mathcal{G}}h+\left(h-P_{\mathcal{G}}h\right)}{}^{2}\\
+ & =\pnorm{P_{\mathcal{G}}h}{}^{2}+2\innerproduct{P_{\mathcal{G}}h}{h-P_{\mathcal{G}}h}+\pnorm{h-P_{\mathcal{G}}h}{}^{2}\\
+ & =\pnorm{P_{\mathcal{G}}h}{}^{2}+\pnorm{h-P_{\mathcal{G}}h}{}^{2}
+\end{align*}
+since $\innerproduct{h-P_{\mathcal{G}}h}{P_{\mathcal{G}}h}=0.$
+\end{proof}
+The following result establishes some standard properties of Hilbert
+projections.
+\begin{prop}[Properties of projections]
+\label{prop:propertiesHilbertProjection} Let $(\mathcal{H},\innerproduct{\cdot}{\cdot})$
+be a Hilbert space. For any closed subspace $\mathcal{G\subseteq\mathcal{H}}$,
+the projection operator $P_{\mathcal{G}}$ has the following properties
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item (Linearity) For any $f,g \in \mathcal{H}$ and any $\alpha,\beta \in \R$
+			\[
+					P_{\mathcal{G}}\left(\alpha f + \beta g\right) = \alpha P_{\mathcal{G}}f + \beta P_{\mathcal{G}}. 
+			\]
+	\item (Tower) For any closed subspaces $\mathcal{G}_1 \subseteq \mathcal{G}_2 \subseteq \mathcal{H}$ and any $h \in \mathcal{H}$
+			\[
+					P_{\mathcal{G}_1} P_{\mathcal{G}_2}h = P_{\mathcal{G}_1}h
+			\]
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+For (i), observe that for any $k\in\mathcal{G}$
+\begin{align*}
+\innerproduct{\alpha f+\beta g-(\alpha P_{\mathcal{G}}f+\beta P_{\mathcal{G}}g)}k & =\alpha\innerproduct{f-P_{\mathcal{G}}f}k-\beta\innerproduct{g-P_{\mathcal{G}}g}k\\
+ & =0
+\end{align*}
+where the first equality follows from the linearity of inner products
+(in the first argument) and the second from Corollary\ref{cor:orthProjection}.
+Then, an application of the uniqueness clause of the same result furnishes
+the linearity result.
+
+Next, pick an arbitrary $k\in\mathcal{G}_{1}$ and note that for any
+$h\in\mathcal{H}$
+\begin{align*}
+\innerproduct{P_{\mathcal{G}_{2}}h-P_{\mathcal{G}_{1}}h}k & =\innerproduct{P_{\mathcal{G}_{2}}h-h+h-P_{\mathcal{G}_{1}}h}k\\
+ & =\innerproduct{h-P_{\mathcal{G}_{1}}h}k-\innerproduct{h-P_{\mathcal{G}_{2}}h}k\\
+ & =0
+\end{align*}
+where the second equality is due to linearity of inner products and
+the third is due the fact that both the inner products on the second
+line are zero due to the same uniqueness of orthogonal projections
+(the second inner product is zero because of $k\in\mathcal{G}_{1}\implies k\in\mathcal{G}_{2}$).
+This is sufficient to deduce (ii) by yet another application of the
+uniqueness of orthogonal projections.
+\end{proof}
+The projection theorem for subspaces has important consequences in
+the theory of linear functionals on Hilbert spaces.
+\begin{prop}
+\label{prop:linearFunctionalContinuity}Let $\left(V,\pnorm{\cdot}{}\right)$
+be a normed vector space and let
+\[
+\Gamma:V\to\R
+\]
+be a linear functional on $V.$ The functional $\Gamma$ is continuous
+(with respect to the usual topologies) if and only if there exists
+a constant $C\in\R$ such that
+\begin{equation}
+\lvert\Gamma\left(h\right)\rvert\leq C\pnorm h{}\label{eq:continuityConditionLinFunc}
+\end{equation}
+for every $h\in V.$
+\end{prop}
+
+\begin{proof}
+First, suppose that a functional $\Gamma$ on satisfies the condition
+in(\ref{eq:continuityConditionLinFunc}). Fix $\epsilon>0$ and notice
+that for any $h,\tilde{h}\in V$, $h-\tilde{h}\in V$ and so if $\pnorm{h-\tilde{h}}{}<\frac{\epsilon}{C}$,
+then by (\ref{eq:continuityConditionLinFunc})
+\[
+\lvert\Gamma\left(h-\tilde{h}\right)\rvert=\lvert\Gamma\left(h\right)-\Gamma\left(\tilde{h}\right)\rvert<\epsilon
+\]
+which proves continuity.
+
+For the converse, assume that $\Gamma$ is continuous and fix $\epsilon=1.$
+By continuity at $h=0$, there exists some $\delta_{\epsilon,0}>0$
+such that
+\[
+\pnorm h{}\leq\delta_{\epsilon,0}\implies\lvert\Gamma\left(h\right)\rvert\leq1
+\]
+for any nonzero $h\in V.$ Let $g=\frac{\delta_{\epsilon,0}h}{\pnorm h{}}$
+and notice that since $\pnorm g{}=\delta_{\epsilon_{0},}$
+\[
+\lvert\Gamma\left(g\right)\rvert\leq1
+\]
+which by linearity of $\Gamma$ implies that
+\[
+\frac{\delta_{\epsilon,0}}{\pnorm h{}}\lvert\Gamma\left(h\right)\rvert\leq1\Longleftrightarrow\lvert\Gamma\left(h\right)\rvert\leq\frac{1}{\delta_{\epsilon,0}}\pnorm h{}
+\]
+for every nonzero $h\in V$. Of course, if $h=0$ then the final (in)
+equality follows trivially since both sides are identically zero.
+This completes our proof with $C=\frac{1}{\delta_{\epsilon,0}}.$
+\end{proof}
+\begin{cor}
+\label{cor:integrationContinuousLinearFunctional} Let $\left(\X,\F,\mu\right)$
+be a finite measure space i.e. $\mu\left(\X\right)<\infty$ and define
+\[
+\Gamma:\Lp 2{\mu}\longrightarrow\R
+\]
+as
+\[
+\Gamma\left(f\right):=\lebInt{\mu}f
+\]
+is a continuous linear functional.
+\end{cor}
+
+\begin{proof}
+Note that by the Cauchy-Schwarz (or H\"{o}lder's inequality)
+\[
+\lvert\Gamma\left(f\right)\rvert\leq\lebInt{\mu}{\lvert f\rvert}=\pnorm f1\leq\pnorm f2\pnorm{\indicate_{\X}}2=\sqrt{\mu\left(\X\right)}\pnorm f2
+\]
+which completes the proof.
+\end{proof}
+It turns out that every continuous linear functional on a Hilbert
+space can be recovered as an inner product on the space. This result
+is key to proving the existence of conditional expectations and density
+functions in probability theory.
+\begin{thm}[Riesz representation theorem]
+\label{thm:rieszRep}Let $\left(\mathcal{H},\innerproduct{\cdot}{\cdot}\right)$
+be a Hilbert space and let 
+\[
+\Gamma:\mathcal{H}\to\R
+\]
+be a continuous linear functional on $\mathcal{H}.$ Then there exists
+a unique element $k\in\mathcal{H}$ such that
+\[
+\Gamma\left(h\right)=\innerproduct hk
+\]
+for every $h\in\mathcal{H}$.
+\end{thm}
+
+\begin{proof}
+Let $\mathcal{G:=}\Gamma^{-1}\left(\left\{ 0\right\} \right)$ and
+notice that $\mathcal{G}$ is a closed subspace\footnote{This type of a subspace is called the \emph{kernel }of the operator
+and is often denoted\hl{Add macro}} of $\mathcal{H}$ by the continuity and linearity of $\Gamma$ and
+the fact that singletons are closed in the usual topology on $\R$.
+Note that if $\Gamma$ is zero everywhere, then $k=0$ uniquely satisfies
+the condition of the theorem. Thus, assuming that $\Gamma$ is not
+identically zero, we can find some $h_{0}\in\mathcal{H}$ such that
+$\Gamma\left(h_{0}\right)\neq0$. Define $\tilde{h}:=\frac{h_{0}}{\Gamma(h_{0})}$
+so that $\Gamma\left(\tilde{h}\right)=1$ and observe that by Corollary
+\ref{cor:orthProjection} that
+\[
+\innerproduct{\tilde{h}-P_{\mathcal{G}}\tilde{h}}g=0
+\]
+for all $g\in\mathcal{\mathcal{G}}.$ Let $k_{0}:=\tilde{h}-P_{\mathcal{G}}\tilde{h}$
+and note that by linearity
+\begin{align*}
+\Gamma\left(k_{0}\right) & =\Gamma\left(\tilde{h}\right)-\Gamma\left(P_{\mathcal{G}}\tilde{h}\right)\\
+ & =1
+\end{align*}
+since $P_{\mathcal{G}}\tilde{h}\in\mathcal{G}.$ By continuity and
+Proposition \ref{prop:linearFunctionalContinuity}
+\[
+1=\Gamma\left(k_{0}\right)\leq C\pnorm{k_{0}}{}
+\]
+for some real $C$ which implies that $\pnorm{k_{0}}{}>0.$
+
+Next, observe that for any $h\in\mathcal{H}$, 
+\[
+h-\Gamma\left(h\right)k_{0}\in\mathcal{G}
+\]
+since
+\begin{align*}
+\Gamma\left(h-\Gamma\left(h\right)k_{0}\right) & =\Gamma\left(h\right)-\Gamma\left(h\right)\Gamma\left(k_{0}\right)\\
+ & =\Gamma\left(h\right)-\Gamma\left(h\right)\\
+ & =0
+\end{align*}
+where the second equality follows from the fact that $\Gamma\left(k_{0}\right)=1.$
+This implies that 
+\[
+\innerproduct{k_{0}}{h-\Gamma\left(h\right)k_{0}}=0
+\]
+which by linearity of inner products reduces to
+\[
+\innerproduct{k_{0}}h=\Gamma\left(h\right)\pnorm{k_{0}}{}^{2}.
+\]
+Recall that $\pnorm{k_{0}}{}>0$ and so we can rearrange and apply
+linearity once again to deduce
+\[
+\Gamma\left(h\right)=\innerproduct h{\frac{k_{0}}{\pnorm{k_{0}}{}^{2}}}
+\]
+which completes the existence part of the proof.
+
+To see that the representation is unique, note that if $k_{1},k_{2}\in\mathcal{H}$
+are both valid representers then
+\begin{align*}
+0 & =\innerproduct h{k_{1}}-\innerproduct h{k_{2}}\\
+ & =\innerproduct h{k_{1}-k_{2}}
+\end{align*}
+for any $h\in\mathcal{H}.$ In particular, this holds $h=k_{1}-k_{2}$
+in which case
+\[
+\pnorm{k_{1}-k_{2}}{}^{2}=0\implies k_{1}=k_{2}
+\]
+completing the proof.
+\end{proof}
+This is the classical Hilbert-space theorem that describes the duality
+of linear operators and the vector spaces on which they act. This
+theorem has considerable power in probability because it allows us
+to construct conditional expectations as orhogonal projections of
+functions into lower dimensional subspaces, tbe full power of which
+will become apparent in Chapter \ref{chap:conditioning}
+
+\subsection{Orthonormal bases}
+
+\hl{Use proposition 19.14 in Bass for proof of existence. Use Schilling for other parts}
+
+\section{Banach spaces over $\protect\R$\label{sec:banach-R}}
+
+We have discussed some important special cases of complete normed
+vector spacs in the form of the $L^{p}$ spaces and Hilbert spaces.
+In this section, we discuss some of the properties of complete normed
+vector spaces over the reals that hold without reference to any measure
+or any notion of orthogonality. Without the additional structure afforded
+by these ideas, the study of normed spaces becomes considerably more
+complicated. Nevertheless, there are some important results in the
+theory of general Banach spaces that serve as important tools in analysis,
+probability, statistics, and economics. As we have already discussed
+the notion of a normed vector space in the previous sections, we first
+start with a discussion on the basic properties of such spaces. Most
+of these should be already known to the reader (indeed, we have implicitly
+used these concepts throughout this chapter).
+
+\subsection{Review of the basic properties of normed vector spaces}
+\begin{defn}
+\label{def:normedVectorSpace}Let $V$ be a \hyperref[def:vectorSpace]{vector space}
+over $\R$. A function $\lVert\cdot\rVert:V\times V\to\left[0,\infty\right]$
+is called a norm if for any $u,v\in V$ and any $\alpha\in\R$
+\end{defn}
+
+\begin{enumerate}
+\item $\lVert v\rVert=0\implies v=0$ (Positive definiteness)
+\item $\lVert\alpha v\rVert=\lvert\alpha\rvert\lVert v\rVert$ (Absolute
+homogeneity)
+\item $\lVert u+v\rVert\leq\lVert u\rVert+\lVert v\rVert$ (Triangle inequality).
+\end{enumerate}
+\begin{prop}
+\label{prop:normMetric}Let $\left(V,\lVert\rVert\right)$ be a normed
+vector space over $\R$. Then $\left(V,d\right)$ where $d\left(u,v\right):=\lVert u-v\rVert$
+is a metric space.
+\end{prop}
+
+\begin{proof}
+Note that $d\left(u,v\right)=0\implies\lVert u-v\rVert=0\implies u=v$
+by definiteness. Symmetry is follows from absolute homogeneity and
+the fact that $v-u=-1\left(u-v\right).$ The triangle inequality follows
+from the fact that for any $u,v,w\in V$
+\begin{align*}
+d\left(u,w\right) & =\lVert u-w\rVert\\
+ & =\lVert u-v+v-w\rVert\\
+ & \leq\lVert u-v\rVert+\lVert v-w\rVert\\
+ & =d\left(u,v\right)+d\left(v,w\right)
+\end{align*}
+where the inequality is the triangle inequality for norms.
+\end{proof}
+\begin{defn}
+\label{def:linearCombintation}Let $V$ be a vector space over $\R$.
+Given a finite collection of vectors $v_{1},\ldots v_{n}$ and scalars
+$\alpha_{1},\ldots,\alpha_{n}$, the sum
+\[
+\sum_{i=1}^{n}a_{i}v_{i}\in V
+\]
+is called a \emph{linear combination }of $V.$ For any subset $S\subseteq V$,
+the $\spans\left(S\right)$ is the set of all linear combinations
+of $S$.
+\end{defn}
+
+\begin{prop}
+\label{prop:spanIsSubspace}Let $V$ be a vector space over $\R$
+and let $S\subseteq V$ be a subset. Then $\spans\left(S\right)\subseteq V$
+and is a vector space i.e. $\spans\left(S\right)$ is a subspace of
+$V.$
+\end{prop}
+
+\begin{proof}
+Note that we only need to show closure under addition and scalar multiplication,
+along the existence of the additive identity; the other properties
+are inherited from $V$. Let $u,v\in\spans\left(S\right).$Then $u=\sum_{i=1}^{m}a_{i}u_{i}$
+and $v=\sum_{i=1}^{n}b_{i}v_{i}$ where $u_{i},v_{i}\in S$ and $a_{i},b_{i}\in\R.$
+Then $u+v=\sum_{i=1}^{m}a_{i}u_{i}+\sum_{i=1}^{n}b_{i}v_{i}$ which
+is another linear combination of vectors in $S$ and so $u+v\in\spans\left(S\right).$
+Similarly, $\alpha v=\sum_{i=1}^{m}\left(\alpha a_{i}\right)v_{i}$
+which is another linear combination of vectors in $S$. The additive
+identity $\mathbf{0}\in\spans\left(S\right)$ because $0\times v=\mathbf{0}$
+where $v$
+\end{proof}
+\begin{defn}
+\label{def:equivalentNorm}Let $V$ be a vector space over $\R$.
+Two norms $\lVert\cdot\rVert_{a}$ and $\lVert\cdot\rVert_{b}$ are
+considered equivalent if there exist $c,C>0$ such that for any $v\in V$
+\[
+c\lVert v\rVert_{a}\leq\lVert v\rVert_{b}\leq C\lVert v\rVert_{b}
+\]
+\end{defn}
+
+
+\subsection{Finite-dimensional normed vector spaces}
+
+\section{Duality\label{sec:Duality}}

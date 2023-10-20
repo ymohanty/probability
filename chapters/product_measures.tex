@@ -1,0 +1,230 @@
+
+\chapter{Product measures}
+
+In calculus, we learnt that the theory of integration readily extends
+from from real valued functions on $\R$ to real valued functions
+on the Euclidean space $\R^{n}.$ The extension is usually motivated
+geometrically by studying the volume under the surface of a sufficiently
+smooth function $f:\R^{2}\to\R$. The idea is that if a function is
+sufficiently well behaved, then one can recover the volume under the
+surface by looking at the areas under various ``slices'' of the function
+and then summing up those areas. Importantly, under the requisite
+smoothness conditions, the ``slices'' could have been made horizontally
+or vertically, and we would get the same result. This intuition leads
+to the Fubini theorem for multiple integration in the Riemann setting:
+\[
+\int_{a}^{b}\int_{c}^{d}f(x,y)dydx=\int_{c}^{d}\int_{a}^{b}f(x,y)dxdy.
+\]
+The main goal of this chapter is to recover this result for the Lebesgue
+integral. While important in its own right for the study of analysis
+on Euclidean spaces, in the context of probability theory, this result
+takes a far more important role. In particular, the ability to write
+a multiple integral as an iterated integral corresponds directly with
+the ability to factor the joint distribution of random variables into
+the marginal distribution; that is, it underpins the theory of \emph{independent
+}random variables. Independence, and the departures from independence,
+constitute the central concepts of probabiliy theory.
+
+\section{Product measures on finite product spaces}
+
+\subsection{Iterated integrals on non-negative measurable function}
+
+Let $\left(\X,\F,\mu\right)$ and $\left(\mathcal{Y},\mathcal{G},\nu\right)$
+be measure spaces. Our interest is in defining measurable functions
+on the product space $\X\times\mathcal{Y}.$ The principle hurdle
+that is immediately apparent here is that the product of the $\sigma-$algebras
+$\F\times\mathcal{G}:=\left\{ F\times G\mid F\in\F,G\in\mathcal{G}\right\} $
+is not necessarily a $\sigma-$algebra. \hl{ADD CE}. It is easy to
+see, however, that it is a $\pi-$system (this fact will turn out
+to be important!). Any $\sigma-$algebra we use should certainly \emph{contain
+}$\mathcal{F}\times\mathcal{G}$ and so the canonical choice is given
+by $\mathcal{F}\otimes\mathcal{G:=\sigma\left(F\times G\right)}$.
+A series of natural questions follow if we want iterated integrals
+to make sense. In particular, for a measurable map $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right),$we
+want to know if the projections $x\to f(x,y)$ and $y\to\mu^{x}\left(f\left(x,y\right)\right)$
+are $\mathcal{F}$ and $\mathcal{G}$ measurable, respectively. Thankfully,
+this turns out to be the case. We will use a long lost result from
+Chapter 2: the \hyperref[thm:piLambdaThmFunctions]{$\pi-\lambda$ theorem for functions}.
+Go over the hypotheses of this theorem before reading the following
+results.
+\begin{lem}
+\label{lem:partialFunctionMeasurability}For every $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$,
+the maps $x\to f(x,y)$ and $y\to f(x,y)$ are $\mathcal{F}/\borel\left(\R\right)$
+and $\mathcal{G}/\borel\left(\R\right)$ measurable for every $y\in\mathcal{Y}$
+and $x\in\X$, respectively.
+\end{lem}
+
+\begin{proof}
+First we note, due to the fact that $\left(A_{1}\times B_{1}\right)\cap\left(A_{2}\times B_{2}\right)=\left(A_{1}\cap A_{2}\right)\times\left(B_{1}\times B_{2}\right),$that
+$\mathcal{\mathcal{E:=}F}\times\mathcal{G}$ is a $\pi-$system. Next,
+we claim that the space
+\[
+\mathcal{H:=}\left\{ f\in\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\mid\forall y\in\mathcal{Y}:x\to f\left(x,y\right)\text{is }\mathcal{G}/\borel\left(\R\right)\text{ measurable }\right\} 
+\]
+is a $\lambda-$space of functions. Note that $\indicate_{\X\times\mathcal{Y}}$is
+constant and bounded (and evidently partially measurable in our sense).
+Further, our space $\mathcal{H}$ is a vector space, since linear
+combinations of bounded measurable functions is bounded, and the partial
+measurability condition is also preserved under linear combinations
+(both results of Proposition \ref{prop:binaryOperationsMeasurableFunctions}).
+Finally, $\mathcal{H}$ is closed under monotone limits (if they exist)
+since measurability (resp. partial measurability) is preserved under
+limits.
+
+Now, observe that $\left\{ \indicate_{A}\mid A\in\mathcal{E}\right\} \subseteq\mathcal{H}$,
+since $\indicate_{F\times G}=\indicate_{F}\indicate_{G}$which is
+clearly bounded, measurable, and partially measurable in our sense.
+Thus applying the $\pi-\lambda$ theorem as discussed, we have that
+
+\[
+\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\subseteq\mathcal{H}
+\]
+which completes the proof for bounded functions.
+
+Now we can simply take a function $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+and construct the bounded monotone sequence $f_{n}:=\min\left\{ f,n\right\} \in\mathcal{H}$
+by our results. We complete the proof by taking limits and noting
+that partial measurability is preserved. The same argument, of course,
+holds for $y\to f\left(x,y\right)$
+\end{proof}
+Virtually the same argument shows that $y\to\mu^{x}\left(f\left(x,y\right)\right)$
+is measurable (although we need this previous lemma to show that this
+function is indeed well-defined). We include this result here for
+completeness
+\begin{lem}
+\label{lem:partialIntegralMeasurability}Let $\left(\X,\F,\mu\right)$
+and $\left(\mathcal{Y},\mathcal{G},\nu\right)$ be measure spaces.
+For every function $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$,
+the maps $x\to\nu^{y}\left(f\left(x,y\right)\right)$ and $y\to\mu^{x}\left(f\left(x,y\right)\right)$
+are $\mathcal{F}/\borel\left(\R\right)$ and $\mathcal{G}/\borel\left(\R\right)$
+measurable respectively.
+\end{lem}
+
+\begin{proof}
+Let $\mathcal{E}$ be as before and this time let
+\[
+\mathcal{H:=}\left\{ f\in\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\mid y\to\mu^{x}f\left(x,y\right)\text{is }\mathcal{G}/\borel\left(\R\right)\text{ measurable }\right\} ,
+\]
+noting that $\indicate_{\X\times\mathcal{Y}}\in\mathcal{H}$ since
+$\mu^{x}\left(\indicate_{\X\times\mathcal{Y}}\right)=\indicate_{\mathcal{Y}}\mu\left(\X\right)$
+which is $\mathcal{G}$ measurable. $\mathcal{H}$ is a vector space
+closed under monotone limits with the same arguments as before along
+with the linearity and monotone convergence properties of $\mu$.
+Applying the $\pi-\lambda$ theorem for functions, we have that 
+\[
+\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\subseteq\mathcal{H}.
+\]
+Finally, take some $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+and construct $f_{n}:=\min\left\{ f,n\right\} \in\mathcal{H}$ and
+note that $y\to\mu^{x}\left(f_{n}\left(x,y\right)\right)$ is measurable
+and by monotone convergence $y\to\mu^{x}\left(f\left(x,y\right)\right)$
+is measurable completing the proof.
+\end{proof}
+%
+With the technicalities out of the way, we can show that iterated
+integrals give the same result under certain conditions. This is a
+generalization of the result we saw all the way back in Lemma \ref{lem:TonelliForSeries}.
+\begin{thm}[Tonelli]
+\label{thm:tonelli}Let $\left(\X,\F,\mu\right)$ and $\left(\mathcal{Y},\mathcal{G},\nu\right)$
+be measure spaces. Then, for any $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$,
+the functions 
+\[
+\gamma_{1}\left(f\right):=\nu^{y}\mu^{x}\left(f\right)
+\]
+and
+\[
+\gamma_{2}\left(f\right):\mu^{x}\nu^{y}\left(f\right)
+\]
+are integrals on $\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right).$
+Moreover, if $\mu$and $\nu$ are $\sigma-$finite, $\gamma_{1}\left(f\right)=\gamma_{2}\left(f\right)$
+for every $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right).$
+\end{thm}
+
+\begin{proof}
+We show that $\gamma_{1}$ is an integral; the argument for $\gamma_{2}$
+is the analagous. First, observe that $\gamma_{1}\left(0\right)=\nu^{y}\mu^{x}\left(0\right)=\nu^{y}\left(0\right)=0$,
+given that $\nu$ and $\mu$ are integrals. Second, note that for
+$\alpha,\beta\geq0$, and $f,g\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+\begin{align*}
+\gamma_{1}\left(\alpha f+\beta g\right) & =\nu^{y}\mu^{x}\left(\alpha f+\beta g\right)\\
+ & =\nu^{y}\left(\alpha\mu^{x}f+\beta\mu^{x}g\right)\\
+ & =\alpha\nu^{y}\mu^{x}\left(f\right)+\beta\nu^{y}\mu^{x}\left(g\right)\\
+ & =\alpha\gamma_{1}\left(f\right)+\beta\gamma_{1}\left(g\right).
+\end{align*}
+Finally, observe that for $f_{n}\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+such that $f_{n}\leq f_{n+1}$ and $f_{n}\to f$, we have
+\begin{align*}
+\lim_{n\to\infty}\gamma_{1}\left(f_{n}\right) & =\lim_{n\to\infty}\nu^{y}\mu^{x}\left(f_{n}\right)\\
+ & =\nu^{y}\mu^{x}\left(\lim_{n\to\infty}f_{n}\right)\\
+ & =\gamma_{1}\left(f\right)
+\end{align*}
+by applying monotone convergence twice.
+
+Therefore, by Theorem \ref{thm:integralMeasureEquivalence}, $\gamma_{1}$
+and $\gamma_{2}$ are integrals on $\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+with respect to measures defined by integrating indicator functions
+in $\mathcal{F\otimes\mathcal{G}}.$ If $\mu$ and $\nu$ are $\sigma-$finite,
+the two integrals can be shown to be equal by showing that the corresponding
+measures are equal on a generating $\pi-$system that can approximate
+the full space (courtesy of our \hyperref[thm:uniquenessMeasures]{uniqueness theorem}).
+Of course, since $\mathcal{F\times\mathcal{G}}$ is a $\pi-$system,
+for $F\in\F,G\in\mathcal{G}$
+\begin{align*}
+\gamma_{1}\left(\indicate_{F\times G}\right) & =\nu^{y}\mu^{x}\left(\indicate_{F\times G}\left(x,y\right)\right)\\
+ & =\nu^{y}\mu^{x}\left(\indicate_{F}\left(x\right)\indicate_{G}\left(y\right)\right)\\
+ & =\nu\left(G\right)\mu\left(F\right)\\
+ & =\mu^{x}\nu^{y}\left(\indicate_{F}\left(x\right)\indicate_{G}\left(y\right)\right)\\
+ & =\gamma_{2}\left(\indicate_{F\times G}\right)
+\end{align*}
+completing the proof. Since our measures $\mu,\nu$ are $\sigma-$finite,
+we know that there exist sets $E_{i}\in\mathcal{F\times\mathcal{G}}$
+such that $\bigcup E_{i}=\X\times\mathcal{Y}.$ This completes the
+proof.
+\end{proof}
+Note that the $\sigma-$finiteness condition is actually necessary
+for the uniqueness of the integrals, as the following example illustrates.
+\begin{example}
+\label{exa:tonelliFailNonSigmaFinite}Let $\left(\left[0,1\right],\borel\left(\left[0,1\right]\right),\lambda\right)$
+and $\left(\left[0,1\right],2^{\left[0,1\right]},\mu_{0}\right)$
+where $\lambda$ and $\mu_{0}$ are the Lebesgue and counting measures,
+respectively. Now consider the product space $ $
+\end{example}
+
+
+\subsection{Product measures}
+\begin{defn}
+\label{def:productMeasure}Let $\measurespace$ and $\left(\mathcal{Y},\mathcal{G},\nu\right)$
+be measure spaces and let $\left(\X\times\mathcal{Y},\F\otimes\mathcal{G}\right)$
+be the product measurable space. Then a measure $\mu\otimes\nu:\F\otimes\mathcal{G}\to\left[0,\infty\right]$
+is called a \emph{product measure }if
+\[
+\mu\otimes\nu\left(F\times G\right)=\mu\left(F\right)\nu\left(G\right)
+\]
+for all $F\in\F,G\in\mathcal{G}.$
+\end{defn}
+
+Of course, the way we have set this up, Theorem \ref{thm:tonelli}(Tonelli)
+guarantees existence of this measure, since measures and integrals
+are equivalent. Uniqueness, when $\mu$ and $\nu$ are $\sigma-$finite,
+also follows from the uniqueness theorem, as outlined in the proof
+of Tonelli.
+
+\hl{Prove that $\sigma(\left(f,g\right)) = \sigma(f,g)$ }
+
+\subsection{Convolutions}
+
+\hl{SEE SCHiLLING THEOREM 13.10 FOR ALTERNATIVE CONSTRUCTION OF PRODUCT SIGMA ALGEBRAS}
+
+\section{The Lebesgue measure on $\protect\R^{n}$}
+
+\hl{FUBINI IMPLIES YOUNGS THEOREM ON SYMMETRY}
+
+\section{Kernels}
+
+\hl{Refer to Tatikonda notes}
+
+\section{Extension to infinite product spaces}
+
+\hl{ASH or KLENKE?}
+
+\section{Disintegration}
