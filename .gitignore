@@ -7,3 +7,7 @@ static_misc/
 *~
 *#
 .DS_Store
+*.toc
+*.aux
+*.gz
+*.out
