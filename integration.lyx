@@ -1389,7 +1389,7 @@ in short) if
 \end_inset
 
 The collection of all such functions is denoted 
-\begin_inset Formula $\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\Lp1{\X,\F,\mu}$
 \end_inset
 
 .
@@ -1401,7 +1401,7 @@ When the underlying space and
 \end_inset
 
 algebra are clear, we shall simply write 
-\begin_inset Formula $\Lp 1{\mu}.$
+\begin_inset Formula $\Lp1{\mu}.$
 \end_inset
 
  The significance of the exponent 
@@ -1423,7 +1423,7 @@ A function
 \end_inset
 
  is in 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp1{\mu}$
 \end_inset
 
  if and only if 
@@ -1475,7 +1475,7 @@ For any measure space
 \end_inset
 
 integrable functions 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp1{\mu}$
 \end_inset
 
  is a vector space over 
@@ -1487,7 +1487,7 @@ integrable functions
 
 \begin_layout Proof
 First observe that the zero function 
-\begin_inset Formula $\indicate_{\emptyset}\in\Lp 1{\mu}$
+\begin_inset Formula $\indicate_{\emptyset}\in\Lp1{\mu}$
 \end_inset
 
 since 
@@ -1496,7 +1496,7 @@ since
 
  and so we have an additive identity.
  Next, notice that 
-\begin_inset Formula $f\in\Lp 1{\mu}\Longleftrightarrow-f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}\Longleftrightarrow-f\in\Lp1{\mu}$
 \end_inset
 
  and so we have additive inverses for each function.
@@ -1508,7 +1508,7 @@ tion over addition.
 \end_inset
 
  and any functions 
-\begin_inset Formula $f,g\in\Lp 1{\mu}$
+\begin_inset Formula $f,g\in\Lp1{\mu}$
 \end_inset
 
 
@@ -1535,7 +1535,7 @@ where the first inequality follows from the triangle inequality of
 
 .
  This proves that 
-\begin_inset Formula $\Lp 1{\mu}$
+\begin_inset Formula $\Lp1{\mu}$
 \end_inset
 
  is closed under finite linear combinations and so is a vector space.
@@ -1624,7 +1624,7 @@ name "prop:linearityLebIntL1"
 \end_inset
 
 For any functions 
-\begin_inset Formula $f,g\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f,g\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  and scalar 
@@ -1733,7 +1733,7 @@ by linearity of
 \end_inset
 
  As 
-\begin_inset Formula $h,g,f\in\Lp 1{\mu}$
+\begin_inset Formula $h,g,f\in\Lp1{\mu}$
 \end_inset
 
 , the integrals of the individual components are not infinite and so we
@@ -1756,7 +1756,7 @@ name "cor:monotonicityLebIntL1"
 \end_inset
 
 For any functions 
-\begin_inset Formula $f,g\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f,g\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  such that 
@@ -1816,7 +1816,7 @@ name "cor:triangleIneqLebIntL1"
 \end_inset
 
 For any function 
-\begin_inset Formula $f\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f\in\Lp1{\X,\F,\mu}$
 \end_inset
 
 
@@ -2024,11 +2024,11 @@ Let
 \end_inset
 
  be a sequence of functions in 
-\begin_inset Formula $\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\Lp1{\X,\F,\mu}$
 \end_inset
 
  and suppose there exists some 
-\begin_inset Formula $g\in\Lp 1{\mu}$
+\begin_inset Formula $g\in\Lp1{\mu}$
 \end_inset
 
  such that
@@ -2073,7 +2073,7 @@ Note that by the continuity of the absolute value function,
 \end_inset
 
  pointwise which shows 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
 .
@@ -2110,7 +2110,7 @@ for every
 \end_inset
 
  which proves that 
-\begin_inset Formula $\phi_{i}\in\Lp 1{\mu}$
+\begin_inset Formula $\phi_{i}\in\Lp1{\mu}$
 \end_inset
 
  for every 
@@ -2468,7 +2468,7 @@ For any
 \end_inset
 
  define 
-\begin_inset Formula $g\left(x,\theta\right)\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $g\left(x,\theta\right)\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  to be differentiable with respect to 
@@ -2497,7 +2497,7 @@ where the subscript
 
  clarifies the variable of integration.
  If there exists a function 
-\begin_inset Formula $G\in\Lp 1{\mu}$
+\begin_inset Formula $G\in\Lp1{\mu}$
 \end_inset
 
  such that 
@@ -4778,11 +4778,11 @@ name "thm:generalizedDominatedConvergence"
 \end_inset
 
 Let 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n}\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n}\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  and suppose there exists some 
-\begin_inset Formula $g\in\Lp 1{\mu}$
+\begin_inset Formula $g\in\Lp1{\mu}$
 \end_inset
 
  be such that
@@ -4811,7 +4811,7 @@ almost everywhere.
 \end_inset
 
 we have that 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
  and
@@ -4891,7 +4891,7 @@ for all
 \end_inset
 
 and observe that 
-\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp 1{\mu}$
+\begin_inset Formula $g^{*}:=g\indicate_{\X\setminus A}\in\Lp1{\mu}$
 \end_inset
 
  since 
@@ -5146,11 +5146,11 @@ name "def:L1Convergence"
 \end_inset
 
 A sequence of functions 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  is said to converge to a function 
-\begin_inset Formula $f\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $f\in\Lp1{\X,\F,\mu}$
 \end_inset
 
  in 
@@ -6290,7 +6290,7 @@ Markov's inequality
 
  be a measure space.
  For any function 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
  and any 
@@ -6336,7 +6336,7 @@ name "prop:L1impliesConvergenceInMeasure"
 \end_inset
 
 For a sequence of functions 
-\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
+\begin_inset Formula $\left\{ f_{n}\right\} _{n\in\N}\in\Lp1{\X,\F,\mu}$
 \end_inset
 
 such that 
@@ -6348,7 +6348,7 @@ f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f
 \end_inset
 
 for some 
-\begin_inset Formula $f\in\Lp 1{\mu},$
+\begin_inset Formula $f\in\Lp1{\mu},$
 \end_inset
 
  we have 
@@ -7162,7 +7162,7 @@ Let
 \end_inset
 
  where 
-\begin_inset Formula $g\in\Lp 1{\X,\F,\mu}.$
+\begin_inset Formula $g\in\Lp1{\X,\F,\mu}.$
 \end_inset
 
  Then
@@ -7202,7 +7202,7 @@ f_{n_{j_{k}}}\stackrel{\text{a.e}}{\longrightarrow}f.
 \end_inset
 
 Since 
-\begin_inset Formula $\lvert f_{n_{j_{k}}}\rvert\leq g\in\Lp 1{\mu}$
+\begin_inset Formula $\lvert f_{n_{j_{k}}}\rvert\leq g\in\Lp1{\mu}$
 \end_inset
 
 , the 
@@ -7709,7 +7709,7 @@ Let
 \end_inset
 
  then 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
  and 
@@ -7762,7 +7762,7 @@ noprefix "false"
 \end_inset
 
 , which shows 
-\begin_inset Formula $f\in\Lp 1{\mu}.$
+\begin_inset Formula $f\in\Lp1{\mu}.$
 \end_inset
 
  Since 
@@ -9304,6 +9304,11 @@ Let
 \end_inset
 
  be arbitrary.
+ First, suppose that 
+\begin_inset Formula $f$
+\end_inset
+
+ is Riemann integrable.
  Fix 
 \begin_inset Formula $\epsilon>0$
 \end_inset
@@ -9361,7 +9366,7 @@ For any
 \begin_inset Formula $\lvert x-c\rvert<\delta:=\frac{\min\left\{ t_{j_{i_{c}}}^{\pi_{i_{c}}}-c,c-t_{j_{i_{c}}-1}^{\pi_{i_{c}}}\right\} }{2}$
 \end_inset
 
-we have that 
+ we have that 
 \begin_inset Formula $x,c\in\left[t_{j_{i_{c}}-1}^{\pi_{i_{c}}},t_{j_{i_{c}}}^{\pi_{i_{c}}}\right)$
 \end_inset
 
@@ -9395,7 +9400,138 @@ Thus
 \end_layout
 
 \begin_layout Proof
+Conversely, suppose that the set of discontinuities 
+\begin_inset Formula $D:=\left\{ x\in\left[a,b\right]\mid f\ \text{is not continuous at }x\right\} $
+\end_inset
 
+ is such that 
+\begin_inset Formula $\lambda\left(D\right)=0.$
+\end_inset
+
+ Then, for any 
+\begin_inset Formula $c\in\left[a,b\right]\setminus D$
+\end_inset
+
+ and any 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+, there is a 
+\begin_inset Formula $\delta_{c}>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $\lvert x-c\rvert<\delta_{c}\implies\lvert f\left(x\right)-f\left(c\right)\rvert<\frac{\epsilon}{4}.$
+\end_inset
+
+ Let 
+\begin_inset Formula $\left\{ \pi\right\} _{i=1}^{\infty}$
+\end_inset
+
+ be as before, and note that 
+\begin_inset Formula 
+\[
+\inf_{i}u_{i}\left(c\right)-\sup_{i}l_{i}\left(c\right)\leq u_{i}\left(c\right)-l_{i}\left(c\right)=\sup_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)-\inf_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+where 
+\begin_inset Formula $j_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{j_{i}}^{\pi_{i}}$
+\end_inset
+
+ etc are defined as before.
+ Note that there exists some 
+\begin_inset Formula $i_{0}$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $i\geq i_{0}$
+\end_inset
+
+ 
+\begin_inset Formula $\mesh\left(\pi_{i}\right)<\delta_{c}$
+\end_inset
+
+.
+ Then, note that we can find 
+\begin_inset Formula $y,z\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\sup_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)-f\left(y\right)<\frac{\epsilon}{4}
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+f\left(z\right)-\inf_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)<\frac{\epsilon}{4}.
+\]
+
+\end_inset
+
+Further, 
+\begin_inset Formula $\lvert y-c\rvert<\delta_{c}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lvert z-c\rvert<\delta_{c}$
+\end_inset
+
+ and so
+\begin_inset Formula 
+\begin{align*}
+\inf_{i}u_{i}\left(c\right)-\sup_{i}l_{i}\left(c\right) & \leq\sup_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)-\inf_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)\\
+ & \leq\sup_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)-f\left(y\right)+\lvert f\left(y\right)-f\left(c\right)\rvert+\lvert f\left(c\right)-f\left(z\right)\rvert+f\left(z\right)-\inf_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)\\
+ & <\epsilon.
+\end{align*}
+
+\end_inset
+
+Since 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ and 
+\begin_inset Formula $c$
+\end_inset
+
+ were arbitrary,
+\begin_inset Formula 
+\[
+\inf_{i}u_{i}\stackrel{\text{a.e}}{=}\sup_{i}l_{i}
+\]
+
+\end_inset
+
+which implies, by Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:charRiemannIntegrable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, that 
+\begin_inset Formula $f$
+\end_inset
+
+ is Riemann integrable.
+ 
 \end_layout
 
 \begin_layout Subsection
