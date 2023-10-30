@@ -6379,6 +6379,63 @@ by the Markov inequality.
  Taking the limit proves the result.
 \end_layout
 
+\begin_layout Standard
+Again, the converse of this result is false.
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:convMeasureDoesNotImplyConvLp"
+
+\end_inset
+
+The sequence of functions 
+\begin_inset Formula $f_{n}:=n\indicate_{\left(0,\frac{1}{n}\right]}$
+\end_inset
+
+ on the measure space 
+\begin_inset Formula $\left(\left[0,1\right],\borel\left(\left[0,1\right]\right),\lambda\right)$
+\end_inset
+
+ converges pointwise to zero: for any 
+\begin_inset Formula $x\in\R$
+\end_inset
+
+, eventually 
+\begin_inset Formula $\indicate\left(x\right)=0$
+\end_inset
+
+ for large 
+\begin_inset Formula $n$
+\end_inset
+
+and so 
+\begin_inset Formula $f_{n}\to0$
+\end_inset
+
+ which means that 
+\begin_inset Formula $f_{n}\stackrel{\lambda}{\to}0$
+\end_inset
+
+ as well by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:finiteMeasuresAEimpliesConvInMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ But 
+\begin_inset Formula $\lebInt{\lambda}{\lvert f_{n}\rvert}=1$
+\end_inset
+
+ which doesn't converge to 0.
+\end_layout
+
 \begin_layout Theorem
 \begin_inset CommandInset label
 LatexCommand label
@@ -7709,7 +7766,7 @@ Let
 \end_inset
 
  then 
-\begin_inset Formula $f\in\Lp1{\mu}$
+\begin_inset Formula $f\in\Lp 1{\mu}$
 \end_inset
 
  and 
@@ -7762,7 +7819,7 @@ noprefix "false"
 \end_inset
 
 , which shows 
-\begin_inset Formula $f\in\Lp1{\mu}.$
+\begin_inset Formula $f\in\Lp 1{\mu}.$
 \end_inset
 
  Since 
