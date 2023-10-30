@@ -2354,6 +2354,65 @@ algebra.
  This completes the proof.
 \end_layout
 
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:sigmaFunctionOfMeasurableFunctionSubset"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\mathcal{F}\right)$
+\end_inset
+
+ , 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G}\right),$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\mathcal{Z},\mathcal{H}\right)$
+\end_inset
+
+ be measurable spaces and let 
+\begin_inset Formula $f:\X\to\mathcal{Y}$
+\end_inset
+
+ be 
+\begin_inset Formula $\mathcal{F}/\mathcal{G}$
+\end_inset
+
+ measurable.
+ Then for any 
+\begin_inset Formula $\mathcal{G}/\mathcal{H}$
+\end_inset
+
+ measurable function 
+\begin_inset Formula $g:\mathcal{Y}\to\R$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sigma\left(g\circ f\right)\subseteq\sigma\left(f\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that for any 
+\begin_inset Formula $H\in\mathcal{H}$
+\end_inset
+
+, 
+\begin_inset Formula $\left(g\circ f\right)^{-1}\left[H\right]=f^{-1}\left[g^{-1}\left[H\right]\right]\in\sigma\left(f\right)$
+\end_inset
+
+ which implies the claim.
+\end_layout
+
 \begin_layout Standard
 Note that 
 \begin_inset Formula $\sigma-$
