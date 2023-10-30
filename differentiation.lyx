@@ -1661,7 +1661,7 @@ noprefix "false"
 Next define an operator 
 \begin_inset Formula 
 \[
-\Gamma:\Lp 2{\psi}\longrightarrow\R
+\Gamma:\Lp2{\psi}\longrightarrow\R
 \]
 
 \end_inset
@@ -2771,6 +2771,61 @@ noprefix "false"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:radonNikodymIntegral"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+ be a measurable space.
+ If 
+\begin_inset Formula $\mu,\nu$
+\end_inset
+
+ are two 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-finite measures on 
+\begin_inset Formula $\F$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu<<\nu$
+\end_inset
+
+ then there exists a unique 
+\begin_inset Formula $f\in\nonnegMeasurableFunctions$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $g\in\nonnegMeasurableFunctions$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\lebInt{\mu}g=\lebInt{\nu}{gf}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+This is the standard approximation argument.
+ For indicator functions the result follows by the Radon-Nikodym theorem.
+ For any simple function, it follows by the linearity of the integral.
+ Finally for non-negative measurable function it follows by monotone convergence.
+ Uniqueness follows by 
 \end_layout
 
 \begin_layout Standard
