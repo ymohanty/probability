@@ -2821,11 +2821,23 @@ Let
 \end_layout
 
 \begin_layout Proof
-This is the standard approximation argument.
+(Sketch) This is the standard approximation argument.
  For indicator functions the result follows by the Radon-Nikodym theorem.
- For any simple function, it follows by the linearity of the integral.
- Finally for non-negative measurable function it follows by monotone convergence.
- Uniqueness follows by 
+ For any simple function, it follows by the linearity of the integral (and
+ the result for indicators).
+ Finally for non-negative measurable function it follows by monotone convergence
+ (and the result for simple functions).
+ Uniqueness follows by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:intEqualFuncEqual"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard

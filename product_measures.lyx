@@ -2518,7 +2518,8 @@ and
 \begin{align*}
 \mu_{1}\otimes\nu_{1}\left(F\right) & =\mu_{1}^{x}\nu_{1}^{y}\left(\indicate_{F}\left(x,y\right)\right)\\
  & =\mu_{1}^{x}\nu_{2}^{y}\left(\indicate_{F}\left(x,y\right)\frac{d\nu_{1}}{d\nu_{2}}\right)\\
- & =\mu_{2}^{x}\nu_{2}^{y}\left(\indicate_{F}\left(x\right)\frac{d\mu_{1}}{d\mu_{2}}\frac{d\nu_{1}}{d\nu_{2}}\right)
+ & =\mu_{2}^{x}\left(\nu_{2}^{y}\left(\indicate_{F}\left(x\right)\frac{d\nu_{1}}{d\nu_{2}}\right)\frac{d\mu_{1}}{d\mu_{2}}\right)\\
+ & =\mu_{2}^{x}\nu_{2}^{y}\left(\indicate_{F}\left(x\right)\frac{d\nu_{1}}{d\nu_{2}}\frac{d\mu_{1}}{d\mu_{2}}\right)
 \end{align*}
 
 \end_inset
@@ -2582,7 +2583,16 @@ noprefix "false"
 
 \end_inset
 
-again applies.
+ again applies.
+ Finally, we apply linearity (since 
+\begin_inset Formula $\frac{d\mu_{1}}{d\mu_{2}}$
+\end_inset
+
+ is constant in 
+\begin_inset Formula $y$
+\end_inset
+
+) in the last line.
  This completes the proof.
 \end_layout
 
