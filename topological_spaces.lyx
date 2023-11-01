@@ -2150,12 +2150,44 @@ Continuity of real valued function on
 
 \end_layout
 
+\begin_layout Subsection
+Separable metric spaces
+\end_layout
+
 \begin_layout Standard
 
 \end_layout
 
 \begin_layout Section
 Topological spaces
+\end_layout
+
+\begin_layout Subsection
+Basic definition and separation properties
+\end_layout
+
+\begin_layout Subsection
+Topological countability
+\end_layout
+
+\begin_layout Subsection
+Continuous maps between topological spaces
+\end_layout
+
+\begin_layout Subsection
+Compact topological spaces
+\end_layout
+
+\begin_layout Subsection
+Connected topological spaces
+\end_layout
+
+\begin_layout Section
+Sequences and series of functions
+\end_layout
+
+\begin_layout Subsection
+Power series
 \end_layout
 
 \begin_layout Section

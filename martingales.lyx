@@ -86,5 +86,25 @@ figs-within-sections
 Martingales
 \end_layout
 
+\begin_layout Section
+Stopping times
+\end_layout
+
+\begin_layout Section
+Optional stopping
+\end_layout
+
+\begin_layout Section
+Martingale convergence theorem
+\end_layout
+
+\begin_layout Section
+Uniformly integrable martingale
+\end_layout
+
+\begin_layout Section
+Backwards martingales and exchangeability
+\end_layout
+
 \end_body
 \end_document
