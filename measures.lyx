@@ -1799,7 +1799,7 @@ noprefix "false"
 
 \end_inset
 
- about rings and notated as 
+ about rings and denoted as 
 \begin_inset Formula $\sigma\left(\mathcal{A}\right)$
 \end_inset
 
@@ -3926,15 +3926,11 @@ noprefix "false"
 
 \end_inset
 
-.
+
 \end_layout
 
-\begin_layout Section
-The Steiltjes measure on 
-\begin_inset Formula $\R$
-\end_inset
-
-
+\begin_layout Subsection
+An extension of the extension theorem
 \end_layout
 
 \begin_layout Standard
@@ -4017,7 +4013,13 @@ While this strategy to build the Lebesgue meaure works, we can in fact do
 Steiljes 
 \emph default
 measure, a concept which is particularly useful in probability theory.
- To start, we prove a stronger version of Caratheodory's theorem.
+ We will return to this topic at the end of the chapter, after we finish
+ our discussion on general measures on any arbitrary measurable space 
+\begin_inset Formula $\measurablespace.$
+\end_inset
+
+ The main tool wewill use is the following generalization of Caratheodory's
+ extension theorem.
 \end_layout
 
 \begin_layout Theorem
@@ -4341,25 +4343,21 @@ and
 , we have that 
 \begin_inset Formula 
 \[
-\mu\left(A\right)=\sum_{i=1}^{\infty}\mu\left(A\cap A_{i}\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right)
+\mu\left(A\right)\leq\sum_{i=1}^{\infty}\mu\left(A\cap A_{i}\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right)
 \]
 
 \end_inset
 
-where the equality follows from the fact that 
+where the first ineqality follows from subadditivity and the fact that 
 \begin_inset Formula $A\cap A_{i}\in\mathcal{A}$
 \end_inset
 
  since semi-rings are closed under intersection along with the fact that
  
-\begin_inset Formula $\left\{ A\cap A_{i}\right\} _{i\in\N}$
+\begin_inset Formula $\bigcup_{i\in\N}\left(A\cap A_{i}\right)=A$
 \end_inset
 
- forms a partition of 
-\begin_inset Formula $A$
-\end_inset
-
- and the inequality follows from monotonicty.
+ and the second inequality follows from monotonicty.
  Since the cover was arbitrary, we have 
 \begin_inset Formula $\mu^{*}\left(A\right)\geq\mu\left(A\right).$
 \end_inset
@@ -4482,227 +4480,6 @@ and the fact that
 \end_inset
 
 can be as small as one wants, our result follows.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hl{ADD STIELJES MEASURE CONSTRUCTION FROM ASH PROBABILITY}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Theorem
-\begin_inset CommandInset label
-LatexCommand label
-name "thm:existenceLebesgueR"
-
-\end_inset
-
-
-\begin_inset Argument 1
-status open
-
-\begin_layout Plain Layout
-Existence of the Lebesgue measure
-\end_layout
-
-\end_inset
-
-There exists a 
-\begin_inset Formula $\sigma-$
-\end_inset
-
-algebra 
-\begin_inset Formula $\F$
-\end_inset
-
- which contains all the open sets in 
-\begin_inset Formula $\R$
-\end_inset
-
- and a set function 
-\begin_inset Formula $\lambda:\F\longrightarrow\left[0,\infty\right]$
-\end_inset
-
- such that
-\end_layout
-
-\begin_layout Theorem
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{enumerate}[label=(
-\backslash
-roman*),leftmargin=.1
-\backslash
-linewidth,rightmargin=.4
-\backslash
-linewidth]
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item $
-\backslash
-lambda
-\backslash
-left((a,b]
-\backslash
-right) = b - a $ for any $a 
-\backslash
-leq b 
-\backslash
-in 
-\backslash
-mathds{R}$
-\backslash
-footnote{The intervals could be open, closed or neither.}
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item For any disjoint $A_i 
-\backslash
-in 
-\backslash
-mathcal{F}$
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-[
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-lambda
-\backslash
-left(
-\backslash
-bigcup_{i
-\backslash
-in
-\backslash
-mathds{N}}
-\backslash
-right) = 
-\backslash
-sum_{i 
-\backslash
-in 
-\backslash
-mathds{N}} 
-\backslash
-lambda
-\backslash
-left(A_i
-\backslash
-right)
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-]
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item For disjoint $
-\backslash
-{A_i
-\backslash
-}_{i
-\backslash
-in 
-\backslash
-N} 
-\backslash
-in 
-\backslash
-mathcal{F}$ 
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-[
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-mu
-\backslash
-left(
-\backslash
-bigcup_{i=1}^{
-\backslash
-infty}A_i
-\backslash
-right) = 
-\backslash
-sum_{i=1}^{
-\backslash
-infty}
-\backslash
-mu
-\backslash
-left(A_i
-\backslash
-right).
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-]
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{enumerate}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -5452,7 +5229,7 @@ subseteq A_{i+1}$ for all $i
 \backslash
 in 
 \backslash
-N$
+N$ 
 \end_layout
 
 \begin_layout Plain Layout
@@ -6275,6 +6052,703 @@ noprefix "false"
 \end_inset
 
  establishes the result.
+\end_layout
+
+\begin_layout Section
+The Stieljes measure on 
+\begin_inset Formula $\R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:stieljesFunction"
+
+\end_inset
+
+A function 
+\begin_inset Formula $F:\R\to\R$
+\end_inset
+
+ is called a Stieljes function if it is non-decreasing on 
+\begin_inset Formula $\R$
+\end_inset
+
+ and if it is 
+\emph on
+right-continuous 
+\emph default
+i.e.
+ for any 
+\begin_inset Formula $c\in\R$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lim_{x\to c^{+}}f\left(x\right)=f\left(c\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:measureDefinesStieljes"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mu$
+\end_inset
+
+ be a measure on 
+\begin_inset Formula $\borel\left(\R\right)$
+\end_inset
+
+ that is finite on any bounded interval 
+\begin_inset Formula $I\subseteq\R.$
+\end_inset
+
+ Define the function 
+\begin_inset Formula $F:\R\to\R$
+\end_inset
+
+ such that for 
+\begin_inset Formula $b>a$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F\left(x\right)=\mu\left(\left(-\infty,x\right]\right).
+\]
+
+\end_inset
+
+Then 
+\begin_inset Formula $F$
+\end_inset
+
+ is a Stieljes function.
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $F$
+\end_inset
+
+ is non-decreasing, since for 
+\begin_inset Formula $x\leq y$
+\end_inset
+
+ 
+\begin_inset Formula $\left(-\infty,x\right]\subseteq\left(-\infty,y\right]$
+\end_inset
+
+ and so 
+\begin_inset Formula $F\left(x\right)\leq F\left(y\right)$
+\end_inset
+
+ by the monotonicity of measures.
+ Further, let 
+\begin_inset Formula $x_{n}\to x$
+\end_inset
+
+ from the right.
+ Then there exists some decreasing subsequence 
+\begin_inset Formula $x_{n_{k}}\to x$
+\end_inset
+
+ as well.
+ Now 
+\begin_inset Formula $\left(-\infty,x_{n_{k}}\right]\subseteq\left(-\infty,x_{n_{k+1}}\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $\bigcap_{k}\left(-\infty,x_{n_{k}}\right]=\left(-\infty,x\right]$
+\end_inset
+
+ and so by Propositions 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:measureProperties"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:equivalenceContinuityMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (noting that 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is always finite for any such intervals)
+\begin_inset Formula 
+\[
+F\left(x_{n_{k}}\right)\to F\left(x\right).
+\]
+
+\end_inset
+
+Next, suppose that there is some 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ such that for some subsequence 
+\begin_inset Formula $x_{m_{k}}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F\left(x_{m_{k}}\right)>F\left(x\right)+\epsilon.
+\]
+
+\end_inset
+
+By convergence, there exists some 
+\begin_inset Formula $k_{0}$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $k\geq k_{0}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F\left(x_{n_{k}}\right)<F\left(x\right)+\epsilon.
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $x_{m_{k}}\to x$
+\end_inset
+
+, there must be some 
+\begin_inset Formula $k$
+\end_inset
+
+ such that 
+\begin_inset Formula $x_{m_{k}}\leq x_{n_{k_{0}}}$
+\end_inset
+
+ and so, by the monotonicity of 
+\begin_inset Formula $F$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F\left(x_{m_{k}}\right)\leq F\left(x_{n_{k_{0}}}\right)<F\left(x\right)+\epsilon,
+\]
+
+\end_inset
+
+a contradiction.
+ Therefore 
+\begin_inset Formula $F\left(x_{n}\right)\to F\left(x\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:stieljesMeasure"
+
+\end_inset
+
+Let 
+\begin_inset Formula $F:\R\to\R$
+\end_inset
+
+ be a Stieljes function.
+ Then the set function on 
+\begin_inset Formula $\mu:\mathcal{L\to}\left[0,\infty\right)$
+\end_inset
+
+ given by
+\begin_inset Formula 
+\[
+\mu\left(\left(a,b\right]\right):=F\left(b\right)-F\left(a\right)
+\]
+
+\end_inset
+
+extends to a measure on 
+\begin_inset Formula $\borel\left(\R\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $\mu\left(\emptyset\right)=\mu\left(\left(a,a\right]\right)=0$
+\end_inset
+
+ for any 
+\begin_inset Formula $a\in\R$
+\end_inset
+
+.
+ Next, let 
+\begin_inset Formula $A,B\in\mathcal{L}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\text{A}\cap B=\emptyset$
+\end_inset
+
+ and 
+\begin_inset Formula $A\cup B\in\mathcal{L}$
+\end_inset
+
+.
+ Then if 
+\begin_inset Formula $A=\left(a_{1},a_{2}\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $B=\left(b_{1},b_{2}\right]$
+\end_inset
+
+ , it must be that 
+\begin_inset Formula $b_{1}=a_{2}$
+\end_inset
+
+ or 
+\begin_inset Formula $b_{2}=a_{1}.$
+\end_inset
+
+ Suppose without loss of generality that it is the former.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\mu\left(A\cup B\right) & =\mu\left(\left(a_{1},b_{2}\right]\right)\\
+ & =F\left(b_{2}\right)-F\left(a_{1}\right)\\
+ & =F\left(b_{2}\right)-F\left(b_{1}\right)+\left(F\left(b_{1}\right)-F\left(a_{1}\right)\right)\\
+ & =F\left(b_{2}\right)-F\left(b_{1}\right)+\left(F\left(a_{2}\right)-F\left(a_{1}\right)\right)\\
+ & =\mu\left(\left(b_{1},b_{2}\right]\right)+\mu\left(\left(a_{1},a_{2}\right]\right)\\
+ & =\mu\left(A\right)+\mu\left(B\right)
+\end{align*}
+
+\end_inset
+
+where the fourth equality is due to the fact that 
+\begin_inset Formula $b_{1}=a_{2}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Next, let 
+\begin_inset Formula $A,B\in\mathcal{L}$
+\end_inset
+
+ and such that 
+\begin_inset Formula $A\cup B\in\mathcal{L}.$
+\end_inset
+
+ Since 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ is a semi ring, 
+\begin_inset Formula $A\setminus B=\bigcup_{i=1}^{m}C_{i}$
+\end_inset
+
+ where 
+\begin_inset Formula $C_{i}\in\mathcal{L}$
+\end_inset
+
+ are disjoint and 
+\begin_inset Formula $B\setminus A=\bigcup_{i=1}^{n}D_{i}$
+\end_inset
+
+ where 
+\begin_inset Formula $D_{i}\in\mathcal{L}$
+\end_inset
+
+ are disjoint.
+ Then 
+\begin_inset Formula $A\cup B=\bigcup_{i=1}^{m}C_{i}\cup B=\bigcup_{i=1}^{n}D_{i}\cup A$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\[
+\mu\left(A\cup B\right)=\mu\left(A\right)+\mu\left(B\right)+\frac{1}{2}\left(\sum_{i=1}^{m}\mu\left(C_{i}\right)+\sum_{j=1}^{n}\mu\left(D_{i}\right)\right)
+\]
+
+\end_inset
+
+and so by non-negativity
+\begin_inset Formula 
+\[
+\mu\left(A\cup B\right)\leq\mu\left(A\right)+\mu\left(B\right)
+\]
+
+\end_inset
+
+which is finite subadditivity.
+\end_layout
+
+\begin_layout Proof
+Finally, let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{L}$
+\end_inset
+
+ be such that 
+\begin_inset Formula $A:=\bigcup_{i\in\N}A_{i}\in\mathcal{L}.$
+\end_inset
+
+ Let 
+\begin_inset Formula $A_{i}=\left(a_{i},b_{i}\right]$
+\end_inset
+
+, 
+\begin_inset Formula $A=\left(a,b\right]$
+\end_inset
+
+ and notice that for any 
+\begin_inset Formula $0<\epsilon<b-a$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\left[a+\epsilon,b\right]\subseteq\bigcup_{i\in\N}\left(a_{i},b_{i}+\epsilon\right).
+\]
+
+\end_inset
+
+By the Heine Borel theorem, there exists a finite subcover 
+\begin_inset Formula $\left\{ \left(a_{i_{k}},b_{i_{k}}+\epsilon\right)\right\} _{k=1}^{n}$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\left(a+\epsilon,b\right]\subset\left[a+\epsilon,b\right]\subseteq\bigcup_{k=1}^{n}\left(a_{i_{k}},b_{i_{k}}+\epsilon\right)\subset\bigcup_{k=1}^{n}\left(a_{i_{k}},b_{i_{k}}+\epsilon\right].
+\]
+
+\end_inset
+
+We can choose this subcover such that its union is in 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ without loss of generality
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{prove this}
+\end_layout
+
+\end_inset
+
+and so, by the finite subadditivity result and the monotonicity of 
+\begin_inset Formula $\mu$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+If 
+\begin_inset Formula $A=\left(a_{1},a_{2}\right]\subseteq\left(b_{1},b_{2}\right]=B$
+\end_inset
+
+ then clearly 
+\begin_inset Formula $F\left(b_{2}\right)-F\left(b_{1}\right)\geq F\left(a_{2}\right)-F\left(a_{1}\right)$
+\end_inset
+
+ by the fact that 
+\begin_inset Formula $F$
+\end_inset
+
+ is non-decreasing.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F\left(b\right)-F\left(a+\epsilon\right)\leq\sum_{k=1}^{n}F\left(b_{i_{k}}+\epsilon\right)-F\left(a_{i_{k}}\right).
+\]
+
+\end_inset
+
+Letting 
+\begin_inset Formula $\epsilon\to0$
+\end_inset
+
+ and applying the right continuity of 
+\begin_inset Formula $F$
+\end_inset
+
+, we have that 
+\begin_inset Formula 
+\begin{align*}
+\mu\left(A\right)=F\left(b\right)-F\left(a\right) & \leq\sum_{k=1}^{n}F\left(b_{i_{k}}\right)-F\left(a_{i_{k}}\right)\\
+ & \leq\sum_{i=1}^{\infty}F\left(b_{i}\right)-F\left(a_{i}\right)\\
+ & =\sum_{i=1}^{\infty}\mu\left(A_{i}\right).
+\end{align*}
+
+\end_inset
+
+Applying Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:semiRingCaratheodoryExtn"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, our function 
+\begin_inset Formula $\mu$
+\end_inset
+
+ extends to a measure on 
+\begin_inset Formula $\borel\left(\R\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:existenceLebesgueR"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Existence of the Lebesgue measure
+\end_layout
+
+\end_inset
+
+There exists a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra 
+\begin_inset Formula $\F$
+\end_inset
+
+ which contains all the open sets in 
+\begin_inset Formula $\R$
+\end_inset
+
+ and a set function 
+\begin_inset Formula $\lambda:\F\longrightarrow\left[0,\infty\right]$
+\end_inset
+
+ such that
+\end_layout
+
+\begin_layout Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $
+\backslash
+lambda
+\backslash
+left((a,b]
+\backslash
+right) = b - a $ for any $a 
+\backslash
+leq b 
+\backslash
+in 
+\backslash
+mathds{R}$
+\backslash
+footnote{The intervals could be open, closed or neither.}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For any disjoint $A_i 
+\backslash
+in 
+\backslash
+mathcal{F}$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+lambda
+\backslash
+left(
+\backslash
+bigcup_{i
+\backslash
+in
+\backslash
+mathds{N}}
+\backslash
+right) = 
+\backslash
+sum_{i 
+\backslash
+in 
+\backslash
+mathds{N}} 
+\backslash
+lambda
+\backslash
+left(A_i
+\backslash
+right)
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item For disjoint $
+\backslash
+{A_i
+\backslash
+}_{i
+\backslash
+in 
+\backslash
+N} 
+\backslash
+in 
+\backslash
+mathcal{F}$ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+			
+\backslash
+mu
+\backslash
+left(
+\backslash
+bigcup_{i=1}^{
+\backslash
+infty}A_i
+\backslash
+right) = 
+\backslash
+sum_{i=1}^{
+\backslash
+infty}
+\backslash
+mu
+\backslash
+left(A_i
+\backslash
+right).
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
