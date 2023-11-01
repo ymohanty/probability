@@ -362,16 +362,6 @@ filename "spaces_of_functions.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "measure_and_topology.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
 filename "differentiation.lyx"
 
 \end_inset
@@ -389,82 +379,12 @@ filename "product_measures.lyx"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "fourier_transforms.lyx"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Part
 Probability
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "independence.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "conditioning.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "martingales.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "laws_of_large_numbers.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "central_limit_theorems.lyx"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Part
 Optimization
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "basic_convex_analysis.lyx"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Part
@@ -511,22 +431,6 @@ filename "topological_spaces.lyx"
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "combinatorics.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "probability_distributions.lyx"
-
-\end_inset
-
 
 \end_layout
 
