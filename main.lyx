@@ -279,42 +279,6 @@ LatexCommand tableofcontents
 
 \end_layout
 
-\begin_layout Chapter*
-Preface
-\end_layout
-
-\begin_layout Standard
-This document consists of notes on basic mathematical material that is expected
- as background knowledge for graduate students working in mathematical statistic
-s, econometrics, or economic theory.
- The treatment includes an overview of rudimentary measure and integration
- theory, basic functional analysis, and introductory probability theory,
- along with a smattering of topics from optimization theory, statistical
- inference, game theory, and microeconomic theory.
- Anyone with a facility with the analysis on metric spaces, some basic point
- set topology, and linear algebra can use these notes.
- This background is contained in the various appendices.
- Since this document hasn't been proofread by others, it almost surely contains
- typos and other mathematical (and non-mathematical) errors.
- Please raise a GitHub issue if you find such errors.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-mainmatter
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Part
 Analysis
 \end_layout
@@ -380,22 +344,6 @@ filename "product_measures.lyx"
 \end_layout
 
 \begin_layout Part
-Probability
-\end_layout
-
-\begin_layout Part
-Optimization
-\end_layout
-
-\begin_layout Part
-Statistics
-\end_layout
-
-\begin_layout Part
-Topics in Economics
-\end_layout
-
-\begin_layout Part
 \start_of_appendix
 Appendices
 \end_layout
@@ -427,10 +375,6 @@ filename "topological_spaces.lyx"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 
 \end_layout
 
