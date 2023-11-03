@@ -3027,7 +3027,7 @@ which gives us (ii).
 \begin_inset Formula $\left\{ E_{i}\right\} _{i=1}^{\infty}\in2^{\mathcal{X}}$
 \end_inset
 
- be disjoint and assume that 
+ and assume that 
 \begin_inset Formula $\sum_{i=1}^{\infty}\mu^{*}\left(E_{i}\right)<\infty$
 \end_inset
 
@@ -3915,6 +3915,96 @@ outer measure).
 \end_layout
 
 \begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+\begin_inset CommandInset label
+LatexCommand label
+name "rem:zeroOuterMeasureMeasurable"
+
+\end_inset
+
+Observe that every set 
+\begin_inset Formula $A\subseteq2^{\X}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu^{*}\left(A\right)=0$
+\end_inset
+
+ is in the 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra 
+\begin_inset Formula $\mathcal{C}\left(\mu^{*}\right)$
+\end_inset
+
+.
+ To see why, note that 
+\begin_inset Formula $\mu^{*}\left(E\right)\leq\mu^{*}\left(A\cap C\right)+\mu^{*}\left(A^{C}\cap E\right)$
+\end_inset
+
+ for any 
+\begin_inset Formula $E\in2^{\X}$
+\end_inset
+
+ by the subadditivity of outer measure.
+ On the other hand, 
+\begin_inset Formula $\mu^{*}\left(A\cap E\right)=0$
+\end_inset
+
+ by monotonicity, and so 
+\begin_inset Formula $\mu^{*}\left(E\right)\geq\mu^{*}\left(A^{C}\cap E\right)=\mu^{*}\left(A\cap E\right)+\mu^{*}\left(A^{C}\cap E\right)$
+\end_inset
+
+ where the inequality is again monotonicity.
+ This tells us that the measure 
+\begin_inset Formula $\mu^{*}\mid_{\mathcal{C}}$
+\end_inset
+
+ is 
+\emph on
+complete 
+\emph default
+in that every subset of a measure zero set is measurable and has measure
+ zero.
+ Complete measures form an important part of measure theory; as we shall
+ see, the Lebesgue measure is complete, and 
+\begin_inset Formula $\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+ – called the 
+\emph on
+Lebesgue 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra 
+\emph default
+is the 
+\emph on
+completion 
+\emph default
+of the Borel sets 
+\begin_inset Formula $\borel\left(\R\right)$
+\end_inset
+
+.
+ In other words, you get the Lebesgue sets by adjoining all subsets of measure
+ zero Borel sets to 
+\begin_inset Formula $\borel\left(\R\right)$
+\end_inset
+
+.
+ This fact is not trivial and shall be proved later in this chapter.
+\end_layout
+
+\begin_layout Standard
 Note that in general such an extension may not be unique and we provide
  sufficient conditions for uniqueness in Theorem 
 \begin_inset CommandInset ref
@@ -3949,8 +4039,18 @@ noprefix "false"
 
 \end_inset
 
- is strictly larger than the Borel sets, a fact that we shall be able to
- establish soon.
+ is strictly larger than the Borel sets, a fact that we hinted at in Remark
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "rem:zeroOuterMeasureMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
  To show the Lebesgue measure exists, we observe that 
 \begin_inset Formula $\lambda_{2}$
 \end_inset
@@ -6546,6 +6646,363 @@ noprefix "false"
 .
 \end_layout
 
+\begin_layout Standard
+We need a couple of lemmas to show that the Lebesgue measure exists with
+ all our requisitie properties.
+ In the following, 
+\begin_inset Formula $\lambda^{*}\left(A\right):=\inf\left\{ \sum_{j=1}^{\infty}\lambda_{1}\left(I_{j}\right)\mid A\subseteq\bigcup_{j\in\N}I_{j},I_{j}\in\mathcal{L}\right\} $
+\end_inset
+
+ is the canonical Lebesgue outer measure.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:outerMeasureTranslationInvariant"
+
+\end_inset
+
+Let 
+\begin_inset Formula $A\in2^{\R}$
+\end_inset
+
+ be an arbitrary set.
+ Then the translated set 
+\begin_inset Formula $A+t:=\left\{ a+t\mid a\in A\right\} $
+\end_inset
+
+ has Lebesgue outer measure
+\begin_inset Formula 
+\[
+\lambda^{*}\left(A+t\right)=\lambda^{*}\left(A\right)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $t\in\R$
+\end_inset
+
+.
+ Moreover, for any set 
+\begin_inset Formula $A\in\borel\left(\R\right),$
+\end_inset
+
+
+\begin_inset Formula $A+t\in\borel\left(\R\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First, observe that 
+\begin_inset Formula $\lambda_{1}:\mathcal{L}\to\left[0,\infty\right]$
+\end_inset
+
+ is translation invariant.
+ Then, if 
+\begin_inset Formula $\left\{ I_{j}\right\} _{j\in\N}\in\mathcal{L}$
+\end_inset
+
+ is a cover for 
+\begin_inset Formula $A\in2^{\R}$
+\end_inset
+
+, then 
+\begin_inset Formula $\left\{ I_{j}+t\right\} _{j\in\N}$
+\end_inset
+
+ is a cover for 
+\begin_inset Formula $A+t$
+\end_inset
+
+ and so
+\begin_inset Formula 
+\[
+\lambda^{*}\left(A+t\right)\leq\sum_{j\in\N}\lambda_{1}\left(I_{j}+t\right)=\sum_{j\in\N}\lambda_{1}\left(I_{j}\right).
+\]
+
+\end_inset
+
+Taking infimums on the right side yield
+\begin_inset Formula 
+\[
+\lambda^{*}\left(A+t\right)\leq\lambda^{*}\left(A\right).
+\]
+
+\end_inset
+
+To get the other inequality, we can let 
+\begin_inset Formula $A-t$
+\end_inset
+
+ play the role of 
+\begin_inset Formula $A$
+\end_inset
+
+ in the above inequality to yield
+\begin_inset Formula 
+\[
+\lambda^{*}\left(A\right)\leq\lambda^{*}\left(A-t\right)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $t\in\R$
+\end_inset
+
+.
+ In particular, the inequality holds if we replace 
+\begin_inset Formula $t$
+\end_inset
+
+ with 
+\begin_inset Formula $-t$
+\end_inset
+
+ and the result follows.
+\end_layout
+
+\begin_layout Proof
+Next, for some fixed 
+\begin_inset Formula $t\in\R$
+\end_inset
+
+ let 
+\begin_inset Formula $\mathcal{B}_{t}:=\left\{ B\in\borel\left(\R\right)\mid B+t\in\borel\left(\R\right)\right\} \subseteq\borel\left(\R\right).$
+\end_inset
+
+ Clearly, 
+\begin_inset Formula $\R\in\mathcal{B}_{t}$
+\end_inset
+
+ since 
+\begin_inset Formula $\R+t=\R$
+\end_inset
+
+.
+ Moreover, let 
+\begin_inset Formula $f:\R\to\R$
+\end_inset
+
+ be given by 
+\begin_inset Formula $f\left(x\right)=x+t$
+\end_inset
+
+.
+ Then, note that 
+\begin_inset Formula $\mathcal{B}_{t}=\left\{ f^{-1}\left[B\right]\in\borel\left(\R\right)\mid B\in\borel\left(\R\right)\right\} .$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This works because 
+\begin_inset Formula $f^{-1}\left[f\left[A\right]\right]=f\left[f^{-1}\left[A\right]\right]=A$
+\end_inset
+
+ for any 
+\begin_inset Formula $A\in\borel\left(\R\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ Therefore for any 
+\begin_inset Formula $A\in\mathcal{B}_{t}$
+\end_inset
+
+ where 
+\begin_inset Formula $A=f^{-1}\left[B\right]$
+\end_inset
+
+ for some 
+\begin_inset Formula $B\in\borel\left(\R\right)$
+\end_inset
+
+, we have 
+\begin_inset Formula $A^{C}=\left(f^{-1}\left[B\right]\right)^{C}=f^{-1}\left[B^{C}\right]\in\borel\left(\R\right).$
+\end_inset
+
+Note that 
+\begin_inset Formula $B^{C}\in\borel\left(\R\right)$
+\end_inset
+
+ as it is a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra and so 
+\begin_inset Formula $A^{C}\in\mathcal{B}_{t}.$
+\end_inset
+
+ Next, let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{B}_{t}$
+\end_inset
+
+.
+ Then there exist 
+\begin_inset Formula $B_{i}\in\borel\left(\R\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $A_{i}=f^{-1}\left[B_{i}\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $\bigcup_{i\in\N}A_{i}=\bigcup_{i\in\N}f^{-1}\left[B_{i}\right]=f^{-1}\left[\bigcup_{i\in\N}B_{i}\right]$
+\end_inset
+
+ where 
+\begin_inset Formula $\bigcup_{i\in\N}B_{i}\in\borel\left(\R\right)$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $\bigcup_{i\in\N}A_{i}\in\mathcal{B}_{t}.$
+\end_inset
+
+ Therefore 
+\begin_inset Formula $\mathcal{B}_{t}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra and moreover, since every interval in 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ is a translation of another interval in 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ so that 
+\begin_inset Formula $\mathcal{L}+t=\mathcal{L}$
+\end_inset
+
+, we have that 
+\begin_inset Formula $\mathcal{B}_{t}$
+\end_inset
+
+ contains 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula $\borel\left(\R\right)=\sigma\left(\mathcal{L}\right)\subseteq\mathcal{B}_{t}$
+\end_inset
+
+.
+ We have shown that 
+\begin_inset Formula $\borel\left(\R\right)=\mathcal{B}_{t}$
+\end_inset
+
+ for any 
+\begin_inset Formula $t\in\R$
+\end_inset
+
+ and our claim follows.
+\end_layout
+
+\begin_layout Remark*
+The type of argument that we used to prove that 
+\begin_inset Formula $\borel\left(\R\right)=\mathcal{B}_{t}$
+\end_inset
+
+ is a type of 
+\emph on
+generating class 
+\emph default
+argument.
+ The abstract version of how such arguments go is described later in section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:genClassArgs"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:lebMeasureCountableSets"
+
+\end_inset
+
+For any countable set 
+\begin_inset Formula $S\subseteq\R$
+\end_inset
+
+, we have that 
+\begin_inset Formula $S\in\borel\left(\R\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda^{*}\left(S\right)=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First observe that for any 
+\begin_inset Formula $x\in\R$
+\end_inset
+
+, the singleton 
+\begin_inset Formula $\left\{ x\right\} \in\borel\left(\R\right)$
+\end_inset
+
+ since 
+\begin_inset Formula $\left\{ x\right\} $
+\end_inset
+
+ is closed.
+ Morever, 
+\begin_inset Formula $x\in\left(x-\frac{1}{n},x\right]$
+\end_inset
+
+ for every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+.
+ It's then clear that 
+\begin_inset Formula $\lambda^{*}\left(\left\{ x\right\} \right)\leq\inf_{n}\lambda^{*}\left(\left(x-\frac{1}{n},x\right]\right)=\inf\frac{1}{n}=0,$
+\end_inset
+
+ Finally, noting that 
+\begin_inset Formula $S=\bigcup_{x\in S}\left\{ x\right\} \in\borel\left(\R\right)$
+\end_inset
+
+ by closure under countable unions, we have, by countable subadditivity
+ of the outer measure
+\begin_inset Formula 
+\[
+\lambda^{*}\left(S\right)\leq\sum_{x\in S}\lambda^{*}\left(\left\{ x\right\} \right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Theorem
 \begin_inset CommandInset label
 LatexCommand label
@@ -6563,7 +7020,7 @@ Existence of the Lebesgue measure
 
 \end_inset
 
-There exists a 
+There exists a complete 
 \begin_inset Formula $\sigma-$
 \end_inset
 
@@ -6597,27 +7054,6 @@ roman*),leftmargin=.1
 linewidth,rightmargin=.4
 \backslash
 linewidth]
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-item $
-\backslash
-lambda
-\backslash
-left((a,b]
-\backslash
-right) = b - a $ for any $a 
-\backslash
-leq b 
-\backslash
-in 
-\backslash
-mathds{R}$
-\backslash
-footnote{The intervals could be open, closed or neither.}
 \end_layout
 
 \begin_layout Plain Layout
@@ -6676,26 +7112,28 @@ right)
 
 \begin_layout Plain Layout
 
-	
-\backslash
-item For disjoint $
-\backslash
-{A_i
-\backslash
-}_{i
-\backslash
-in 
-\backslash
-N} 
-\backslash
-in 
-\backslash
-mathcal{F}$ 
 \end_layout
 
 \begin_layout Plain Layout
 
 	
+\backslash
+item For any set $A 
+\backslash
+in 
+\backslash
+borel
+\backslash
+left(
+\backslash
+R
+\backslash
+right)$ we have that 
+\end_layout
+
+\begin_layout Plain Layout
+
+    
 \backslash
 [
 \end_layout
@@ -6704,39 +7142,59 @@ mathcal{F}$
 
 			
 \backslash
-mu
+lambda
 \backslash
-left(
-\backslash
-bigcup_{i=1}^{
-\backslash
-infty}A_i
+left(A+t
 \backslash
 right) = 
 \backslash
-sum_{i=1}^{
+lambda
 \backslash
-infty}
-\backslash
-mu
-\backslash
-left(A_i
+left(A
 \backslash
 right).
 \end_layout
 
 \begin_layout Plain Layout
 
-	
+    
 \backslash
 ]
 \end_layout
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 	
 \backslash
-item
+item $
+\backslash
+lambda
+\backslash
+left((a,b]
+\backslash
+right) = b - a $ for any $a 
+\backslash
+leq b 
+\backslash
+in 
+\backslash
+mathds{R}$
+\backslash
+footnote{The intervals could be open, closed or neither.}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	
 \end_layout
 
 \begin_layout Plain Layout
@@ -6749,6 +7207,158 @@ end{enumerate}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $F\left(x\right)=x$
+\end_inset
+
+ and notice that 
+\begin_inset Formula $F$
+\end_inset
+
+ is non-decreasing and right-continuous and so by Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:stieljesMeasure"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the function 
+\begin_inset Formula $\lambda:\mathcal{L}\to\left[0,\infty\right]$
+\end_inset
+
+ given by
+\begin_inset Formula 
+\[
+\lambda\left(\left(a,b\right]\right)=b-a
+\]
+
+\end_inset
+
+extends to a measure on 
+\begin_inset Formula $\borel\left(\R\right).$
+\end_inset
+
+ As our discussion in Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:semiRingCaratheodoryExtn"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows, the extension is the restriction of the outer measure 
+\begin_inset Formula $\lambda^{*}$
+\end_inset
+
+ to the Caratheodory measurable sets 
+\begin_inset Formula $\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+ generated by 
+\begin_inset Formula $\left(\mathcal{L},\lambda^{*}\right)$
+\end_inset
+
+, which contain the borel sets 
+\begin_inset Formula $\borel\left(\R\right)$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\mathcal{F}=\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+ and notice that our discussion in Remark 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "rem:zeroOuterMeasureMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ tells us that 
+\begin_inset Formula $\F$
+\end_inset
+
+ is complete.
+ Then, note that property 
+\begin_inset Formula $\left(i\right)$
+\end_inset
+
+ follows since 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is a measure and so is countably additive.
+ Property 
+\begin_inset Formula $\left(ii\right)$
+\end_inset
+
+ follows by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:outerMeasureTranslationInvariant"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ To see property 
+\begin_inset Formula $(iii)$
+\end_inset
+
+, we need to look at each case separately.
+ For any compact interval 
+\begin_inset Formula $\left[a,b\right]=\left\{ a\right\} \cup\left(a,b\right]$
+\end_inset
+
+, the result follows by additivity and Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:lebMeasureCountableSets"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ For an open set 
+\begin_inset Formula $\left(a,b\right)$
+\end_inset
+
+ note that 
+\begin_inset Formula $\left(a,b\right]=\left(a,b\right)\cup\left\{ b\right\} $
+\end_inset
+
+ and so again additivity and Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:lebMeasureCountableSets"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+applies.
+ Finally, we show the same result for 
+\begin_inset Formula $\left[a,b\right)=\left\{ a\right\} \cup\left(a,b\right)$
+\end_inset
+
+.
+ 
 \end_layout
 
 \end_body
