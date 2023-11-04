@@ -6647,8 +6647,106 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-We need a couple of lemmas to show that the Lebesgue measure exists with
- all our requisitie properties.
+Thus Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:measureDefinesStieljes"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:stieljesMeasure"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ together show that Stieljes functions and measures that are finite on bounded
+ intervals are in a one-to-one corresponde.
+ For any Stieljes function 
+\begin_inset Formula $F$
+\end_inset
+
+ , we denote the corresponding measure by 
+\begin_inset Formula $\mu_{F}$
+\end_inset
+
+.
+ Stieljes measures enjoy a few important properties.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:stieljesSingleton"
+
+\end_inset
+
+Let 
+\begin_inset Formula $F:\R\to\R$
+\end_inset
+
+ be a Stieljes function and let 
+\begin_inset Formula $\mu_{F}:\borel\left(\R\right)\to\left[0,\infty\right]$
+\end_inset
+
+ be the corresponding measure.
+ Then for any 
+\begin_inset Formula $x\in\R$
+\end_inset
+
+, 
+\begin_inset Formula $\mu\left(\left\{ x\right\} \right)=0$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $F$
+\end_inset
+
+ is continuous at 
+\begin_inset Formula $x.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Observe that 
+\begin_inset Formula $\left\{ x\right\} \in\borel\left(\R\right)$
+\end_inset
+
+ since it is closed.
+ Then,
+\begin_inset Formula 
+\[
+\mu_{F}\left(\left\{ x\right\} \right)=\lim_{n\to\infty}\mu_{F}\left(\left(x-\frac{1}{n},x\right]\right)=\lim_{n\to\infty}F\left(x\right)-F\left(x-\frac{1}{n}\right)
+\]
+
+\end_inset
+
+where the first equality is Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:equivalenceContinuityMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The result then follows.
+\end_layout
+
+\begin_layout Standard
+We need a couple a lemma to show that the Lebesgue measure exists with all
+ our requisite properties.
  In the following, 
 \begin_inset Formula $\lambda^{*}\left(A\right):=\inf\left\{ \sum_{j=1}^{\infty}\lambda_{1}\left(I_{j}\right)\mid A\subseteq\bigcup_{j\in\N}I_{j},I_{j}\in\mathcal{L}\right\} $
 \end_inset
@@ -6938,71 +7036,6 @@ noprefix "false"
 .
 \end_layout
 
-\begin_layout Lemma
-\begin_inset CommandInset label
-LatexCommand label
-name "lem:lebMeasureCountableSets"
-
-\end_inset
-
-For any countable set 
-\begin_inset Formula $S\subseteq\R$
-\end_inset
-
-, we have that 
-\begin_inset Formula $S\in\borel\left(\R\right)$
-\end_inset
-
- and 
-\begin_inset Formula $\lambda^{*}\left(S\right)=0.$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-First observe that for any 
-\begin_inset Formula $x\in\R$
-\end_inset
-
-, the singleton 
-\begin_inset Formula $\left\{ x\right\} \in\borel\left(\R\right)$
-\end_inset
-
- since 
-\begin_inset Formula $\left\{ x\right\} $
-\end_inset
-
- is closed.
- Morever, 
-\begin_inset Formula $x\in\left(x-\frac{1}{n},x\right]$
-\end_inset
-
- for every 
-\begin_inset Formula $n\in\N$
-\end_inset
-
-.
- It's then clear that 
-\begin_inset Formula $\lambda^{*}\left(\left\{ x\right\} \right)\leq\inf_{n}\lambda^{*}\left(\left(x-\frac{1}{n},x\right]\right)=\inf\frac{1}{n}=0,$
-\end_inset
-
- Finally, noting that 
-\begin_inset Formula $S=\bigcup_{x\in S}\left\{ x\right\} \in\borel\left(\R\right)$
-\end_inset
-
- by closure under countable unions, we have, by countable subadditivity
- of the outer measure
-\begin_inset Formula 
-\[
-\lambda^{*}\left(S\right)\leq\sum_{x\in S}\lambda^{*}\left(\left\{ x\right\} \right)=0
-\]
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Theorem
 \begin_inset CommandInset label
 LatexCommand label
@@ -7218,7 +7251,7 @@ Let
 \begin_inset Formula $F$
 \end_inset
 
- is non-decreasing and right-continuous and so by Theorem 
+ is non-decreasing and continuous and so by Theorem 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:stieljesMeasure"
@@ -7323,10 +7356,10 @@ noprefix "false"
 \begin_inset Formula $\left[a,b\right]=\left\{ a\right\} \cup\left(a,b\right]$
 \end_inset
 
-, the result follows by additivity and Lemma 
+, the result follows by additivity and Proposition 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:lebMeasureCountableSets"
+reference "prop:stieljesSingleton"
 plural "false"
 caps "false"
 noprefix "false"
@@ -7342,10 +7375,10 @@ noprefix "false"
 \begin_inset Formula $\left(a,b\right]=\left(a,b\right)\cup\left\{ b\right\} $
 \end_inset
 
- and so again additivity and Lemma 
+ and so again additivity and Proposition 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:lebMeasureCountableSets"
+reference "prop:stieljesSingleton"
 plural "false"
 caps "false"
 noprefix "false"
@@ -7358,7 +7391,6 @@ applies.
 \end_inset
 
 .
- 
 \end_layout
 
 \end_body
