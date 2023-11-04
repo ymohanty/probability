@@ -367,16 +367,6 @@ Appendices
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "naive_set_theory.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
 filename "finite_dimensional_vector_spaces.lyx"
 
 \end_inset
@@ -391,10 +381,6 @@ filename "topological_spaces.lyx"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 
 \end_layout
 

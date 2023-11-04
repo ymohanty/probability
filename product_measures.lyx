@@ -124,14 +124,49 @@ In calculus, we learnt that the theory of integration readily extends from
 
 \end_inset
 
-The main goal of this chapter is to recover this result for the Lebesgue
- integral.
+In our linear functional notation, this can be written as
+\begin_inset Formula 
+\[
+\lambda^{x}\left(\lambda^{y}\left(f\left(x,y\right)\indicate_{\left[c,d\right]}\right)\indicate_{\left[a,b\right]}\right)=\lambda^{y}\left(\lambda^{x}\left(f\left(x,y\right)\indicate_{\left[a,b\right]}\right)\indicate_{\left[c,d\right]}\right).
+\]
+
+\end_inset
+
+Here 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is the Lebesgue measure as usual, and the superscripts denote the variable
+ of integration.
+ Note that we have dropped the bars on top of the 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ to denote integration to clean up notation; for comfort, you can just think
+ of integration as an extension of a measure from the space of measurable
+ indicators to the space of non-negative measurable or integrable functions,
+ in the spirit of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:integralMeasureEquivalence"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The main goal of this chapter is to recover this result for the general
+ measures.
  While important in its own right for the study of analysis on Euclidean
  spaces, in the context of probability theory, this result takes a far more
  important role.
  In particular, the ability to write a multiple integral as an iterated
  integral corresponds directly with the ability to factor the joint distribution
- of random variables into the marginal distribution; that is, it underpins
+ of random variables into their marginal distributions; that is, it underpins
  the theory of 
 \emph on
 independent 
@@ -2553,7 +2588,7 @@ noprefix "false"
 \end_inset
 
  applies.
- The last equality is similar: now we have the function 
+ The third equality is similar: now we have the function 
 \begin_inset Formula $x\to\nu_{2}^{y}\left(\indicate_{F}\left(x,y\right)\frac{d\nu_{1}}{d\nu_{2}}\right)$
 \end_inset
 
@@ -2601,7 +2636,252 @@ Integration by parts
 \end_layout
 
 \begin_layout Standard
-Note that
+Tonelli (or Fubini) gives us a generalization of integration by parts from
+ elementary calculus.
+ To see this, let 
+\begin_inset Formula $F$
+\end_inset
+
+ and 
+\begin_inset Formula $G$
+\end_inset
+
+ be Stieljes (that is, real valued, nondecreasing, and right continuous
+ ) functions on a compact set 
+\begin_inset Formula $\left[a,b\right].$
+\end_inset
+
+ By Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:stieljesMeasure"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we have that the set functions 
+\begin_inset Formula 
+\begin{align*}
+\mu\left(\left(x,y\right]\right) & :=F\left(y\right)-F\left(x\right)\\
+\nu\left(\left(x,y\right]\right) & :=G\left(y\right)-G\left(x\right)
+\end{align*}
+
+\end_inset
+
+for any 
+\begin_inset Formula $a\leq x\leq y\leq b$
+\end_inset
+
+ extend to measures on 
+\begin_inset Formula $\borel\left(\left[a,b\right]\right)$
+\end_inset
+
+.
+ We can show that under mild regularity conditions, 
+\begin_inset Formula 
+\[
+\lebInt{\mu}G+\lebInt{\nu}F=F\left(b\right)G\left(b\right)-F\left(a\right)G\left(a\right).
+\]
+
+\end_inset
+
+This implies the 
+\begin_inset Quotes eld
+\end_inset
+
+usual
+\begin_inset Quotes erd
+\end_inset
+
+ integration by parts formula since 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{complete after finishing chapter on differentiation}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:generalizedIntegrationByParts"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Integration by Parts
+\end_layout
+
+\end_inset
+
+If the set of discontinuities of 
+\begin_inset Formula $F$
+\end_inset
+
+ and 
+\begin_inset Formula $G$
+\end_inset
+
+ are disjoint, then
+\begin_inset Formula 
+\[
+\lebInt{\mu}G+\lebInt{\nu}F=F\left(b\right)G\left(b\right)-F\left(a\right)G\left(a\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}G & =\mu^{x}\left(G\left(x\right)\right)\\
+ & =\mu^{x}\left(\nu\left(\left(a,x\right]\right)+G\left(a\right)\right)\\
+ & =\mu^{x}\nu^{y}\left(\indicate\left\{ a<y\leq x\leq b\right\} \right)+G\left(a\right)\left(F\left(b\right)-F\left(a\right)\right)
+\end{align*}
+
+\end_inset
+
+where the third equality uses linearity and the fact that 
+\begin_inset Formula $\mu\left(\left(a,b\right]\right)=F\left(b\right)-F\left(a\right).$
+\end_inset
+
+ Similarly, we can write
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\nu}F & =\nu^{y}\left(F\left(y\right)\right)\\
+ & =\nu^{y}\left(\mu\left(\left(a,y\right]\right)+F\left(a\right)\right)\\
+ & =\nu^{y}\mu^{x}\left(\indicate\left\{ a<x\leq y\leq b\right\} \right)+F\left(a\right)\left(G\left(b\right)-G\left(a\right)\right).
+\end{align*}
+
+\end_inset
+
+Now note that
+\begin_inset Formula 
+\begin{align}
+\lebInt{\mu}G+\lebInt{\nu}F & =\mu^{x}\nu^{y}\left(\indicate\left\{ a<y\leq x\leq b\right\} \right)+\nu^{y}\mu^{x}\left(\indicate\left\{ a<x\leq y\leq b\right\} \right)+G\left(a\right)\left(F\left(b\right)-F\left(a\right)\right)+F\left(a\right)\left(G\left(b\right)-G\left(a\right)\right)\nonumber \\
+ & =\mu^{x}\nu^{y}\left(\indicate\left\{ a<y\leq x\leq b\right\} +\indicate\left\{ a<x\leq y\leq b\right\} \right)+G\left(a\right)\left(F\left(b\right)-F\left(a\right)\right)+F\left(a\right)\left(G\left(b\right)-G\left(a\right)\right)\label{eq:muGPlusNuF}
+\end{align}
+
+\end_inset
+
+where the second equality follows by Tonelli and linearity.
+ We can expand upon the term inside the integral by noticing that 
+\begin_inset Formula $\left\{ a<y\leq x\leq b\right\} =\underbrace{\left\{ a<y=x\leq b\right\} }_{=:A}\cup\underbrace{\left\{ a<y<x\leq b\right\} }_{=:B}$
+\end_inset
+
+ where the union is disjoint and so by Fact 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fact:indicatorFunctionsFiniteOperations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we know that 
+\begin_inset Formula 
+\[
+\indicate\left\{ a<y\leq x\leq b\right\} =\indicate_{A}+\indicate_{B}.
+\]
+
+\end_inset
+
+Further, 
+\begin_inset Formula $\left\{ a<x\leq y\leq b\right\} =\left(a,b\right]^{2}\setminus B$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align}
+\mu^{x}\nu^{y}\left(\indicate\left\{ a<y\leq x\leq b\right\} +\indicate\left\{ a<x\leq y\leq b\right\} \right) & =\mu^{x}\nu^{y}\left(\indicate_{A}+\indicate_{B}+\indicate_{\left(a,b\right]^{2}\setminus B}\right)\nonumber \\
+ & =\mu^{x}\nu^{y}\left(\indicate_{A}\right)+\mu\otimes\nu\left(\left(a,b\right]^{2}\right)\nonumber \\
+ & =\mu^{x}\nu\left(\left\{ x\right\} \right)+\left(F\left(a\right)-F\left(b\right)\right)\left(G\left(a\right)-G\left(b\right)\right)\nonumber \\
+ & =\left(F\left(a\right)-F\left(b\right)\right)\left(G\left(a\right)-G\left(b\right)\right)\label{eq:muNuXEqualYZero}
+\end{align}
+
+\end_inset
+
+where the third equality is due to the fact that 
+\begin_inset Formula $\mu\otimes\nu$
+\end_inset
+
+ is a product measure, and the last equality follows by our assumption that
+ 
+\begin_inset Formula $F$
+\end_inset
+
+ and 
+\begin_inset Formula $G$
+\end_inset
+
+ contain no common points of discontinuity and Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:stieljesSingleton"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{explain this better}
+\end_layout
+
+\end_inset
+
+.
+ Then, substituting 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:muNuXEqualYZero"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:muGPlusNuF"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and doing some algebra yields the result.
+\end_layout
+
+\begin_layout Subsection
+A special case of integration by substitution
 \end_layout
 
 \begin_layout Subsection
