@@ -1270,7 +1270,7 @@ for any
 \end_inset
 
  (
-\begin_inset Formula $f\in\Lp 1{\mu\otimes v}$
+\begin_inset Formula $f\in\Lp1{\mu\otimes v}$
 \end_inset
 
 ).
@@ -2559,7 +2559,8 @@ and
 
 \end_inset
 
-where the first equality is Tonelli, the second is due the fact that 
+where the first equality is Tonelli (and the uniquenes of product measures),
+ the second is due the fact that 
 \begin_inset Formula $y\to\indicate_{F}\left(x,y\right)$
 \end_inset
 
@@ -2631,6 +2632,178 @@ noprefix "false"
  This completes the proof.
 \end_layout
 
+\begin_layout Standard
+This result has a converse, in that for any 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measure 
+\begin_inset Formula $\nu$
+\end_inset
+
+ on 
+\begin_inset Formula $\F\otimes\mathcal{G}$
+\end_inset
+
+ which is absolutely continuous with respect to a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite product measure and whose Radon Nikodym derivative can be written
+ as a product is itself a product measure.
+ We make this precise with the following result.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:prodRNConverse"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G}\right)$
+\end_inset
+
+ be measurable spaces with product 
+\begin_inset Formula $\left(\X\times\mathcal{Y},\F\otimes\mathcal{G}\right)$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\nu_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{1}$
+\end_inset
+
+ be 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measures on 
+\begin_inset Formula $\F$
+\end_inset
+
+ such that 
+\begin_inset Formula $\nu_{1}<<\mu_{1}$
+\end_inset
+
+ .
+ Similarly, let 
+\begin_inset Formula $\nu_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{2}$
+\end_inset
+
+ be 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measures on 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\nu_{2}<<\mu_{2}$
+\end_inset
+
+.
+ Finally, let 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ be a measure on 
+\begin_inset Formula $\F\otimes\mathcal{G}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\gamma<<\mu_{1}\otimes\mu_{2}$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\frac{d\gamma}{d\mu_{1}\otimes\mu_{2}}\stackrel{\text{a.e}}{=}\frac{d\nu_{1}}{d\mu_{1}}\times\frac{d\nu_{2}}{d\mu_{2}}.
+\]
+
+\end_inset
+
+Then 
+\begin_inset Formula $\gamma=\nu_{1}\otimes\nu_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Note that for any 
+\begin_inset Formula $A\in\F\otimes\mathcal{G}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\gamma\left(A\right) & =\mu_{1}^{x}\mu_{2}^{y}\left(\indicate_{A}\left(x,y\right)\frac{d\nu_{1}}{d\mu_{1}}\left(x\right)\frac{d\nu_{2}}{d\mu_{2}}\left(y\right)\right)\\
+ & =\mu_{1}^{x}\nu_{2}^{y}\left(\indicate_{A}\left(x,y\right)\frac{d\nu_{1}}{d\mu_{1}}\left(x\right)\right)\\
+ & =\nu_{2}^{y}\mu_{1}^{x}\left(\indicate_{A}\left(x,y\right)\frac{d\nu_{1}}{d\mu_{1}}\left(x\right)\right)\\
+ & =\nu_{2}^{y}\nu_{1}^{x}\left(\indicate_{A}\left(x,y\right)\right)\\
+ & =\nu_{2}\otimes\nu_{1}\left(A\right)
+\end{align*}
+
+\end_inset
+
+where the second equality follows by Corollary
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:radonNikodymIntegral"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the third equality by Tonelli, the fourth again by Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:radonNikodymIntegral"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+As we shall see, this results in this section are a measure theoretic justificat
+ion for the probabilistic fact that two 
+\emph on
+absolutely continuous 
+\emph default
+random variables 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ are 
+\emph on
+independent 
+\emph default
+if and only if we can factor their probability density functions.
+\end_layout
+
 \begin_layout Subsection
 Integration by parts
 \end_layout
@@ -2646,8 +2819,8 @@ Tonelli (or Fubini) gives us a generalization of integration by parts from
 \begin_inset Formula $G$
 \end_inset
 
- be Stieljes (that is, real valued, nondecreasing, and right continuous
- ) functions on a compact set 
+ be Stieljes (that is, real valued, nondecreasing, and right continuous)
+ functions on a compact set 
 \begin_inset Formula $\left[a,b\right].$
 \end_inset
 
@@ -2728,7 +2901,20 @@ Integration by Parts
 
 \end_inset
 
-If the set of discontinuities of 
+Let 
+\begin_inset Formula $F$
+\end_inset
+
+ and 
+\begin_inset Formula $G$
+\end_inset
+
+ be Stieljes functions on a compact set 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+.
+ If the set of discontinuities of 
 \begin_inset Formula $F$
 \end_inset
 
@@ -2878,6 +3064,34 @@ noprefix "false"
 \end_inset
 
  and doing some algebra yields the result.
+\end_layout
+
+\begin_layout Standard
+An interesting application of this result is showing that the integral of
+ a Stieljes function 
+\begin_inset Formula $F$
+\end_inset
+
+ under the measure induced by 
+\begin_inset Formula $F$
+\end_inset
+
+ is simply 
+\begin_inset Formula $\frac{F\left(b\right)^{2}-F\left(a\right)^{2}}{2},$
+\end_inset
+
+ which follows simply by applying the above theorem where 
+\begin_inset Formula $F=G.$
+\end_inset
+
+ In probability theory, this is a special case of the fact that a cumulative
+ distribution function of a random variable is itself uniformly distributed
+ on 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+.
+ We shall establish this fact in Part II of these notes.
 \end_layout
 
 \begin_layout Subsection
