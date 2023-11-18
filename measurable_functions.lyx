@@ -3498,8 +3498,368 @@ noprefix "false"
  This completes the proof.
 \end_layout
 
+\begin_layout Subsection
+Images of measurable sets under measurable functions
+\end_layout
+
+\begin_layout Standard
+We have the shown (or rather, defined) that for measurable functions, preimages
+ of measurable sets are measurable.
+ Does this hold for images under measurable functions as well? That is,
+ for any pair of measurable spaces 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G}\right)$
+\end_inset
+
+ and a measurable function 
+\begin_inset Formula $f:\X\to\mathcal{G}$
+\end_inset
+
+, is it true that 
+\begin_inset Formula $f\left[A\right]\in\mathcal{G}$
+\end_inset
+
+ for any 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+? The answer to this question is 
+\begin_inset Quotes eld
+\end_inset
+
+no
+\begin_inset Quotes erd
+\end_inset
+
+ and to show this, we continue on a thread we began in Subsection 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:cantorSets"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (read that section again).
+ We shall first construct a strictly increasing analogue of the Cantor function
+ 
+\begin_inset Formula $\psi_{C}$
+\end_inset
+
+ from that section.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:strictlyIncreasingCantorFunction"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\phi\left(x\right):=\psi_{C}\left(x\right)+x$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\phi$
+\end_inset
+
+ is a strictly increasing, continuous function that maps 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+ onto 
+\begin_inset Formula $\left[0,2\right]$
+\end_inset
+
+.
+ Moreover, 
+\begin_inset Formula $\phi\left[C\right]\in\borel\left(\R\right)$
+\end_inset
+
+ is a set of positive Lebesgue measure.
+\end_layout
+
+\begin_layout Proof
+Note that the sum of a non-decreasing and strictly increasing function is
+ strictly increasing and the sum of two continuous functions is continuous.
+ That gives us the first two properties.
+ Now since 
+\begin_inset Formula $\phi\left(0\right)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi\left(1\right)=2$
+\end_inset
+
+, by the intermediate value theorem 
+\begin_inset Formula $\phi\left[\left[0,1\right]\right]=\left[0,2\right].$
+\end_inset
+
+ Next, note that 
+\begin_inset Formula $\phi\left[C\right]=\left(\phi^{-1}\right)^{-1}\left[C\right]$
+\end_inset
+
+ which is Borel measurable since 
+\begin_inset Formula $C$
+\end_inset
+
+ is closed (and so Borel measurable) and 
+\begin_inset Formula $\phi^{-1}$
+\end_inset
+
+ is a continuous (and hence Borel measurable) function by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:strictlyIncreasingContinuousFunctionInverse"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Finally, consider the image 
+\begin_inset Formula $\phi\left[\left[0,1\right]\setminus C\right]$
+\end_inset
+
+.
+ We know from Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:cantorFunctionConstantOutside"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+that there exists a countable collection of disjoint open intervals 
+\begin_inset Formula $\left\{ O_{j}\right\} _{j\in\N}\subset\left[0,1\right]$
+\end_inset
+
+ such that 
+\begin_inset Formula $\bigcup_{j\in\N}O_{j}=\left[0,1\right]\setminus C$
+\end_inset
+
+ such that 
+\begin_inset Formula $\psi_{C}\left(x\right)=c_{j}$
+\end_inset
+
+ for any 
+\begin_inset Formula $x\in O_{j}$
+\end_inset
+
+.
+ Then, 
+\begin_inset Formula 
+\begin{align*}
+\phi\left[\left[0,1\right]\setminus C\right] & =\phi\left[\bigcup_{j\in\N}O_{j}\right]\\
+ & =\bigcup_{j\in\N}\phi\left[O_{j}\right]\\
+ & =\bigcup_{j\in\N}O_{j}+c_{j}
+\end{align*}
+
+\end_inset
+
+where each 
+\begin_inset Formula $O_{j}+c_{j}$
+\end_inset
+
+ is disjoint since 
+\begin_inset Formula $\phi$
+\end_inset
+
+ is a bijection and so its image preserves intersections.
+ Then,
+\begin_inset Formula 
+\begin{align*}
+\lambda\left(\phi\left[\left[0,1\right]\setminus C\right]\right) & =\lambda\left(\bigcup_{j\in\N}O_{j}+c_{j}\right)\\
+ & =\sum_{i=1}^{\infty}\lambda\left(O_{j}\right)\\
+ & =\lambda\left(\bigcup_{j\in\N}O_{j}\right)\\
+ & =\lambda\left(\left[0,1\right]\setminus C\right)\\
+ & =1
+\end{align*}
+
+\end_inset
+
+where in the inequality we used countable additivity and translation invariance.
+ Then, by additivity, finiteness of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ on bounded intervasls, and the fact that the image of a bijective function
+ preserves set differences-
+\begin_inset Formula 
+\begin{align*}
+1=\lambda\left(\phi\left[\left[0,1\right]\setminus C\right]\right) & =\lambda\left(\phi\left[\left[0,1\right]\right]\setminus\phi\left[C\right]\right)\\
+ & =\lambda\left(\phi\left[\left[0,1\right]\right]\right)-\lambda\left(\phi\left[C\right]\right)\\
+ & =\lambda\left(\left[0,2\right]\right)-\lambda\left(\phi\left[C\right]\right)\\
+ & =2-\lambda\left(\phi\left[C\right]\right).
+\end{align*}
+
+\end_inset
+
+Therefore 
+\begin_inset Formula 
+\[
+\lambda\left(\phi\left[C\right]\right)=1
+\]
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:continuousImageLebesgueMeasurable"
+
+\end_inset
+
+There exists a measurable set 
+\begin_inset Formula $A\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $\phi\left[A\right]\notin\mathcal{C}\left(\lambda^{*}\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that by Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:positiveMeasureNonMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:strictlyIncreasingCantorFunction"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $\phi\left[C\right]$
+\end_inset
+
+ contains a set 
+\begin_inset Formula $E$
+\end_inset
+
+ such that 
+\begin_inset Formula $E\notin\mathcal{C}\left(\lambda^{*}\right).$
+\end_inset
+
+ Let 
+\begin_inset Formula $A=C\cap\phi^{-1}\left[E\right]$
+\end_inset
+
+ and notice that 
+\begin_inset Formula $A$
+\end_inset
+
+ is measurable as it is a subset of a measure-zero set and since 
+\begin_inset Formula $\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+ is complete.
+ Then, 
+\begin_inset Formula $\phi\left[A\right]=E$
+\end_inset
+
+ which is not measurable.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:lebesgueNotBorel"
+
+\end_inset
+
+There exists a set 
+\begin_inset Formula $A\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $A\notin\borel\left(\R\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $A=C\cap\phi^{-1}\left[E\right]$
+\end_inset
+
+ as in Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:continuousImageLebesgueMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $A\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+ but 
+\begin_inset Formula $\phi\left[A\right]\notin\mathcal{C}\left(\lambda^{*}\right).$
+\end_inset
+
+ But recall that 
+\begin_inset Formula $\phi^{-1}$
+\end_inset
+
+ is measurable since it is continuous and 
+\begin_inset Formula $\phi\left[A\right]=\left(\phi^{-1}\right)^{-1}\left[A\right]$
+\end_inset
+
+ and so if 
+\begin_inset Formula $A\in\borel\left(\R\right)$
+\end_inset
+
+ then 
+\begin_inset Formula $\phi\left[A\right]\in\borel\left(\R\right)$
+\end_inset
+
+ which would be a contradiction.
+\end_layout
+
+\begin_layout Subsection
+An iterative construction of the Cantor function
+\end_layout
+
 \begin_layout Section
 Types of generating class arguments
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:genClassArgs"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

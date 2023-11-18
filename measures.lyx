@@ -6668,7 +6668,7 @@ noprefix "false"
 \end_inset
 
  together show that Stieljes functions and measures that are finite on bounded
- intervals are in a one-to-one corresponde.
+ intervals are in a one-to-one correspondence.
  For any Stieljes function 
 \begin_inset Formula $F$
 \end_inset
@@ -6745,8 +6745,8 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-We need a couple a lemma to show that the Lebesgue measure exists with all
- our requisite properties.
+We need a couple a lemmas to show that the Lebesgue measure exists with
+ all our requisite properties.
  In the following, 
 \begin_inset Formula $\lambda^{*}\left(A\right):=\inf\left\{ \sum_{j=1}^{\infty}\lambda_{1}\left(I_{j}\right)\mid A\subseteq\bigcup_{j\in\N}I_{j},I_{j}\in\mathcal{L}\right\} $
 \end_inset
@@ -6762,7 +6762,7 @@ name "lem:outerMeasureTranslationInvariant"
 \end_inset
 
 Let 
-\begin_inset Formula $A\in2^{\R}$
+\begin_inset Formula $A\subseteq\R$
 \end_inset
 
  be an arbitrary set.
@@ -6805,7 +6805,7 @@ First, observe that
 \end_inset
 
  is a cover for 
-\begin_inset Formula $A\in2^{\R}$
+\begin_inset Formula $A\subseteq\R$
 \end_inset
 
 , then 
@@ -7036,6 +7036,94 @@ noprefix "false"
 .
 \end_layout
 
+\begin_layout Standard
+A similar result holds for dilations.
+ That is, the Lebesgue measure is scales under dilations.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:outerMeasureScales"
+
+\end_inset
+
+Let 
+\begin_inset Formula $A\subseteq\R$
+\end_inset
+
+ be an arbitrary set.
+ Then for any 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+, the dilated set 
+\begin_inset Formula $\delta A:=\left\{ \delta a\mid a\in A\right\} $
+\end_inset
+
+ has Lebesgue outer measure 
+\begin_inset Formula 
+\[
+\lambda^{*}\left(\delta A\right)=\delta\lambda^{*}\left(A\right).
+\]
+
+\end_inset
+
+Moreover, for any set 
+\begin_inset Formula $A\in\borel\left(\R\right),$
+\end_inset
+
+ 
+\begin_inset Formula $\delta A\in\borel\left(\R\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ be fixed.
+ First, notice that 
+\begin_inset Formula $\lambda_{1}:\mathcal{L}\to\R$
+\end_inset
+
+ scales under dilations in that for any 
+\begin_inset Formula $I\in\mathcal{L}$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda_{1}\left(\delta I\right)=\delta\lambda\left(I\right)$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\left\{ I_{j}\right\} _{j\in\N}$
+\end_inset
+
+ be a cover of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Then clearly,
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{complete later}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Theorem
 \begin_inset CommandInset label
 LatexCommand label
@@ -7065,7 +7153,11 @@ algebra
 \begin_inset Formula $\R$
 \end_inset
 
- and a set function 
+ and a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measure 
 \begin_inset Formula $\lambda:\F\longrightarrow\left[0,\infty\right]$
 \end_inset
 
@@ -7093,64 +7185,6 @@ linewidth]
 
 	
 \backslash
-item For any disjoint $A_i 
-\backslash
-in 
-\backslash
-mathcal{F}$
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-[
-\end_layout
-
-\begin_layout Plain Layout
-
-			
-\backslash
-lambda
-\backslash
-left(
-\backslash
-bigcup_{i
-\backslash
-in
-\backslash
-mathds{N}}
-\backslash
-right) = 
-\backslash
-sum_{i 
-\backslash
-in 
-\backslash
-mathds{N}} 
-\backslash
-lambda
-\backslash
-left(A_i
-\backslash
-right)
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-]
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
 item For any set $A 
 \backslash
 in 
@@ -7161,7 +7195,11 @@ left(
 \backslash
 R
 \backslash
-right)$ we have that 
+right)$ and any $t
+\backslash
+in
+\backslash
+mathbb{R}$ we have that 
 \end_layout
 
 \begin_layout Plain Layout
@@ -7197,6 +7235,60 @@ right).
 
 \begin_layout Plain Layout
 
+	
+\backslash
+item For any set $A 
+\backslash
+in 
+\backslash
+borel
+\backslash
+left(
+\backslash
+R
+\backslash
+right)$ and any $
+\backslash
+delta > 0$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+lambda
+\backslash
+left(
+\backslash
+delta A
+\backslash
+right) = 
+\backslash
+delta 
+\backslash
+lambda
+\backslash
+left(A
+\backslash
+right).
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -7222,12 +7314,6 @@ footnote{The intervals could be open, closed or neither.}
 
 \begin_layout Plain Layout
 
-	
-\end_layout
-
-\begin_layout Plain Layout
-
-	
 \end_layout
 
 \begin_layout Plain Layout
@@ -7251,7 +7337,7 @@ Let
 \begin_inset Formula $F$
 \end_inset
 
- is non-decreasing and continuous and so by Theorem 
+ increasing and continuous and so by Theorem 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:stieljesMeasure"
@@ -7277,6 +7363,19 @@ extends to a measure on
 \begin_inset Formula $\borel\left(\R\right).$
 \end_inset
 
+ To see the 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finiteness of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, note that we can write 
+\begin_inset Formula $\R=\bigcup_{n\in\N}\left(n,n+1\right]\cup\left(-n-1,-n\right]$
+\end_inset
+
+ where each component of the union has finite measure.
  As our discussion in Theorem 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -7323,23 +7422,28 @@ noprefix "false"
 \end_inset
 
  is complete.
- Then, note that property 
-\begin_inset Formula $\left(i\right)$
-\end_inset
-
- follows since 
-\begin_inset Formula $\lambda$
-\end_inset
-
- is a measure and so is countably additive.
  Property 
-\begin_inset Formula $\left(ii\right)$
+\begin_inset Formula $\left(i\right)$
 \end_inset
 
  follows by Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:outerMeasureTranslationInvariant"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and property 
+\begin_inset Formula $\left(ii\right)$
+\end_inset
+
+ by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:outerMeasureScales"
 plural "false"
 caps "false"
 noprefix "false"
@@ -7391,6 +7495,2461 @@ applies.
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Subsection
+The Lebesgue 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra
+\end_layout
+
+\begin_layout Standard
+Note that we had claimed earlier that 
+\begin_inset Formula $\borel\left(\R\right)\subsetneq\mathcal{C\left(\lambda^{*}\right)}$
+\end_inset
+
+.
+ This actually takes a considerable amount of work to prove; we will begin
+ to lay the groundwork for the proof here and give the actual proof in the
+ next chapter.
+ First, we begin with an equivalent definition of the 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra 
+\begin_inset Formula $\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+, which we call the Lebesgue 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra.
+ This helps us characterize the Lebesgue 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra as the 
+\emph on
+completion 
+\emph default
+of the Borel 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:borelApproximateLebesgue"
+
+\end_inset
+
+Let 
+\begin_inset Formula $A\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+ if and only if for every 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ there exists some open set 
+\begin_inset Formula $O$
+\end_inset
+
+ such that 
+\begin_inset Formula $A\subseteq O$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\lambda\left(O\setminus A\right)<\epsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $A\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+.
+ First, assume that 
+\begin_inset Formula $\lambda\left(A\right)<\infty.$
+\end_inset
+
+ By definition of the Lebesgue outer measure, for every 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+, there exists some collection of half-open intervals 
+\begin_inset Formula $\left\{ \left(a_{i},b_{i}\right]\right\} \in\mathcal{L}$
+\end_inset
+
+ such that 
+\begin_inset Formula $A\subseteq\bigcup_{i\in\N}\left(a_{i},b_{i}\right]$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\lambda\left(A\right)\leq\sum_{i=1}^{\infty}\lambda\left(\left(a_{i},b_{i}\right]\right)=\sum_{i=1}^{\infty}\lambda\left(\left(a_{i},b_{i}\right)\right)<\lambda\left(A\right)+\frac{\epsilon}{2}.
+\]
+
+\end_inset
+
+where the second equality is property 
+\begin_inset Formula $\left(ii\right)$
+\end_inset
+
+ in Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:existenceLebesgueR"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.Next, we consider the open sets 
+\begin_inset Formula $\left(a_{i},b_{i}+\frac{\epsilon}{4^{i}}\right)$
+\end_inset
+
+.
+ Clearly, 
+\begin_inset Formula $A\subseteq\bigcup_{i\in\N}\left(a_{i},b_{i}+\frac{\epsilon}{4^{i}}\right)$
+\end_inset
+
+.
+ Letting 
+\begin_inset Formula $O=\bigcup_{i\in\N}\left(a_{i},b_{i}+\frac{\epsilon}{4^{i}}\right)$
+\end_inset
+
+, we see that 
+\begin_inset Formula $O$
+\end_inset
+
+ is open since the union of open sets is open.
+ Further, 
+\begin_inset Formula $\lambda\left(O\right)=\frac{\epsilon}{2}+\sum_{i=1}^{\infty}b_{i}-a_{i}<\lambda\left(A\right)+\epsilon$
+\end_inset
+
+.
+ Therefore, since 
+\begin_inset Formula $O,E\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda\left(O\right)<\infty$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lambda\left(O\setminus A\right)=\lambda\left(O\right)-\lambda\left(A\right)<\epsilon.
+\]
+
+\end_inset
+
+ Of course, 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite and so for any 
+\begin_inset Formula $A$
+\end_inset
+
+ with 
+\begin_inset Formula $\lambda\left(A\right)=\infty$
+\end_inset
+
+ we can find a partition 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+ such that each 
+\begin_inset Formula $\lambda\left(A_{i}\right)<\infty$
+\end_inset
+
+.
+ For each 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+, there exists some open 
+\begin_inset Formula $B_{i}$
+\end_inset
+
+ such that 
+\begin_inset Formula $A_{i}\subseteq B_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda\left(B_{i}\setminus A_{i}\right)<\frac{\epsilon}{2^{i}}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $B=\bigcup_{i\in\N}B_{i}$
+\end_inset
+
+ be open.
+ Then
+\begin_inset Formula 
+\[
+B\setminus A\subseteq\bigcup_{i\in\N}B_{i}\setminus A_{i}
+\]
+
+\end_inset
+
+and so 
+\begin_inset Formula 
+\[
+\lambda\left(B\setminus A\right)\leq\lambda\left(\bigcup_{i\in\N}\left(B_{i}\setminus A_{i}\right)\right)\leq\sum_{i=1}^{\infty}\lambda\left(B_{i}\setminus A_{i}\right)<\epsilon
+\]
+
+\end_inset
+
+which completes the proof in one direction.
+\end_layout
+
+\begin_layout Proof
+Conversely, now suppose that 
+\begin_inset Formula $A\subseteq\R$
+\end_inset
+
+ is a set such that for any 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ there exists some open set 
+\begin_inset Formula $O\subseteq\R$
+\end_inset
+
+ such that 
+\begin_inset Formula $A\subseteq O$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda\left(O\setminus A\right)<\epsilon.$
+\end_inset
+
+ Then, for any 
+\begin_inset Formula 
+\begin{align*}
+\lambda^{*}\left(E\cap A\right)+\lambda^{*}\left(E\cap A^{C}\right) & =\lambda^{*}\left(E\cap A\right)+\lambda^{*}\left(E\cap A^{C}\cap O\right)+\lambda^{*}\left(E\cap A^{C}\cap O^{C}\right)\\
+ & \leq\lambda^{*}\left(E\cap O\right)+\lambda^{*}\left(E\cap A^{C}\cap O\right)+\lambda^{*}\left(E\cap O^{C}\right)\\
+ & \leq\lambda^{*}\left(E\cap O\right)+\lambda^{*}\left(E\cap O^{C}\right)+\epsilon\\
+ & =\lambda^{*}\left(E\right)+\epsilon
+\end{align*}
+
+\end_inset
+
+where the first equality follows by the fact that 
+\begin_inset Formula $O\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+, the second since 
+\begin_inset Formula $A\subseteq O$
+\end_inset
+
+, the third by our hypothesis, the fourth again since 
+\begin_inset Formula $O\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ was arbitrary, we have that
+\begin_inset Formula 
+\[
+\lambda^{*}\left(E\right)\geq\lambda^{*}\left(E\cap A\right)+\lambda^{*}\left(E\cap A^{C}\right)
+\]
+
+\end_inset
+
+and since the other inequality follows by subadditivity, the result follows.
+\end_layout
+
+\begin_layout Standard
+Recall from basic topology, that arbitrary unions and finite intersections
+ of open sets are open.
+ Since closed sets are exactly those sets whose complements are open, we
+ have that arbitrary intersections and finite unions of closed sets are
+ closed.
+ Given a topological space 
+\begin_inset Formula $\left(\X,\tau\right)$
+\end_inset
+
+, the collection 
+\begin_inset Formula $F_{\sigma}$
+\end_inset
+
+ are the subsets of 
+\begin_inset Formula $\X$
+\end_inset
+
+ that are countable unions of closed sets.
+ Similarly, the collection 
+\begin_inset Formula $G_{\delta}$
+\end_inset
+
+ consists of sets that are countable intersections of open sets.
+ We can use these definitions to formulate more equivalent characterizations
+ of the Lebesgue 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:equivalentLebesgueMeasurability"
+
+\end_inset
+
+The following are equivalent for any 
+\begin_inset Formula $A\subseteq\R$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item $A$ is Lebesgue measurable
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item There exists a set  $G 
+\backslash
+in G_{
+\backslash
+delta}$ such that $A 
+\backslash
+subseteq G$ and 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lambda
+\backslash
+left(G
+\backslash
+setminus A
+\backslash
+right) = 0.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item There exists a Borel set $B$ such that $A 
+\backslash
+subseteq B$ and 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lambda
+\backslash
+left(B
+\backslash
+setminus A
+\backslash
+right) = 0.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item For every $
+\backslash
+epsilon > 0$ there exists some closed set $F 
+\backslash
+subseteq A$ such that 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lambda
+\backslash
+left(A 
+\backslash
+setminus F
+\backslash
+right) < 
+\backslash
+epsilon
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item There exists a set $F 
+\backslash
+in F_{
+\backslash
+sigma}$ such that $F 
+\backslash
+subseteq A$ and 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lambda
+\backslash
+left(A
+\backslash
+setminus F
+\backslash
+right)= 0
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item There exists a Borel set $B$ such that $B
+\backslash
+subseteq A$ and 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+[
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+lambda
+\backslash
+left(A
+\backslash
+setminus B
+\backslash
+right) = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\left[\left(i\right)\implies\left(ii\right)\right]$
+\end_inset
+
+ First assume 
+\begin_inset Formula $\left(i\right)$
+\end_inset
+
+ and observe that by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:equivalentLebesgueMeasurability"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, for every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ there exists some open set 
+\begin_inset Formula $O_{n}$
+\end_inset
+
+ such that 
+\begin_inset Formula $A\subseteq O_{n}$
+\end_inset
+
+ and 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Note that 
+\begin_inset Formula $O_{n}\setminus A=O_{n}\cap A^{C}\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+ since 
+\begin_inset Formula $A,O_{n}\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lambda\left(O_{n}\setminus A\right)<\frac{1}{n}.
+\]
+
+\end_inset
+
+Then, notice that 
+\begin_inset Formula $G:=\bigcap_{n\in\N}O_{n}\in G_{\delta}\subset\borel\left(\R\right)$
+\end_inset
+
+ and that 
+\begin_inset Formula $A\subseteq G\subseteq O_{n}$
+\end_inset
+
+ and so the monotonicity of measures implies that 
+\begin_inset Formula 
+\[
+\lambda\left(G\setminus A\right)<\frac{1}{n}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+.
+ Our result then follows.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\left[\left(ii\right)\implies\left(iii\right)\right]$
+\end_inset
+
+ This implication is trivial since 
+\begin_inset Formula $G$
+\end_inset
+
+ above is a Borel set.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\left[\left(iii\right)\implies\left(i\right)\right]$
+\end_inset
+
+ This follows the same argument as in Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:equivalentLebesgueMeasurability"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to show that 
+\begin_inset Formula $\lambda\left(B\setminus A\right)=0\implies\lambda^{*}\left(E\right)\geq\lambda^{*}\left(E\cap A\right)+\lambda^{*}\left(E\cap A^{C}\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\left[\left(i\right)\implies\left(iv\right)\right]$
+\end_inset
+
+ Fix 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and let 
+\begin_inset Formula $A\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $A^{C}\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+ and so by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:equivalentLebesgueMeasurability"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, there exists some open 
+\begin_inset Formula $O$
+\end_inset
+
+ such that 
+\begin_inset Formula $A^{C}\subseteq O$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+\lambda\left(O\setminus A^{C}\right)<\epsilon.
+\]
+
+\end_inset
+
+Then notice that 
+\begin_inset Formula $O^{C}\subseteq A$
+\end_inset
+
+ is closed and 
+\begin_inset Formula 
+\begin{align*}
+\lambda\left(A\setminus O^{C}\right) & =\lambda\left(A\cap O\right)\\
+ & =\lambda\left(O\setminus A^{C}\right)\\
+ & <\epsilon
+\end{align*}
+
+\end_inset
+
+which completes the argument.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\left[\left(iv\right)\implies\left(v\right)\right]$
+\end_inset
+
+ This argument is analagous to 
+\begin_inset Formula $\left[\left(i\right)\implies\left(ii\right)\right]$
+\end_inset
+
+.
+ Notice that for every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+, there exists some closed 
+\begin_inset Formula $F_{n}\subseteq A$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\lambda\left(A\setminus F_{n}\right)=\lambda\left(A\cap F_{n}^{C}\right)<\frac{1}{n}.
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $F:=\bigcup_{n\in\N}F_{n}\subseteq A$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\[
+\lambda\left(A\setminus F\right)=\lambda\left(A\cap\bigcap_{n\in\N}F_{n}\right)<\frac{1}{n}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ by monotonicity.
+ The result then follows.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\left[\left(v\right)\implies\left(vi\right)\right]$
+\end_inset
+
+ This is trivial since 
+\begin_inset Formula $F$
+\end_inset
+
+ above is a Borel set.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\left[\left(vi\right)\implies\left(i\right)\right]$
+\end_inset
+
+ This is analgous to 
+\begin_inset Formula $\left[\left(iii\right)\implies\left(i\right)\right].$
+\end_inset
+
+ Let 
+\begin_inset Formula $B\subseteq A$
+\end_inset
+
+ be a Borel set such that 
+\begin_inset Formula $\lambda\left(A\setminus B\right)=0$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $E\subseteq\R$
+\end_inset
+
+ be arbitrary
+\begin_inset Formula 
+\begin{align*}
+\lambda^{*}\left(E\cap A\right)+\lambda^{*}\left(E\cap A^{C}\right) & =\lambda^{*}\left(E\cap A\cap B^{C}\right)+\lambda^{*}\left(E\cap A\cap B\right)+\lambda^{*}\left(E\cap A^{C}\right)\\
+ & =\lambda^{*}\left(E\cap A\cap B\right)+\lambda^{*}\left(E\cap A^{C}\right)\\
+ & \geq\lambda^{*}\left(E\cap B\right)+\lambda\left(E\cap B^{C}\right)\\
+ & =\lambda^{*}\left(E\right)
+\end{align*}
+
+\end_inset
+
+where the first equality is because 
+\begin_inset Formula $B\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+, second because 
+\begin_inset Formula $\lambda\left(A\cap B^{C}\right)=0$
+\end_inset
+
+, the inequality because of monotonicity, and the last equality again due
+ to 
+\begin_inset Formula $B\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+.
+ This completes the proof.
+\end_layout
+
+\begin_layout Standard
+Note that Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:vitalitSetNotMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ tells us that the Vitali sets 
+\begin_inset Formula $\left\{ E_{q}\right\} _{q\in\mathbb{Q}}$
+\end_inset
+
+ as described in Example 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "exa:vitaliSet"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+are not measurable since the Lebesgue measure violates countable additivity
+ on such sets.
+ This can be generalized to show that every set of positive Lebesgue measure
+ contains Vitali-like subsets that are not measurable.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:positiveMeasureNonMeasurable"
+
+\end_inset
+
+For any set 
+\begin_inset Formula $A\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $\lambda\left(A\right)>0$
+\end_inset
+
+ there exists a subset 
+\begin_inset Formula $B\subset A$
+\end_inset
+
+ such that 
+\begin_inset Formula $B\notin\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+First suppose that 
+\begin_inset Formula $\lambda\left(A\right)<\infty$
+\end_inset
+
+ and notice that 
+\begin_inset Formula $A\subset\left[-b,b\right]$
+\end_inset
+
+ for some 
+\begin_inset Formula $b>0$
+\end_inset
+
+ i.e 
+\begin_inset Formula $A$
+\end_inset
+
+ is bounded.
+ Then 
+\begin_inset Formula $\left\{ bE_{q}\right\} _{q\in\mathbb{Q}}$
+\end_inset
+
+and 
+\begin_inset Formula $\left\{ -bE_{q}\right\} _{q\in\mathbb{Q}}$
+\end_inset
+
+are a disjoint collection such that 
+\begin_inset Formula $\bigcup_{q\in\mathbb{Q}}bE_{q}\cup-bE_{q}=\left[-b,b\right]$
+\end_inset
+
+ and so 
+\begin_inset Formula $\bigcup_{q\in\mathbb{Q}}\underbrace{\left(bE_{q}\cup-bE_{q}\right)\cap A}_{=:A_{q}}=A$
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula $\left\{ A_{q}\right\} _{q\in\mathbb{Q}}$
+\end_inset
+
+ are measurable, then
+\begin_inset Formula 
+\begin{align*}
+\lambda\left(A\right) & =\lambda\left(\bigcup_{q\in\mathbb{Q}}A_{q}\right)\\
+ & =\sum_{q\in\mathbb{Q}}\lambda\left(A_{q}\right)\\
+ & =\sum_{q\in\mathbb{Q}}2b\lambda\left(E_{q}\right)\\
+ & =\sum_{q\in\mathbb{Q}}2bc\\
+ & =0\ \text{or \ensuremath{\infty}}
+\end{align*}
+
+\end_inset
+
+whre the second equality is countable additivity, the third Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:outerMeasureScales"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (scaling) and the fourth Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:outerMeasureTranslationInvariant"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+(translation invariance), which is a contradiction.
+\end_layout
+
+\begin_layout Proof
+If 
+\begin_inset Formula $\lambda\left(A\right)=\infty$
+\end_inset
+
+ then by 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finiteness there exist disjoint 
+\begin_inset Formula $\left\{ B_{i}\right\} _{i\in\N}\in\mathcal{C}\left(\lambda^{*}\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $\lambda\left(B_{i}\right)<\infty$
+\end_inset
+
+ and 
+\begin_inset Formula $\bigcup_{i\in\N}B_{i}=A$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $B_{i}^{q}$
+\end_inset
+
+ be akin to 
+\begin_inset Formula $A_{q}$
+\end_inset
+
+ above and then our result follows.
+\end_layout
+
+\begin_layout Subsection
+Cantor sets and functions
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:cantorSets"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Our results show that countable sets are measurable and have Lebesgue measure
+ zero.
+ Indeed, every singleton 
+\begin_inset Formula $\left\{ x\right\} $
+\end_inset
+
+ is closed and hence measurable and has measure zero since 
+\begin_inset Formula $\left\{ x\right\} =\left[x,x\right].$
+\end_inset
+
+ Countable additivity then tells us that every countable set has measure
+ zero.
+ In particular, the rational numbers have measure zero.
+ Do there exist uncountable sets that also have measure zero? We can indeed
+ construct such sets.
+ Perhaps more surprisingly, we can use a similar construction to show that
+ there exist sets of 
+\emph on
+positive 
+\emph default
+Lebesgue measure, that nevertheless contain no non-trivial intervals within
+ them.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:cantorSet"
+
+\end_inset
+
+Let the set 
+\begin_inset Formula $C\subseteq\left[0,1\right]$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $x\in C$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+x=\sum_{i=1}^{\infty}\frac{a_{i}}{3^{i}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $a_{i}\in\left\{ 0,2\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That is the Cantor set consists of those elements in 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+ whose ternary (base 3) representation does not contain any
+\begin_inset Formula $1$
+\end_inset
+
+ in its digits.
+ A hurdle with this definition is that the representation is not unique;
+ as with any decimal or binary representation, we have things like 
+\begin_inset Formula $0.02222222..._{3}=0.1_{3}$
+\end_inset
+
+ where the subscripts highlight the fact that we are using ternary representatio
+ns.
+ A discussion on base-
+\begin_inset Formula $b$
+\end_inset
+
+ representatiosn of real numbers can be found in Appendix section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:baseBRepresentations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ In this case, we say that an element 
+\begin_inset Formula $x\in\left[0,1\right]$
+\end_inset
+
+ is in the Cantor set 
+\begin_inset Formula $C$
+\end_inset
+
+ if any one of its representations has coefficients only in 
+\begin_inset Formula $\left\{ 0,2\right\} $
+\end_inset
+
+.
+ In other words, real numbers like 
+\begin_inset Formula $0.022222..._{3}\in C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+An alternative characterization of the Cantor set is to take the set 
+\begin_inset Formula $C_{1}:=\left[0,1\right]$
+\end_inset
+
+ and remove the the middle third set 
+\begin_inset Formula $G_{1}=\left(\frac{1}{3},\frac{2}{3}\right)$
+\end_inset
+
+.
+ Then from the remaining 
+\begin_inset Formula $C_{2}:=\left[0,1\right]\setminus G_{1}=\left[0,\frac{1}{3}\right]\cup\left[\frac{2}{3},1\right]$
+\end_inset
+
+ remove the middle third of each interval component; that is, remove 
+\begin_inset Formula $G_{2}=\left(\frac{1}{9},\frac{2}{9}\right)\cup\left(\frac{7}{9},\frac{8}{9}\right)$
+\end_inset
+
+and so on.
+ The recursive description of the sets 
+\begin_inset Formula $\left\{ G_{n}\right\} _{n\in\N}$
+\end_inset
+
+ can be given as follows
+\begin_inset Formula 
+\begin{align*}
+G_{1} & =\left(\frac{1}{3},\frac{2}{3}\right)\\
+G_{n} & =\frac{G_{n-1}}{3}\cup\left(\frac{G_{n-1}}{3}+\frac{2}{3}\right).
+\end{align*}
+
+\end_inset
+
+Symmetrically, we recursively define the sets approximating the Cantor set
+ 
+\begin_inset Formula $\left\{ C_{n}\right\} _{n\in\N\cup\left\{ 0\right\} }$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+C_{0} & =\left[0,1\right]\\
+C_{n} & =\frac{C_{n-1}}{3}\cup\left(\frac{C_{n-1}}{3}+\frac{2}{3}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:cantorCnDecreasing"
+
+\end_inset
+
+
+\begin_inset Formula $C_{n+1}\subseteq C_{n}$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\in\N\cup\left\{ 0\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $\left[1,\frac{1}{3}\right]\cup\left[\frac{2}{3},1\right]=C_{1}\subset C_{0}=\left[0,1\right]$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $f\left(x\right)=\frac{x}{3}$
+\end_inset
+
+ and let 
+\begin_inset Formula $g\left(x\right)=\frac{x}{3}+\frac{2}{3}$
+\end_inset
+
+.
+ Next suppose that 
+\begin_inset Formula $C_{n+1}=f\left[C_{n}\right]\cup g\left[C_{n}\right]\subseteq C_{n}.$
+\end_inset
+
+ Then 
+\begin_inset Formula $f\left[C_{n+1}\right]\subseteq f\left[C_{n}\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $g\left[C_{n+1}\right]\subseteq g\left[C_{n}\right]$
+\end_inset
+
+.
+ Together, 
+\begin_inset Formula $C_{n+2}=f\left[C_{n+1}\right]\cup g\left[C_{n+1}\right]\subseteq f\left[C_{n}\right]\cup g\left[C_{n}\right]=C_{n+1}$
+\end_inset
+
+.
+ This completes the proof.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:cantorSetIntersectionCn"
+
+\end_inset
+
+
+\begin_inset Formula $C=\bigcap_{n\in\N}C_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+We will show that for any 
+\begin_inset Formula $x\in\left[0,1\right]$
+\end_inset
+
+ where write 
+\begin_inset Formula $x=\sum_{i=1}^{\infty}\frac{a_{i}}{3^{i}}$
+\end_inset
+
+in its base-
+\begin_inset Formula $3$
+\end_inset
+
+ representation with 
+\begin_inset Formula $a_{i}\in\left\{ 0,1,2\right\} $
+\end_inset
+
+, the following claims are equivalent 
+\begin_inset Formula $\left(1\right)$
+\end_inset
+
+ For all 
+\begin_inset Formula $1\leq i\leq n$
+\end_inset
+
+ 
+\begin_inset Formula $a_{i}\neq1$
+\end_inset
+
+ 
+\begin_inset Formula $\left(2\right)$
+\end_inset
+
+ 
+\begin_inset Formula $x\in C_{n}$
+\end_inset
+
+.
+ We certainly know that 
+\begin_inset Formula $a_{1}\neq1$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $x\in C_{1}=\left[0,\frac{1}{3}\right]\cup\left[\frac{1}{3},1\right].$
+\end_inset
+
+ Now assume that that the claims are equivalent for some fixed 
+\begin_inset Formula $n$
+\end_inset
+
+ and suppose that for 
+\begin_inset Formula $1\leq i\leq n+1:a_{i}\neq1.$
+\end_inset
+
+ By the induction hypothesis, 
+\begin_inset Formula $x\in C_{n}$
+\end_inset
+
+ and so if 
+\begin_inset Formula $a_{1}=0$
+\end_inset
+
+ then 
+\begin_inset Formula $3x\in\left[0,1\right]$
+\end_inset
+
+ is such that its first 
+\begin_inset Formula $n$
+\end_inset
+
+ digits after the delimter are 0 or 
+\begin_inset Formula $2$
+\end_inset
+
+ and so 
+\begin_inset Formula $3x\in C_{n}$
+\end_inset
+
+ (again by the hypothesis) and so 
+\begin_inset Formula $x\in\frac{C_{n}}{3}.$
+\end_inset
+
+ If 
+\begin_inset Formula $a_{1}=2$
+\end_inset
+
+ then 
+\begin_inset Formula $3\left(x-\frac{2}{3}\right)\in C_{n}$
+\end_inset
+
+ by the hypothesis and so 
+\begin_inset Formula $x\in\frac{C_{n}}{3}+\frac{2}{3}$
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula $x\in\frac{C_{n}}{3}\cup\left(\frac{C_{n}}{3}+\frac{2}{3}\right)=C_{n+1}$
+\end_inset
+
+ which completes one implication.
+\end_layout
+
+\begin_layout Proof
+Conversely, suppose that 
+\begin_inset Formula $x\in C_{n+1}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $C_{n+1}\subseteq C_{n}$
+\end_inset
+
+, our hypothesis tells us that 
+\begin_inset Formula $a_{i}\neq1$
+\end_inset
+
+ for 
+\begin_inset Formula $1\leq i\leq n$
+\end_inset
+
+.
+ Now 
+\begin_inset Formula $x\in\frac{C_{n}}{3}$
+\end_inset
+
+ or 
+\begin_inset Formula $x\in\frac{C_{n}}{3}+\frac{2}{3}$
+\end_inset
+
+.
+ Clearly, if 
+\begin_inset Formula $a_{n+1}=1$
+\end_inset
+
+ then 
+\begin_inset Formula $3x\notin C_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $3\left(x-\frac{2}{3}\right)\notin C_{n}$
+\end_inset
+
+ and the proof is complete.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:CantorSetEquiv"
+
+\end_inset
+
+For every 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ 
+\begin_inset Formula $C_{n}=\left[0,1\right]\setminus\bigcup_{i=1}^{n}G_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+For 
+\begin_inset Formula $n=1$
+\end_inset
+
+ the claim is obvious.
+ Suppose the claim holds for 
+\begin_inset Formula $n$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $C_{n}=\left[0,1\right]\setminus\bigcup_{i=1}^{n}G_{i}$
+\end_inset
+
+ and note that 
+\begin_inset Formula 
+\begin{align*}
+C_{n+1} & =\frac{C_{n}}{3}\cup\left(\frac{C_{n}}{3}+\frac{2}{3}\right)\\
+ & =\frac{1}{3}\left(\left[0,1\right]\setminus\bigcup_{i=1}^{n}G_{i}\right)\cup\left(\frac{1}{3}\left(\left[0,1\right]\setminus\bigcup_{i=1}^{n}G_{i}\right)+\frac{2}{3}\right)\\
+ & =\left(\left[0,\frac{1}{3}\right]\cup\left[\frac{2}{3},1\right]\right)\setminus\bigcup_{i=1}^{n}\left(\frac{G_{i}}{3}\cup\left(\frac{G_{i}}{3}\cup\frac{2}{3}\right)\right)\\
+ & =C_{1}\setminus\bigcup_{i=1}^{n}\left(\frac{G_{i}}{3}\cup\left(\frac{G_{i}}{3}\cup\frac{2}{3}\right)\right)\\
+ & =\left[0,1\right]\setminus G_{1}\setminus\bigcup_{i=2}^{n+1}G_{i}\\
+ & =\left[0,1\right]\setminus\bigcup_{i=1}^{n+1}G_{i}
+\end{align*}
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:cantorSetClosed"
+
+\end_inset
+
+
+\begin_inset Formula $C$
+\end_inset
+
+ is closed under the usual topology of 
+\begin_inset Formula $\R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $C_{0}=\left[0,1\right]$
+\end_inset
+
+ is closed and 
+\begin_inset Formula $C_{n}=\frac{C_{n-1}}{3}\cup\left(\frac{C_{n-1}}{3}+\frac{2}{3}\right)$
+\end_inset
+
+ is closed if 
+\begin_inset Formula $C_{n-1}$
+\end_inset
+
+ is closed.
+ Therefore, 
+\begin_inset Formula $C_{n}$
+\end_inset
+
+ is closed for all 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ and so the intersection is closed as well.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:cantorSetMeasureZero"
+
+\end_inset
+
+
+\begin_inset Formula $C\in\borel\left(\R\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda\left(C\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Since 
+\begin_inset Formula $C$
+\end_inset
+
+ is closed its in 
+\begin_inset Formula $\borel\left(\R\right).$
+\end_inset
+
+ We first prove that 
+\begin_inset Formula $\lambda\left(C_{n}\right)\leq\left(\frac{2}{3}\right)^{n}$
+\end_inset
+
+ for any 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+.
+ Note that for 
+\begin_inset Formula $n=0$
+\end_inset
+
+ this is obvious, for 
+\begin_inset Formula $n=1$
+\end_inset
+
+ we have that 
+\begin_inset Formula 
+\begin{align*}
+\lambda\left(C_{1}\right) & =\lambda\left(\left[0,\frac{1}{3}\right]\cup\left[\frac{2}{3},1\right]\right)\\
+ & =\lambda\left(\left[0,\frac{1}{3}\right]\right)+\lambda\left(\left[\frac{2}{3},1\right]\right)\\
+ & =\frac{2}{3}.
+\end{align*}
+
+\end_inset
+
+Now suppose that 
+\begin_inset Formula $\lambda\left(C_{n}\right)\leq\left(\frac{2}{3}\right)^{n}$
+\end_inset
+
+ and observe that 
+\begin_inset Formula 
+\begin{align*}
+\lambda\left(C_{n+1}\right) & \leq\lambda\left(\frac{C_{n+1}}{3}\right)+\lambda\left(\frac{C_{n}}{3}+\frac{2}{3}\right)\\
+ & =\frac{1}{3}\left(\frac{2}{3}\right)^{n}+\frac{1}{3}\left(\frac{2}{3}\right)^{n}\\
+ & =\left(\frac{2}{3}\right)^{n+1}
+\end{align*}
+
+\end_inset
+
+where the inequality is by subadditivity, and the first equality by the
+ properties (translation invariance and scaling) outlined in Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:existenceLebesgueR"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Then, by Proposition
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:equivalenceContinuityMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\lambda\left(C\right) & =\lambda\left(\bigcap_{n\in\N}C_{n}\right)\\
+ & =\lim_{n\to\infty}\lambda\left(C_{n}\right)\\
+ & =\lim_{n\to\infty}\left(\frac{2}{3}\right)^{n}\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:cantorSetUncountable"
+
+\end_inset
+
+The Cantor set 
+\begin_inset Formula $C$
+\end_inset
+
+ is uncountable.
+\end_layout
+
+\begin_layout Proof
+Because the Cantor set can be described as the collection of all ternary
+ strings with only 0s and 2s, we know by Cantor's diagonal argument that
+ such a collection is not countable.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:cantorSetDisconnected"
+
+\end_inset
+
+The Cantor set contains no non-trivial (i.e.
+ non-singleton) intervals.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $I\subset C$
+\end_inset
+
+ is a non-trivial interval then 
+\begin_inset Formula $\lambda\left(I\right)>0$
+\end_inset
+
+ which would imply, by monotonicity, that 
+\begin_inset Formula $\lambda\left(C\right)>0$
+\end_inset
+
+ which contradicts Proposition
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:cantorSetMeasureZero"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Another way to establish the uncountability of 
+\begin_inset Formula $C$
+\end_inset
+
+ is to examine the behavior of the following function.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:cantorFunction"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\psi_{C}:\left[0,1\right]\to\left[0,1\right]$
+\end_inset
+
+ be given as
+\begin_inset Formula 
+\[
+\psi_{C}\left(x\right)=\begin{cases}
+\sum_{i=1}^{\infty}\frac{a_{i}}{2^{i}}, & x=\sum_{i=1}^{\infty}\frac{2a_{i}}{3^{i}},a_{i}\in\left\{ 0,1\right\} \\
+\sup_{y\leq x,y\in C}\psi_{C}\left(y\right) & x\in\left[0,1\right]\setminus C
+\end{cases}.
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\psi_{C}$
+\end_inset
+
+ is called the 
+\emph on
+Cantor function.
+\end_layout
+
+\begin_layout Standard
+Note that the Cantor function 
+\begin_inset Formula $f$
+\end_inset
+
+ is well defined since every member of the Cantor set has a 
+\emph on
+unique 
+\emph default
+base 3 representation where coefficients are only 
+\begin_inset Formula $0$
+\end_inset
+
+ and 
+\begin_inset Formula $2$
+\end_inset
+
+.
+ Here's a practical way to think about the Cantor function.
+ First, for any 
+\begin_inset Formula $x\in C$
+\end_inset
+
+, 
+\begin_inset Formula $\psi_{C}\left(x\right)$
+\end_inset
+
+ is computed from the unique base
+\begin_inset Formula $-3$
+\end_inset
+
+ representation (i.e.
+ the one with only 0s and 2s) by turning all the 2s into 1s and then interpretin
+g the resulting string as a binary number.
+ For 
+\begin_inset Formula $x\notin C,$
+\end_inset
+
+ 
+\begin_inset Formula $\psi_{C}\left(x\right)$
+\end_inset
+
+ is computed by taking the base-
+\begin_inset Formula $3$
+\end_inset
+
+representation of 
+\begin_inset Formula $x$
+\end_inset
+
+, truncating after the first 
+\begin_inset Formula $1$
+\end_inset
+
+ and then replacing each 
+\begin_inset Formula $2$
+\end_inset
+
+ before the first 1 with 1s and then interpreting the result as a binary
+ number.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:imageCantorSetUnderCantorFunctionFull"
+
+\end_inset
+
+
+\begin_inset Formula $\psi_{C}\left[C\right]=\left[0,1\right].$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $y\in\left[0,1\right]$
+\end_inset
+
+ be arbitrary.
+ Then 
+\begin_inset Formula $y$
+\end_inset
+
+ has a binary representation 
+\begin_inset Formula $y=\sum_{i=1}^{\infty}\frac{a_{i}}{2^{i}}$
+\end_inset
+
+ where 
+\begin_inset Formula $a_{i}\in\left\{ 0,1\right\} $
+\end_inset
+
+.
+ We take the terminating expansion to stave off questions about uniqueness
+ (i.e.
+ the expansion that doesn't end in all 1s).
+ Then, 
+\begin_inset Formula 
+\[
+x=\sum_{i=1}^{\infty}\frac{2a_{i}}{3^{i}}
+\]
+
+\end_inset
+
+is the unique element in the Cantor set such that 
+\begin_inset Formula $\psi_{C}\left(x\right)=y$
+\end_inset
+
+ which completes the proof.
+\end_layout
+
+\begin_layout Standard
+This yields yet another proof that 
+\begin_inset Formula $C$
+\end_inset
+
+ is uncountable, since 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+ is uncountable.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Expand}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:cantorFunctionIncreasing"
+
+\end_inset
+
+The Cantor function is non-decreasing i.e for any 
+\begin_inset Formula $x,y\in\left[0,1\right]$
+\end_inset
+
+ such that 
+\begin_inset Formula $x\geq y$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\psi_{C}\left(x\right)\geq\psi_{C}\left(y\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First suppose both 
+\begin_inset Formula $x,y\in C$
+\end_inset
+
+ and 
+\begin_inset Formula $x\geq y$
+\end_inset
+
+.
+ Write the unique expansions 
+\begin_inset Formula $x=\sum_{i=1}^{\infty}\frac{a_{i}}{3^{i}}$
+\end_inset
+
+ and 
+\begin_inset Formula $y=\sum_{i=1}^{\infty}\frac{b_{i}}{3^{i}}$
+\end_inset
+
+ and notice that 
+\begin_inset Formula $a_{i}\geq b_{i}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+ and so clearly 
+\begin_inset Formula $\psi_{C}\left(x\right)\geq\psi_{C}\left(y\right)$
+\end_inset
+
+.
+ The case when both 
+\begin_inset Formula $x,y\notin C$
+\end_inset
+
+ is trivial by the first part and the definition of the supremum.
+ Now suppose that 
+\begin_inset Formula $x\in C$
+\end_inset
+
+ and 
+\begin_inset Formula $y\notin C.$
+\end_inset
+
+ If 
+\begin_inset Formula $x\geq y$
+\end_inset
+
+ then then clearly 
+\begin_inset Formula $\psi_{C}\left(x\right)\geq\psi_{C}\left(y\right)$
+\end_inset
+
+ by the definition and the first part of the proof.
+ A similar argument holds if 
+\begin_inset Formula $y\geq x$
+\end_inset
+
+.
+ This completes the proof.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:cantorFunctionContinuous"
+
+\end_inset
+
+The Cantor function 
+\begin_inset Formula $\psi_{C}$
+\end_inset
+
+ is continuous on 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Suppose that 
+\begin_inset Formula $\psi_{C}$
+\end_inset
+
+ is discontinuous at 
+\begin_inset Formula $c\in\left[0,1\right]$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\psi_{C}$
+\end_inset
+
+ is increasing, we have that the limits 
+\begin_inset Formula $f\left(c^{-}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $f\left(c^{+}\right)$
+\end_inset
+
+ exist and are in 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+ since it is closed.
+ Moreover, 
+\begin_inset Formula $f\left(c^{-}\right)<f\left(c^{+}\right)$
+\end_inset
+
+ which implies that there is some real number 
+\begin_inset Formula $y\in\left[0,1\right]$
+\end_inset
+
+such that 
+\begin_inset Formula $f\left(c^{-}\right)<y<f\left(c^{+}\right).$
+\end_inset
+
+ But then there's no 
+\begin_inset Formula $x\in\left[0,1\right]$
+\end_inset
+
+ such that 
+\begin_inset Formula $f\left(x\right)=y$
+\end_inset
+
+ which is a contradiction.
+\end_layout
+
+\begin_layout Standard
+Note that that since 
+\begin_inset Formula $\psi_{C}$
+\end_inset
+
+ is a non-decreasing and continuous function on 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+, it can be extended to a Stieljes function in an obvious way, define 
+\begin_inset Formula 
+\[
+F_{\psi_{C}}\left(x\right)=\begin{cases}
+1, & x>1\\
+\psi_{c}\left(x\right), & x\in\left[0,1\right]\\
+0, & x<0
+\end{cases}
+\]
+
+\end_inset
+
+The function 
+\begin_inset Formula $F_{\psi_{C}}$
+\end_inset
+
+ is still non-decreasing and continuous and so there it induces a Stieljes
+ measure on 
+\begin_inset Formula $\borel\left(\R\right)$
+\end_inset
+
+ by Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:stieljesMeasure"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ This measure, is in some sense 
+\emph on
+orthogonal 
+\emph default
+to the Lebesgue measure, a notion that we will make precise in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Differentiation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ This idea is intimately connected to the fact that while 
+\begin_inset Formula $\psi_{C}$
+\end_inset
+
+ is differentiable almost everywhere (the meaning of this phrase will be
+ made precise later), it is not the integral of its derivative, a fact which
+ we shall also establish in that chapter.
+\end_layout
+
+\begin_layout Standard
+The Cantor function is symmetric, a fact that is important in establishing
+ moments of the Cantor distribution in probability theory.
+ For now, we use this fact to compute the integral of this function.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:cantorFunctionSymmetry"
+
+\end_inset
+
+For any 
+\begin_inset Formula $x\in\left[0,1\right]$
+\end_inset
+
+, 
+\begin_inset Formula $\psi_{C}\left(1-x\right)=1-\psi_{C}\left(x\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+First suppose that 
+\begin_inset Formula $x\in C$
+\end_inset
+
+ in which case 
+\begin_inset Formula $1-x\in C$
+\end_inset
+
+ .
+ To see this, write 
+\begin_inset Formula $x=\sum_{i=1}^{\infty}\frac{2a_{i}}{3^{i}}$
+\end_inset
+
+ where 
+\begin_inset Formula $a_{i}\in\left\{ 0,1\right\} $
+\end_inset
+
+ and then 
+\begin_inset Formula $1-x=\sum_{i=1}^{\infty}\frac{\left(2-2a_{i}\right)}{3^{i}}$
+\end_inset
+
+ where 
+\begin_inset Formula $2-2a_{i}$
+\end_inset
+
+ is 
+\begin_inset Formula $0$
+\end_inset
+
+ if 
+\begin_inset Formula $a_{i}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $2$
+\end_inset
+
+ if 
+\begin_inset Formula $a_{i}=0$
+\end_inset
+
+.
+ Then, 
+\begin_inset Formula $\psi_{C}\left(1-x\right)=\sum_{i=1}^{\infty}\frac{1-a_{i}}{2^{i}}=\sum_{i=1}^{\infty}\frac{1}{2^{i}}-\sum_{i=1}^{\infty}\frac{a_{i}}{2^{i}}=1-\psi_{C}\left(x\right).$
+\end_inset
+
+ Similarly, let 
+\begin_inset Formula $x\in\left[0,1\right]\setminus C$
+\end_inset
+
+ and observe that we can write 
+\begin_inset Formula $x=\sum_{i=1}^{\infty}\frac{a_{i}}{3^{i}}$
+\end_inset
+
+ where 
+\begin_inset Formula $a_{i}\in\left\{ 0,1,2\right\} $
+\end_inset
+
+.
+ Moreover, 
+\begin_inset Formula $n=\inf\left\{ i\mid a_{i}=1\right\} <\infty$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\begin{align*}
+\psi_{C}\left(x\right) & =\psi_{C}\left(\sum_{i=1}^{\infty}\frac{a_{i}}{3^{i}}\right)\\
+ & =\psi_{C}\left(\sum_{i=1}^{n-1}\frac{a_{i}}{3^{i}}+\sum_{i=n+1}^{\infty}\frac{2}{3^{i}}\right)\\
+ & =\sum_{i=1}^{n-1}\frac{b_{i}}{2^{i}}+\sum_{i=n+1}^{\infty}\frac{1}{2^{i}}\\
+ & =\sum_{i=1}^{n-1}\frac{b_{i}}{2^{i}}+\frac{1}{2^{n}}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $b_{i}=\frac{a_{i}}{2}\in\left\{ 0,1\right\} .$
+\end_inset
+
+ Note that the third equality follows by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{fill}
+\end_layout
+
+\end_inset
+
+.
+ Now similarly, 
+\begin_inset Formula $1-x\in\left[0,1\right]\setminus C$
+\end_inset
+
+ with 
+\begin_inset Formula $1-x=\sum_{i=1}^{\infty}\frac{\left(2-a_{i}\right)}{3^{i}}$
+\end_inset
+
+ and 
+\begin_inset Formula $2-a_{n}=1$
+\end_inset
+
+ is the first occurrence of 1 in its ternary expansion.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\psi_{C}\left(1-x\right) & =\psi_{C}\left(\sum_{i=1}^{\infty}\frac{\left(2-a_{i}\right)}{3^{i}}\right)\\
+ & =\psi_{C}\left(\sum_{i=1}^{n-1}\frac{\left(2-a_{i}\right)}{3^{i}}+\sum_{i=n+1}^{\infty}\frac{2}{3^{i}}\right)\\
+ & =\sum_{i=1}^{n-1}\frac{1-b_{i}}{2^{i}}+\sum_{i=n+1}^{\infty}\frac{1}{2^{i}}\\
+ & =\sum_{i=1}^{n-1}\frac{1}{2^{i}}+2\sum_{i=n+1}^{\infty}\frac{1}{2^{i}}-\left(\sum_{i=1}^{n-1}\frac{b_{i}}{2^{i}}+\sum_{i=n+1}^{\infty}\frac{1}{2^{i}}\right)\\
+ & =\sum_{i=1}^{\infty}\frac{1}{2^{i}}-\left(\sum_{i=1}^{n-1}\frac{b_{i}}{2^{i}}+\frac{1}{2^{n}}\right)\\
+ & =1-\psi_{C}\left(x\right)
+\end{align*}
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Standard
+A corollary of this result is that the integral of the Cantor function over
+ the unit interval is 
+\begin_inset Formula $\frac{1}{2}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:cantorIntegral"
+
+\end_inset
+
+The Cantor function 
+\begin_inset Formula $\psi_{C}$
+\end_inset
+
+ is Riemann integrable on 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+ with integral
+\begin_inset Formula 
+\[
+\int_{0}^{1}\psi_{C}\left(x\right)dx=\frac{1}{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The function is Riemann integrable since it is continuous (we provide an
+ exact characterization of Riemann integrable functions in Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:riemannIntegrableAEContinuous"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, when we review the Riemann integral).
+ Note that 
+\begin_inset Formula 
+\begin{align*}
+\int_{0}^{1}\psi_{C}\left(1-x\right)dx & =-\int_{1}^{0}\psi_{C}\left(u\right)du\\
+ & =\int_{0}^{1}\psi_{C}\left(u\right)du
+\end{align*}
+
+\end_inset
+
+where we have used the 
+\begin_inset Formula $u-$
+\end_inset
+
+substitution method from elementary calculus.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{add reference to later chapters}
+\end_layout
+
+\end_inset
+
+.
+ But since 
+\begin_inset Formula $\psi_{C}\left(1-x\right)=1-\psi_{C}\left(x\right)$
+\end_inset
+
+ and the integral is linear, we have
+\begin_inset Formula 
+\[
+1=\int_{0}^{1}1dx=2\int_{0}^{1}\psi_{C}\left(x\right)dx
+\]
+
+\end_inset
+
+ and the result follows.
+\end_layout
+
+\begin_layout Standard
+The Cantor function also has the remarkable property that it is actually
+ constant on each interval component of the complement of the Cantor set
+ in 
+\begin_inset Formula $\left[0,1\right].$
+\end_inset
+
+This is particularly striking since then it's only strictly increasing inside
+ the Cantor set, which is a set of measure zero, and yet manages to hit
+ every point in 
+\begin_inset Formula $\left[0,1\right].$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:cantorFunctionConstantOutside"
+
+\end_inset
+
+The Cantor function is constant on every interval component of 
+\begin_inset Formula $\left[0,1\right]\setminus C.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First note that since 
+\begin_inset Formula $\bigcup_{i=1}^{\infty}G_{i}=\left[0,1\right]\setminus C$
+\end_inset
+
+ is open since each set 
+\begin_inset Formula $G_{i}$
+\end_inset
+
+ is open.
+ Moreover, by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:openSetDisjointUnionInterval"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, there are countably many disjoint open intervals 
+\begin_inset Formula $\left\{ O_{j}\right\} _{j\in\N}\subseteq\left[0,1\right] $
+\end_inset
+
+such that 
+\begin_inset Formula $\bigcup_{i=1}^{\infty}G_{i}=\bigcup_{j=1}^{\infty}O_{j}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $x\in\bigcup G_{i}$
+\end_inset
+
+ and notice that then 
+\begin_inset Formula $x\in O_{j}$
+\end_inset
+
+ for some 
+\begin_inset Formula $j.$
+\end_inset
+
+ Deffine 
+\begin_inset Formula $y_{0}=\sup\left\{ y\in C\mid y\leq x\right\} $
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $y_{0}\in C$
+\end_inset
+
+ since the sets 
+\begin_inset Formula $C$
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ y\in\left[0,1\right]\mid y\leq x\right\} $
+\end_inset
+
+ are both closed.
+ For any 
+\begin_inset Formula $z\in O_{j}$
+\end_inset
+
+, 
+\begin_inset Formula $y_{0}<z$
+\end_inset
+
+ since otherwise 
+\begin_inset Formula $\min\left\{ z,x\right\} \leq y_{0}\leq\max\left\{ z,x\right\} $
+\end_inset
+
+ would mean that 
+\begin_inset Formula $O_{j}$
+\end_inset
+
+ is not contained in 
+\begin_inset Formula $\left[0,1\right]\setminus C$
+\end_inset
+
+.
+ Next, suppose that there's some 
+\begin_inset Formula $y_{1}\in C$
+\end_inset
+
+ such that 
+\begin_inset Formula $y_{0}<y_{1}<z$
+\end_inset
+
+.
+ Clearly 
+\begin_inset Formula $y_{1}>x$
+\end_inset
+
+ (since otherwise 
+\begin_inset Formula $y_{1}\in\left\{ y\in C\mid y\leq x\right\} $
+\end_inset
+
+ and so 
+\begin_inset Formula $y_{1}\leq y_{0}$
+\end_inset
+
+) which again means that 
+\begin_inset Formula $z>y_{1}>x$
+\end_inset
+
+ and so 
+\begin_inset Formula $O_{j}\cap C\neq\emptyset$
+\end_inset
+
+, which is a contradiction.
+ Therefore, it must be that 
+\begin_inset Formula $y_{0}=\sup\left\{ y\in C\mid y\leq z\right\} $
+\end_inset
+
+ and so for any 
+\begin_inset Formula $z\in O_{j}$
+\end_inset
+
+, 
+\begin_inset Formula $\psi_{C}\left(z\right)=\psi_{C}\left(y_{0}\right)$
+\end_inset
+
+, yielding the result.
+\end_layout
+
+\begin_layout Subsubsection
+Fat cantor sets
 \end_layout
 
 \end_body
