@@ -2257,7 +2257,7 @@ for every
  Then,
 \begin_inset Formula 
 \begin{align*}
-\nu\left(G_{2}\cap G_{1}^{C}\right) & =\lebInt{\mu}{k_{1}\indicate_{G_{2}}\indicate_{G_{1}}}+\nu\left(\underbrace{G_{2}\cap G_{1}^{C}\cap G_{1}}_{=\emptyset}\right)\\
+\nu\left(G_{2}\cap G_{1}^{C}\right) & =\lebInt{\mu}{k_{1}\indicate_{G_{2}}\indicate_{G_{1}^{C}}}+\nu\left(\underbrace{G_{2}\cap G_{1}^{C}\cap G_{1}}_{=\emptyset}\right)\\
  & =0
 \end{align*}
 
@@ -2329,7 +2329,7 @@ noprefix "false"
 But
 \begin_inset Formula 
 \begin{align*}
-\nu\left(A\cap G_{1}^{C}\right) & =\lebInt{\mu}{k_{1}\indicate_{A}\indicate_{G_{!}^{C}}}+\nu\left(\underbrace{A\cap G_{1}^{C}\cap G_{1}}_{=\emptyset}\right)\\
+\nu\left(A\cap G_{1}^{C}\right) & =\lebInt{\mu}{k_{1}\indicate_{A}\indicate_{G_{1}^{C}}}+\nu\left(\underbrace{A\cap G_{1}^{C}\cap G_{1}}_{=\emptyset}\right)\\
 \nu\left(A\cap G_{2}^{C}\right) & =\lebInt{\mu}{k_{2}\indicate_{A}\indicate_{G_{2}^{C}}}+\nu\left(\underbrace{A\cap G_{2}^{C}\cap G_{2}}_{=\emptyset}\right)
 \end{align*}
 
@@ -4135,8 +4135,13 @@ we have that
 .
 \end_layout
 
+\begin_layout Standard
+Note that we postpone the proof of the uniqueness of the decomposition to
+ the following subsection, since we shall need the concept of a signed measure.
+\end_layout
+
 \begin_layout Subsection
-*Signed measures, Duality of 
+Signed measures, Duality of 
 \begin_inset Formula $L^{p}$
 \end_inset
 
