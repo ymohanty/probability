@@ -83,16 +83,16 @@ figs-within-sections
 \begin_body
 
 \begin_layout Chapter
-Topological spaces
+Real analysis
 \end_layout
 
 \begin_layout Standard
 For completeness, we state and prove all theorems from basic real analysis
- and general topology that were used in the main text.
+ that are used in the main text.
 \end_layout
 
 \begin_layout Section
-Elementary real analysis
+Elementary analysis on the line
 \end_layout
 
 \begin_layout Subsection
@@ -915,6 +915,20 @@ which implies that
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:baseBRepresentations"
+
+\end_inset
+
+Base-
+\begin_inset Formula $b$
+\end_inset
+
+ representations
 \end_layout
 
 \begin_layout Theorem
@@ -2150,36 +2164,124 @@ Continuity of real valued function on
 
 \end_layout
 
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:strictlyIncreasingContinuousFunctionInverse"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f:\left[a,b\right]\to\R$
+\end_inset
+
+ be a strictly increasing, continuous function.
+ Then 
+\begin_inset Formula $f$
+\end_inset
+
+ is bijective on its range, and its inverse is strictly increasing and continuou
+s.
+\end_layout
+
+\begin_layout Proof
+Note that injectivity is straightforward since if 
+\begin_inset Formula $x\neq y$
+\end_inset
+
+ then either 
+\begin_inset Formula $x>y$
+\end_inset
+
+ or 
+\begin_inset Formula $y<x$
+\end_inset
+
+ in which case 
+\begin_inset Formula $f\left(x\right)>f\left(y\right)$
+\end_inset
+
+ or 
+\begin_inset Formula $f\left(x\right)<f\left(y\right)$
+\end_inset
+
+, respectively.
+ To see that the inverse is strictly increasing, let 
+\begin_inset Formula $c,d\in R$
+\end_inset
+
+ where 
+\begin_inset Formula $R\subseteq\R$
+\end_inset
+
+ is the range of 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $c>d$
+\end_inset
+
+, then since 
+\begin_inset Formula $f$
+\end_inset
+
+ is strictly increasing it must be that 
+\begin_inset Formula $f^{-1}\left(c\right)>f^{-1}\left(d\right)$
+\end_inset
+
+.
+ Finally, notice that 
+\begin_inset Formula $f^{-1}$
+\end_inset
+
+ is a strictly increasing function that is onto 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+.
+ Suppose that 
+\begin_inset Formula $y_{0}\in R$
+\end_inset
+
+ is a point of discontinuity for 
+\begin_inset Formula $f^{-1}$
+\end_inset
+
+, then 
+\begin_inset Formula $f^{-1}\left(y_{0}^{-}\right)<f^{-1}\left(y_{0}^{+}\right)$
+\end_inset
+
+ where both limits are in 
+\begin_inset Formula $\left[a,b\right].$
+\end_inset
+
+ Then of course there's some 
+\begin_inset Formula $f^{-1}\left(y_{0}^{-}\right)<c<f^{-1}\left(y_{0}^{+}\right)$
+\end_inset
+
+ such that there's no 
+\begin_inset Formula $y\in R$
+\end_inset
+
+ such that 
+\begin_inset Formula $f^{-1}\left(y\right)=c$
+\end_inset
+
+ which is a contradiction since 
+\begin_inset Formula $f^{-1}$
+\end_inset
+
+ is onto 
+\begin_inset Formula $\left[a,b\right].$
+\end_inset
+
+ 
+\end_layout
+
 \begin_layout Subsection
 Separable metric spaces
-\end_layout
-
-\begin_layout Standard
-
-\end_layout
-
-\begin_layout Section
-Topological spaces
-\end_layout
-
-\begin_layout Subsection
-Basic definition and separation properties
-\end_layout
-
-\begin_layout Subsection
-Topological countability
-\end_layout
-
-\begin_layout Subsection
-Continuous maps between topological spaces
-\end_layout
-
-\begin_layout Subsection
-Compact topological spaces
-\end_layout
-
-\begin_layout Subsection
-Connected topological spaces
 \end_layout
 
 \begin_layout Section
