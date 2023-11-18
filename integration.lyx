@@ -7219,7 +7219,7 @@ Let
 \end_inset
 
  where 
-\begin_inset Formula $g\in\Lp1{\X,\F,\mu}.$
+\begin_inset Formula $g\in\Lp 1{\X,\F,\mu}.$
 \end_inset
 
  Then
@@ -7259,7 +7259,7 @@ f_{n_{j_{k}}}\stackrel{\text{a.e}}{\longrightarrow}f.
 \end_inset
 
 Since 
-\begin_inset Formula $\lvert f_{n_{j_{k}}}\rvert\leq g\in\Lp1{\mu}$
+\begin_inset Formula $\lvert f_{n_{j_{k}}}\rvert\leq g\in\Lp 1{\mu}$
 \end_inset
 
 , the 
@@ -7636,10 +7636,121 @@ we can take
 \end_layout
 
 \begin_layout Standard
-The above implies that integrable functions on finite measure spaces are
- uniformly integrable on their own.
- Classes of uniformly integrable functions are preserved under linear combinatio
-ns.
+Note that uniform integrability generalizes the notion of the domination
+ by an integrable function, which is an essential ingredient for the dominated
+ convergence theorem.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:dominatedImpliesUniformlyIntegrable"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F,\mu\right)$
+\end_inset
+
+ be a measure space and let 
+\begin_inset Formula $\mathcal{C}\subseteq\measurableFunctions$
+\end_inset
+
+ be a collection of measurable functions.
+ If for every 
+\begin_inset Formula $f\in\mathcal{C}$
+\end_inset
+
+, we have that 
+\begin_inset Formula $\lvert f\rvert\leq g$
+\end_inset
+
+ such that 
+\begin_inset Formula $g\in\Lp 1{\mu}$
+\end_inset
+
+ then 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ is uniformly integrable.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ be fixed.
+ Since 
+\begin_inset Formula $g$
+\end_inset
+
+ is integrable, Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:intFiniteFuncFinite"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ tells us that 
+\begin_inset Formula $\lvert g\rvert<\infty$
+\end_inset
+
+ almost everywhere.
+ Then
+\begin_inset Formula 
+\[
+\indicate\left\{ \lvert g\rvert>M\right\} \leq\frac{\lvert g\rvert}{M}\stackrel{\text{a.e}}{\to}0
+\]
+
+\end_inset
+
+and so 
+\begin_inset Formula 
+\[
+\lvert g\rvert\indicate\left\{ \rvert g\rvert>M\right\} \stackrel{\text{a.e}}{\to}0.
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $\lvert g\rvert\geq\lvert g\rvert\indicate\left\{ \rvert g\rvert>M\right\} $
+\end_inset
+
+, dominated convergence implies that 
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\lvert g\rvert\indicate\left\{ \lvert g\rvert>M\right\} }<\epsilon
+\]
+
+\end_inset
+
+for some large enough 
+\begin_inset Formula $M.$
+\end_inset
+
+ Then, since 
+\begin_inset Formula $\lvert f\rvert\leq\lvert g\rvert,$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lebInt{\mu}{\lvert f\rvert\indicate\left\{ \lvert f\rvert>M\right\} }\leq\lebInt{\mu}{\lvert g\rvert\indicate\left\{ \lvert g\rvert>M\right\} }<\epsilon.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Classes of uniformly integrable functions are preserved under linear combination
+s.
 \end_layout
 
 \begin_layout Proposition
@@ -7729,6 +7840,11 @@ hl{COMPLETE LATER}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+In the main result for this section, we generalize the dominated convergence
+ theorem.
 \end_layout
 
 \begin_layout Theorem
