@@ -8569,6 +8569,13 @@ where
 \end_inset
 
 .
+ We call 
+\begin_inset Formula $C$
+\end_inset
+
+ is the standard 
+\emph on
+Cantor set.
 \end_layout
 
 \begin_layout Standard
@@ -8583,7 +8590,7 @@ That is the Cantor set consists of those elements in
 \begin_inset Formula $\left[0,1\right]$
 \end_inset
 
- whose ternary (base 3) representation does not contain any
+ whose ternary (base 3) representation does not contain any 
 \begin_inset Formula $1$
 \end_inset
 
@@ -8599,7 +8606,7 @@ ns.
 \begin_inset Formula $b$
 \end_inset
 
- representatiosn of real numbers can be found in Appendix section 
+ representations of real numbers can be found in Appendix section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:baseBRepresentations"
@@ -9086,7 +9093,7 @@ noprefix "false"
 \begin{align*}
 \lambda\left(C\right) & =\lambda\left(\bigcap_{n\in\N}C_{n}\right)\\
  & =\lim_{n\to\infty}\lambda\left(C_{n}\right)\\
- & =\lim_{n\to\infty}\left(\frac{2}{3}\right)^{n}\\
+ & \leq\lim_{n\to\infty}\left(\frac{2}{3}\right)^{n}\\
  & =0.
 \end{align*}
 
@@ -9844,7 +9851,7 @@ noprefix "false"
 \end_inset
 
 , there are countably many disjoint open intervals 
-\begin_inset Formula $\left\{ O_{j}\right\} _{j\in\N}\subseteq\left[0,1\right] $
+\begin_inset Formula $\left\{ O_{j}\right\} _{j\in\N}\subseteq\left[0,1\right]$
 \end_inset
 
 such that 
@@ -9864,7 +9871,7 @@ such that
 \begin_inset Formula $j.$
 \end_inset
 
- Deffine 
+ Define 
 \begin_inset Formula $y_{0}=\sup\left\{ y\in C\mid y\leq x\right\} $
 \end_inset
 
