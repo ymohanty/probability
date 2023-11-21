@@ -3276,9 +3276,7 @@ where
 \begin_inset Formula $\sigma-$
 \end_inset
 
-finite measures.
- It should be clear that Tonelli's theorem is the right tool for for the
- job, which means we need to first ets
+finite measures using Tonelli's theorem.
 \end_layout
 
 \begin_layout Theorem
