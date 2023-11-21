@@ -83,7 +83,7 @@ figs-within-sections
 \begin_body
 
 \begin_layout Chapter
-Product measures
+Measures on product spaces
 \end_layout
 
 \begin_layout Standard
@@ -432,11 +432,134 @@ Now we can simply take a function
 \begin_inset Formula $y\to f\left(x,y\right)$
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
-Virtually the same argument shows that 
+Note that the converse of this result is not necessarily true; that is,
+ for a function 
+\begin_inset Formula $f:\X\times\mathcal{Y}\to\R$
+\end_inset
+
+ with measurable sections 
+\begin_inset Formula $x\to f\left(x,y\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $y\to f\left(x,y\right)$
+\end_inset
+
+, it need not be the case that 
+\begin_inset Formula $f$
+\end_inset
+
+ is product measurable.
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:sectionMeasurableNotProductMeasurable"
+
+\end_inset
+
+Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be a Vitali set in 
+\begin_inset Formula $\R$
+\end_inset
+
+ and let 
+\begin_inset Formula $E=\left\{ \left(x,x\right)\mid x\in V\right\} .$
+\end_inset
+
+ Then let 
+\begin_inset Formula $f\left(x,y\right)=\indicate_{E}\left(x,y\right)$
+\end_inset
+
+ and notice that
+\begin_inset Formula 
+\[
+x\to f\left(x,y\right)=\begin{cases}
+0, & y\notin V\\
+\indicate\left\{ x=y\right\}  & y\in V.
+\end{cases}
+\]
+
+\end_inset
+
+In the first case, the section 
+\begin_inset Formula $x\to f\left(x,y\right)$
+\end_inset
+
+ is constantly zero and hence measurable.
+ In the second case, its an indicator function for the singleton 
+\begin_inset Formula $\left\{ y\right\} $
+\end_inset
+
+ which is measurable since singletons are in 
+\begin_inset Formula $\borel\left(\R\right).$
+\end_inset
+
+Therefore, for every 
+\begin_inset Formula $y\in\R$
+\end_inset
+
+ the section 
+\begin_inset Formula $x\to f\left(x,y\right)$
+\end_inset
+
+ is 
+\begin_inset Formula $\borel\left(\R\right)/\borel\left(\R\right)$
+\end_inset
+
+ measurable.
+ A similar argument shows that for every 
+\begin_inset Formula $x\in\R$
+\end_inset
+
+, 
+\begin_inset Formula $y\to f\left(x,y\right)$
+\end_inset
+
+ is Borel measurable.
+ But notice that 
+\begin_inset Formula $f$
+\end_inset
+
+ is measurable if and only if 
+\begin_inset Formula $E$
+\end_inset
+
+ is measurable, but the map 
+\begin_inset Formula $g\left(x\right)=\left(x,x\right)$
+\end_inset
+
+is measurable and 
+\begin_inset Formula $g^{-1}\left[E\right]=V$
+\end_inset
+
+ is not measurable and so 
+\begin_inset Formula $E$
+\end_inset
+
+ is not measurable.
+\end_layout
+
+\begin_layout Standard
+Virtually the same argument as in Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:partialFunctionMeasurability"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that 
 \begin_inset Formula $y\to\mu^{x}\left(f\left(x,y\right)\right)$
 \end_inset
 
@@ -1270,7 +1393,7 @@ for any
 \end_inset
 
  (
-\begin_inset Formula $f\in\Lp1{\mu\otimes v}$
+\begin_inset Formula $f\in\Lp 1{\mu\otimes v}$
 \end_inset
 
 ).
@@ -3095,7 +3218,217 @@ An interesting application of this result is showing that the integral of
 \end_layout
 
 \begin_layout Subsection
-A special case of integration by substitution
+Area under the graph of a function.
+\end_layout
+
+\begin_layout Standard
+In elementary calculus, we understood the ordinary (Riemann) integral of
+ a bounded function 
+\begin_inset Formula $f$
+\end_inset
+
+ on a compact interval 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ as representing the area of under the graph of 
+\begin_inset Formula $f$
+\end_inset
+
+ on 
+\begin_inset Formula $\left[a,b\right].$
+\end_inset
+
+ The Riemann theory formalized this by partitioning the interval 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ into subintervals and computing the integral of step functions which were
+ constant on each subinterval in the partition.
+ We can do this more generally with Lebesgue integrals as well.
+ That is to say, we can show that for a non-negative measurable function
+ 
+\begin_inset Formula $f:\R\to\R$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lebInt{\lambda}f=\lambda^{2}\left(\left\{ \left(x,t\right)\in\R^{2}\mid0\leq t<f\left(x\right)\right\} \right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+ is the 2-dimensional Lebesgue measure 
+\begin_inset Formula $\lambda\otimes\lambda$
+\end_inset
+
+ on 
+\begin_inset Formula $\borel\left(\R^{2}\right)$
+\end_inset
+
+.
+ In fact, we can establish this result more generally for other 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measures.
+ It should be clear that Tonelli's theorem is the right tool for for the
+ job, which means we need to first ets
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:areaUnderGraphLebesgue"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\measurespace$
+\end_inset
+
+ be a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measure space and let 
+\begin_inset Formula $f\in\nonnegMeasurableFunctions.$
+\end_inset
+
+ Then 
+\begin_inset Formula $\left\{ \left(x,t\right)\in\X\times\R\mid f\left(x\right)>t\geq0\right\} \in\F\otimes\borel\left(\R\right)$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\lebInt{\mu}f=\lambda^{t}\left(\mu^{x}\left(\left\{ f\left(x\right)>t\right\} \right)\indicate\left\{ t\geq0\right\} \right)=\lambda\otimes\mu\left(\left\{ \left\{ f\left(x\right)>t\geq0\right\} \right\} \right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First notice that function 
+\begin_inset Formula $T\left(x,t\right)=f\left(x\right)-t$
+\end_inset
+
+ is 
+\begin_inset Formula $\F\otimes\mathcal{\borel\left(\R\right)}/\borel\left(\R\right)$
+\end_inset
+
+ measurable.
+ To see this, define 
+\begin_inset Formula $g\left(x,t\right)=f\left(x\right)$
+\end_inset
+
+ and notice that for any 
+\begin_inset Formula $B\in\borel\left(\R\right):$
+\end_inset
+
+
+\begin_inset Formula $g^{-1}\left[B\right]=f^{-1}\left[B\right]\times\R\in\mathcal{F}\otimes\borel\left(\R\right)$
+\end_inset
+
+.
+ Similarly, letting 
+\begin_inset Formula $h\left(x,t\right)=t$
+\end_inset
+
+, we have that 
+\begin_inset Formula $h^{-1}\left[B\right]=\R\times B\in\F\otimes\borel\left(\R\right)$
+\end_inset
+
+.
+ Then, using the fact that linear combinations of Borel measurable functions
+ are Borel measurable, the function 
+\begin_inset Formula $T$
+\end_inset
+
+ is 
+\begin_inset Formula $\F\otimes\borel\left(\R\right)/\borel\left(\R\right)$
+\end_inset
+
+ measurable.
+ Notice then that 
+\begin_inset Formula $T^{-1}\left[\left(0,\infty\right)\right]=\left\{ \left(x,t\right)\in\R^{2}\mid f\left(x\right)>t\right\} $
+\end_inset
+
+ is measurable.
+ Further, the set 
+\begin_inset Formula $\left\{ \left(x,t\right)\in\R^{2}\mid t\geq0\right\} =\X\times\left[0,\infty\right)\in\F\otimes\borel\left(\R\right).$
+\end_inset
+
+ Then, 
+\begin_inset Formula 
+\[
+\left\{ \left(x,t\right)\in\X\times\R\mid f\left(x\right)>t\geq0\right\} =T^{-1}\left[\left(0,\infty\right)\right]\cap\left(\X\times\left[0,\infty\right)\right)\in\F\otimes\borel\left(\R\right)
+\]
+
+\end_inset
+
+and the first result follows.
+ Then,
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu}f & =\mu^{x}\left(\lambda^{t}\left(\indicate\left\{ 0\le t<f\left(x\right)\right\} \right)\right)\\
+ & =\lambda^{t}\left(\indicate\left\{ t\geq0\right\} \mu^{x}\left(\indicate\left\{ f\left(x\right)>t\right\} \right)\right)\\
+ & =\lambda^{t}\left(\mu^{x}\left(\left\{ f\left(x\right)>t\right\} \right)\indicate\left\{ t>0\right\} \right)
+\end{align*}
+
+\end_inset
+
+where in the second equality we used Tonelli (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:tonelli"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), linearity, and the fact that 
+\begin_inset Formula $\indicate_{A\cap B}=\indicate_{A}\indicate_{B}.$
+\end_inset
+
+ Observe that Tonelli can be applied here since 
+\begin_inset Formula $\indicate\left\{ o<t<f\left(x\right)\right\} \in\mathcal{M}^{+}\left(\X\times\R,\mathcal{F}\otimes\borel\left(\R\right)\right)$
+\end_inset
+
+ and both 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ are 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite.
+ Note that Tonelli's theorem also implies that 
+\begin_inset Formula 
+\[
+\lambda^{t}\left(\mu^{x}\left(\indicate\left\{ f\left(x\right)>t\geq0\right\} \right)\right)=\lambda\otimes\mu\left(\left\{ \left\{ f\left(x\right)>t\geq0\right\} \right\} \right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Subsection
@@ -3167,7 +3500,7 @@ hl{ASH or KLENKE?}
 \end_layout
 
 \begin_layout Section
-Disintegration
+Non-product measures and disintegration
 \end_layout
 
 \begin_layout Standard
