@@ -7108,20 +7108,100 @@ Let
 \end_inset
 
 .
- Then clearly,
-\begin_inset ERT
-status open
+ Then clearly, 
+\begin_inset Formula $\left\{ \delta I_{j}\right\} _{j\in\N}$
+\end_inset
 
-\begin_layout Plain Layout
+ is a cover of 
+\begin_inset Formula $\delta A$
+\end_inset
 
-
-\backslash
-hl{complete later}
-\end_layout
+ and so 
+\begin_inset Formula 
+\[
+\lambda^{*}\left(\delta A\right)\leq\sum_{j\in\N}\lambda_{1}\left(\delta I_{j}\right)=\delta\sum_{j\in\N}\lambda_{1}\left(I_{j}\right).
+\]
 
 \end_inset
 
+Taking infimums,
+\begin_inset Formula 
+\[
+\lambda^{*}\left(\delta A\right)\leq\delta\lambda^{*}\left(A\right).
+\]
 
+\end_inset
+
+ Conversely, if 
+\begin_inset Formula $\left\{ \delta I_{j}\right\} _{i\in\N}$
+\end_inset
+
+ is a cover of 
+\begin_inset Formula $\delta A$
+\end_inset
+
+ then 
+\begin_inset Formula $\frac{1}{\delta}\left\{ \delta I_{j}\right\} _{j\in\N}$
+\end_inset
+
+ is a cover for 
+\begin_inset Formula $A$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\[
+\lambda^{*}\left(A\right)\leq\sum_{j\in\N}\lambda_{1}\left(\frac{1}{\delta}\delta I_{j}\right)=\frac{1}{\delta}\sum_{j\in\N}\lambda_{1}\left(\delta I_{j}\right).
+\]
+
+\end_inset
+
+Taking infimums again yields 
+\begin_inset Formula 
+\[
+\lambda^{*}\left(A\right)\leq\frac{1}{\delta}\lambda^{*}\left(\delta A\right)
+\]
+
+\end_inset
+
+which completes the proof.
+\end_layout
+
+\begin_layout Proof
+Next, we apply the generating class argument as above, and let 
+\begin_inset Formula $\mathcal{B}_{\delta}=\left\{ B\in\borel\left(\R\right)\mid\delta B\in\borel\left(\R\right)\right\} $
+\end_inset
+
+.
+ Letting 
+\begin_inset Formula $f\left(x\right)=\delta x$
+\end_inset
+
+ (which is an invertible map since 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+), we can apply the same arguments as earlier to show that 
+\begin_inset Formula $\mathcal{B}_{\delta}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra and then observe that for any 
+\begin_inset Formula $I\in\mathcal{L}:\delta I\in\mathcal{L}$
+\end_inset
+
+ so 
+\begin_inset Formula $\mathcal{L}\subseteq\mathcal{B}_{t}$
+\end_inset
+
+ and so 
+\begin_inset Formula $\sigma\left(\mathcal{L}\right)=\borel\left(\R\right)\subseteq\mathcal{B}_{t}$
+\end_inset
+
+ which completes the proof.
 \end_layout
 
 \begin_layout Theorem
