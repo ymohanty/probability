@@ -144,6 +144,22 @@ theorems-sec
 
 \begin_layout Standard
 \begin_inset FormulaMacro
+\newcommand{\det}{\mathrm{det}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\diag}{\mathrm{diag}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
 \newcommand{\R}{\mathds{R}}
 \end_inset
 
