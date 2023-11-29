@@ -100,8 +100,19 @@ In elementary calculus, the theory of the Riemann integral was developed
  calculus.
  The Lebesgue theory also implies a fundamental theorem of calculus for
  a broader class of functions.
- The goal of this chapter is to recover this theorem and in order to do
- so, we will develop some theory that is very important in its own right.
+ The goal of this chapter is to lay the groundwork for this result – the
+ full proof of which will have to be deferred to Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:productMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+– and in order to do so, we will develop some theory that is very important
+ in its own right.
  Before delving into new material, it might be worthwhile to review some
  basic facts about differentiation in the spirit of our discussion on the
  Riemann integral.
@@ -1661,7 +1672,7 @@ noprefix "false"
 Next define an operator 
 \begin_inset Formula 
 \[
-\Gamma:\Lp2{\psi}\longrightarrow\R
+\Gamma:\Lp 2{\psi}\longrightarrow\R
 \]
 
 \end_inset
@@ -4165,27 +4176,7 @@ hl{Tao (epsilon of room vol 1, section 1.3.2)?}
 \end_layout
 
 \begin_layout Section
-Derivatives of measures
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hl{Bass chapter 14 117-123}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Integrals of almost sure derivatives
+Absolutely continuous functions
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:ftc"
@@ -4196,15 +4187,46 @@ name "sec:ftc"
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
+The absolute continutiy of measures is in some sense a generalization of
+ the notion of absolute continuity of a real-valued function on 
+\begin_inset Formula $\left[a,b\right]\subset\R$
+\end_inset
 
-\begin_layout Plain Layout
-
-
-\backslash
-hl{Bass Chapter 14 pg 123 onwards} 
+.
 \end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:absolutelyContinuousFunction"
+
+\end_inset
+
+A function 
+\begin_inset Formula $f:\left[a,b\right]\to\R$
+\end_inset
+
+ is said to be 
+\emph on
+absolutely continuous 
+\emph default
+if for every 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+, there exists some 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ such that for any finite collection of disjoint open intervals 
+\begin_inset Formula $\left\{ \left(a_{i},b_{i}\right)\right\} _{i=1}^{n}\subset\left[a,b\right]$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\sum_{i=1}^{n}\left(b_{i}-a_{i}\right)<\delta\implies\sum_{i=1}^{n}\lvert f\left(b_{i}\right)-f\left(a_{i}\right)\rvert<\epsilon.
+\]
 
 \end_inset
 
@@ -4212,6 +4234,577 @@ hl{Bass Chapter 14 pg 123 onwards}
 \end_layout
 
 \begin_layout Standard
+It should be immediately clear that every absolutely continuous function
+ is uniformly continuous (and hence continuous).
+ The converse is not true, however: the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[def:cantorFunction]{Cantor function}
+\end_layout
+
+\end_inset
+
+ is a canonical example of a function that is uniformly continuous but not
+ absolutely continuous.
+ The Cantor function is continuous on 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+ by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:cantorFunctionContinuous"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and hence uniformly continuous since 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+ is compact (see Theorem
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:compactUniformContinuity"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ One the other hand, the Cantor function 
+\begin_inset Quotes eld
+\end_inset
+
+concentrates
+\begin_inset Quotes erd
+\end_inset
+
+ on 
+\begin_inset Formula $C$
+\end_inset
+
+, in that the image of the Cantor set under the Cantor function is all of
+ 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+, and so for any finite collection 
+\begin_inset Formula $\left\{ \left(a_{i}b_{i}\right)\right\} _{i=1}^{n}$
+\end_inset
+
+ of disjoint intervals that covers the entire Cantor set, the corresponding
+ image sequence 
+\begin_inset Formula $\sum_{i=1}^{n}\lvert f\left(b_{i}\right)-f\left(a_{i}\right)\rvert\geq1.$
+\end_inset
+
+ Of course, since the Cantor set has measure zero, it can be covered by
+ countably many open intervals whose total length is arbitrarily small.
+ Moreover, since the Cantor set is compact, we can extract a finite subcollectio
+n of such intervals (disjointly, without loss of generality) and so absolute
+ continuity fails for any 
+\begin_inset Formula $0<\epsilon<1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The fact that the Cantor function concentrates on 
+\begin_inset Formula $C$
+\end_inset
+
+ should be telling; the measure that the Cantor function corresponds to
+ is singular with respect to the Lebesgue measure.
+ As we shall see, the duality of singular and absolutely continuous functions
+ mimics the duality of singular and absolutely continuous measures with
+ respect to the Lebesgue measure.
+ We start with the following fact that links absolute continuity of Stieljes
+ functions to the absolute continuity of the measures induced by such functions
+ with respect to the Lebesgue measure.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:absoluteContinuityStieljesFunctions"
+
+\end_inset
+
+Let 
+\begin_inset Formula $F:\left[a,b\right]\to\R$
+\end_inset
+
+ be a Stieljes function.
+ Then the measure 
+\begin_inset Formula $\mu_{F}\left(\left(x,y\right]\right):=F\left(y\right)-F\left(x\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $a\leq x\leq y\leq b$
+\end_inset
+
+ on 
+\begin_inset Formula $\borel\left(\left[a,b\right]\right)$
+\end_inset
+
+ is absolutely continuous with respect to the Lebesgue measure if and only
+ if 
+\begin_inset Formula $F$
+\end_inset
+
+ is absolutely continuous as a function.
+\end_layout
+
+\begin_layout Proof
+Note that both 
+\begin_inset Formula $\mu_{F}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ are finite measures on 
+\begin_inset Formula $\borel\left(\left[a,b\right]\right)$
+\end_inset
+
+ and so if 
+\begin_inset Formula $\mu_{F}\ll\lambda$
+\end_inset
+
+ then (by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:epsdeltaAbsContinuity"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) for any 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ there exists some 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $B\in\borel\left(\left[a,b\right]\right):\lambda\left(B\right)<\delta\implies\mu_{F}\left(B\right)<\epsilon.$
+\end_inset
+
+ In particular, for 
+\begin_inset Formula $B=\bigcup_{i=1}^{n}\left(a_{i},b_{i}\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $\left(a_{i},b_{i}\right)\subset\left[a,b\right]$
+\end_inset
+
+ are disjoint, we have that 
+\begin_inset Formula 
+\[
+\lambda\left(\bigcup_{i=1}^{n}\left(a_{i},b_{i}\right)\right)>\delta\implies\mu_{F}\left(\bigcup_{i=1}^{n}\left(a_{i},b_{i}\right)\right)<\epsilon
+\]
+
+\end_inset
+
+and applying finite addivity yields one side of the result.
+ Conversely, assume 
+\begin_inset Formula $F$
+\end_inset
+
+ is absolutely continuous as a function and so for any 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ there exists some 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ such that for any finite collection of disjoint open intervals 
+\begin_inset Formula $\left\{ \left(a_{i},b_{i}\right)\right\} _{i=1}^{n}\subset\left[a,b\right]$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sum_{i=1}^{n}\left(b_{i}-a_{i}\right)<\delta\implies\sum_{i=1}^{n}f\left(b_{i}\right)-f\left(a_{i}\right)<\epsilon.
+\]
+
+\end_inset
+
+Taking limits, we can extend this result to countable disjoint collections
+ so that for any 
+\begin_inset Formula $\left\{ \left(a_{i},b_{i}\right)\right\} _{i\in\N}$
+\end_inset
+
+ disjoint
+\begin_inset Formula 
+\[
+\sum_{i=1}^{\infty}\left(b_{i}-a_{i}\right)<\delta\implies\sum_{i=1}^{\infty}f\left(b_{i}\right)-f\left(a_{i}\right)<\epsilon.
+\]
+
+\end_inset
+
+ Note that by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:openSetDisjointUnionInterval"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, each open set 
+\begin_inset Formula $O\subset\left[a,b\right]$
+\end_inset
+
+ can be written as a countable union of disjoint open intervals and by Propositi
+on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:borelApproximateLebesgue"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, every Borel set 
+\begin_inset Formula $B\in\borel\left(\left[a,b\right]\right)$
+\end_inset
+
+ (except sets that contain the endpoints) is contained in some open set
+ 
+\begin_inset Formula $O\subset\R$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\lambda\left(O\setminus B\right)=\lambda\left(O\right)-\lambda\left(B\right)<\frac{\delta}{2}.
+\]
+
+\end_inset
+
+Choosing 
+\begin_inset Formula $B$
+\end_inset
+
+ such that 
+\begin_inset Formula $\lambda\left(B\right)<\frac{\delta}{2}$
+\end_inset
+
+, we can assume without loss of generality that 
+\begin_inset Formula $O\subset\left[a,b\right]$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\[
+\mu_{F}\left(B\right)\leq\mu_{F}\left(O\right)<\epsilon
+\]
+
+\end_inset
+
+where the inequality is due to monotonicity of measures.
+ This completes the proof by yet another applyication of Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:epsdeltaAbsContinuity"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:stieljesAbsContRepresentation"
+
+\end_inset
+
+A Stieljes function 
+\begin_inset Formula $F:\left[a,b\right]\to\R$
+\end_inset
+
+ is absolutely continuous if and only there exists some unique 
+\begin_inset Formula $f\in\mathcal{M}^{+}\left(\left[a,b\right],\borel\left(\left[a,b\right]\right)\right)$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $x\in\left[a,b\right]$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F\left(x\right)=F\left(a\right)+\lebInt{\lambda}{f\indicate_{\left[a,x\right]}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First suppose that 
+\begin_inset Formula $F$
+\end_inset
+
+ is absolutely continuous as a function.
+ Then by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:absoluteContinuityStieljesFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the measure 
+\begin_inset Formula $\mu_{F}$
+\end_inset
+
+ extended from 
+\begin_inset Formula $\mu_{F}\left(\left(a,x\right]\right):=F\left(x\right)-F\left(a\right)$
+\end_inset
+
+ is absolutely continuous with respect to the Lebesgue measure on 
+\begin_inset Formula $\left[a,b\right].$
+\end_inset
+
+ By the Radon-Nikodym theorem,
+\begin_inset Formula 
+\[
+\mu_{F}\left(A\right)=\lebInt{\lambda}{f\indicate_{A}}
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $A\in\borel\left(\left[a,b\right]\right).$
+\end_inset
+
+ In particular this works for 
+\begin_inset Formula $A=\left[a,x\right]$
+\end_inset
+
+ where 
+\begin_inset Formula $x\in\left[a,b\right]$
+\end_inset
+
+ is a arbitrary.
+ Conversely, if 
+\begin_inset Formula $F$
+\end_inset
+
+ has this integral representation then 
+\begin_inset Formula $\mu_{F}$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma\left(A\right):=\lebInt{\lambda}{f\indicate_{A}}$
+\end_inset
+
+ agree on all sets of the form 
+\begin_inset Formula $\left[a,x\right]$
+\end_inset
+
+ which means they agree on intersections of such sets which is the collection
+ of all closed intervals in 
+\begin_inset Formula $\left[a,b\right].$
+\end_inset
+
+ This collection is a 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system that generates 
+\begin_inset Formula $\borel\left(\left[a,b\right]\right)$
+\end_inset
+
+ and so by Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:uniquenessMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\begin_inset Formula $\mu_{F}=\gamma$
+\end_inset
+
+ on all Borel sets which implies absolute continuity of the measure 
+\begin_inset Formula $\mu_{F}$
+\end_inset
+
+ and thus of the function 
+\begin_inset Formula $F$
+\end_inset
+
+ by the previous Proposition.
+\end_layout
+
+\begin_layout Proof
+Uniqueness of 
+\begin_inset Formula $f$
+\end_inset
+
+ follows by the standard argument we used to prove that Radon Nikodym derivative
+s are unique.
+\end_layout
+
+\begin_layout Standard
+Next we extend this representation result to absolutely continuous functions
+ that are not neccessarily non-decreasing.
+ As usual, we do this by decomposing an arbitrary absolutely continuous
+ function as a difference of absolutely continuous Stieljes functions and
+ apply the above result separately to each component.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:decomposeAbsolutelyContinuous"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f:\left[a,b\right]\to\R$
+\end_inset
+
+ be absolutely continuous.
+ Then there exist non-negative, non-decreasing, and absolutely continuous
+ functions 
+\begin_inset Formula $f_{1},f_{2}:\left[a,b\right]\to\R$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+f\left(x\right)=f_{1}\left(x\right)-f_{2}\left(x\right)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $x\in\left[a,b\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Define 
+\begin_inset Formula 
+\begin{align*}
+f_{1}\left(x\right) & :=\sup_{\pi\left[a,x\right]}\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{+}\\
+f_{2}\left(x\right) & :=\sup_{\pi\left[a,x\right]}\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{-}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $\pi\left[a,x\right]:\left\{ t_{i}\mid t_{0}=a,t_{k\left(\pi\right)}=x,t_{i}<t_{i+1}\right\} $
+\end_inset
+
+ is a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[def:partitionInterval]{partition}
+\end_layout
+
+\end_inset
+
+ of 
+\begin_inset Formula $\left[a,x\right].$
+\end_inset
+
+ Note that the non-negativity of these functions follows by definition.
+ Next, notice that for 
+\begin_inset Formula $x_{2}\geq x_{1}$
+\end_inset
+
+ 
+\begin_inset Formula $f_{j}\left(x_{2}\right)\geq f_{j}\left(x_{1}\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $j\in\left\{ 1,2\right\} .$
+\end_inset
+
+To see this, notice that any partition 
+\begin_inset Formula $\pi$
+\end_inset
+
+ of 
+\begin_inset Formula $\left[a,x_{1}\right]$
+\end_inset
+
+ can be extended to a partition 
+\begin_inset Formula $\pi^{\prime}$
+\end_inset
+
+ of 
+\begin_inset Formula $\left[a,x_{2}\right]$
+\end_inset
+
+ by adding 
+\begin_inset Formula $t_{k\left(\pi^{\prime}\right)}=t_{k\left(\pi\right)+1}=x_{2}.$
+\end_inset
+
+ Then,
+\begin_inset Formula 
+\[
+\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{\pm}\leq\sum_{i=0}^{k\left(\pi\right)+1}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{\pm}
+\]
+
+\end_inset
+
+since the summands are non-negative.
+ Next, observe that for any partition 
+\begin_inset Formula $\pi$
+\end_inset
+
+ of 
+\begin_inset Formula $\left[x_{1},x_{2}\right]\subset\left[a,b\right]$
+\end_inset
+
+, we have that
+\begin_inset Formula 
+\begin{align*}
+f\left(x_{2}\right)-f\left(x_{1}\right) & =\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)\\
+ & =\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{+}-\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{+}.
+\end{align*}
+
+\end_inset
+
 
 \end_layout
 
