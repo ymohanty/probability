@@ -7054,7 +7054,7 @@ Let
 
  be an arbitrary set.
  Then for any 
-\begin_inset Formula $\delta>0$
+\begin_inset Formula $\delta\neq0$
 \end_inset
 
 , the dilated set 
@@ -7064,7 +7064,7 @@ Let
  has Lebesgue outer measure 
 \begin_inset Formula 
 \[
-\lambda^{*}\left(\delta A\right)=\delta\lambda^{*}\left(A\right).
+\lambda^{*}\left(\delta A\right)=\lvert\delta\rvert\lambda^{*}\left(A\right).
 \]
 
 \end_inset
@@ -7082,7 +7082,7 @@ Moreover, for any set
 
 \begin_layout Proof
 Let 
-\begin_inset Formula $\delta>0$
+\begin_inset Formula $\delta\neq0$
 \end_inset
 
  be fixed.
@@ -7095,7 +7095,7 @@ Let
 \end_inset
 
 , 
-\begin_inset Formula $\lambda_{1}\left(\delta I\right)=\delta\lambda\left(I\right)$
+\begin_inset Formula $\lambda_{1}\left(\delta I\right)=\lvert\delta\rvert\lambda\left(I\right)$
 \end_inset
 
 .
@@ -7119,7 +7119,7 @@ Let
  and so 
 \begin_inset Formula 
 \[
-\lambda^{*}\left(\delta A\right)\leq\sum_{j\in\N}\lambda_{1}\left(\delta I_{j}\right)=\delta\sum_{j\in\N}\lambda_{1}\left(I_{j}\right).
+\lambda^{*}\left(\delta A\right)\leq\sum_{j\in\N}\lambda_{1}\left(\delta I_{j}\right)=\lvert\delta\rvert\sum_{j\in\N}\lambda_{1}\left(I_{j}\right).
 \]
 
 \end_inset
@@ -7127,7 +7127,7 @@ Let
 Taking infimums,
 \begin_inset Formula 
 \[
-\lambda^{*}\left(\delta A\right)\leq\delta\lambda^{*}\left(A\right).
+\lambda^{*}\left(\delta A\right)\leq\lvert\delta\rvert\lambda^{*}\left(A\right).
 \]
 
 \end_inset
@@ -7151,7 +7151,7 @@ Taking infimums,
  and so 
 \begin_inset Formula 
 \[
-\lambda^{*}\left(A\right)\leq\sum_{j\in\N}\lambda_{1}\left(\frac{1}{\delta}\delta I_{j}\right)=\frac{1}{\delta}\sum_{j\in\N}\lambda_{1}\left(\delta I_{j}\right).
+\lambda^{*}\left(A\right)\leq\sum_{j\in\N}\lambda_{1}\left(\frac{1}{\delta}\delta I_{j}\right)=\lvert\frac{1}{\delta}\rvert\sum_{j\in\N}\lambda_{1}\left(\delta I_{j}\right).
 \]
 
 \end_inset
@@ -7159,7 +7159,7 @@ Taking infimums,
 Taking infimums again yields 
 \begin_inset Formula 
 \[
-\lambda^{*}\left(A\right)\leq\frac{1}{\delta}\lambda^{*}\left(\delta A\right)
+\lambda^{*}\left(A\right)\leq\lvert\frac{1}{\delta}\rvert\lambda^{*}\left(\delta A\right)
 \]
 
 \end_inset

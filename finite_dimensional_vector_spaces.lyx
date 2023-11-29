@@ -255,6 +255,981 @@ Distributivity of scalar multiplication with respect to field addition:
 
 \begin_layout Section
 Determinants
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Determinants"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We shall construct the determinant of linear map 
+\begin_inset Formula $T:\R^{n}\to\R^{n}$
+\end_inset
+
+axiomatically.
+ Determinants are typically defined by a given matrix representation 
+\begin_inset Formula $M_{T}=\left[\begin{array}{cccc}
+| & | &  & |\\
+v_{1} & v_{2} & \ldots & v_{n}\\
+| & | &  & |
+\end{array}\right]$
+\end_inset
+
+ of 
+\begin_inset Formula $T$
+\end_inset
+
+ with respect to the standard basis on 
+\begin_inset Formula $\R^{n}$
+\end_inset
+
+.
+ Here 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ are vectors in 
+\begin_inset Formula $\R^{n}$
+\end_inset
+
+ with respect to the standard basis.
+ As we shall later see, the choice of basis does not matter and so we can
+ think of the determinant as acting on the linear map itself rather the
+ matrix representation.
+\end_layout
+
+\begin_layout Subsection
+Desiderata of the determinant
+\end_layout
+
+\begin_layout Standard
+What properties should our determinant function have? Why do we even need
+ such a function? What does it actually represent? Alas, the determinant
+ is one of those concepts whose usefulness only becomes apparent 
+\emph on
+after 
+\emph default
+you are done constructing it and relaying its properties.
+ In fact, the geometric interpretation of the determinant is often not even
+ covered in a course on Linear Algebra; we shall in fact use the 
+\begin_inset Formula $n-$
+\end_inset
+
+dimensional Lebesgue measure in Section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:lebesgueRNproperties"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+to understand the geometry of determinants in the main text rather than
+ this appendix.
+\end_layout
+
+\begin_layout Standard
+Thus.
+ without much motivation (for now), we set out on a goal to construct a
+ map 
+\begin_inset Formula $\det:M_{n\times n}\to\R$
+\end_inset
+
+ (where 
+\begin_inset Formula $M_{n\times n}$
+\end_inset
+
+ is the vector space of all 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ real valued matrices) that satisfies the following properties:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Linearity in each argument: 
+\series default
+Let 
+\begin_inset Formula $\left\{ v_{i}\right\} _{i=1}^{n},u\in\R^{n}$
+\end_inset
+
+
+\series bold
+ 
+\series default
+and let 
+\begin_inset Formula $\alpha\in\R$
+\end_inset
+
+.
+ Then
+\series bold
+
+\begin_inset Formula 
+\[
+\det\left(\left[\begin{array}{ccccc}
+| &  & | &  & |\\
+v_{1} & \ldots & v_{k}+\alpha u & \ldots & v_{n}\\
+| &  & | &  & |
+\end{array}\right]\right)=\det\left(\left[\begin{array}{ccccc}
+| &  & | &  & |\\
+v_{1} & \ldots & v_{k} & \ldots & v_{n}\\
+| &  & | &  & |
+\end{array}\right]\right)+\alpha\det\left(\left[\begin{array}{ccccc}
+| &  & | &  & |\\
+v_{1} & \ldots & u & \ldots & v_{n}\\
+| &  & | &  & |
+\end{array}\right]\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Preservation under column replacement:
+\series default
+ Let 
+\begin_inset Formula $\left\{ v_{i}\right\} _{i=1}^{n}\in\R^{n}$
+\end_inset
+
+
+\series bold
+ 
+\series default
+and let 
+\begin_inset Formula $\alpha\in\R$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+\det\left(\left[\begin{array}{ccccccc}
+| &  & | &  & | &  & |\\
+v_{1} & \ldots & v_{l}+\alpha v_{k} & \ldots & v_{k} & \ldots & v_{n}\\
+| &  & | &  & | &  & |
+\end{array}\right]\right)=\det\left(\left[\begin{array}{ccccccc}
+| &  & | &  & | &  & |\\
+v_{1} & \ldots & v_{l} & \ldots & v_{k} & \ldots & v_{n}\\
+| &  & | &  & | &  & |
+\end{array}\right]\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Antisymmetry: 
+\series default
+Let 
+\begin_inset Formula $\left\{ v_{i}\right\} _{i=1}^{n}\in\R^{n}$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+\det\left(\left[\begin{array}{ccccccc}
+| &  & | &  & | &  & |\\
+v_{1} & \ldots & v_{l} & \ldots & v_{k} & \ldots & v_{n}\\
+| &  & | &  & | &  & |
+\end{array}\right]\right)=-\det\left(\left[\begin{array}{ccccccc}
+| &  & | &  & | &  & |\\
+v_{1} & \ldots & v_{k} & \ldots & v_{l} & \ldots & v_{n}\\
+| &  & | &  & | &  & |
+\end{array}\right]\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Normalization: 
+\begin_inset Formula $\det\left(I_{n}\right)=1$
+\end_inset
+
+ 
+\series default
+where 
+\begin_inset Formula $I_{n}$
+\end_inset
+
+ is the 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ identity matrix.
+\end_layout
+
+\begin_layout Standard
+It turns out that these properties completely characterize the determinant,
+ in that there exists a unique function that possesses these properties.
+ We shall postpone the proof of existence and uniqueness to the end of this
+ section and derive the properties of the determinant function.
+\end_layout
+
+\begin_layout Subsection
+Properties of the determinant
+\end_layout
+
+\begin_layout Standard
+All the properties of the determinant can be recovered using the axioms
+ above, although some results are harder to prove than others.
+ We start with a few simple results.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:IzeroColumnDetZero"
+
+\end_inset
+
+If 
+\begin_inset Formula $A\in M_{n\times n}$
+\end_inset
+
+ has a zero column, then 
+\begin_inset Formula $\det\left(A\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+This fact follows from linearity since a zero column can be written as 
+\begin_inset Formula $0.v$
+\end_inset
+
+ for any 
+\begin_inset Formula $v\in\R^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:linearlyDependentColumnsDetZero"
+
+\end_inset
+
+If 
+\begin_inset Formula $A\in M_{n\times n}$
+\end_inset
+
+ has linearly dependent columns then 
+\begin_inset Formula $\det\left(A\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula 
+\[
+A=\left[\begin{array}{ccccccc}
+| &  & | &  & | &  & |\\
+v_{1} & \ldots & v_{l} & \ldots & v_{k} & \ldots & v_{n}\\
+| &  & | &  & | &  & |
+\end{array}\right]
+\]
+
+\end_inset
+
+and notice that if the columns of 
+\begin_inset Formula $A$
+\end_inset
+
+ are linearly dependent then there exist constants 
+\begin_inset Formula $\left\{ \alpha_{i}\right\} _{i=1}^{n}\in\R$
+\end_inset
+
+,, such that 
+\begin_inset Formula $\sum_{i=1i\neq l}^{n}\alpha_{i}v_{i}=v_{l}.$
+\end_inset
+
+ Now, we can write
+\begin_inset Formula 
+\begin{align*}
+\det\left(A\right) & =\det\left(\left[\begin{array}{ccccccc}
+| &  & | &  & | &  & |\\
+v_{1} & \ldots & \sum_{i=1i\neq l}^{n}\alpha_{i}v_{i} & \ldots & v_{k} & \ldots & v_{n}\\
+| &  & | &  & | &  & |
+\end{array}\right]\right)\\
+ & =\sum_{i\neq l}\alpha_{i}\det\left(\left[\begin{array}{ccccccc}
+| &  & | &  & | &  & |\\
+v_{1} & \ldots & v_{i} & \ldots & v_{k} & \ldots & v_{n}\\
+| &  & | &  & | &  & |
+\end{array}\right]\right)\\
+ & =0
+\end{align*}
+
+\end_inset
+
+where in the second equality we have used linearity and in the last equality
+ we have used anti-symmetry and the fact that if 
+\begin_inset Formula $\det\left(B\right)=-\det\left(B\right)$
+\end_inset
+
+ then 
+\begin_inset Formula $\det\left(B\right)=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we have sufficiently many properties to describe the determinants of
+ the most elementary types of matrices.
+ Recall that the elementary linear maps 
+\begin_inset Formula $T:\R^{n}\to\R^{n}$
+\end_inset
+
+ are
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Row scaling: 
+\begin_inset Formula $T\left(x_{1,}\ldots,x_{k},\ldots,x_{n}\right)^{T}=\left(x_{1},\ldots cx_{k},\ldots x_{n}\right)^{T}$
+\end_inset
+
+ 
+\series default
+for some 
+\begin_inset Formula $c\in\R$
+\end_inset
+
+.
+ The matrix with respect to the standard basis of this transformation is
+ 
+\begin_inset Formula $\diag\left(1,1,\ldots,c,\ldots,1\right).$
+\end_inset
+
+ By linearity and the normalization property of determinants, 
+\begin_inset Formula $\det\left(T\right)=c.$
+\end_inset
+
+ More generally, for any diagonal matrix 
+\begin_inset Formula $D=\diag\left(a_{1},a_{2},\ldots,d_{n}\right)$
+\end_inset
+
+ we have that 
+\begin_inset Formula $\det\left(D\right)=\prod_{i=1}^{n}a_{i}$
+\end_inset
+
+ by linearity and normalization.
+ 
+\begin_inset Formula $T$
+\end_inset
+
+ is invertible with 
+\begin_inset Formula $T^{-1}$
+\end_inset
+
+ being represented by 
+\begin_inset Formula $\diag\left(1,1,\ldots,\frac{1}{c},\ldots,1\right)$
+\end_inset
+
+.
+ The tranpose of 
+\begin_inset Formula $T^{T}=T$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Row switching: 
+\begin_inset Formula $T\left(x_{1},\ldots x_{l},\ldots x_{k},\ldots,x_{n}\right)^{T}=\left(x_{1},\ldots,x_{k},\ldots,x_{l},\ldots,x_{n}\right)^{T}$
+\end_inset
+
+ 
+\series default
+for any 
+\begin_inset Formula $1\leq l\leq k\leq n.$
+\end_inset
+
+ The matrix of this operator wrt to the standard basis is 
+\begin_inset Formula $\left[e_{1},\ldots e_{k},\ldots,e_{l},\ldots,e_{n}\right]$
+\end_inset
+
+ where 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ is the 
+\begin_inset Formula $i$
+\end_inset
+
+th standard basis element.
+ Clearly, 
+\begin_inset Formula $\det\left(T\right)=-1$
+\end_inset
+
+ by antisymmetry.
+ Again, 
+\begin_inset Formula $T$
+\end_inset
+
+ is invertible and is its own inverse.
+ The tranpose of 
+\begin_inset Formula $T$
+\end_inset
+
+ is 
+\begin_inset Formula $T$
+\end_inset
+
+ itself.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Row replacement
+\begin_inset Formula $T\left(x_{1},\ldots x_{l},\ldots x_{k},\ldots,x_{n}\right)^{T}=\left(x_{1},\ldots,x_{l}+cx_{k},\ldots,x_{k},\ldots,x_{n}\right)^{T}$
+\end_inset
+
+
+\series default
+for any 
+\begin_inset Formula $1\leq l<l\leq n$
+\end_inset
+
+ and any 
+\begin_inset Formula $c\in\R$
+\end_inset
+
+.
+ The matrix representation of this map is given by 
+\begin_inset Formula $\left[e_{1},\ldots,e_{l},\ldots,e_{k}+ce_{l},\ldots,e_{n}\right]$
+\end_inset
+
+ with determinant 
+\begin_inset Formula $\det\left(T\right)=1$
+\end_inset
+
+ by linearity and Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:linearlyDependentColumnsDetZero"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ This function is also clearly invertible and its inverse is an operations
+ of the same type.
+ The tranpose is also an operation of the same type.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:detMatrixTimesElementary"
+
+\end_inset
+
+Let 
+\begin_inset Formula $A\in M_{n\times n}$
+\end_inset
+
+ and let 
+\begin_inset Formula $T\in M_{n\times n}$
+\end_inset
+
+ be the standard basis representation of an elementary row operation as
+ above.
+ Then
+\begin_inset Formula 
+\[
+\det\left(AT\right)=\det\left(A\right)\det\left(T\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First consider the case when 
+\begin_inset Formula $T$
+\end_inset
+
+ is the scaling operator for the 
+\begin_inset Formula $k$
+\end_inset
+
+th coordinate.
+ Then, letting 
+\begin_inset Formula $A=\left[\begin{array}{ccccccc}
+| &  & | &  & | &  & |\\
+v_{1} & \ldots & v_{l} & \ldots & v_{k} & \ldots & v_{n}\\
+| &  & | &  & | &  & |
+\end{array}\right]$
+\end_inset
+
+, we have 
+\begin_inset Formula $ST=\left[\begin{array}{ccccccc}
+| &  & | &  & | &  & |\\
+v_{1} & \ldots & v_{l} & \ldots & cv_{k} & \ldots & v_{n}\\
+| &  & | &  & | &  & |
+\end{array}\right]$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\[
+\det\left(AT\right)=c\det\left(A\right)=\det\left(A\right)\det\left(T\right).
+\]
+
+\end_inset
+
+Next, let 
+\begin_inset Formula $T$
+\end_inset
+
+ is the row switching operator.
+ Then 
+\begin_inset Formula $AT=\left[\begin{array}{ccccccc}
+| &  & | &  & | &  & |\\
+v_{1} & \ldots & v_{k} & \ldots & v_{l} & \ldots & v_{n}\\
+| &  & | &  & | &  & |
+\end{array}\right]$
+\end_inset
+
+ and by antisymmetry
+\begin_inset Formula 
+\[
+\det\left(AT\right)=-\det\left(A\right)=\det\left(A\right)\det\left(T\right).
+\]
+
+\end_inset
+
+Finally, if 
+\begin_inset Formula $T$
+\end_inset
+
+ is the row replacement operator, then 
+\begin_inset Formula $AT=\left[\begin{array}{ccccccc}
+| &  & | &  & | &  & |\\
+v_{1} & \ldots & v_{l} & \ldots & v_{k}+cv_{l} & \ldots & v_{n}\\
+| &  & | &  & | &  & |
+\end{array}\right]$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+\det\left(AT\right)=\det\left(A\right)+c\det\left(\left[\begin{array}{ccccccc}
+| &  & | &  & | &  & |\\
+v_{1} & \ldots & v_{l} & \ldots & v_{l} & \ldots & v_{n}\\
+| &  & | &  & | &  & |
+\end{array}\right]\right)=\det\left(A\right)
+\]
+
+\end_inset
+
+ by linear dependence.
+\end_layout
+
+\begin_layout Standard
+Note that by our work on simultaneous linear equations and their solutions,
+ every invertible matrix 
+\begin_inset Formula $A\in M_{n\times n}$
+\end_inset
+
+ can be reduced to the identity matrix by multiplication with elementary
+ matrices from the left i.e.
+ 
+\begin_inset Formula $I=T_{1}T_{2}..T_{k}A.$
+\end_inset
+
+ Then,
+\begin_inset Formula 
+\[
+A=T_{k}^{-1}T_{k-1}^{-1}\ldots T_{1}^{-1}
+\]
+
+\end_inset
+
+where each 
+\begin_inset Formula $T_{i}^{-1}$
+\end_inset
+
+ is an elementary operation and so 
+\begin_inset Formula $\det\left(A\right)=\prod_{k=1}^{n}\det\left(T_{i}^{-1}\right)$
+\end_inset
+
+ by inducting on Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:detMatrixTimesElementary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:detProduct"
+
+\end_inset
+
+Let 
+\begin_inset Formula $A,B\in M_{n\times n}$
+\end_inset
+
+.
+ Then, 
+\begin_inset Formula 
+\[
+\det\left(AB\right)=\det\left(BA\right)=\det\left(A\right)\det\left(B\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First suppose that 
+\begin_inset Formula $A,B$
+\end_inset
+
+ are both invertible.
+ Then 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ are products of elementary transformations and so 
+\begin_inset Formula $\det\left(AB\right)=\det\left(A\right)\det\left(B\right).$
+\end_inset
+
+ If either, 
+\begin_inset Formula $A$
+\end_inset
+
+ or 
+\begin_inset Formula $B$
+\end_inset
+
+ is not invertible, then neither 
+\begin_inset Formula $AB$
+\end_inset
+
+ nor 
+\begin_inset Formula $BA$
+\end_inset
+
+ are invertible since neither operator is either injective or surjective
+ (by rank-nullity) but have the same domains.
+ Suppose without loss of generality that 
+\begin_inset Formula $B$
+\end_inset
+
+ is not invertible.
+ Then by the rank nullity theorem, 
+\begin_inset Formula $\ker\left(B\right)$
+\end_inset
+
+ is trivial, which is equivalent to the fact 
+\begin_inset Formula $B$
+\end_inset
+
+ has linearly dependent columns and so 
+\begin_inset Formula $\det\left(B\right)=0$
+\end_inset
+
+.
+ The same argument applied to 
+\begin_inset Formula $AB$
+\end_inset
+
+ or 
+\begin_inset Formula $BA$
+\end_inset
+
+ shows that 
+\begin_inset Formula $\det\left(AB\right)=\det\left(BA\right)=0.$
+\end_inset
+
+ This completes the proof.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:invertibleDetZero"
+
+\end_inset
+
+A matrix 
+\begin_inset Formula $A\in M_{n\times n}$
+\end_inset
+
+ is invertible if and only if 
+\begin_inset Formula $\det\left(A\right)\neq0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We have already shown that if 
+\begin_inset Formula $A$
+\end_inset
+
+ is not invertible, then 
+\begin_inset Formula $A$
+\end_inset
+
+ has linearly dependent columns and so 
+\begin_inset Formula $\det\left(A\right)=0.$
+\end_inset
+
+ Conversely, suppose that 
+\begin_inset Formula $\det\left(A\right)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $A$
+\end_inset
+
+ is invertible.
+ Then 
+\begin_inset Formula $1=\det\left(I\right)=\det\left(AA^{-1}\right)=\det\left(A\right)\det\left(A^{-1}\right)=0$
+\end_inset
+
+ which is a contradiction.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:detOfInverse"
+
+\end_inset
+
+Let 
+\begin_inset Formula $A\in M_{n\times n}$
+\end_inset
+
+ be invertible.
+ Then
+\begin_inset Formula 
+\[
+\det\left(A^{-1}\right)=\frac{1}{\det\left(A\right)}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $1=\det\left(I\right)=\det\left(AA^{-1}\right)=\det\left(A\right)\det\left(A^{-1}\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:detBasisInvariance"
+
+\end_inset
+
+If 
+\begin_inset Formula $A,B\in M_{n\times n}$
+\end_inset
+
+ are similar matrices, then 
+\begin_inset Formula 
+\[
+\det\left(A\right)=\det\left(B\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $P\in M_{n\times n}$
+\end_inset
+
+ be invertible such that 
+\begin_inset Formula 
+\[
+A=PBP^{-1}.
+\]
+
+\end_inset
+
+Then, 
+\begin_inset Formula 
+\begin{align*}
+\det\left(A\right) & =\det\left(PBP^{-1}\right)\\
+ & =\det\left(P\right)\det\left(B\right)\det\left(P^{-1}\right)\\
+ & =\det\left(P\right)\det\left(B\right)\frac{1}{\det\left(P\right)}\\
+ & =\det\left(B\right).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that this tells us that the determinant of a matrix doesn't change
+ under a change of basis.
+ In other words, we can think of the determinant as acting on the operator
+ that the matrix represents rather than the matrix itself.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:detTranspose"
+
+\end_inset
+
+For any 
+\begin_inset Formula $A\in M_{n\times n}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\det\left(A\right)=\det\left(A^{T}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+If 
+\begin_inset Formula $A$
+\end_inset
+
+ is not invertible then 
+\begin_inset Formula $A^{T}$
+\end_inset
+
+ is also not invertible and so both determinants are zero.
+ On the other hand, if 
+\begin_inset Formula $A$
+\end_inset
+
+ is invertible then 
+\begin_inset Formula $A=T_{1}T_{2}\ldots T_{k}$
+\end_inset
+
+ for some 
+\begin_inset Formula $k$
+\end_inset
+
+ where 
+\begin_inset Formula $T_{i}$
+\end_inset
+
+ are elementary matrices.
+ Then, 
+\begin_inset Formula $A^{T}=T_{k}^{T}T_{k-1}^{T}\ldots T_{1}^{T}$
+\end_inset
+
+, where the determinant of 
+\begin_inset Formula $T_{i}$
+\end_inset
+
+ is the same as the determinant of 
+\begin_inset Formula $T_{i}^{T}$
+\end_inset
+
+.
+ The result then follows by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:detProduct"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Subsection
+Existence and uniqueness
+\end_layout
+
+\begin_layout Subsection
+The cofactor expansion
+\end_layout
+
+\begin_layout Section
+Eigenvalues and eigenvectors
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:finiteDimEigenvalues"
+
+\end_inset
+
+
 \end_layout
 
 \end_body

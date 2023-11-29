@@ -84,6 +84,13 @@ figs-within-sections
 
 \begin_layout Chapter
 Measures on product spaces
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:productMeasures"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -673,6 +680,23 @@ Finally, take some
 \end_inset
 
  is measurable completing the proof.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Add remarks under each measurability lemma to extend to n dimensions
+ via induction}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1373,6 +1397,7 @@ noprefix "false"
 
 finite, follows from the uniqueness theorem, as outlined in the proof of
  Tonelli.
+ Note also the fact that the product of sigma finite measures is sigma finite.
  Tonelli (or Fubini) also tell us that for non-negative measurable (or integrabl
 e) functions, the integral with respect to the product measure coincides
  with iterated integrals, at least when the measure spaces are 
@@ -1393,7 +1418,7 @@ for any
 \end_inset
 
  (
-\begin_inset Formula $f\in\Lp 1{\mu\otimes v}$
+\begin_inset Formula $f\in\Lp1{\mu\otimes v}$
 \end_inset
 
 ).
@@ -3449,12 +3474,899 @@ status open
 
 
 \backslash
-hl{FUBINI IMPLIES YOUNGS THEOREM ON SYMMETRY}
+hl{Formalize extension of Fubini etc to $n$ dimension}
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+It should be easy to guess that by induction, we can extend the construction
+ of product measures to products of 
+\begin_inset Formula $n$
+\end_inset
+
+
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measure spaces.
+ That is, for spaces 
+\begin_inset Formula $\left\{ \left(\X_{i},\mathcal{F}_{i},\mu_{i}\right)\right\} _{i=1}^{n}$
+\end_inset
+
+ , we can define the product space 
+\begin_inset Formula $\left(\prod_{i=1}^{n}\X_{i},\otimes_{i}\F_{i}\right)$
+\end_inset
+
+ and show that for sigme finite measures 
+\begin_inset Formula $\mu_{i}$
+\end_inset
+
+ on 
+\begin_inset Formula $\F_{i}$
+\end_inset
+
+, there exists a unique product measure 
+\begin_inset Formula $\otimes_{i=1}^{n}\mu_{i}$
+\end_inset
+
+ such that for 
+\begin_inset Formula $\prod F_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $F_{i}\in\F_{i}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\otimes_{i=1}^{n}\mu_{i}\left(\prod_{i=1}^{n}F_{i}\right)=\prod_{i=1}^{n}\mu_{i}\left(F_{i}\right).
+\]
+
+\end_inset
+
+This requires us to use the canonical identification between 
+\begin_inset Formula $\prod_{i=1}^{n}\X_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\prod_{i=1}^{n-1}\X_{i}\right)\times\X_{n}$
+\end_inset
+
+ and the fact that the product of 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measures is 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite.
+ We can also similarly extend the Fubini-Tonelli theorems, so that for any
+ permutation 
+\begin_inset Formula $\sigma:\left\{ 1,2,\dots,n\right\} \to\left\{ 1,2,\ldots,n\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $f\in\mathcal{M}^{+}\left(\prod_{i=1}^{n}\X_{i},\otimes_{i}\F_{i}\right)$
+\end_inset
+
+ (or 
+\begin_inset Formula $f\in\Lp1{\otimes_{i=1}^{n}\mu_{i}}$
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+\otimes_{i=1}^{n}\mu_{i}\left(f\right)=\mu_{\sigma\left(1\right)}\left(\mu_{\sigma\left(2\right)}\ldots\left(\mu_{\sigma\left(n\right)}\left(f\right)\right)\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the above facts, we can easily construct the Lebesgue measure 
+\begin_inset Formula $\lambda^{n}$
+\end_inset
+
+ on 
+\begin_inset Formula $\borel\left(\R^{n}\right)=\otimes_{i=1}^{n}\borel\left(\R\right)$
+\end_inset
+
+ as the product measure 
+\begin_inset Formula $\otimes_{i=1}^{n}\lambda$
+\end_inset
+
+, where uniqueness is guaranteed by the 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finiteness of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ Equivalently, we can construct the Lebesgue measure using the Caratheodory
+ approach, by defining 
+\begin_inset Formula $\mathcal{L}^{n}=\left\{ \prod_{i=1}^{n}\left(a_{i},b_{i}\right]\mid\left(a_{i},b_{i}\right]\in\mathcal{L}\right\} $
+\end_inset
+
+, and restricting the canonical outer measure
+\begin_inset Formula 
+\[
+\lambda_{*}^{n}\left(A\right)=\inf\left\{ \sum_{j=1}^{\infty}\lambda_{1}^{n}\left(L_{j}\right)\mid A\subseteq\bigcup_{j\in\N}L_{j},L_{j}\in\mathcal{L}^{n}\right\} 
+\]
+
+\end_inset
+
+to the Lebesgue 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra 
+\begin_inset Formula $\mathcal{C}\left(\lambda_{*}^{n}\right)$
+\end_inset
+
+.
+ This works because the collection 
+\begin_inset Formula $\mathcal{L}^{n}$
+\end_inset
+
+ can be shown to be a semi-ring and 
+\begin_inset Formula $\lambda_{1}^{n}:\mathcal{L}^{n}\to\left[0,\infty\right]$
+\end_inset
+
+ (here 
+\begin_inset Formula $\lambda_{1}^{n}\left(\prod_{i=1}^{n}L_{i}\right)=\prod_{i=1}^{n}\lambda_{1}\left(L_{i}\right)$
+\end_inset
+
+where 
+\begin_inset Formula $L_{i}\in\mathcal{L}$
+\end_inset
+
+) can be shown to satisfy the requirements of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:semiRingCaratheodoryExtn"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Basic properties of the Lebesgue measure
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:lebesgueRNproperties"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The first property of the Lebesgue measure that we establish is a generalization
+ of Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:outerMeasureScales"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ to 
+\begin_inset Formula $n-$
+\end_inset
+
+dimensions.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:outerMeasureScalesNDim"
+
+\end_inset
+
+For 
+\begin_inset Formula $\delta\neq0$
+\end_inset
+
+ and any 
+\begin_inset Formula $A\in\borel\left(\R^{n}\right)$
+\end_inset
+
+ we have 
+\begin_inset Formula $\delta B\in\borel\left(\R^{n}\right)$
+\end_inset
+
+.
+ Further, for any 
+\begin_inset Formula $A\subseteq\R^{n}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lambda_{*}^{n}\left(\delta A\right)=\lvert\delta\rvert^{n}\lambda_{*}^{n}\left(A\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Measurability follows by a simple generating class argument as in the Lemma
+ (or alternatively, let 
+\begin_inset Formula $f\left(x\right)=\frac{x}{\delta}$
+\end_inset
+
+ and notice that 
+\begin_inset Formula $f^{-1}$
+\end_inset
+
+is a continuous function and 
+\begin_inset Formula $f^{-1}\left[B\right]=\delta B\in\borel\left(\R\right)$
+\end_inset
+
+).
+ Next, notice that for 
+\begin_inset Formula $n=1$
+\end_inset
+
+ this result is result is Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:outerMeasureScales"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Suppose the result holds for 
+\begin_inset Formula $n-1$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $B\in\borel\left(\R^{n-1}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $A\in\borel\left(\R\right)$
+\end_inset
+
+, then 
+\begin_inset Formula 
+\begin{align*}
+\lambda^{n}\left(\delta\left(B\times A\right)\right) & =\lambda^{n}\left(\left(\delta B\right)\times\left(\delta A\right)\right)\\
+ & =\lambda^{n-1}\left(\delta B\right)\lambda\left(\delta A\right)\\
+ & =\lvert\delta^{n}\rvert\lambda^{n-1}\left(B\right)\lambda\left(A\right)\\
+ & =\lvert\delta^{n}\rvert\lambda^{n}\left(B\times A\right).
+\end{align*}
+
+\end_inset
+
+By the identification between 
+\begin_inset Formula $\R^{n-1}\times\R$
+\end_inset
+
+ and 
+\begin_inset Formula $\R^{n}$
+\end_inset
+
+, our scaling result holds on 
+\begin_inset Formula $\mathcal{L}^{n}$
+\end_inset
+
+.
+ Extending the proof to any arbitrary set 
+\begin_inset Formula $A\subseteq\R^{n}$
+\end_inset
+
+proceeds exactly as in Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:outerMeasureScales"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:dilationIntegral"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\delta\neq0$
+\end_inset
+
+ be arbitrary.
+ For any 
+\begin_inset Formula $f\in\mathcal{M}^{+}\left(\R^{n},\borel\left(\R^{n}\right)\right)$
+\end_inset
+
+ (or 
+\begin_inset Formula $f\in\Lp 1{\lambda^{n}})$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lebInt{\lambda^{n}}{f\left(\delta x\right)}=\frac{1}{\lvert\delta^{n}\rvert}\lebInt{\lambda^{n}}{f\left(x\right)}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $g\left(x\right)=\delta x$
+\end_inset
+
+ and notice that by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:outerMeasureScalesNDim"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the image measure 
+\begin_inset Formula $\lambda^{n}g$
+\end_inset
+
+ agrees with the measure 
+\begin_inset Formula $\frac{1}{\lvert\delta^{n}\rvert}\lambda^{n}$
+\end_inset
+
+ on all Borel sets.
+ By the change of variables formula in Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:changeOfVariables"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $\lebInt{\lambda^{n}}{f\left(\delta x\right)}=\lebInt{\lambda^{n}g}f=\frac{1}{\lvert\delta^{n}\rvert}\lebInt{\lambda^{n}}f.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We also have translation invariance, which is the analogue of Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:outerMeasureTranslationInvariant"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:outerMeasureTranslationInvariantNDim"
+
+\end_inset
+
+Let 
+\begin_inset Formula $A\subseteq\R^{n}$
+\end_inset
+
+ be an arbitrary set.
+ Then the translated set 
+\begin_inset Formula $A+t:=\left\{ a+t\mid a\in A\right\} $
+\end_inset
+
+ has Lebesgue outer measure
+\begin_inset Formula 
+\[
+\lambda_{*}^{n}\left(A+t\right)=\lambda_{*}^{n}\left(A\right)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $t\in\R$
+\end_inset
+
+.
+ Moreover, for any set 
+\begin_inset Formula $A\in\borel\left(\R^{n}\right),$
+\end_inset
+
+
+\begin_inset Formula $A+t\in\borel\left(\R^{n}\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Again, the measurability result is a generating class argument (or let 
+\begin_inset Formula $f\left(x\right)=x-t$
+\end_inset
+
+...).
+ The result holds for 
+\begin_inset Formula $n=1$
+\end_inset
+
+ by the Lemma.
+ Suppose it holds for 
+\begin_inset Formula $n-1$
+\end_inset
+
+ .
+ Letting 
+\begin_inset Formula $B\in\borel\left(\R^{n-1}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $A\in\borel\left(\R\right)$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\begin{align*}
+\lambda^{n}\left(\left(B\times A\right)+t\right) & =\lambda^{n}\left(\left(B+t\right)\times\left(A+t\right)\right)\\
+ & =\lambda^{n-1}\left(B+t\right)\lambda\left(A+t\right)\\
+ & =\lambda^{n-1}\left(B\right)\lambda\left(A\right)\\
+ & =\lambda^{n}\left(B\times A\right).
+\end{align*}
+
+\end_inset
+
+Extending this to the general case follows exactly as in the Lemma.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:translationInvarianceIntegral"
+
+\end_inset
+
+Let 
+\begin_inset Formula $t\in\R$
+\end_inset
+
+ be arbitrary.
+ For any 
+\begin_inset Formula $f\in\mathcal{M}^{+}\left(\R^{n},\borel\left(\R^{n}\right)\right)$
+\end_inset
+
+ (or 
+\begin_inset Formula $f\in\Lp 1{\lambda^{n}})$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lebInt{\lambda^{n}}{f\left(x+t\right)}=\lebInt{\lambda^{n}}{f\left(x\right)}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $g\left(x\right)=x+t$
+\end_inset
+
+ and notice that by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:outerMeasureTranslationInvariantNDim"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the image measure 
+\begin_inset Formula $\lambda^{n}g$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda^{n}$
+\end_inset
+
+ agree on all Borel sets.
+ But recall that by the general change of variables formula in Corollary
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:changeOfVariables"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $\lebInt{\lambda^{n}}{f\left(x+t\right)}=\lebInt{\lambda^{n}g}f=\lebInt{\lambda^{n}}f.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These two results are rather banal because they don't offer much additional
+ insight over and above the corresponding results for the usual Lebesgue
+ measure on the line.
+ In order to derive some interesting properties of 
+\begin_inset Formula $\lambda^{n}$
+\end_inset
+
+, we need to exploit the rich geometric structure of the Euclidean space
+ and the functions that act on it.
+ In order to do so, we need to review some basic linear algebra.
+ Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Determinants"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ on determinants is key here; please re-read this section carefully before
+ we embark on the next result.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:changeOfVariablesAffineElementary"
+
+\end_inset
+
+Let 
+\begin_inset Formula $T:\R^{n}\to\R^{n}$
+\end_inset
+
+ be an elementary map and let 
+\begin_inset Formula $f\in\mathcal{M}^{+}\left(\R,\borel\left(\R\right)\right)$
+\end_inset
+
+ (or 
+\begin_inset Formula $f\in\Lp 1{\lambda^{n}}$
+\end_inset
+
+).
+ Then 
+\begin_inset Formula $f\circ T\in\mathcal{M}^{+}\left(\R,\F\right)$
+\end_inset
+
+ (
+\begin_inset Formula $f\circ T\in\Lp 1{\lambda^{n}}$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+\lvert\det\left(T\right)\rvert\lebInt{\lambda^{n}}{f\circ T}=\lebInt{\lambda^{n}}f.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The measurability is trivial and so first, suppose 
+\begin_inset Formula $T$
+\end_inset
+
+ is the row scaling operator, and note that if 
+\begin_inset Formula $T\left(x_{1},\ldots,x_{k},\ldots,x_{n}\right)=\left(x_{1},\ldots,cx_{k},\ldots x_{n}\right),$
+\end_inset
+
+with 
+\begin_inset Formula $c\ne0,$
+\end_inset
+
+then 
+\begin_inset Formula $\det\left(T\right)=c$
+\end_inset
+
+ and so by Tonelli (Fubini)
+\begin_inset Formula 
+\begin{align*}
+\lambda^{n}\left(f\circ T\right) & =\lambda^{x_{-k}}\lambda^{x_{k}}\left(f\left(x_{1},\ldots,cx_{k},\ldots,x_{n}\right)\right)\\
+ & =\frac{1}{\lvert c\rvert}\lambda^{x_{-k}}\lambda^{x_{k}}\left(f\left(x_{1},\ldots,x_{k},\ldots x_{n}\right)\right)\\
+ & =\frac{1}{\lvert c\rvert}\lambda^{n}\left(f\right)
+\end{align*}
+
+\end_inset
+
+where in the second line we used Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:dilationIntegral"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for 
+\begin_inset Formula $n=1$
+\end_inset
+
+.
+ Next, suppose that 
+\begin_inset Formula $T$
+\end_inset
+
+ is the row switching operator which as 
+\begin_inset Formula $\det\left(T\right)=-1$
+\end_inset
+
+ and clearly Tonelli-Fubini imply that the integral is invariant under any
+ permutation of indices and so the result follows.
+ Finally, suppose that 
+\begin_inset Formula $T$
+\end_inset
+
+ is the row replacement operator i.e 
+\begin_inset Formula $T\left(x_{1},\ldots,x_{l},\ldots x_{k},\ldots,x_{n}\right)=\left(x_{1},\ldots,x_{l}+cx_{k},\ldots x_{k},\ldots,x_{n}\right)$
+\end_inset
+
+.
+ Again, by Tonelli (Fubini)
+\begin_inset Formula 
+\begin{align*}
+\lambda^{n}\left(f\circ T\right) & =\lambda^{x_{-l}}\lambda^{x_{l}}\left(f\left(x_{1},\ldots,x_{l}+cx_{k},\ldots,x_{n}\right)\right)\\
+ & =\lambda^{x_{-l}}\lambda^{x_{l}}\left(f\left(x_{1},\ldots,x_{l},\ldots x_{k},\ldots,x_{n}\right)\right)\\
+ & =\lambda^{n}\left(f\right)
+\end{align*}
+
+\end_inset
+
+which establishes the result since 
+\begin_inset Formula $\det\left(T\right)=1.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:changeOfVariablesLinear"
+
+\end_inset
+
+Let 
+\begin_inset Formula $T:\R^{n}\to\R^{n}$
+\end_inset
+
+ be an invertbe linear map and let 
+\begin_inset Formula $f\in\mathcal{M}^{+}\left(\R,\borel\left(\R\right)\right)$
+\end_inset
+
+ (or 
+\begin_inset Formula $f\in\Lp 1{\lambda^{n}}$
+\end_inset
+
+).
+ Then 
+\begin_inset Formula $f\circ T\in\mathcal{M}^{+}\left(\R,\F\right)$
+\end_inset
+
+ (
+\begin_inset Formula $f\circ T\in\Lp 1{\lambda^{n}}$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\lvert\det\left(T\right)\rvert\lambda^{n}\left(f\circ T\right)=\lambda^{n}\left(f\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The measurability is again trivial.
+ Since the matrices of arbitrary invertible maps are the product of elementary
+ matrices, all we need to show is that for two elementary matrices 
+\begin_inset Formula $E_{1},E_{2}$
+\end_inset
+
+ , the product matrix 
+\begin_inset Formula $E=E_{1}E_{2}$
+\end_inset
+
+ satisfies the conclusion of the theorem.
+ The general claim then follows by induction.
+ Clearly, 
+\begin_inset Formula 
+\begin{align*}
+\lvert\det\left(E\right)\rvert\lambda^{n}\left(f\circ E\right) & =\lvert\det\left(E_{1}\right)\rvert\lvert\det\left(E_{2}\right)\rvert\lambda^{n}\left(\left(f\circ E_{1}\right)\circ E_{2}\right)\\
+ & =\lvert\det\left(E_{1}\right)\rvert\lambda^{n}\left(f\circ E_{1}\right)\\
+ & =\lambda^{n}\left(f\right)
+\end{align*}
+
+\end_inset
+
+where the first equality uses the associativity of composition and Proposition
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:detProduct"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the second equality uses Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:changeOfVariablesAffineElementary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ applied to 
+\begin_inset Formula $T=E_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $f=f\circ E_{1}$
+\end_inset
+
+.
+ The last equality is yet another application of the previous lemma.
+\end_layout
+
+\begin_layout Standard
+Note that a corollary of this result is the fact that the Lebesgue measure
+ is rotationally invariant.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:lebesgueRotationalInvariance"
+
+\end_inset
+
+Let 
+\begin_inset Formula $R:\R^{n}\to\R^{n}$
+\end_inset
+
+ be a rotation.
+ Then for any Borel set 
+\begin_inset Formula $B\in\borel\left(\R^{n}\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lambda^{n}\left(R\left(B\right)\right)=\lambda^{n}\left(B\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that rotations are orthogonal linear maps in that 
+\begin_inset Formula $RR^{T}=I$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\[
+\det\left(R\right)=\frac{1}{\det\left(R^{T}\right)}.
+\]
+
+\end_inset
+
+But recall from Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:detTranspose"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that 
+\begin_inset Formula $\det\left(R\right)=\det\left(R^{T}\right)$
+\end_inset
+
+ and so
+\begin_inset Formula 
+\[
+\lvert\det\left(T\right)\rvert=1.
+\]
+
+\end_inset
+
+We then apply 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:changeOfVariablesLinear"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+with 
+\begin_inset Formula $f=\indicate_{B}$
+\end_inset
+
+ and 
+\begin_inset Formula $T=R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+The Lebesgue differentiation theorem
+\end_layout
+
+\begin_layout Subsection
+Change-of-variables
+\end_layout
+
+\begin_layout Subsection
+Integration with polar coordinates
+\end_layout
+
+\begin_layout Subsection
+Symmetry of partial derivatives
 \end_layout
 
 \begin_layout Section
