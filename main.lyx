@@ -348,6 +348,16 @@ filename "integration.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
+filename "topology.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
 filename "spaces_of_functions.lyx"
 
 \end_inset
@@ -369,6 +379,90 @@ filename "differentiation.lyx"
 \begin_inset CommandInset include
 LatexCommand include
 filename "product_measures.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "fourier_transforms.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "measure_and_topology.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Probability
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "independence.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "generating_functions.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "probability_distributions.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "conditioning.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "martingales.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "laws_of_large_numbers.lyx"
 
 \end_inset
 
