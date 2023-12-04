@@ -648,7 +648,7 @@ Let
 \end_inset
 
  be a measure space such that 
-\begin_inset Formula $\mu(\X)<\infty.$
+\begin_inset Formula $0<\mu(\X)<\infty.$
 \end_inset
 
  Then for 
@@ -663,14 +663,18 @@ Let
 
 \end_inset
 
-and for any 
+and there exists some 
+\begin_inset Formula $C>0$
+\end_inset
+
+ such that for any 
 \begin_inset Formula $f\in\Lp p{\mu}$
 \end_inset
 
 
 \begin_inset Formula 
 \[
-\pnorm fp\geq\pnorm fq.
+C\pnorm fp\geq\pnorm fq.
 \]
 
 \end_inset
@@ -737,7 +741,11 @@ th root yields
 
 \end_inset
 
-which completes the proof.
+which completes the proof with 
+\begin_inset Formula $C=\mu(\X)^{\frac{s-1}{sq}}.$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Definition
@@ -1698,7 +1706,7 @@ and if
 \end_inset
 
  The case of 
-\begin_inset Formula $x=0$
+\begin_inset Formula $x=x_{0}$
 \end_inset
 
  is trivial.
@@ -2067,7 +2075,7 @@ Let
 \end_inset
 
  For any integrable function 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
  and a convex function 
@@ -2182,14 +2190,11 @@ where in the second line we have used the linearity of integration along
 \end_layout
 
 \begin_layout Subsection
+The space 
 \begin_inset Formula $L^{\infty}$
 \end_inset
 
- as the limit of 
-\begin_inset Formula $L^{p}$
-\end_inset
 
- spaces
 \end_layout
 
 \begin_layout Standard
@@ -2235,8 +2240,8 @@ we have that
 
 \end_inset
 
-To see this is indeed a norm, we can verify that positivity non-negativity
- is satisfied by definition.
+To see this is indeed a semi-norm, we can verify that non-negativity is
+ satisfied by definition.
  To see homogeneity, observe that for any 
 \begin_inset Formula $\alpha\neq0$
 \end_inset
@@ -2392,7 +2397,7 @@ Conversely, note that for any
 
 where we have used homogeneity in the second line.
  Note that the right hand side is finite by Markov's inequality since 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
  and 
@@ -2431,6 +2436,38 @@ is an essential supremum so any smaller real number cannot be an essential
 \end_inset
 
 which completes the proof for the essentially bounded case.
+\end_layout
+
+\begin_layout Subsubsection
+Uniform convergence and 
+\begin_inset Formula $L^{\infty}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Recall from basic analysis (or our discussion on Egorov's theorem) the notion
+ of uniform convergence.
+ We say
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:uniformConvergence"
+
+\end_inset
+
+A sequence of functions 
+\begin_inset Formula $f_{n}\in\measurableFunctions$
+\end_inset
+
+ converges uniformly to a function 
+\begin_inset Formula $f\in\measurableFunctions$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2738,7 +2775,7 @@ The claim is trivially true if either
 \end_inset
 
  as 
-\begin_inset Formula $\innerproduct 0w=0\innerproduct vw$
+\begin_inset Formula $\innerproduct0w=0\innerproduct vw$
 \end_inset
 
  by linearity.
@@ -3398,7 +3435,7 @@ Let
 
  be a measure space.
  The space 
-\begin_inset Formula $\Lp 2{\X,\F,\mu}$
+\begin_inset Formula $\Lp2{\X,\F,\mu}$
 \end_inset
 
  is an inner-product space with inner product 
@@ -3418,7 +3455,7 @@ Let
 
 \begin_layout Proof
 Let us verify that 
-\begin_inset Formula $\Lp 2{\mu}$
+\begin_inset Formula $\Lp2{\mu}$
 \end_inset
 
  satisfies the parallelogram identity.
@@ -3454,7 +3491,7 @@ noprefix "false"
 \end_inset
 
  showed that 
-\begin_inset Formula $\Lp 2{\mu}$
+\begin_inset Formula $\Lp2{\mu}$
 \end_inset
 
  is an inner-product space but we also know, from Theorem 
@@ -3468,7 +3505,7 @@ noprefix "false"
 \end_inset
 
  that 
-\begin_inset Formula $\Lp 2{\mu}$
+\begin_inset Formula $\Lp2{\mu}$
 \end_inset
 
  is a complete metric space with respect to the metric induced by its norm.
@@ -4497,7 +4534,7 @@ name "cor:integrationContinuousLinearFunctional"
  and define
 \begin_inset Formula 
 \[
-\Gamma:\Lp 2{\mu}\longrightarrow\R
+\Gamma:\Lp2{\mu}\longrightarrow\R
 \]
 
 \end_inset
