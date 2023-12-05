@@ -2277,30 +2277,11 @@ Note that injectivity is straightforward since if
 \begin_inset Formula $\left[a,b\right].$
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Subsection
 Separable metric spaces
-\end_layout
-
-\begin_layout Section
-Sequences and series of functions
-\end_layout
-
-\begin_layout Subsection
-Power series
-\end_layout
-
-\begin_layout Section
-Special functions
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:specialFunctions"
-
-\end_inset
-
-
 \end_layout
 
 \end_body
