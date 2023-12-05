@@ -7178,7 +7178,7 @@ Next, we apply the generating class argument as above, and let
 \end_inset
 
  (which is an invertible map since 
-\begin_inset Formula $\delta>0$
+\begin_inset Formula $\delta\\neq0$
 \end_inset
 
 ), we can apply the same arguments as earlier to show that 
