@@ -160,6 +160,14 @@ theorems-sec
 
 \begin_layout Standard
 \begin_inset FormulaMacro
+\newcommand{\indep}{\perp\!\!\!\perp}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
 \newcommand{\R}{\mathds{R}}
 \end_inset
 
@@ -201,6 +209,14 @@ theorems-sec
 \begin_layout Standard
 \begin_inset FormulaMacro
 \newcommand{\measurespace}{\left(\X,\F,\mu\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\probabilityspace}{\left(\Omega,\F,\mathbb{\mathbb{\mathbb{P}}}\right)}
 \end_inset
 
 
@@ -422,16 +438,6 @@ filename "independence.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "generating_functions.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
 filename "probability_distributions.lyx"
 
 \end_inset
@@ -469,9 +475,29 @@ filename "laws_of_large_numbers.lyx"
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "central_limit_theorems.lyx"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Part
 \start_of_appendix
 Appendices
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "combinatorics.lyx"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
