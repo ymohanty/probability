@@ -86,20 +86,273 @@ figs-within-sections
 Independence
 \end_layout
 
-\begin_layout Section
-*Foundations
+\begin_layout Standard
+Formal probability theory is often described as measure theory (or more
+ generally, analysis) on measure spaces 
+\begin_inset Formula $\measurespace$
+\end_inset
+
+ where the 
+\begin_inset Formula $\mu\left(\X\right)=1$
+\end_inset
+
+ and to a certain extent the foundational theory does resemble this characteriza
+tion.
+ However probability itself is distinct from foundational probability 
+\emph on
+theory
+\emph default
+, in that its goals and aims are to solve problems that are of a fundamentally
+ different character than problems seen in analysis.
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
+Probability as as subject has a strong combinatorial flavor, since it owes
+ its origins to gambling and games of chance considered by amateur mathematician
+s in the 17th and 18th centuries.
+ These classical ideas still permeate the modern 
+\emph on
+probabilistic way of thinking.
 
-\begin_layout Plain Layout
+\emph default
+ As such, it would be useful to revise the basic combinatorial tools that
+ are indispensable when tackling problems of this nature.
+ These are discussed in Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Combinatorics"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
 
-\backslash
-hl{Use Tao blog}
+.
 \end_layout
+
+\begin_layout Standard
+In general, we can say that probability theory 
+\begin_inset Quotes eld
+\end_inset
+
+has a right hand and a left hand
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The right hand is the rigorous measure-theoretic axiomatization that one
+ encounters in a course on probability theory.
+ The left hand is the probablistic intuition that one develops through trying
+ to model stochastic phenomena with the aforementioned probabilistic way
+ of thinking.
+ Probabilists aim to be ambidextrous in this regard, using the axiomatic
+ framework of probability theory to deduce facts about processes whose parts
+ and subparts can be reduced to “naïve” probabilistic concepts.
+\end_layout
+
+\begin_layout Standard
+In order to cover both parts of probability adequately, we will use the
+ background in analysis developed in Part I of these notes to prove general
+ theorems, while using numerous examples to develop probabilistic intuition.
+ I hope that the combination of theory and examples prove sufficient in
+ painting a vivid picture of probability theory, with a view towards application
+s in statistics in economics.
+\end_layout
+
+\begin_layout Section
+Probability spaces and probability measures
+\end_layout
+
+\begin_layout Standard
+While formal probability theory is based on measure theory, the language
+ of probability theory is different.
+ To start our exploration into probability theory, we shall first have to
+ translate a lot of the basic terminology of measure theory into the langauge
+ of probability.
+ To begin with, we specialize the notion of a measure space 
+\begin_inset Formula $\measurespace$
+\end_inset
+
+ to a probability space 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ where 
+\begin_inset Formula $\mathbb{P}\left(\Omega\right)=1$
+\end_inset
+
+.
+ Measurable sets 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ are called 
+\emph on
+events 
+\emph default
+in the language of probability.
+\end_layout
+
+\begin_layout Section
+Independent events
+\end_layout
+
+\begin_layout Standard
+In Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:productMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we discussed the notion of product measures; the analagous concept in probabili
+ty is that of independence.
+ Informally, we think of independent events as those where the occurence
+ or non-occurenece of one event does not impact the occurence or non-occurence
+ of another.
+ We can formalize this idea with the following definition-
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:independence"
+
+\end_inset
+
+Let 
+\begin_inset Formula $I$
+\end_inset
+
+ be an arbitrary index set.
+ Then a collection of events
+\emph on
+ 
+\emph default
+
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in I}\subset\F$
+\end_inset
+
+ are independent if for every finite subset 
+\begin_inset Formula $J\subset I$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathbb{P}\left[\bigcap_{j\in J}A_{j}\right]=\prod_{j\in J}\mathbb{P}\left[A_{j}\right].
+\]
+
+\end_inset
+
+Two independent events 
+\begin_inset Formula $A,B\in\F$
+\end_inset
+
+ are often denoted 
+\begin_inset Formula $A\indep B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Notice how the index set 
+\begin_inset Formula $I$
+\end_inset
+
+ was arbitrary and so we can have countable or uncountable collections of
+ independent events.
+ Of course, this notion isn't particualrly interesting unless we have some
+ rich examples of such events and the probability spaces they live in.
+ More generally, we have a question of existence: do independent events
+ always exist, no matter the probability space? The answer to this question
+ is trivially yes since 
+\begin_inset Formula $\mathbb{P}\left(\Omega\cap\emptyset\right)=\mathbb{P}\left(\Omega\right)\mathbb{P}\left(\emptyset\right)=0.$
+\end_inset
+
+ So then the question reduces to asking whether 
+\emph on
+non-trivial 
+\emph default
+independent events always exist.
+ Here of course, the answer is 
+\begin_inset Quotes eld
+\end_inset
+
+no
+\begin_inset Quotes erd
+\end_inset
+
+, since for 
+\begin_inset Formula $\F=\left\{ \emptyset,A,A^{C},\Omega\right\} $
+\end_inset
+
+ where 
+\begin_inset Formula $0<\mathbb{P}\left(A\right)<1$
+\end_inset
+
+, we have that 
+\begin_inset Formula $\mathbb{P}\left(A\cap A^{C}\right)=0$
+\end_inset
+
+ but 
+\begin_inset Formula $\mathbb{P}\left(A\right)\mathbb{P}\left(A^{C}\right)=\mathbb{P}\left(A\right)\left(1-\mathbb{P}\left(A\right)\right)\neq0.$
+\end_inset
+
+ Nevertheless, we have a rich collection of examples of independent events:
+ think about rolling a dice twice and observing a six in each roll; these
+ event of seeing a six in the first roll is independent of the event of
+ seeing one in the next roll.
+ The canonical example of the an infinite collection of independent events
+ is given by the following description of an infinitely repeated experiment.
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:infinitelyRepeatedExperiment"
+
+\end_inset
+
+Let 
+\begin_inset Formula $E$
+\end_inset
+
+ consist of a finite set of outcomes and let 
+\begin_inset Formula $\Omega=E^{\N}$
+\end_inset
+
+ be the collection of 
+\begin_inset Formula $E$
+\end_inset
+
+-valued sequences.
+ Thus for any 
+\begin_inset Formula $\omega\in\Omega$
+\end_inset
+
+, we can write
+\begin_inset Formula 
+\[
+\omega=\left(\omega_{1},\omega_{2},\ldots\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\omega_{i}\in E$
+\end_inset
+
+.
+ We can then construct the collection
+\begin_inset Formula 
+\[
+\left[\omega_{1}^{*},\ldots,\omega_{n}^{*}\right]:=\left\{ \omega\in\Omega\mid\omega_{i}=\omega_{i}^{*},1\leq i\leq n\right\} 
+\]
 
 \end_inset
 
