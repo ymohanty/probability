@@ -3809,7 +3809,7 @@ Let
 \end_inset
 
  (or 
-\begin_inset Formula $f\in\Lp 1{\lambda^{n}})$
+\begin_inset Formula $f\in\Lp1{\lambda^{n}})$
 \end_inset
 
 
@@ -3973,7 +3973,7 @@ Let
 \end_inset
 
  (or 
-\begin_inset Formula $f\in\Lp 1{\lambda^{n}})$
+\begin_inset Formula $f\in\Lp1{\lambda^{n}})$
 \end_inset
 
 
@@ -4069,7 +4069,7 @@ Let
 \end_inset
 
  (or 
-\begin_inset Formula $f\in\Lp 1{\lambda^{n}}$
+\begin_inset Formula $f\in\Lp1{\lambda^{n}}$
 \end_inset
 
 ).
@@ -4078,7 +4078,7 @@ Let
 \end_inset
 
  (
-\begin_inset Formula $f\circ T\in\Lp 1{\lambda^{n}}$
+\begin_inset Formula $f\circ T\in\Lp1{\lambda^{n}}$
 \end_inset
 
  and 
@@ -4186,7 +4186,7 @@ Let
 \end_inset
 
  (or 
-\begin_inset Formula $f\in\Lp 1{\lambda^{n}}$
+\begin_inset Formula $f\in\Lp1{\lambda^{n}}$
 \end_inset
 
 ).
@@ -4195,7 +4195,7 @@ Let
 \end_inset
 
  (
-\begin_inset Formula $f\circ T\in\Lp 1{\lambda^{n}}$
+\begin_inset Formula $f\circ T\in\Lp1{\lambda^{n}}$
 \end_inset
 
  and
@@ -4354,11 +4354,11 @@ with
 \end_layout
 
 \begin_layout Subsection
-The Lebesgue differentiation theorem
+The Lebesgue differentiation theorem and the fundamental theorem of calculus
 \end_layout
 
 \begin_layout Subsection
-Change-of-variables
+Non-linear change-of-variables
 \end_layout
 
 \begin_layout Subsection
@@ -4370,7 +4370,7 @@ Symmetry of partial derivatives
 \end_layout
 
 \begin_layout Section
-Kernels
+Kernels and disintegration
 \end_layout
 
 \begin_layout Standard
@@ -4381,7 +4381,23 @@ status open
 
 
 \backslash
-hl{Refer to Tatikonda notes}
+hl{Tatikonda}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Chang and Pollard, 1997}
 \end_layout
 
 \end_inset
@@ -4402,26 +4418,6 @@ status open
 
 \backslash
 hl{ASH or KLENKE?}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Non-product measures and disintegration
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hl{Chang and Pollard, 1997}
 \end_layout
 
 \end_inset
