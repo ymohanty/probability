@@ -156,7 +156,7 @@ In order to cover both parts of probability adequately, we will use the
  theorems, while using numerous examples to develop probabilistic intuition.
  I hope that the combination of theory and examples prove sufficient in
  painting a vivid picture of probability theory, with a view towards application
-s in statistics in economics.
+s in statistics and economics.
 \end_layout
 
 \begin_layout Section
@@ -191,6 +191,202 @@ While formal probability theory is based on measure theory, the language
 events 
 \emph default
 in the language of probability.
+ The basic properties of probability measures carry over from Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:measures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+; we list a few more for completeness.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:inclusionExclusionProbability"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Inclusion-Exclusion
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $A_{1},A_{2},\ldots,A_{n}\in\F$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+\mathbb{P}\left(\bigcup_{i=1}^{n}A_{i}\right)=\sum_{i=1}^{n}\left(-1\right)^{i-1}\sum_{J\subset\left\{ 1,2,\ldots n\right\} ,\lvert J\rvert=i}\mathbb{P}\left(\bigcap_{j\in J}A_{j}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Integrate the equality 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:inclusionExclusionIndicator"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ in Lemma 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "lem:inclusionExclusion"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2017psa23"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2017 PSA 23
+\end_layout
+
+\end_inset
+
+Three numbers are chosen at random from 
+\begin_inset Formula $\{1,2,\ldots,10\}$
+\end_inset
+
+ without replacement.
+ What is the probability that the minimum of the chosen numbers is 
+\begin_inset Formula $3$
+\end_inset
+
+ or their maximum is 
+\begin_inset Formula $7$
+\end_inset
+
+ ? Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be the event that we select three numbers with minimum 
+\begin_inset Formula $3$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ be the event that we select three numbers with maximum 
+\begin_inset Formula $7$
+\end_inset
+
+.
+ We want 
+\begin_inset Formula $\mathbb{P}\left(A\cup B\right)=\mathbb{P}\left(A\right)+\mathbb{P}\left(B\right)-\mathbb{P}\left(A\cap B\right).$
+\end_inset
+
+ We need to compute each component.
+ To compute the first term, note that there are 
+\begin_inset Formula $\left(\begin{array}{c}
+7\\
+2
+\end{array}\right)$
+\end_inset
+
+ ways to pick 2 numbers without replacement after fixing the first one at
+ 3 since we are picking only from the remaining numbers which are greater
+ than three.
+ Therefore 
+\begin_inset Formula $\mathbb{P}\left(A\right)=\left(\begin{array}{c}
+7\\
+2
+\end{array}\right)/\left(\begin{array}{c}
+10\\
+3
+\end{array}\right).$
+\end_inset
+
+ Similarly, we have that 
+\begin_inset Formula $\mathbb{P}\left(B\right)=\left(\begin{array}{c}
+6\\
+2
+\end{array}\right)/\left(\begin{array}{c}
+10\\
+3
+\end{array}\right).$
+\end_inset
+
+ To find the intersection, note that after fixing 
+\begin_inset Formula $3$
+\end_inset
+
+ and 
+\begin_inset Formula $7$
+\end_inset
+
+ there are only 4 choices of the middle number, leaving us with 
+\begin_inset Formula $\mathbb{P}\left(A\cap B\right)=$
+\end_inset
+
+
+\begin_inset Formula $4/\left(\begin{array}{c}
+10\\
+3
+\end{array}\right)$
+\end_inset
+
+.
+ In sum,
+\begin_inset Formula 
+\begin{align*}
+\mathbb{P}\left(A\cup B\right) & =\frac{\left(\begin{array}{c}
+7\\
+2
+\end{array}\right)+\left(\begin{array}{c}
+6\\
+2
+\end{array}\right)-4}{\left(\begin{array}{c}
+10\\
+3
+\end{array}\right)}\\
+ & =\frac{21+15-4}{120}\\
+ & =\frac{4}{15}.
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -354,6 +550,82 @@ where
 \left[\omega_{1}^{*},\ldots,\omega_{n}^{*}\right]:=\left\{ \omega\in\Omega\mid\omega_{i}=\omega_{i}^{*},1\leq i\leq n\right\} 
 \]
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Random variables
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2016psa26"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2016 PSA 26
+\end_layout
+
+\end_inset
+
+Two integers 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+ are chosen at random with replacement from 
+\begin_inset Formula $\{1,2,\ldots,9\}$
+\end_inset
+
+.
+ What is the probabiliy that that 
+\begin_inset Formula $m^{2}-n^{2}$
+\end_inset
+
+ is even? First note that 
+\begin_inset Formula $m^{2}-n^{2}=\left(m+n\right)\left(m-n\right)$
+\end_inset
+
+ so we need to either 
+\begin_inset Formula $m+n$
+\end_inset
+
+ or 
+\begin_inset Formula $m-n$
+\end_inset
+
+ to be even.
+ For this to be true, both 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+ need to be even, or both odd.
+ The probability that they are both even is 
+\begin_inset Formula $\frac{4}{9}\times\frac{4}{9}=\frac{16}{81}$
+\end_inset
+
+ since sampling without replacement leads to indepenent events.
+ The probability that they are both odd is similarly 
+\begin_inset Formula $\frac{5}{9}\times\frac{5}{9}=\frac{25}{81}.$
+\end_inset
+
+ Thus the probability that they are either bothodd or even is 
+\begin_inset Formula $\frac{16+25}{81}=\frac{41}{81}.$
 \end_inset
 
 

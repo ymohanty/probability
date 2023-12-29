@@ -493,7 +493,7 @@ Appendices
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "combinatorics.lyx"
+filename "naive_set_theory.lyx"
 
 \end_inset
 
@@ -504,6 +504,16 @@ filename "combinatorics.lyx"
 \begin_inset CommandInset include
 LatexCommand include
 filename "finite_dimensional_vector_spaces.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "combinatorics.lyx"
 
 \end_inset
 

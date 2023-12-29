@@ -104,6 +104,13 @@ figs-within-sections
 
 \begin_layout Chapter
 Measures
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:measures"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -7178,7 +7185,7 @@ Next, we apply the generating class argument as above, and let
 \end_inset
 
  (which is an invertible map since 
-\begin_inset Formula $\delta\\neq0$
+\begin_inset Formula $\delta neq0$
 \end_inset
 
 ), we can apply the same arguments as earlier to show that 

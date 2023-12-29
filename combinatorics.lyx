@@ -442,7 +442,59 @@ k
 .
 \end_layout
 
-\begin_layout Remark*
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2016psa1"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2016 PSA 1
+\end_layout
+
+\end_inset
+
+How many terms in the binomial expansion of 
+\begin_inset Formula $\left(3x^{2}+\frac{1}{x}\right)^{5}$
+\end_inset
+
+ are independent of 
+\begin_inset Formula $x$
+\end_inset
+
+? Note that the binomial expansion of this expression is of the form
+\begin_inset Formula 
+\begin{align*}
+\left(3x^{2}+\frac{1}{x}\right)^{5} & =\sum_{i=0}^{5}\left(\begin{array}{c}
+5\\
+i
+\end{array}\right)3x^{2i}x^{i-5}\\
+ & =\sum_{i=0}^{5}\left(\begin{array}{c}
+5\\
+i
+\end{array}\right)3x^{3i-5}.
+\end{align*}
+
+\end_inset
+
+Note that 
+\begin_inset Formula $3i-5=0\implies i=\frac{5}{3}$
+\end_inset
+
+ which is not an integer.
+ Thus no terms are independent of 
+\begin_inset Formula $x.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 The binomial theorem gives us a simple formula for the sum of binomial coefficie
 nts.
 \end_layout
@@ -857,7 +909,158 @@ n
 
 \begin_layout Standard
 The above result is a special case of Vandermonde's identity, which was
- known to 
+ known to mathematicians as early as the 14th century.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:vandermondeIdentity"
+
+\end_inset
+
+Let 
+\begin_inset Formula $m,n,$
+\end_inset
+
+ and 
+\begin_inset Formula $r$
+\end_inset
+
+ be non-negative integers.
+ Then,
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+m+n\\
+r
+\end{array}\right)=\sum_{k=0}^{r}\left(\begin{array}{c}
+m\\
+k
+\end{array}\right)\left(\begin{array}{c}
+n\\
+r-k
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The algebraic proof is similar to the one for the special case in Proposition
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:squaredSumBinomialCoefficients"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The combinatorial argument is more illuminating and significantly less
+ cumbersome.
+ Consider a committee consisting of 
+\begin_inset Formula $m$
+\end_inset
+
+ men and 
+\begin_inset Formula $n$
+\end_inset
+
+ women.
+ We want to form a subcommittee of 
+\begin_inset Formula $r$
+\end_inset
+
+ members.
+ Clearly the number of such subcommittes is 
+\begin_inset Formula $\left(\begin{array}{c}
+m+n\\
+r
+\end{array}\right)$
+\end_inset
+
+.
+ One way to form such a committee is to consider a committee with one man
+ and 
+\begin_inset Formula $r-1$
+\end_inset
+
+ women, or two men and 
+\begin_inset Formula $r-2$
+\end_inset
+
+ women, or ...
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:mdmActivity103"
+
+\end_inset
+
+Let 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+ be an integer.
+ Then,
+\begin_inset Formula 
+\[
+\sum_{i=1}^{n}i\left(n+1-i\right)=\left(\begin{array}{c}
+n+2\\
+3
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For 
+\begin_inset Formula $n=1$
+\end_inset
+
+ both the left and right hand sides of the identity above are 1 and so the
+ base case holds.
+ Suppose the identity holds for 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Then,
+\begin_inset Formula 
+\begin{align*}
+\sum_{i=1}^{n+1}i\left(n+1+1-i\right) & =\sum_{i=1}^{n+1}i\left(n+1-i\right)+\sum_{i=1}^{n+1}i\\
+ & =\sum_{i=1}^{n}i\left(n+1-i\right)+\left(\begin{array}{c}
+n+2\\
+2
+\end{array}\right)\\
+ & =\left(\begin{array}{c}
+n+2\\
+3
+\end{array}\right)+\left(\begin{array}{c}
+n+2\\
+2
+\end{array}\right)\\
+ & =\left(\begin{array}{c}
+n+2\\
+3
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+where the second equality is the Gaussian formula for the sum of consecutive
+ natural numbers, the third is the induction hypothesis, and the last is
+ Pascal's rule.
 \end_layout
 
 \begin_layout Proposition
@@ -1201,13 +1404,314 @@ k_{1}, & k_{2}, & \ldots & k_{m}
 which completes the proof.
 \end_layout
 
+\begin_layout Proof
+There is an obvious generalization of Vandermonde's identity that should
+ occur to you at this point.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:generalizedVandermondeIdentity"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Generalized Vandermonde identity
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left\{ n_{i}\right\} _{i=1}^{k},r$
+\end_inset
+
+ be non-negative integers.
+ Then,
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+\sum_{i=1}^{k}n_{i}\\
+r
+\end{array}\right)=\sum_{i_{1}+i_{2}+\ldots+i_{k}=r}\prod_{j=1}^{k}\left(\begin{array}{c}
+n_{j}\\
+i_{j}
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Stars and bars
+\end_layout
+
 \begin_layout Standard
-We can use the idea of multinomial coefficients to solve 
-\emph on
-occupancy 
-\emph default
-problems, which are a staple in introductory combinatorics.
- The idea is that
+Sums like 
+\begin_inset Formula $\sum_{i_{1}+i_{2}+\ldots+i_{k}=r}$
+\end_inset
+
+ should trouble you, since it's not obvious how many terms are in such a
+ sum.
+ Fortunately, we have the tools we need to be able to answer such questions.
+ To do so, we make an analogy with a different type of question: suppose
+ you have 
+\begin_inset Formula $k$
+\end_inset
+
+ urns and 
+\begin_inset Formula $r$
+\end_inset
+
+ indistinguishable balls.
+ How many ways could you allocate balls to urns? William Feller's famous
+ textbook on probability provided an ingenious framework to think about
+ this problem: suppose you have 
+\begin_inset Formula $r+1$
+\end_inset
+
+ bars and 
+\begin_inset Formula $k$
+\end_inset
+
+ stars, you could then fix two bars at two ends and put all the stars and
+ remaining bars in the middle.
+ The gap between bars would act as urns and the stars would be balls.
+ Suppose you have four bars and ten stars, one arrangment could be like
+ 
+\begin_inset Formula $|**|*****|**|$
+\end_inset
+
+.
+ This corresponds to the solution where there are 
+\begin_inset Formula $3$
+\end_inset
+
+ urns and the first urn has 
+\begin_inset Formula $2$
+\end_inset
+
+ balls, the second has 
+\begin_inset Formula $5$
+\end_inset
+
+ balls, and the last again has 2 balls.
+ How many other possibilities are there? Well we can rearrange the bars
+ and stars in the interior of by looking at the number of slots in the interior
+ (in this case 12) and choosing the slots for either the bars or the stars
+ (in this case 2 or 10).
+ So the answer is 
+\begin_inset Formula $\left(\begin{array}{c}
+12\\
+2
+\end{array}\right)=\left(\begin{array}{c}
+12\\
+10
+\end{array}\right)$
+\end_inset
+
+.
+ More generally, there are 
+\begin_inset Formula $k-1$
+\end_inset
+
+ bars in the interior along with 
+\begin_inset Formula $r$
+\end_inset
+
+ stars, leading to 
+\begin_inset Formula $\left(\begin{array}{c}
+r+k-1\\
+k-1
+\end{array}\right)=\left(\begin{array}{c}
+r+k-1\\
+r
+\end{array}\right)$
+\end_inset
+
+ ways to arrange the interior bars and stars.
+ Equivalently, there are 
+\begin_inset Formula $\left(\begin{array}{c}
+r+k-1\\
+k
+\end{array}\right)$
+\end_inset
+
+ ways to put 
+\begin_inset Formula $r$
+\end_inset
+
+ balls in 
+\begin_inset Formula $k$
+\end_inset
+
+ urns.
+ This simple idea has remarkable power in its ability to resolve combinatorial
+ problems.
+ For instance, if we apply the restriction that each urn needs to have at
+ least 
+\begin_inset Formula $1$
+\end_inset
+
+ ball, then our result becomes 
+\begin_inset Formula $\left(\begin{array}{c}
+k-1+(r-k)\\
+r-k
+\end{array}\right)=\left(\begin{array}{c}
+r-1\\
+k-1
+\end{array}\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:countingFunctions"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2018 PSA 13 (variant)
+\end_layout
+
+\end_inset
+
+How many functions 
+\begin_inset Formula $f:\left\{ 1,2,\ldots,n\right\} \to\left\{ 1,2,\ldots,m\right\} $
+\end_inset
+
+ are strictly increasing? How many are non-decreasing? To answer questions
+ like this, we can use some of the ideas from the discussion above.
+ First, you should notice that there are 
+\begin_inset Formula $\left(\begin{array}{c}
+m\\
+n
+\end{array}\right)$
+\end_inset
+
+ ways to choose the range of the function (it has to be injective after
+ all), and exactly one way for each of those ways to arrange them in increasing
+ order.
+ This gives us the total number of strictly increasing functions.
+ To count non-decreasing functions, we
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2016psa21"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2016 PSA 21
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $A=\{1,2,\ldots n,\ldots,m\}$
+\end_inset
+
+.
+ How many functions 
+\begin_inset Formula $f:A\rightarrow A$
+\end_inset
+
+ are there such that 
+\begin_inset Formula $f(1)<f(2)<\ldots,<f(n)$
+\end_inset
+
+ ? Well there are 
+\begin_inset Formula $\left(\begin{array}{c}
+m\\
+n
+\end{array}\right)$
+\end_inset
+
+ ways of selecting the strictly increasing elements and 
+\begin_inset Formula $\left(m-n\right)^{\left(m-n\right)}$
+\end_inset
+
+ ways of choosing how the remaining elements are arranged.
+ Thus the total number of of such functions is 
+\begin_inset Formula $\left(\begin{array}{c}
+m\\
+n
+\end{array}\right)\left(m-n\right)^{\left(m-n\right)}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2016psa11"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2016 PSA 11
+\end_layout
+
+\end_inset
+
+The number of ordered pairs 
+\begin_inset Formula $\left(a,b\right)\in\N^{2}$
+\end_inset
+
+ such that 
+\begin_inset Formula $a+b\leq n$
+\end_inset
+
+ where 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ is 
+\begin_inset Formula $\sum_{i=2}^{n}\left(\begin{array}{c}
+i-1\\
+2-1
+\end{array}\right)=1+2+3+\ldots+n-1=\frac{n\left(n-1\right)}{2}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1947,9 +2451,9 @@ Suppose that five men go to a restaurant together and each of them orders
  a dish that is different from the dishes ordered by the other members of
  the group.
  However, the waiter serves the dishes randomly.
- Then what is the probability that exactly one of them gets the dish he
- ordered? The answer is 
-\begin_inset Formula $!5_{1}=\left(\begin{array}{c}
+ Then what is the number of ways in which exactly one of them gets the dish
+ he ordered? The answer is 
+\begin_inset Formula $D_{5,1}=\left(\begin{array}{c}
 5\\
 1
 \end{array}\right)!4=5\times9=45$
@@ -1967,7 +2471,7 @@ cycles.
 \emph default
 A cycle is itself a sort of generalization of a fixed point.
  A permutation 
-\begin_inset Formula $\sigma$
+\begin_inset Formula $f$
 \end_inset
 
  on a finite set 
@@ -2009,7 +2513,133 @@ of
 \end_inset
 
 .
- Now
+ To understand cycles in permutations, it's useful to adopt a notation for
+ describing permutations that can help clarify their cyclic structure.
+ This is the so called 
+\emph on
+cyclic notation
+\emph default
+.
+ For example, we can write a permutation on 
+\begin_inset Formula $\left\{ 1,2,3,4,5\right\} $
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f=\left(351\right)\left(24\right)
+\]
+
+\end_inset
+
+which basically tells us that the permutation consists of two cycles 
+\begin_inset Formula $\left(351\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(24\right)$
+\end_inset
+
+.
+ The cycles here are 
+\emph on
+ordered
+\emph default
+, in that the first cycle represents the fact that 
+\begin_inset Formula $f\left(3\right)=5,f\left(5\right)=1$
+\end_inset
+
+ and 
+\begin_inset Formula $f\left(1\right)=3$
+\end_inset
+
+ and the second cycle tells us that 
+\begin_inset Formula $f\left(2\right)=4$
+\end_inset
+
+ and 
+\begin_inset Formula $f\left(4\right)=2$
+\end_inset
+
+.
+ Every permutation can be decomposed into cycles, and 
+\emph on
+non-cyclic 
+\emph default
+permutations are those that consist of only the trivial cycle: for instance,
+ a non-cyclic permutation on 
+\begin_inset Formula $\left\{ 1,2,3,4,5\right\} $
+\end_inset
+
+ would be the permutation 
+\begin_inset Formula $\left(14235\right).$
+\end_inset
+
+ Note that two cycles of length 
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\begin_inset Formula $\left(x_{1}x_{2}\ldots x_{k}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(y_{1}y_{2}\ldots y_{k}\right)$
+\end_inset
+
+ are equivalent if there exists some 
+\begin_inset Formula $p\in\N$
+\end_inset
+
+ such that 
+\begin_inset Formula $y_{i}=f^{p}\left(x_{i}\right)$
+\end_inset
+
+.
+ This defines an equivalence relation (as should be clear), so we can talk
+ about 
+\emph on
+equivalence classes
+\emph default
+ of cycles, denoted 
+\begin_inset Formula $\left[\left(x_{1}x_{2}\ldots x_{k}\right)\right]$
+\end_inset
+
+.
+ Such an equivalence class consists of exactly 
+\begin_inset Formula $k$
+\end_inset
+
+ distinct members since 
+\begin_inset Formula $f^{k}\left(x_{i}\right)=x_{i}.$
+\end_inset
+
+ Thus the total number of cycles of length 
+\begin_inset Formula $k$
+\end_inset
+
+ that can be formed out of 
+\begin_inset Formula $k$
+\end_inset
+
+ fixed elements is 
+\begin_inset Formula $\frac{k!}{k}$
+\end_inset
+
+.
+ We can use this to count the total number of permutations without any cycles
+ using an inclusion-exclusion argument analagous to the one used for counting
+ derangements in Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:numDerangements"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Example
@@ -2042,6 +2672,355 @@ What is the total number of permutations
 \end_inset
 
 ?
+\end_layout
+
+\begin_layout Section
+Miscellaneous problems
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2019psa11"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2019 PSA 11
+\end_layout
+
+\end_inset
+
+What are the total number of divisors of 
+\begin_inset Formula $2^{5}5^{3}11^{4}$
+\end_inset
+
+ that are perfect squares? The prime square divisors are 
+\begin_inset Formula $2^{2},5^{2},$
+\end_inset
+
+ and 
+\begin_inset Formula $11^{2}$
+\end_inset
+
+, where the first and last divisors appear twice.
+ Thus the first product can appear at most twice, the second at most once,
+ and the third at most twice in any square divisor and so the number is
+ 
+\begin_inset Formula $(2+1)(1+1)(2+1)=18$
+\end_inset
+
+.
+ More generally, for any positive integer 
+\begin_inset Formula $n$
+\end_inset
+
+ with prime factorization 
+\begin_inset Formula $n=\prod_{i=1}^{k}p_{i}^{r_{i}}$
+\end_inset
+
+, we can decompose the product into the largest square divisor 
+\begin_inset Formula 
+\[
+n=\prod_{i=1}^{k}\left(p_{i}^{2}\right)^{\lfloor\frac{r_{i}}{2}\rfloor}\prod_{i=1}^{k}p_{i}^{\indicate\left\{ \lfloor\frac{r_{i}}{2}\rfloor\neq\frac{r_{i}}{2}\right\} }
+\]
+
+\end_inset
+
+where the second product is square-free and so the number of square divisors
+ is given 
+\begin_inset Formula $\prod_{i=1}^{k}\left(\lfloor\frac{r_{i}}{2}\rfloor+1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2019psa18"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2019 PSA 18
+\end_layout
+
+\end_inset
+
+Draw one observation 
+\begin_inset Formula $N$
+\end_inset
+
+ at random from the set 
+\begin_inset Formula $\{1,2,\ldots,100\}$
+\end_inset
+
+.
+ What is the probability that the last digit of 
+\begin_inset Formula $N^{2}$
+\end_inset
+
+ is 1 ? Well note that only if the units digit of 
+\begin_inset Formula $N$
+\end_inset
+
+ is 1 or 9 does the units digit of 
+\begin_inset Formula $N^{2}$
+\end_inset
+
+ equal 1, which tells us that the probability is 
+\begin_inset Formula $\frac{1}{5}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2019psa6"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2019 PSA 6
+\end_layout
+
+\end_inset
+
+ How many times does the digit '2' appear in the set of integers 
+\begin_inset Formula $\{1,2,..,1000\}$
+\end_inset
+
+ ? In the units digit, '2' appears 
+\begin_inset Formula $10\times10=100$
+\end_inset
+
+ times; in the tens digit, it appears 10 times and in the 100s digit it
+ appears once.
+ Thus in total it appears 111 times.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2019psa5"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2019 PSA 5
+\end_layout
+
+\end_inset
+
+Let the sum 
+\begin_inset Formula $3+33+333+\cdots+\underbrace{33\ldots3}_{200\text{ times }}$
+\end_inset
+
+ be 
+\begin_inset Formula $...zyx$
+\end_inset
+
+ in the decimal system, i.e., 
+\begin_inset Formula $x$
+\end_inset
+
+ is the unit's digit, 
+\begin_inset Formula $y$
+\end_inset
+
+ the ten's digit, and so on.
+ What is 
+\begin_inset Formula $z$
+\end_inset
+
+ ?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2021psa12"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2021 PSA 12
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\pi=\left(a_{1},a_{2},\cdots,a_{2021}\right)$
+\end_inset
+
+ be a permutation of 
+\begin_inset Formula $(1,2,\cdots,2021)$
+\end_inset
+
+.
+ For every such permutation 
+\begin_inset Formula $\pi$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+P(\pi)=\prod_{j=1}^{2021}\left(a_{j}-j\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Is 
+\begin_inset Formula $P\left(\pi\right)$
+\end_inset
+
+ always even for any permutation 
+\begin_inset Formula $\pi$
+\end_inset
+
+? Yes.
+ To see this, note that 
+\begin_inset Formula $\sum_{j=1}^{2021}\left(a_{j}-j\right)=0$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\[
+\sum_{j\neq i}\left(a_{j}-j\right)=-\left(a_{i}-i\right)
+\]
+
+\end_inset
+
+where for any 
+\begin_inset Formula $i\in\left\{ 1,2,\ldots,2021\right\} $
+\end_inset
+
+ the sum on the LHS has an even number of terms.
+ If the terms are all odd, the sum (and therefore the RHS) is even and thus
+ the product is even.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2020psa14"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2020 PSA 14
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $S$
+\end_inset
+
+ be the set of all 
+\begin_inset Formula $3\times3$
+\end_inset
+
+ matrices
+\begin_inset Formula $A$
+\end_inset
+
+ such that among the 9 entries of 
+\begin_inset Formula $A$
+\end_inset
+
+, there are exactly three 0 's, exactly three 1 's and exactly three 2 's.
+ What is the number of matrices in 
+\begin_inset Formula $S$
+\end_inset
+
+ that have trace divisible by 3? 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
 \end_body
