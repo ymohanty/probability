@@ -3423,7 +3423,7 @@ noprefix "false"
 \end_inset
 
  Observe that Tonelli can be applied here since 
-\begin_inset Formula $\indicate\left\{ o<t<f\left(x\right)\right\} \in\mathcal{M}^{+}\left(\X\times\R,\mathcal{F}\otimes\borel\left(\R\right)\right)$
+\begin_inset Formula $\indicate\left\{ 0<t<f\left(x\right)\right\} \in\mathcal{M}^{+}\left(\X\times\R,\mathcal{F}\otimes\borel\left(\R\right)\right)$
 \end_inset
 
  and both 
