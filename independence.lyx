@@ -389,6 +389,66 @@ Three numbers are chosen at random from
 
 \end_layout
 
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:bonferroniInequality"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $A_{1},A_{2},\ldots,A_{n}\in\F$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+\mathbb{P}\left(\bigcap_{i=1}^{n}A_{i}\right)\geq\sum_{i=1}^{n}\mathbb{P}\left(A_{i}\right)-(n-1).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First note that for 
+\begin_inset Formula $n=2$
+\end_inset
+
+, the result follows due to the fact that for any 
+\begin_inset Formula $A,B\in\F$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathbb{P}\left(A\cup B\right) & =\mathbb{P}\left(A\right)+\mathbb{P}\left(B\right)-\mathbb{P}\left(A\cap B\right)\\
+ & \leq\mathbb{P}\left(\Omega\right)\\
+ & =1.
+\end{align*}
+
+\end_inset
+
+Now assume the induction hypothesis and note that 
+\begin_inset Formula 
+\begin{align*}
+\mathbb{P}\left(\bigcap_{i=1}^{n}A_{i}\right) & =\mathbb{P}\left(\bigcap_{i=1}^{n-1}A_{i}\cap A_{n}\right)\\
+ & \geq\mathbb{P}\left(\bigcap_{i=1}^{n-1}A_{i}\right)+\mathbb{P}\left(A_{n}\right)-1\\
+ & \geq\sum_{i=1}^{n-1}\mathbb{P}\left(A_{i}\right)-(n-2)+\mathbb{P}\left(A_{n}\right)-1\\
+ & =\sum_{i=1}^{n}\mathbb{P}\left(A_{i}\right)-\left(n-1\right).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Independent events
 \end_layout
@@ -503,7 +563,59 @@ no
  think about rolling a dice twice and observing a six in each roll; these
  event of seeing a six in the first roll is independent of the event of
  seeing one in the next roll.
- The canonical example of the an infinite collection of independent events
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2017psa15"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2017 PSA 15
+\end_layout
+
+\end_inset
+
+Suppose that the events 
+\begin_inset Formula $A,B$
+\end_inset
+
+, and 
+\begin_inset Formula $C$
+\end_inset
+
+ are pairwise independent such that each of them occurs with probability
+ 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Assume that all three of them cannot occur simultaneously.
+ What is 
+\begin_inset Formula $P(A\cup B\cup C)$
+\end_inset
+
+ ? Well, we apply independence and inclusion exclusion to note that 
+\begin_inset Formula 
+\begin{align*}
+\mathbb{P}\left(A\cup B\cup C\right) & =\mathbb{P}\left(A\right)+\mathbb{P}\left(B\right)+\mathbb{P}\left(C\right)-\mathbb{P}\left(A\cap B\right)-\mathbb{P}\left(A\cap C\right)-\mathbb{P}\left(B\cap C\right)\\
+ & =\mathbb{P}\left(A\right)+\mathbb{P}\left(B\right)+\mathbb{P}\left(C\right)-\mathbb{P}\left(A\right)\mathbb{P}\left(B\right)-\mathbb{P}\left(A\right)\mathbb{P}\left(C\right)-\mathbb{P}\left(B\right)\mathbb{P}\left(C\right)\\
+ & =3p(1-p).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The canonical example of the an infinite collection of independent events
  is given by the following description of an infinitely repeated experiment.
 \end_layout
 
@@ -550,6 +662,485 @@ where
 \left[\omega_{1}^{*},\ldots,\omega_{n}^{*}\right]:=\left\{ \omega\in\Omega\mid\omega_{i}=\omega_{i}^{*},1\leq i\leq n\right\} 
 \]
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:independenceComplements"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $A,B\in\F$
+\end_inset
+
+ be events.
+ Then the claims that 
+\begin_inset Formula $A,B$
+\end_inset
+
+ are independent, 
+\begin_inset Formula $A,B^{C}$
+\end_inset
+
+ are independent, 
+\begin_inset Formula $A^{C},B$
+\end_inset
+
+ are independent, and 
+\begin_inset Formula $A^{C},B^{C}$
+\end_inset
+
+are independent are equivalent.
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula 
+\begin{align*}
+\mathbb{P}\left(A\cap B^{C}\right) & =\mathbb{P}\left(A\setminus B\right)\\
+ & =\mathbb{P}\left(A\setminus A\cap B\right)\\
+ & =\mathbb{P}\left(A\right)-\mathbb{P}\left(A\cap B\right)\\
+ & =\mathbb{P}\left(A\right)-\mathbb{P}\left(A\right)\mathbb{P}\left(B\right)\\
+ & =\mathbb{P}\left(A\right)\left(1-\mathbb{P}\left(B\right)\right)\\
+ & =\mathbb{P}\left(A\right)\mathbb{P}\left(B^{C}\right)
+\end{align*}
+
+\end_inset
+
+where the fourth equality uses independence.
+ Then it should be clear that 
+\begin_inset Formula $A^{C}$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ are independent exactly for the same reason.
+ Finally, we can apply the logic above using 
+\begin_inset Formula $A^{C}$
+\end_inset
+
+and 
+\begin_inset Formula $B$
+\end_inset
+
+ instead of 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ to get that 
+\begin_inset Formula $A^{C}$
+\end_inset
+
+ and 
+\begin_inset Formula $B^{C}$
+\end_inset
+
+ are independent.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:independenceFacts"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $I$
+\end_inset
+
+ be an arbitrary index set.
+ Let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in I}\in\F$
+\end_inset
+
+ be a collection of events and define 
+\begin_inset Formula $B_{i}^{1}=A_{i}^{C}$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{i}^{0}=A_{i}.$
+\end_inset
+
+ Then, the following statements are equivalent
+\end_layout
+
+\begin_layout Proposition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item $
+\backslash
+left
+\backslash
+{ A_{i}
+\backslash
+right
+\backslash
+} _{i
+\backslash
+in I}
+\backslash
+in
+\backslash
+F$ are independent events.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item There exists some $
+\backslash
+alpha 
+\backslash
+in 
+\backslash
+{0,1
+\backslash
+}^I$ such that $
+\backslash
+{B_i^{a(i)}
+\backslash
+}$ are independent.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item For every $
+\backslash
+alpha 
+\backslash
+in 
+\backslash
+{0,1
+\backslash
+}^I$, $
+\backslash
+{B_i^{a(i)}
+\backslash
+}$ are independent.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+(Sketch) Note that if 
+\emph on
+(i) 
+\emph default
+holds, then 
+\emph on
+(ii)
+\emph default
+ holds automatically with 
+\begin_inset Formula $a\left(i\right)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\in I$
+\end_inset
+
+.
+ Similarly, if 
+\begin_inset Formula $(iii)$
+\end_inset
+
+ holds then 
+\begin_inset Formula $(i)$
+\end_inset
+
+ holds trivially.
+ Thus we need to prove that 
+\begin_inset Formula $(ii)\implies(iii)$
+\end_inset
+
+.
+ First, fix 
+\begin_inset Formula $\alpha\in\{0,1\}^{I}$
+\end_inset
+
+ such that our claim holds.
+ Notice that by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:independenceComplements"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, for any 
+\begin_inset Formula $J\subset I$
+\end_inset
+
+ such that 
+\begin_inset Formula $\lvert J\rvert=2$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\mathbb{P}\left(\prod_{j\in J}B_{j}^{\gamma(j)}\right)=\prod_{j\in J}\mathbb{P}\left(B_{j}^{\gamma\left(j\right)}\right)
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $\gamma\in\left\{ 0,1\right\} ^{I}$
+\end_inset
+
+.
+ For induction, suppose that the claim holds for any 
+\begin_inset Formula $J\subset I$
+\end_inset
+
+ such that 
+\begin_inset Formula $\lvert J\rvert=n$
+\end_inset
+
+ and the consider a subset 
+\begin_inset Formula $J^{\prime}\subset I$
+\end_inset
+
+ with 
+\begin_inset Formula $\lvert J^{\prime}\rvert=n+1$
+\end_inset
+
+.
+ Note that for any 
+\begin_inset Formula $i\in J^{\prime}$
+\end_inset
+
+, we can define 
+\begin_inset Formula $B_{-i}:=\bigcap_{j\in J^{\prime}\setminus\left\{ i\right\} }B_{j}^{\alpha\left(j\right)}$
+\end_inset
+
+ and observe that 
+\begin_inset Formula 
+\[
+\mathbb{P}\left(B_{-i}\cap B_{i}^{\alpha\left(i\right)}\right)=\mathbb{P}\left(B_{-i}\right)\mathbb{P}\left(B_{i}^{\alpha\left(i\right)}\right)
+\]
+
+\end_inset
+
+and so 
+\begin_inset Formula $B_{-i}\indep B_{i}^{\alpha\left(i\right)}$
+\end_inset
+
+ and so by our Lemma, 
+\begin_inset Formula $B_{-i}\indep B_{i}^{\gamma\left(i\right)}.$
+\end_inset
+
+ The induction hypothesis then implies that 
+\begin_inset Formula $\left\{ B_{j}^{\alpha\left(j\right)}\right\} ,B_{i}^{\gamma\left(i\right)}$
+\end_inset
+
+ are all mutually independent.
+ We can yet again repeat this process with some 
+\begin_inset Formula $i^{\prime}\in J^{\prime}$
+\end_inset
+
+ where now 
+\begin_inset Formula $B_{-i^{\prime}}:=\bigcap_{j\in J^{\prime}\setminus\left\{ i,i^{\prime}\right\} }B_{j}^{\alpha\left(j\right)}\cap B_{i}^{\gamma\left(i\right)}$
+\end_inset
+
+ and so on until we have replaced all 
+\begin_inset Formula $\alpha$
+\end_inset
+
+s with 
+\begin_inset Formula $\gamma$
+\end_inset
+
+s.
+\end_layout
+
+\begin_layout Standard
+This idea of mutual independence finds purchase in some unexpected contexts
+ as well.
+ For instance, we can use it to prove Euler's prime number formula.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:eulerPrime"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ denote the set of primes.
+ The Riemann zeta function 
+\begin_inset Formula 
+\[
+\zeta\left(s\right):=\sum_{n=1}^{\infty}n^{-s}
+\]
+
+\end_inset
+
+has the representation
+\begin_inset Formula 
+\[
+\zeta\left(s\right)=\prod_{p\in\mathcal{P}}\left(1-p^{-s}\right)^{-1}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\probabilityspace=\left(\N,2^{\N},\mathbb{P}_{s}\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $\mathbb{P}_{s}\left(\left\{ n\right\} \right)=\frac{n^{-s}}{\zeta\left(s\right)}$
+\end_inset
+
+ for 
+\begin_inset Formula $s>1.$
+\end_inset
+
+ Define 
+\begin_inset Formula $p\N:=\left\{ pn\mid n\in\N\right\} $
+\end_inset
+
+ and let 
+\begin_inset Formula $ $
+\end_inset
+
+for any 
+\begin_inset Formula $p\in\mathcal{P}$
+\end_inset
+
+ and notice that 
+\begin_inset Formula $\mathbb{P}_{s}\left(p\N\right)=\sum_{n=1}^{\infty}\mathbb{P}\left(pn\right)=p^{-s}$
+\end_inset
+
+ by countable additivity.
+ Then, for any distinct collection 
+\begin_inset Formula $p_{1},\ldots,p_{k}\in\mathcal{P}$
+\end_inset
+
+ we have that 
+\begin_inset Formula 
+\begin{align*}
+\mathbb{P}_{s}\left(\bigcap_{i=1}^{k}p_{i}\N\right) & =\sum_{n=1}^{\infty}\mathbb{P}_{s}\left(\prod_{i=1}^{k}pn\right)\\
+ & =\prod_{i=1}^{k}p^{-s}\\
+ & =\prod_{i=1}^{k}\mathbb{P}_{s}\left(p_{i}\N\right).
+\end{align*}
+
+\end_inset
+
+In other words, the events 
+\begin_inset Formula $\left\{ p\N\right\} _{p\in\mathcal{P}}$
+\end_inset
+
+are mutually independent and so by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:independenceFacts"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{\zeta\left(s\right)} & =\mathbb{P}_{s}\left(\left\{ 1\right\} \right)\\
+ & =\mathbb{P}_{s}\left(\bigcap_{p\in\mathcal{P}}\left(p\N\right)^{C}\right)\\
+ & =\lim_{n\to\infty}\mathbb{P}_{s}\left(\bigcap_{p\in\mathcal{P},p\leq n}\left(p\N\right)^{C}\right)\\
+ & =\lim_{n\to\infty}\prod_{p\in\mathcal{P},p\leq n}\left(1-\mathbb{P}_{s}\left(p\N\right)\right)\\
+ & =\lim_{n\to\infty}\prod_{p\in\mathcal{P},p\leq n}\left(1-p^{-s}\right)\\
+ & =\prod_{p\in\mathcal{P}}\left(1-p^{-s}\right)
+\end{align*}
+
+\end_inset
+
+where the second equality is due to the fact that 
+\begin_inset Formula $1$
+\end_inset
+
+ is neither prime nor a product of primes, the third due to the continuity
+ of measures (see Propositions 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:measureProperties"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:equivalenceContinuityMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), and the fourth due the fact that 
+\begin_inset Formula $\mathbb{P}_{s}\left(\N\right)=1.$
 \end_inset
 
 
@@ -619,12 +1210,12 @@ Two integers
 \begin_inset Formula $\frac{4}{9}\times\frac{4}{9}=\frac{16}{81}$
 \end_inset
 
- since sampling without replacement leads to indepenent events.
+ since sampling with replacement leads to indepenent events.
  The probability that they are both odd is similarly 
 \begin_inset Formula $\frac{5}{9}\times\frac{5}{9}=\frac{25}{81}.$
 \end_inset
 
- Thus the probability that they are either bothodd or even is 
+ Thus the probability that they are either both odd or even is 
 \begin_inset Formula $\frac{16+25}{81}=\frac{41}{81}.$
 \end_inset
 
