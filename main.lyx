@@ -200,6 +200,38 @@ theorems-sec
 
 \begin_layout Standard
 \begin_inset FormulaMacro
+\newcommand{\P}{\mathbb{P}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\E}{\mathbb{E}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Var}{\mathbb{V\mathrm{ar}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Cov}{\mathbb{C\mathrm{ov}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
 \newcommand{\measurablespace}{\left(\X,\F\right)}
 \end_inset
 
@@ -422,7 +454,7 @@ filename "measure_and_topology.lyx"
 \end_layout
 
 \begin_layout Part
-Probability
+Probability and statistics
 \end_layout
 
 \begin_layout Standard
