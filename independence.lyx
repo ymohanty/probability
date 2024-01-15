@@ -1146,8 +1146,1528 @@ noprefix "false"
 
 \end_layout
 
+\begin_layout Standard
+We are finally ready to present the second Borel-Cantelli lemma, which we
+ promised back in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:measurableFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The idea here is that if you an infinite sequence of independent events,
+ like coin-tosses where the outcomes can either be head or tails, the probabilit
+y that you will only see a finite number of heds is intuitively zero.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:secondBorelCantelli"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Second Borel-Cantelli lemma
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{F}$
+\end_inset
+
+ be mutually independent events.
+ If
+\begin_inset Formula 
+\[
+\sum_{i=1}^{\infty}\mathbb{P}\left(A_{i}\right)=\infty
+\]
+
+\end_inset
+
+then 
+\begin_inset Formula 
+\[
+\mathbb{P}\left(\limsup_{i\to\infty}A_{i}\right)=1.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula 
+\begin{align*}
+\mathbb{P}\left(\left(\limsup A_{i}\right)^{C}\right) & =\mathbb{P}\left(\left(\bigcap_{n\in\N}\bigcup_{i\geq n}A_{i}\right)^{C}\right)\\
+ & =\mathbb{P}\left(\bigcup_{n\in\N}\bigcap_{i\geq n}A_{i}^{C}\right)\\
+ & =\lim_{n\to\infty}\mathbb{P}\left(\bigcap_{i\geq n}A_{i}^{C}\right)\\
+ & =\lim_{n\to\infty}\lim_{m\to\infty}\mathbb{P}\left(\bigcap_{m\geq i\geq n}A_{i}^{C}\right)\\
+ & =\lim_{n\to\infty}\lim_{m\to\infty}\prod_{m\geq i\geq n}\left(1-\mathbb{P}\left(A_{i}\right)\right)\\
+ & =\lim_{n\to\infty}\lim_{m\to\infty}\exp\left(\sum_{m\geq i\geq n}\log\left(1-\mathbb{P}\left(A_{i}\right)\right)\right)\\
+ & \leq\lim_{n\to\infty}\lim_{m\to\infty}\exp\left(-\sum_{m\geq i\geq n}\mathbb{P}\left(A_{i}\right)\right)\\
+ & =\lim_{n\to\infty}\exp\left(-\sum_{i\geq n}\mathbb{P}\left(A_{i}\right)\right)\\
+ & =0
+\end{align*}
+
+\end_inset
+
+where in the second equality we have used DeMorgan's laws, the third and
+ fourth follow from the continuity of measures, the fifth by independence
+ and the fact that 
+\begin_inset Formula $\mathbb{P}\left(\Omega\right)=1$
+\end_inset
+
+, and the inequality by the fact that 
+\begin_inset Formula $\log\left(1-x\right)\leq-x$
+\end_inset
+
+ for 
+\begin_inset Formula $x\in\left[0,1\right).$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This can be verified by noting that the function 
+\begin_inset Formula $g\left(x\right)=\log\left(1-x\right)+x$
+\end_inset
+
+ is 
+\begin_inset Formula $0$
+\end_inset
+
+ at 
+\begin_inset Formula $x=0$
+\end_inset
+
+ and has derivative 
+\begin_inset Formula $g^{\prime}\left(x\right)=1-\frac{1}{1-x}=\frac{-x}{1-x}<0$
+\end_inset
+
+ for 
+\begin_inset Formula $x\in\left(0,1\right).$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that we can't dispense with the independence assumption on this version
+ of the Borel Cantelli lemma, since for identical events 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $\limsup A_{i}=A_{1}$
+\end_inset
+
+ and so if 
+\begin_inset Formula $\mathbb{P}\left(A_{1}\right)<1$
+\end_inset
+
+ then 
+\begin_inset Formula $\mathbb{P}\left(\limsup A_{i}\right)<1$
+\end_inset
+
+ even though 
+\begin_inset Formula $\sum\mathbb{P}\left(A_{i}\right)=\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{Differences between mutual and pariwise independence}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Independent 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras
+\end_layout
+
+\begin_layout Standard
+The idea of independence of events can be extended to the idea of independence
+ of structures of events.
+ For a given probability space 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+, we say that a collection of events 
+\begin_inset Formula $\left\{ \F_{i}\right\} _{i\in I}$
+\end_inset
+
+ – where 
+\begin_inset Formula $I$
+\end_inset
+
+ is an arbitrary index set and each 
+\begin_inset Formula $\F_{i}\subset\F$
+\end_inset
+
+ – is mutually independent if for any finite 
+\begin_inset Formula $J\subset I$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{j}\in\F_{j}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathbb{P}\left(\bigcap_{j\in J}F_{j}\right)=\prod_{j\in J}\mathbb{P}\left(F_{j}\right).
+\]
+
+\end_inset
+
+Usually, the structures we consider are 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras, since those are the most important types of collections of events
+ in probability theory.
+ Immediately, our 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[cor:piLambdaGeneratingClassArg]{$
+\backslash
+pi-
+\backslash
+lambda$ theorem}
+\end_layout
+
+\end_inset
+
+ gives us some useful tools that allows us to use independence on generating
+ classes to prove independence on the 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras generated by them.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:indepSigmaAlgebras"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $I$
+\end_inset
+
+ be an arbitrary index set.
+ If a collection of 
+\begin_inset Formula $\pi-$
+\end_inset
+
+systems 
+\begin_inset Formula $\left\{ \mathcal{E}_{i}\right\} _{i\in I}\subset\F$
+\end_inset
+
+ are independent, then 
+\begin_inset Formula $\left\{ \sigma\left(\mathcal{E}_{i}\right)\right\} _{i\in I}$
+\end_inset
+
+ are independent.
+\end_layout
+
+\begin_layout Proof
+Pick some 
+\begin_inset Formula $J\subset I$
+\end_inset
+
+ such that 
+\begin_inset Formula $\lvert J\rvert=n$
+\end_inset
+
+.
+ Without loss of generality, we can assume that 
+\begin_inset Formula $J=\left\{ 1,2,\ldots,n\right\} .$
+\end_inset
+
+ Define
+\begin_inset Formula 
+\[
+\mathcal{D}_{1}:=\left\{ F_{1}\in\sigma\left(\mathcal{E}_{1}\right)\mid\mathbb{P}\left(F_{1}\cap E_{2}\cap\ldots\cap E_{n}\right)=\mathbb{P}\left(F_{1}\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)\forall E_{i}\in\mathcal{E}_{i},2\leq i\leq n\right\} 
+\]
+
+\end_inset
+
+and note that we can show that 
+\begin_inset Formula $\mathcal{D}_{1}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system.
+ To see this, first note that 
+\begin_inset Formula $\Omega\in\mathcal{D}_{1}$
+\end_inset
+
+ since 
+\begin_inset Formula 
+\begin{align*}
+\mathbb{P}\left(\Omega\cap E_{2}\cap\ldots\cap E_{n}\right) & =\mathbb{P}\left(E_{2}\cap\ldots\cap E_{n}\right)\\
+ & =\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)\\
+ & =\mathbb{P}\left(\Omega\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)
+\end{align*}
+
+\end_inset
+
+where in the second equality we use the independence of the generators.
+ Next, suppose that 
+\begin_inset Formula $F_{1},F_{2}\in\mathcal{D}_{1}$
+\end_inset
+
+ such that 
+\begin_inset Formula $F_{2}\subseteq F_{1}$
+\end_inset
+
+ and observe that 
+\begin_inset Formula 
+\begin{align*}
+\mathbb{P}\left(\left(F_{1}\setminus F_{2}\right)\cap E_{2}\cap\ldots\cap E_{n}\right) & =\mathbb{P}\left(F_{1}\cap E_{2}\cap\ldots\cap E_{n}\right)-\mathbb{P}\left(F_{2}\cap E_{2}\cap\ldots\cap E_{n}\right)\\
+ & =\mathbb{P}\left(F_{1}\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)-\mathbb{P}\left(F_{2}\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)\\
+ & =\left(\mathbb{P}\left(F_{1}\right)-\mathbb{P}\left(F_{2}\right)\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)\\
+ & =\mathbb{P}\left(F_{1}\setminus F_{2}\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)
+\end{align*}
+
+\end_inset
+
+which shows that 
+\begin_inset Formula $F_{1}\setminus F_{2}\in\mathcal{D}_{1}$
+\end_inset
+
+.
+ Finally, suppose that 
+\begin_inset Formula $\left\{ F_{i}\right\} _{i\in\N}\in\mathcal{D}_{1}$
+\end_inset
+
+ such that 
+\begin_inset Formula $F_{i}\subset F_{i+1}$
+\end_inset
+
+ and note that 
+\begin_inset Formula 
+\begin{align*}
+\mathbb{P}\left(\left(\bigcup_{i\in\N}F_{i}\right)\cap E_{2}\cap\ldots\cap E_{n}\right) & =\lim_{n\to\infty}\mathbb{P}\left(F_{n}\cap E_{2}\cap\ldots\cap E_{n}\right)\\
+ & =\lim_{n\to\infty}\mathbb{P}\left(F_{n}\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)\\
+ & =\mathbb{P}\left(\bigcup_{i\in\N}F_{i}\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)
+\end{align*}
+
+\end_inset
+
+which shows that 
+\begin_inset Formula $\bigcup_{i\in\N}F_{i}\in\mathcal{D}_{1}$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\mathcal{D}_{1}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system containing 
+\begin_inset Formula $\mathcal{E}_{1}$
+\end_inset
+
+ and so 
+\begin_inset Formula $\sigma\left(\mathcal{E}_{1}\right)\subseteq\mathcal{D}_{1}$
+\end_inset
+
+.
+ Next, we can define 
+\begin_inset Formula 
+\[
+\mathcal{D}_{2}:=\left\{ F_{2}\in\sigma\left(\mathcal{E}_{2}\right)\mid\mathbb{P}\left(F_{1}\cap F_{2}\cap\ldots\cap E_{n}\right)=\mathbb{P}\left(F_{1}\right)\mathbb{P}\left(F_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)F_{1}\in\sigma\left(\mathcal{E}_{1}\right),E_{i}\in\mathcal{E}_{i},3\leq i\leq n\right\} ,
+\]
+
+\end_inset
+
+observe that 
+\begin_inset Formula $\mathcal{E}_{2}\subseteq\mathcal{D}_{2}$
+\end_inset
+
+ by the result on 
+\begin_inset Formula $\mathcal{D}_{1}$
+\end_inset
+
+ , and show that 
+\begin_inset Formula $\mathcal{D}_{2}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system and so 
+\begin_inset Formula $\sigma\left(\mathcal{E}_{2}\right)\subseteq\mathcal{D}_{2}$
+\end_inset
+
+ and so on.
+ This completes the argument.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:clumping"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left\{ \mathcal{F}_{i}\right\} _{i\in I}$
+\end_inset
+
+ be a collection of independent 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras.
+ If 
+\begin_inset Formula $J,K\subset I$
+\end_inset
+
+ are disjoint, then 
+\begin_inset Formula 
+\[
+\sigma\left(\bigcup_{j\in J}\F_{j}\right)\indep\sigma\left(\bigcup_{k\in K}\F_{k}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $\mathcal{E}_{J}$
+\end_inset
+
+ be the collection of all finite intersections of sets in 
+\begin_inset Formula $\bigcup_{j\in J}\F_{j}$
+\end_inset
+
+ and note that 
+\begin_inset Formula $\bigcup_{j\in J}\F_{j}\subset\mathcal{E}_{J}$
+\end_inset
+
+ for any 
+\begin_inset Formula $j\in J$
+\end_inset
+
+ since we can take all sets one at a time.
+ Thus 
+\begin_inset Formula $\sigma\left(\bigcup_{j\in J}\F_{j}\right)\subseteq\sigma\left(\mathcal{E}_{J}\right)$
+\end_inset
+
+.
+ Conversely, 
+\begin_inset Formula $\mathcal{E}_{J}\subseteq\sigma\left(\bigcup_{j\in J}\F_{j}\right)$
+\end_inset
+
+ and so 
+\begin_inset Formula $\sigma\left(\bigcup_{j\in J}\F_{j}\right)=\sigma\left(\mathcal{E}_{J}\right).$
+\end_inset
+
+ Note that 
+\begin_inset Formula $\mathcal{E}_{J}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{E}_{K}$
+\end_inset
+
+ (where 
+\begin_inset Formula $\mathcal{E}_{K}$
+\end_inset
+
+ is defined analogously) are 
+\begin_inset Formula $\pi-$
+\end_inset
+
+systems and so if 
+\begin_inset Formula $\mathcal{E}_{J}\indep\mathcal{E}_{K}$
+\end_inset
+
+ then 
+\begin_inset Formula $\sigma\left(\mathcal{E}_{J}\right)\indep\sigma\left(\mathcal{E}_{K}\right)$
+\end_inset
+
+ by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:indepSigmaAlgebras"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Now for any 
+\begin_inset Formula $E_{J}\in\mathcal{E}_{J}$
+\end_inset
+
+ , we can write 
+\begin_inset Formula $E_{J}=\bigcap_{j\in J}F_{j}$
+\end_inset
+
+ where 
+\begin_inset Formula $F_{j}\in\F_{j}$
+\end_inset
+
+ (where for some 
+\begin_inset Formula $j$
+\end_inset
+
+s 
+\begin_inset Formula $F_{j}=\Omega$
+\end_inset
+
+).
+ Similarly 
+\begin_inset Formula $E_{K}\in\mathcal{E}_{K}$
+\end_inset
+
+ could be written 
+\begin_inset Formula $E_{K}=\bigcap_{k\in K}F_{k}$
+\end_inset
+
+.
+ Therefore,
+\begin_inset Formula 
+\begin{align*}
+\mathbb{P}\left(E_{J}\cap E_{K}\right) & =\mathbb{P}\left(\bigcap_{j\in J}F_{j}\cap\bigcap_{k\in K}F_{k}\right)\\
+ & =\mathbb{P}\left(\bigcap_{j\in J}F_{j}\right)\mathbb{P}\left(\bigcap_{k\in K}F_{k}\right)
+\end{align*}
+
+\end_inset
+
+where we have used the independence of 
+\begin_inset Formula $\left\{ \F_{i}\right\} _{i\in I}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These results yield as our first 
+\emph on
+zero-one law 
+\emph default
+which is a result that characterizes some type of 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra that only contain events iwth probability zero or one.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:tailSigmaAlgebra"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and suppose 
+\begin_inset Formula $\left\{ \F_{i}\right\} _{i\in\N}\subset\F$
+\end_inset
+
+ is a collection of sub 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras on this space.
+ Suppose further that 
+\begin_inset Formula $\F=\sigma\left(\bigcup_{i\in I}\F_{i}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{H}_{n}:=\sigma\left(\bigcup_{i\geq n}\F_{i}\right)$
+\end_inset
+
+ and so 
+\begin_inset Formula $\mathcal{H}_{n+1}\subseteq\mathcal{H}_{n}$
+\end_inset
+
+.
+ The 
+\emph on
+tail 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra 
+\emph default
+with respect to 
+\begin_inset Formula $\left\{ \F_{i}\right\} _{i\in\N}$
+\end_inset
+
+ is given
+\begin_inset Formula 
+\[
+\mathcal{H}_{\infty}=\bigcap_{n\in\N}\mathcal{H}_{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:kolmogorovZeroOne"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Kolmogorov's Zero-One Law
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and suppose 
+\begin_inset Formula $\left\{ \F_{i}\right\} _{i\in\N}\subset\F$
+\end_inset
+
+ is a collection of mutually independent sub 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebras on this space.
+ Then the tail 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra 
+\begin_inset Formula $\mathcal{H}_{\infty}$
+\end_inset
+
+ is trivial in that for any 
+\begin_inset Formula $A\in\mathcal{H}_{\infty}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathbb{P}\left(A\right)\in\left\{ 0,1\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $\F_{1},\ldots,\F_{n-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{H}_{n}$
+\end_inset
+
+ are mutually independent by an inductive extension of Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:clumping"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Of course, since 
+\begin_inset Formula $\mathcal{H}_{\infty}\subseteq\mathcal{H}_{n}$
+\end_inset
+
+ so 
+\begin_inset Formula $\F_{1},\ldots,\F_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{H}_{\infty}$
+\end_inset
+
+ are all mutually independent.
+ Of course, since 
+\begin_inset Formula $n$
+\end_inset
+
+ is arbitrary, we have that 
+\begin_inset Formula $\mathcal{H}_{\infty}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ \F_{i}\right\} _{i\in\N}$
+\end_inset
+
+are all mutually independent.
+ Again, applying Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:clumping"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we have that 
+\begin_inset Formula $\mathcal{H}_{\infty}\indep\sigma\left(\bigcup_{i\in\N}\F_{i}\right).$
+\end_inset
+
+Note that since 
+\begin_inset Formula $\mathcal{H}_{\infty}\subset\F=\sigma\left(\bigcup_{i\in\N}\F_{i}\right)$
+\end_inset
+
+ we have that 
+\begin_inset Formula $\mathcal{H}_{\infty}\indep\mathcal{H}_{\infty}$
+\end_inset
+
+and so for any 
+\begin_inset Formula $A\in\mathcal{H}_{\infty}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathbb{P}\left(A\right)=\mathbb{P}\left(A\right)^{2}\implies\mathbb{P}\left(A\right)\in\left\{ 0,1\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Random variables
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:randomVariable"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space.
+ A 
+\emph on
+random variable 
+\emph default
+is a real-valued Borel-measurable map 
+\begin_inset Formula $X:\left(\Omega,\F\right)\to\left(\R,\borel\left(\R\right)\right)$
+\end_inset
+
+.
+ A 
+\emph on
+random vector 
+\emph default
+is a measurable map 
+\begin_inset Formula $X:\left(\Omega,\F\right)\to\left(\R^{n},\borel\left(\R^{n}\right)\right)$
+\end_inset
+
+.
+ A 
+\emph on
+random element 
+\emph default
+is a measurable map 
+\begin_inset Formula $X:\left(\Omega,\F\right)\to\left(S,\mathcal{B}\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $\left(S,\mathcal{B}\right)$
+\end_inset
+
+ is a Polish space with its Borel 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra.
+\end_layout
+
+\begin_layout Standard
+Our definitions are increasingly general in that random variables, are random
+ vectors, which in turn are random elements.
+ Much of our language about measurable functions has analogues in probability.
+ For instance, the image measure 
+\begin_inset Formula $X\mathbb{P}$
+\end_inset
+
+ (which we shall denote as 
+\begin_inset Formula $\mathbb{P}_{X}$
+\end_inset
+
+ from now on) of 
+\begin_inset Formula $X$
+\end_inset
+
+ under 
+\begin_inset Formula $\mathbb{P}$
+\end_inset
+
+ is called the 
+\emph on
+distribution 
+\emph default
+of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ The Radon-Nikodym derivative of this distribution with respect to the Lebesgue
+ measure (if it exists) is called the 
+\emph on
+density 
+\emph default
+of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ The Stieljes function 
+\begin_inset Formula $F_{X}\left(x\right):=\mathbb{P}_{X}\left(\left(-\infty,x\right]\right)$
+\end_inset
+
+ is called the 
+\emph on
+cumulative distribution function (CDF) 
+\emph default
+of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:stieljesMeasure"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ tells us that CDFs completely characterize the distribution of a random
+ variable 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The CDF has two additional properties that we did not see for Stieljes functions
+ in general.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:cdfLimits"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $X:\Omega\to\R$
+\end_inset
+
+ be a random variable.
+ Then its cumulative distribution function 
+\begin_inset Formula $F_{X}$
+\end_inset
+
+ has the property that 
+\begin_inset Formula 
+\[
+\lim_{x\to\infty}F_{X}\left(x\right)=1
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+\lim_{x\to-\infty}F_{X}\left(x\right)=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that the first limit is equivalent to
+\begin_inset Formula 
+\begin{align*}
+\lim_{n\to\infty}\mathbb{P}_{X}\left(\left(-\infty,n\right]\right) & =\mathbb{P}_{X}\left(\bigcup_{n\in\N}\left(-\infty,n\right]\right)\\
+ & =\mathbb{P}_{X}\left(\left(-\infty,\infty\right)\right)\\
+ & =1.
+\end{align*}
+
+\end_inset
+
+where we used the upper continuity of measures.
+ Similarly, the other limit can be written as 
+\begin_inset Formula 
+\begin{align*}
+\lim_{n\to\infty}\mathbb{P}_{X}\left(\left(-\infty,-n\right]\right) & =\mathbb{P}_{X}\left(\bigcap_{n\in\N}\left(-\infty,-n\right]\right)\\
+ & =\mathbb{P}_{X}\left(\emptyset\right)\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:floorFuncCDF"
+
+\end_inset
+
+Let 
+\begin_inset Formula $n$
+\end_inset
+
+ be a positive integer and suppose that 
+\begin_inset Formula 
+\[
+F\left(x\right)=\frac{\lfloor x\rfloor}{n}\indicate\left\{ 0\leq x\leq n\right\} +\indicate\left\{ x>n\right\} 
+\]
+
+\end_inset
+
+ and observe that 
+\begin_inset Formula $F$
+\end_inset
+
+ is clearly non-decreasing, it is right continuous as the floor function
+ is right continuous.
+ The limiting behavior is obvious.
+ To construct the probability distribution that generates this CDF, one
+ can define a random variable 
+\begin_inset Formula $X$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\begin{align*}
+\mathbb{P}\left(X=x\right) & =F\left(x\right)-F\left(x-1\right)\\
+ & =\frac{1}{n}
+\end{align*}
+
+\end_inset
+
+which is the 
+\emph on
+discrete uniform distribution
+\emph default
+ over 
+\begin_inset Formula $\left\{ 1,2,\ldots,n\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:geometricDistOneHalf"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a random variable with distribution characterized by
+\begin_inset Formula 
+\[
+\mathbb{P}_{X}\left(\left\{ x\right\} \right)=\left(\frac{1}{2}\right)^{x}\indicate\left\{ x\in\N\right\} .
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula 
+\[
+\mathbb{P}_{X}\left(\N\right)=\sum_{i=1}^{\infty}\frac{1}{2^{i}}=1,
+\]
+
+\end_inset
+
+ for this to be a valid distribution, it must be that 
+\begin_inset Formula $\mathbb{P}_{X}\left(\R\setminus\N\right)=0.$
+\end_inset
+
+ What is the CDF of such a distribution? Well, we know that 
+\begin_inset Formula 
+\begin{align*}
+F_{X}\left(x\right) & =\mathbb{P}_{X}\left(\left(-\infty,x\right]\right)\\
+ & =\mathbb{P}_{X}\left(\left(-\infty,x\right]\cap\N\right)\\
+ & =\sum_{i=1}^{\lfloor x\rfloor}\frac{1}{2^{i}}\\
+ & =1-\frac{1}{2^{\lfloor x\rfloor}}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The convex combination of CDFs remains a CDF , which gives rise to mixture
+ distributions.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:convexCombinationDistribution"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $X,Y$
+\end_inset
+
+ be random variables with CDFs 
+\begin_inset Formula $F_{X}$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{Y}$
+\end_inset
+
+.
+ For any 
+\begin_inset Formula $\lambda\in\left[0,1\right]$
+\end_inset
+
+ , the function 
+\begin_inset Formula $F\left(x\right):=\lambda F_{X}\left(x\right)+\left(1-\lambda\right)F_{Y}\left(x\right)$
+\end_inset
+
+ satisfies all the properties of CDF.
+\end_layout
+
+\begin_layout Proof
+Note that convex combinations of increasing functions is increasing and
+ the convex combinations of right continuous functions is right continuous.
+ The limiting properties also follow easily since limits behave linearly.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2023psb3"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2023 PSB 3
+\end_layout
+
+\end_inset
+
+Do there exist CDFs on 
+\begin_inset Formula $\R$
+\end_inset
+
+ such that 
+\begin_inset Formula $F\left(x\right)=F\left(x^{n}\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $n>1$
+\end_inset
+
+? First, note that if 
+\begin_inset Formula $n$
+\end_inset
+
+is even, then for any 
+\begin_inset Formula $x<0$
+\end_inset
+
+ 
+\begin_inset Formula $F\left(x\right)=F\left(x^{n}\right)$
+\end_inset
+
+ which implies that 
+\begin_inset Formula 
+\begin{align*}
+0 & =\lim_{x\to-\infty}F\left(x\right)\\
+ & =\lim_{x\to-\infty}F\left(x^{n}\right)\\
+ & =\lim_{x\to\infty}F\left(x^{n}\right)\\
+ & =1
+\end{align*}
+
+\end_inset
+
+which is a contradiction and so no such distribution exists.
+ If 
+\begin_inset Formula $n$
+\end_inset
+
+ is odd then, we have that for any 
+\begin_inset Formula $x,y>1$
+\end_inset
+
+, we 
+\begin_inset Formula $F\left(x\right)=F\left(y\right)$
+\end_inset
+
+ since if 
+\begin_inset Formula $x<y$
+\end_inset
+
+ there exists some 
+\begin_inset Formula $k\in\N$
+\end_inset
+
+ such 
+\begin_inset Formula $x^{n^{k}}>y$
+\end_inset
+
+ and so the non-decreasing nature of 
+\begin_inset Formula $F$
+\end_inset
+
+ yields the result.
+ Of course, since 
+\begin_inset Formula $\lim_{x\to\infty}F\left(x\right)=1$
+\end_inset
+
+, we must have that 
+\begin_inset Formula $F\left(x\right)=1$
+\end_inset
+
+ for every 
+\begin_inset Formula $x>1$
+\end_inset
+
+.
+ A similar result shows that 
+\begin_inset Formula $F\left(x\right)=F\left(y\right)=0$
+\end_inset
+
+ for 
+\begin_inset Formula $x<-1$
+\end_inset
+
+.
+ For the intermediate values of 
+\begin_inset Formula $x$
+\end_inset
+
+, we know that for any 
+\begin_inset Formula $x_{1},x_{2}\in\left[-1,0\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{1},y_{2}\in\left(0,1\right]$
+\end_inset
+
+ that 
+\begin_inset Formula $0\leq F\left(x_{1}\right)=F\left(x_{2}\right)\leq F\left(0\right)\leq F\left(y_{1}\right)=F\left(y_{2}\right)\leq1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The integral of a random variable is called an 
+\emph on
+expectation 
+\emph default
+(provided it exists).
+ That is, 
+\begin_inset Formula $\lebInt{\mathbb{P}}X$
+\end_inset
+
+ is the expectation of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ In the probability literature, this is often denoted 
+\begin_inset Formula $\mathbb{E}\left[X\right]$
+\end_inset
+
+.
+ Since random variables are defined on measures spaces with unit measure,
+ the integral captures the average value of the function 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $X\in\mathcal{L}^{p}$
+\end_inset
+
+ for 
+\begin_inset Formula $p>1$
+\end_inset
+
+ then the random variable is said to have finite 
+\begin_inset Formula $p$
+\end_inset
+
+th moment.
+ Of course, by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:nestingLpSpace"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we know that if a random variable has a finite 
+\begin_inset Formula $p$
+\end_inset
+
+th moment, it has a finite 
+\begin_inset Formula $q$
+\end_inset
+
+th moment for 
+\begin_inset Formula $1\leq q\leq p$
+\end_inset
+
+.
+ Some moments have special names.
+ So, for instance, for the centered random variable 
+\begin_inset Formula $Y:=X-\mathbb{E}\left[X\right]$
+\end_inset
+
+, the second moment 
+\begin_inset Formula $\text{\Var\left[X\right]:=}\mathbb{E}\left[Y^{2}\right]=\E\left[X^{2}\right]-\left(\E\left[X\right]\right)^{2}$
+\end_inset
+
+ is called the 
+\emph on
+variance
+\emph default
+ of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ It captures the degree to which a random variable deviates from its mean
+ value.
+ The third 
+\emph on
+standardized 
+\emph default
+moment 
+\begin_inset Formula $\mathbb{E}\left[\left(\frac{Y}{\sigma}\right)^{3}\right]$
+\end_inset
+
+ is called the 
+\emph on
+skewness; 
+\emph default
+it captures the degree to which a random variables distribution is asymmetric.
+ We can characterize 
+\emph on
+joint 
+\emph default
+moments of multiple random variables just as easily.
+ For instance, the 
+\emph on
+covariance 
+\emph default
+of two random variables 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ on the same probability space is simply their centered inner product 
+\begin_inset Formula $\Cov\left[X,Y\right]:=\mathbb{E}\left[\left(X-\mathbb{E}\left[X\right]\right)\left(Y-\mathbb{E}\left[Y\right]\right)\right]=\E\left[XY\right]-\E\left[X\right]\E\left[Y\right]$
+\end_inset
+
+.
+ Notice that this is a generalization of the variance which is essentially
+ the covariance of a random variable with itself.
+ The bilinearity of inner products lends itself very nicely to covariances.
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2015psb5ptA"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ be 
+\begin_inset Formula $\mathcal{L}^{2}$
+\end_inset
+
+ random variables such that 
+\begin_inset Formula $\Var\left[X+Y\right]=3,$
+\end_inset
+
+ and 
+\begin_inset Formula $\Var\left[X-Y\right]=1$
+\end_inset
+
+.
+ What is 
+\begin_inset Formula $\Cov\left[X,Y\right]$
+\end_inset
+
+? We use the bilinearity of covariances here.
+ Note that 
+\begin_inset Formula $\Var\left[X+Y\right]=\Var\left[X\right]+\Var\left[Y\right]+2\Cov\left[X,Y\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $\Var\left[X-Y\right]=\Var\left[X\right]+\Var\left[Y\right]-2\Cov\left[X,Y\right]$
+\end_inset
+
+.
+ Subtracting the two equations yields 
+\begin_inset Formula $\Cov\left[X,Y\right]=\frac{1}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The symmetry of the distribution of a random variable is an important property
+ that characterizes many of the common probability distributions we hear
+ about in probability and statistics.
+ For instance, the normal distribution, and the uniform distribution, are
+ both symmetric distributions.
+ A probability distribution of a random variable 
+\begin_inset Formula $X$
+\end_inset
+
+ is said to be symmetric about 
+\begin_inset Formula $0$
+\end_inset
+
+ if for any 
+\begin_inset Formula $x\in\R$
+\end_inset
+
+
+\begin_inset Formula $:F_{X}(x)=1-F_{X}\left(-x\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2015psb5ptB"
+
+\end_inset
+
+Consider the setting in Example 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "exa:isi2015psb5ptA"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ again.
+ Can we provide a bound for 
+\begin_inset Formula $\E\left[\lvert X+Y\rvert\right]$
+\end_inset
+
+ with the additional information that 
+\begin_inset Formula $\mathbb{E}\left[X+Y\right]=\mathbb{E}\left[X-Y\right]=0$
+\end_inset
+
+? Note that in this case 
+\begin_inset Formula $\E\left[X\right]=\E\left[Y\right]=0$
+\end_inset
+
+ and so 
+\begin_inset Formula $\Var\left[X+Y\right]=\E\left[\left(X+Y\right)^{2}\right]=3$
+\end_inset
+
+ and so by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:jensenInequality]{Jensen's inequality}
+\end_layout
+
+\end_inset
+
+ and the fact that 
+\begin_inset Formula $x\to\sqrt{x}$
+\end_inset
+
+ is concave, we have that
+\begin_inset Formula 
+\[
+\E\left[\lvert X+Y\rvert\right]\leq\sqrt{\E\left[\left(X+Y\right)^{2}\right]}=\sqrt{3}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example
@@ -1220,6 +2740,41 @@ Two integers
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2004samplepsb1"
+
+\end_inset
+
+Suppose two teams play a series of games, each producing a winner and a
+ loser, until one team has won two more games than the other.
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be the total number of games played.
+ Assume each team has a chance of 0.5 to win each game, independent of the
+ results of the previous games.
+ (a) Find the probability distribution of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ (b) Find the expected value of 
+\begin_inset Formula $G$
+\end_inset
+
+.
 \end_layout
 
 \end_body
