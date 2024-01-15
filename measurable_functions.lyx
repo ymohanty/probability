@@ -87,6 +87,13 @@ figs-within-sections
 
 \begin_layout Chapter
 Measurable functions
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:measurableFunctions"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
