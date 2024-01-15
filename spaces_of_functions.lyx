@@ -2189,6 +2189,89 @@ where in the second line we have used the linearity of integration along
 
 \end_layout
 
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2005samplepsb4"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2005 Sample PSB 4
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $f$
+\end_inset
+
+ be a non-decreasing, integrable function defined on 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+.
+ Show that 
+\begin_inset Formula 
+\[
+\left(\int_{0}^{1}f(x)dx\right)^{2}\leq2\int_{0}^{1}x(f(x))^{2}dx.
+\]
+
+\end_inset
+
+Note that Jensen's inequality immediately implies that 
+\begin_inset Formula 
+\[
+\left(\int_{0}^{1}f(x)dx\right)^{2}\leq\int_{0}^{1}(f(x))^{2}dx.
+\]
+
+\end_inset
+
+ Further, note that 
+\begin_inset Formula $f\left(x\right)^{2}2x\indicate\left\{ \frac{1}{2}\leq x\leq1\right\} \geq f\left(x\right)^{2}\indicate\left\{ \frac{1}{2}\leq x\leq1\right\} $
+\end_inset
+
+ but 
+\begin_inset Formula $f\left(x\right)^{2}2x\indicate\left\{ 0\leq x\leq\frac{1}{2}\right\} \leq f\left(x\right)^{2}\indicate\left\{ 0\leq x\leq\frac{1}{2}\right\} $
+\end_inset
+
+.
+ However, since 
+\begin_inset Formula $f$
+\end_inset
+
+ is non decreasing, we know that 
+\begin_inset Formula 
+\[
+\lvert f\left(x\right)^{2}\left(2x-1\right)\indicate\left\{ \frac{1}{2}\leq x\leq1\right\} \rvert\geq\lvert f\left(x\right)^{2}\left(2x-1\right)\indicate\left\{ 0\leq x\leq\frac{1}{2}\right\} \rvert
+\]
+
+\end_inset
+
+and so 
+\begin_inset Formula 
+\begin{align*}
+\int_{0}^{1}(f(x))^{2}dx & =\int_{0}^{\frac{1}{2}}\left(f\left(x\right)\right)^{2}dx+\int_{\frac{1}{2}}^{1}\left(f\left(x\right)\right)^{2}dx\\
+ & \leq\int_{0}^{\frac{1}{2}}2x\left(f\left(x\right)\right)^{2}dx+\int_{\frac{1}{2}}^{1}2x\left(f\left(x\right)\right)^{2}dx\\
+ & =\int_{0}^{1}2x\left(f\left(x\right)\right)^{2}dx.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 The space 
 \begin_inset Formula $L^{\infty}$
@@ -4534,7 +4617,7 @@ name "cor:integrationContinuousLinearFunctional"
  and define
 \begin_inset Formula 
 \[
-\Gamma:\Lp2{\mu}\longrightarrow\R
+\Gamma:\Lp 2{\mu}\longrightarrow\R
 \]
 
 \end_inset
