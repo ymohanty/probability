@@ -740,6 +740,85 @@ f^{\prime}\left(x\right) & =\frac{px^{p-1}}{qf\left(x\right)^{q-1}}\\
 which completes the proof.
 \end_layout
 
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2013psb2"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2013 PSB 2
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $a_{1}<a_{2}<\cdots<a_{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $b_{1}<b_{2}<\cdots<b_{n}$
+\end_inset
+
+ be real numbers such that 
+\begin_inset Formula 
+\[
+\sum_{i=1}^{m}\left|a_{i}-x\right|=\sum_{j=1}^{n}\left|b_{j}-x\right|\text{ for all }x\in\mathbb{R}.
+\]
+
+\end_inset
+
+We can use differentiability to show that 
+\begin_inset Formula $m=n$
+\end_inset
+
+ and 
+\begin_inset Formula $a_{j}=b_{j}$
+\end_inset
+
+ for
+\begin_inset Formula $1\leq j\leq n$
+\end_inset
+
+.
+ To see this, note that 
+\begin_inset Formula $f\left(x\right):=\sum_{i=1}^{m}\lvert a_{i}-x\rvert$
+\end_inset
+
+ is not differentiable exactly on the set 
+\begin_inset Formula $F:=\left\{ a_{1},\ldots,a_{n}\right\} .$
+\end_inset
+
+ This is because eacj component 
+\begin_inset Formula $\lvert a_{i}-x\rvert$
+\end_inset
+
+ is non-differentiable only at 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+and the sum of differentiable and non-differentiable functions are not different
+iable.
+ Similarly, the function 
+\begin_inset Formula $g\left(x\right):=\sum_{i=1}^{n}\lvert b_{i}-x\rvert$
+\end_inset
+
+ is exactly not differentiable on the set 
+\begin_inset Formula $G$
+\end_inset
+
+ which implies 
+\begin_inset Formula $F=G$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsubsection
 Mean value theorems
 \end_layout
@@ -1539,11 +1618,11 @@ noprefix "false"
 \end_inset
 
  is equivalent to saying 
-\begin_inset Formula $\lebInt{\nu}g=\lebInt{\mu}{fg}\forall g\in\Lp1{\X,\F,\nu}.$
+\begin_inset Formula $\lebInt{\nu}g=\lebInt{\mu}{fg}\forall g\in\Lp 1{\X,\F,\nu}.$
 \end_inset
 
  The right hand side is the inner product associated with the space 
-\begin_inset Formula $\Lp2{\mu}$
+\begin_inset Formula $\Lp 2{\mu}$
 \end_inset
 
  and so we wish to show that a linear functional 
@@ -1551,7 +1630,7 @@ noprefix "false"
 \end_inset
 
  can be represented as an inner product on 
-\begin_inset Formula $\Lp2{\mu}.$
+\begin_inset Formula $\Lp 2{\mu}.$
 \end_inset
 
  At this juncture, one can guess that the Riesz representation theorem for
@@ -1562,11 +1641,11 @@ noprefix "false"
 \end_inset
 
  a linear functional on 
-\begin_inset Formula $\Lp1{\nu}$
+\begin_inset Formula $\Lp 1{\nu}$
 \end_inset
 
  and it is not 
-\begin_inset Formula $\Lp2{\mu}.$
+\begin_inset Formula $\Lp 2{\mu}.$
 \end_inset
 
  Further, it is unclear whether our functional is bounded, which is a necessary
@@ -1683,7 +1762,7 @@ noprefix "false"
 Next define an operator 
 \begin_inset Formula 
 \[
-\Gamma:\Lp 2{\psi}\longrightarrow\R
+\Gamma:\Lp2{\psi}\longrightarrow\R
 \]
 
 \end_inset
