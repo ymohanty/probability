@@ -551,6 +551,73 @@ Think about a set with
  and so on.
 \end_layout
 
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2013psb3"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2013 PSB 3
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $S=\left\{ 1,2,\ldots,n\right\} .$
+\end_inset
+
+ How many ways can we choose two subsets 
+\begin_inset Formula $B\subseteq A\subseteq S$
+\end_inset
+
+ such that 
+\begin_inset Formula $B\neq\emptyset$
+\end_inset
+
+? How many subsets 
+\begin_inset Formula $B\subsetneq A\subseteq S$
+\end_inset
+
+ can we choose? For the first question, we know that for each subset 
+\begin_inset Formula $A$
+\end_inset
+
+ of size 
+\begin_inset Formula $k$
+\end_inset
+
+ we can select 
+\begin_inset Formula $2^{k}-1$
+\end_inset
+
+ nonempty subsets.
+ Further, there are 
+\begin_inset Formula $\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)$
+\end_inset
+
+ subsets of size 
+\begin_inset Formula $k$
+\end_inset
+
+ and so the number of such sets is 
+\begin_inset Formula $\sum_{k=1}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)\left(2^{k}-1\right)$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Standard
 There are a number of interesting identities regarding binomial coefficients
  which have simple combinatorial interpretations.
@@ -3021,6 +3088,87 @@ hl{TODO}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2023psb2"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2023 PSB 2
+\end_layout
+
+\end_inset
+
+How many permutations of the numbers 
+\begin_inset Formula $1,2,\ldots,n$
+\end_inset
+
+ where 
+\begin_inset Formula $n$
+\end_inset
+
+is even exist such that no two adjacent numbers have an odd product? Let's
+ first count the number of such permutations where the first slot is taken
+ up by an even number.
+ The number of positive even integers less or equal to 
+\begin_inset Formula $n$
+\end_inset
+
+ is 
+\begin_inset Formula $\frac{n}{2}$
+\end_inset
+
+ and so answer is for these is 
+\begin_inset Formula $\frac{n}{2}!^{2}$
+\end_inset
+
+.
+ The odd first answer is 
+\begin_inset Formula $\frac{n}{2}!^{2}$
+\end_inset
+
+ so together the answer is 
+\begin_inset Formula $2\frac{n}{2}!^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2015psb4"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2015 PSB 4
+\end_layout
+
+\end_inset
+
+Suppose 15 identical balls are placed in 3 boxes labeled A, B and C.
+ What is the number of ways in which Box A can have more balls than Box
+ C?
 \end_layout
 
 \end_body
