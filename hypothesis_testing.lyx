@@ -208,5 +208,148 @@ hl{TODO}
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2005samplepsb10"
+
+\end_inset
+
+Suppose that in 10 tosses of a coin we get 7 heads and 3 tails.
+ Find a test at level 
+\begin_inset Formula $\alpha=0.05$
+\end_inset
+
+ to test that the coin is fair against the alternative that the coin is
+ more likely to show up heads.
+ Find the power function of this test.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2006samplepsb12"
+
+\end_inset
+
+Consider a possibly unbalanced coin with probability of heads in each toss
+ being 
+\begin_inset Formula $p$
+\end_inset
+
+, where
+\begin_inset Formula $p$
+\end_inset
+
+ is unknown.
+ Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be the number of tails before the first head occurs.
+ Find the uniformly most powerful test of level 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ for testing 
+\begin_inset Formula $H_{0}:p=\frac{1}{6}$
+\end_inset
+
+ against 
+\begin_inset Formula $H_{1}:p>\frac{1}{6}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2007samplepsb11"
+
+\end_inset
+
+Let 
+\begin_inset Formula $X_{1},X_{2},\ldots,X_{n}$
+\end_inset
+
+ be i.i.d.
+ random variables from the exponential distribution with mean 
+\begin_inset Formula $\theta>0$
+\end_inset
+
+.
+ Find the most powerful test for testing 
+\begin_inset Formula $H_{0}:\theta=2$
+\end_inset
+
+ against 
+\begin_inset Formula $H_{1}:\theta=1$
+\end_inset
+
+.
+ Find the power of the test.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

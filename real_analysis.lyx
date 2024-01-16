@@ -975,6 +975,50 @@ Moreover, if there is no
 
 \begin_layout Proof
 Note that we can partition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2004samplepsb11"
+
+\end_inset
+
+For 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+ let 
+\begin_inset Formula $x_{n}=\frac{1}{n\alpha_{n}}$
+\end_inset
+
+ where 
+\begin_inset Formula $\alpha_{n}$
+\end_inset
+
+ is such that 
+\begin_inset Formula $2^{\alpha_{n}-2}<n\leq2^{\alpha_{n}-1}$
+\end_inset
+
+.
+ Is the series 
+\begin_inset Formula $\sum_{n=1}^{\infty}x_{n}$
+\end_inset
+
+ convergent or divergent? Justify your answer.
 \end_layout
 
 \begin_layout Subsection

@@ -83,7 +83,7 @@ figs-within-sections
 \begin_body
 
 \begin_layout Chapter
-Independence
+Independence and random variables
 \end_layout
 
 \begin_layout Standard
@@ -1919,6 +1919,10 @@ and so for any
 Random variables
 \end_layout
 
+\begin_layout Subsection
+General description and terminology
+\end_layout
+
 \begin_layout Definition
 \begin_inset CommandInset label
 LatexCommand label
@@ -2006,6 +2010,11 @@ of
 \begin_inset Formula $X$
 \end_inset
 
+, which is always non-negative (like all RN-derivatives) and integrates
+ to 
+\begin_inset Formula $1$
+\end_inset
+
 .
  The Stieljes function 
 \begin_inset Formula $F_{X}\left(x\right):=\mathbb{P}_{X}\left(\left(-\infty,x\right]\right)$
@@ -2036,6 +2045,19 @@ noprefix "false"
 \end_inset
 
 .
+ Moreover, Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:absoluteContinuityStieljesFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ tells us that the absolute continuity of CDFs (as functions on the real
+ line) is equivalent to the absolute continuity of the distribution with
+ respect to the Lebesgue measure.
 \end_layout
 
 \begin_layout Standard
@@ -2470,6 +2492,11 @@ variance
 \end_inset
 
 .
+ It is often denoted as 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+.
  It captures the degree to which a random variable deviates from its mean
  value.
  The third 
@@ -2485,7 +2512,152 @@ moment
 skewness; 
 \emph default
 it captures the degree to which a random variables distribution is asymmetric.
- We can characterize 
+ Here 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ is the square root of the variance, and is referred to as the 
+\emph on
+standard deviation 
+\emph default
+of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Of course, random variables need not even by 
+\begin_inset Formula $\mathcal{L}^{1}$
+\end_inset
+
+, as the following example illustrates.
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:cauchyDistribution"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probabiltiy space and let 
+\begin_inset Formula $X:\Omega\to\R$
+\end_inset
+
+ be a random variable whose distribution is absolutely continuous with respect
+ to the Lebesgue measure with density 
+\begin_inset Formula $f_{X}\left(x\right)=\frac{1}{\pi\left(1+x^{2}\right)}$
+\end_inset
+
+.
+ Note that this is a valid density since 
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\lambda}{\frac{1}{\pi\left(1+x^{2}\right)}} & =\int_{-\infty}^{\infty}\frac{1}{\pi\left(1+x^{2}\right)}\\
+ & =\int_{-\infty}^{0}\frac{1}{\pi\left(1+x^{2}\right)}+\int_{0}^{\infty}\frac{1}{\pi\left(1+x^{2}\right)}\\
+ & =\frac{2}{\pi}\int_{0}^{\infty}\frac{1}{\left(1+x^{2}\right)}\\
+ & =\frac{2}{\pi}\lim_{b\to\infty}\tan^{-1}\left(b\right)-\tan^{-1}\left(0\right)\\
+ & =\frac{2}{\pi}\frac{\pi}{2}\\
+ & =1
+\end{align*}
+
+\end_inset
+
+where in the third equality we used the the symmetry of the density (and
+ hence distribution)
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The symmetry of the distribution of a random variable is an important property
+ that characterizes many of the common probability distributions we hear
+ about in probability and statistics.
+ For instance, the normal distribution, and the uniform distribution, are
+ both symmetric distributions.
+ A probability distribution of a random variable 
+\begin_inset Formula $X$
+\end_inset
+
+ is said to be symmetric about 
+\begin_inset Formula $0$
+\end_inset
+
+ if for any 
+\begin_inset Formula $x\in\R$
+\end_inset
+
+
+\begin_inset Formula $:F_{X}(x)=1-F_{X}\left(-x\right).$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ and in the fourth the fact that the derivative of 
+\begin_inset Formula $\tan^{-1}\left(x\right)$
+\end_inset
+
+ is 
+\begin_inset Formula $\frac{1}{1+x^{2}}$
+\end_inset
+
+ and the fundamental theorem of calculus.
+ To see that the first moment doesn't exist, observe that 
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}\left[X\right] & =\E\left[X^{+}\right]-\E\left[X^{-}\right]\\
+ & =\int_{0}^{\infty}\frac{x}{\pi\left(1+x^{2}\right)}dx-\int_{0}^{\infty}\frac{x}{\pi\left(1+x^{2}\right)}dx\\
+\end{align*}
+
+\end_inset
+
+where in the second equality we have used Corollaries 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:changeOfVariables"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:densityIntegral"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ along with the Radon-Nikodym theorem.
+ Thus the expectation is zero if the integral of the parts is finite; otherwise
+ it is not defined.
+ To this end, note that 
+\begin_inset Formula 
+\begin{align*}
+\int_{0}^{\infty}\frac{x}{\pi\left(1+x^{2}\right)}dx & =\frac{1}{2\pi}\int_{1}^{\infty}\frac{1}{u}du\\
+ & =\frac{1}{2\pi}\left[\lim_{b\to\infty}\log\left(b\right)-\log\left(1\right)\right]\\
+ & =\infty
+\end{align*}
+
+\end_inset
+
+which shows that 
+\begin_inset Formula $\E\left[X\right]$
+\end_inset
+
+ is not defined.
+\end_layout
+
+\begin_layout Standard
+We can characterize 
 \emph on
 joint 
 \emph default
@@ -2566,31 +2738,66 @@ Let
 \end_layout
 
 \begin_layout Standard
-The symmetry of the distribution of a random variable is an important property
- that characterizes many of the common probability distributions we hear
- about in probability and statistics.
- For instance, the normal distribution, and the uniform distribution, are
- both symmetric distributions.
- A probability distribution of a random variable 
-\begin_inset Formula $X$
-\end_inset
-
- is said to be symmetric about 
-\begin_inset Formula $0$
-\end_inset
-
- if for any 
-\begin_inset Formula $x\in\R$
-\end_inset
-
-
-\begin_inset Formula $:F_{X}(x)=1-F_{X}\left(-x\right).$
+\begin_inset Separator plain
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2006samplepsb6"
+
+\end_inset
+
+Let 
+\begin_inset Formula $Y_{1},Y_{2},Y_{3}$
+\end_inset
+
+ be i.i.d.
+ continuous random variables.
+ For 
+\begin_inset Formula $i=1,2$
+\end_inset
+
+, define 
+\begin_inset Formula $U_{i}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+U_{i}=\begin{cases}
+1 & \text{ if }Y_{i+1}>Y_{i},\\
+0 & \text{ otherwise }
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Find the mean and variance of 
+\begin_inset Formula $U_{1}+U_{2}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -2663,6 +2870,26 @@ hyperref[thm:jensenInequality]{Jensen's inequality}
 
 \end_layout
 
+\begin_layout Subsection
+Independence of random variables
+\end_layout
+
+\begin_layout Subsection
+Transformations of random variables
+\end_layout
+
+\begin_layout Subsection
+Multiple random variables and random vectors
+\end_layout
+
+\begin_layout Subsection
+Order statistics
+\end_layout
+
+\begin_layout Subsection
+Concentration inequalities
+\end_layout
+
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -2679,7 +2906,7 @@ name "exa:isi2016psa26"
 
 
 \begin_inset Argument 1
-status open
+status collapsed
 
 \begin_layout Plain Layout
 ISI 2016 PSA 26
@@ -2775,6 +3002,503 @@ Suppose two teams play a series of games, each producing a winner and a
 \end_inset
 
 .
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2004samplepsb4"
+
+\end_inset
+
+Two policemen are sent to watch a road that is 
+\begin_inset Formula $1\mathrm{~km}$
+\end_inset
+
+ long.
+ Each of the two policemen is assigned a position on the road which is chosen
+ according to a uniform distribution along the length of the road and independen
+t of the other's position.
+ Find the probability that the policemen will be less than 
+\begin_inset Formula $1/4$
+\end_inset
+
+ kilometer apart when they reach their assigned posts.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2004samplepsb7"
+
+\end_inset
+
+Suppose 
+\begin_inset Formula $X$
+\end_inset
+
+ has a normal distribution with mean 0 and variance 25 .
+ Let
+\begin_inset Formula $Y$
+\end_inset
+
+ be an independent random variable taking values -1 and 1 with equal probability.
+ Define
+\begin_inset Formula $S=XY+\frac{X}{Y}$
+\end_inset
+
+ and
+\begin_inset Formula $T=XY-\frac{X}{Y}$
+\end_inset
+
+.
+ (a) Find the probability distribution of 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ (b) Find the probability distribution of 
+\begin_inset Formula $\left(\frac{S+T}{10}\right)^{2}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2005samplepsb2"
+
+\end_inset
+
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ be independent random variables with 
+\begin_inset Formula $X$
+\end_inset
+
+ having a binomial distribution with parameters 5 and 
+\begin_inset Formula $1/2$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ having a binomial distribution with parameters 7 and 
+\begin_inset Formula $1/2$
+\end_inset
+
+.
+ Find the probability that 
+\begin_inset Formula $|X-Y|$
+\end_inset
+
+ is even.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2005samplepsb5"
+
+\end_inset
+
+Suppose 
+\begin_inset Formula $X$
+\end_inset
+
+ and
+\begin_inset Formula $U$
+\end_inset
+
+ are independent random variables with 
+\begin_inset Formula 
+\[
+P(X=k)=\frac{1}{N+1},\quad k=0,1,2,\ldots,N,
+\]
+
+\end_inset
+
+ and 
+\begin_inset Formula $U$
+\end_inset
+
+ having a uniform distribution on 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $Y=X+U$
+\end_inset
+
+.a) For 
+\begin_inset Formula $y\in\mathbb{R}$
+\end_inset
+
+, find 
+\begin_inset Formula $P(Y\leq y)$
+\end_inset
+
+.
+ b) Find the correlation coefficient between 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2006samplepsb3"
+
+\end_inset
+
+Let 
+\begin_inset Formula $X_{1},X_{2}\ldots$
+\end_inset
+
+ be i.i.d.
+ Bernoulli random variables with parameter 
+\begin_inset Formula $\frac{1}{4}$
+\end_inset
+
+, let 
+\begin_inset Formula $Y_{1},Y_{2},\ldots$
+\end_inset
+
+ be another sequence of i.i.d.
+ Bernoulli random variables with parameter 
+\begin_inset Formula $\frac{3}{4}$
+\end_inset
+
+ and Let 
+\begin_inset Formula $N$
+\end_inset
+
+ be a geometric random variable with parameter 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+ (i.
+ e.
+ 
+\begin_inset Formula $P(N=k)=\frac{1}{2^{k}}$
+\end_inset
+
+for 
+\begin_inset Formula $k=1,2\ldots)$
+\end_inset
+
+.
+ Assume the 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ 's, 
+\begin_inset Formula $Y_{j}$
+\end_inset
+
+'s and 
+\begin_inset Formula $N$
+\end_inset
+
+ are all independent.
+ Compute 
+\begin_inset Formula $\Cov\left(\sum_{i=1}^{N}X_{i},\sum_{i=1}^{N}Y_{i}\right)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2007samplepsb5"
+
+\end_inset
+
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ be i.i.d.
+ random variables, with 
+\begin_inset Formula $P(X=k)=2^{-k}$
+\end_inset
+
+ for 
+\begin_inset Formula $k=1,2,3,\ldots$
+\end_inset
+
+ Find 
+\begin_inset Formula $P(X>Y)$
+\end_inset
+
+ and 
+\begin_inset Formula $P(X>2Y)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2007samplepsb6"
+
+\end_inset
+
+18 boys and 2 girls are made to stand in a line in a random order.
+ Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be the number of boys standing in between the girls.
+ Find (a) 
+\begin_inset Formula $P(X=5)$
+\end_inset
+
+, (b) 
+\begin_inset Formula $E(X)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2007samplepsb8"
+
+\end_inset
+
+Let 
+\begin_inset Formula $U_{1},U_{2},\ldots,U_{n}$
+\end_inset
+
+ be i.i.d.
+ uniform 
+\begin_inset Formula $(0,1)$
+\end_inset
+
+ random variables and suppose 
+\begin_inset Formula 
+\[
+X=\max\left(U_{1},U_{2},\ldots,U_{n}\right)\text{ and }Y=\min\left(U_{1},U_{2},\ldots,U_{n}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Find the distribution of 
+\begin_inset Formula $Z=X-Y$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
 \end_body

@@ -253,6 +253,77 @@ Distributivity of scalar multiplication with respect to field addition:
 
 \end_layout
 
+\begin_layout Exercise
+\begin_inset CommandInset label
+LatexCommand label
+name "exer:isi2013psb1"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2013 PSB-1
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $E=\{1,2,\ldots,n\}$
+\end_inset
+
+, where $n$ is an odd positive integer.
+ Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be the vector space of all functions from 
+\begin_inset Formula $E$
+\end_inset
+
+ to 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+, where the vector space operations are given by 
+\begin_inset Formula 
+\[
+\begin{aligned}(f+g)(k) & =f(k)+g(k),\quad\text{ for }f,g\in V,k\in E,\\
+(\lambda f)(k) & =\lambda f(k),\quad\text{ for }f\in V,\lambda\in\mathbb{R},k\in E.
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Find the dimension of V
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $T:V\to V$
+\end_inset
+
+ be the map given by 
+\begin_inset Formula 
+\[
+T\left(f\right)\left(k\right):=\frac{1}{2}\left(f\left(k\right)+f\left(n+1-k\right)\right),\ k\in E
+\]
+
+\end_inset
+
+is linear.
+\end_layout
+
+\begin_layout Enumerate
+Find the null space of T.
+\end_layout
+
 \begin_layout Section
 Determinants
 \begin_inset CommandInset label
@@ -1209,16 +1280,405 @@ noprefix "false"
 .
 \end_layout
 
-\begin_layout Standard
-
-\end_layout
-
 \begin_layout Subsection
 Existence and uniqueness
 \end_layout
 
 \begin_layout Subsection
 The cofactor expansion
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2023psb1"
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+ISI 2023 PSB 1
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $A_{n}=\left(\left(a_{ij}\right)\right)$
+\end_inset
+
+ be the 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix defined by 
+\begin_inset Formula 
+\[
+a_{ij}=\begin{cases}
+0 & \text{ if }|i-j|>1\\
+1 & \text{ if }|i-j|=1\\
+2 & \text{ if }i=j
+\end{cases}
+\]
+
+\end_inset
+
+What is the determinant of 
+\begin_inset Formula $A_{n}$
+\end_inset
+
+ for 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+?
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2004psbsample2"
+
+\end_inset
+
+Is the following system of equations always consistent for real 
+\begin_inset Formula $k$
+\end_inset
+
+ ? Justify your answer.
+ 
+\begin_inset Formula 
+\[
+\begin{aligned}x+y+kz & =2,\\
+3x+4y+2z & =k,\\
+2x+3y-z & =1.
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Find the value of 
+\begin_inset Formula $k$
+\end_inset
+
+ for which this system admits more than one solution? Express the general
+ solution for the system of equations for this value of 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2005samplepsb1"
+
+\end_inset
+
+Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ upper triangular matrix such that 
+\begin_inset Formula $AA^{T}=A^{T}A$
+\end_inset
+
+.
+ Show that 
+\begin_inset Formula $A$
+\end_inset
+
+ is a diagonal matrix.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2005samplepsb3"
+
+\end_inset
+
+Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ orthogonal matrix, where 
+\begin_inset Formula $n$
+\end_inset
+
+ is even and suppose $|A|=$ -1, where 
+\begin_inset Formula $|A|$
+\end_inset
+
+ denotes the determinant of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Show that 
+\begin_inset Formula $|I-A|=0$
+\end_inset
+
+, where 
+\begin_inset Formula $I$
+\end_inset
+
+ denotes the 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ identity matrix.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2006samplepsb1"
+
+\end_inset
+
+Let 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ be two invertible 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ real matrices.
+ Assume that 
+\begin_inset Formula $A+B$
+\end_inset
+
+ is invertible.
+ Show that 
+\begin_inset Formula $A^{-1}+B^{-1}$
+\end_inset
+
+ is also invertible.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2007samplepsb1"
+
+\end_inset
+
+Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a 
+\begin_inset Formula $2\times2$
+\end_inset
+
+ matrix with real entries such that
+\begin_inset Formula $A^{2}=0$
+\end_inset
+
+.
+ Find the determinant of 
+\begin_inset Formula $I+A$
+\end_inset
+
+ where 
+\begin_inset Formula $I$
+\end_inset
+
+ denotes the identity matrix.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2007samplepsb2"
+
+\end_inset
+
+Let 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ be 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ real matrices such that 
+\begin_inset Formula $A^{2}=A$
+\end_inset
+
+ and 
+\begin_inset Formula $B^{2}=B$
+\end_inset
+
+.
+ Suppose that 
+\begin_inset Formula $I-(A+B)$
+\end_inset
+
+ is invertible.
+ Show that 
+\begin_inset Formula $\operatorname{rank}(A)=\operatorname{rank}(B)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

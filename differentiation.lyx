@@ -1508,6 +1508,58 @@ such that
 Differentiability classes and local approximation by polynomials
 \end_layout
 
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2007samplepsb3"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f$
+\end_inset
+
+ be a function such that 
+\begin_inset Formula $f(0)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $f$
+\end_inset
+
+ has derivatives of all order.
+ Show that 
+\begin_inset Formula 
+\[
+\lim_{h\rightarrow0}\frac{f(h)+f(-h)}{h^{2}}=f^{\prime\prime}(0)
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $f^{\prime\prime}(0)$
+\end_inset
+
+ is the second derivative of 
+\begin_inset Formula $f$
+\end_inset
+
+ at 0 .
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Special functions
 \begin_inset CommandInset label
@@ -1521,6 +1573,28 @@ name "sec:specialFunctions"
 
 \begin_layout Subsection
 Derivatives of functions between Banach spaces
+\end_layout
+
+\begin_layout Subsection
+Optimization
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2006samplepsb2"
+
+\end_inset
+
+Maximize 
+\begin_inset Formula $x+y$
+\end_inset
+
+ subject to the condition that 
+\begin_inset Formula $2x^{2}+3y^{2}\leq1$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -1618,11 +1692,11 @@ noprefix "false"
 \end_inset
 
  is equivalent to saying 
-\begin_inset Formula $\lebInt{\nu}g=\lebInt{\mu}{fg}\forall g\in\Lp 1{\X,\F,\nu}.$
+\begin_inset Formula $\lebInt{\nu}g=\lebInt{\mu}{fg}\forall g\in\Lp1{\X,\F,\nu}.$
 \end_inset
 
  The right hand side is the inner product associated with the space 
-\begin_inset Formula $\Lp 2{\mu}$
+\begin_inset Formula $\Lp2{\mu}$
 \end_inset
 
  and so we wish to show that a linear functional 
@@ -1630,7 +1704,7 @@ noprefix "false"
 \end_inset
 
  can be represented as an inner product on 
-\begin_inset Formula $\Lp 2{\mu}.$
+\begin_inset Formula $\Lp2{\mu}.$
 \end_inset
 
  At this juncture, one can guess that the Riesz representation theorem for
@@ -1641,11 +1715,11 @@ noprefix "false"
 \end_inset
 
  a linear functional on 
-\begin_inset Formula $\Lp 1{\nu}$
+\begin_inset Formula $\Lp1{\nu}$
 \end_inset
 
  and it is not 
-\begin_inset Formula $\Lp 2{\mu}.$
+\begin_inset Formula $\Lp2{\mu}.$
 \end_inset
 
  Further, it is unclear whether our functional is bounded, which is a necessary
@@ -1762,7 +1836,7 @@ noprefix "false"
 Next define an operator 
 \begin_inset Formula 
 \[
-\Gamma:\Lp2{\psi}\longrightarrow\R
+\Gamma:\Lp 2{\psi}\longrightarrow\R
 \]
 
 \end_inset

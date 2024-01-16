@@ -454,23 +454,13 @@ filename "measure_and_topology.lyx"
 \end_layout
 
 \begin_layout Part
-Probability and statistics
+Probability
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
 filename "independence.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "probability_distributions.lyx"
 
 \end_inset
 
@@ -518,6 +508,57 @@ filename "central_limit_theorems.lyx"
 \end_layout
 
 \begin_layout Part
+Statistics
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "point_estimation.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "hypothesis_testing.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "confidence_sets.lyx"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand include
+filename "linear_models.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "design_experiments.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
 \start_of_appendix
 Appendices
 \end_layout
@@ -556,6 +597,16 @@ filename "combinatorics.lyx"
 \begin_inset CommandInset include
 LatexCommand include
 filename "real_analysis.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "probability_distributions.lyx"
 
 \end_inset
 

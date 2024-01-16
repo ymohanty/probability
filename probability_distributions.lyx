@@ -84,6 +84,265 @@ figs-within-sections
 
 \begin_layout Chapter
 Common probability distributions
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:probabilityDistributions"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+General families of distributions
+\end_layout
+
+\begin_layout Subsection
+Location-scale families
+\end_layout
+
+\begin_layout Subsection
+General exponential families
+\end_layout
+
+\begin_layout Subsection
+Stable distributions
+\end_layout
+
+\begin_layout Subsection
+Infinitely divisible distributions
+\end_layout
+
+\begin_layout Subsection
+Power series distributions
+\end_layout
+
+\begin_layout Section
+Special parametric families of distributions
+\end_layout
+
+\begin_layout Subsection
+Normal distributions and their associates
+\end_layout
+
+\begin_layout Subsubsection
+The univariate normal distribution
+\end_layout
+
+\begin_layout Subsubsection
+The multivariate normal distribution
+\end_layout
+
+\begin_layout Subsubsection
+The lognormal distribution
+\end_layout
+
+\begin_layout Subsubsection
+The folded normal distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Rayleigh distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Maxwell distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Levy distribution
+\end_layout
+
+\begin_layout Subsection
+Distributions useful for basic statistical inference
+\end_layout
+
+\begin_layout Subsubsection
+The Gamma distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Chi-squared distributtion
+\end_layout
+
+\begin_layout Subsubsection
+Student's 
+\begin_inset Formula $t$
+\end_inset
+
+ distribution
+\end_layout
+
+\begin_layout Subsubsection
+The 
+\begin_inset Formula $F$
+\end_inset
+
+ distribution
+\end_layout
+
+\begin_layout Subsection
+Continuous distributions with bounded support
+\end_layout
+
+\begin_layout Subsubsection
+The uniform distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Beta distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Beta Prime distribution
+\end_layout
+
+\begin_layout Subsubsection
+The arcsine distribution
+\end_layout
+
+\begin_layout Subsubsection
+The semicircle distribution
+\end_layout
+
+\begin_layout Subsubsection
+The triangle distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Irwin-Hall distribution
+\end_layout
+
+\begin_layout Subsection
+Continuous distributions with positve support
+\end_layout
+
+\begin_layout Subsubsection
+Exponential-logarithmic distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Gompertz distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Log-logistic distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Pareto distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Wald distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Weibull distribution
+\end_layout
+
+\begin_layout Subsection
+Continuous distributions supported on the real line
+\end_layout
+
+\begin_layout Subsubsection
+The Laplace distribution
+\end_layout
+
+\begin_layout Subsubsection
+The logistic distribution
+\end_layout
+
+\begin_layout Subsubsection
+The exreme value distribution
+\end_layout
+
+\begin_layout Subsubsection
+The hyperbolic secant distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Cauchy distribution
+\end_layout
+
+\begin_layout Subsection
+Distributions associated with modeling Bernoulli trials
+\end_layout
+
+\begin_layout Subsubsection
+The Bernoulli distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Binomial distribution
+\end_layout
+
+\begin_layout Subsubsection
+The geometric distribution
+\end_layout
+
+\begin_layout Subsubsection
+The negative binomial distribution
+\end_layout
+
+\begin_layout Subsubsection
+The multinomial distribution
+\end_layout
+
+\begin_layout Subsubsection
+The discrete arcine distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Beta-binomial distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Beta-negative binomial distribution
+\end_layout
+
+\begin_layout Subsection
+Distributions associated with finite sampling models
+\end_layout
+
+\begin_layout Subsubsection
+The hypergeometric distribution
+\end_layout
+
+\begin_layout Subsubsection
+The multivariate hypergeometric distribution
+\end_layout
+
+\begin_layout Subsubsection
+The matching distribution
+\end_layout
+
+\begin_layout Subsubsection
+The birthday distribution
+\end_layout
+
+\begin_layout Subsubsection
+The coupon collector distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Polya distribution
+\end_layout
+
+\begin_layout Subsection
+Distributions associated with the Poisson process
+\end_layout
+
+\begin_layout Subsubsection
+The exponential distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Erlang distribution
+\end_layout
+
+\begin_layout Subsubsection
+The Poisson distribution
 \end_layout
 
 \end_body

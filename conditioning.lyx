@@ -93,5 +93,185 @@ name "chap:conditioning"
 
 \end_layout
 
+\begin_layout Section
+Elementary notions of conditional probability
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2004samplepsb3"
+
+\end_inset
+
+Suppose a random vector 
+\begin_inset Formula $(X,Y)$
+\end_inset
+
+ has joint probability density function 
+\begin_inset Formula 
+\[
+f(x,y)=3y
+\]
+
+\end_inset
+
+ on the triangle bounded by the lines 
+\begin_inset Formula $y=0,y=1-x$
+\end_inset
+
+, and 
+\begin_inset Formula $y=1+x$
+\end_inset
+
+.
+ Compute 
+\begin_inset Formula $\E\left(Y\left\lvert \,X\leq\frac{1}{2}\right.\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2007samplepsb7"
+
+\end_inset
+
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ be i.i.d.
+ exponentially distributed random variables with mean 
+\begin_inset Formula $\lambda>0$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula $Z$
+\end_inset
+
+ by: 
+\begin_inset Formula 
+\[
+Z=\begin{cases}
+1 & \text{ if }X<Y\\
+0 & \text{ otherwise. }
+\end{cases}
+\]
+
+\end_inset
+
+Find the conditional mean 
+\begin_inset Formula $\E\left[X\mid Z=1\right]$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Kolmogorov conditional expectations
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2005samplepsb11"
+
+\end_inset
+
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ be two random variables with joint probability density function 
+\begin_inset Formula 
+\[
+f(x,y)=\begin{cases}
+1 & \text{ if }-y<x<y,0<y<1\\
+0 & \text{ elsewhere }
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Find the regression equation of 
+\begin_inset Formula $Y$
+\end_inset
+
+ on 
+\begin_inset Formula $X$
+\end_inset
+
+ and that of 
+\begin_inset Formula $X$
+\end_inset
+
+ on 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Regular conditional probabilities
+\end_layout
+
 \end_body
 \end_document

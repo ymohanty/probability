@@ -93,5 +93,128 @@ name "chap:linearModels"
 
 \end_layout
 
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2006samplepsb11"
+
+\end_inset
+
+A straight line regression 
+\begin_inset Formula $\E(y)=\alpha+\beta x$
+\end_inset
+
+ is to be fitted using four observations.
+ Assume 
+\begin_inset Formula $\Var(y\mid x)=\sigma^{2}$
+\end_inset
+
+ for all 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ The values of 
+\begin_inset Formula $x$
+\end_inset
+
+ at which observations are to be made lie in the closed interval 
+\begin_inset Formula $[-1,1]$
+\end_inset
+
+.
+ The following choices of the values of 
+\begin_inset Formula $x$
+\end_inset
+
+ where observations are to be made are available:
+\end_layout
+
+\begin_layout Enumerate
+two observations each at $x=-1$ and $x=1$,
+\end_layout
+
+\begin_layout Enumerate
+one observation each at $x=-1$ and $x=1$ and two observations at $x=0$,
+\end_layout
+
+\begin_layout Enumerate
+one observation each at $x=-1,-
+\backslash
+frac{1}{2}, 
+\backslash
+frac{1}{2}, 1$.
+\end_layout
+
+\begin_layout Standard
+If the interest is to estimate the slope with least variance, which of the
+ above strategies would you choose and why? 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2007samplepsb12"
+
+\end_inset
+
+Let 
+\begin_inset Formula $Y_{1},Y_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y_{3}$
+\end_inset
+
+ be uncorrelated random variables with common variance 
+\begin_inset Formula $\sigma^{2}>0$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+E\left(Y_{1}\right)=\beta_{1}+\beta_{2},E\left(Y_{2}\right)=2\beta_{1}\text{ and }E\left(Y_{3}\right)=\beta_{1}-\beta_{2}
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $\beta_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{2}$
+\end_inset
+
+ are unknown parameters.
+ Find the residual (error) sum of squares under the above linear model.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

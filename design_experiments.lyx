@@ -112,6 +112,111 @@ Here is a partial key-block of a $2^4$ factorial experiment (with factors
  Search out the other five treatment combinations for the key-block and
  also the confounded interaction.
  Also, give the treatment combination of the second block.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2006samplepsb10"
+
+\end_inset
+
+For the data collected via a randomized block design with 
+\begin_inset Formula $v$
+\end_inset
+
+ treatments and 
+\begin_inset Formula $b$
+\end_inset
+
+ blocks, the following model is postulated: 
+\begin_inset Formula 
+\[
+\E\left(y_{ij}\right)=\mu+\tau_{i}+\beta_{j},\quad1\leq i\leq v,1\leq j\leq b,
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $t_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{j}$
+\end_inset
+
+ are the effects of the ith treatment and the jth block respectively, and
+ 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is a general mean.
+ For 
+\begin_inset Formula $1\leq i\leq v$
+\end_inset
+
+, define 
+\begin_inset Formula $Q_{i}=T_{i}-\frac{G}{v}$
+\end_inset
+
+, where 
+\begin_inset Formula $T_{i}$
+\end_inset
+
+ is the total of observations under the ith treatment and 
+\begin_inset Formula $G=\sum_{i=1}^{v}T_{i}$
+\end_inset
+
+.
+ Show that 
+\begin_inset Formula 
+\[
+\begin{array}{r}
+E\left(Q_{i}\right)=\left(b-\frac{b}{v}\right)\tau_{i},\quad\operatorname{Var}\left(Q_{i}\right)=\sigma^{2}\left(b-\frac{b}{v}\right),\\
+\operatorname{Cov}\left(Q_{i},Q_{j}\right)=-\left(\frac{b}{v}\right)\sigma^{2}\text{ for }i\neq j,
+\end{array}
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ is the per observation variance.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

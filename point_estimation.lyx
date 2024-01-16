@@ -93,6 +93,231 @@ name "chap:pointEstimation"
 
 \end_layout
 
+\begin_layout Section
+Population and sample
+\end_layout
+
+\begin_layout Section
+Sufficiency and completeness
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2007samplepsb9"
+
+\end_inset
+
+Let 
+\begin_inset Formula $X_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $X_{2}$
+\end_inset
+
+ be i.i.d.
+ random variables from 
+\begin_inset Formula $\operatorname{Bernoulli}(\theta)$
+\end_inset
+
+ distribution.
+ Verify if the statistic 
+\begin_inset Formula $X_{1}+2X_{2}$
+\end_inset
+
+ is sufficient for 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2006samplepsb7"
+
+\end_inset
+
+Let 
+\begin_inset Formula $Y$
+\end_inset
+
+ be a random variable with probability density function 
+\begin_inset Formula 
+\[
+f_{Y}(y\mid\theta)=\begin{cases}
+\frac{1}{\theta}e^{-y/\theta} & \text{ if }y>0,\\
+0 & \text{ otherwise }
+\end{cases}
+\]
+
+\end_inset
+
+ with 
+\begin_inset Formula $\theta>0$
+\end_inset
+
+.
+ Suppose that the conditional distribution of 
+\begin_inset Formula $X$
+\end_inset
+
+ given 
+\begin_inset Formula $Y=y$
+\end_inset
+
+ is 
+\begin_inset Formula $N\left(y,\sigma^{2}\right)$
+\end_inset
+
+, with 
+\begin_inset Formula $\sigma^{2}>0$
+\end_inset
+
+.
+ Both 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ are unknown parameters.
+ Let 
+\begin_inset Formula $\left(X_{1},Y_{1}\right),\ldots,\left(X_{n},Y_{n}\right)$
+\end_inset
+
+ be a random sample from the joint distribution of 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+ Find a nontrivial joint sufficient statistic for 
+\begin_inset Formula $\left(\theta,\sigma^{2}\right)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2007samplepsb10"
+
+\end_inset
+
+Suppose 
+\begin_inset Formula $X$
+\end_inset
+
+ takes three values 1,2 and 3 with 
+\begin_inset Formula 
+\[
+P(X=k)=\begin{cases}
+(1-\theta)/2 & \text{ if }k=1\\
+1/2 & \text{ if }k=2\\
+\theta/2 & \text{ if }k=3
+\end{cases}
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $0<\theta<1$
+\end_inset
+
+.
+ Suppose that the following random sample of size 10 was drawn from the
+ above distribution : 
+\begin_inset Formula 
+\[
+1,3,1,2,3,1,2,2,1,1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Find the m.le.
+ of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ based on the above sample.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Unbiasedness, consistency, and efficiency
+\end_layout
+
+\begin_layout Section
+Properties of extremum estimators
+\end_layout
+
 \begin_layout Example
 \begin_inset CommandInset label
 LatexCommand label
@@ -237,6 +462,320 @@ S=\frac{1}{n}\sum_{i=1}^{n}X_{i},\quad T=\frac{1}{n}\sum_{i=1}^{n}\left|X_{i}\ri
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2005samplepsb7"
+
+\end_inset
+
+Suppose that 
+\begin_inset Formula $X_{1},\ldots,X_{n}$
+\end_inset
+
+ is a random sample of size 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+ from a Poisson distribution with parameter 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ Find the minimum variance inbiased estimator of 
+\begin_inset Formula $e^{-\lambda}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2005samplepsb8"
+
+\end_inset
+
+Suppose 
+\begin_inset Formula $X_{1},\ldots,X_{n}$
+\end_inset
+
+ constitute a random sample from a population with density 
+\begin_inset Formula 
+\[
+f(x,\theta)=\frac{x}{\theta^{2}}\exp\left(-\frac{x^{2}}{2\theta^{2}}\right),x>0,\theta>0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Find the Cramer-Rao lower bound to the variance of an unbiased estimator
+ of 
+\begin_inset Formula $\theta^{2}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2005samplepsb9"
+
+\end_inset
+
+Let 
+\begin_inset Formula $X_{1},X_{2},X_{3}$
+\end_inset
+
+ be independent random variables such that 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ is uniformly distributed in 
+\begin_inset Formula $(0,i\theta)$
+\end_inset
+
+ for 
+\begin_inset Formula $i=1,2,3$
+\end_inset
+
+.
+ Find the maximum likelihood estimator of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and examine whether it is unbiased for 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2006samplepsb8"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(X_{1},Y_{1}\right),\ldots,\left(X_{n},Y_{n}\right)$
+\end_inset
+
+ be a random sample from the discrete distribution with joint probability
+ mass function 
+\begin_inset Formula 
+\[
+f_{X,Y}(x,y)=\begin{cases}
+\frac{\theta}{4} & (x,y)=(0,0)\text{ and }(1,1),\\
+\frac{2-\theta}{4} & (x,y)=(0,1)\text{ and }(1,0),
+\end{cases}
+\]
+
+\end_inset
+
+ with 
+\begin_inset Formula $0\leq\theta\leq2$
+\end_inset
+
+.
+ Find the maximum likelihood estimator of 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2006samplepsb9"
+
+\end_inset
+
+Let 
+\begin_inset Formula $X_{1},X_{2},\ldots$
+\end_inset
+
+ be i.i.d.
+ random variables with density 
+\begin_inset Formula $f_{\theta}(x),x\in\mathbb{R},\theta\in(0,1)$
+\end_inset
+
+ being the unknown parameter.
+ Suppose that there exists an unbiased estimator 
+\begin_inset Formula $T$
+\end_inset
+
+ of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ based on sample size 1, i.
+ e.
+ 
+\begin_inset Formula $\E_{\theta}\left(T\left(X_{1}\right)\right)=\theta$
+\end_inset
+
+.
+ Assume that 
+\begin_inset Formula $\Var\left(T\left(X_{1}\right)\right)<\infty$
+\end_inset
+
+.
+ (a) Find an estimator 
+\begin_inset Formula $V_{n}$
+\end_inset
+
+ for 
+\begin_inset Formula $\theta$
+\end_inset
+
+ based on
+\begin_inset Formula $X_{1},\ldots X_{n}$
+\end_inset
+
+ such that 
+\begin_inset Formula $V_{n}$
+\end_inset
+
+ is consistent for 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ (b) Let 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ be the MVUE (minimum variance unbiased estimator) of 
+\begin_inset Formula $\theta$
+\end_inset
+
+ based on 
+\begin_inset Formula $X_{1},\ldots,X_{n}$
+\end_inset
+
+.
+ Show that 
+\begin_inset Formula $\lim_{n\rightarrow\infty}\Var\left(S_{n}\right)=0$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 

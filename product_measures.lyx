@@ -4357,6 +4357,62 @@ with
 The Lebesgue differentiation theorem and the fundamental theorem of calculus
 \end_layout
 
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2007samplepsb4"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f:\mathbb{R}\rightarrow\mathbb{R}$
+\end_inset
+
+ be a bounded continuous function.
+ Define 
+\begin_inset Formula $g:[0,\infty)\rightarrow\R$
+\end_inset
+
+ by, 
+\begin_inset Formula 
+\[
+g(x)=\int_{-x}^{x}(2xt+1)f(t)dt.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Show that 
+\begin_inset Formula $g$
+\end_inset
+
+ is differentiable on 
+\begin_inset Formula $(0,\infty)$
+\end_inset
+
+ and find the derivative of 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Non-linear change-of-variables
 \end_layout
