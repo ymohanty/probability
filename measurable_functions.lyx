@@ -2361,6 +2361,104 @@ algebra.
  This completes the proof.
 \end_layout
 
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:generatorPreimage"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\X$
+\end_inset
+
+ be a set and let 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G}\right)$
+\end_inset
+
+ be a measurable space.
+ Let 
+\begin_inset Formula $\mathcal{H}\subset\mathcal{G}$
+\end_inset
+
+ be a generating class such that 
+\begin_inset Formula $\sigma\left(\mathcal{H}\right)=\mathcal{G}$
+\end_inset
+
+.
+ Then for a function 
+\begin_inset Formula $T:\mathcal{X}\to\mathcal{Y}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sigma\left(T^{-1}\left(\mathcal{H}\right)\right)=\sigma\left(T\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $T^{-1}\left(\mathcal{H}\right)\subseteq\sigma\left(T\right)$
+\end_inset
+
+ and so 
+\begin_inset Formula $\sigma\left(T^{-1}\left(\mathcal{H}\right)\right)\subseteq\sigma\left(T\right)$
+\end_inset
+
+.
+ Conversely, note that 
+\begin_inset Formula $T$
+\end_inset
+
+ is 
+\begin_inset Formula $\sigma\left(T^{-1}\left(\mathcal{H}\right)\right)/\mathcal{G}$
+\end_inset
+
+ measurable by the generating class argument in Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:genericGeneratingClassArgument"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ But since by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:sigmaAlgebraGeneratedByFunction"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+,
+\begin_inset Formula $\sigma\left(T\right)$
+\end_inset
+
+ is the smallest 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+algebra on which 
+\begin_inset Formula $T$
+\end_inset
+
+ is measurable, we have that 
+\begin_inset Formula $\sigma\left(T\right)\subseteq\sigma\left(T^{-1}\left(\mathcal{H}\right)\right)$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Proposition
 \begin_inset CommandInset label
 LatexCommand label
