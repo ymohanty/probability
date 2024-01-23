@@ -3454,10 +3454,6 @@ finite.
 
 \end_layout
 
-\begin_layout Subsection
-Convolutions
-\end_layout
-
 \begin_layout Section
 The Lebesgue measure on 
 \begin_inset Formula $\R^{n}$
@@ -4423,6 +4419,362 @@ Integration with polar coordinates
 
 \begin_layout Subsection
 Symmetry of partial derivatives
+\end_layout
+
+\begin_layout Subsection
+Convolutions
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:convolutions"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When measure spaces have a vector space structure such as 
+\begin_inset Formula $\R^{n}$
+\end_inset
+
+, we can define some interesting image measures which play an important
+ role in probability, fourier analysis, compressed sensing, signal processing
+ etc.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:convolution"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mu,\nu$
+\end_inset
+
+ be 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite Borel measures on 
+\begin_inset Formula $\R^{n}$
+\end_inset
+
+ (i.e.
+ measures on 
+\begin_inset Formula $\borel\left(\R^{n}\right)$
+\end_inset
+
+).
+ The 
+\emph on
+convolution
+\emph default
+ 
+\begin_inset Formula $\mu\star\nu$
+\end_inset
+
+ is is the image measure of the product 
+\begin_inset Formula $\mu\otimes\nu$
+\end_inset
+
+ under the map 
+\begin_inset Formula $T:\R^{n}\times\R^{n}\to\R$
+\end_inset
+
+ given by 
+\begin_inset Formula $T\left(x,y\right)=x+y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Since the product measure always exists and is unique, the convolution always
+ exists since 
+\begin_inset Formula $T$
+\end_inset
+
+ is a continuous (and hence measurable) map.
+ Therefore for any bounded, continuous 
+\begin_inset Formula $f\in\mathcal{M}\left(\R^{n},\borel\left(\R^{n}\right)\right)$
+\end_inset
+
+, we have that
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu\star\nu}f & =\lebInt{\mu\otimes\nu}{f\circ T}\\
+ & =\mu^{x}\nu^{y}\left(f\left(x+y\right)\right)
+\end{align*}
+
+\end_inset
+
+where we have used Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:changeOfVariables"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and Fubini's theorem.
+ The definition implies that the convolution is symmetric in that 
+\begin_inset Formula $\mu\star v=v\star\mu$
+\end_inset
+
+.
+ It is also possible to define the convolution of a measure with a measurable
+ function or of two measurable functions on their own, as is illustrated
+ in the following result.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:convolutionFunctions"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mu,\nu$
+\end_inset
+
+ be 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measures on 
+\begin_inset Formula $\borel\left(\R\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is absolutely continuous with respect to the Lebesgue measure with Radon-Nikody
+m derivative 
+\begin_inset Formula $g\in\mathcal{M}^{+}\left(\R,\borel\left(\R\right)\right)$
+\end_inset
+
+.
+ Then, for any bounded, continuous 
+\begin_inset Formula $f\in\mathcal{M}\left(\R,\borel\left(\R\right)\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\lebInt{\mu\star\nu}f=\lambda^{x}\nu^{y}\left(f\left(x\right)g\left(x-y\right)\right)
+\]
+
+\end_inset
+
+ and so 
+\begin_inset Formula $\mu\star\nu$
+\end_inset
+
+ is absolutely continuous with respect to the Lebesgue measure with Radon-Nikody
+m derivative 
+\begin_inset Formula 
+\[
+g\star\nu:=\nu^{y}\left(g\left(x-y\right)\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula 
+\begin{align*}
+\lebInt{\mu\star\nu}f & =\mu\otimes\nu\left(f\left(x+y\right)\right)\\
+ & =\nu^{y}\mu^{x}\left(f\left(x+y\right)\right)\\
+ & =\nu^{y}\lambda^{x}\left(f\left(x+y\right)g\left(x\right)\right)\\
+ & =\nu^{y}\lambda^{x}\left(f\left(x\right)g\left(x-y\right)\right)\\
+ & =\lambda^{x}\left(f\left(x\right)\nu^{y}\left(g\left(x-y\right)\right)\right)
+\end{align*}
+
+\end_inset
+
+where we have used the translation invariance of the Lebesgue measure in
+ the fourth equality.
+\end_layout
+
+\begin_layout Standard
+The Radon-Nikodym derivative 
+\begin_inset Formula $g\star\nu$
+\end_inset
+
+ is called the convolution of the function 
+\begin_inset Formula $g$
+\end_inset
+
+ with the measure 
+\begin_inset Formula $\nu$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\nu$
+\end_inset
+
+ too was absolutely continuous and had some density 
+\begin_inset Formula $h$
+\end_inset
+
+ then 
+\begin_inset Formula $\mu\star\nu$
+\end_inset
+
+ would have density 
+\begin_inset Formula $g\star h:=\lambda^{y}\left(g\left(x-y\right)h\left(y\right)\right)$
+\end_inset
+
+.
+ Note that this definition can be expanded in the usual way to define convolutio
+ns of functions that are not necessarily non-negative (as Radon-Nikodym
+ derivatives of positive measures are).
+ We characterize the symmetry and other properties of convolutions in this
+ next result
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:propertiesConvolution"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\mu,\nu$
+\end_inset
+
+ be 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measures on 
+\begin_inset Formula $\borel\left(\R^{n}\right)$
+\end_inset
+
+ and let 
+\begin_inset Formula $f,g,h:\R^{n}\to\R$
+\end_inset
+
+ be measurable functions.
+ Then
+\end_layout
+
+\begin_layout Proposition
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item The convolution of two functions is symmetric in that $$ f 
+\backslash
+star g = g 
+\backslash
+star f $$.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item The convolution of two measures (or of a measure and a function, or
+ of two functions) is bilinear in that 
+\end_layout
+
+\begin_layout Plain Layout
+
+$$ (
+\backslash
+alpha f + 
+\backslash
+beta g) 
+\backslash
+star h = 
+\backslash
+alpha f 
+\backslash
+star h + 
+\backslash
+beta h 
+\backslash
+star h $$ with a similar result for the second argument.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For 
+\begin_inset Formula $\left(i\right)$
+\end_inset
+
+, note that 
+\begin_inset Formula $f\star g=\lambda_{n}^{y}\left(f\left(x-y\right)g\left(y\right)\right)=\lambda^{y}\left(f\left(y\right)g\left(x-y\right)\right)=g\star f$
+\end_inset
+
+ by using 
+\begin_inset Formula $T\left(y\right)=x-y$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO AFTER CHANGE OF VARIABLES}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:derivativeConvolution"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

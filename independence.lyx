@@ -3094,6 +3094,11 @@ noprefix "false"
 .
 \end_layout
 
+\begin_layout Standard
+The generalization of this result to the arbitrary collection of independent
+ random variables proceeds in the obvious way.
+\end_layout
+
 \begin_layout Subsection
 Multiple random variables and random vectors
 \end_layout
@@ -3141,12 +3146,106 @@ for any
  In particular, the CDF
 \begin_inset Formula 
 \[
-F_{Z}\left(x\right)=\E_{Y}\left[F_{X}\left(x-y\right)\right]
+F_{Z}\left(z\right)=\E_{Y}\left[F_{X}\left(z-y\right)\right]
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Proof
+We shall use 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[subsec:convolutions]{convolutions}
+\end_layout
+
+\end_inset
+
+: note that 
+\begin_inset Formula 
+\begin{align*}
+\P_{Z}\left(B\right) & =\E_{Y}\left[\E_{X}\left[\indicate_{B}\left(x+y\right)\right]\right]\\
+ & =\E_{Y}\left[\E_{X}\left[\indicate_{B-y}\left(x\right)\right]\right]\\
+ & =\E_{Y}\left[\P_{X}\left(B-y\right)\right]
+\end{align*}
+
+\end_inset
+
+ since 
+\begin_inset Formula $x+y\in B\Longleftrightarrow x\in B-y$
+\end_inset
+
+.
+ Of course, when 
+\begin_inset Formula $B=\left(-\infty,z\right]$
+\end_inset
+
+ the result about CDFs follows.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:discreteConvolution"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ be independent and discrete random variables supported on some countable
+ set 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Then, the distribution of 
+\begin_inset Formula $Z:=X+Y$
+\end_inset
+
+ is given 
+\begin_inset Formula 
+\[
+\P\left(Z=z\right)=\sum_{y\in S}\P\left(Y=y\right)\mathbb{P}\left(X=z-y\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $B=\left\{ z\right\} $
+\end_inset
+
+ in Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:distSumIndep"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Example
@@ -3183,10 +3282,49 @@ Let
 
 .
  The trick here is to define 
-\begin_inset Formula $Z:=X-Y$
+\begin_inset Formula $Z:=X-\alpha Y$
+\end_inset
+
+ for 
+\begin_inset Formula $\alpha>0$
 \end_inset
 
  and note that
+\begin_inset Formula 
+\begin{align*}
+\mathbb{P}\left(Z=z\right) & =\sum_{y\in\N}\P\left(Y=y\right)\mathbb{P}\left(X=z+\alpha y\right)\\
+ & =\sum_{y\in\N}2^{-y}2^{-\left(z+\alpha y\right)}\indicate\left\{ z+\alpha y\geq1\right\} \\
+ & =2^{-z}\sum_{y\in\N}2^{-\left(1+\alpha\right)y}\indicate\left\{ y\geq\frac{1-z}{\alpha}\right\} \\
+ & =2^{-z}\sum_{y=\max\left\{ 1,\lceil\frac{1-z}{\alpha}\rceil\right\} }^{\infty}2^{-\left(1+\alpha\right)y}.
+\end{align*}
+
+\end_inset
+
+For 
+\begin_inset Formula $\alpha=1$
+\end_inset
+
+, the above reduces to 
+\begin_inset Formula $\P\left(Z=z\right)=\frac{2^{-z}}{3}$
+\end_inset
+
+ and so 
+\begin_inset Formula $\P\left(Z\geq0\right)=\sum_{z=0}^{\infty}\frac{2^{-z}}{3}=\frac{2}{3}.$
+\end_inset
+
+ If 
+\begin_inset Formula $\alpha=2$
+\end_inset
+
+ then 
+\begin_inset Formula $\P\left(Z=z\right)=\frac{2^{-z}}{7}$
+\end_inset
+
+ and so 
+\begin_inset Formula $\P\left(Z\geq0\right)=\sum_{z=0}^{\infty}\frac{2^{-z}}{7}=\frac{2}{7}.$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
