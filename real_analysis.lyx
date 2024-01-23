@@ -2324,6 +2324,72 @@ Note that injectivity is straightforward since if
 
 \end_layout
 
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2008samplepsb3"
+
+\end_inset
+
+ Let 
+\begin_inset Formula $g$
+\end_inset
+
+ be a continuous function with 
+\begin_inset Formula $g(1)=1$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+g(x+y)=5g(x)g(y)
+\]
+
+\end_inset
+
+ for all 
+\begin_inset Formula $x,y$
+\end_inset
+
+.
+ Find 
+\begin_inset Formula $g(x)$
+\end_inset
+
+.
+ [Hint: You may use the following result.
+ If 
+\begin_inset Formula $f$
+\end_inset
+
+ is a continuous function that satisfies 
+\begin_inset Formula $f(x+y)=f(x)+f(y)$
+\end_inset
+
+ for all 
+\begin_inset Formula $x,y$
+\end_inset
+
+, then 
+\begin_inset Formula $f(x)=xf(1)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Separable metric spaces
 \end_layout

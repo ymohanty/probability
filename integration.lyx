@@ -7219,7 +7219,7 @@ Let
 \end_inset
 
  where 
-\begin_inset Formula $g\in\Lp 1{\X,\F,\mu}.$
+\begin_inset Formula $g\in\Lp1{\X,\F,\mu}.$
 \end_inset
 
  Then
@@ -7259,7 +7259,7 @@ f_{n_{j_{k}}}\stackrel{\text{a.e}}{\longrightarrow}f.
 \end_inset
 
 Since 
-\begin_inset Formula $\lvert f_{n_{j_{k}}}\rvert\leq g\in\Lp 1{\mu}$
+\begin_inset Formula $\lvert f_{n_{j_{k}}}\rvert\leq g\in\Lp1{\mu}$
 \end_inset
 
 , the 
@@ -7666,7 +7666,7 @@ Let
 \end_inset
 
  such that 
-\begin_inset Formula $g\in\Lp 1{\mu}$
+\begin_inset Formula $g\in\Lp1{\mu}$
 \end_inset
 
  then 
@@ -7882,7 +7882,7 @@ Let
 \end_inset
 
  then 
-\begin_inset Formula $f\in\Lp 1{\mu}$
+\begin_inset Formula $f\in\Lp1{\mu}$
 \end_inset
 
  and 
@@ -7935,7 +7935,7 @@ noprefix "false"
 \end_inset
 
 , which shows 
-\begin_inset Formula $f\in\Lp 1{\mu}.$
+\begin_inset Formula $f\in\Lp1{\mu}.$
 \end_inset
 
  Since 
@@ -9123,6 +9123,56 @@ can be made to converge to 0, for instance, by choosing all intermediate
  points as irrational (this is possible to do again by the density of irrational
 s).
  Nevertheless the integral does not exist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2008samplepsb2"
+
+\end_inset
+
+ For 
+\begin_inset Formula $k\geq1$
+\end_inset
+
+, let 
+\begin_inset Formula 
+\[
+a_{k}=\lim_{n\rightarrow\infty}\frac{1}{n}\sum_{m=1}^{kn}\exp\left(-\frac{1}{2}\frac{m^{2}}{n^{2}}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Find 
+\begin_inset Formula $\lim_{k\rightarrow\infty}a_{k}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Theorem

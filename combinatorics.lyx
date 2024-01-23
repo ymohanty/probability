@@ -1540,11 +1540,11 @@ Sums like
  How many ways could you allocate balls to urns? William Feller's famous
  textbook on probability provided an ingenious framework to think about
  this problem: suppose you have 
-\begin_inset Formula $r+1$
+\begin_inset Formula $k+1$
 \end_inset
 
  bars and 
-\begin_inset Formula $k$
+\begin_inset Formula $r$
 \end_inset
 
  stars, you could then fix two bars at two ends and put all the stars and
@@ -3169,6 +3169,19 @@ ISI 2015 PSB 4
 Suppose 15 identical balls are placed in 3 boxes labeled A, B and C.
  What is the number of ways in which Box A can have more balls than Box
  C?
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

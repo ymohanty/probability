@@ -100,8 +100,11 @@ name "exa:isi2004samplepsb5"
 
 \end_inset
 
-Here is a partial key-block of a $2^4$ factorial experiment (with factors
- 
+Here is a partial key-block of a 
+\begin_inset Formula $2^{4}$
+\end_inset
+
+ factorial experiment (with factors 
 \begin_inset Formula $A,B,C,D)$
 \end_inset
 
@@ -204,6 +207,63 @@ E\left(Q_{i}\right)=\left(b-\frac{b}{v}\right)\tau_{i},\quad\operatorname{Var}\l
 \end_inset
 
  is the per observation variance.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2008samplepsb12"
+
+\end_inset
+
+Consider a randomized block experiment with 4 treatments and 3 replicates
+ (blocks) and let 
+\begin_inset Formula $\tau_{i}$
+\end_inset
+
+ be the effect of the 
+\begin_inset Formula $i$
+\end_inset
+
+ th treatment 
+\begin_inset Formula $(1\leq i\leq4)$
+\end_inset
+
+.
+ Find all possible covariances between the least squares estimators of the
+ following treatment contrasts: (a) 
+\begin_inset Formula $\tau_{1}-\tau_{2}$
+\end_inset
+
+ (b) 
+\begin_inset Formula $\tau_{1}+\tau_{2}-2\tau_{3}$
+\end_inset
+
+ (c) 
+\begin_inset Formula $\tau_{1}+\tau_{2}+\tau_{3}-3\tau_{4}$
+\end_inset
+
+.
 \begin_inset ERT
 status open
 

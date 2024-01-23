@@ -351,5 +351,73 @@ hl{TODO}
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2008samplepsb10"
+
+\end_inset
+
+Consider a population with three kinds of individuals labelled 1,2 and 3.
+ Suppose the proportion of individuals of the three types are given by 
+\begin_inset Formula $f(k,\theta),k=1,2,3$
+\end_inset
+
+ where 
+\begin_inset Formula $0<\theta<1$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+f(k,\theta)=\begin{cases}
+\theta^{2} & \text{ if }k=1\\
+2\theta(1-\theta) & \text{ if }k=2\\
+(1-\theta)^{2} & \text{ if }k=3
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Let 
+\begin_inset Formula $X_{1},X_{2},\ldots,X_{n}$
+\end_inset
+
+ be a random sample from this population.
+ Find the most powerful test for testing 
+\begin_inset Formula $H_{0}:\theta=\theta_{0}$
+\end_inset
+
+ versus 
+\begin_inset Formula $H_{1}:\theta=\theta_{1}\left(\theta_{0}<\theta_{1}<1\right)$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

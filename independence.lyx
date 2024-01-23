@@ -2462,6 +2462,49 @@ which is a contradiction and so no such distribution exists.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2008samplepsb6"
+
+\end_inset
+
+Let 
+\begin_inset Formula $F$
+\end_inset
+
+ and 
+\begin_inset Formula $G$
+\end_inset
+
+ be (one dimensional) distribution functions.
+ Decide which of the following are distribution functions.
+ (a) 
+\begin_inset Formula $F^{2}$
+\end_inset
+
+, (b) 
+\begin_inset Formula $H$
+\end_inset
+
+ where 
+\begin_inset Formula $H(t)=\max\{F(t),G(t)\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+Justify your answer.
+\end_layout
+
+\begin_layout Standard
 The integral of a random variable is called an 
 \emph on
 expectation 
@@ -2919,6 +2962,55 @@ hyperref[thm:jensenInequality]{Jensen's inequality}
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2008samplepsb4"
+
+\end_inset
+
+The unit interval 
+\begin_inset Formula $(0,1)$
+\end_inset
+
+ is divided into two sub-intervals by picking a point at random from inside
+ the interval.
+ Denoting by 
+\begin_inset Formula $Y$
+\end_inset
+
+ and 
+\begin_inset Formula $Z$
+\end_inset
+
+ the lengths of the longer and the shorter sub-intervals respectively, show
+ that 
+\begin_inset Formula $Y/Z$
+\end_inset
+
+ does not have finite expectation.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Independence of random variables
 \end_layout
@@ -3097,6 +3189,81 @@ noprefix "false"
 \begin_layout Standard
 The generalization of this result to the arbitrary collection of independent
  random variables proceeds in the obvious way.
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2008samplepsb5"
+
+\end_inset
+
+ Consider the i.i.d.
+ sequence 
+\begin_inset Formula 
+\[
+X_{1},X_{2},X_{3},X_{4},X_{5},X_{6}
+\]
+
+\end_inset
+
+ where each 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ is one of the four symbols 
+\begin_inset Formula $\{a,t,g,c\}$
+\end_inset
+
+.
+ Further suppose that 
+\begin_inset Formula 
+\[
+\begin{array}{ll}
+P\left(X_{1}=a\right)=0.1 & P\left(X_{1}=t\right)=0.2\\
+P\left(X_{1}=g\right)=0.3 & P\left(X_{1}=c\right)=0.4.
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Let 
+\begin_inset Formula $Z$
+\end_inset
+
+ denote the random variable that counts the number of times that the subsequence
+ cat occurs (i.e.
+ the letters 
+\begin_inset Formula $c,a$
+\end_inset
+
+ and 
+\begin_inset Formula $t$
+\end_inset
+
+ occur consecutively and in the correct order) in the above sequence.
+ Find 
+\begin_inset Formula $\E\left[Z\right]$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection

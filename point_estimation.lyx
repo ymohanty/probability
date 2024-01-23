@@ -314,6 +314,33 @@ hl{TODO}
 Unbiasedness, consistency, and efficiency
 \end_layout
 
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2008samplepsb11"
+
+\end_inset
+
+ Let 
+\begin_inset Formula $r$
+\end_inset
+
+ be the number of successes in 
+\begin_inset Formula $n$
+\end_inset
+
+ Bernoulli trials with unknown probability 
+\begin_inset Formula $p$
+\end_inset
+
+ of success.
+ Obtain the minimum variance unbiased estimator of 
+\begin_inset Formula $p-p^{2}$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 Properties of extremum estimators
 \end_layout
@@ -776,6 +803,53 @@ hl{TODO}
 \end_layout
 
 \begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2008samplepsb9"
+
+\end_inset
+
+Let 
+\begin_inset Formula $X_{1},\ldots,X_{m}$
+\end_inset
+
+ be a random sample from a uniform distribution on 
+\begin_inset Formula $\{1,2,\ldots,N\}$
+\end_inset
+
+ where 
+\begin_inset Formula $N$
+\end_inset
+
+ is an unknown positive integer.
+ Find the MLE 
+\begin_inset Formula $\widehat{N}$
+\end_inset
+
+ of 
+\begin_inset Formula $N$
+\end_inset
+
+ and find its distribution function.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
 
 \end_layout
 

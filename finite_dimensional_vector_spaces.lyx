@@ -1681,6 +1681,77 @@ hl{TODO}
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2008samplepsb1"
+
+\end_inset
+
+1.
+ Let 
+\begin_inset Formula 
+\[
+A=\frac{1}{3}\left(\begin{array}{rrr}
+2 & -1 & -1\\
+-1 & 2 & -1\\
+-1 & -1 & 2
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Which of the following statements are false.
+ In each case, justify your answer.
+ (a) 
+\begin_inset Formula $A$
+\end_inset
+
+ has only one real eigenvalue.
+ (b) 
+\begin_inset Formula $\operatorname{Rank}(A)=\operatorname{Trace}(A)$
+\end_inset
+
+.
+ (c) Determinant of 
+\begin_inset Formula $A$
+\end_inset
+
+ equals the determinant of 
+\begin_inset Formula $A^{n}$
+\end_inset
+
+ for each integer 
+\begin_inset Formula $n>1$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Eigenvalues and eigenvectors
 \begin_inset CommandInset label

@@ -6,11 +6,11 @@
 \origin unavailable
 \textclass amsbook
 \use_default_options true
-\begin_removed_modules
+\begin_modules
 theorems-ams
 eqs-within-sections
 figs-within-sections
-\end_removed_modules
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -56,7 +56,7 @@ figs-within-sections
 \paperorientation portrait
 \suppress_date false
 \justification true
-\use_refstyle 0
+\use_refstyle 1
 \use_minted 0
 \index Index
 \shortcut idx
@@ -131,6 +131,56 @@ The univariate normal distribution
 
 \begin_layout Subsubsection
 The multivariate normal distribution
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2008samplepsb8"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\underline{Y}=\left(Y_{1},Y_{2}\right)^{\prime}$
+\end_inset
+
+ have the bivariate normal distribution 
+\begin_inset Formula $N_{2}(\underline{0},\Sigma)$
+\end_inset
+
+, where 
+\begin_inset Formula 
+\[
+\Sigma=\left(\begin{array}{cc}
+\sigma_{1}^{2} & \rho\sigma_{1}\sigma_{2}\\
+\rho\sigma_{1}\sigma_{2} & \sigma_{2}^{2}
+\end{array}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Obtain the mean and variance of 
+\begin_inset Formula $U=\underline{Y^{\prime}}\Sigma^{-1}\underline{Y}-Y_{1}^{2}/\sigma_{1}^{2}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -271,10 +321,249 @@ Distributions associated with modeling Bernoulli trials
 
 \begin_layout Subsubsection
 The Bernoulli distribution
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:bernoulliDistribution"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Bernoulli distribution is the simplest of all discrete probability distribut
+ions.
+ It represents the mathematical abstraction of coin tossing with not-necessarily
+ fair coins.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:bernoulliDistribution"
+
+\end_inset
+
+A random variable 
+\begin_inset Formula $X$
+\end_inset
+
+ on probability space 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ is said to have a Bernoulli distribution with parameter 
+\begin_inset Formula $p\in\left[0,1\right]$
+\end_inset
+
+ if 
+\begin_inset Formula $\P\left(X=1\right)=p$
+\end_inset
+
+ and 
+\begin_inset Formula $\P\left(X=0\right)=1-p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Formally, any indicator variable of an event 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+ is a Bernoulli random variable.
+ However, we typically reserve this description for random variables used
+ to model the outcome of a binary experiment trial.
+ Usually we are interested in the 
+\emph on
+sequence 
+\emph default
+of such trials.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:bernoulliMoments"
+
+\end_inset
+
+The raw moments of a Bernoulli random variable 
+\begin_inset Formula $X$
+\end_inset
+
+ with parameter 
+\begin_inset Formula $p$
+\end_inset
+
+ is given 
+\begin_inset Formula 
+\[
+\E\left[X^{k}\right]=p
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $k\in\N$
+\end_inset
+
+.
+ The central moments are
+\begin_inset Formula 
+\[
+\E\left[\left(X-p\right)^{k}\right]=\left(1-p\right)^{k}p+\left(1-p\right)\left(-p\right)^{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula 
+\begin{align*}
+\E\left[\left(X-p\right)^{k}\right] & =\left(1-p\right)^{k}\P\left(X=1\right)+\left(0-p\right)^{k}\P\left(X=0\right)\\
+ & =\left(1-p\right)^{k}p+\left(1-p\right)\left(-p\right)^{k}.
+\end{align*}
+
+\end_inset
+
+The raw moment case is simpler and follows exactly in the same way.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:mgfBernoulli"
+
+\end_inset
+
+The moment generating function of a Bernoulli random variable 
+\begin_inset Formula $X$
+\end_inset
+
+ with parameter 
+\begin_inset Formula $p$
+\end_inset
+
+ is given
+\begin_inset Formula 
+\[
+M_{X}\left(t\right)=1-p+pe^{t}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Again follow the same approach as in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:bernoulliMoments"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection
 The Binomial distribution
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:binomialDistribution"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:binomialDistribution"
+
+\end_inset
+
+A random variable 
+\begin_inset Formula $Y$
+\end_inset
+
+ has a Binomial distribution with parameters 
+\begin_inset Formula $n$
+\end_inset
+
+and 
+\begin_inset Formula $p$
+\end_inset
+
+ if 
+\begin_inset Formula 
+\[
+Y=\sum_{i=1}^{n}X_{i}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ are independent and identically distributed Bernoulli random variables
+ with parameter 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:binomialCDF"
+
+\end_inset
+
+The mass function of a random variable 
+\begin_inset Formula $Y$
+\end_inset
+
+ with a Binomial distribution with parameters 
+\begin_inset Formula $n$
+\end_inset
+
+ and 
+\begin_inset Formula $p$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\[
+\P\left(Y=k\right)=\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)p^{k}\left(1-p\right)^{n-k}\indicate\left\{ 0\leq k\leq n\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+For 
+\begin_inset Formula $n=2$
+\end_inset
+
+, we use the result about convolutions.
+ More spe
 \end_layout
 
 \begin_layout Subsubsection

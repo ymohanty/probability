@@ -130,6 +130,19 @@ f(x,y)=3y
 \end_inset
 
 .
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -181,6 +194,85 @@ Find the conditional mean
 
 .
  
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2008samplepsb7"
+
+\end_inset
+
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ be exponential random variables with parameters 1 and 2 respectively.
+ Another random variable 
+\begin_inset Formula $Z$
+\end_inset
+
+ is defined as follows.
+\end_layout
+
+\begin_layout Example
+A coin, with probability 
+\begin_inset Formula $p$
+\end_inset
+
+ of Heads (and probability 
+\begin_inset Formula $1-p$
+\end_inset
+
+ of Tails) is tossed.
+ Define 
+\begin_inset Formula $Z$
+\end_inset
+
+ by 
+\begin_inset Formula 
+\[
+Z=\begin{cases}
+X & \text{ if the coin turns Heads }\\
+Y & \text{ if the coin turns Tails }
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Find 
+\begin_inset Formula $P(1\leq Z\leq2)$
+\end_inset
+
+.
 \begin_inset ERT
 status open
 
