@@ -485,6 +485,13 @@ name "subsec:binomialDistribution"
 
 \end_layout
 
+\begin_layout Standard
+The Binomial distribution is perhaps the most well known of all discrete
+ distributions.
+ It models the number of successes in a fixed number of trials (say coin
+ tosses) and as such is a defined as a sum of Bernoulli trials.
+\end_layout
+
 \begin_layout Definition
 \begin_inset CommandInset label
 LatexCommand label
@@ -500,7 +507,7 @@ A random variable
 \begin_inset Formula $n$
 \end_inset
 
-and 
+ and 
 \begin_inset Formula $p$
 \end_inset
 
@@ -522,6 +529,11 @@ where
 \end_inset
 
 .
+ In this case we write 
+\begin_inset Formula $Y\sim\textrm{Bin}\left(n,p\right)$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proposition
@@ -563,7 +575,316 @@ For
 \end_inset
 
 , we use the result about convolutions.
- More spe
+ More specifically, by Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:discreteConvolution"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\P\left(Y=k\right) & =\sum_{x\in\left\{ 0,1\right\} }\P\left(X_{1}=x\right)\P\left(X_{2}=k-x\right)\\
+ & =\left(1-p\right)\left[p\indicate\left\{ k=1\right\} +\left(1-p\right)\indicate\left\{ k=0\right\} \right]\\
+ & \ \ \ \!\ +p\left[p\indicate\left\{ k=2\right\} +\left(1-p\right)\indicate\left\{ k=1\right\} \right]\\
+ & =p^{2}\indicate\left\{ k=2\right\} +2p\left(1-p\right)\indicate\left\{ k=1\right\} +\left(1-p\right)^{2}\indicate\left\{ k=0\right\} \\
+ & =\left(\begin{array}{c}
+2\\
+k
+\end{array}\right)p^{k}\left(1-p\right)^{2-k}\indicate\left\{ 0\leq k\leq2\right\} .
+\end{align*}
+
+\end_inset
+
+Now for the induction step, assume that the result holds for 
+\begin_inset Formula $n$
+\end_inset
+
+ and then we write 
+\begin_inset Formula $Y=\sum_{i=1}^{n+1}X_{i}=Z+X_{n+1}$
+\end_inset
+
+ where 
+\begin_inset Formula $Z\sim\textrm{Bin}\left(n-1,p\right)$
+\end_inset
+
+.
+ Then, another convolution argument shows
+\begin_inset Formula 
+\begin{align*}
+\P\left(Y=k\right) & =\sum_{z=0}^{n}\P\left(Z=z\right)\P\left(X_{n+1}=k-z\right)\\
+ & =\sum_{z=0}^{n}\left(\begin{array}{c}
+n\\
+z
+\end{array}\right)p^{z}\left(1-p\right)^{n-z}\indicate\left\{ 0\leq z\leq n\right\} \left(p\indicate\left\{ z=k-1\right\} +\left(1-p\right)\indicate\left\{ z=k\right\} \right)\\
+ & =\sum_{z=0}^{n}\left(\begin{array}{c}
+n\\
+z
+\end{array}\right)p^{z+1}\left(1-p\right)^{n-z}\indicate\left\{ 0\leq z\leq n,z=k-1\right\} \\
+ & \ \ \!\ +\sum_{z=0}^{n}\left(\begin{array}{c}
+n\\
+z
+\end{array}\right)p^{z}\left(1-p\right)^{n-z+1}\indicate\left\{ 0\leq z\leq n,z=k\right\} \\
+ & =\left(\begin{array}{c}
+n\\
+k-1
+\end{array}\right)p^{k}\left(1-p\right)^{n-k+1}+\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)p^{k}\left(1-p\right)^{n-k+1}\\
+ & =\left(\begin{array}{c}
+n+1\\
+k
+\end{array}\right)p^{k}\left(1-p\right)^{n+1-k}
+\end{align*}
+
+\end_inset
+
+ where we used 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[prop:pascalRule]{Pascal's rule}
+\end_layout
+
+\end_inset
+
+ in the last equality.
+\end_layout
+
+\begin_layout Standard
+The moments of the Binomial distribution are easily characterized using
+ the Bernoulli moments and the multinomial theorem
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:momentsBinomial"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $Y\sim\mathrm{Bin}\left(n,p\right)$
+\end_inset
+
+ for some 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ and 
+\begin_inset Formula $p\in\left[0,1\right]$
+\end_inset
+
+.
+ Then,
+\begin_inset Formula 
+\[
+\E\left[Y^{k}\right]=\sum_{i_{1}+i_{2}+\ldots+i_{n}=k,i_{j}\geq0}\left(\begin{array}{cccc}
+ & k\\
+i_{1}, & i_{2}, & \ldots & i_{n}
+\end{array}\right)p^{\sum_{j=1}^{n}\indicate\left\{ i_{j}\geq1\right\} }.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $Y=\sum_{i=1}^{n}X_{i}$
+\end_inset
+
+ where 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ are i.i.d Bernoulli random variables with parameter 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\E\left[Y^{k}\right] & =\E\left[\left(\sum_{i=1}^{n}X_{i}\right)^{k}\right]\\
+ & =\E\left[\sum_{i_{1}+i_{2}+\ldots+i_{n}=k,i_{j}\geq0}\left(\begin{array}{cccc}
+ & k\\
+i_{1}, & i_{2}, & \ldots & i_{n}
+\end{array}\right)\prod_{j=1}^{n}X_{j}^{i_{j}}\right]\\
+ & =\sum_{i_{1}+i_{2}+\ldots+i_{n}=k,i_{j}\geq0}\left(\begin{array}{cccc}
+ & k\\
+i_{1}, & i_{2}, & \ldots & i_{n}
+\end{array}\right)\E\left[\prod_{j=1}^{n}X_{j}^{i_{j}}\right]\\
+ & =\sum_{i_{1}+i_{2}+\ldots+i_{n}=k,i_{j}\geq0}\left(\begin{array}{cccc}
+ & k\\
+i_{1}, & i_{2}, & \ldots & i_{n}
+\end{array}\right)\prod_{j=1}^{n}\E\left[X_{j}^{i_{j}}\right]\\
+ & =\sum_{i_{1}+i_{2}+\ldots+i_{n}=k,i_{j}\geq0}\left(\begin{array}{cccc}
+ & k\\
+i_{1}, & i_{2}, & \ldots & i_{n}
+\end{array}\right)p^{\sum_{j=1}^{n}\indicate\left\{ i_{j}\geq1\right\} }
+\end{align*}
+
+\end_inset
+
+where in the second equality we have used the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:multinomialTheorem]{multinomial theorem}
+\end_layout
+
+\end_inset
+
+, the third is linearity of integration, the fourth is Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:indepExpectationFactors"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and the last equality uses Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:bernoulliMoments"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The first moment is 
+\begin_inset Formula $\E\left[Y\right]=np$
+\end_inset
+
+ which can be seen just by linearity and the definition.
+ The second moment is
+\begin_inset Formula 
+\begin{align*}
+\E\left[Y^{2}\right] & =\E\left[\sum_{i=1}^{n}X_{i}^{2}+\sum_{i=1}^{n}\sum_{j=1,i\neq j}^{n}X_{i}X_{j}\right]\\
+ & =np+n\left(n-1\right)p^{2}.
+\end{align*}
+
+\end_inset
+
+We are more interested in higher 
+\emph on
+central 
+\emph default
+moments like the variance.
+ Of course, 
+\begin_inset Formula $\Var\left[Y\right]=\E\left[Y^{2}\right]-\left(\E\left[Y\right]\right)^{2}=np+n\left(n-1\right)p^{2}-n^{2}p^{2}=np-np^{2}=np\left(1-p\right).$
+\end_inset
+
+ The moment generating function is can be computed in a similar way.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:mgfBinomial"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $Y\sim\mathrm{Bin}\left(n,p\right)$
+\end_inset
+
+ for some 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+ and 
+\begin_inset Formula $p\in\left[0,1\right]$
+\end_inset
+
+.
+ Then,
+\begin_inset Formula 
+\[
+M_{Y}\left(t\right)=\left(1-p+pe^{t}\right)^{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $Y=\sum_{i=1}^{n}X_{i}$
+\end_inset
+
+ where as before 
+\begin_inset Formula $X_{i}$
+\end_inset
+
+ are iid Bernoulli with parameter 
+\begin_inset Formula $p$
+\end_inset
+
+ and so
+\begin_inset Formula 
+\begin{align*}
+M_{Y}\left(t\right) & =\E\left[e^{tY}\right]\\
+ & =\E\left[e^{t\sum X_{i}}\right]\\
+ & =\E\left[\prod_{i=1}^{n}e^{tX_{i}}\right]\\
+ & =\prod_{i=1}^{n}\E\left[e^{tX_{i}}\right]\\
+ & =\left(1-p+pe^{t}\right)^{n}
+\end{align*}
+
+\end_inset
+
+wheree the fourth equality is again due to Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:indepExpectationFactors"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and the last is Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:mgfBernoulli"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection
