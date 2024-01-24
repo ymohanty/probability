@@ -436,16 +436,6 @@ filename "product_measures.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "fourier_transforms.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
 filename "measure_and_topology.lyx"
 
 \end_inset
@@ -461,6 +451,16 @@ Probability
 \begin_inset CommandInset include
 LatexCommand include
 filename "independence.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "fourier_transforms.lyx"
 
 \end_inset
 
