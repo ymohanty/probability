@@ -665,6 +665,19 @@ where
 \end_inset
 
 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Lemma
@@ -3079,6 +3092,77 @@ hl{TODO: Flesh out}
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:indepFunctionsRandomVariables"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $I$
+\end_inset
+
+ be an index set.
+ If 
+\begin_inset Formula $X_{i}:\Omega\to\R$
+\end_inset
+
+ – where 
+\begin_inset Formula $i\in I$
+\end_inset
+
+ – are independent random variables and 
+\begin_inset Formula $f_{i}:\R\to\R$
+\end_inset
+
+ are Borel-measuarable maps then the random variables 
+\begin_inset Formula $f_{i}\left(X_{i}\right)$
+\end_inset
+
+ are mutually independent.
+\end_layout
+
+\begin_layout Proof
+Note that by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:sigmaAlgebraGeneratedByFunction"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $\sigma\left(f_{i}\left(X_{i}\right)\right)\subseteq\sigma\left(X_{i}\right)$
+\end_inset
+
+ and so 
+\begin_inset Formula $\sigma\left(f_{i}\left(X_{i}\right)\right)$
+\end_inset
+
+ are all mutually independent by definition.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
 \begin_layout Proposition
 \begin_inset CommandInset label
 LatexCommand label
@@ -3191,6 +3275,77 @@ The generalization of this result to the arbitrary collection of independent
  random variables proceeds in the obvious way.
 \end_layout
 
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:indepExpectationFactors"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probabiltiy space and let 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ be non-negative (or integrable) independent random variables in such that
+ 
+\begin_inset Formula $\E\left[\lvert XY\rvert\right]<\infty$
+\end_inset
+
+.
+ Then,
+\begin_inset Formula 
+\[
+\E\left[XY\right]=\E\left[X\right]\E\left[Y\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that
+\begin_inset Formula 
+\begin{align*}
+\E\left[XY\right] & =\E_{X,Y}\left[xy\right]\\
+ & =\E_{X}\left[\E_{Y}\left[xy\right]\right]\\
+ & =\E_{X}\left[x\right]\E_{Y}\left[y\right]\\
+ & =\E\left[X\right]\E\left[Y\right]
+\end{align*}
+
+\end_inset
+
+where in the first equality we have moved to the image measure under the
+ random vector 
+\begin_inset Formula $\left(X,Y\right)$
+\end_inset
+
+ through the standard change of variables (Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:changeOfVariables"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ Then, since the image measure under the pair of independent random vectors
+ is a product measure, we can use Tonelli/Fubini's theorem to turn it into
+ an iterated integral.
+ The final equality is yet another application of the change of variables
+ formula.
+\end_layout
+
 \begin_layout Example
 \begin_inset CommandInset label
 LatexCommand label
@@ -3251,19 +3406,33 @@ Let
 \end_inset
 
 .
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hl{TODO}
 \end_layout
+
+\begin_layout Solution*
+Let 
+\begin_inset Formula $Y_{i}=\indicate\left\{ X_{i}=c\right\} \indicate\left\{ X_{i+1}=a\right\} \indicate\left\{ X_{i+2}=t\right\} $
+\end_inset
+
+ for 
+\begin_inset Formula $1\leq i\leq4$
+\end_inset
+
+ and notice that 
+\begin_inset Formula $Z=\sum_{i=1}^{4}Y_{i}$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\begin{align*}
+\E\left[Z\right] & =\sum_{i=1}^{4}\E\left[Y_{i}\right]\\
+ & =\sum_{i=1}^{4}\P\left(X_{i}=c\right)\P\left(X_{i+1}=a\right)\P\left(X_{i+1}=t\right)\\
+ & =4\times0.4\times0.1\times0.2\\
+ & =0.032
+\end{align*}
 
 \end_inset
 
-
+where we used independence in the second equality.
 \end_layout
 
 \begin_layout Subsection
@@ -3293,7 +3462,11 @@ Let
 \begin_inset Formula $Y$
 \end_inset
 
- be independent random variables on the space.
+ be 
+\begin_inset Formula $\Lp 1{\P}$
+\end_inset
+
+ (or non-negative) independent random variables on the space.
  Then, the distribution of 
 \begin_inset Formula $Z:=X+Y$
 \end_inset
@@ -3376,8 +3549,12 @@ Let
 \begin_inset Formula $Y$
 \end_inset
 
- be independent and discrete random variables supported on some countable
- set 
+ be 
+\begin_inset Formula $\Lp 1{\P}$
+\end_inset
+
+ (or non-negative) independent and discrete random variables supported on
+ some countable set 
 \begin_inset Formula $S$
 \end_inset
 
