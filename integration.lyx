@@ -1487,7 +1487,7 @@ integrable functions
 
 \begin_layout Proof
 First observe that the zero function 
-\begin_inset Formula $\indicate_{\emptyset}\in\Lp1{\mu}$
+\begin_inset Formula $\indicate_{\emptyset}\in\Lp 1{\mu}$
 \end_inset
 
 since 
@@ -2976,13 +2976,21 @@ Let
 \begin_inset Formula $\left(\X,\F,\mu\right)$
 \end_inset
 
- be a measure space.
- For any function 
-\begin_inset Formula $f\in\measurableFunctions$
+ be a measure space and let 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G}\right)$
+\end_inset
+
+ be a measurable space .
+ For any 
+\begin_inset Formula $\F/\mathcal{G}$
+\end_inset
+
+ measurable function 
+\begin_inset Formula $f:\X\to\mathcal{Y}$
 \end_inset
 
 , the function 
-\begin_inset Formula $f\mu:\borel\left(\R\right)\longrightarrow\left[0,\infty\right]$
+\begin_inset Formula $f\mu:\mathcal{G}\longrightarrow\left[0,\infty\right]$
 \end_inset
 
  given by 
@@ -3006,7 +3014,7 @@ Note that
 \end_inset
 
  Next, let 
-\begin_inset Formula $\left\{ B_{i}\right\} _{i\in\N}\in\borel\left(\R\right)$
+\begin_inset Formula $\left\{ B_{i}\right\} _{i\in\N}\in\mathcal{G}$
 \end_inset
 
  be disjoint and observe that
@@ -3075,12 +3083,17 @@ Let
 \begin_inset Formula $\left(\X,\F,\mu\right)$
 \end_inset
 
- be a measure space and define 
+ be a measure space and let 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G}\right)$
+\end_inset
+
+ be a measurable space.
+ Define 
 \begin_inset Formula $f\mu$
 \end_inset
 
- to be the image measure of a function 
-\begin_inset Formula $f\in\nonnegMeasurableFunctions$
+ to be the image measure of a measurable function 
+\begin_inset Formula $f:\X\to\mathcal{Y}$
 \end_inset
 
  with respect to measure 
@@ -3088,7 +3101,7 @@ Let
 \end_inset
 
  Then, for any function 
-\begin_inset Formula $g\in\mathcal{M}\left(\R,\borel\left(\R\right)\right)$
+\begin_inset Formula $g\in\mathcal{M}\left(\mathcal{Y},\mathcal{G}\right)$
 \end_inset
 
 , the Lebesgue integral associated with measaure 
@@ -3108,7 +3121,7 @@ provided the right hand side is defined.
 
 \begin_layout Proof
 First note that for any 
-\begin_inset Formula $B\in\borel\left(\R\right)$
+\begin_inset Formula $B\in\mathcal{G}$
 \end_inset
 
 
