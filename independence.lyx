@@ -2057,8 +2057,12 @@ noprefix "false"
 \begin_inset Formula $X$
 \end_inset
 
-.
- Moreover, Proposition 
+ and so random variables with the same CDF are called 
+\emph on
+identically distributted.
+ 
+\emph default
+Moreover, Proposition 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prop:absoluteContinuityStieljesFunctions"
@@ -2634,7 +2638,7 @@ of
 \begin_inset Formula $\mathcal{L}^{1}$
 \end_inset
 
-, as the following example illustrates.
+, as the following two examples illustrate.
 \end_layout
 
 \begin_layout Example
@@ -2762,6 +2766,179 @@ which shows that
 \end_layout
 
 \begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2008samplepsb4"
+
+\end_inset
+
+Consider the unit interval 
+\begin_inset Formula $(0,1)$
+\end_inset
+
+ that is divided into two sub-intervals by picking a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[subsec:uniformDistribution]{point at random}
+\end_layout
+
+\end_inset
+
+ from inside the interval.
+ Denoting by 
+\begin_inset Formula $Y$
+\end_inset
+
+ and 
+\begin_inset Formula $Z$
+\end_inset
+
+ the lengths of the longer and the shorter sub-intervals respectively, we
+ can show that 
+\begin_inset Formula $Y/Z$
+\end_inset
+
+ does not have finite expectation.
+ Indeed, letting 
+\begin_inset Formula $X$
+\end_inset
+
+ be the uniformly distributed random variable in 
+\begin_inset Formula $\left(0,1\right)$
+\end_inset
+
+, we have that 
+\begin_inset Formula 
+\begin{align*}
+\E\left[\frac{Y}{Z}\right] & =\E\left[\frac{1-X}{X}\indicate\left\{ 0\leq X\leq0.5\right\} +\frac{X}{1-X}\indicate\left\{ 0.5\leq X\leq1\right\} \right]\\
+ & =\E\left[\frac{1-X}{X}\indicate\left\{ 0\leq X\leq0.5\right\} \right]+\E\left[\frac{X}{1-X}\indicate\left\{ 0.5\leq X\leq1\right\} \right]\\
+ & =\int_{0}^{0.5}\frac{1-x}{x}dx+\int_{0.5}^{1}\frac{x}{1-x}dx\\
+\end{align*}
+
+\end_inset
+
+where neither integral is finite.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The following is an example of a discrete probability distribution where
+ the expectation does exist.
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2007samplepsb6"
+
+\end_inset
+
+18 boys and 2 girls are made to stand in a line in a random order.
+ Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be the number of boys standing in between the girls.
+ Whati s 
+\begin_inset Formula $P(X=k)$
+\end_inset
+
+ and 
+\begin_inset Formula $\E(X)$
+\end_inset
+
+? Appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Combinatorics"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ will be useful here.
+ Note that if there are 
+\begin_inset Formula $b$
+\end_inset
+
+ boys and 2 girls, there are 
+\begin_inset Formula $\left(b+2\right)!$
+\end_inset
+
+ ways to arrange them and 
+\begin_inset Formula $b+2-k-1$
+\end_inset
+
+ ways to sandwich 
+\begin_inset Formula $k$
+\end_inset
+
+ boys between two girls, with 
+\begin_inset Formula $b!$
+\end_inset
+
+ ways to arrange the boys and 
+\begin_inset Formula $g!$
+\end_inset
+
+ ways to arrange the girls.
+ Therefore
+\begin_inset Formula 
+\begin{align*}
+\P\left(X=k\right) & =\frac{\left(b+2-k-1\right)b!2!}{\left(b+2\right)!}\\
+ & =\frac{b+2-k-1}{\left(b+2\right)!}
+\end{align*}
+
+\end_inset
+
+ To find the expectation, note that 
+\begin_inset Formula 
+\begin{align*}
+\E\left[X\right] & =\frac{2}{\left(b+2\right)\left(b+1\right)}\sum_{k=0}^{b}k\left(b+2-k-1\right)\\
+ & =\frac{2}{\left(b+2\right)\left(b+1\right)}\sum_{k=1}^{b}k\left(b+1-k\right)\\
+ & =\frac{2}{\left(b+2\right)\left(b+1\right)}\left(\begin{array}{c}
+b+2\\
+3
+\end{array}\right)\\
+ & =\frac{2}{\left(b+2\right)\left(b+1\right)}\frac{b\left(b+1\right)\left(b+2\right)}{6}\\
+ & =\frac{b}{3}
+\end{align*}
+
+\end_inset
+
+where in the third equality we used Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:mdmActivity103"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 We can characterize 
 \emph on
 joint 
@@ -2885,25 +3062,53 @@ U_{i}=\begin{cases}
 \end_layout
 
 \begin_layout Example
-Find the mean and variance of 
+What is the mean and variance of 
 \begin_inset Formula $U_{1}+U_{2}$
 \end_inset
 
+? The key here is that the random variables are continuous and so 
+\begin_inset Formula $\P\left(Y_{i}=Y_{i+1}\right)=0$
+\end_inset
+
 .
- 
-\begin_inset ERT
-status open
+ Since then 
+\begin_inset Formula $\P\left(Y_{i}>Y_{i+1}\right)=\P\left(Y_{i}<Y_{i+1}\right)=\frac{1}{2}$
+\end_inset
 
-\begin_layout Plain Layout
+, we have that 
+\begin_inset Formula $\E\left[U_{1}+U_{2}\right]=\P\left(Y_{2}>Y_{1}\right)+\P\left(Y_{3}>Y_{2}\right)=1$
+\end_inset
 
-
-\backslash
-hl{TODO}
-\end_layout
+.
+ For the variance, note that 
+\begin_inset Formula 
+\begin{align*}
+\Var\left[U_{1}+U_{2}\right] & =\Var\left[U_{1}\right]+\Var\left[U_{2}\right]+2\Cov\left[U_{1},U_{2}\right]\\
+ & =2\left(\E\left[U_{1}^{2}\right]-\E\left[U_{1}\right]^{2}\right)+2\left(\E\left[U_{1}U_{2}\right]-\E\left[U_{1}\right]\E\left[U_{2}\right]\right)\\
+ & =2\left(\frac{1}{2}-\frac{1}{4}\right)+2\left(\frac{1}{6}-\frac{1}{4}\right)\\
+ & =\frac{1}{2}-\frac{1}{6}\\
+ & =\frac{1}{3}.
+\end{align*}
 
 \end_inset
 
+where in the second equality we have used the fact that 
+\begin_inset Formula $U_{1}$
+\end_inset
 
+ and 
+\begin_inset Formula $U_{2}$
+\end_inset
+
+ are identically distributed and in the third the fact that 
+\begin_inset Formula $\P\left(Y_{3}>Y_{2}>Y_{1}\right)=\frac{1}{6}$
+\end_inset
+
+ since there are 
+\begin_inset Formula $3!$
+\end_inset
+
+ ways to arrange those three random variables.
 \end_layout
 
 \begin_layout Standard
@@ -2913,63 +3118,53 @@ hl{TODO}
 
 \end_layout
 
-\begin_layout Example
-\begin_inset CommandInset label
-LatexCommand label
-name "exa:isi2015psb5ptB"
+\begin_layout Standard
+The 
+\emph on
+Pearson correlation coefficient 
+\emph default
+between 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+, is defined 
+\begin_inset Formula 
+\[
+r_{X,Y}:=\frac{\Cov\left[X,Y\right]}{\sqrt{\Var\left[X\right]\Var\left[Y\right]}}
+\]
 
 \end_inset
 
-Consider the setting in Example 
+which captures the degree of linear association between 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+ This plays a large role in the context of linear regression which we shall
+ see in Chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "exa:isi2015psb5ptA"
+reference "chap:linearModels"
 plural "false"
 caps "false"
 noprefix "false"
 
 \end_inset
 
- again.
- Can we provide a bound for 
-\begin_inset Formula $\E\left[\lvert X+Y\rvert\right]$
-\end_inset
-
- with the additional information that 
-\begin_inset Formula $\mathbb{E}\left[X+Y\right]=\mathbb{E}\left[X-Y\right]=0$
-\end_inset
-
-? Note that in this case 
-\begin_inset Formula $\E\left[X\right]=\E\left[Y\right]=0$
-\end_inset
-
- and so 
-\begin_inset Formula $\Var\left[X+Y\right]=\E\left[\left(X+Y\right)^{2}\right]=3$
-\end_inset
-
- and so by 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hyperref[thm:jensenInequality]{Jensen's inequality}
+.
+ 
 \end_layout
 
-\end_inset
-
- and the fact that 
-\begin_inset Formula $x\to\sqrt{x}$
-\end_inset
-
- is concave, we have that
-\begin_inset Formula 
-\[
-\E\left[\lvert X+Y\rvert\right]\leq\sqrt{\E\left[\left(X+Y\right)^{2}\right]}=\sqrt{3}.
-\]
-
+\begin_layout Standard
+\begin_inset Separator plain
 \end_inset
 
 
@@ -2985,30 +3180,81 @@ hyperref[thm:jensenInequality]{Jensen's inequality}
 \begin_layout Example
 \begin_inset CommandInset label
 LatexCommand label
-name "exa:isi2008samplepsb4"
+name "exa:isi2004samplepsb1"
 
 \end_inset
 
-The unit interval 
-\begin_inset Formula $(0,1)$
+Suppose two teams play a series of games, each producing a winner and a
+ loser, until one team has won two more games than the other.
+ Let 
+\begin_inset Formula $G$
 \end_inset
 
- is divided into two sub-intervals by picking a point at random from inside
- the interval.
- Denoting by 
-\begin_inset Formula $Y$
+ be the total number of games played.
+ Assume each team has a chance of 0.5 to win each game, independent of the
+ results of the previous games.
+ (a) Find the probability distribution of 
+\begin_inset Formula $G$
 \end_inset
 
- and 
-\begin_inset Formula $Z$
+.
+ (b) Find the expected value of 
+\begin_inset Formula $G$
 \end_inset
 
- the lengths of the longer and the shorter sub-intervals respectively, show
- that 
-\begin_inset Formula $Y/Z$
+.
+\end_layout
+
+\begin_layout Solution*
+Note that for this series to end the last two games have to be won by the
+ same time, with the previous games being won alternatively by one team
+ and the other.
+ For a series of 
+\begin_inset Formula $n$
 \end_inset
 
- does not have finite expectation.
+ games, there are 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ total possible outcomes and only two lead to termination, one where team
+ 1 wins the last two games and the previous ones are won alternatingly and
+ the other where team 2 wins the last two games etc.
+ Therefore 
+\begin_inset Formula $\P\left(G=n\right)=\frac{n}{2^{n-1}}1\indicate\left\{ n\geq2\right\} .$
+\end_inset
+
+ Then the expectation is 
+\begin_inset Formula 
+\begin{align*}
+\E\left[G\right] & =\sum_{n=2}^{\infty}\frac{n}{2^{n-1}}
+\end{align*}
+
+\end_inset
+
+which is arithmo-geometric series that can be shown to converge using a
+ ratio test.
+ We can note that for 
+\begin_inset Formula $\lvert x\rvert\leq1$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1}{1-x}=\sum_{n=0}^{\infty}x^{n}
+\]
+
+\end_inset
+
+and so by the fact that the power series converges uniformly, 
+\begin_inset Formula 
+\[
+\frac{1}{\left(1-x\right)^{2}}=\sum_{n=1}^{\infty}nx^{n-1}
+\]
+
+\end_inset
+
+where we have interchanged derivatives and limits
 \begin_inset ERT
 status open
 
@@ -3016,8 +3262,29 @@ status open
 
 
 \backslash
-hl{TODO}
+hl{Add hyperrefs once differentiation section is complete}
 \end_layout
+
+\end_inset
+
+.
+ Finally, we have 
+\begin_inset Formula 
+\[
+\frac{1}{\left(1-x\right)^{2}}-1=\sum_{n=2}^{\infty}nx^{n-1}.
+\]
+
+\end_inset
+
+Letting 
+\begin_inset Formula $x=\frac{1}{2}$
+\end_inset
+
+, we have that 
+\begin_inset Formula 
+\[
+\E\left[G\right]=4-1=3.
+\]
 
 \end_inset
 
@@ -3089,7 +3356,16 @@ hl{TODO: Flesh out}
 
 \end_inset
 
-
+A collection of random variables which are independent and have the same
+ distribution are called 
+\emph on
+independent and identically distributed 
+\emph default
+or 
+\emph on
+i.i.d 
+\emph default
+for short.
 \end_layout
 
 \begin_layout Standard
@@ -3294,12 +3570,7 @@ Let
 \begin_inset Formula $Y$
 \end_inset
 
- be non-negative (or integrable) independent random variables in such that
- 
-\begin_inset Formula $\E\left[\lvert XY\rvert\right]<\infty$
-\end_inset
-
-.
+ be non-negative (or integrable) independent random variables.
  Then,
 \begin_inset Formula 
 \[
@@ -3435,12 +3706,199 @@ Let
 where we used independence in the second equality.
 \end_layout
 
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2005samplepsb2"
+
+\end_inset
+
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ be independent random variables with 
+\begin_inset Formula $X$
+\end_inset
+
+ having a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[subsec:binomialDistribution]{binomial distribution}
+\end_layout
+
+\end_inset
+
+ with parameters 
+\begin_inset Formula $n_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ having a binomial distribution with parameters 
+\begin_inset Formula $n_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{2}$
+\end_inset
+
+.
+ What is the probability that 
+\begin_inset Formula $|X-Y|$
+\end_inset
+
+ is even? Well, we don't need to really worry about the absolute value sign
+ since if 
+\begin_inset Formula $X-Y$
+\end_inset
+
+ is even then 
+\begin_inset Formula $Y-X$
+\end_inset
+
+ is even.
+ Moreover, we know that 
+\begin_inset Formula $X-Y$
+\end_inset
+
+ is even if and only if either both 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ are even or both 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ are odd.
+ Therefore, formally letting 
+\begin_inset Formula $E:=\left\{ 0,2,4,\ldots\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $O:=\left\{ 1,3,5,\ldots\right\} $
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\P\left(\lvert X-Y\rvert\in E\right) & =\P\left(X\in E,Y\in E\right)+\P\left(X\in O,Y\in O\right)\\
+ & =\P\left(X\in E\right)\P\left(Y\in E\right)+\P\left(X\in O\right)\P\left(Y\in O\right)\\
+ & =\sum_{l\in E}\left(\begin{array}{c}
+n_{1}\\
+l
+\end{array}\right)p_{1}^{l}\left(1-p_{1}\right)^{n_{1}-l}\sum_{k\in E}\left(\begin{array}{c}
+n_{2}\\
+k
+\end{array}\right)p_{2}^{k}\left(1-p_{2}\right)^{n_{1}-k}\\
+ & \ \ +\sum_{l\in O}\left(\begin{array}{c}
+n_{1}\\
+l
+\end{array}\right)p_{1}^{l}\left(1-p_{1}\right)^{n_{1}-l}\sum_{k\in O}\left(\begin{array}{c}
+n_{2}\\
+k
+\end{array}\right)p_{2}^{k}\left(1-p_{2}\right)^{n_{1}-k}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Multiple random variables and random vectors
 \end_layout
 
+\begin_layout Standard
+Most of the results that we have deduced for random variables hold 
+\emph on
+mutis mutandis 
+\emph default
+for random vectors, although some ideas need clarification in this more
+ general context.
+ For instance, the notion of a CDF is not immediately
+\end_layout
+
 \begin_layout Subsection
 Transformations of random variables
+\end_layout
+
+\begin_layout Standard
+A typical question in basic probability theory is trying to find the distributio
+n of some transformation of a collection of random variables.
+ More formally, given random variables 
+\begin_inset Formula $X_{1},X_{2},\ldots,X_{n}$
+\end_inset
+
+, on some probability space 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+, we wish to find the distribution of 
+\begin_inset Formula $T\left(X_{1},X_{2},\ldots,X_{n}\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $T:\R^{n}\to\R^{m}$
+\end_inset
+
+ is a Borel-measurable map.
+\end_layout
+
+\begin_layout Subsubsection
+Adding independent random variables
+\end_layout
+
+\begin_layout Standard
+The simplest transformation we make on a collection of random variables
+ is simply adding them.
+ The theory of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[subsec:convolutions]{convolutions}
+\end_layout
+
+\end_inset
+
+ we developed in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:productMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ gives us the tools to find the distribution of the sum of random variables.
 \end_layout
 
 \begin_layout Proposition
@@ -3463,7 +3921,7 @@ Let
 \end_inset
 
  be 
-\begin_inset Formula $\Lp 1{\P}$
+\begin_inset Formula $\Lp1{\P}$
 \end_inset
 
  (or non-negative) independent random variables on the space.
@@ -3495,20 +3953,7 @@ F_{Z}\left(z\right)=\E_{Y}\left[F_{X}\left(z-y\right)\right]
 \end_layout
 
 \begin_layout Proof
-We shall use 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hyperref[subsec:convolutions]{convolutions}
-\end_layout
-
-\end_inset
-
-: note that 
+Note that 
 \begin_inset Formula 
 \begin{align*}
 \P_{Z}\left(B\right) & =\E_{Y}\left[\E_{X}\left[\indicate_{B}\left(x+y\right)\right]\right]\\
@@ -3550,7 +3995,7 @@ Let
 \end_inset
 
  be 
-\begin_inset Formula $\Lp 1{\P}$
+\begin_inset Formula $\Lp1{\P}$
 \end_inset
 
  (or non-negative) independent and discrete random variables supported on
@@ -3671,6 +4116,125 @@ For
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+More often than not, we are dealing with a situation where we are adding
+ random variables that are not of the same 
+\begin_inset Quotes eld
+\end_inset
+
+type
+\begin_inset Quotes erd
+\end_inset
+
+, as is the case in the following example.
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2005samplepsb5"
+
+\end_inset
+
+Suppose 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $U$
+\end_inset
+
+ are independent random variables with 
+\begin_inset Formula 
+\[
+P(X=k)=\frac{1}{N+1},\quad k=0,1,2,\ldots,N,
+\]
+
+\end_inset
+
+ and 
+\begin_inset Formula $U$
+\end_inset
+
+ having a uniform distribution on 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $Y=X+U$
+\end_inset
+
+.
+ What is the distribution of 
+\begin_inset Formula $Y$
+\end_inset
+
+? What is the Pearson correlation coefficient 
+\begin_inset Formula $r_{Y,X}$
+\end_inset
+
+? First note that by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:distSumIndep"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+F_{Y}\left(y\right) & =\E_{X}\left[F_{U}\left(y-x\right)\right]\\
+ & =\E_{X}\left[\left(y-x\right)\indicate\left\{ y-1\leq x\leq y\right\} +\indicate\left\{ x<y-1\right\} \right]\\
+ & =\frac{1}{N+1}\sum_{x=0}^{N}\left(y-x\right)\indicate\left\{ y-1\leq x\leq y\right\} +\frac{1}{N+1}\sum_{x=0}^{N}\indicate\left\{ x<y-1\right\} \\
+ & =\frac{y-\lfloor y\rfloor}{N+1}\indicate\left\{ 0\leq y\leq N+1\right\} +\frac{\lfloor y\rfloor}{N+1}\indicate\left\{ 0\leq y\leq N+1\right\} +\indicate\left\{ y>N+1\right\} \\
+ & =\frac{y}{N+1}\indicate\left\{ 0\leq y\leq N+1\right\} +\indicate\left\{ y>N+1\right\} .
+\end{align*}
+
+\end_inset
+
+For the correlation between 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+, note that 
+\begin_inset Formula 
+\begin{align*}
+\Cov\left[X+U,X\right] & =\Var\left[X\right]\\
+ & =
+\end{align*}
+
+\end_inset
+
+and 
+\begin_inset Formula $\Var\left[Y\right]=\Var\left[X\right]+\Var\left[U\right]$
+\end_inset
+
+ and so 
+\begin_inset Formula 
+\[
+r_{X,Y}=\frac{\Var\left[X\right]}{\Var\left[X\right]+\Var\left[U\right]}
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Order statistics
 \end_layout
@@ -3726,6 +4290,68 @@ hl{TODO}
 
 \begin_layout Subsection
 Concentration inequalities
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2015psb5ptB"
+
+\end_inset
+
+Consider the setting in Example 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "exa:isi2015psb5ptA"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ again.
+ Can we provide a bound for 
+\begin_inset Formula $\E\left[\lvert X+Y\rvert\right]$
+\end_inset
+
+ with the additional information that 
+\begin_inset Formula $\mathbb{E}\left[X+Y\right]=\mathbb{E}\left[X-Y\right]=0$
+\end_inset
+
+? Note that in this case 
+\begin_inset Formula $\E\left[X\right]=\E\left[Y\right]=0$
+\end_inset
+
+ and so 
+\begin_inset Formula $\Var\left[X+Y\right]=\E\left[\left(X+Y\right)^{2}\right]=3$
+\end_inset
+
+ and so by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:jensenInequality]{Jensen's inequality}
+\end_layout
+
+\end_inset
+
+ and the fact that 
+\begin_inset Formula $x\to\sqrt{x}$
+\end_inset
+
+ is concave, we have that
+\begin_inset Formula 
+\[
+\E\left[\lvert X+Y\rvert\right]\leq\sqrt{\E\left[\left(X+Y\right)^{2}\right]}=\sqrt{3}.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3809,47 +4435,6 @@ Two integers
 
 \begin_layout Standard
 \begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Example
-\begin_inset CommandInset label
-LatexCommand label
-name "exa:isi2004samplepsb1"
-
-\end_inset
-
-Suppose two teams play a series of games, each producing a winner and a
- loser, until one team has won two more games than the other.
- Let 
-\begin_inset Formula $G$
-\end_inset
-
- be the total number of games played.
- Assume each team has a chance of 0.5 to win each game, independent of the
- results of the previous games.
- (a) Find the probability distribution of 
-\begin_inset Formula $G$
-\end_inset
-
-.
- (b) Find the expected value of 
-\begin_inset Formula $G$
-\end_inset
-
-.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hl{TODO}
-\end_layout
-
 \end_inset
 
 
@@ -3962,131 +4547,8 @@ hl{TODO}
 
 \end_layout
 
-\begin_layout Example
-\begin_inset CommandInset label
-LatexCommand label
-name "exa:isi2005samplepsb2"
-
-\end_inset
-
-Let 
-\begin_inset Formula $X$
-\end_inset
-
- and 
-\begin_inset Formula $Y$
-\end_inset
-
- be independent random variables with 
-\begin_inset Formula $X$
-\end_inset
-
- having a binomial distribution with parameters 5 and 
-\begin_inset Formula $1/2$
-\end_inset
-
- and 
-\begin_inset Formula $Y$
-\end_inset
-
- having a binomial distribution with parameters 7 and 
-\begin_inset Formula $1/2$
-\end_inset
-
-.
- Find the probability that 
-\begin_inset Formula $|X-Y|$
-\end_inset
-
- is even.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hl{TODO}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 \begin_inset Separator plain
-\end_inset
-
-
-\end_layout
-
-\begin_layout Example
-\begin_inset CommandInset label
-LatexCommand label
-name "exa:isi2005samplepsb5"
-
-\end_inset
-
-Suppose 
-\begin_inset Formula $X$
-\end_inset
-
- and 
-\begin_inset Formula $U$
-\end_inset
-
- are independent random variables with 
-\begin_inset Formula 
-\[
-P(X=k)=\frac{1}{N+1},\quad k=0,1,2,\ldots,N,
-\]
-
-\end_inset
-
- and 
-\begin_inset Formula $U$
-\end_inset
-
- having a uniform distribution on 
-\begin_inset Formula $[0,1]$
-\end_inset
-
-.
- Let 
-\begin_inset Formula $Y=X+U$
-\end_inset
-
-.a) For 
-\begin_inset Formula $y\in\mathbb{R}$
-\end_inset
-
-, find 
-\begin_inset Formula $P(Y\leq y)$
-\end_inset
-
-.
- b) Find the correlation coefficient between 
-\begin_inset Formula $X$
-\end_inset
-
- and 
-\begin_inset Formula $Y$
-\end_inset
-
-.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hl{TODO}
-\end_layout
-
 \end_inset
 
 
@@ -4185,101 +4647,6 @@ hl{TODO}
 \end_inset
 
 
-\end_layout
-
-\begin_layout Example
-\begin_inset CommandInset label
-LatexCommand label
-name "exa:isi2007samplepsb6"
-
-\end_inset
-
-18 boys and 2 girls are made to stand in a line in a random order.
- Let 
-\begin_inset Formula $X$
-\end_inset
-
- be the number of boys standing in between the girls.
- Find (a) 
-\begin_inset Formula $P(X=5)$
-\end_inset
-
-, (b) 
-\begin_inset Formula $E(X)$
-\end_inset
-
-.
- Appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:Combinatorics"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- will be useful here.
- Note that if there are 
-\begin_inset Formula $b$
-\end_inset
-
- boys and 2 girls, there are 
-\begin_inset Formula $\left(b+2\right)!$
-\end_inset
-
- ways to arrange them and 
-\begin_inset Formula $b+2-k-1$
-\end_inset
-
- ways to sandwich 
-\begin_inset Formula $k$
-\end_inset
-
- boys between two girls, with 
-\begin_inset Formula $b!$
-\end_inset
-
- ways to arrange the boys and 
-\begin_inset Formula $g!$
-\end_inset
-
- ways to arrange the girls.
- Therefore
-\begin_inset Formula 
-\begin{align*}
-\P\left(X=k\right) & =\frac{\left(b+2-k-1\right)b!2!}{\left(b+2\right)!}\\
- & =\frac{b+2-k-1}{\left(b+2\right)!}
-\end{align*}
-
-\end_inset
-
- To find the expectation, note that 
-\begin_inset Formula 
-\begin{align*}
-\E\left[X\right] & =\frac{2}{\left(b+2\right)\left(b+1\right)}\sum_{k=0}^{b}k\left(b+2-k-1\right)\\
- & =\frac{2}{\left(b+2\right)\left(b+1\right)}\sum_{k=1}^{b}k\left(b+1-k\right)\\
- & =\frac{2}{\left(b+2\right)\left(b+1\right)}\left(\begin{array}{c}
-b+2\\
-3
-\end{array}\right)\\
- & =\frac{2}{\left(b+2\right)\left(b+1\right)}\frac{b\left(b+1\right)\left(b+2\right)}{6}\\
- & =\frac{b}{3}
-\end{align*}
-
-\end_inset
-
-where in the third equality we used Lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prop:mdmActivity103"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
