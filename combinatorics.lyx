@@ -2739,6 +2739,19 @@ What is the total number of permutations
 \end_inset
 
 ?
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

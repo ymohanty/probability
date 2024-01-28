@@ -237,6 +237,23 @@ Continuous distributions with bounded support
 
 \begin_layout Subsubsection
 The uniform distribution
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:uniformDistribution"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The uniform distribution on the interval 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ is the simplest example of a distribution that is absolutely continuous
+ with respect to the Lebesgue measure.
+ In fact, it
 \end_layout
 
 \begin_layout Subsubsection
@@ -909,6 +926,76 @@ The Beta-binomial distribution
 
 \begin_layout Subsubsection
 The Beta-negative binomial distribution
+\end_layout
+
+\begin_layout Subsubsection
+The discrete uniform distribution
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:discreteUniformDistribution"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The discrete uniform distribution is the generalization of the distribution
+ we encountered in Example 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "exa:floorFuncCDF"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The idea is that its a distribution supported on any finite set, where
+ each element of the set has equal probability.
+ Thus for a finite set 
+\begin_inset Formula $A$
+\end_inset
+
+ and a discrete uniform random variable 
+\begin_inset Formula $X$
+\end_inset
+
+ supported on 
+\begin_inset Formula $A$
+\end_inset
+
+ we have that 
+\begin_inset Formula $\P\left(X=k\right)=\frac{1}{\lvert A\rvert}\indicate\left\{ k\in A\right\} .$
+\end_inset
+
+ Typically, the set 
+\begin_inset Formula $A=\left\{ a,a+1,a+2,\ldots,b\right\} $
+\end_inset
+
+ in which case the 
+\begin_inset Formula $\lvert A\rvert=b-a+1$
+\end_inset
+
+.
+ In the discussion below we will focus on the special case where 
+\begin_inset Formula $a=0$
+\end_inset
+
+ and 
+\begin_inset Formula $b=n$
+\end_inset
+
+ for some 
+\begin_inset Formula $n\in\N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Subsection
