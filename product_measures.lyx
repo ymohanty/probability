@@ -279,7 +279,17 @@ we want to know if the projections
 
  measurable, respectively.
  Thankfully, this turns out to be the case.
- We will use a long lost result from Chapter 2: the 
+ We will use a long lost result from Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:measurableFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+: the 
 \begin_inset ERT
 status open
 
@@ -3552,7 +3562,7 @@ finite.
 \end_inset
 
  (or 
-\begin_inset Formula $f\in\Lp1{\otimes_{i=1}^{n}\mu_{i}}$
+\begin_inset Formula $f\in\Lp 1{\otimes_{i=1}^{n}\mu_{i}}$
 \end_inset
 
 )
@@ -3805,7 +3815,7 @@ Let
 \end_inset
 
  (or 
-\begin_inset Formula $f\in\Lp1{\lambda^{n}})$
+\begin_inset Formula $f\in\Lp 1{\lambda^{n}})$
 \end_inset
 
 
@@ -3969,7 +3979,7 @@ Let
 \end_inset
 
  (or 
-\begin_inset Formula $f\in\Lp1{\lambda^{n}})$
+\begin_inset Formula $f\in\Lp 1{\lambda^{n}})$
 \end_inset
 
 
@@ -4065,7 +4075,7 @@ Let
 \end_inset
 
  (or 
-\begin_inset Formula $f\in\Lp1{\lambda^{n}}$
+\begin_inset Formula $f\in\Lp 1{\lambda^{n}}$
 \end_inset
 
 ).
@@ -4074,7 +4084,7 @@ Let
 \end_inset
 
  (
-\begin_inset Formula $f\circ T\in\Lp1{\lambda^{n}}$
+\begin_inset Formula $f\circ T\in\Lp 1{\lambda^{n}}$
 \end_inset
 
  and 
@@ -4182,7 +4192,7 @@ Let
 \end_inset
 
  (or 
-\begin_inset Formula $f\in\Lp1{\lambda^{n}}$
+\begin_inset Formula $f\in\Lp 1{\lambda^{n}}$
 \end_inset
 
 ).
@@ -4191,7 +4201,7 @@ Let
 \end_inset
 
  (
-\begin_inset Formula $f\circ T\in\Lp1{\lambda^{n}}$
+\begin_inset Formula $f\circ T\in\Lp 1{\lambda^{n}}$
 \end_inset
 
  and

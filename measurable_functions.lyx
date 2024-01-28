@@ -658,7 +658,17 @@ second
 \emph default
 Borel-Cantelli lemma.
  The second Borel-Cantelli lemma uses the probabilistic concept of independence
- which is the topic of Chapter 7 and as such, we will relegate the discussion
+ and is covered in Theorem
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:secondBorelCantelli"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ in the chapter on independence and as such, we will relegate the discussion
  of the second Borel-Cantelli lemma to when we formally delve into probabiility
  theory in the second part of these notes.
 \end_layout
@@ -849,7 +859,17 @@ algebras, then continuity implies measurability: this is a fact that we
 almost 
 \emph default
 continuous: we make this notion precise when we discuss the deep connections
- between topology and measure theory in Appendix A.
+ between topology and measure theory in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:measureAndTopology"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard

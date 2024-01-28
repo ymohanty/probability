@@ -2363,10 +2363,32 @@ where the inequality follows due to non-negativity of
 \end_layout
 
 \begin_layout Remark*
-This lemma is a special case of Tonelli's theorem, a fundamental theorem
- that allows us to construct measures on Cartesian products of measure spaces
- from the measures on those spaces themselves.
- This theorem will be motivated and proved in Chapter 5.
+This lemma is a special case of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:tonelli]{Tonelli's theorem}
+\end_layout
+
+\end_inset
+
+, a fundamental theorem that allows us to construct measures on Cartesian
+ products of measure spaces from the measures on those spaces themselves.
+ This theorem will be motivated and proved in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:productMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Proposition
@@ -5669,23 +5691,6 @@ if there exists some increasing sequence of sets
 \[
 \bigcup_{i\in\N}E_{i}=\X.
 \]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hl{Describe the Lebesgue measure on real line as a canonical example of
- a sigma-finite measure}
-\end_layout
 
 \end_inset
 

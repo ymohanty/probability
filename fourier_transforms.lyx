@@ -84,6 +84,13 @@ figs-within-sections
 
 \begin_layout Chapter
 Fourier transforms, Laplace transforms, and generating functions
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:fourierTransforms"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

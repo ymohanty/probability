@@ -3869,6 +3869,10 @@ n of some transformation of a collection of random variables.
 \end_layout
 
 \begin_layout Subsubsection
+Linear transformations on scalar random variables
+\end_layout
+
+\begin_layout Subsubsection
 Adding independent random variables
 \end_layout
 
@@ -4233,6 +4237,37 @@ r_{X,Y}=\frac{\Var\left[X\right]}{\Var\left[X\right]+\Var\left[U\right]}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Example
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{TODO}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Products of random variables
+\end_layout
+
+\begin_layout Subsubsection
+Absolutee values of random variables
 \end_layout
 
 \begin_layout Subsection

@@ -84,6 +84,13 @@ figs-within-sections
 
 \begin_layout Chapter
 Measure and Topology
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:measureAndTopology"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

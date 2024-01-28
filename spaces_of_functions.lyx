@@ -120,7 +120,17 @@ over some field (usually
 \end_inset
 
 .
- We have already seen one such space in Chapter 3: the 
+ We have already seen one such space in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:integration"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+: the 
 \begin_inset Formula $\mathcal{L}^{1}$
 \end_inset
 
@@ -2480,7 +2490,7 @@ Conversely, note that for any
 
 where we have used homogeneity in the second line.
  Note that the right hand side is finite by Markov's inequality since 
-\begin_inset Formula $f\in\Lp1{\mu}$
+\begin_inset Formula $f\in\Lp 1{\mu}$
 \end_inset
 
  and 
@@ -4617,7 +4627,7 @@ name "cor:integrationContinuousLinearFunctional"
  and define
 \begin_inset Formula 
 \[
-\Gamma:\Lp 2{\mu}\longrightarrow\R
+\Gamma:\Lp2{\mu}\longrightarrow\R
 \]
 
 \end_inset

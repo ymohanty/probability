@@ -84,6 +84,13 @@ figs-within-sections
 
 \begin_layout Chapter
 Naive set theory
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:naiveSetTheory"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

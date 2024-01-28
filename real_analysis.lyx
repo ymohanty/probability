@@ -83,7 +83,14 @@ figs-within-sections
 \begin_body
 
 \begin_layout Chapter
-Real analysis
+Limits and continuity
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:limitsAndContinuity"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

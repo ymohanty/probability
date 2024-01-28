@@ -84,6 +84,13 @@ figs-within-sections
 
 \begin_layout Chapter
 Integration
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:integration"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -352,7 +359,17 @@ noprefix "false"
 \end_inset
 
  constructively, in a similar fashion to how we proved the existence of
- the Lebesgue measure in Chapter 1.
+ the Lebesgue measure in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:measures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
  In this spirit, we shall define a functional on the non-negative measurable
  simple functions and extend the domain of this functional to more complicated
  function spaces.
@@ -1915,7 +1932,17 @@ and
 
 , provided that the integral is defined.
  As discussed earlier, this is analagous to our construction of the Lebesgue
- measure in Chapter 1, where we 
+ measure in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:measures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, where we 
 \begin_inset Quotes eld
 \end_inset
 
@@ -2813,8 +2840,17 @@ with respect to
 \end_inset
 
  symbolically.
- We discuss absolute continuity in Chapter 6, where we prove the converse
- of this theorem under a minor restriction.
+ We discuss absolute continuity in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Differentiation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, where we prove the converse of this theorem under a minor restriction.
  The non-negative measurable function 
 \begin_inset Formula $f$
 \end_inset
@@ -3359,10 +3395,19 @@ noprefix "false"
  of this result is indeed trivial); this shift of perspective, however,
  offers powerful simplifications to questions concerning the existence and
  uniqueness of measures.
- Indeed, our approach to product measures in Chapter 6 would rely on this
- insight, allowing us to prove both the existence of product measures, and
- the representation of integrals with respect to product measures as iterated
- integrals, in a single stroke.
+ Indeed, our approach to product measures in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:productMeasures"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ would rely on this insight, allowing us to prove both the existence of
+ product measures, and the representation of integrals with respect to product
+ measures as iterated integrals, in a single stroke.
 \end_layout
 
 \begin_layout Theorem
@@ -7194,7 +7239,17 @@ ble at all! Convergence in
 \end_inset
 
  , on the other hand, corresponds to a (semi)-normed convergence as shown
- in Chapter 4.
+ in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:spaces_of_functions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
  Proposition 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -7480,7 +7535,17 @@ noprefix "false"
 \end_inset
 
  characterization of absolute continuity is the same as the one discussed
- in that remark; later on in Chapter 6 (see Proposition 
+ in that remark; later on in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Differentiation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (see Proposition 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prop:epsdeltaAbsContinuity"
