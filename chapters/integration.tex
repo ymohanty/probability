@@ -1,0 +1,2632 @@
+
+\chapter{Integration}
+
+\section{Constructing the Lebesgue integral}
+\begin{thm}
+\label{thm:existenceUniquenessLebesgueIntegral}Let $\left(\X,\mathcal{F}\right)$
+be measurable space. For any measure $\mu$ on $\mathcal{F}$, there
+exists a unique linear functional
+\[
+\bar{\mu}:\mathcal{\mathcal{M}^{+}}\left(\X,\mathcal{F}\right)\longrightarrow\left[0,\infty\right]
+\]
+that satisfies the following properties
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $ \bar{\mu}\left(\indicate_A\right) = \mu\left(A\right) $ for any $ A \in \mathcal{F} $
+	\item \textnormal{(Linearity)}  For any $f,g\in \mathcal{\mathcal{M}^{+}}\left(\X,\mathcal{F}\right)$ and any $\alpha,\beta \geq 0 $ 
+	\[
+				\bar{\mu}\left(\alpha f + \beta g\right) = \alpha \bar{\mu}\left(f\right) + \beta \bar{\mu}\left(g\right)                
+	\]
+	\item \textnormal{(Monotone convergence)} For a sequence of increasing functions $ \left\{f_n\right\}_{n\in\N} \in \mathcal{\mathcal{M}^{+}}\left(\X,\mathcal{F}\right)$ 
+	\[
+				\bar{\mu}\left(\lim_{n\to\infty}f_n\right) = \lim_{n\to\infty}\bar{\mu}\left(f_n\right)
+	\]
+\end{enumerate}
+\end{thm}
+
+We can prove Theorem \ref{thm:existenceUniquenessLebesgueIntegral}
+constructively, in a similar fashion to how we proved the existence
+of the Lebesgue measure in Chapter 1. In this spirit, we shall define
+a functional on the non-negative measurable simple functions and extend
+the domain of this functional to more complicated function spaces.
+\begin{defn}
+\label{def:simpleFuncIntegral}For any measurable simple function
+$s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)$ with the standard
+representation
+\[
+s=\sum_{i=1}^{I}\alpha_{i}\indicate_{A_{i}}
+\]
+define, for any measure $\mu$ on $\F$, the functional $\bar{\mu}_{0}$
+as
+\[
+\bar{\mu}_{0}\left(s\right):=\sum_{i=1}^{I}\alpha_{i}\mu\left(A_{i}\right).
+\]
+\end{defn}
+
+Immediately, we can see that our proto-integral $\bar{\mu}_{0}$ behaves
+quite nicely: it is always non-negative and since indicator functions
+are special cases of simple functions, we have that 
+\[
+\bar{\mu}_{0}\left(\indicate_{A}\right)=\mu\left(A\right)
+\]
+for any $A\in\F$. Moreover, our functional satisfies the linearity
+property on the space of simple measurable functions. To see this
+we shall need the following lemma which solves a minor technical issue
+that arises due to our definition of $\bar{\mu}$ relying on the standard
+representation of simple functions.
+\begin{lem}
+\label{lem:lebIntDiffRep}For any non-negative measurable simple function
+$s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)$ with a standard
+representation
+\[
+s=\sum_{i=1}^{I}\alpha_{i}\indicate_{A_{i}}
+\]
+and another representation
+\[
+s=\sum_{j=1}^{J}\beta_{i}\indicate_{B_{j}}
+\]
+where $\left\{ B_{j}\right\} _{j=1}^{J}$ is a partition of $\X$
+we have 
+\[
+\bar{\mu}_{0}\left(s\right):=\sum_{i=1}^{I}\alpha_{i}\mu\left(A_{i}\right)=\sum_{j=1}^{J}\beta_{j}\mu\left(B_{j}\right).
+\]
+where $\bar{\mu}_{0}$ is the functional derived from a measure $\mu$
+as in Definition \ref{def:simpleFuncIntegral}.
+\end{lem}
+
+\begin{proof}
+Note that both $A_{i}$ and $B_{j}$ partition $\X$ and so observe
+that
+\begin{align*}
+\sum_{i=1}^{I}\alpha_{i}\mu\left(A_{i}\right) & =\sum_{i=1}^{I}\alpha_{i}\mu\left(\bigcup_{j=1}^{J}\left(A_{i}\cap B_{j}\right)\right)\\
+ & =\sum_{i=1}^{I}\sum_{j=1}^{J}\alpha_{i}\mu\left(A_{i}\cap B_{j}\right)
+\end{align*}
+where the last equality follows by finite addivity. Similarly,
+
+\[
+\sum_{j=1}^{J}\beta_{j}\mu\left(B_{j}\right)=\sum_{i=1}^{I}\sum_{j=1}^{J}\beta_{j}\mu\left(A_{i}\cap B_{j}\right).
+\]
+Now observe that since $\sum_{i=1}^{I}\alpha_{i}\indicate_{A_{i}}=\sum_{j=1}^{J}\beta_{i}\indicate_{B_{j}}$
+we know that $\alpha_{i}=\beta_{j}$ if $A_{i}\cap B_{j}\neq\emptyset$;
+conversely, if $A_{i}\cap B_{j}=\emptyset$ then $\mu\left(A_{i}\cap B_{j}\right)=0$
+and so we have that 
+\[
+\sum_{i=1}^{I}\alpha_{i}\mu\left(A_{i}\right)=\sum_{i=1}^{I}\sum_{j=1}^{J}\alpha_{i}\mu\left(A_{i}\cap B_{j}\right)=\sum_{i=1}^{I}\sum_{j=1}^{J}\beta_{j}\mu\left(A_{i}\cap B_{j}\right)=\sum_{j=1}^{J}\beta_{j}\mu\left(B_{j}\right).
+\]
+\end{proof}
+\begin{prop}
+\label{prop:lebIntLinearitySimpleFunc}Let $s,t\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)$
+and let $\mu$be a measure on $\mathcal{F}$. Then, for any $\alpha,\beta\geq0$,
+we have that
+\[
+\bar{\mu}_{0}\left(\alpha s+\beta t\right)=\alpha\bar{\mu}_{0}\left(s\right)+\beta\bar{\mu}_{0}\left(t\right).
+\]
+\end{prop}
+
+\begin{proof}
+It is sufficient to prove that $\bar{\mu}_{0}\left(\alpha s\right)=\alpha\bar{\mu}_{0}\left(s\right)$
+and $\bar{\mu}_{0}\left(s+t\right)=\bar{\mu}_{0}\left(s\right)+\bar{\mu}_{0}\left(t\right).$
+To show the first equality, simply notice that if $s$ is given by
+the standard representation 
+\[
+s=\sum_{i=1}^{I}a_{i}\indicate_{A_{i}}
+\]
+then the standard representation of $\alpha s$ when $\alpha>0$ is
+simply
+\[
+\alpha s=\sum_{i=1}^{I}\alpha a_{i}\indicate_{A_{i}}
+\]
+and so 
+\begin{align*}
+\bar{\mu}_{0}\left(\alpha s\right) & =\sum_{i=1}^{I}\alpha a_{i}\mu\left(A_{i}\right)\\
+ & =\alpha\sum_{i=1}^{I}a_{i}\mu\left(A_{i}\right)\\
+ & =\alpha\bar{\mu}_{0}\left(s\right).
+\end{align*}
+When $\alpha=0$, $\alpha s=\indicate_{\emptyset}$ and so $\bar{\mu}_{0}\left(\alpha s\right)=\mu\left(\emptyset\right)=0=\alpha\bar{\mu}_{0}\left(s\right).$
+
+In order to prove the second equality, observe that if the standard
+representations of $s$ and $t$ are given by
+\begin{align*}
+s & =\sum_{i=1}^{I}a_{i}\indicate_{A_{i}}\\
+t & =\sum_{j=1}^{J}b_{j}\indicate_{B_{j}}
+\end{align*}
+then
+\begin{align*}
+\bar{\mu}_{0}\left(s+t\right) & =\bar{\mu}_{0}\left(\sum_{i=1}^{I}\sum_{j=1}^{J}\left(a_{i}+b_{j}\right)\indicate_{A_{i}\cap B_{j}}\right)\\
+ & =\sum_{i=1}^{I}\sum_{j=1}^{J}\left(a_{i}+b_{j}\right)\mu\left(A_{i}\cap B_{j}\right)\\
+ & =\sum_{i=1}^{I}a_{i}\sum_{j=1}^{J}\mu\left(A_{i}\cap B_{j}\right)+\sum_{j=1}^{J}b_{j}\sum_{i=1}^{I}\mu\left(A_{i}\cap B_{j}\right)\\
+ & =\sum_{i=1}^{I}a_{i}\mu\left(A_{i}\right)+\sum_{j=1}^{J}b_{j}\mu\left(B_{j}\right)\\
+ & =\bar{\mu}_{0}\left(s\right)+\bar{\mu}_{0}\left(t\right)
+\end{align*}
+where the first equality follows from Proposition \ref{prop:simpleFunctionsAddMultiply},
+the second equality due to Lemma \ref{lem:lebIntDiffRep}, and the
+fourth equality due to finite additivity of $\mu$. This completes
+the proof.
+\end{proof}
+Linearity and non-negativity of $\bar{\mu}_{0}$ tells us that for
+any simple measurable functions $f\leq g$, we have that
+\[
+\bar{\mu}_{0}\left(f\right)\leq\bar{\mu}_{0}\left(g\right).
+\]
+Indeed, we can decompose $g=\left(g-f\right)+f$ where $g-f$ and
+$f$ are both non-negative simple functions and so
+\[
+\bar{\mu}_{0}\left(g\right)=\bar{\mu}_{0}\left(g-f\right)+\bar{\mu}_{0}\left(f\right)
+\]
+which by non-negativity proves our claim. In other words, our functional
+$\bar{\mu}_{0}$ is an \emph{increasing }or \emph{monotone }functional.
+With this final fact, we are now ready to extend $\bar{\mu}_{0}$
+to the space of non-negative measurable functions.
+\begin{proof}[Proof of Theorem \ref{thm:existenceUniquenessLebesgueIntegral}]
+For any $f\in\nonnegMeasurableFunctions$, define 
+\[
+\lebInt{\mu}f:=\sup\left\{ \bar{\mu}_{0}\left(s\right)\mid s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)\textnormal{ such that }s\leq f\right\} .
+\]
+We claim that $\bar{\mu}$ is the unique functional (for a given measure
+$\mu$) that satisfies the properties described in the statement of
+the theorem. To see this, we first have to show that the functional
+defined above indeed satisfes the three requisite properties and then
+show that it is the only such functional. Before we do this, note
+that the set $\left\{ \bar{\mu}_{0}\left(s\right)\mid s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)\text{s.t\ }s\leq f\right\} $
+is always non-empty, thanks to Proposition \ref{prop:simpleFunctionMonotoneConvergence}.
+Therefore the supremum is at least 0 since $\bar{\mu}_{0}\left(s\right)\geq0.$
+Moreover, since for any non-negative measurable functions $f\leq g$,
+$\left\{ \bar{\mu}_{0}\left(s\right)\mid s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)\textnormal{ such that }s\leq f\right\} \subseteq\left\{ \bar{\mu}_{0}\left(s\right)\mid s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)\textnormal{ such that }s\leq g\right\} ,$we
+can conclude that $\lebInt{\mu}f\leq\lebInt{\mu}g.$ Thus we already
+know that our functional $\bar{\mu}$ is both non-negative and monotone.
+Next, to show property (i), observe that for any simple function $t\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)$
+\begin{align*}
+\lebInt{\mu}t & =\sup\left\{ \bar{\mu}_{0}\left(s\right)\mid s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)\textnormal{ such that }s\leq t\right\} \\
+ & =\bar{\mu}_{0}\left(t\right)
+\end{align*}
+where the second equality follows from the monotonicty of $\bar{\mu}_{0}$.
+Property (i) then follows from letting $t=\indicate_{A}$ for any
+set $A\in\F.$ Next, we prove property (iii) which is monotone convergence.
+
+Let $\left\{ f_{n}\right\} _{n\in\N}\in\nonnegMeasurableFunctions$
+an increasing sequence of measurable functions. Since we are working
+with the extended non-negative real numbers, we know that 
+\[
+f:=\lim_{n\to\infty}f_{n}=\sup_{n\in\N}f_{n}\in\nonnegMeasurableFunctions
+\]
+by Proposition \ref{prop:supInfMeasurable}. Note that by the monotonicity
+of $\bar{\mu},$ $\bar{\mu}\left(f_{n}\right)\leq\bar{\mu}\left(f\right)$
+for all $n\in\N$ and so 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}\leq\lebInt{\mu}f.
+\]
+To deduce the reverse inequality, let $s\leq f$ be a non-negative
+measurable simple function, fix some $t\in\left(0,1\right)$ and define
+$A_{n}=\left\{ x\in\X\mid f_{n}\left(x\right)\geq ts\left(x\right)\right\} $.
+Since $f_{n}\leq f_{n+1}$, we have that $A_{n}\subseteq A_{n+1}$.
+Moreover, for any $x\in\X$, if $f\left(x\right)>0$ then there is
+some $\epsilon_{x}>0$ such that $f\left(x\right)-ts\left(x\right)=2\epsilon_{x}$
+and so, by pointwise convergence, there exists some $n_{\epsilon_{x}}\in\N$
+such that 
+\begin{align*}
+f_{n}\left(x\right)-ts\left(x\right) & =\underbrace{\left(f\left(x\right)-ts\left(x\right)\right)}_{2\epsilon_{x}}-\underbrace{\left(f\left(x\right)-f_{n}\left(x\right)\right)}_{\leq\epsilon_{x}}\geq\epsilon_{x}>0
+\end{align*}
+for all $n\geq n_{\epsilon_{x}},$ proving that $x\in A_{n}$ for
+such $n.$ Conversely, if $f\left(x\right)=0$ then $f\left(x\right)=f_{n}\left(x\right)=ts\left(x\right)=0$
+and so $x\in A_{n}$ for every $n\in\N$. Together, these two cases
+show that $\bigcup_{n\in\N}A_{n}=\X$. Now, by the montonicity of
+$\bar{\mu}$, observe that
+\begin{align}
+\lebInt{\mu}{f_{n}} & \geq\lebInt{\mu}{f_{n}\indicate_{A_{n}}}\nonumber \\
+ & \geq\lebInt{\mu}{ts\indicate_{A_{n}}}\nonumber \\
+ & =\bar{\mu}_{0}\left(ts\indicate_{A_{n}}\right)\nonumber \\
+ & =t\bar{\mu}_{0}\left(s\indicate_{A_{n}}\right)\nonumber \\
+ & =t\lebInt{\mu}{s\indicate_{A_{n}}}\label{eq:monotoneConvPointwiseEq}
+\end{align}
+where the third and last equalities follow from the result above that
+$\bar{\mu}$ extends $\bar{\mu}_{0}$ and the fourth equality is due
+to the \hyperref[prop:lebIntLinearitySimpleFunc]{linearity of $\bar{\mu}_0$}.
+Let $s=\sum_{i=1}^{J}b_{i}\indicate_{B_{i}}$then by Lemma \ref{lem:lebIntDiffRep}
+\[
+\bar{\mu}\left(s\indicate_{A_{n}}\right)=\sum_{i=1}^{I}b_{i}\mu\left(B_{i}\cap A_{n}\right).
+\]
+Since $A_{n}\subseteq A_{n+1}\Longrightarrow B_{i}\cap A_{n}\subseteq B_{i}\cap A_{n+1}$,
+by \hyperref[prop:measureProperties]{continuity from below} of measures,
+we have that 
+\begin{align}
+\lim_{n\to\infty}\lebInt{\mu}{s\indicate_{A_{n}}} & =\lim_{n\to\infty}\sum_{i=1}^{I}b_{i}\mu\left(B_{i}\cap A_{n}\right)\nonumber \\
+ & =\sum_{i=1}^{I}b_{i}\mu\left(\bigcup_{n\in\N}\left(B_{i}\cap A_{n}\right)\right)\nonumber \\
+ & =\sum_{i=1}^{I}b_{i}\mu\left(B_{i}\right)\nonumber \\
+ & =\mu\left(s\right).\label{eq:monotoneConvSimpleLimit}
+\end{align}
+where the third equality follows from the fact that $\bigcup_{n\in\N}A_{n}=\X$.
+Together, (\ref{eq:monotoneConvPointwiseEq}) and (\ref{eq:monotoneConvSimpleLimit})
+imply that 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}\geq t\lebInt{\mu}s.
+\]
+Since this is true for any $t\in\left(0,1\right)$, we have that 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}\geq\lebInt{\mu}s.
+\]
+Finally, since $s\leq f$ was an arbitrary simple function, we have
+that 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}\geq\sup\left\{ \bar{\mu}_{0}\left(s\right)\mid s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)\textnormal{ such that }s\leq f\right\} =\lebInt{\mu}f.
+\]
+
+Next, we show that $\bar{\mu}$ is a linear functional. As before,
+it is sufficient to show that for any $f,g\in\nonnegMeasurableFunctions$
+and any $\alpha\geq0$,
+\begin{align*}
+\lebInt{\mu}{\alpha f} & =\alpha\lebInt{\mu}f\\
+\lebInt{\mu}{f+g} & =\lebInt{\mu}f+\lebInt{\mu}g.
+\end{align*}
+First we shall show the homogenous scaling property. If $\alpha=0$
+then the proof is trivial; if $\alpha>0$ then by the monotone convergence
+property 
+\begin{align*}
+\lebInt{\mu}{\alpha f} & =\lim_{n\to\infty}\lebInt{\mu}{s_{n}}
+\end{align*}
+where $\left\{ s_{n}\right\} _{n\in\N}$ is an increasing sequence
+of simple functions such that $s_{n}\nearrow\alpha f$. Then, $h_{n}=\frac{s_{n}}{\alpha}$
+is an increasing sequence of simple functions such that $h_{n}\nearrow f$
+and so 
+\begin{align*}
+\lebInt{\mu}f & =\lim_{n\to\infty}\lebInt{\mu}{h_{n}}\\
+ & =\lim_{n\to\infty}\frac{1}{\alpha}\bar{\mu}_{0}\left(s_{n}\right)\\
+ & =\frac{1}{\alpha}\lebInt{\mu}{\alpha f}.
+\end{align*}
+Rearranging yields the proof. Now let $\left\{ s_{n}\right\} _{n\in\N},\left\{ t_{n}\right\} _{n\in\N}$
+be increasing sequences of measurable simple functions such that $s_{n}\nearrow f,t_{n}\nearrow g$.
+By the linearity of limits, we have that $s_{n}+t_{n}\nearrow f+g$
+and so
+\begin{align*}
+\lebInt{\mu}{f+g} & =\lim_{n\to\infty}\lebInt{\mu}{s_{n}+t_{n}}\\
+ & =\lim_{n\to\infty}\bar{\mu}_{0}\left(s_{n}+t_{n}\right)\\
+ & =\lim_{n\to\infty}\bar{\mu}_{0}\left(s_{n}\right)+\lim_{n\to\infty}\bar{\mu}_{0}\left(t_{n}\right)\\
+ & =\lebInt{\mu}f+\lebInt{\mu}g
+\end{align*}
+where the first equality follows from the monotone convergence property,
+the second equality follows from the fact that measurable simple functions
+are \hyperref[prop:simpleFunctionsAddMultiply]{closed under addition}
+and the fact that $\bar{\mu}$ extends $\bar{\mu}_{0}$, the third
+equality due to the linearity of $\bar{\mu}_{0}$, and finally the
+fourth equality due to a second application of monotone convergence.
+
+To show that our functional $\bar{\mu}$ is unique, suppose that there
+were two functionals $\bar{\mu}_{1},\bar{\mu}_{2}$ that satisfied
+properties (i)-(iii) with respect to some measure $\mu.$ Then, by
+property (i), $\bar{\mu}_{1}\left(\indicate_{A}\right)=\mu\left(A\right)=\bar{\mu}_{2}\left(\indicate_{A}\right)$
+for any measurable set $A\in\F$. Next, by the linearity property
+along with equality on indicator functions, $\bar{\mu}_{1}\left(s\right)=\bar{\mu}_{2}\left(s\right)$
+for any $s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right).$ Finally,
+for any arbitrary $f\in\nonnegMeasurableFunctions$ and $s_{n}\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)$
+such that $s_{n}\nearrow f$, observe that
+\begin{align*}
+\bar{\mu}_{1}\left(f\right) & =\lim_{n\to\infty}\bar{\mu}_{1}\left(s_{n}\right)\\
+ & =\lim_{n\to\infty}\bar{\mu}_{2}\left(s_{n}\right)\\
+ & =\bar{\mu}_{2}\left(f\right)
+\end{align*}
+where the first equality uses the monotone convergence propert of
+$\bar{\mu}_{1}$, the second equality uses the fact that our two functionals
+are equal on simple functions, and the last equality uses the monotone
+convergence property of $\bar{\mu}_{2}$. This completes the proof.
+\end{proof}
+\begin{defn}
+\label{def:integrable}A function $f\in\mathcal{M}\left(\X,\mathcal{F}\right)$
+is called \emph{integrable }with respect to a measure $\mu$(or $\mu-$\emph{integrable
+}in short) if 
+\[
+\bar{\mu}\left(\left|f\right|\right)<\infty.
+\]
+The collection of all such functions is denoted $\Lp 1{\X,\F,\mu}$.
+\end{defn}
+
+When the underlying space and $\sigma-$algebra are clear, we shall
+simply write $\Lp 1{\mu}.$ The significance of the exponent $1$
+will become clear in the next chapter.
+\begin{prop}
+\label{prop:L1conditions}A function $f\in\measurableFunctions$ is
+in $\Lp 1{\mu}$ if and only if 
+\[
+\lebInt{\mu}{f^{+}},\lebInt{\mu}{f^{-}}<\infty.
+\]
+\end{prop}
+
+\begin{proof}
+Note that if $\lebInt{\mu}{\left|f\right|}<\infty$ then
+\begin{align*}
+\lebInt{\mu}{\left|f\right|} & =\lebInt{\mu}{f^{+}+f^{-}}\\
+ & =\lebInt{\mu}{f^{+}}+\lebInt{\mu}{f^{-}}\\
+ & <\infty
+\end{align*}
+which would imply that $\lebInt{\mu}{f^{+}},\lebInt{\mu}{f^{-}}<\infty.$
+The converse follows similarly.
+\end{proof}
+\begin{prop}
+\label{prop:L1VectorSpace}For any measure space $\left(\X,\F,\mu\right)$,
+the space of $\mu-$integrable functions $\Lp 1{\mu}$ is a vector
+space over $\R$.
+\end{prop}
+
+\begin{proof}
+First observe that the zero function $\indicate_{\emptyset}\in\Lp 1{\mu}$since
+$\lebInt{\mu}{\left|\indicate_{\emptyset}\right|}=\mu\left(\emptyset\right)=0<\infty$
+and so we have an additive identity. Next, notice that $f\in\Lp 1{\mu}\Longleftrightarrow-f\in\Lp 1{\mu}$
+and so we have additive inverses for each function. Commutativity
+and associativity of addition follow from the definition of addition
+on spaces of functions, as does distributivity of scalar multiplication
+over addition. Finally, notice that for any $\alpha\in\R$ and any
+functions $f,g\in\Lp 1{\mu}$
+\begin{align*}
+\lebInt{\mu}{\left|\alpha f+g\right|} & \leq\lebInt{\mu}{\left|\alpha f\right|+\left|g\right|}\\
+ & =\left|\alpha\right|\lebInt{\mu}{\left|f\right|}+\lebInt{\mu}{\left|g\right|}\\
+ & <\infty
+\end{align*}
+where the first inequality follows from the triangle inequality of
+$|\cdot|$ and monotonicty of $\bar{\mu}$, and the equality follows
+from the linearity of $\bar{\mu}$. This proves that $\Lp 1{\mu}$
+is closed under finite linear combinations and so is a vector space.
+\end{proof}
+\begin{defn}
+\label{def:integral}For any function $f\in\measurableFunctions$
+and a measure $\mu$ on $\F$, we can define the \emph{Lebesgue integral}
+\[
+\tilde{\mu}\left(f\right):=\lebInt{\mu}{f^{+}}-\lebInt{\mu}{f^{-}}
+\]
+wherever the difference is defined (i.e. at least one of $\lebInt{\mu}{f^{+}}$
+and $\lebInt{\mu}{f^{-}}$ is finite).
+\end{defn}
+
+\begin{rem*}
+Note that for any non-negative measurable function $f$, $\tilde{\mu}\left(f\right)=\lebInt{\mu}f$
+and so $\tilde{\mu}$ extends $\bar{\mu}$ just like $\bar{\mu}$
+extended $\bar{\mu}_{0}$
+\end{rem*}
+
+\section{Properties of the integral}
+\begin{prop}
+\label{prop:linearityLebIntL1}For any functions $f,g\in\Lp 1{\X,\F,\mu}$
+and scalar $\alpha\in\R$, we have that 
+\[
+\tilde{\mu}\left(\alpha f+g\right)=\alpha\tilde{\mu}\left(f\right)+\tilde{\mu}\left(g\right).
+\]
+\end{prop}
+
+\begin{proof}
+First we shall prove that $\tilde{\mu}\left(\alpha f\right)=\alpha\tilde{\mu}\left(f\right).$
+Note that if $\alpha=0$ then the equality follows trivially. If $\alpha>0$
+then 
+\begin{align*}
+\tilde{\mu}\left(\alpha f\right) & =\lebInt{\mu}{\left(\alpha f\right)^{+}}-\lebInt{\mu}{\left(\alpha f\right)^{-}}\\
+ & =\lebInt{\mu}{\alpha f\indicate_{\left\{ \alpha f>0\right\} }}-\lebInt{\mu}{-\alpha f\indicate_{\left\{ \alpha f<0\right\} }}\\
+ & =\lebInt{\mu}{\alpha f\indicate_{\left\{ f>0\right\} }}-\lebInt{\mu}{-\alpha f\indicate_{\left\{ f<0\right\} }}\\
+ & =\alpha\lebInt{\mu}{f^{+}}-\alpha\lebInt{\mu}{f^{-}}\\
+ & =\alpha\tilde{\mu}\left(f\right)
+\end{align*}
+where the third equality follows from the fact that $\alpha>0$ and
+the fourth equality due to the linearity of $\bar{\mu}.$ Finally,
+if $\alpha<0$ then
+\begin{align*}
+\tilde{\mu}\left(\alpha f\right) & =\lebInt{\mu}{\left(\alpha f\right)^{+}}-\lebInt{\mu}{\left(\alpha f\right)^{-}}\\
+ & =\lebInt{\mu}{\alpha f\indicate_{\left\{ \alpha f>0\right\} }}-\lebInt{\mu}{-\alpha f\indicate_{\left\{ \alpha f<0\right\} }}\\
+ & =\lebInt{\mu}{\alpha f\indicate_{\left\{ f<0\right\} }}-\lebInt{\mu}{-\alpha f\indicate_{\left\{ f>0\right\} }}\\
+ & =\lebInt{\mu}{-\alpha\times-f\indicate_{\left\{ f<0\right\} }}-\lebInt{\mu}{-\alpha f\indicate_{\left\{ f>0\right\} }}\\
+ & =\alpha\bar{\mu}\left(f^{+}\right)-\alpha\lebInt{\mu}{f^{-}}\\
+ & =\alpha\tilde{\mu}\left(f\right).
+\end{align*}
+
+Next, let $h=f+g$ and observe that
+\begin{align*}
+h & =h^{+}-h^{-}\\
+ & =f+g\\
+ & =\left(f^{+}-f^{-}\right)+\left(g^{+}-g^{-}\right).
+\end{align*}
+Rearranging, we have that 
+\[
+h^{+}+f^{-}+g^{-}=h^{-}+f^{+}+g^{-}
+\]
+where the functions on each side are non-negative measurable functions
+and so
+\[
+\lebInt{\mu}{h^{+}+f^{-}+g^{-}}=\lebInt{\mu}{h^{+}}+\lebInt{\mu}{f^{-}}+\lebInt{\mu}{g^{-}}=\lebInt{\mu}{h^{-}}+\lebInt{\mu}{f^{+}}+\lebInt{\mu}{g^{+}}=\lebInt{\mu}{h^{-}+f^{+}+g^{-}}
+\]
+by linearity of $\bar{\mu}.$ As $h,g,f\in\Lp 1{\mu}$, the integrals
+of the individual components are not infinite and so we can rearrange
+the second equality above as
+\[
+\underbrace{\lebInt{\mu}{h^{+}}-\lebInt{\mu}{h^{-}}}_{\tilde{\mu}\left(h\right)}=\underbrace{\lebInt{\mu}{f^{+}}-\lebInt{\mu}{f^{-}}}_{\tilde{\mu}\left(f\right)}+\underbrace{\lebInt{\mu}{g^{+}}-\lebInt{\mu}{g^{-}}}_{\tilde{\mu}\left(g\right)}
+\]
+which completes the proof.
+\end{proof}
+\begin{cor}
+\label{cor:monotonicityLebIntL1}For any functions $f,g\in\Lp 1{\X,\F,\mu}$
+such that $f\leq g$ pointwise,
+\[
+\tilde{\mu}\left(f\right)\leq\tilde{\mu}\left(g\right).
+\]
+\end{cor}
+
+\begin{proof}
+Note that $h=g-f\geq0$ and so 
+\[
+\tilde{\mu}\left(g-f\right)=\lebInt{\mu}{g-f}\geq0.
+\]
+Then, by Proposition \ref{prop:linearityLebIntL1}, 
+\[
+\tilde{\mu}\left(g-f\right)=\tilde{\mu}\left(g\right)-\tilde{\mu}\left(f\right)\geq0
+\]
+which completes the proof.
+\end{proof}
+\begin{cor}
+\label{cor:triangleIneqLebIntL1}For any function $f\in\Lp 1{\X,\F,\mu}$
+\[
+\left|\tilde{\mu}\left(f\right)\right|\leq\tilde{\mu}\left(\left|f\right|\right).
+\]
+\end{cor}
+
+\begin{proof}
+By Corollary \ref{cor:monotonicityLebIntL1} and the triangle inequality
+for $\left|\cdot\right|$
+\[
+\tilde{\mu}\left(f\right)\leq\tilde{\mu}\left(\left|f\right|\right).
+\]
+Similarly, we have that
+\[
+-f\leq\left|f\right|\Longrightarrow\tilde{\mu}\left(-f\right)\leq\tilde{\mu}\left(\left|f\right|\right)\Longrightarrow\tilde{\mu}\left(f\right)\geq-\tilde{\mu}\left(\left|f\right|\right)
+\]
+where the second implication follows due to linearity. Together, the
+two inequalities imply that
+\[
+\left|\tilde{\mu}\left(f\right)\right|\leq\tilde{\mu}\left(\left|f\right|\right)
+\]
+which is the result.
+\end{proof}
+
+\subsection{Interchanging limits and integrals}
+
+At this point we have defined the functionals $\bar{\mu}_{0},\bar{\mu,}$and
+$\tilde{\mu}$ to operate on simple functions, non-negative measurable
+functions, and all measurable functions respectively. Since $\bar{\mu}$
+extends $\bar{\mu}_{0}$ and $\tilde{\mu}$ extends $\bar{\mu}$,
+we can dispense with the unnecessary amounts of new notation and simply
+denote the integral as $\bar{\mu}\left(f\right)$ for any function
+$f\in\measurableFunctions$, provided that the integral is defined.
+As discussed earlier, this is analagous to our construction of the
+Lebesgue measure in Chapter 1, where we ``extended'' the measure
+from simple sets to more complicated sets over the course of the chapter.
+
+Next we show the power of this integration theory by establishing
+two results which allow us to interchange pointwise limits of functions
+and with their integrals. We have already proved the following result
+in Theorem \ref{thm:existenceUniquenessLebesgueIntegral}.
+\begin{thm}[Monotone convergence theorem]
+\label{thm:monotoneConvergenceLebInt}Let $\left\{ f_{n}\right\} _{n\in\N}\in\nonnegMeasurableFunctions$
+be such that $f_{n}\leq f_{n+1}$ pointwise. Then, for any meaasure
+$\mu$on $\F$,
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}=\lebInt{\mu}{\lim_{n\to\infty}f_{n}}.
+\]
+\end{thm}
+
+The other theorem drops the requirement that the functions $f_{n}$
+be non-negative or that the sequence be monotone, in exchange for
+asking the sequence $f_{n}$ to be uniformly bounded by an integrable
+function.
+\begin{thm}[Dominated convergence theorem]
+\label{thm:dominatedConvergenceLebInt}Let $\left\{ f_{n}\right\} _{n\in\N}$
+be a sequence of functions in $\Lp 1{\X,\F,\mu}$ and suppose there
+exists some $g\in\Lp 1{\mu}$ such that
+\[
+\left|f_{n}\right|\leq g
+\]
+pointwise for every $n\in\N$. Then, if $f:=\lim_{n\to\infty}f_{n}$
+is defined, we have that
+\[
+\lim_{n\to\infty}\lebInt{\mu}{\left|f_{n}-f\right|}=0
+\]
+which also shows that
+\[
+\lim_{n\to\infty}\bar{\mu}\left(f_{n}\right)=\lebInt{\mu}f.
+\]
+\end{thm}
+
+\begin{proof}
+Note that by the continuity of the absolute value function, $\left|f_{n}\right|\leq g\Longrightarrow\left|f\right|\leq g$
+pointwise which shows $f\in\Lp 1{\mu}$. Then, by the triangle inequality
+\[
+\left|f_{n}\left(x\right)-f\left(x\right)\right|\leq\left|f_{n}\left(x\right)\right|+\left|f\left(x\right)\right|\leq2g\left(x\right)
+\]
+for every $n\in\N$ and every $x\in\X.$ Note that
+\[
+\phi_{i}\left(x\right):=\sup_{n\geq i}\left|f_{n}\left(x\right)-f\left(x\right)\right|\leq2g\left(x\right)
+\]
+for every $i\in\N$ and every $x\in\X,$ which proves that $\phi_{i}\in\Lp 1{\mu}$
+for every $i\in\N$. Next, observe that 
+\begin{align*}
+\lim_{i\to\infty}\phi_{i} & =\limsup_{n\to\infty}\left|f_{n}-f\right|\\
+ & =\lim_{n\to\infty}\left|f_{n}-f\right|\\
+ & =0
+\end{align*}
+where the second and third equalities follows from the assumption
+that $f_{n}\longrightarrow f$ pointwise. Further, define
+\[
+\psi_{i}\left(x\right):=2g\left(x\right)-\phi_{i}\left(x\right)\geq0
+\]
+and observe that since $\phi_{i}\geq\phi_{i+1}$ pointwise for every
+$i\in\N$, $\psi_{i}\leq\psi_{i+1}$ and $\lim_{i\to\infty}\psi_{i}=2g$.
+Then, by the monotone convergence theorem
+\begin{align*}
+\lim_{i\to\infty}\lebInt{\mu}{\psi_{i}} & =\lebInt{\mu}{2g}.
+\end{align*}
+However, note that
+\begin{align*}
+\lebInt{\mu}{\psi_{i}} & =\lebInt{\mu}{2g-\phi_{i}}\\
+ & =\lebInt{\mu}{2g}-\lebInt{\mu}{\phi_{i}}
+\end{align*}
+and so, since $\lebInt{\mu}{\psi_{i}},\lebInt{\mu}{2g}<\infty$ ,
+\[
+\lim_{i\to\infty}\lebInt{\mu}{\phi_{i}}=\lebInt{\mu}{2g}-\lim_{i\to\infty}\lebInt{\mu}{\psi_{i}}=0.
+\]
+Finally, note that $0\leq\lebInt{\mu}{\left|f_{n}-f\right|}\leq\lebInt{\mu}{\phi_{n}}$
+for every $n\in\N$ by the monotonicty of $\bar{\mu}$ and so 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{\left|f_{n}-f\right|}=0.
+\]
+
+By Corollary \ref{cor:triangleIneqLebIntL1},
+\[
+0\leq\lim_{n\to\infty}\left|\lebInt{\mu}{f_{n}-f}\right|\leq\lim_{n\to\infty}\lebInt{\mu}{\left|f_{n}-f\right|}=0
+\]
+which shows that 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}=\lebInt{\mu}f.
+\]
+\end{proof}
+We have shown results that establish interchanging limits and integrals
+when such limits exist. The next result makes a more general statement
+about interchanging limit inferiors of non-negative measurable functions
+(which always exist in the extended real numbers) with their integrals,
+although we cannot get strict equality.
+\begin{thm}[Fatou's lemma]
+\label{thm:fatouLemmaLebInt}For any functions $f_{n}\in\nonnegMeasurableFunctions$
+\[
+\lebInt{\mu}{\liminf_{n\to\infty}f_{n}}\leq\liminf_{n\to\infty}\lebInt{\mu}{f_{n}}.
+\]
+\end{thm}
+
+\begin{proof}
+Define $g_{n}\left(x\right)=\inf_{i\geq n}f_{i}\left(x\right).$ Clearly,
+$g_{n}\leq f_{n}$ pointwise and
+\[
+\liminf_{n\to\infty}f_{n}=\lim_{n\to\infty}g_{n}\in\nonnegMeasurableFunctions
+\]
+by Corollary \ref{cor:limSupLimInfMeasurable}. Further, $g_{n}\leq g_{n+1}$
+pointwise and so by the monotone convergence theorem
+\[
+\lebInt{\mu}{\liminf_{n\to\infty}f_{n}}=\lebInt{\mu}{\lim_{n\to\infty}g_{n}}=\lim_{n\to\infty}\lebInt{\mu}{g_{n}}=\liminf_{n\to\infty}\lebInt{\mu}{g_{n}}\leq\liminf_{n\to\infty}\lebInt{\mu}{f_{n}}
+\]
+where the fourth equality follows from the fact the when the limit
+exists, limit superiors and inferiors are both equal to the limit.
+\end{proof}
+\begin{cor}
+\label{cor:reverseFatouLemma}For any functions $f_{n}\in\nonnegMeasurableFunctions$
+such that $f_{n}\leq g$ for some $g\in\nonnegMeasurableFunctions$
+such that $\lebInt{\mu}g<\infty$
+\[
+\lebInt{\mu}{\limsup_{n\to\infty}f_{n}}\geq\limsup_{n\to\infty}\lebInt{\mu}{f_{n}}.
+\]
+\end{cor}
+
+\begin{proof}
+Define $h_{n}:=g-f_{n}\in\nonnegMeasurableFunctions$ and observe
+that by Fatou's lemma
+\[
+\lebInt{\mu}{\liminf_{n\to\infty}h_{n}}\leq\liminf_{n\to\infty}\lebInt{\mu}{h_{n}}.
+\]
+Notice that we can rewrite the left hand side as 
+\begin{align*}
+\lebInt{\mu}{\liminf_{n\to\infty}h_{n}} & =\lebInt{\mu}{g+\liminf_{n\to\infty}-f_{n}}\\
+ & =\lebInt{\mu}{g-\limsup_{n\to\infty}f_{n}}\\
+ & =\lebInt{\mu}g-\lebInt{\mu}{\limsup_{n\to\infty}f_{n}}.
+\end{align*}
+Similarly, we can rewrite the right hand side as 
+\[
+\liminf_{n\to\infty}\lebInt{\mu}{h_{n}}=\lebInt{\mu}g-\limsup_{n\to\infty}\lebInt{\mu}{f_{n}}.
+\]
+Since $\lebInt{\mu}g<\infty$, we can subtract it from both sides
+to yield the result.
+\end{proof}
+Note that Fatou's lemma is essentially a simple corollarly of the
+monotone convergence theorem; it turns out that we can deduce the
+monotone convergence theorem from Fatou's lemma as well, meaning that
+the two theorems are in fact equivalent. Thus we could characterisze
+Lebesgue integrals as linear functionals that satisfy Fatou's lemma
+instead of montone convergence.
+\begin{prop}
+\label{prop:monotoneFromFatou}Let $\measurespace$ be a measure space
+and let $\mu^{\prime}:\nonnegMeasurableFunctions\to\left[0,\infty\right]$
+be a linear functional satisfying $\mu\left(A\right)=\mu^{\prime}\left(\indicate_{A}\right)$,
+linearity and Fatou's lemma. Then for any increasing sequence$f_{n}\in\nonnegMeasurableFunctions$
+\[
+\mu^{\prime}\left(\lim_{n\to\infty}f_{n}\right)=\lim_{n\to\infty}\mu^{\prime}\left(f_{n}\right).
+\]
+\end{prop}
+
+One important application of the dominated convergence theorem is
+differentiating under the integral sign.
+\begin{thm}[Differentiating under the integral sign]
+\label{thm:diffIntSign}For any $\theta\in\left[-\delta,\delta\right],$
+define $g\left(x,\theta\right)\in\Lp 1{\X,\F,\mu}$ to be differentiable
+with respect to $\theta$, with derivative
+\[
+g_{\theta}\left(x,\theta\right)=\lim_{\epsilon\to0}\frac{g\left(x,\theta+\epsilon\right)-g\left(x,\theta\right)}{\epsilon}.
+\]
+Define the function
+\[
+m\left(\theta\right):=\lebInt{{\mu}_{x}}{g\left(x,\theta\right)}
+\]
+where the subscript $x$ clarifies the variable of integration. If
+there exists a function $G\in\Lp 1{\mu}$ such that $\left|g_{\theta}\right|\leq G$
+for every $\theta\in\left(-\delta,\delta\right)$ then
+\[
+\frac{dm\left(\theta\right)}{d\theta}=\frac{d\lebInt{{\mu}_{x}}{g\left(x,\theta\right)}}{d\theta}=\lebInt{{\mu}_{x}}{g_{\theta}\left(x,\theta\right)}.
+\]
+\end{thm}
+
+\begin{proof}
+Define the function 
+\[
+f_{n}\left(x,\theta\right):=\frac{g\left(x,\theta+\frac{1}{n}\right)-g\left(x,\theta\right)}{\frac{1}{n}}
+\]
+and observe by the linearity of the Lebesgue integral that 
+\[
+\frac{m\left(\theta+\frac{1}{n}\right)-m\left(\theta\right)}{\frac{1}{n}}=\lebInt{\mu_{x}}{f_{n}\left(x,\theta\right)}
+\]
+and that 
+\[
+\lim_{n\to\infty}f_{n}\left(x,\theta\right)=g_{\theta}\left(x,\theta\right).
+\]
+Next, observe that by the mean value theorem
+\[
+f_{n}\left(x,\theta\right)=g_{\theta}\left(x,\tilde{\theta}_{n}\right)
+\]
+for some $\theta<\tilde{\theta}_{n}<\theta+\frac{1}{n}$ for every
+$n\in\N$, which implies that for large enough $n$
+\[
+\left|f_{n}\left(x,\theta\right)\right|=\left|g_{\theta}\left(x,\tilde{\theta}_{n}\right)\right|\leq G\left(x\right).
+\]
+Applying the dominated convergence theorem, we have that
+\begin{align*}
+\lebInt{{\mu}_{x}}{g_{\theta}\left(x,\theta\right)} & =\lebInt{{\mu}_{x}}{\lim_{n\to\infty}f_{n}\left(x,\theta\right)}\\
+ & =\lim_{n\to\infty}\lebInt{{\mu}_{x}}{f_{n}\left(x,\theta\right)}\\
+ & =\lim_{n\to\infty}\frac{m\left(\theta+\frac{1}{n}\right)-m\left(\theta\right)}{\frac{1}{n}}\\
+ & =\frac{dm\left(\theta\right)}{d\theta}
+\end{align*}
+which completes the proof.
+\end{proof}
+
+\subsection{New measures from old and their integrals}
+\begin{prop}
+\label{prop:densities}Let $\left(\X,\F,\mu\right)$ be a measure
+space. For any function $f\in\nonnegMeasurableFunctions$, the set
+valued function $\nu:\F\longrightarrow\left[0,\infty\right]$ given
+by
+\[
+\nu\left(A\right):=\lebInt{\mu}{f\indicate_{A}}
+\]
+is a measure on $\F$. Moreover, for any $A\in\F$, if $\mu\left(A\right)=0$
+then $\nu\left(A\right)=0$.
+\end{prop}
+
+\begin{proof}
+Note that $\nu\left(\emptyset\right)=$$\lebInt{\mu}{f\indicate_{\emptyset}}=\lebInt{\mu}{\indicate_{\emptyset}}=\mu\left(\emptyset\right)=0.$
+Next, let $\left\{ A_{i}\right\} _{i\in\N}\in\F$ be disjoint and
+define
+\[
+B_{n}=\bigcup_{i=1}^{n}A_{i}
+\]
+which is an increasing sequence of sets such that $\bigcup_{n\in\N}B_{n}=\bigcup_{i\in\N}A_{i}$.
+Then
+\begin{align*}
+\nu\left(\bigcup_{i\in\N}A_{i}\right) & =\lebInt{\mu}{f\indicate_{\bigcup_{i\in\N}A_{i}}}\\
+ & =\lebInt{\mu}{f\indicate_{\lim_{n\to\infty}B_{n}}}\\
+ & =\lebInt{\mu}{f\lim_{n\to\infty}\indicate_{B_{n}}}\\
+ & =\lebInt{\mu}{f\lim_{n\to\infty}\sum_{i=1}^{n}\indicate_{A_{i}}}\\
+ & =\lim_{n\to\infty}\lebInt{\mu}{\sum_{i=1}^{n}f\indicate_{A_{i}}}\\
+ & =\lim_{n\to\infty}\sum_{i=1}^{n}\lebInt{\mu}{f\indicate_{A_{i}}}\\
+ & =\sum_{i=1}^{\infty}\lebInt{\mu}{f\indicate_{A_{i}}}\\
+ & =\sum_{i=1}^{\infty}\nu\left(A_{i}\right)
+\end{align*}
+where the second equality follows from the discussion on convergence
+of sets in Section 2.1, the third equality due to Proposition \ref{prop:limSupInfIndicator},
+the fourth equality from induction on Fact \ref{fact:indicatorFunctionsFiniteOperations},
+the fifth equality from the monotone convergence theorem, and the
+sixth equality due to the linearity of $\bar{\mu}$. Finally, let
+$A\in\F$ be a $\mu-$measure zero set and define $\left\{ s_{n}\right\} _{n\in\N}\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)$
+to be an \hyperref[prop:simpleFunctionMonotoneConvergence]{increasing sequence of simple functions}
+which converges to $f$ with standard representation 
+\[
+s_{n}=\sum_{i=1}^{I_{n}}a_{i.n}\indicate_{A_{i,n}}.
+\]
+Then the $s_{n}\indicate_{A}\nearrow f\indicate_{A}$and 
+\begin{align*}
+\lebInt{\mu}{s_{n}\indicate_{A}} & =\lebInt{\mu}{\sum_{i=1}^{I_{n}}a_{i,n}\indicate_{A_{i,n}\cap A}}\\
+ & =\sum_{i=1}^{I_{n}}a_{i,n}\mu\left(A_{i,n}\cap A\right)\\
+ & =0
+\end{align*}
+where the last equality follows from the monotonicty of measures.
+Applying the monotone convergence theorem, we have that 
+\begin{align*}
+\nu\left(A\right) & =\lebInt{\mu}{f\indicate_{A}}\\
+ & =\lim_{n\to\infty}\lebInt{\mu}{s_{n}\indicate_{A}}\\
+ & =0
+\end{align*}
+which completes the proof.
+\end{proof}
+\begin{rem}
+\label{rem:absoluteContinuity}A measure $\nu$ on $\F$ with the
+relation $\mu\left(A\right)=0\Longrightarrow\nu\left(A\right)=0$
+for every $A\in\F$ and a refence measure $\mu$ is called \emph{absolutely
+continuous }with respect to $\mu$. This relation is denoted as $\nu<<\mu$
+symbolically. We discuss absolute continuity in Chapter 6, where we
+prove the converse of this theorem under a minor restriction. The
+non-negative measurable function $f$ which generates the new measure
+$\nu$ is called the \emph{density }of $\nu$ with respect to $\mu.$
+If $\nu$ is a probability measure then $f$ is called the\emph{ probability
+density function} of $\nu$ with respect to $\mu.$
+\end{rem}
+
+\begin{cor}
+\label{cor:densityIntegral}Let $\mu,\nu$ be measures on $\measurablespace$
+and let $f$ be a density of $\nu$ with respect to $\mu.$ The unique
+Lebesgue integral associated with the measure $\nu$ is given by 
+\[
+\lebInt{\nu}g=\lebInt{\mu}{fg},
+\]
+for any function $g\in\measurableFunctions$, provided the right-hand
+side is defined.
+\end{cor}
+
+\begin{proof}
+Note that for any set $A\in\F$, $\lebInt{\nu}{\indicate_{A}}=\lebInt{\mu}{f\indicate_{A}}=\nu\left(A\right)$.
+Further, $\bar{\nu}$ inherits linearity and monotone convergence
+on $\nonnegMeasurableFunctions$ from $\bar{\mu}$ and so by Theorem
+\ref{thm:existenceUniquenessLebesgueIntegral}, $\bar{\nu}$ is the
+unique integral (with respect to measure $\nu$) on $\nonnegMeasurableFunctions,$
+which of course extends uniquely to $\measurableFunctions$ through
+Definition \ref{def:integral}.
+\end{proof}
+\begin{prop}
+\label{prop:imageMeasures}Let $\left(\X,\F,\mu\right)$ be a measure
+space and let $\left(\mathcal{Y},\mathcal{G}\right)$ be a measurable
+space . For any $\F/\mathcal{G}$ measurable function $f:\X\to\mathcal{Y}$,
+the function $f\mu:\mathcal{G}\longrightarrow\left[0,\infty\right]$
+given by 
+\[
+f\mu\left(B\right):=\mu\left(f^{-1}\left[B\right]\right)
+\]
+is a measure on $\borel\left(\R\right).$
+\end{prop}
+
+\begin{proof}
+Note that $f\mu\left(\emptyset\right)=\mu\left(f^{-1}\left[\emptyset\right]\right)=\mu\left(\emptyset\right).$
+Next, let $\left\{ B_{i}\right\} _{i\in\N}\in\mathcal{G}$ be disjoint
+and observe that
+\begin{align*}
+f\mu\left(\bigcup_{i\in\N}B_{i}\right) & =\mu\left(f^{-1}\left[\bigcup_{i\in\N}B_{i}\right]\right)\\
+ & =\mu\left(\bigcup_{i\in\N}f^{-1}\left[B_{i}\right]\right)\\
+ & =\sum_{i=1}^{\infty}\mu\left(f^{-1}\left[B_{i}\right]\right)\\
+ & =\sum_{i=1}^{\infty}f\mu\left(B_{i}\right)
+\end{align*}
+where the second equality is a property of inverse maps and the third
+equality is due to the countable additivity of $\mu$.
+\end{proof}
+\begin{rem*}
+Here the measure $f\mu$ is called the \emph{image measure }generated
+by $f$ via $\mu.$ If $\mu$ is a probability measure, then $f\mu$
+is called the \emph{probability distribution }of $f$.
+\end{rem*}
+\begin{cor}
+\label{cor:changeOfVariables}Let $\left(\X,\F,\mu\right)$ be a measure
+space and let $\left(\mathcal{Y},\mathcal{G}\right)$ be a measurable
+space. Define $f\mu$ to be the image measure of a measurable function
+$f:\X\to\mathcal{Y}$ with respect to measure $\mu.$ Then, for any
+function $g\in\mathcal{M}\left(\mathcal{Y},\mathcal{G}\right)$, the
+Lebesgue integral associated with measaure $f\mu$ is given by 
+\[
+\lebInt{f\mu}g:=\lebInt{\mu}{g\circ f}
+\]
+provided the right hand side is defined.
+\end{cor}
+
+\begin{proof}
+First note that for any $B\in\mathcal{G}$
+\begin{align*}
+\lebInt{f\mu}{\indicate_{B}} & =\lebInt{\mu}{\indicate_{B}\circ f}\\
+ & =\lebInt{\mu}{\indicate_{f^{-1}\left[B\right]}}\\
+ & =\mu\left(f^{-1}\left[B\right]\right)\\
+ & =f\mu\left(B\right)
+\end{align*}
+which satisfies the first required property of Theorem \ref{thm:existenceUniquenessLebesgueIntegral}.
+Linearity and monotone convergence follow from $\bar{\mu}$ and so
+the uniqueness criterion of the theorem tells us that $\bar{f\mu}$
+is indeed the unique integral associated with the image measure $f\mu$.
+\end{proof}
+Recall from Proposition(\ref{prop:sumOfCountableMeasures}) that the
+countable sum of measures on $\left(\X,\F\right)$ is a measure on
+$\left(\X,\F\right)$. The integral resulting from this compound measure
+can be decomposed into the integrals from constituent summand measures
+in certain situations.
+\begin{prop}
+\label{prop:integralSumOfMeasures}Let $\left(\X,\F\right)$ be a
+measurable space and let $\left\{ \mu_{i}\right\} _{i\in\N}$ be a
+countable collection of measures on $\F$ with their respective integrals
+$\left\{ \lebInt{\mu_{i}}{\cdot}\right\} _{i\in\N}$. Then the integral
+associated with the sum measure
+\[
+\mu:=\sum_{i=1}^{\infty}\mu_{i}
+\]
+is given by
+\[
+\lebInt{\mu}f:=\sum_{i=1}^{\infty}\lebInt{\mu}f
+\]
+for any $f\in\nonnegMeasurableFunctions.$
+\end{prop}
+
+\begin{proof}
+We first show this holds for $f=\indicate_{A}$for any $A\in\F$;
+indeed, an application of Proposition \ref{prop:sumOfCountableMeasures}
+is sufficient for this purpose. Next, for any $s\in M_{\textnormal{sim}}\left(\X,\mathcal{F}\right)$,
+we have that
+\[
+s=\sum_{i=1}^{I}\alpha_{i}\indicate_{A_{i}}
+\]
+where $\alpha_{i}>0$ , $A_{i}:=\left\{ x\in\X:s\left(x\right)=\alpha_{i}\right\} $,
+and $I\in\N$. Thus,
+\begin{align*}
+\lebInt{\mu}s & =\sum_{i=1}^{I}\alpha_{i}\mu\left(A_{i}\right)\\
+ & =\sum_{i=1}^{I}\alpha_{i}\sum_{j=1}^{\infty}\mu_{j}\left(A_{i}\right)\\
+ & =\sum_{j=1}^{\infty}\sum_{i=1}^{I}\mu_{j}\left(A_{i}\right)\\
+ & =\sum_{j=1}^{\infty}\lebInt{\mu_{j}}s
+\end{align*}
+where the first equality is by the definition of integrals on simple
+functions and the third is by the linearity of limits of sequences.
+This establishes the result for simple functions. Finally, let $f\in\nonnegMeasurableFunctions$
+be arbitrary and observe by Proposition \ref{prop:simpleFunctionMonotoneConvergence}
+that there exists some increasing sequence $\left\{ s_{n}\right\} \in M_{\textnormal{sim}}\left(\X,\mathcal{F}\right)$
+such that $s_{n}\nearrow f$ and 
+\begin{align*}
+\lebInt{\mu}f & =\lebInt{\mu}{\lim_{n\to\infty}s_{n}}\\
+ & =\lim_{n\to\infty}\lebInt{\mu}{s_{n}}\\
+ & =\lim_{n\to\infty}\sum_{i=1}^{\infty}\lebInt{\mu_{i}}{s_{n}}\\
+ & =\sum_{i=1}^{\infty}\lebInt{\mu_{i}}{\lim_{n\to\infty}s_{n}}\\
+ & =\sum_{i=1}^{\infty}\lebInt{\mu_{i}}f
+\end{align*}
+where the second equality follows by monotone convergence and the
+fourth equality follows by two applications of monotone convergence
+(you can think of the countable sum as integration with respect to
+the counting measure). This completes the proof.
+\end{proof}
+
+
+\subsection{Equivalence of integrals and measures}
+
+Note that while in Theorem \ref{thm:existenceUniquenessLebesgueIntegral}
+we constructed the integral from a seemingly more primitive concept
+of a measure, it turns out that a measure can be constructed out a
+linear functional on the space of measurable functions such that the
+functional is the integral with respect to the measure we have constructed.
+In this sense, measures and integrals are really equivalent. At this
+point, this may seem to be a trivial observation (and the proof of
+this result is indeed trivial); this shift of perspective, however,
+offers powerful simplifications to questions concerning the existence
+and uniqueness of measures. Indeed, our approach to product measures
+in Chapter 6 would rely on this insight, allowing us to prove both
+the existence of product measures, and the representation of integrals
+with respect to product measures as iterated integrals, in a single
+stroke.
+\begin{thm}
+\label{thm:integralMeasureEquivalence}Let $\left(\X,\F\right)$ be
+a measurable space and let 
+\[
+\Lambda:\nonnegMeasurableFunctions\longrightarrow\left[0,\infty\right]
+\]
+be a linear functional that satisfies monotone convergence i.e for
+any sequence $f_{n}\in\measurableFunctions$ such that $f_{n}\leq f_{n+1}$
+and $f:=\lim_{n\to\infty}f_{n}\in\F$ we have 
+\[
+\Lambda\left(f\right)=\lim_{n\to\infty}\Lambda\left(f_{n}\right).
+\]
+Further, suppose there exists a function $g\in\nonnegMeasurableFunctions$
+such that $\Lambda\left(g\right)<\infty$. Then the function 
+\[
+\lambda:\F\longrightarrow\left[0,\infty\right]
+\]
+given by 
+\[
+\lambda\left(A\right):=\Lambda\left(\indicate_{A}\right)
+\]
+for any $A\in\F$ is a measure and $\Lambda$ is the integral with
+respect to $\lambda$.
+\end{thm}
+
+\begin{proof}
+First, note that 
+\begin{align*}
+\Lambda\left(g\right) & =\Lambda\left(g+\indicate_{\emptyset}\right)\\
+ & =\Lambda\left(g\right)+\Lambda\left(\indicate_{\emptyset}\right)\\
+ & =\Lambda\left(g\right)+\lambda\left(\emptyset\right)
+\end{align*}
+by linearity and since $\Lambda\left(g\right)<\infty$, we can subtract
+it from both sides to deduce $\lambda\left(\emptyset\right)=0.$ To
+establish countable additivity, note that for a disjoint collection
+$A_{n}\in\F$, 
+\begin{align*}
+\lambda\left(\bigcup_{n\in\N}A_{n}\right) & =\Lambda\left(\sum_{n=1}^{\infty}\indicate_{A_{n}}\right)\\
+ & =\sum_{n=1}^{\infty}\Lambda\left(\indicate_{A_{n}}\right)\\
+ & =\sum_{n=1}^{\infty}\lambda\left(A_{n}\right)
+\end{align*}
+where the first equality is by (an extension of) Proposition \ref{prop:indicatorFunctionsArbitraryOperations}
+and the second by linearity and monotone convergence. Of course, since
+$\Lambda$ satisfies the properties of Theorem \ref{thm:existenceUniquenessLebesgueIntegral},
+it is the unique integral induced by the measure $\lambda$; this
+completes the proof.
+\end{proof}
+
+\section{Null sets}
+\begin{defn}
+\label{def:nullSet}Let $\left(\X,\F,\mu\right)$ be a measure space.
+A set $A\in\F$ is called a $\mu-$null set if it's a measure zero
+set with respect to $\mu$ i.e.
+\[
+\mu\left(A\right)=0.
+\]
+The collection of all $\mu-$null sets in $\F$ is denoted $N_{\mu}$.
+\end{defn}
+
+Note we will often omit the ``$\mu$'' when describing a $\mu-$null
+set and simply say ``null set'' if the measure is clear from context.
+\begin{prop}
+\label{prop:nullClosureCountableUnion}Let $\left(\X,\F,\mu\right)$
+be a measure space. The set of all null sets $N_{\mu}$ is closed
+under countable unions.
+\end{prop}
+
+\begin{proof}
+Let $\left\{ A_{i}\right\} _{i\in\N}\in N_{\mu}$ be arbitrary. Then,
+by \hyperref[cor:countableSubadditivity]{countable subadditivity}
+\begin{align*}
+\mu\left(\bigcup_{i\in\N}A_{i}\right) & \leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right)\\
+ & =\lim_{n\to\infty}\sum_{i=1}^{n}\mu\left(A_{i}\right)\\
+ & =0.
+\end{align*}
+\end{proof}
+\begin{prop}
+\label{prop:intZeroFuncZero}For any function $f\in\nonnegMeasurableFunctions$
+and a measure $\mu$ on $\F$, if the integral $\lebInt{\mu}f=0$
+then the set $\left\{ x\in\X\mid f\left(x\right)>0\right\} \in N_{\mu}.$
+\end{prop}
+
+\begin{proof}
+Observe that for any $n\in\N$ we have the pointwise inequality
+\[
+h_{n}:=\indicate_{\left\{ f\geq\frac{1}{n}\right\} }\leq nf
+\]
+where both sides are measurable since $f$ is Borel-measurable. By
+the monotonicity and linearity of the integral, we have 
+\[
+\mu\left(\left\{ x\in\X\mid f\left(x\right)\geq\frac{1}{n}\right\} \right)=\lebInt{\mu}{h_{n}}\leq n\lebInt{\mu}f=0.
+\]
+Since $f\left(x\right)\geq\frac{1}{n}\Longrightarrow f\left(x\right)\geq\frac{1}{n+1}$
+and $\bigcup_{n\in\N}\left\{ x\in\X\mid f\left(x\right)\geq\frac{1}{n}\right\} =\left\{ x\in\X\mid f\left(x\right)>0\right\} ,$
+by the \hyperref[prop:measureProperties]{continuity from below of measures}
+(or, equivalently, the monotone convergence theorem)
+\[
+\mu\left(\left\{ x\in\X\mid f\left(x\right)>0\right\} \right)=\lim_{n\to\infty}\mu\left(\left\{ x\in\X\mid f\left(x\right)\geq\frac{1}{n}\right\} \right)=0
+\]
+which completes the proof.
+\end{proof}
+\begin{rem*}
+When two function $f,g\in\measurableFunctions$ are such that $f=g$
+on $\X\setminus A$ for some $A\in N_{\mu}$ , we say that the functions
+are equal $\mu-$almost everywhere. In the literature, this is often
+shortened to writing $\mu-$a.e or simply a.e if the measure is clear
+from context. If $\mu$ is a probability measure, then we say $f=g$
+almost surely, which is often shortened to a.s in the literature.\footnote{Sometimes, this is denoted even more compactly as $f\stackrel{\textnormal{a.e}}{=}g.$}
+From this it's clear that the set $\left\{ x\in\X\mid f\left(x\right)\neq g\left(x\right)\right\} \subseteq A.$
+Of course, if we can show that $\left\{ x\in\X\mid f\left(x\right)\neq g\left(x\right)\right\} \in\F$
+then $\left\{ x\in\X\mid f\left(x\right)\neq g\left(x\right)\right\} \in N_{\mu}$
+by the monotonicity of measures.
+
+Corresponding to the notion of almost-everywhere equality of measurable
+functions, there's a notion of almost-everywhere equality of sets.
+Recall from set theory that the symmetric difference of two sets $A,B$
+is given
+\[
+A\Delta B:=\left(A\setminus B\right)\bigcup\left(B\setminus A\right)
+\]
+Given a measure $\mu$on some measurable space $\measurablespace$
+and sets $A,B\in\F$, we say $A\stackrel{\mu-\text{a.e}}{=}B$ if
+$\mu\left(A\Delta B\right)=0.$ Of course, in the spirit of Theorem
+\ref{thm:integralMeasureEquivalence}, this definition must coincide
+with the one for measurable functions in that we must have that $\indicate_{A}\stackrel{\mu-\text{a.e}}{=}\indicate_{B}$.
+This is easily shown in the following result.
+\end{rem*}
+\begin{prop}
+\label{prop:almostEverywhereEqualSets}Let $\measurespace$ be a measure
+space. For any $A,B\in\F$, $A\stackrel{\mu-\text{a.e}}{=}B$ if and
+only if $\indicate_{A}\stackrel{\mu-\text{a.e}}{=}\indicate_{B}$
+\end{prop}
+
+\begin{proof}
+Note that $\mu\left(A\Delta B\right)=0\Longleftrightarrow\mu\left(A\cap B^{C}\right)=\mu\left(B\cap A^{C}\right)=0.$
+Further, observe that
+\[
+\left\{ x\in\X\mid\indicate_{A}\left(x\right)\neq\indicate_{B}\left(x\right)\right\} =\underbrace{\left\{ x\in\X\mid\indicate_{A}\left(x\right)>\indicate_{B}\left(x\right)\right\} }_{=A\cap B^{C}}\bigcup\underbrace{\left\{ x\in\X\mid\indicate_{A}\left(x\right)<\indicate_{B}\left(x\right)\right\} }_{=B\cap A^{C}}
+\]
+which completes the proof.
+\end{proof}
+\begin{lem}
+\label{lem:setFuncNotEqualMeasurable}Let $f,g\in\measurableFunctions$
+be arbitrary. Then, the set
+\[
+A:=\left\{ x\in\X\mid f\left(x\right)\neq g\left(x\right)\right\} 
+\]
+is measurable i.e. $A\in\F.$
+\end{lem}
+
+\begin{proof}
+Let $h:=\left(f-g\right)\indicate_{\left\{ f=g=\infty\textnormal{or}f=g=-\infty\right\} ^{C}}$and
+observe that $h$ is measurable by Corollary \ref{cor:examplesBinaryOpsMeasFunc}.
+Further, $A\subseteq\left\{ x\in\X\mid f\left(x\right)=g\left(x\right)=\infty\textnormal{ or }f\left(x\right)=g\left(x\right)=-\infty\right\} ^{C}$
+and so
+\[
+A=\left\{ x\in\X\mid h\left(x\right)\neq0\right\} =\left\{ x\in\X\mid h\left(x\right)>0\right\} \bigcup\left\{ x\in\X\mid h\left(x\right)<0\right\} 
+\]
+is in $\F$ by the measurability of $h$.
+\end{proof}
+\begin{prop}
+\label{prop:intFiniteFuncFinite}For any function $f\in\nonnegMeasurableFunctions$
+and a measure $\mu$ on $\F$, if the integral $\lebInt{\mu}f<\infty$
+then $f<\infty$ $\mu-$almost everywhere.
+\end{prop}
+
+\begin{proof}
+Observe that the pointwise equality
+\[
+\indicate_{\left\{ f=\infty\right\} }\leq\frac{f}{n}
+\]
+where both sides are measurable since $f$ is Borel-measurable. By
+the monotonicity and linearity of the integral and our assumptions,
+\[
+0\leq\mu\left(\left\{ x\in\X\mid f\left(x\right)=\infty\right\} \right)\leq\frac{1}{n}\lebInt{\mu}f<\infty.
+\]
+Since weak inequalities are preserved under limits, we have that 
+\[
+0\leq\mu\left(\left\{ x\in\X\mid f\left(x\right)=\infty\right\} \right)\leq\lim_{n\to\infty}\frac{1}{n}\lebInt{\mu}f=0
+\]
+which completes the proof.
+\end{proof}
+\begin{prop}
+\label{prop:funcEqualityAlmostEverywhere}Let $f,g\in\nonnegMeasurableFunctions$
+be arbitrary and let $\mu$be a measure on $\F$. If $f=g$ $\mu-$almost
+everywhere, then 
+\[
+\lebInt{\mu}f=\lebInt{\mu}g.
+\]
+\end{prop}
+
+\begin{proof}
+Define the set 
+\[
+A:=\left\{ x\in\X\mid f\left(x\right)\neq g\left(x\right)\right\} 
+\]
+which has measure zero by Lemma \ref{lem:setFuncNotEqualMeasurable}
+and our assumption. Then, I claim that the pointwise inequality
+\[
+\min\left\{ g,n\right\} \leq n\indicate_{A}+f
+\]
+holds for every $n\in\N.$ To see this, we can look at the following
+cases:
+
+\begin{enumerate}
+
+\item$g\left(x\right)>n$ and $g\left(x\right)\neq f\left(x\right)$:
+In this case, we see that the inequality resolves to 
+\[
+n\leq n+f\left(x\right)
+\]
+which is true by the non-negativity of $f.$
+
+\item$g\left(x\right)\leq n$ and $g\left(x\right)\neq f\left(x\right):$
+In this case, the inequality resolves to 
+\[
+g\left(x\right)\leq n+f\left(x\right)
+\]
+which is again true by the non-negativity of $f.$
+
+\item$g\left(x\right)>n$ and $g\left(x\right)=f\left(x\right):$
+In this case, the inequality resolves to 
+\[
+n\leq f\left(x\right)
+\]
+which is true since $f\left(x\right)=g\left(x\right).$
+
+\item$g\left(x\right)\leq n$ and $g\left(x\right)=f\left(x\right)$:
+In this case, the inequality resolves to 
+\[
+g\left(x\right)\leq f\left(x\right)
+\]
+which is true by assumption.
+
+\end{enumerate}
+
+Note that both the left and right hand side are measurable by Proposition
+\ref{prop:binaryOperationsMeasurableFunctions}and so, integrating
+both sides, we have
+\begin{align*}
+\lebInt{\mu}{\min\left\{ g,n\right\} } & \leq n\mu\left(A\right)+\lebInt{\mu}f\\
+ & =\lebInt{\mu}f
+\end{align*}
+since $\mu\left(A\right)=0.$ Finally, observe that $\min\left\{ g,n\right\} \leq\min\left\{ g,n+1\right\} $
+and that $\lim_{n\to\infty}\min\left\{ g,n\right\} =g.$ Then, applying
+the monotone convergence theorem, we have 
+\[
+\lebInt{\mu}g=\lim_{n\to\infty}\lebInt{\mu}{\min\left\{ g,n\right\} }\leq\lebInt{\mu}f.
+\]
+We can deduce the reverse inequality with the analagous pointwise
+inequality
+\[
+\min\left\{ f,n\right\} \leq n\indicate_{A}+g
+\]
+which proves the result.
+\end{proof}
+\begin{cor}
+\label{cor:LPfuncEqualityAlmostEverywhere}Let $f,g\in L^{1}\left(\X,\F,\mu\right)$
+be such that they are equal almost everywhere. Then
+\[
+\lebInt{\mu}f=\lebInt{\mu}g.
+\]
+\end{cor}
+
+\begin{proof}
+If $f=g$ a.e then
+\[
+f^{+}-f^{-}\stackrel{\textnormal{a.e}}{=}g^{+}-g^{-}\Longleftrightarrow f^{+}+g^{-}\stackrel{\textnormal{a.e}}{=}g^{+}+f^{-}
+\]
+and so, integrating both sides and applying Proposition \ref{prop:funcEqualityAlmostEverywhere}
+we have
+\[
+\lebInt{\mu}{f^{+}+g^{-}}=\lebInt{\mu}{g^{+}+f^{-}}.
+\]
+Applying linearity and observing that the integral of each component
+is finite by \ref{prop:L1conditions}, we get 
+\[
+\lebInt{\mu}f=\lebInt{\mu}{f^{+}}-\lebInt{\mu}{f^{-}}=\lebInt{\mu}{g^{+}}-\lebInt{\mu}{g^{-}}=\lebInt{\mu}g
+\]
+as desired.
+\end{proof}
+\begin{prop}
+\label{prop:intEqualFuncEqual} Let $f,g\in\nonnegMeasurableFunctions$
+such and let $\mu$ be a measure on $\F$ such that 
+\[
+\lebInt{\mu}{f\indicate_{F}}=\lebInt{\mu}{g\indicate_{F}}
+\]
+for every $F\in\F$. Then
+\[
+f=g
+\]
+$\mu-$almost everywhere.
+\end{prop}
+
+\begin{proof}
+Assume the hypothesis is true and define
+\[
+A:=\left\{ x\in\X\mid f\left(x\right)\neq g\left(x\right)\right\} =\underbrace{\left\{ x\in\X\mid f\left(x\right)>g\left(x\right)\right\} }_{A_{1}}\bigcup\underbrace{\left\{ x\in\X\mid f\left(x\right)<g\left(x\right)\right\} }_{A_{2}}
+\]
+and suppose for contradiction that $\mu\left(A\right)>0.$ Then one
+of $A_{1}$ or $A_{2}$ has positive measure. Assume, without loss
+of generality, that $\mu\left(A_{1}\right)>0$ and further define
+\[
+A_{1,n}:=\left\{ x\in\X\mid f\left(x\right)-\frac{1}{n}\geq g\left(x\right)\right\} =\left\{ x\in\X\mid z\left(x\right)\geq\frac{1}{n}\right\} 
+\]
+where $z=f-g$ and so is measurable, which in turn imples that $A_{1,n}\in\F$
+for all $i\in\N.$ Further, $A_{1,n}\subseteq A_{1,n+1}$ and $\bigcup_{n\in\N}A_{1,n}=A$,
+and so by \hyperref[prop:measureProperties]{continuity from below}
+\[
+\lim_{n\to\infty}\mu\left(A_{1,n}\right)=\mu\left(A_{1}\right)>0.
+\]
+By the definition of limts, there exists some $n_{0}\in\N$ such that
+\[
+\mu\left(A_{1,n}\right)>0\ \forall n\geq n_{0}
+\]
+and for such $n$ we also have, by the monotonicty of integration
+\[
+\lebInt{\mu}{z\indicate_{A_{1,n}}}\geq\lebInt{\mu}{\frac{1}{n}\indicate_{A_{1,n}}}=\frac{1}{n}\mu\left(A_{1,n}\right)>0
+\]
+which implies, by the linearity of integration, that
+\[
+\lebInt{\mu}{f\indicate_{A_{1,n}}}>\lebInt{\mu}{g\indicate_{A_{1,n}}}
+\]
+which contradicts our hypotehsis. This completes the proof.
+\end{proof}
+\begin{defn}[Convergence almost everywhere]
+\label{def:convAlmostEverywhere}Let $\left(\X,\F,\mu\right)$ be
+a measure space and define $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+to be a sequence of functions. The sequence is $f_{n}$ is said to
+\emph{converge almost everywhere} to a function $f\in\measurableFunctions$
+if 
+\[
+\mu\left(\left\{ x\in\X\mid\lim_{n\to\infty}f_{n}\left(x\right)\neq f\left(x\right)\right\} \right)=0.
+\]
+In this case, we write
+\[
+\lim_{n\to\infty}f_{n}\stackrel{\textnormal{a.e}}{=}f
+\]
+or say $f_{n}\longrightarrow f$ $\mu-$a.e (or $f_{n}\stackrel{\textnormal{a.e}}{\longrightarrow}f$).
+\end{defn}
+
+\begin{thm}[Generalized monotone convergence theorem]
+\label{thm:generalizedMonotoneConvergence} Let $\left\{ f_{n}\right\} _{n\in\N}\in\nonnegMeasurableFunctions$
+be such that $f_{n}\leq f_{n+1}$ $\mu-$almost everyhwere; that is,
+there is some $A\in N_{\mu}$ such that $f_{n}\left(x\right)\leq f_{n+1}\left(x\right)$
+for all $x\in\X\setminus A.$ Then if 
+\[
+\lim_{n\to\infty}f_{n}=f
+\]
+ on $\X\setminus A$, we have that
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}=\lebInt{\mu}f.
+\]
+\end{thm}
+
+\begin{proof}
+Define $g_{n}=f_{n}\indicate_{\X\setminus A}$ and observe that 
+\[
+g_{n}\leq g_{n+1}
+\]
+pointwise for all $n\in\N$and 
+\[
+\lim_{n\to\infty}g_{n}=f\indicate_{\X\setminus A}.
+\]
+By the standard \hyperref[thm:monotoneConvergenceLebInt]{monotone convergence theorem},
+\[
+\lim_{n\to\infty}\lebInt{\mu}{g_{n}}=\lebInt{\mu}{f\indicate_{\X\setminus A}}.
+\]
+But note that since $g_{n}\stackrel{\textnormal{a.e}}{=}f_{n}$ and
+$f\stackrel{\textnormal{a.e}}{=}f\indicate_{\X\setminus A}$, by Proposition
+\ref{prop:funcEqualityAlmostEverywhere},
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}=\lim_{n\to\infty}\lebInt{\mu}{g_{n}}=\lebInt{\mu}{f\indicate_{\X\setminus A}}=\lebInt{\mu}f
+\]
+which completes the proof.
+\end{proof}
+We can similarly strengthen the dominated convergence theorem.
+\begin{thm}[Generalized dominated convergence theorem]
+\label{thm:generalizedDominatedConvergence}Let $\left\{ f_{n}\right\} _{n}\in\Lp 1{\X,\F,\mu}$
+and suppose there exists some $g\in\Lp 1{\mu}$ be such that
+\[
+\lvert f_{n}\rvert\leq g
+\]
+$\mu-$almost everywhere. Then, if there exists some $f\in\mathcal{M}\left(\X,\F\right)$
+such that 
+\[
+\lim_{n\to\infty}f_{n}\stackrel{\textnormal{a.e}}{=}f
+\]
+we have that $f\in\Lp 1{\mu}$ and
+\[
+\lim_{n\to\infty}\lebInt{\mu}{\lvert f_{n}-f\rvert}=0
+\]
+and 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}=\lebInt{\mu}f.
+\]
+\end{thm}
+
+\begin{proof}
+Without loss of generality\footnote{This can be justfied by Proposition \ref{prop:nullClosureCountableUnion}},
+assume that there exists some set $A\in N_{\mu}$ such that 
+\[
+\lvert f_{n}\left(x\right)\rvert\leq g\left(x\right)
+\]
+for all $x\in\X\setminus A$ and every $n\in\N$, and that
+\[
+\lim_{n\to\infty}f_{n}\left(x\right)=f\left(x\right)
+\]
+for all $x\in\X\setminus A.$ Then, consider the functions $h_{n}:=f_{n}\indicate_{\X\setminus A}$and
+observe that $g^{*}:=g\indicate_{\X\setminus A}\in\Lp 1{\mu}$ since
+$g^{*}\stackrel{\text{a.e}}{=}g\Longrightarrow\lvert g^{*}\rvert\stackrel{\text{a.e}}{=}\lvert g\rvert\Longrightarrow\lebInt{\mu}{\lvert g^{*}\rvert}=\lebInt{\mu}{\lvert g\rvert}<\infty.$
+Next, note that 
+\[
+\lvert h_{n}\rvert\leq g^{*}
+\]
+everywhere for each $n\in\N$ and 
+\[
+\lim_{n\to\infty}h_{n}=f\indicate_{\X\setminus A}
+\]
+pointwise and so, applying the usual \hyperref[thm:dominatedConvergenceLebInt]{dominated convergence theorem}
+\[
+\lim_{n\to\infty}\lebInt{\mu}{h_{n}}=\lebInt{\mu}{f\indicate_{\X\setminus A}}.
+\]
+As, before, by Corollary \ref{cor:LPfuncEqualityAlmostEverywhere}
+\[
+\lim_{n\to\infty}\lebInt{\mu}{f_{n}}=\lim_{n\to\infty}\lebInt{\mu}{h_{n}}=\lebInt{\mu}{f\indicate_{\X\setminus A}}=\lebInt{\mu}f.
+\]
+\end{proof}
+In the context of our discussion on the equivalence between integrals
+and measures, we had foreshadowed how the monotone convergence theorem
+and the continuity from below of measures were basically the same
+concept. We had also said that the \hyperref[thm:borelCantelli]{Borel-Cantelli lemma}
+could be understood through from both an integration and measure-theoretic
+perspective. We can make this precise with the following result.
+\begin{thm}[Generalized Borel-Cantelli lemma]
+\label{thm:generalizedBorelCantelli}Let $\left\{ f_{n}\right\} _{n\in\N}\in\nonnegMeasurableFunctions$
+and let $\mu$ be measure on $\F$. If 
+\[
+\sum_{n=1}^{\infty}\lebInt{\mu}{f_{n}}<\infty
+\]
+then
+\[
+\sum_{n=1}^{\infty}f_{n}<\infty
+\]
+$\mu-$almost everywhere.
+\end{thm}
+
+\begin{proof}
+Note that 
+\begin{align*}
+\lebInt{\mu}{\sum_{n=1}^{\infty}f_{n}} & =\lebInt{\mu}{\lim_{N\to\infty}\sum_{n=1}^{N}f_{n}}\\
+ & =\lim_{N\to\infty}\lebInt{\mu}{\sum_{n=1}^{N}f_{n}}\\
+ & =\sum_{n=1}^{\infty}\lebInt{\mu}{f_{n}}<\infty
+\end{align*}
+where the second equality follows from the monotone convergence theorem
+and the third equality due to the linearity of the integral. By Proposition
+\ref{prop:intFiniteFuncFinite}
+\[
+\sum_{n=1}^{\infty}f_{n}<\infty
+\]
+$\mu-$almost everywhere.
+\end{proof}
+It should be clear that we can recover our original Borel-Cantelli
+lemma by letting $f_{n}=\indicate_{A_{n}}$for sets $\left\{ A_{n}\right\} _{n\in\N}\in\F.$
+
+\section{Convergence of measurable functions}
+
+So far, we have discussed two modes of convergence for measurable
+functions explicitly: pointwise convergence and \hyperref[def:convAlmostEverywhere]{almost-everywhere convergence},
+the latter of which is implied by the former. We have also implicitly
+defined another type of convergence through the \hyperref[thm:dominatedConvergenceLebInt]{dominated convergence theorem}.
+We can make this explicit with the following definition
+\begin{defn}[Convergence in $L^{1}$]
+\label{def:L1Convergence}A sequence of functions $\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$
+is said to converge to a function $f\in\Lp 1{\X,\F,\mu}$ in $\mathcal{L}^{1}$
+if 
+\[
+\lim_{n\to\infty}\lebInt{\mu}{\lvert f_{n}-f\rvert}=0.
+\]
+In this case, we write 
+\[
+f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f.
+\]
+\end{defn}
+
+\begin{defn}[Convergence in measure]
+\label{def:convergenceInMeasure}A sequence of functions $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+is said to \emph{converge in measure }with respect to measure $\mu$
+on $\F$ if for every $\epsilon>0$
+\[
+\lim_{n\to\infty}\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)=0.
+\]
+In this case, we write
+\[
+f_{n}\stackrel{\mu}{\longrightarrow}f.
+\]
+
+Immediately, we would like to know if these ``limits'' are well
+behaved in some sense. That is, we woud like to ensure that they satisfy
+some basic properties that we expect limits to satisfy.
+\end{defn}
+
+\begin{prop}
+\label{prop:convFconvAbsFnMinusF}Let $(\X,\F,\mu)$ be a measure
+space and let $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+converge to $f\in\measurableFunctions$ in any of the modes described
+earlier. Then $\lvert f_{n}-f\rvert\to0$ in the same mode.
+\end{prop}
+
+\begin{proof}
+We first show this for almost everywhere convergence. Suppose $f_{n}\stackrel{\text{a.e}}{\longrightarrow}f$
+and consider the function $g_{n}:=\lvert f_{n}-f\rvert$. Note that
+if for any $x\in\X$
+\[
+\lim_{n\to\infty}g_{n}(x)=0\Longleftrightarrow\lim_{n\to\infty}f_{n}(x)=f(x)
+\]
+by the definition of convergence of sequences. The result then follows
+by observing that the points where this does not occur are identical
+(and thus so are their measures). The result for the other two modes
+are trivial.
+\end{proof}
+\begin{prop}[Linearity of convergence]
+\label{prop:linearityConvergence}Let $(\X,\F,\mu)$ be a measure
+space and let $\left\{ f_{n}\right\} _{n\in\N},\left\{ g_{n}\right\} \in\measurableFunctions$
+converge to $f,g\in\measurableFunctions$ respectively in any of the
+modes described earlier. For any $c\in\R$
+\[
+cf_{n}+g_{n}\to cf+g
+\]
+in the same mode of convergence.
+\end{prop}
+
+\begin{proof}
+In the case of almost sure convergence, let the null sets where $\lim_{n\to\infty}f_{n}(x)\neq f(x)$
+and $\lim_{n\to\infty}g_{n}(x)\neq g(x)$ be $N_{f}$ and $N_{g}$
+respectively. Then $N=N_{f}\cup N_{g}$ is a null set and so
+\[
+\lim_{n\to\infty}cf_{n}+g_{n}=cf+g
+\]
+on $N^{C}$ which establishes linearity.
+
+In the case of convergence in measure, fix $\epsilon>0$ and observe
+that 
+\begin{align*}
+\left\{ x\in\X\mid\lvert cf_{n}(x)+g(x)-cf(x)-g(x)\rvert>\epsilon\right\}  & \subseteq\left\{ x\in\X\mid\lvert c\rvert\lvert f_{n}(x)-f(x)\rvert+\lvert g_{n}(x)-g(x)\rvert>\epsilon\right\} \\
+ & \subseteq\left\{ x\in\X\mid\lvert f_{n}(x)-f(x)\rvert>\frac{\epsilon}{2c}\right\} \cup\left\{ x\in\X\mid\lvert g_{n}(x)-g(x)\rvert>\frac{\epsilon}{2}\right\} .
+\end{align*}
+Subadditvity and monotonicty implies
+\begin{align*}
+\mu\left(\left\{ x\in\X\mid\lvert cf_{n}(x)+g(x)-cf(x)-g(x)\rvert>\epsilon\right\} \right) & \leq\mu\left(\left\{ x\in\X\mid\lvert f_{n}(x)-f(x)\rvert>\frac{\epsilon}{2c}\right\} \right)\\
+ & +\mu\left(\left\{ x\in\X\mid\lvert g_{n}(x)-g(x)\rvert>\frac{\epsilon}{2}\right\} \right).
+\end{align*}
+Taking limits yields the result.
+
+The case for $L^{1}$ convergence will be established in chapter 4
+where we show that $L^{1}$ convergence corresponds to convergence
+in a (semi) norm, which automatically implies the result; for now
+we take it as given.
+\end{proof}
+\begin{prop}[Squeeze theorem]
+\label{prop:squeezeThm}Let $\left(\X,\F,\mu\right)$ be a measure
+space and let $f_{n}\leq g_{n}\leq h_{n}$ be in $\measurableFunctions$
+such that $f_{n},h_{n}\to\psi$ in one of the three modes of convergence.
+Then $g_{n}\to\psi$ in the same mode of convergence.
+\end{prop}
+
+\begin{proof}
+Suppose that $f_{n},h_{n}\stackrel{\text{a.s}}{\longrightarrow}\psi$.
+Let $N_{f}$ and $N_{h}$ be the null sets where pointwise convergence
+fails for the sequences $f_{n}$ and $h_{n}$ respectively. On the
+complement of their union, we have pointwise convergence. Take any
+point $x\in N_{f}^{C}\cap N_{h}^{C};$for any $\epsilon>0$ there's
+some $n_{x,\epsilon}\in\N$ such that for all $n\geq n_{x,\epsilon}$
+\[
+\lvert f_{n}(x)-\psi(x)\rvert<\epsilon
+\]
+and
+\[
+\lvert h_{n}(x)-\psi(x)\rvert<\epsilon
+\]
+and so
+\[
+-\epsilon<f_{n}(x)-\psi(x)\leq g_{n}(x)-g(x)\leq h_{n}(x)<\epsilon\Longleftrightarrow\lvert g_{n}(x)-\psi(x)\rvert<\epsilon
+\]
+which completes the proof.
+
+Now for the convergence in measure, observe that for any $\epsilon>0$,
+\[
+\left\{ x\in\X\mid\lvert h_{n}(x)-\psi(x)\rvert\leq\epsilon\right\} \bigcap\left\{ x\in\X\mid\lvert f_{n}(x)-\psi(x)\rvert\leq\epsilon\right\} \subseteq\left\{ x\in\X\mid\lvert g_{n}(x)-\psi(x)\rvert\leq\epsilon\right\} 
+\]
+and so
+\[
+\left\{ x\in\X\mid\lvert g_{n}(x)-\psi(x)\rvert>\epsilon\right\} \subseteq\left\{ x\in\X\mid\lvert h_{n}(x)-\psi(x)\rvert>\epsilon\right\} \bigcup\left\{ x\in\X\mid\lvert f_{n}(x)-\psi(x)\rvert>\epsilon\right\} 
+\]
+and so
+\[
+\mu\left(\left\{ x\in\X\mid\lvert g_{n}(x)-\psi(x)\rvert>\epsilon\right\} \right)\leq\mu\left(\left\{ x\in\X\mid\lvert h_{n}(x)-\psi(x)\rvert>\epsilon\right\} \right)+\mu\left(\left\{ x\in\X\mid\lvert f_{n}(x)-\psi(x)\rvert>\epsilon\right\} \right)
+\]
+by monotonicty and sub-additivity. Taking limits yields the result.
+
+For $L^{1}$ convergence, note that we have $f_{n}-\psi\leq g_{n}-\psi\leq h_{n}-\psi$
+and so\footnote{If $a\leq b\leq c$ then,$\lvert b\rvert\leq\max\left\{ b,-b\right\} \leq\max\left\{ c,-a\right\} \leq\max\left\{ \lvert c\rvert,\lvert a\rvert\right\} .$}
+\[
+\lvert g_{n}-\psi\rvert\leq\max\left\{ \lvert f_{n}-\psi\rvert,\lvert h_{n}-\psi\rvert\right\} \leq\lvert f_{n}-\psi\rvert+\lvert h_{n}-\psi\rvert.
+\]
+The linearity of integrals and the squeeze theorem for real sequences
+then implies the result.
+\end{proof}
+Finally, for our limiting operations to make sense, limits should
+be unique. Unfortunately, this is not strictly true; however all limits
+are almost everywhere unique. For the case of convergence in measure
+and $L^{1}$ convergence, we shall show that this follows from the
+fact that the topologies for these modes of convergence are given
+by (pseudo) metrics (in the special case of $L^{1}$, by a semi-norm);
+the case of almost-everywhere convergence, the result follows by the
+fact that the union of null sets is null. Therefore we have the following.
+\begin{prop}[Uniqueness of limits]
+\label{prop:limitUnique}Let $\left(\X,\F,\mu\right)$ be a measure
+space and let $\left\{ f_{n}\right\} _{n\in\N},f,g\in\measurableFunctions$
+be such that $f_{n}\longrightarrow f$ and $f_{n}\longrightarrow g$
+in any of the modes of convergence. Then $f\stackrel{\text{a.s}}{=}g.$
+\end{prop}
+
+It would be good to know the conditions under which one type of convergence
+implies another, one of which we have already explored in the form
+of the (generalized) dominated convergence theorem, which gives us
+sufficient conditions for almost everywhere convergence implies $\mathcal{L}^{1}$
+convergence. The next <few> results link the other types of convergence.
+\begin{prop}
+\label{prop:finiteMeasuresAEimpliesConvInMeasures}Let $\left(\X,\F,\mu\right)$
+be a measure space such that $\mu\left(\X\right)<\infty$ and let
+$\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$ such that
+\[
+f_{n}\stackrel{\text{a.e}}{\longrightarrow}f.
+\]
+Then
+\[
+f_{n}\stackrel{\mu}{\longrightarrow}f.
+\]
+\end{prop}
+
+\begin{proof}
+Define 
+\[
+A:=\left\{ x\in\X\mid\lim_{n\to\infty}f_{n}\left(x\right)\neq f\left(x\right)\right\} 
+\]
+and observe that by our hypothesis $\mu\left(A\right)=0.$ Let's unpack
+what this means carefully. Fix any $x_{0}\in A$ and observe that
+there exists some $\epsilon>0$ such that $\lvert f_{n}\left(x_{0}\right)-f\left(x_{0}\right)\rvert>\epsilon$
+for infinitely many $n\in\N.$ Recall the discussion on convergence
+of sets in Section 2.1 and notice that we can formalize our intuition
+with the equalities
+\begin{align*}
+A & =\bigcup_{\epsilon>0}\bigcap_{n_{0}\in\N}\bigcup_{n\geq n_{0}}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \\
+ & =\bigcup_{\epsilon>0}\limsup_{n\to\infty}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} 
+\end{align*}
+where the set $\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \in\F$
+by Lemma \ref{lem:compositionMeasurableFunctions} and so $\limsup_{n\to\infty}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \in\F$
+by closure under countable unions and intersections. Then,
+\[
+0\leq\mu\left(\limsup_{n\to\infty}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)\leq\mu\left(A\right)=0
+\]
+for any $\epsilon>0$ by the monotonicity of measures. Finally, recall
+that by Proposition \ref{prop:limSupInfIndicator}
+\[
+\indicate_{\limsup_{n\to\infty}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} }=\limsup_{n\to\infty}\indicate_{\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} }\leq1
+\]
+where $\lebInt{\mu}1=\mu\left(\X\right)<\infty$. Then, by the \hyperref[cor:reverseFatouLemma]{reverse Fatou Lemma}
+\[
+0\leq\limsup_{n\to\infty}\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)\leq\mu\left(\limsup_{n\to\infty}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)=0.
+\]
+By the non-negativity of measures
+\begin{align*}
+0 & \leq\liminf_{n\to\infty}\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)\\
+ & \leq\lim_{n\to\infty}\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)\\
+ & \leq\limsup_{n\to\infty}\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)\\
+ & =0
+\end{align*}
+which completes the proof.
+\end{proof}
+Note that if we drop the finiteness assumption the result does not
+hold: take $\indicate_{[n,n+1]}\longrightarrow0$ pointwise and the
+Lebesgue measure $\lambda$ on $\R$ and note that for any $\epsilon\in\left(0,1\right)$
+\[
+\lim_{n\to\infty}\lambda\left(\left\{ x\in\R\mid\indicate_{[n,n+1]}>\epsilon\right\} \right)=\lim_{n\to\infty}\lambda\left(\left[n,n+1\right]\right)=1.
+\]
+Note that crucial failure here is that we cannot dominate $\indicate_{[n,n+1]}$
+uniformly (i.e. for all $n$) with any integrable function $g$ and
+so a violation of dominated convergence leads to a failure of convergence
+in measure.
+
+The converse to this result is not true either, that is, convergence
+in measure does not imply almost everywhere convergence, even when
+the measure in question in is finite.
+\begin{example}
+\label{exa:convMeasureDoesntImplyAEConv} Observe that for any $n\in\N$,
+there exists some $k\in\N\cup\{0\}$ such that $2^{k}\leq n<2^{k+1}.$
+By construction, there's only one such $k$ and so we can denote it
+$k(n).$ Consider the following collection of sets in $\borel(\R)$
+\[
+E_{n}:=\left[\frac{n-2^{k(n)}}{2^{k(n)}},\frac{n+1-2^{k(n)}}{2^{k(n)}}\right]
+\]
+and observe that $E_{n}\subseteq[0,1]$ for all $n\in\N$. To see
+this, note that the lower bound is smallest when $n=2^{k(n)}$ and
+the upper bound is largest when $n=2^{k(n)+1}-1$. which correspond
+to 0 and 1 respectively. Now for $\epsilon\in(0,1)$
+\[
+\lim_{n\to\infty}\lambda\left(\left\{ x\in\R\mid\indicate_{E_{n}}>\epsilon\right\} \right)=\lim_{n\to\infty}\lambda\left(E_{n}\right)=\lim_{n\to\infty}\frac{1}{2^{k(n)}}=0
+\]
+as $k(n)\to\infty.$ Further, for $\epsilon\geq1$
+\[
+\lambda\left(\left\{ x\in\R\mid\indicate_{E_{n}}>\epsilon\right\} \right)=0
+\]
+for every $n\in\N$ and so 
+\[
+\indicate_{E_{n}}\stackrel{\mu}{\longrightarrow}0.
+\]
+Now for $x\in[0,1]$, we have that $x\in E_{n}$ for infinitely many
+$n\in\N$. We can establish this by noting that 
+\[
+\bigcup_{2^{k(n)}\leq n\leq2^{k(n)}-1}E_{n}=[0,1]
+\]
+and so for each $k\in\N\cup\{0\}$ there's some $n_{k}$ such that
+$x\in E_{n_{k}}$. Then the subsequence $\indicate_{E_{n_{k}}}=1$
+and so the our sequence $\indicate_{E_{n}}$doesnt converge pointwise
+to zero anywhere in $[0,1].$ In particular, it doesn't converge almost
+everywhere.
+\end{example}
+
+However, convergence in measure implies almost everywhere subsequential
+convergence. To show this, we will first establish a useful lemma.
+\begin{lem}
+\label{lem:borelCantelliAEConvArgument}Let $\left(\X,\F,\mu\right)$
+be a measure space and let $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+be such that 
+\[
+\sum_{n=1}^{\infty}\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)<\infty
+\]
+for every $\epsilon>0$ and some $f\in\measurableFunctions.$ Then
+\[
+f_{n}\stackrel{\text{a.e}}{\longrightarrow}f.
+\]
+\end{lem}
+
+\begin{proof}
+Applying the Borel-Cantelli lemma, we know that for each $\epsilon>0$
+\[
+\mu\left(\limsup_{n\to\infty}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)=0.
+\]
+In particular, this is true for $\epsilon=\frac{1}{p}$ for every
+$p\in\N.$ By the Archimedean property of natural numbers and our
+discussion in the proof of Proposition \ref{prop:finiteMeasuresAEimpliesConvInMeasures},
+the set
+\[
+\left\{ x\in\X\mid\lim_{n\to\infty}f_{n}\left(x\right)\neq f\left(x\right)\right\} =\bigcup_{p\in\N}\limsup_{n\to\infty}\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\frac{1}{p}\right\} 
+\]
+and so by Proposition \ref{prop:nullClosureCountableUnion}
+\[
+\mu\left(\left\{ x\in\X\mid\lim_{n\to\infty}f_{n}\left(x\right)\neq f\left(x\right)\right\} \right)=0
+\]
+which completes the proof.
+\end{proof}
+\begin{prop}
+\label{prop:convInMeasureImpliesSubsequenceAE}Let $\left(\X,\F,\mu\right)$
+be a measure space and let $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+be a sequence of functions such that 
+\[
+f_{n}\stackrel{\mu}{\longrightarrow}f
+\]
+for some $f\in\measurableFunctions.$ Then there exists a sequence
+of natural numbers $\left\{ n_{k}\right\} _{k\in\N}$such that
+\[
+f_{n_{k}}\stackrel{\text{a.e}}{\longrightarrow}f.
+\]
+\end{prop}
+
+\begin{proof}
+Note that by convergence in measure, for any $\epsilon,\delta>0$
+there exists some $n_{\epsilon,\delta}^{*}\in\N$ such that for all
+$n\geq n_{\epsilon,\delta}^{*}$
+\[
+\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)<\delta.
+\]
+In particular, this is true for $\epsilon=\delta=2^{-k}$ for all
+$k\in\N.$ Define the sequence $\left\{ n_{k}\right\} _{k\in\N}$by
+\[
+n_{k}:=\begin{cases}
+n_{1,1}^{*}, & k=1\\
+n_{2^{-k},2^{-k}}^{*}, & n_{k-1}<n_{2^{-k},2^{-k}}^{*}\\
+n_{2^{-k},2^{-k}}^{*}+1, & n_{k-1}=n_{2^{-k},2^{-k}}^{*}
+\end{cases}
+\]
+and observe that $n_{k}$ is a strictly increasing sequence of natural
+numbers and that 
+\[
+\sum_{k=1}^{\infty}\mu\left(\left\{ x\in\X\mid\lvert f_{n_{k}}\left(x\right)-f\left(x\right)\rvert>2^{-k}\right\} \right)<\sum_{k=1}^{\infty}2^{-k}=1<\infty.
+\]
+Applying Lemma \ref{lem:borelCantelliAEConvArgument} furnishes the
+result.
+\end{proof}
+\begin{prop}[Markov's inequality]
+\label{prop:markovInequality} Let $\left(\X,\F,\mu\right)$ be a
+measure space. For any function $f\in\Lp 1{\mu}$ and any $a>0$
+\[
+\mu\left(\left\{ x\in\X\mid\lvert f\left(x\right)\rvert>a\right\} \right)\leq\frac{\lebInt{\mu}{\lvert f\rvert}}{a}.
+\]
+\end{prop}
+
+\begin{proof}
+Note the pointwise inequality
+\[
+a\indicate_{\left\{ x\in\X\mid\lvert f\left(x\right)\rvert>a\right\} }\leq\lvert f\left(x\right)\rvert
+\]
+and observe that by the monotonicity of the integral
+\[
+a\lebInt{\mu}{\indicate_{\{x\in\X\mid\lvert f\left(x\right)\rvert>a\}}}\leq\lebInt{\mu}{\lvert f\rvert}
+\]
+which finishes the proof.
+\end{proof}
+\begin{prop}
+\label{prop:L1impliesConvergenceInMeasure}For a sequence of functions
+$\left\{ f_{n}\right\} _{n\in\N}\in\Lp 1{\X,\F,\mu}$such that 
+\[
+f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f
+\]
+for some $f\in\Lp 1{\mu},$ we have 
+\[
+f_{n}\stackrel{\mu}{\longrightarrow}f.
+\]
+\end{prop}
+
+\begin{proof}
+Note that for any fixed $\epsilon>0$
+\[
+0\leq\mu\left(\left\{ x\in\X\mid\lvert f_{n}\left(x\right)-f\left(x\right)\rvert>\epsilon\right\} \right)\leq\frac{1}{\epsilon}\lebInt{\mu}{\lvert f_{n}-f\rvert}
+\]
+by the Markov inequality. Taking the limit proves the result.
+\end{proof}
+Again, the converse of this result is false.
+\begin{example}
+\label{exa:convMeasureDoesNotImplyConvLp}The sequence of functions
+$f_{n}:=n\indicate_{\left(0,\frac{1}{n}\right]}$ on the measure space
+$\left(\left[0,1\right],\borel\left(\left[0,1\right]\right),\lambda\right)$
+converges pointwise to zero: for any $x\in\R$, eventually $\indicate\left(x\right)=0$
+for large $n$and so $f_{n}\to0$ which means that $f_{n}\stackrel{\lambda}{\to}0$
+as well by Proposition \ref{prop:finiteMeasuresAEimpliesConvInMeasures}.
+But $\lebInt{\lambda}{\lvert f_{n}\rvert}=1$ which doesn't converge
+to 0.
+\end{example}
+
+\begin{thm}[Egorov's theorem]
+\label{thm:egorovTheorem}Let $\left(\X,\F,\mu\right)$ be a measure
+space such that $\mu\left(\X\right)<\infty$ and fix some $\epsilon>0$.
+If $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$ is a
+sequence functions such that
+\[
+f_{n}\stackrel{\text{a.e}}{\longrightarrow}f
+\]
+where $f\in\measurableFunctions$ then there exists some $A\in\F$
+such that $\mu\left(A\right)<\epsilon$ and 
+\[
+\lim_{n\to\infty}\sup_{x\in\X\setminus A}\lvert f_{n}\left(x\right)-f\left(x\right)\rvert=0
+\]
+\end{thm}
+
+\begin{proof}
+Define the set 
+\[
+A_{n,k}:=\bigcup_{i=n}^{\infty}\left\{ x\in\X\mid\lvert f_{i}\left(x\right)-f\left(x\right)\rvert>\frac{1}{k}\right\} 
+\]
+and recall from our earlier discussion that 
+\[
+\mu\left(\bigcap_{n\in\N}A_{n,k}\right)=0
+\]
+for every $k\in\N$ by almost everywhere convergence. Then, since
+$\mu\left(\X\right)<\infty,$ we can apply the \hyperref[prop:equivalenceContinuityMeasures]{continuity from above of measures}
+to deduce that 
+\[
+\lim_{n\to\infty}\mu\left(A_{n,k}\right)=0.
+\]
+This means there exists some $n_{k}\in\N$ such that for all $n\geq n_{k}$
+\[
+\mu\left(A_{n,k}\right)<\frac{\epsilon}{2^{k}}
+\]
+and so
+\[
+\mu\left(\bigcup_{k\in\N}A_{n_{k},k}\right)\leq\sum_{k=1}^{\infty}\mu\left(A_{n_{k},k}\right)\leq\epsilon.
+\]
+If we let $A:=\bigcup_{k\in\N}A_{n_{k},k}$ then
+\[
+\X\setminus A=\bigcap_{k\in\N}\bigcap_{i=n_{k}}^{\infty}\left\{ x\in\X\mid\left\lvert f_{i}\left(x\right)-f\left(x\right)\right\rvert \leq\frac{1}{k}\right\} .
+\]
+Fix any $k\in\N$, and observe that for any $n\geq n_{k}$ and any
+$x\in\X\setminus A$
+\[
+\lvert f_{n}\left(x\right)-f\left(x\right)\rvert\leq\frac{1}{k}
+\]
+which means 
+\[
+\sup_{x\in\X\setminus A}\lvert f_{n}\left(x\right)-f\left(x\right)\rvert\leq\frac{1}{k}.
+\]
+Since $k$ was unspecified, we have uniform convergence.
+\end{proof}
+
+\subsection{Topologies of various convergence notions}
+\begin{defn}
+\label{def:pseudoMetric}Let $X$ be a set and let 
+\[
+d:X\times X\to\R
+\]
+be a function that satisfies\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $ d(x,y) = d(y,x) \forall x,y \in X$ (Symmetry)
+	\item $ d(x,z) \leq d(x,y) + d(y,z) \forall x,y,z \in X $ (Triangle inequality)
+\end{enumerate}
+
+Then $(X,d)$ is called a \emph{pseudometric space }and $d$ is called
+a \emph{pseudo-metric.}
+\end{defn}
+
+\begin{prop}
+\label{prop:pseudoMetricConvMeasure}Let $\left(\X,\F,\mu\right)$
+be a finite measure space i.e. $\mu(\X)<\infty$. Then the function
+\[
+d(f,g):=\lebInt{\mu}{\frac{\lvert f-g\rvert}{1+\lvert f-g\rvert}}
+\]
+defines a pseudo-metric. Moreover, for any $\left\{ f_{n}\right\} _{n\in\N},f\in\measurableFunctions$
+\[
+f_{n}\stackrel{\mu}{\longrightarrow}f
+\]
+if and only if
+\[
+d(f_{n},f)\longrightarrow0.
+\]
+\end{prop}
+
+\begin{proof}
+Note that 
+\[
+0\leq\frac{\lvert f-g\rvert}{1+\lvert f-g\rvert}\leq1
+\]
+and so the function $d$ is well defined as an integral on a finite
+measure space of bounded a function. Note that the symmetry of $d$
+is obvious given the symmetry of the absolute value function. To see
+the triangle inequality, first observe that the function $g(x)=\frac{x}{1+x}$
+is increasing on $x>0$ (it has a derivative $\frac{1}{(1+x)^{2}}$)
+and so, by the triangle inequality for absolute value
+\begin{align*}
+\frac{\lvert f-h\rvert}{1+\lvert f-h\rvert} & \leq\frac{\lvert f-g\rvert+\lvert g-h\rvert}{1+\lvert f-g\rvert+\lvert g-h\rvert}\\
+ & =\frac{\lvert f-g\rvert}{1+\lvert f-g\rvert+\lvert g-h\rvert}+\frac{\lvert g-h\rvert}{1+\lvert f-g\rvert+\lvert g-h\rvert}\\
+ & \leq\frac{\lvert f-g\rvert}{1+\rvert f-g\rvert}+\frac{\lvert g-h\rvert}{1+\rvert g-h\rvert}.
+\end{align*}
+Linearity and monotonicity of integration yields the triangle inequality
+for $d.$ Now suppose $f_{n}\stackrel{\mu}{\to}f$ , let $\epsilon>0$
+and observe that 
+\begin{align*}
+d(f_{n},f) & =\lebInt{\mu}{\frac{\lvert f_{n}-f\rvert}{1+\lvert f_{n}-f\rvert}}\\
+ & =\lebInt{\mu}{\frac{\lvert f_{n}-f\rvert}{1+\lvert f_{n}-f\rvert}\indicate_{\{\lvert f_{n}-f\rvert>\epsilon\}}}+\lebInt{\mu}{\frac{\lvert f_{n}-f\rvert}{1+\lvert f_{n}-f\rvert}\indicate_{\{\lvert f_{n}-f\rvert\leq\epsilon\}}}\\
+ & \leq\mu\left(\lvert f_{n}-f\rvert>\epsilon\right)+\frac{\epsilon}{1+\epsilon}\mu\left(\lvert f_{n}-f\rvert\leq\epsilon\right)\\
+ & \leq\mu\left(\lvert f_{n}-f\rvert>\epsilon\right)+\frac{\epsilon}{1+\epsilon}\mu\left(\X\right).
+\end{align*}
+Therefore by convergence in measure 
+\[
+\lim_{n\to\infty}d(f_{n},f)\leq\frac{\epsilon}{1+\epsilon}\mu\left(\X\right).
+\]
+Of course, $\epsilon$ can be arbitrarily small and so we have convergence
+in the pseudo-metric.
+
+Conversely, suppose $\lim_{n\to\infty}d(f_{n},f)=0$ and fix some
+$\epsilon>0$. Then
+\[
+0\leq\frac{\epsilon}{1+\epsilon}\mu\left(\lvert f_{n}-f\rvert>\epsilon\right)\leq\lebInt{\mu}{\frac{\lvert f_{n}-f\rvert}{1+\lvert f_{n}-f\rvert}\indicate_{\{\lvert f_{n}-f\rvert>\epsilon\}}}\leq\lebInt{\mu}{\frac{\lvert f_{n}-f\rvert}{1+\lvert f_{n}-f\rvert}}
+\]
+and in the limit 
+\[
+\frac{\epsilon}{1+\epsilon}\mu\left(\lvert f_{n}-f\rvert>\epsilon\right)\longrightarrow0\implies\mu\left(\lvert f_{n}-f\rvert>\epsilon\right)\longrightarrow0
+\]
+which completes the proof.
+\end{proof}
+Note that $d(f,g)=0\Longleftrightarrow f\stackrel{\text{a.e}}{=}g$.
+This is a simple corrolary of Proposition \ref{prop:intZeroFuncZero}.
+Propositions \ref{prop:convInMeasureImpliesSubsequenceAE} and \ref{prop:finiteMeasuresAEimpliesConvInMeasures}
+gives us a sort of equivalence between almost everywhere equivalence
+as a corollary of a basic fact about sequences in topological spaces.
+\begin{lem}
+\label{lem:subsubSequence}Let $\left(\X,\tau\right)$ be a topological
+space. The sequence$\left\{ x_{n}\right\} _{n\in\N}\in\X$ converges
+to $x\in\X$ if and only if every subsequence of $x_{n}$ has a further
+subsequence that converges to $x.$
+\end{lem}
+
+\begin{proof}
+Convergence implies subsequential convergence for every subseqeuence
+(and in particulary, subsubsequences). Conversely, suppose that $x_{n}\nrightarrow x$.
+Then there's an open set $\mathcal{U\in\tau}$ that contains $x$
+such that there are infinitely many elements of $x_{n}$ outside $\mathcal{U}$.
+In other words, there exists some subsequence $x_{n_{k}}\notin\mathcal{U}$
+for all $k\in\N$. Then no subsequence of $x_{n_{k}}$ converges to
+$x$.
+\end{proof}
+\begin{prop}
+\label{prop:subsubsequenceProbAEConv}Let $\left(\X,\F,\mu\right)$
+be a finite measure space i.e $\mu(\X)<\infty.$ Then for any sequence
+$\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$ and $f\in\measurableFunctions$
+\[
+f_{n}\stackrel{\mu}{\longrightarrow}f
+\]
+if and only if every subsequence $f_{n_{k}}$ has a further subsequence
+$f_{n_{k_{j}}}$ such that 
+\[
+f_{n_{k_{j}}}\stackrel{\text{a.e}}{\longrightarrow}f.
+\]
+\end{prop}
+
+\begin{proof}
+Suppose $f_{n}\stackrel{\mu}{\longrightarrow}f$ and let $f_{n_{k}}$
+be an arbitrary subsequence. This subsequence also converges to $f$
+in measure and so by Proposition \ref{prop:convInMeasureImpliesSubsequenceAE}
+there's some sub-subsequence $f_{n_{k_{j}}}\stackrel{\text{a.e}}{\longrightarrow}f$.
+Conversely, suppose every subsequence $f_{n_{k}}$ has a further subsequence
+$f_{n_{k_{j}}}\stackrel{\text{a.e}}{\longrightarrow}f$. Then by Proposition
+\ref{prop:finiteMeasuresAEimpliesConvInMeasures} $f_{n_{k_{j}}}\stackrel{\mu}{\longrightarrow}f$.
+By Proposition \ref{prop:subsubsequenceProbAEConv}, convergence in
+measure is (pseudo)-metrizable and thus topological and so by Lemma
+\ref{lem:subsubSequence} $f_{n}\stackrel{\mu}{\longrightarrow}f.$
+\end{proof}
+\begin{cor}
+\label{cor:noTopologyForAEConv}There is no topology for almost everywhere
+convergence.
+\end{cor}
+
+\begin{proof}
+Note that if almost everywhere convergence was topological, then by
+Lemma \ref{lem:subsubSequence} and Proposition \ref{prop:subsubsequenceProbAEConv},
+$f_{n}\stackrel{\mu}{\longrightarrow}f\implies f_{n}\stackrel{\text{a.e}}{\longrightarrow}f$.
+But this has been ruled out by Example \ref{exa:convMeasureDoesntImplyAEConv}.
+\end{proof}
+Thus we have established that the topology of convergence in measure
+comes from a (pseudo)-metric, whereas almost everywhere convergence
+is not topologizable at all! Convergence in $L^{1}$ , on the other
+hand, corresponds to a (semi)-normed convergence as shown in Chapter
+4. Proposition \ref{prop:subsubsequenceProbAEConv} implies a form
+of dominated convergence theorem for convergence in measure.
+\begin{prop}
+\label{prop:convMeasureDomConv}Let $\left(\X,\F,\mu\right)$ be a
+finite measure space i.e $\mu(\X)<\infty.$ Suppose $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+such that $\lvert f_{n}\rvert\leq g$ where $g\in\Lp 1{\X,\F,\mu}.$
+Then
+\[
+f_{n}\stackrel{\mu}{\longrightarrow}f\implies f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f.
+\]
+\end{prop}
+
+\begin{proof}
+Note that if $f_{n}\stackrel{\mu}{\longrightarrow}f$, then for any
+subsequence $f_{n_{j}}$ of $f_{n}$ there exists a further subseqeunce
+$f_{n_{j_{k}}}$ such that 
+\[
+f_{n_{j_{k}}}\stackrel{\text{a.e}}{\longrightarrow}f.
+\]
+Since $\lvert f_{n_{j_{k}}}\rvert\leq g\in\Lp 1{\mu}$, the \hyperref[thm:generalizedDominatedConvergence]{dominated convergence theorem}
+implies that 
+\[
+f_{n_{j_{k}}}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f.
+\]
+But $L^{1}$ convergence is topological and so by Lemma \ref{lem:subsubSequence},
+\[
+f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f.
+\]
+\end{proof}
+
+\subsection{Uniform integrability and uniform absolute continuity}
+
+The dominated convergence theorem says that for sequence of random
+variables that are dominated by an integrable function, pointwise
+convergence implies convergence in $L^{1}$. We would like to extend
+this notion more broadly.
+\begin{defn}
+\label{def:uniformIntegrability}Let $\left(\X,\F,\mu\right)$ be
+a measure space and let $\mathcal{C}\subseteq\measurableFunctions$
+be a collection of measurable functions. We say $\mathcal{C}$ is
+\emph{uniformly integrable }if for every $\epsilon>0$, there exists
+some $M\in\N$ such that 
+\[
+\lebInt{\mu}{\lvert f\rvert\indicate_{\{\lvert f\rvert>M\}}}<\epsilon
+\]
+for every $f\in\mathcal{C}$.
+\end{defn}
+
+\begin{defn}
+\label{def:uniformAbsoluteContinuity}Let $\left(\X,\F,\mu\right)$
+be a measure space and let $\mathcal{C}\subseteq\measurableFunctions$
+be a collection of measurable functions. We say $\mathcal{C}$ is
+\emph{uniformly absolutely continuous }if for every $\epsilon>0$
+there exists a $\delta>0$ such that for any $f\in\mathcal{C}$
+\[
+F\in\F,\mu(F)<\delta\implies\lvert\lebInt{\mu}{f\indicate_{F}}\rvert<\epsilon.
+\]
+\end{defn}
+
+\begin{rem}
+\label{rem:uniformAbsoluteContinuity}Note that if $\mathcal{C}$
+is a trivial class i.e. $\mathcal{C}=\{f\}$, then the absolute continuity
+property always holds as observed in Proposition \ref{prop:densities}
+and Remark \ref{rem:absoluteContinuity}. Of course, it is not clear
+that this $\epsilon-\delta$ characterization of absolute continuity
+is the same as the one discussed in that remark; later on in Chapter
+6 (see Proposition \ref{prop:epsdeltaAbsContinuity}) we show they
+are indeed equiavelent for finite measures.
+\end{rem}
+
+\begin{prop}
+\label{prop:finiteMeasureUniformIntegrability}Let $\left(\X,\F,\mu\right)$
+be a finite measure space i.e. $\mu(\X)<\infty.$ Then a class of
+functions $\mathcal{C}\subseteq\measurableFunctions$ is uniformly
+integrable if and only if it is uniformly absolutely continuous and
+\[
+\sup_{f\in\mathcal{C}}\lebInt{\mu}{\lvert f\rvert}<\infty.
+\]
+\end{prop}
+
+\begin{proof}
+Suppose $\mathcal{C}\subseteq\measurableFunctions$ is uniformly integrable.
+Fix some $\epsilon>0$ and observe that by uniform integrability there
+is some $M\in\N$ such that 
+\[
+\lebInt{\mu}{\lvert f\rvert\indicate_{\{\lvert f\rvert>M\}}}<\frac{\epsilon}{2}.
+\]
+Then for any $F\in\F$,
+\begin{align*}
+\lvert\lebInt{\mu}{f\indicate_{F}}\rvert & \leq\lebInt{\mu}{\lvert f\rvert\indicate_{F}}\\
+ & =\lebInt{\mu}{\lvert f\rvert\left(\indicate_{\{\lvert f\rvert>M\}}+\indicate_{\{\lvert f\rvert\leq M\}}\right)\indicate_{F}}\\
+ & =\lebInt{\mu}{\lvert f\rvert\indicate_{\{\lvert f\rvert>M\}}\indicate_{F}}+\lebInt{\mu}{\lvert f\rvert\indicate_{\{\lvert f\rvert\leq M\}}\indicate_{F}}\\
+ & \leq\lebInt{\mu}{\lvert f\rvert\indicate_{\{\lvert f\rvert>M\}}}+\lebInt{\mu}{\lvert f\rvert\indicate_{\{\lvert f\rvert\leq M\}}\indicate_{F}}\\
+ & \leq\lebInt{\mu}{\lvert f\rvert\indicate_{\{\lvert f\rvert>M\}}}+\lebInt{\mu}{M\indicate_{\{\lvert f\rvert\leq M\}}\indicate_{F}}\\
+ & \leq\frac{\epsilon}{2}+M\mu(\{\lvert f\rvert\leq M\}\cap F)\\
+ & \leq\frac{\epsilon}{2}+M\mu(F)
+\end{align*}
+where all the inequalities follow by the monotonicity of the integral.
+Letting $\delta=\frac{\epsilon}{2M}$ then shows uniform absolute
+continuity. Letting $F=\X$ then yields 
+\[
+\lebInt{\mu}{\lvert f\rvert}\leq\frac{\epsilon}{2}+M\mu(\X)
+\]
+for any $f\in\mathcal{C}$ which gives us the boundedness in $L^{1}$.
+
+Conversely, assume that $\mathcal{C}$ is uniformly absolutely continuous
+and $\sup_{f\in\mathcal{C}}\lebInt{\mu}{\lvert f\rvert}<\infty.$
+Let $\epsilon>0$ and note that there exists some $\delta>0$ such
+that $F\in\F,\mu(F)<\delta\implies\lvert\lebInt{\mu}{f\indicate_{F}}\rvert<\epsilon$.
+Note that by Markov's inequality
+\[
+\mu\left(\lvert f\rvert>M\right)\leq\frac{\lebInt{\mu}{\lvert f\rvert}}{M}.
+\]
+for any $M\in\N$. Since $\lebInt{\mu}{\lvert f\rvert}<\infty,$we
+can take $M$ large enough to so that $\mu\left(\lvert f\rvert>M\right)<\delta$
+which by uniform absolute continuity implies $\lvert\lebInt{\mu}{\lvert f\lvert\indicate_{\{\lvert f\rvert>M\}}}\rvert=\lebInt{\mu}{\lvert f\lvert\indicate_{\{\lvert f\rvert>M\}}}<\epsilon.$
+This shows uniform integrability, completing the proof.
+\end{proof}
+Note that uniform integrability generalizes the notion of the domination
+by an integrable function, which is an essential ingredient for the
+dominated convergence theorem.
+\begin{prop}
+\label{prop:dominatedImpliesUniformlyIntegrable}Let $\left(\X,\F,\mu\right)$
+be a measure space and let $\mathcal{C}\subseteq\measurableFunctions$
+be a collection of measurable functions. If for every $f\in\mathcal{C}$,
+we have that $\lvert f\rvert\leq g$ such that $g\in\Lp 1{\mu}$ then
+$\mathcal{C}$ is uniformly integrable.
+\end{prop}
+
+\begin{proof}
+Let $\epsilon>0$ be fixed. Since $g$ is integrable, Proposition
+\ref{prop:intFiniteFuncFinite} tells us that $\lvert g\rvert<\infty$
+almost everywhere. Then
+\[
+\indicate\left\{ \lvert g\rvert>M\right\} \leq\frac{\lvert g\rvert}{M}\stackrel{\text{a.e}}{\to}0
+\]
+and so 
+\[
+\lvert g\rvert\indicate\left\{ \rvert g\rvert>M\right\} \stackrel{\text{a.e}}{\to}0.
+\]
+Since $\lvert g\rvert\geq\lvert g\rvert\indicate\left\{ \rvert g\rvert>M\right\} $,
+dominated convergence implies that 
+\[
+\lebInt{\mu}{\lvert g\rvert\indicate\left\{ \lvert g\rvert>M\right\} }<\epsilon
+\]
+for some large enough $M.$ Then, since $\lvert f\rvert\leq\lvert g\rvert,$
+\[
+\lebInt{\mu}{\lvert f\rvert\indicate\left\{ \lvert f\rvert>M\right\} }\leq\lebInt{\mu}{\lvert g\rvert\indicate\left\{ \lvert g\rvert>M\right\} }<\epsilon.
+\]
+\end{proof}
+Classes of uniformly integrable functions are preserved under linear
+combinations.
+\begin{prop}
+\label{prop:uniformlyIntegrableLinearCombination}Let $\left(\X,\F,\mu\right)$
+be a measure space and let $c\in\R$ be a scalar. Further, let $\mathcal{C},\mathcal{D}\subseteq\measurableFunctions$
+be uniformly integrable collections of functions. Then 
+\[
+\mathcal{C}+c\mathcal{D}:=\left\{ f+cg\mid f\in\mathcal{C},g\in\mathcal{D}\right\} 
+\]
+is a uniformly integrable collection.
+\end{prop}
+
+\begin{proof}
+Note that when $c=0$ then the result is triviall true so let $c\neq0.$
+Fix $\epsilon>0$ and note that there exists some $M$ such that for
+any $g\in\mathcal{D}$
+\[
+\lebInt{\mu}{\lvert g\rvert\indicate_{\{\lvert g\rvert>M\}}}<\frac{\epsilon}{\lvert c\rvert}.
+\]
+Then, for $N=M\lvert c\rvert$
+\[
+\lebInt{\mu}{\lvert cg\rvert\indicate_{\{\lvert cg\rvert>N\}}}=\lvert c\rvert\lebInt{\mu}{\lvert g\rvert\indicate_{\{\lvert g\rvert>M\}}}<\epsilon.
+\]
+Next, observe that \hl{COMPLETE LATER}
+\end{proof}
+In the main result for this section, we generalize the dominated convergence
+theorem.
+\begin{thm}[Vitali's Convergence Theorem]
+\label{thm:vitaliConvergence}Let $\left(\X,\F,\mu\right)$ be a
+finite measure space i.e. $\mu(\X)<\infty.$ If $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
+are uniformly integrable and $f_{n}\stackrel{\mu}{\longrightarrow}f$
+then $f\in\Lp 1{\mu}$ and 
+\[
+f_{n}\stackrel{\mathcal{L}^{1}}{\longrightarrow}f.
+\]
+\end{thm}
+
+\begin{proof}
+Note that if $f_{n}\stackrel{\mu}{\longrightarrow}f$ then by Proposition
+\ref{prop:convInMeasureImpliesSubsequenceAE} there exists some subsequence
+$f_{n_{j}}\stackrel{\text{a.e}}{\longrightarrow}f$. By Fatou's lemma
+and the fact that absolute value is continuous, we have
+\[
+\lebInt{\mu}{\lvert f\rvert}=\lebInt{\mu}{\liminf_{j\to\infty}\lvert f_{n_{j}}\rvert}\leq\liminf_{j\to\infty}\lebInt{\mu}{\lvert f_{n_{j}}\rvert}\leq\sup_{n\in\N}\lebInt{\mu}{\lvert f_{n}\rvert}<\infty
+\]
+where the last inequality follows by Proposition \ref{prop:finiteMeasureUniformIntegrability},
+which shows $f\in\Lp 1{\mu}.$ Since $\left\{ f_{n}\right\} _{n\in\N},\left\{ f\right\} $
+are uniformly integrable, $g_{n}:=f_{n}-f$ is uniormly integrable
+by Proposition \ref{prop:uniformlyIntegrableLinearCombination}. Note
+that by uniform absolute continuity, for any $\epsilon>0$, there
+exists some $\delta>0$ such that for any $A\in\F:P(A)<\delta\implies\lebInt{\mu}{\lvert g_{n}\rvert\indicate_{A}}<\frac{\epsilon}{2}.$
+Note that by convergence in probability, there exists some $n_{0}\in\N$
+$\mu\left(\lvert g_{n}\rvert>\frac{\epsilon}{2}\right)<\delta$ and
+so
+\[
+\lebInt{\mu}{\lvert g_{n}\rvert}=\lebInt{\mu}{\lvert g_{n}\rvert\indicate_{\{\lvert g_{n}\rvert\leq\frac{\epsilon}{2}\}}}+\lebInt{\mu}{\lvert g_{n}\rvert\indicate_{\{\lvert g_{n}\rvert>\frac{\epsilon}{2}\}}}\leq\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon
+\]
+which shows $L^{1}$ convergence.
+\end{proof}
+
+\section{The Riemann integral\label{sec:riemannIntegral}}
+
+The theory of integration that we have developed so far is only useful
+if (1) it is, in some sense, a suitable generalization of Riemann's
+theory of integration, and (2) if it obeys the fundamental theorem
+of calculus. We leave (2) to section \ref{sec:ftc} and in this section
+review and characterize the Riemann integral. In particular, we give
+a precise characterization of Riemann integrable functions using the
+Lebesgue theory we have developed so far, and show that for such functions,
+their Lebesgue integrals (with respect to the Lebesgue measure) and
+Riemann integrals coincide.
+
+We first consider the classical construction of the Riemann integral,
+as articulated by Darboux and Riemann. After we have developed this
+baisc material carefully, we can present the Riemann integral under
+the more modern Lebesgue formulation. We do this by, a more primitive
+version of the Lebesgue measure, called the \emph{Jordan content }or
+\emph{Jordan measure}, which coincides with the Lebesgue measure for
+sufficiently well behaved sets.
+
+\subsection{The classical construction of the Riemann integral}
+\begin{defn}
+\label{def:partitionInterval}Let $\left[a,b\right]\subset\R$ be
+a closed and bounded interval. A \emph{partition $\pi$ }of $\left[a,b\right]$
+is a finite set
+\[
+\pi=\left\{ t_{i}\mid t_{0}=a,t_{k}=b,t_{i}<t_{i+1}\right\} 
+\]
+where $k\in\N$ is the \emph{size }of the partition. The size of a
+partition $\pi$is often denoted $k\left(\pi\right).$
+\end{defn}
+
+A second notion of size is given by th concept of a mesh (which is
+closely related to, and a special case of, the Lebesgue measure).
+\begin{defn}
+\label{def:meshPartition}Given a partition $\pi$of $\left[a,b\right]$,
+the\emph{ mesh }of $\pi$is given by 
+\[
+\mesh\left(\pi\right):=\max_{1\leq i\leq k}t_{i}-t_{i-1}.
+\]
+\end{defn}
+
+As one can see, the mesh is basically given by $\max_{i}\lambda\left(\left[t_{i-1},t_{i}\right]\right)$
+where $\lambda$ is the Lebesgue measure. We now introduce the notion
+of a \emph{Darboux }sum, which are the building blocks of Riemann
+integrals much in the way that integrals of simple functions are in
+the Lebesgue theory. In fact, Darboux sums are the Lebesgue integrals
+of a special type of signed simple function called a step function.
+\begin{defn}
+\label{def:darbouxSums}Let $f:\left[a,b\right]\to\R$ be a bounded
+function and let $\pi$ be a partition of $\left[a,b\right]$ with
+size $k.$ Then the \emph{upper Darboux sum }is given by 
+\[
+U\left(f,\pi\right):=\sum_{i=1}^{k}\sup_{x\in\left[t_{i-1},t_{i}\right)}f\left(x\right)\left(t_{i}-t_{i-1}\right)
+\]
+whereas the \emph{lower Darboux sum }is given
+\[
+L\left(f,\pi\right):=\sum_{i=1}^{k}\inf_{x\in\left[t_{i-1},t_{i}\right)}f\left(x\right)\left(t_{i}-t_{i-1}\right).
+\]
+\end{defn}
+
+\begin{prop}
+\label{prop:darbouxSumInequality}Let $\pi^{\prime}\supseteq\pi$
+be a refinement of $\pi$; that is a partition of $\left[a,b\right]$
+that contains the coarser partition $\pi$ as a subset. Then
+\[
+L\left(f,\pi\right)\leq L\left(f,\pi^{\prime}\right)\leq U\left(f,\pi^{\prime}\right)\leq U\left(f,\pi\right).
+\]
+\end{prop}
+
+\begin{proof}
+Note that the second inequality is obvious and so we focus on proving
+the first (the third inequality is analagous). First suppose $\pi^{\prime}\setminus\pi=\left\{ t^{*}\right\} $;
+that is, the refinement contains only one additional element $t^{*}.$
+Then, there is some $1\leq i\leq k$ such that $t_{i-1}<t^{*}<t_{i}.$
+Then
+\begin{align*}
+\inf_{x\in\left[t_{i-1},t_{i}\right)}f\left(x\right)\left(t_{i}-t_{i-1}\right) & \leq\min\left\{ \inf_{x\in\left[t_{i-1},t^{*}\right)}f\left(x\right),\inf_{x\in\left[t^{*},t_{i}\right)}f\left(x\right)\right\} \left(t_{i}-t_{i-1}\right)\\
+ & \leq\inf_{x\in\left[t_{i-1},t^{*}\right)}f\left(x\right)\left(t^{*}-t_{i-1}\right)+\inf_{x\in\left[t^{*},t_{i}\right)}f\left(x\right)\left(t_{i}-t^{*}\right)
+\end{align*}
+and so the first inequality follows since
+\begin{align*}
+L\left(f,\pi\right) & =\sum_{j\neq i,1\leq j\leq k}\inf_{x\in\left[t_{j-1},t_{j}\right)}f\left(x\right)\left(t_{j}-t_{j-1}\right)+\inf_{x\in\left[t_{i-1},t_{i}\right)}f\left(x\right)\left(t_{i}-t_{i-1}\right)=L\left(f,\pi^{\prime}\right).\\
+ & \leq\sum_{j\neq i,1\leq j\leq k}\inf_{x\in\left[t_{j-1},t_{j}\right)}f\left(x\right)\left(t_{j}-t_{j-1}\right)+\inf_{x\in\left[t_{i-1},t^{*}\right)}f\left(x\right)\left(t^{*}-t_{i-1}\right)+\inf_{x\in\left[t^{*},t_{i}\right)}f\left(x\right)\left(t_{i}-t^{*}\right)\\
+ & =L\left(f,\pi^{\prime}\right)
+\end{align*}
+The general case then follows by forming nested sequence $\pi\subset\pi_{1}\subset\ldots\subset\pi_{m}\subset\pi^{\prime}$,
+each of which contain one additional element, and then applying the
+above result in sequence.
+\end{proof}
+\begin{defn}
+\label{def:riemannIntegrable}A bounded real-valued function $f:\left[a,b\right]\to\R$is
+said to be \emph{Riemann integrable }(or just \emph{integrable, }in
+context) if
+\[
+L^{*}\left(f\right):=\sup_{\pi}L\left(f,\pi\right)=\inf_{\pi}U\left(f,\pi\right)=:U^{*}\left(f\right)
+\]
+where the supremum and infimum are taken over the collection of all
+finite partitions $\pi$ of $\left[a,b\right]$. The \emph{Riemann
+integral }of an integrable $f$ on $\left[a,b\right]$ is then denoted
+\[
+\int_{a}^{b}f\left(x\right)dx:=L^{*}\left(f\right)=U^{*}\left(f\right).
+\]
+The collection of Riemann integrable functions on $\left[a,b\right]$
+is denoted $\mathcal{R}\left[a,b\right].$
+\end{defn}
+
+\begin{prop}
+\label{prop:upperAndLowerSumRelation}Let $f:\left[a,b\right]\to\R$
+be a bounded function. Then 
+\[
+L^{*}\left(f\right)\leq U^{*}\left(f\right)
+\]
+and
+\[
+L^{*}\left(f\right)=-U^{*}\left(-f\right).
+\]
+\end{prop}
+
+\begin{proof}
+For the first claim, note that for any partitions $\pi$and $\pi^{\prime}$
+, Proposition \ref{prop:darbouxSumInequality} implies that
+\[
+L\left(f,\pi\right)\leq L\left(f,\pi^{\prime}\cup\pi\right)\leq U\left(f,\pi^{\prime}\cup\pi\right)\leq U\left(f,\pi^{\prime}\right)
+\]
+and so 
+\[
+L\left(f,\pi\right)\leq\inf_{\pi^{\prime}}U\left(f,\pi^{\prime}\right)
+\]
+and similarly
+\[
+\sup_{\pi}L\left(f,\pi\right)\leq\inf_{\pi^{\prime}}U\left(f,\pi^{\prime}\right).
+\]
+For the second claim, notice that $\inf_{x\in\left[t_{i-1},t_{i}\right)}f\left(x\right)=-\sup_{x\in\left[t_{i-1},t_{i}\right)}-f\left(x\right)$
+and so for any partition $\pi$
+\[
+L\left(f,\pi\right)=-U\left(-f,\pi\right)
+\]
+and the result follows by noting that 
+\[
+L^{*}\left(f\right)=\sup_{\pi}L\left(f,\pi\right)=\sup_{\pi}-U\left(-f,\pi\right)=-\inf_{\pi}U\left(-f,\pi\right)=-U^{*}\left(-f\right).
+\]
+\end{proof}
+\begin{thm}
+\label{thm:riemannIntegrability}The following are equivalent for
+any bounded function $f:\left[a,b\right]\to\R$
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $ f \in \mathcal{R}\left[a,b\right]$
+	\item For every $\epsilon > 0$ there exists some partition $\pi$ such that 
+		\[
+			U\left(f,\pi\right) - L\left(f,\pi\right) < \epsilon.
+		\]
+	\item For every $\epsilon >0$ there exists some $\delta > 0$ such that for any partition $\pi$ with $\mesh \left(\pi\right) < \delta$
+		\[
+			U\left(f,\pi\right) - L\left(f,\pi\right) < \epsilon
+		\]
+	\item The limit 
+	\[
+		I := \lim_{\mesh\left(\pi\right) \to 0}\sum_{i: t_i \in \pi } f\left( c_i \right)\left(t_i - t_{i-1}\right)
+	\]
+	exists for any choice of intermediate values $t_{i-1} \leq c_i \leq t_i $. Further, this limit is equal to $I = L^*(f)=U^*(f)$.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+We first prove that (i)$\implies$(ii). Suppose that $f\in\mathcal{R}\left[a,b\right]$,
+and so $L^{*}\left(f\right)=U^{*}\left(f\right).$ Fix $\epsilon>0$
+and observe that by the definition of supremum and infimum, there
+exist partitions $\pi$ and $\pi^{\prime}$ such that $L^{*}\left(f\right)-L\left(f,\pi\right)<\frac{\epsilon}{2}$
+and $U\left(f,\pi^{\prime}\right)-L^{*}\left(f\right)<\frac{\epsilon}{2}$.
+Then clearly, for the common refinement $\pi\cup\pi^{\prime}$
+\[
+\lvert L\left(f,\pi\cup\pi^{\prime}\right)-U\left(f,\pi\cup\pi^{\prime}\right)\rvert\leq\lvert L\left(f,\pi\cup\pi^{\prime}\right)-L^{*}\left(f\right)\rvert+\lvert L^{*}\left(f\right)-U\left(f,\pi\cup\pi^{\prime}\right)\rvert<\epsilon.
+\]
+
+Next, we prove (ii) $\implies$(iii). Fix $\epsilon>0$ and note that
+by (ii) there exists some partition $\pi:=\left\{ a=t_{0}<t_{1}<\ldots<t_{k}=b\right\} $such
+that 
+\begin{equation}
+U\left(f,\pi\right)-L\left(f,\pi\right)=\sum_{i=1}^{k}\left(\sup_{x\in\left[t_{i-1},t_{i}\right)}f\left(x\right)-\inf_{x\in\left[t_{i-1},t_{i}\right)}f\left(x\right)\right)\left(t_{i}-t_{i-1}\right)<\frac{\epsilon}{2}.\label{eq:assumption(ii)}
+\end{equation}
+Now $\pi^{\prime}:=\left\{ a=t_{0}^{\prime}<t_{1}^{\prime}<\ldots<t_{l}^{\prime}=b\right\} $
+be a partition such that $\mesh\left(\pi\right)<\delta:=\frac{\epsilon}{4k\lVert f\rVert_{\infty}}$
+where $\lVert f\rVert_{\infty}=\sup_{x\in\left[a,b\right]}\lvert f\left(x\right)\rvert$
+. Then for each $t_{i}\in\pi$, there can be at most one interval
+$\left[t_{j-1}^{\prime},t_{j}^{\prime}\right)$ with $1\leq j\leq l$
+that contains $t_{i}$ since these intervals form a partition of $\left[a,b\right].$
+Thus the set $S:=\left\{ j\in\left\{ 1,\ldots,l\right\} \mid\text{\ensuremath{\exists i\in\left\{ 0,1,\ldots,k\right\} } }\text{s.t }t_{i}\in\left[t_{j-1}^{\prime},t_{j}^{\prime}\right)\right\} $
+has size at most $k.$ Now consider the difference of Darboux sums
+\begin{align*}
+U\left(f,\pi^{\prime}\right)-L\left(f,\pi^{\prime}\right) & =\sum_{j=1}^{l}\left(\sup_{x\in\left[t_{j-1}^{\prime},t_{j}^{\prime}\right)}f\left(x\right)-\inf_{x\in\left[t_{j-1}^{\prime},t_{i}^{\prime}\right)}f\left(x\right)\right)\left(t_{j}^{\prime}-t_{j-1}^{\prime}\right)\\
+ & =\sum_{j\in S}\left(\sup_{x\in\left[t_{j-1}^{\prime},t_{j}^{\prime}\right)}f\left(x\right)-\inf_{x\in\left[t_{j-1}^{\prime},t_{i}^{\prime}\right)}f\left(x\right)\right)\left(t_{j}^{\prime}-t_{j-1}^{\prime}\right)\\
+ & \ \ \ +\sum_{j\in S^{C}}\left(\sup_{x\in\left[t_{j-1}^{\prime},t_{j}^{\prime}\right)}f\left(x\right)-\inf_{x\in\left[t_{j-1}^{\prime},t_{i}^{\prime}\right)}f\left(x\right)\right)\left(t_{j}^{\prime}-t_{j-1}^{\prime}\right).
+\end{align*}
+We control each of these sums separately. For the first sum, note
+that there at most $k$ terms in the sum, where $\left(\sup_{x\in\left[t_{j-1}^{\prime},t_{j}^{\prime}\right)}f\left(x\right)-\inf_{x\in\left[t_{j-1}^{\prime},t_{i}^{\prime}\right)}f\left(x\right)\right)\leq2\lVert f\rVert_{\infty}$
+and $\left(t_{j}^{\prime}-t_{j-1}^{\prime}\right)<\delta$ for every
+$j\in S.$ Thus the first term is bounded above by $\frac{\epsilon}{2}.$
+Next, note that for the second sum, by definition for every $j\in S^{C},$
+there exists some $i_{j}\in\left\{ 1,\ldots,k\right\} $ such that
+$\left[t_{j-1}^{\prime},t_{j}^{\prime}\right)\subset\left[t_{i_{j}-1},t_{i_{j}}\right)$
+and that
+\[
+\sum_{j\in S^{C}}\left(\sup_{x\in\left[t_{j-1}^{\prime},t_{j}^{\prime}\right)}f\left(x\right)-\inf_{x\in\left[t_{j-1}^{\prime},t_{i}^{\prime}\right)}f\left(x\right)\right)\left(t_{j}^{\prime}-t_{j-1}^{\prime}\right)\leq\sum_{j\in S^{C}}\left(\sup_{x\in\left[t_{i_{j}-1},t_{i_{j}}\right)}f\left(x\right)-\inf_{x\in\left[t_{i_{j}-1},t_{i_{j}}\right)}f\left(x\right)\right)\left(t_{i_{j}}-t_{i_{j-1}}\right)<\frac{\epsilon}{2}
+\]
+where the final inequality is due to (\ref{eq:assumption(ii)}). This
+means 
+\[
+\lvert U\left(p,\pi^{\prime}\right)-L\left(f,\pi^{\prime}\right)\rvert<\epsilon
+\]
+ which completes this part of the proof.
+
+Next, assume that (iii) holds and let $\epsilon>0$ . Observe that
+there exists some $\delta>0$ such that for any partition $\pi:=\left\{ a=t_{0}<t_{1}<\ldots t_{k\left(\pi\right)}=b\right\} $
+with mesh less than $\delta$, 
+\[
+0\leq\sum_{i=1}^{k\left(\pi\right)}f\left(c_{i}\right)\left(t_{i}-t_{i-1}\right)-L\left(f,\pi\right)\leq U\left(f,\pi\right)-L\left(f,\pi\right)<\frac{\epsilon}{2}
+\]
+where $c_{i}\in\left[t_{i-1},t_{i}\right).$ Now note that since $L\left(f,\pi_{n}\right)\leq L^{*}\left(f\right)\leq U^{*}\left(f\right)\leq U\left(f,\pi_{n}\right)$,
+we have that $L^{*}\left(f\right)-L\left(f,\pi_{n}\right)<\frac{\epsilon}{2}$
+(which shows that $L\left(f,\pi_{n}\right)\to L^{*}\left(f\right)$).
+Then
+\[
+\left\lvert \sum_{i=1}^{k_{n}}f\left(c_{i}^{n}\right)\left(t_{i}^{n}-t_{i-1}^{n}\right)-L^{*}\left(f\right)\right\rvert \leq\left\lvert \sum_{i=1}^{k_{n}}f\left(c_{i}^{n}\right)\left(t_{i}^{n}-t_{i-1}^{n}\right)-L\left(f,\pi_{n}\right)\right\rvert +\left\lvert L\left(f,\pi\right)-L^{*}\left(f\right)\right\rvert <\epsilon.
+\]
+Similarly, we know tht 
+\[
+U\left(f,\pi\right)-\sum_{i=1}^{k\left(\pi\right)}f\left(c_{i}\right)\left(t_{i}-t_{i-1}\right)\leq U\left(f,\pi\right)-L\left(f,\pi\right)<\frac{\epsilon}{2}
+\]
+and so $U\left(f,\pi\right)-U^{*}\left(f\right)<\frac{\epsilon}{2}$
+and
+\[
+\left\lvert \sum_{i=1}^{k_{n}}f\left(c_{i}^{n}\right)\left(t_{i}^{n}-t_{i-1}^{n}\right)-U^{*}\left(f\right)\right\rvert \leq\left\lvert \sum_{i=1}^{k_{n}}f\left(c_{i}^{n}\right)\left(t_{i}^{n}-t_{i-1}^{n}\right)-U\left(f,\pi_{n}\right)\right\rvert +\left\lvert U\left(f,\pi\right)-U^{*}\left(f\right)\right\rvert <\epsilon
+\]
+and so the uniqueness of limits shows (iv).
+
+Finally, Suppose that (iv) hods i.e. that $I=\lim_{\mesh\left(\pi\right)\to0}\sum_{i=1}^{k\left(\pi\right)}f\left(c_{i}^{\pi}\right)\left(t_{i}^{\pi}-t_{i-1}^{\pi}\right)$
+exists and is independent of any choice $t_{i-1}^{\pi}\leq c_{i}^{\pi}<t_{i}^{\pi}$.
+Fix $\epsilon>0$ and notice that by assumption there exists some
+$\delta>0$ such that for any partition $\pi$ with $\mesh\left(\pi\right)<\delta$
+\[
+\left\lvert I-\sum_{i=1}^{k\left(\pi\right)}f\left(c_{i}^{\pi}\right)\left(t_{i}^{\pi}-t_{i-1}^{\pi}\right)\right\rvert <\frac{\epsilon}{3}.
+\]
+Crucially, the choice of intermediate values $c_{i}^{\pi}$\emph{
+does not }influence our choice of $\delta.$ Then, by Proposition
+\ref{prop:darbouxSumInequality} and the definition of a supremum,
+we can actually choose a partition $\pi_{0}$ fine enough, such that
+its mesh is less than $\delta$ and
+\[
+\lvert L\left(f,\pi_{0}\right)-L^{*}\left(f\right)\rvert<\frac{\epsilon}{3}.
+\]
+Finally, notice that by the definition of infimum, we can choose the
+intermediates $c_{i}^{\pi_{0}}$ such that that $f\left(c_{i}^{\pi_{0}}\right)-\inf_{x\in\left[t_{i-1}^{\pi_{0}},t_{i}^{\pi_{0}}\right)}f\left(x\right)<\frac{\epsilon}{3k\left(\pi_{0}\right)\mesh\left(\pi_{0}\right)}$
+and so 
+\begin{align*}
+\left\lvert I-L^{*}\left(f\right)\right\rvert  & \leq\left\lvert I-\sum_{i=1}^{k\left(\pi_{0}\right)}f\left(c_{i}^{\pi_{0}}\right)\left(t_{i}^{\pi_{0}}-t_{i-1}^{\pi_{0}}\right)\right\rvert +\left\lvert \sum_{i=1}^{k\left(\pi_{0}\right)}f\left(c_{i}^{\pi_{0}}\right)\left(t_{i}^{\pi_{0}}-t_{i-1}^{\pi_{0}}\right)-L\left(f,\pi_{0}\right)\right\rvert +\left\lvert L\left(f,\pi_{0}\right)-L^{*}\left(f\right)\right\rvert \\
+< & \epsilon.
+\end{align*}
+Since $\epsilon$is arbitrary, we have $I=L^{*}\left(f\right).$ A
+similar argument shows that $I=U^{*}\left(f\right)$ which completes
+the proof.
+\end{proof}
+Note that the existence of \emph{particular }sums of the form $\sum f\left(c_{i}^{\pi}\right)\left(t_{i}^{\pi}-t_{i-1}^{\pi}\right)$
+that converge to a limit when the mesh goes to zero does not imply
+the integrability of $f.$ We need the convergence to hold for \emph{any
+}choice of intermediate values and \emph{any }set of partitions with
+mesh going to zero. This is highlighted in the next example, which
+is also the canonical example of a function that is not Riemann integrable.
+\begin{example}
+\label{exa:nonRiemannIntegrableFunction}Let $f:\left[0,1\right]\to\R$
+be given by $f\left(x\right)=\indicate\left\{ x\in\left[0,1\right]\cap\mathds{Q}\right\} .$Then
+$L\left(f,\pi\right)=0$ for any partition $\pi$given the density
+of the rationals and the irrationals in $\left[0,1\right].$ Therefore
+$L^{*}\left(f\right)=0.$ A similar argument shows that $U^{*}\left(f\right)=1$
+and so $f$ is not integrable. On the other hand, the Riemann sums
+given by 
+\[
+\sum_{i=1}^{k}f\left(c_{i}\right)\left(\frac{i}{k}-\frac{i-1}{k}\right)=\frac{1}{k}\sum_{i=1}^{k}f\left(c_{i}\right)
+\]
+can be made to converge to 0, for instance, by choosing all intermediate
+points as irrational (this is possible to do again by the density
+of irrationals). Nevertheless the integral does not exist.
+\end{example}
+
+\begin{example}
+\label{exa:isi2008samplepsb2} For $k\geq1$, let 
+\[
+a_{k}=\lim_{n\rightarrow\infty}\frac{1}{n}\sum_{m=1}^{kn}\exp\left(-\frac{1}{2}\frac{m^{2}}{n^{2}}\right).
+\]
+
+Find $\lim_{k\rightarrow\infty}a_{k}$.\hl{TODO}
+\end{example}
+
+\begin{thm}
+\label{thm:lebesgueRiemannEqual}Suppose $f:\left[a,b\right]\to\R$
+is Riemann integrable then $f\in L^{1}\left(\left[a,b\right],\borel\left(\left[a,b\right]\right),\lambda\right)$
+and 
+\[
+\lebInt{\lambda}f=L^{*}\left(f\right)=U^{*}\left(f\right).
+\]
+\end{thm}
+
+\begin{proof}
+Let $\left\{ \pi_{i}\right\} _{i=1}^{\infty}$ be a sequences of partitions
+such that $\pi_{i}\subset\pi_{i+1}$ and $\mesh\left(\pi_{i}\right)\to0$.
+Notice we can define the Darboux functions -- which are step functions
+-- as
+\[
+l\left(f,\pi_{i}\right)\left(x\right):=\sum_{j=1}^{k\left(\pi_{i}\right)}\inf_{c\in\left[t_{j-1}^{\pi_{i}},t_{j}^{\pi_{i}}\right)}f\left(c\right)\indicate\left\{ x\in\left[t_{j-1}^{\pi_{i}},t_{j}^{\pi_{i}}\right)\right\} 
+\]
+and
+\[
+u\left(f,\pi_{i}\right)\left(x\right):=\sum_{j=1}^{k\left(\pi_{i}\right)}\sup_{c\in\left[t_{j-1}^{\pi_{i}},t_{j}^{\pi_{i}}\right)}f\left(c\right)\indicate\left\{ x\in\left[t_{j-1}^{\pi_{i}},t_{j}^{\pi_{i}}\right)\right\} .
+\]
+For brevity we will write $l_{i}:=l\left(f,\pi_{i}\right)$ and $u_{i}:=u\left(f,\pi_{i}\right)$.
+Note then that for all $i\in\N$
+\[
+l_{i}\leq l_{i+1}\leq\sup_{i}l_{i}\leq f\leq\inf_{i}u_{i}\leq u_{i+1}\leq u_{i}
+\]
+pointwise by our construction and the nested nature of the partitions
+$\pi_{i}$ (see Proposition \ref{prop:darbouxSumInequality} for the
+argument). Notice further that step functions are simple functions
+on a finite measure space and hence integrable. Moreover, since $f$
+is bounded (Riemann integrable functions are bounded by definition),
+$\max\left\{ \lvert u_{i}\rvert,\lvert l_{i}\rvert\right\} \leq\lVert f\rVert_{\infty}$
+and so by the dominated convergence theorem
+\[
+\lebInt{\lambda}{l_{i}}\to\lebInt{\lambda}{\sup l_{i}}
+\]
+and 
+\[
+\lebInt{\lambda}{u_{i}}\to\lebInt{\lambda}{\inf u_{i}}.
+\]
+But notice that $\lebInt{\lambda}{l_{i}}=L\left(f,\pi_{i}\right)$
+and $\lebInt{\lambda}{u_{i}}=U\left(f,\pi_{i}\right)$ and so by Riemann
+integrability
+\[
+\lebInt{\lambda}{\sup l_{i}}=L^{*}\left(f\right)=U^{*}\left(f\right)=\lebInt{\lambda}{\inf u_{i}}.
+\]
+Note further that $\inf_{i}u_{i}-\sup_{i}l_{i}\geq0$ and so $\lebInt{\lambda}{\inf_{i}u_{i}-\sup_{i}l_{i}}=0$
+implies that $\inf_{i}u_{i}\stackrel{\text{a.e}}{=}\sup_{i}l_{i}$
+by Proposition \ref{prop:intEqualFuncEqual}. Of couse, then $f\stackrel{\text{a.e}}{=}\inf_{i}u_{i}$
+and so $f$ is measurable (and Lebesgue integrable since its bounded
+in a finite measure space). Moreover, Propostion \ref{prop:funcEqualityAlmostEverywhere}
+implies
+\[
+\lebInt{\lambda}f=L^{*}\left(f\right)=U^{*}\left(f\right)
+\]
+which completes the proof.
+\end{proof}
+\begin{cor}
+\label{cor:charRiemannIntegrable}Let $f:\left[a,b\right]\to\R$ be
+a bounded functon. Then $f$ is Riemann integrable if and only if
+for any sequence of nested partitions $\left\{ \pi_{i}\right\} _{i=1}^{\infty}$
+with $\pi_{i}\subseteq\pi_{i+1}$ and $\mesh\left(\pi_{i}\right)\to0$
+\[
+\sup_{i}l\left(f,\pi_{i}\right)\stackrel{\text{a.e}}{=}\inf_{i}u\left(f,\pi_{i}\right).
+\]
+\end{cor}
+
+\begin{proof}
+Note that the ``only if'' direction follows from Proposition \ref{thm:lebesgueRiemannEqual}.
+To see the converse, fix $\epsilon>0$ and let $N:=\left\{ x\in\left[a,b\right]\mid\sup_{i}l_{i}\left(x\right)\neq\inf_{i}u_{i}\left(x\right)\right\} $.
+Note that for any $x\in[a,b]\setminus N$ we have pointwise convergence
+\[
+\lim_{i\to\infty}l_{i}\left(x\right)=\sup_{i}l_{i}\left(x\right)
+\]
+and
+\[
+\lim_{i\to\infty}u_{i}\left(x\right)=\inf_{i}u_{i}\left(x\right).
+\]
+Then 
+\[
+\lim_{i\to\infty}\underbrace{u_{i}\left(x\right)-l_{i}\left(x\right)}_{=:g_{i}\left(x\right)}=0
+\]
+for $x\in\left[a,b\right]\setminus N$. But notice that $\lvert g_{i}\rvert\leq2\lVert f\rVert_{\infty}$
+and so by (generalized) dominated convergence
+\[
+U^{*}\left(f\right)=L^{*}\left(f\right)
+\]
+which completes the proof.
+\end{proof}
+Now we are finally ready to characterize Riemann integrability in
+terms of continuity.
+\begin{thm}
+\label{thm:riemannIntegrableAEContinuous}Let $f:\left[a,b\right]\to\R$
+be a bounded function. Then $f$ is Riemann integrable if and only
+if $f$ is continuous almost everywhere.
+\end{thm}
+
+\begin{proof}
+Let $\left\{ \pi_{i}\right\} _{i=1}^{\infty},$ $l_{i},$ and $u_{i}$
+be defined as before and let $c\in\left[a,b\right]$ be arbitrary.
+First, suppose that $f$ is Riemann integrable. Fix $\epsilon>0$
+and notice that by the definition of a partition, for every $i\in\N$
+there exists some $1\leq j_{i}\leq k\left(\pi_{i}\right)$ such that
+$c\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)$. Further,
+note that there is some $i_{c}\in\N$ such that for all $i\geq i_{c}$
+\[
+u_{i}\left(c\right)-\inf_{i}u_{i}\left(c\right)<\frac{\epsilon}{2}
+\]
+and
+\[
+\sup_{i}l_{i}\left(c\right)-l_{i}\left(c\right)<\frac{\epsilon}{2}.
+\]
+Adding the two inequalities and re-arranging, we have that 
+\[
+u_{i}\left(c\right)-l_{i}\left(c\right)<\epsilon+\inf_{i}u_{i}\left(c\right)-\sup_{i}l_{i}\left(c\right).
+\]
+For any $x$ such that $\lvert x-c\rvert<\delta:=\frac{\min\left\{ t_{j_{i_{c}}}^{\pi_{i_{c}}}-c,c-t_{j_{i_{c}}-1}^{\pi_{i_{c}}}\right\} }{2}$
+we have that $x,c\in\left[t_{j_{i_{c}}-1}^{\pi_{i_{c}}},t_{j_{i_{c}}}^{\pi_{i_{c}}}\right)$
+and so
+\[
+\lvert f\left(x\right)-f\left(c\right)\rvert\leq u_{i_{c}}\left(c\right)-l_{i_{c}}\left(c\right)<\epsilon+\inf_{i}u_{i}\left(c\right)-\sup_{i}l_{i}\left(c\right).
+\]
+Thus $f$ is continuous at $c$ if $c\notin N$ which is a null set
+if and only if $f$ is Riemann integrable. So we have proved that
+a Riemann integrable function is continuous almost everywhere.
+
+Conversely, suppose that the set of discontinuities $D:=\left\{ x\in\left[a,b\right]\mid f\ \text{is not continuous at }x\right\} $
+is such that $\lambda\left(D\right)=0.$ Then, for any $c\in\left[a,b\right]\setminus D$
+and any $\epsilon>0$, there is a $\delta_{c}>0$ such that $\lvert x-c\rvert<\delta_{c}\implies\lvert f\left(x\right)-f\left(c\right)\rvert<\frac{\epsilon}{4}.$
+Let $\left\{ \pi\right\} _{i=1}^{\infty}$ be as before, and note
+that 
+\[
+\inf_{i}u_{i}\left(c\right)-\sup_{i}l_{i}\left(c\right)\leq u_{i}\left(c\right)-l_{i}\left(c\right)=\sup_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)-\inf_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)
+\]
+for any $i\in\N$where $j_{i}$ and $t_{j_{i}}^{\pi_{i}}$ etc are
+defined as before. Note that there exists some $i_{0}$ such that
+for all $i\geq i_{0}$ $\mesh\left(\pi_{i}\right)<\delta_{c}$. Then,
+note that we can find $y,z\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)$
+such that
+\[
+\sup_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)-f\left(y\right)<\frac{\epsilon}{4}
+\]
+and
+\[
+f\left(z\right)-\inf_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)<\frac{\epsilon}{4}.
+\]
+Further, $\lvert y-c\rvert<\delta_{c}$ and $\lvert z-c\rvert<\delta_{c}$
+and so
+\begin{align*}
+\inf_{i}u_{i}\left(c\right)-\sup_{i}l_{i}\left(c\right) & \leq\sup_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)-\inf_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)\\
+ & \leq\sup_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)-f\left(y\right)+\lvert f\left(y\right)-f\left(c\right)\rvert+\lvert f\left(c\right)-f\left(z\right)\rvert+f\left(z\right)-\inf_{x\in\left[t_{j_{i}-1}^{\pi_{i}},t_{j_{i}}^{\pi_{i}}\right)}f\left(x\right)\\
+ & <\epsilon.
+\end{align*}
+Since $\epsilon$ and $c$ were arbitrary,
+\[
+\inf_{i}u_{i}\stackrel{\text{a.e}}{=}\sup_{i}l_{i}
+\]
+which implies, by Corollary \ref{cor:charRiemannIntegrable}, that
+$f$ is Riemann integrable. 
+\end{proof}
+
+\subsection{The improper Riemann integral}
+
+\subsection{The Jordan content}

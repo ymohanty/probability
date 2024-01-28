@@ -1,0 +1,208 @@
+%% LyX 2.3.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{amsbook}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+\setcounter{tocdepth}{1}
+\usepackage{color}
+\usepackage{babel}
+\usepackage{refstyle}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 0},pdfborderstyle={},backref=false,colorlinks=true]
+ {hyperref}
+\hypersetup{pdftitle={Analysis & Probability},
+ pdfauthor={Yashaswi Mohanty},
+ pdfsubject={Mathematics}}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+
+\AtBeginDocument{\providecommand\propref[1]{\ref{prop:#1}}}
+\AtBeginDocument{\providecommand\thmref[1]{\ref{thm:#1}}}
+\AtBeginDocument{\providecommand\defref[1]{\ref{def:#1}}}
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+\RS@ifundefined{subsecref}
+  {\newref{subsec}{name = \RSsectxt}}
+  {}
+\RS@ifundefined{thmref}
+  {\def\RSthmtxt{theorem~}\newref{thm}{name = \RSthmtxt}}
+  {}
+\RS@ifundefined{lemref}
+  {\def\RSlemtxt{lemma~}\newref{lem}{name = \RSlemtxt}}
+  {}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{section}{chapter}
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}[section]
+\theoremstyle{definition}
+\newtheorem{example}[thm]{\protect\examplename}
+\theoremstyle{plain}
+\newtheorem{prop}[thm]{\protect\propositionname}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{\protect\definitionname}
+\theoremstyle{remark}
+\newtheorem*{rem*}{\protect\remarkname}
+\theoremstyle{plain}
+\newtheorem{cor}[thm]{\protect\corollaryname}
+\theoremstyle{plain}
+\newtheorem{lem}[thm]{\protect\lemmaname}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{\protect\remarkname}
+\theoremstyle{plain}
+\newtheorem{fact}[thm]{\protect\factname}
+\theoremstyle{definition}
+\newtheorem*{sol*}{\protect\solutionname}
+\theoremstyle{definition}
+\newtheorem{xca}[thm]{\protect\exercisename}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{dsfont}
+\usepackage{enumitem,lipsum}
+\usepackage{soul}
+
+\makeatletter
+\def\input@path{{chapters/}}
+\makeatother
+\DeclareMathOperator{\Ran}{\mathbf{Ran}}
+
+\makeatother
+
+\providecommand{\corollaryname}{Corollary}
+\providecommand{\definitionname}{Definition}
+\providecommand{\examplename}{Example}
+\providecommand{\exercisename}{Exercise}
+\providecommand{\factname}{Fact}
+\providecommand{\lemmaname}{Lemma}
+\providecommand{\propositionname}{Proposition}
+\providecommand{\remarkname}{Remark}
+\providecommand{\solutionname}{Solution}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+\global\long\def\ring{\mathrm{ring}}%
+
+\global\long\def\borel{\mathscr{B}}%
+
+\global\long\def\mesh{\mathrm{mesh}}%
+
+\global\long\def\spans{\mathrm{span}}%
+
+\global\long\def\det{\mathrm{det}}%
+
+\global\long\def\diag{\mathrm{diag}}%
+
+\global\long\def\indep{\perp\!\!\!\perp}%
+
+\global\long\def\R{\mathds{R}}%
+
+\global\long\def\N{\mathds{N}}%
+
+\global\long\def\X{\mathcal{X}}%
+
+\global\long\def\F{\mathcal{F}}%
+
+\global\long\def\P{\mathbb{P}}%
+
+\global\long\def\E{\mathbb{E}}%
+
+\global\long\def\Var{\mathbb{V\mathrm{ar}}}%
+
+\global\long\def\Cov{\mathbb{C\mathrm{ov}}}%
+
+\global\long\def\measurablespace{\left(\X,\F\right)}%
+
+\global\long\def\measurespace{\left(\X,\F,\mu\right)}%
+
+\global\long\def\probabilityspace{\left(\Omega,\F,\mathbb{\mathbb{\mathbb{P}}}\right)}%
+
+\global\long\def\measurableFunctions{\mathcal{M}\left(\X,\F\right)}%
+
+\global\long\def\nonnegMeasurableFunctions{\mathcal{M}^{+}\left(\X,\F\right)}%
+
+\global\long\def\lebInt#1#2{\bar{#1}\left(#2\right)}%
+
+\global\long\def\indicate{\mathds{1}}%
+
+\global\long\def\innerproduct#1#2{\langle#1,#2\rangle}%
+
+\global\long\def\Lp#1#2{\mathcal{L}^{#1}\left(#2\right)}%
+
+\global\long\def\pnorm#1#2{\lVert#1\rVert_{#2}}%
+
+\frontmatter
+\title{Basic Mathematics for Statistics and Economics}
+\author{Yashaswi Mohanty}
+
+\maketitle
+\tableofcontents{}
+
+\mainmatter
+
+\part{Analysis}
+
+\include{measures}
+
+\include{measurable_functions}
+
+\include{integration}
+
+\include{topology}
+
+\include{spaces_of_functions}
+
+\include{differentiation}
+
+\include{product_measures}
+
+\include{measure_and_topology}
+
+\part{Probability}
+
+\include{independence}
+
+\include{fourier_transforms}
+
+\include{conditioning}
+
+\include{martingales}
+
+\include{laws_of_large_numbers}
+
+\include{central_limit_theorems}
+
+\part{Statistics}
+
+\include{point_estimation}
+
+\include{hypothesis_testing}
+
+\include{confidence_sets}\include{linear_models}
+
+\include{design_experiments}
+
+\appendix
+
+\part{Appendices}
+
+\include{naive_set_theory}
+
+\include{finite_dimensional_vector_spaces}
+
+\include{combinatorics}
+
+\include{real_analysis}
+
+\include{probability_distributions}
+\end{document}

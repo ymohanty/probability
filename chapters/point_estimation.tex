@@ -1,0 +1,144 @@
+
+\chapter{Point estimation\label{chap:pointEstimation}}
+
+\section{Population and sample}
+
+\section{Sufficiency and completeness}
+\begin{example}
+\label{exa:isi2007samplepsb9}Let $X_{1}$ and $X_{2}$ be i.i.d.
+random variables from $\operatorname{Bernoulli}(\theta)$ distribution.
+Verify if the statistic $X_{1}+2X_{2}$ is sufficient for $\theta$.\hl{TODO}
+\end{example}
+
+\begin{example}
+\label{exa:isi2006samplepsb7}Let $Y$ be a random variable with probability
+density function 
+\[
+f_{Y}(y\mid\theta)=\begin{cases}
+\frac{1}{\theta}e^{-y/\theta} & \text{ if }y>0,\\
+0 & \text{ otherwise }
+\end{cases}
+\]
+ with $\theta>0$. Suppose that the conditional distribution of $X$
+given $Y=y$ is $N\left(y,\sigma^{2}\right)$, with $\sigma^{2}>0$.
+Both $\theta$ and $\sigma^{2}$ are unknown parameters. Let $\left(X_{1},Y_{1}\right),\ldots,\left(X_{n},Y_{n}\right)$
+be a random sample from the joint distribution of $X$ and $Y$. Find
+a nontrivial joint sufficient statistic for $\left(\theta,\sigma^{2}\right)$.
+\hl{TODO}
+\end{example}
+
+\begin{example}
+\label{exa:isi2007samplepsb10}Suppose $X$ takes three values 1,2
+and 3 with 
+\[
+P(X=k)=\begin{cases}
+(1-\theta)/2 & \text{ if }k=1\\
+1/2 & \text{ if }k=2\\
+\theta/2 & \text{ if }k=3
+\end{cases}
+\]
+ where $0<\theta<1$. Suppose that the following random sample of
+size 10 was drawn from the above distribution : 
+\[
+1,3,1,2,3,1,2,2,1,1
+\]
+
+Find the m.le. of $\theta$ based on the above sample. \hl{TODO}
+\end{example}
+
+
+\section{Unbiasedness, consistency, and efficiency}
+\begin{example}
+\label{exa:isi2008samplepsb11} Let $r$ be the number of successes
+in $n$ Bernoulli trials with unknown probability $p$ of success.
+Obtain the minimum variance unbiased estimator of $p-p^{2}$.
+\end{example}
+
+
+\section{Properties of extremum estimators}
+\begin{example}
+\label{exa:isi2004samplepsb6}Let $Y_{1},Y_{2},Y_{3}$ and $Y_{4}$
+be four uncorrelated random variables with 
+\[
+\E\left(Y_{i}\right)=i\theta,\quad\Var\left(Y_{i}\right)=i^{2}\sigma^{2},\quad i=1,2,3,4,
+\]
+ where $\theta$ and$\sigma(>0)$ are unknown parameters. Find the
+values of $c_{1},c_{2},c_{3}$ and$c_{4}$ for which $\sum_{i=1}^{4}c_{i}Y_{i}$
+is unbiased for $\theta$ and has least variance.\hl{TODO}
+\end{example}
+
+\begin{example}
+\label{exa:isi2004samplepsb8}Let $X_{1},X_{2},\ldots X_{n}$ be i.
+i. d. with common density $f(x;\theta)$ given by 
+\[
+f(x;\theta)=\frac{1}{2\theta}\exp(-|x|/\theta),\quad-\infty<x<\infty,\quad\theta\in(0,\infty).
+\]
+
+In case of each of the statistics $S$ and $T$ defined below, decide
+(a) if it is an unbiased estimator of $\theta,$ (b) if it is an MLE
+for $\theta$ and (c) if it is sufficient for $\theta$. Give reasons.
+\hl{TODO}
+\[
+S=\frac{1}{n}\sum_{i=1}^{n}X_{i},\quad T=\frac{1}{n}\sum_{i=1}^{n}\left|X_{i}\right|
+\]
+\end{example}
+
+\begin{example}
+\label{exa:isi2005samplepsb7}Suppose that $X_{1},\ldots,X_{n}$ is
+a random sample of size $n\geq1$ from a Poisson distribution with
+parameter $\lambda$. Find the minimum variance inbiased estimator
+of $e^{-\lambda}$. \hl{TODO}
+\end{example}
+
+\begin{example}
+\label{exa:isi2005samplepsb8}Suppose $X_{1},\ldots,X_{n}$ constitute
+a random sample from a population with density 
+\[
+f(x,\theta)=\frac{x}{\theta^{2}}\exp\left(-\frac{x^{2}}{2\theta^{2}}\right),x>0,\theta>0.
+\]
+
+Find the Cramer-Rao lower bound to the variance of an unbiased estimator
+of $\theta^{2}$. \hl{TODO}
+\end{example}
+
+\begin{example}
+\label{exa:isi2005samplepsb9}Let $X_{1},X_{2},X_{3}$ be independent
+random variables such that $X_{i}$ is uniformly distributed in $(0,i\theta)$
+for $i=1,2,3$. Find the maximum likelihood estimator of $\theta$
+and examine whether it is unbiased for $\theta$. \hl{TODO}
+\end{example}
+
+\begin{example}
+\label{exa:isi2006samplepsb8}Let $\left(X_{1},Y_{1}\right),\ldots,\left(X_{n},Y_{n}\right)$
+be a random sample from the discrete distribution with joint probability
+mass function 
+\[
+f_{X,Y}(x,y)=\begin{cases}
+\frac{\theta}{4} & (x,y)=(0,0)\text{ and }(1,1),\\
+\frac{2-\theta}{4} & (x,y)=(0,1)\text{ and }(1,0),
+\end{cases}
+\]
+ with $0\leq\theta\leq2$. Find the maximum likelihood estimator of
+$\theta$. \hl{TODO}
+\end{example}
+
+\begin{example}
+\label{exa:isi2006samplepsb9}Let $X_{1},X_{2},\ldots$ be i.i.d.
+random variables with density $f_{\theta}(x),x\in\mathbb{R},\theta\in(0,1)$
+being the unknown parameter. Suppose that there exists an unbiased
+estimator $T$ of $\theta$ based on sample size 1, i. e. $\E_{\theta}\left(T\left(X_{1}\right)\right)=\theta$.
+Assume that $\Var\left(T\left(X_{1}\right)\right)<\infty$. (a) Find
+an estimator $V_{n}$ for $\theta$ based on$X_{1},\ldots X_{n}$
+such that $V_{n}$ is consistent for $\theta$. (b) Let $S_{n}$ be
+the MVUE (minimum variance unbiased estimator) of $\theta$ based
+on $X_{1},\ldots,X_{n}$. Show that $\lim_{n\rightarrow\infty}\Var\left(S_{n}\right)=0$.\hl{TODO}
+\end{example}
+
+\begin{example}
+\label{exa:isi2008samplepsb9}Let $X_{1},\ldots,X_{m}$ be a random
+sample from a uniform distribution on $\{1,2,\ldots,N\}$ where $N$
+is an unknown positive integer. Find the MLE $\widehat{N}$ of $N$
+and find its distribution function.\hl{TODO}
+\end{example}
+
+

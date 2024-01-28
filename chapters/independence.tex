@@ -1,0 +1,1144 @@
+
+\chapter{Independence and random variables}
+
+Formal probability theory is often described as measure theory (or
+more generally, analysis) on measure spaces $\measurespace$ where
+the $\mu\left(\X\right)=1$ and to a certain extent the foundational
+theory does resemble this characterization. However probability itself
+is distinct from foundational probability \emph{theory}, in that its
+goals and aims are to solve problems that are of a fundamentally different
+character than problems seen in analysis.
+
+Probability as as subject has a strong combinatorial flavor, since
+it owes its origins to gambling and games of chance considered by
+amateur mathematicians in the 17th and 18th centuries. These classical
+ideas still permeate the modern \emph{probabilistic way of thinking.}
+As such, it would be useful to revise the basic combinatorial tools
+that are indispensable when tackling problems of this nature. These
+are discussed in Appendix \ref{chap:Combinatorics}.
+
+In general, we can say that probability theory ``has a right hand
+and a left hand''. The right hand is the rigorous measure-theoretic
+axiomatization that one encounters in a course on probability theory.
+The left hand is the probablistic intuition that one develops through
+trying to model stochastic phenomena with the aforementioned probabilistic
+way of thinking. Probabilists aim to be ambidextrous in this regard,
+using the axiomatic framework of probability theory to deduce facts
+about processes whose parts and subparts can be reduced to \textquotedblleft naïve\textquotedblright{}
+probabilistic concepts.
+
+In order to cover both parts of probability adequately, we will use
+the background in analysis developed in Part I of these notes to prove
+general theorems, while using numerous examples to develop probabilistic
+intuition. I hope that the combination of theory and examples prove
+sufficient in painting a vivid picture of probability theory, with
+a view towards applications in statistics and economics.
+
+\section{Probability spaces and probability measures}
+
+While formal probability theory is based on measure theory, the language
+of probability theory is different. To start our exploration into
+probability theory, we shall first have to translate a lot of the
+basic terminology of measure theory into the langauge of probability.
+To begin with, we specialize the notion of a measure space $\measurespace$
+to a probability space $\probabilityspace$ where $\mathbb{P}\left(\Omega\right)=1$.
+Measurable sets $A\in\F$ are called \emph{events }in the language
+of probability. The basic properties of probability measures carry
+over from Chapter \ref{chap:measures}; we list a few more for completeness.
+\begin{prop}[Inclusion-Exclusion]
+\label{prop:inclusionExclusionProbability}Let $\probabilityspace$
+be a probability space and let $A_{1},A_{2},\ldots,A_{n}\in\F$. Then
+\[
+\mathbb{P}\left(\bigcup_{i=1}^{n}A_{i}\right)=\sum_{i=1}^{n}\left(-1\right)^{i-1}\sum_{J\subset\left\{ 1,2,\ldots n\right\} ,\lvert J\rvert=i}\mathbb{P}\left(\bigcap_{j\in J}A_{j}\right).
+\]
+\end{prop}
+
+\begin{proof}
+Integrate the equality (\ref{eq:inclusionExclusionIndicator}) in
+Lemma (\ref{lem:inclusionExclusion}).
+\end{proof}
+\begin{example}[ISI 2017 PSA 23]
+\label{exa:isi2017psa23}Three numbers are chosen at random from
+$\{1,2,\ldots,10\}$ without replacement. What is the probability
+that the minimum of the chosen numbers is $3$ or their maximum is
+$7$ ? Let $A$ be the event that we select three numbers with minimum
+$3$ and $B$ be the event that we select three numbers with maximum
+$7$. We want $\mathbb{P}\left(A\cup B\right)=\mathbb{P}\left(A\right)+\mathbb{P}\left(B\right)-\mathbb{P}\left(A\cap B\right).$
+We need to compute each component. To compute the first term, note
+that there are $\left(\begin{array}{c}
+7\\
+2
+\end{array}\right)$ ways to pick 2 numbers without replacement after fixing the first
+one at 3 since we are picking only from the remaining numbers which
+are greater than three. Therefore $\mathbb{P}\left(A\right)=\left(\begin{array}{c}
+7\\
+2
+\end{array}\right)/\left(\begin{array}{c}
+10\\
+3
+\end{array}\right).$ Similarly, we have that $\mathbb{P}\left(B\right)=\left(\begin{array}{c}
+6\\
+2
+\end{array}\right)/\left(\begin{array}{c}
+10\\
+3
+\end{array}\right).$ To find the intersection, note that after fixing $3$ and $7$ there
+are only 4 choices of the middle number, leaving us with $\mathbb{P}\left(A\cap B\right)=$$4/\left(\begin{array}{c}
+10\\
+3
+\end{array}\right)$. In sum,
+\begin{align*}
+\mathbb{P}\left(A\cup B\right) & =\frac{\left(\begin{array}{c}
+7\\
+2
+\end{array}\right)+\left(\begin{array}{c}
+6\\
+2
+\end{array}\right)-4}{\left(\begin{array}{c}
+10\\
+3
+\end{array}\right)}\\
+ & =\frac{21+15-4}{120}\\
+ & =\frac{4}{15}.
+\end{align*}
+\end{example}
+
+\begin{prop}
+\label{prop:bonferroniInequality}Let $\probabilityspace$ be a probability
+space and let $A_{1},A_{2},\ldots,A_{n}\in\F$. Then
+\[
+\mathbb{P}\left(\bigcap_{i=1}^{n}A_{i}\right)\geq\sum_{i=1}^{n}\mathbb{P}\left(A_{i}\right)-(n-1).
+\]
+\end{prop}
+
+\begin{proof}
+First note that for $n=2$, the result follows due to the fact that
+for any $A,B\in\F$
+\begin{align*}
+\mathbb{P}\left(A\cup B\right) & =\mathbb{P}\left(A\right)+\mathbb{P}\left(B\right)-\mathbb{P}\left(A\cap B\right)\\
+ & \leq\mathbb{P}\left(\Omega\right)\\
+ & =1.
+\end{align*}
+Now assume the induction hypothesis and note that 
+\begin{align*}
+\mathbb{P}\left(\bigcap_{i=1}^{n}A_{i}\right) & =\mathbb{P}\left(\bigcap_{i=1}^{n-1}A_{i}\cap A_{n}\right)\\
+ & \geq\mathbb{P}\left(\bigcap_{i=1}^{n-1}A_{i}\right)+\mathbb{P}\left(A_{n}\right)-1\\
+ & \geq\sum_{i=1}^{n-1}\mathbb{P}\left(A_{i}\right)-(n-2)+\mathbb{P}\left(A_{n}\right)-1\\
+ & =\sum_{i=1}^{n}\mathbb{P}\left(A_{i}\right)-\left(n-1\right).
+\end{align*}
+\end{proof}
+
+\section{Independent events}
+
+In Chapter \ref{chap:productMeasures} we discussed the notion of
+product measures; the analagous concept in probability is that of
+independence. Informally, we think of independent events as those
+where the occurence or non-occurenece of one event does not impact
+the occurence or non-occurence of another. We can formalize this idea
+with the following definition-
+\begin{defn}
+\label{def:independence}Let $I$ be an arbitrary index set. Then
+a collection of events\emph{ }$\left\{ A_{i}\right\} _{i\in I}\subset\F$
+are independent if for every finite subset $J\subset I$
+\[
+\mathbb{P}\left[\bigcap_{j\in J}A_{j}\right]=\prod_{j\in J}\mathbb{P}\left[A_{j}\right].
+\]
+Two independent events $A,B\in\F$ are often denoted $A\indep B$.
+\end{defn}
+
+Notice how the index set $I$ was arbitrary and so we can have countable
+or uncountable collections of independent events. Of course, this
+notion isn't particualrly interesting unless we have some rich examples
+of such events and the probability spaces they live in. More generally,
+we have a question of existence: do independent events always exist,
+no matter the probability space? The answer to this question is trivially
+yes since $\mathbb{P}\left(\Omega\cap\emptyset\right)=\mathbb{P}\left(\Omega\right)\mathbb{P}\left(\emptyset\right)=0.$
+So then the question reduces to asking whether \emph{non-trivial }independent
+events always exist. Here of course, the answer is ``no'', since
+for $\F=\left\{ \emptyset,A,A^{C},\Omega\right\} $ where $0<\mathbb{P}\left(A\right)<1$,
+we have that $\mathbb{P}\left(A\cap A^{C}\right)=0$ but $\mathbb{P}\left(A\right)\mathbb{P}\left(A^{C}\right)=\mathbb{P}\left(A\right)\left(1-\mathbb{P}\left(A\right)\right)\neq0.$
+Nevertheless, we have a rich collection of examples of independent
+events: think about rolling a dice twice and observing a six in each
+roll; these event of seeing a six in the first roll is independent
+of the event of seeing one in the next roll.
+\begin{example}[ISI 2017 PSA 15]
+\label{exa:isi2017psa15}Suppose that the events $A,B$, and $C$
+are pairwise independent such that each of them occurs with probability
+$p$. Assume that all three of them cannot occur simultaneously. What
+is $P(A\cup B\cup C)$ ? Well, we apply independence and inclusion
+exclusion to note that 
+\begin{align*}
+\mathbb{P}\left(A\cup B\cup C\right) & =\mathbb{P}\left(A\right)+\mathbb{P}\left(B\right)+\mathbb{P}\left(C\right)-\mathbb{P}\left(A\cap B\right)-\mathbb{P}\left(A\cap C\right)-\mathbb{P}\left(B\cap C\right)\\
+ & =\mathbb{P}\left(A\right)+\mathbb{P}\left(B\right)+\mathbb{P}\left(C\right)-\mathbb{P}\left(A\right)\mathbb{P}\left(B\right)-\mathbb{P}\left(A\right)\mathbb{P}\left(C\right)-\mathbb{P}\left(B\right)\mathbb{P}\left(C\right)\\
+ & =3p(1-p).
+\end{align*}
+\end{example}
+
+The canonical example of the an infinite collection of independent
+events is given by the following description of an infinitely repeated
+experiment.
+\begin{example}
+\label{exa:infinitelyRepeatedExperiment}Let $E$ consist of a finite
+set of outcomes and let $\Omega=E^{\N}$ be the collection of $E$-valued
+sequences. Thus for any $\omega\in\Omega$, we can write
+\[
+\omega=\left(\omega_{1},\omega_{2},\ldots\right)
+\]
+where $\omega_{i}\in E$. We can then construct the collection
+\[
+\left[\omega_{1}^{*},\ldots,\omega_{n}^{*}\right]:=\left\{ \omega\in\Omega\mid\omega_{i}=\omega_{i}^{*},1\leq i\leq n\right\} 
+\]
+\hl{TODO}
+\end{example}
+
+\begin{lem}
+\label{lem:independenceComplements}Let $\probabilityspace$ be a
+probability space and let $A,B\in\F$ be events. Then the claims that
+$A,B$ are independent, $A,B^{C}$ are independent, $A^{C},B$ are
+independent, and $A^{C},B^{C}$are independent are equivalent.
+\end{lem}
+
+\begin{proof}
+Note that 
+\begin{align*}
+\mathbb{P}\left(A\cap B^{C}\right) & =\mathbb{P}\left(A\setminus B\right)\\
+ & =\mathbb{P}\left(A\setminus A\cap B\right)\\
+ & =\mathbb{P}\left(A\right)-\mathbb{P}\left(A\cap B\right)\\
+ & =\mathbb{P}\left(A\right)-\mathbb{P}\left(A\right)\mathbb{P}\left(B\right)\\
+ & =\mathbb{P}\left(A\right)\left(1-\mathbb{P}\left(B\right)\right)\\
+ & =\mathbb{P}\left(A\right)\mathbb{P}\left(B^{C}\right)
+\end{align*}
+where the fourth equality uses independence. Then it should be clear
+that $A^{C}$ and $B$ are independent exactly for the same reason.
+Finally, we can apply the logic above using $A^{C}$and $B$ instead
+of $A$ and $B$ to get that $A^{C}$ and $B^{C}$ are independent.
+\end{proof}
+\begin{prop}
+\label{prop:independenceFacts}Let $\probabilityspace$ be a probability
+space and let $I$ be an arbitrary index set. Let $\left\{ A_{i}\right\} _{i\in I}\in\F$
+be a collection of events and define $B_{i}^{1}=A_{i}^{C}$ and $B_{i}^{0}=A_{i}.$
+Then, the following statements are equivalent
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+\item $\left\{ A_{i}\right\} _{i\in I}\in\F$ are independent events.
+\item There exists some $\alpha \in \{0,1\}^I$ such that $\{B_i^{a(i)}\}$ are independent.
+\item For every $\alpha \in \{0,1\}^I$, $\{B_i^{a(i)}\}$ are independent. 
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+(Sketch) Note that if \emph{(i) }holds, then \emph{(ii)} holds automatically
+with $a\left(i\right)=0$ for all $i\in I$. Similarly, if $(iii)$
+holds then $(i)$ holds trivially. Thus we need to prove that $(ii)\implies(iii)$.
+First, fix $\alpha\in\{0,1\}^{I}$ such that our claim holds. Notice
+that by Lemma \ref{lem:independenceComplements}, for any $J\subset I$
+such that $\lvert J\rvert=2$,
+\[
+\mathbb{P}\left(\prod_{j\in J}B_{j}^{\gamma(j)}\right)=\prod_{j\in J}\mathbb{P}\left(B_{j}^{\gamma\left(j\right)}\right)
+\]
+for any $\gamma\in\left\{ 0,1\right\} ^{I}$. For induction, suppose
+that the claim holds for any $J\subset I$ such that $\lvert J\rvert=n$
+and the consider a subset $J^{\prime}\subset I$ with $\lvert J^{\prime}\rvert=n+1$.
+Note that for any $i\in J^{\prime}$, we can define $B_{-i}:=\bigcap_{j\in J^{\prime}\setminus\left\{ i\right\} }B_{j}^{\alpha\left(j\right)}$
+and observe that 
+\[
+\mathbb{P}\left(B_{-i}\cap B_{i}^{\alpha\left(i\right)}\right)=\mathbb{P}\left(B_{-i}\right)\mathbb{P}\left(B_{i}^{\alpha\left(i\right)}\right)
+\]
+and so $B_{-i}\indep B_{i}^{\alpha\left(i\right)}$ and so by our
+Lemma, $B_{-i}\indep B_{i}^{\gamma\left(i\right)}.$ The induction
+hypothesis then implies that $\left\{ B_{j}^{\alpha\left(j\right)}\right\} ,B_{i}^{\gamma\left(i\right)}$
+are all mutually independent. We can yet again repeat this process
+with some $i^{\prime}\in J^{\prime}$ where now $B_{-i^{\prime}}:=\bigcap_{j\in J^{\prime}\setminus\left\{ i,i^{\prime}\right\} }B_{j}^{\alpha\left(j\right)}\cap B_{i}^{\gamma\left(i\right)}$
+and so on until we have replaced all $\alpha$s with $\gamma$s.
+\end{proof}
+This idea of mutual independence finds purchase in some unexpected
+contexts as well. For instance, we can use it to prove Euler's prime
+number formula.
+\begin{thm}
+\label{thm:eulerPrime}Let $\mathcal{P}$ denote the set of primes.
+The Riemann zeta function 
+\[
+\zeta\left(s\right):=\sum_{n=1}^{\infty}n^{-s}
+\]
+has the representation
+\[
+\zeta\left(s\right)=\prod_{p\in\mathcal{P}}\left(1-p^{-s}\right)^{-1}.
+\]
+\end{thm}
+
+\begin{proof}
+Let $\probabilityspace=\left(\N,2^{\N},\mathbb{P}_{s}\right)$ where
+$\mathbb{P}_{s}\left(\left\{ n\right\} \right)=\frac{n^{-s}}{\zeta\left(s\right)}$
+for $s>1.$ Define $p\N:=\left\{ pn\mid n\in\N\right\} $ and let
+$ $for any $p\in\mathcal{P}$ and notice that $\mathbb{P}_{s}\left(p\N\right)=\sum_{n=1}^{\infty}\mathbb{P}\left(pn\right)=p^{-s}$
+by countable additivity. Then, for any distinct collection $p_{1},\ldots,p_{k}\in\mathcal{P}$
+we have that 
+\begin{align*}
+\mathbb{P}_{s}\left(\bigcap_{i=1}^{k}p_{i}\N\right) & =\sum_{n=1}^{\infty}\mathbb{P}_{s}\left(\prod_{i=1}^{k}pn\right)\\
+ & =\prod_{i=1}^{k}p^{-s}\\
+ & =\prod_{i=1}^{k}\mathbb{P}_{s}\left(p_{i}\N\right).
+\end{align*}
+In other words, the events $\left\{ p\N\right\} _{p\in\mathcal{P}}$are
+mutually independent and so by Proposition \ref{prop:independenceFacts}
+\begin{align*}
+\frac{1}{\zeta\left(s\right)} & =\mathbb{P}_{s}\left(\left\{ 1\right\} \right)\\
+ & =\mathbb{P}_{s}\left(\bigcap_{p\in\mathcal{P}}\left(p\N\right)^{C}\right)\\
+ & =\lim_{n\to\infty}\mathbb{P}_{s}\left(\bigcap_{p\in\mathcal{P},p\leq n}\left(p\N\right)^{C}\right)\\
+ & =\lim_{n\to\infty}\prod_{p\in\mathcal{P},p\leq n}\left(1-\mathbb{P}_{s}\left(p\N\right)\right)\\
+ & =\lim_{n\to\infty}\prod_{p\in\mathcal{P},p\leq n}\left(1-p^{-s}\right)\\
+ & =\prod_{p\in\mathcal{P}}\left(1-p^{-s}\right)
+\end{align*}
+where the second equality is due to the fact that $1$ is neither
+prime nor a product of primes, the third due to the continuity of
+measures (see Propositions \ref{prop:measureProperties} and \ref{prop:equivalenceContinuityMeasures}),
+and the fourth due the fact that $\mathbb{P}_{s}\left(\N\right)=1.$
+\end{proof}
+We are finally ready to present the second Borel-Cantelli lemma, which
+we promised back in Chapter \ref{chap:measurableFunctions}. The idea
+here is that if you an infinite sequence of independent events, like
+coin-tosses where the outcomes can either be head or tails, the probability
+that you will only see a finite number of heds is intuitively zero.
+\begin{thm}[Second Borel-Cantelli lemma]
+\label{thm:secondBorelCantelli}Let $\probabilityspace$ be a probability
+space and let $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{F}$ be
+mutually independent events. If
+\[
+\sum_{i=1}^{\infty}\mathbb{P}\left(A_{i}\right)=\infty
+\]
+then 
+\[
+\mathbb{P}\left(\limsup_{i\to\infty}A_{i}\right)=1.
+\]
+\end{thm}
+
+\begin{proof}
+Note that 
+\begin{align*}
+\mathbb{P}\left(\left(\limsup A_{i}\right)^{C}\right) & =\mathbb{P}\left(\left(\bigcap_{n\in\N}\bigcup_{i\geq n}A_{i}\right)^{C}\right)\\
+ & =\mathbb{P}\left(\bigcup_{n\in\N}\bigcap_{i\geq n}A_{i}^{C}\right)\\
+ & =\lim_{n\to\infty}\mathbb{P}\left(\bigcap_{i\geq n}A_{i}^{C}\right)\\
+ & =\lim_{n\to\infty}\lim_{m\to\infty}\mathbb{P}\left(\bigcap_{m\geq i\geq n}A_{i}^{C}\right)\\
+ & =\lim_{n\to\infty}\lim_{m\to\infty}\prod_{m\geq i\geq n}\left(1-\mathbb{P}\left(A_{i}\right)\right)\\
+ & =\lim_{n\to\infty}\lim_{m\to\infty}\exp\left(\sum_{m\geq i\geq n}\log\left(1-\mathbb{P}\left(A_{i}\right)\right)\right)\\
+ & \leq\lim_{n\to\infty}\lim_{m\to\infty}\exp\left(-\sum_{m\geq i\geq n}\mathbb{P}\left(A_{i}\right)\right)\\
+ & =\lim_{n\to\infty}\exp\left(-\sum_{i\geq n}\mathbb{P}\left(A_{i}\right)\right)\\
+ & =0
+\end{align*}
+where in the second equality we have used DeMorgan's laws, the third
+and fourth follow from the continuity of measures, the fifth by independence
+and the fact that $\mathbb{P}\left(\Omega\right)=1$, and the inequality
+by the fact that $\log\left(1-x\right)\leq-x$ for $x\in\left[0,1\right).$\footnote{This can be verified by noting that the function $g\left(x\right)=\log\left(1-x\right)+x$
+is $0$ at $x=0$ and has derivative $g^{\prime}\left(x\right)=1-\frac{1}{1-x}=\frac{-x}{1-x}<0$
+for $x\in\left(0,1\right).$}
+\end{proof}
+%
+Note that we can't dispense with the independence assumption on this
+version of the Borel Cantelli lemma, since for identical events $A_{i}$,
+$\limsup A_{i}=A_{1}$ and so if $\mathbb{P}\left(A_{1}\right)<1$
+then $\mathbb{P}\left(\limsup A_{i}\right)<1$ even though $\sum\mathbb{P}\left(A_{i}\right)=\infty$.
+
+\hl{Differences between mutual and pariwise independence}
+
+\section{Independent $\sigma-$algebras}
+
+The idea of independence of events can be extended to the idea of
+independence of structures of events. For a given probability space
+$\probabilityspace$, we say that a collection of events $\left\{ \F_{i}\right\} _{i\in I}$
+-- where $I$ is an arbitrary index set and each $\F_{i}\subset\F$
+-- is mutually independent if for any finite $J\subset I$ and $F_{j}\in\F_{j}$
+\[
+\mathbb{P}\left(\bigcap_{j\in J}F_{j}\right)=\prod_{j\in J}\mathbb{P}\left(F_{j}\right).
+\]
+Usually, the structures we consider are $\sigma-$algebras, since
+those are the most important types of collections of events in probability
+theory. Immediately, our \hyperref[cor:piLambdaGeneratingClassArg]{$\pi-\lambda$ theorem}
+gives us some useful tools that allows us to use independence on generating
+classes to prove independence on the $\sigma-$algebras generated
+by them.
+\begin{prop}
+\label{prop:indepSigmaAlgebras}Let $\probabilityspace$ be a probability
+space and let $I$ be an arbitrary index set. If a collection of $\pi-$systems
+$\left\{ \mathcal{E}_{i}\right\} _{i\in I}\subset\F$ are independent,
+then $\left\{ \sigma\left(\mathcal{E}_{i}\right)\right\} _{i\in I}$
+are independent.
+\end{prop}
+
+\begin{proof}
+Pick some $J\subset I$ such that $\lvert J\rvert=n$. Without loss
+of generality, we can assume that $J=\left\{ 1,2,\ldots,n\right\} .$
+Define
+\[
+\mathcal{D}_{1}:=\left\{ F_{1}\in\sigma\left(\mathcal{E}_{1}\right)\mid\mathbb{P}\left(F_{1}\cap E_{2}\cap\ldots\cap E_{n}\right)=\mathbb{P}\left(F_{1}\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)\forall E_{i}\in\mathcal{E}_{i},2\leq i\leq n\right\} 
+\]
+and note that we can show that $\mathcal{D}_{1}$ is a $\lambda-$system.
+To see this, first note that $\Omega\in\mathcal{D}_{1}$ since 
+\begin{align*}
+\mathbb{P}\left(\Omega\cap E_{2}\cap\ldots\cap E_{n}\right) & =\mathbb{P}\left(E_{2}\cap\ldots\cap E_{n}\right)\\
+ & =\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)\\
+ & =\mathbb{P}\left(\Omega\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)
+\end{align*}
+where in the second equality we use the independence of the generators.
+Next, suppose that $F_{1},F_{2}\in\mathcal{D}_{1}$ such that $F_{2}\subseteq F_{1}$
+and observe that 
+\begin{align*}
+\mathbb{P}\left(\left(F_{1}\setminus F_{2}\right)\cap E_{2}\cap\ldots\cap E_{n}\right) & =\mathbb{P}\left(F_{1}\cap E_{2}\cap\ldots\cap E_{n}\right)-\mathbb{P}\left(F_{2}\cap E_{2}\cap\ldots\cap E_{n}\right)\\
+ & =\mathbb{P}\left(F_{1}\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)-\mathbb{P}\left(F_{2}\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)\\
+ & =\left(\mathbb{P}\left(F_{1}\right)-\mathbb{P}\left(F_{2}\right)\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)\\
+ & =\mathbb{P}\left(F_{1}\setminus F_{2}\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)
+\end{align*}
+which shows that $F_{1}\setminus F_{2}\in\mathcal{D}_{1}$. Finally,
+suppose that $\left\{ F_{i}\right\} _{i\in\N}\in\mathcal{D}_{1}$
+such that $F_{i}\subset F_{i+1}$ and note that 
+\begin{align*}
+\mathbb{P}\left(\left(\bigcup_{i\in\N}F_{i}\right)\cap E_{2}\cap\ldots\cap E_{n}\right) & =\lim_{n\to\infty}\mathbb{P}\left(F_{n}\cap E_{2}\cap\ldots\cap E_{n}\right)\\
+ & =\lim_{n\to\infty}\mathbb{P}\left(F_{n}\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)\\
+ & =\mathbb{P}\left(\bigcup_{i\in\N}F_{i}\right)\mathbb{P}\left(E_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)
+\end{align*}
+which shows that $\bigcup_{i\in\N}F_{i}\in\mathcal{D}_{1}$. Thus
+$\mathcal{D}_{1}$ is a $\lambda-$system containing $\mathcal{E}_{1}$
+and so $\sigma\left(\mathcal{E}_{1}\right)\subseteq\mathcal{D}_{1}$.
+Next, we can define 
+\[
+\mathcal{D}_{2}:=\left\{ F_{2}\in\sigma\left(\mathcal{E}_{2}\right)\mid\mathbb{P}\left(F_{1}\cap F_{2}\cap\ldots\cap E_{n}\right)=\mathbb{P}\left(F_{1}\right)\mathbb{P}\left(F_{2}\right)\ldots\mathbb{P}\left(E_{n}\right)F_{1}\in\sigma\left(\mathcal{E}_{1}\right),E_{i}\in\mathcal{E}_{i},3\leq i\leq n\right\} ,
+\]
+observe that $\mathcal{E}_{2}\subseteq\mathcal{D}_{2}$ by the result
+on $\mathcal{D}_{1}$ , and show that $\mathcal{D}_{2}$ is a $\lambda-$system
+and so $\sigma\left(\mathcal{E}_{2}\right)\subseteq\mathcal{D}_{2}$
+and so on. This completes the argument.
+\end{proof}
+\begin{cor}
+\label{cor:clumping}Let $\left\{ \mathcal{F}_{i}\right\} _{i\in I}$
+be a collection of independent $\sigma-$algebras. If $J,K\subset I$
+are disjoint, then 
+\[
+\sigma\left(\bigcup_{j\in J}\F_{j}\right)\indep\sigma\left(\bigcup_{k\in K}\F_{k}\right).
+\]
+\end{cor}
+
+\begin{proof}
+Let $\mathcal{E}_{J}$ be the collection of all finite intersections
+of sets in $\bigcup_{j\in J}\F_{j}$ and note that $\bigcup_{j\in J}\F_{j}\subset\mathcal{E}_{J}$
+for any $j\in J$ since we can take all sets one at a time. Thus $\sigma\left(\bigcup_{j\in J}\F_{j}\right)\subseteq\sigma\left(\mathcal{E}_{J}\right)$.
+Conversely, $\mathcal{E}_{J}\subseteq\sigma\left(\bigcup_{j\in J}\F_{j}\right)$
+and so $\sigma\left(\bigcup_{j\in J}\F_{j}\right)=\sigma\left(\mathcal{E}_{J}\right).$
+Note that $\mathcal{E}_{J}$ and $\mathcal{E}_{K}$ (where $\mathcal{E}_{K}$
+is defined analogously) are $\pi-$systems and so if $\mathcal{E}_{J}\indep\mathcal{E}_{K}$
+then $\sigma\left(\mathcal{E}_{J}\right)\indep\sigma\left(\mathcal{E}_{K}\right)$
+by Proposition \ref{prop:indepSigmaAlgebras}. Now for any $E_{J}\in\mathcal{E}_{J}$
+, we can write $E_{J}=\bigcap_{j\in J}F_{j}$ where $F_{j}\in\F_{j}$
+(where for some $j$s $F_{j}=\Omega$). Similarly $E_{K}\in\mathcal{E}_{K}$
+could be written $E_{K}=\bigcap_{k\in K}F_{k}$. Therefore,
+\begin{align*}
+\mathbb{P}\left(E_{J}\cap E_{K}\right) & =\mathbb{P}\left(\bigcap_{j\in J}F_{j}\cap\bigcap_{k\in K}F_{k}\right)\\
+ & =\mathbb{P}\left(\bigcap_{j\in J}F_{j}\right)\mathbb{P}\left(\bigcap_{k\in K}F_{k}\right)
+\end{align*}
+where we have used the independence of $\left\{ \F_{i}\right\} _{i\in I}.$
+\end{proof}
+These results yield as our first \emph{zero-one law }which is a result
+that characterizes some type of $\sigma-$algebra that only contain
+events iwth probability zero or one.
+\begin{defn}
+\label{def:tailSigmaAlgebra}Let $\probabilityspace$ be a probability
+space and suppose $\left\{ \F_{i}\right\} _{i\in\N}\subset\F$ is
+a collection of sub $\sigma-$algebras on this space. Suppose further
+that $\F=\sigma\left(\bigcup_{i\in I}\F_{i}\right)$ and $\mathcal{H}_{n}:=\sigma\left(\bigcup_{i\geq n}\F_{i}\right)$
+and so $\mathcal{H}_{n+1}\subseteq\mathcal{H}_{n}$. The \emph{tail
+$\sigma-$algebra }with respect to $\left\{ \F_{i}\right\} _{i\in\N}$
+is given
+\[
+\mathcal{H}_{\infty}=\bigcap_{n\in\N}\mathcal{H}_{n}.
+\]
+\end{defn}
+
+\begin{thm}[Kolmogorov's Zero-One Law]
+\label{thm:kolmogorovZeroOne}Let $\probabilityspace$ be a probability
+space and suppose $\left\{ \F_{i}\right\} _{i\in\N}\subset\F$ is
+a collection of mutually independent sub $\sigma-$algebras on this
+space. Then the tail $\sigma-$algebra $\mathcal{H}_{\infty}$ is
+trivial in that for any $A\in\mathcal{H}_{\infty}$
+\[
+\mathbb{P}\left(A\right)\in\left\{ 0,1\right\} .
+\]
+\end{thm}
+
+\begin{proof}
+Note that $\F_{1},\ldots,\F_{n-1}$ and $\mathcal{H}_{n}$ are mutually
+independent by an inductive extension of Corollary \ref{cor:clumping}.
+Of course, since $\mathcal{H}_{\infty}\subseteq\mathcal{H}_{n}$ so
+$\F_{1},\ldots,\F_{n}$ and $\mathcal{H}_{\infty}$ are all mutually
+independent. Of course, since $n$ is arbitrary, we have that $\mathcal{H}_{\infty}$
+and $\left\{ \F_{i}\right\} _{i\in\N}$are all mutually independent.
+Again, applying Corollary \ref{cor:clumping}, we have that $\mathcal{H}_{\infty}\indep\sigma\left(\bigcup_{i\in\N}\F_{i}\right).$Note
+that since $\mathcal{H}_{\infty}\subset\F=\sigma\left(\bigcup_{i\in\N}\F_{i}\right)$
+we have that $\mathcal{H}_{\infty}\indep\mathcal{H}_{\infty}$and
+so for any $A\in\mathcal{H}_{\infty}$
+\[
+\mathbb{P}\left(A\right)=\mathbb{P}\left(A\right)^{2}\implies\mathbb{P}\left(A\right)\in\left\{ 0,1\right\} .
+\]
+\end{proof}
+
+\section{Random variables}
+
+\subsection{General description and terminology}
+\begin{defn}
+\label{def:randomVariable}Let $\probabilityspace$ be a probability
+space. A \emph{random variable }is a real-valued Borel-measurable
+map $X:\left(\Omega,\F\right)\to\left(\R,\borel\left(\R\right)\right)$.
+A \emph{random vector }is a measurable map $X:\left(\Omega,\F\right)\to\left(\R^{n},\borel\left(\R^{n}\right)\right)$.
+A \emph{random element }is a measurable map $X:\left(\Omega,\F\right)\to\left(S,\mathcal{B}\right)$
+where $\left(S,\mathcal{B}\right)$ is a Polish space with its Borel
+$\sigma-$algebra.
+\end{defn}
+
+Our definitions are increasingly general in that random variables,
+are random vectors, which in turn are random elements. Much of our
+language about measurable functions has analogues in probability.
+For instance, the image measure $X\mathbb{P}$ (which we shall denote
+as $\mathbb{P}_{X}$ from now on) of $X$ under $\mathbb{P}$ is called
+the \emph{distribution }of $X$. The Radon-Nikodym derivative of this
+distribution with respect to the Lebesgue measure (if it exists) is
+called the \emph{density }of $X$, which is always non-negative (like
+all RN-derivatives) and integrates to $1$. The Stieljes function
+$F_{X}\left(x\right):=\mathbb{P}_{X}\left(\left(-\infty,x\right]\right)$
+is called the \emph{cumulative distribution function (CDF) }of $X$.
+Theorem \ref{thm:stieljesMeasure} tells us that CDFs completely characterize
+the distribution of a random variable $X$ and so random variables
+with the same CDF are called \emph{identically distributted. }Moreover,
+Proposition \ref{prop:absoluteContinuityStieljesFunctions} tells
+us that the absolute continuity of CDFs (as functions on the real
+line) is equivalent to the absolute continuity of the distribution
+with respect to the Lebesgue measure. Of course, not all random variables
+have absolutely continuous CDFs. The canonical pathological example
+of a random variable which has a continuous but not absolutely continuous
+CDF is the Cantor random variable, whose CDF is the \hyperref[def:cantorFunction]{Cantor function}.
+More importantly, many random variables have countable supports\footnote{This is again a shorthand! What we mean here is that the CDF has a
+countable support as a real valued function on $\R$.} and can be thought of as \emph{discrete. }A reasonably comprehensive
+accounting of various distributions that we can find in the wild can
+be found in Appendix \ref{chap:probabilityDistributions}.
+
+The CDF has two additional properties that we did not see for Stieljes
+functions in general.
+\begin{prop}
+\label{prop:cdfLimits}Let $\probabilityspace$ be a probability space
+and let $X:\Omega\to\R$ be a random variable. Then its cumulative
+distribution function $F_{X}$ has the property that 
+\[
+\lim_{x\to\infty}F_{X}\left(x\right)=1
+\]
+and 
+\[
+\lim_{x\to-\infty}F_{X}\left(x\right)=0.
+\]
+\end{prop}
+
+\begin{proof}
+Note that the first limit is equivalent to
+\begin{align*}
+\lim_{n\to\infty}\mathbb{P}_{X}\left(\left(-\infty,n\right]\right) & =\mathbb{P}_{X}\left(\bigcup_{n\in\N}\left(-\infty,n\right]\right)\\
+ & =\mathbb{P}_{X}\left(\left(-\infty,\infty\right)\right)\\
+ & =1.
+\end{align*}
+where we used the upper continuity of measures. Similarly, the other
+limit can be written as 
+\begin{align*}
+\lim_{n\to\infty}\mathbb{P}_{X}\left(\left(-\infty,-n\right]\right) & =\mathbb{P}_{X}\left(\bigcap_{n\in\N}\left(-\infty,-n\right]\right)\\
+ & =\mathbb{P}_{X}\left(\emptyset\right)\\
+ & =0.
+\end{align*}
+\end{proof}
+\begin{example}
+\label{exa:floorFuncCDF}Let $n$ be a positive integer and suppose
+that 
+\[
+F\left(x\right)=\frac{\lfloor x\rfloor}{n}\indicate\left\{ 0\leq x\leq n\right\} +\indicate\left\{ x>n\right\} 
+\]
+ and observe that $F$ is clearly non-decreasing, it is right continuous
+as the floor function is right continuous. The limiting behavior is
+obvious. To construct the probability distribution that generates
+this CDF, one can define a random variable $X$ such that 
+\begin{align*}
+\mathbb{P}\left(X=x\right) & =F\left(x\right)-F\left(x-1\right)\\
+ & =\frac{1}{n}
+\end{align*}
+which is the \emph{discrete uniform distribution} over $\left\{ 1,2,\ldots,n\right\} $.
+\end{example}
+
+\begin{example}
+\label{exa:geometricDistOneHalf}Let $\probabilityspace$ be a probability
+space and let $X$ be a random variable with distribution characterized
+by
+\[
+\mathbb{P}_{X}\left(\left\{ x\right\} \right)=\left(\frac{1}{2}\right)^{x}\indicate\left\{ x\in\N\right\} .
+\]
+Since 
+\[
+\mathbb{P}_{X}\left(\N\right)=\sum_{i=1}^{\infty}\frac{1}{2^{i}}=1,
+\]
+ for this to be a valid distribution, it must be that $\mathbb{P}_{X}\left(\R\setminus\N\right)=0.$
+What is the CDF of such a distribution? Well, we know that 
+\begin{align*}
+F_{X}\left(x\right) & =\mathbb{P}_{X}\left(\left(-\infty,x\right]\right)\\
+ & =\mathbb{P}_{X}\left(\left(-\infty,x\right]\cap\N\right)\\
+ & =\sum_{i=1}^{\lfloor x\rfloor}\frac{1}{2^{i}}\\
+ & =1-\frac{1}{2^{\lfloor x\rfloor}}.
+\end{align*}
+\end{example}
+
+The convex combination of CDFs remains a CDF , which gives rise to
+mixture distributions.
+\begin{prop}
+\label{prop:convexCombinationDistribution}Let $\probabilityspace$
+be a probability space and let $X,Y$ be random variables with CDFs
+$F_{X}$ and $F_{Y}$. For any $\lambda\in\left[0,1\right]$ , the
+function $F\left(x\right):=\lambda F_{X}\left(x\right)+\left(1-\lambda\right)F_{Y}\left(x\right)$
+satisfies all the properties of CDF.
+\end{prop}
+
+\begin{proof}
+Note that convex combinations of increasing functions is increasing
+and the convex combinations of right continuous functions is right
+continuous. The limiting properties also follow easily since limits
+behave linearly.
+\end{proof}
+%
+\begin{example}[ISI 2023 PSB 3]
+\label{exa:isi2023psb3}Do there exist CDFs on $\R$ such that $F\left(x\right)=F\left(x^{n}\right)$
+where $n>1$? First, note that if $n$is even, then for any $x<0$
+$F\left(x\right)=F\left(x^{n}\right)$ which implies that 
+\begin{align*}
+0 & =\lim_{x\to-\infty}F\left(x\right)\\
+ & =\lim_{x\to-\infty}F\left(x^{n}\right)\\
+ & =\lim_{x\to\infty}F\left(x^{n}\right)\\
+ & =1
+\end{align*}
+which is a contradiction and so no such distribution exists. If $n$
+is odd then, we have that for any $x,y>1$, we $F\left(x\right)=F\left(y\right)$
+since if $x<y$ there exists some $k\in\N$ such $x^{n^{k}}>y$ and
+so the non-decreasing nature of $F$ yields the result. Of course,
+since $\lim_{x\to\infty}F\left(x\right)=1$, we must have that $F\left(x\right)=1$
+for every $x>1$. A similar result shows that $F\left(x\right)=F\left(y\right)=0$
+for $x<-1$. For the intermediate values of $x$, we know that for
+any $x_{1},x_{2}\in\left[-1,0\right)$ and $y_{1},y_{2}\in\left(0,1\right]$
+that $0\leq F\left(x_{1}\right)=F\left(x_{2}\right)\leq F\left(0\right)\leq F\left(y_{1}\right)=F\left(y_{2}\right)\leq1$.
+\end{example}
+
+\begin{example}
+\label{exa:isi2008samplepsb6}Let $F$ and $G$ be (one dimensional)
+distribution functions. Decide which of the following are distribution
+functions. (a) $F^{2}$, (b) $H$ where $H(t)=\max\{F(t),G(t)\}$.
+
+Justify your answer.
+\end{example}
+
+The integral of a random variable is called an \emph{expectation }(provided
+it exists). That is, $\lebInt{\mathbb{P}}X$ is the expectation of
+$X$. In the probability literature, this is often denoted $\mathbb{E}\left[X\right]$.
+Since random variables are defined on measures spaces with unit measure,
+the integral captures the average value of the function $X$. If $X\in\mathcal{L}^{p}$
+for $p>1$ then the random variable is said to have finite $p$th
+moment. Of course, by Proposition \ref{prop:nestingLpSpace} we know
+that if a random variable has a finite $p$th moment, it has a finite
+$q$th moment for $1\leq q\leq p$. Some moments have special names.
+So, for instance, for the centered random variable $Y:=X-\mathbb{E}\left[X\right]$,
+the second moment $\text{\ensuremath{\Var\left[X\right]}:=}\mathbb{E}\left[Y^{2}\right]=\E\left[X^{2}\right]-\left(\E\left[X\right]\right)^{2}$
+is called the \emph{variance} of $X$. It is often denoted as $\sigma^{2}$.
+It captures the degree to which a random variable deviates from its
+mean value. The third \emph{standardized }moment $\mathbb{E}\left[\left(\frac{Y}{\sigma}\right)^{3}\right]$
+is called the \emph{skewness; }it captures the degree to which a random
+variables distribution is asymmetric. Here $\sigma$ is the square
+root of the variance, and is referred to as the \emph{standard deviation
+}of $X$. Of course, random variables need not even by $\mathcal{L}^{1}$,
+as the following two examples illustrate.
+\begin{example}
+\label{exa:cauchyDistribution}Let $\probabilityspace$ be a probabiltiy
+space and let $X:\Omega\to\R$ be a random variable whose distribution
+is absolutely continuous with respect to the Lebesgue measure with
+density $f_{X}\left(x\right)=\frac{1}{\pi\left(1+x^{2}\right)}$.
+Note that this is a valid density since 
+\begin{align*}
+\lebInt{\lambda}{\frac{1}{\pi\left(1+x^{2}\right)}} & =\int_{-\infty}^{\infty}\frac{1}{\pi\left(1+x^{2}\right)}\\
+ & =\int_{-\infty}^{0}\frac{1}{\pi\left(1+x^{2}\right)}+\int_{0}^{\infty}\frac{1}{\pi\left(1+x^{2}\right)}\\
+ & =\frac{2}{\pi}\int_{0}^{\infty}\frac{1}{\left(1+x^{2}\right)}\\
+ & =\frac{2}{\pi}\lim_{b\to\infty}\tan^{-1}\left(b\right)-\tan^{-1}\left(0\right)\\
+ & =\frac{2}{\pi}\frac{\pi}{2}\\
+ & =1
+\end{align*}
+where in the third equality we used the the symmetry of the density
+(and hence distribution)\footnote{The symmetry of the distribution of a random variable is an important
+property that characterizes many of the common probability distributions
+we hear about in probability and statistics. For instance, the normal
+distribution, and the uniform distribution, are both symmetric distributions.
+A probability distribution of a random variable $X$ is said to be
+symmetric about $0$ if for any $x\in\R$$:F_{X}(x)=1-F_{X}\left(-x\right).$} and in the fourth the fact that the derivative of $\tan^{-1}\left(x\right)$
+is $\frac{1}{1+x^{2}}$ and the fundamental theorem of calculus. To
+see that the first moment doesn't exist, observe that 
+\begin{align*}
+\mathbb{E}\left[X\right] & =\E\left[X^{+}\right]-\E\left[X^{-}\right]\\
+ & =\int_{0}^{\infty}\frac{x}{\pi\left(1+x^{2}\right)}dx-\int_{0}^{\infty}\frac{x}{\pi\left(1+x^{2}\right)}dx\\
+\end{align*}
+where in the second equality we have used Corollaries \ref{cor:changeOfVariables}
+and \ref{cor:densityIntegral} along with the Radon-Nikodym theorem.
+Thus the expectation is zero if the integral of the parts is finite;
+otherwise it is not defined. To this end, note that 
+\begin{align*}
+\int_{0}^{\infty}\frac{x}{\pi\left(1+x^{2}\right)}dx & =\frac{1}{2\pi}\int_{1}^{\infty}\frac{1}{u}du\\
+ & =\frac{1}{2\pi}\left[\lim_{b\to\infty}\log\left(b\right)-\log\left(1\right)\right]\\
+ & =\infty
+\end{align*}
+which shows that $\E\left[X\right]$ is not defined.
+\end{example}
+
+\begin{example}
+\label{exa:isi2008samplepsb4}Consider the unit interval $(0,1)$
+that is divided into two sub-intervals by picking a \hyperref[subsec:uniformDistribution]{point at random}
+from inside the interval. Denoting by $Y$ and $Z$ the lengths of
+the longer and the shorter sub-intervals respectively, we can show
+that $Y/Z$ does not have finite expectation. Indeed, letting $X$
+be the uniformly distributed random variable in $\left(0,1\right)$,
+we have that 
+\begin{align*}
+\E\left[\frac{Y}{Z}\right] & =\E\left[\frac{1-X}{X}\indicate\left\{ 0\leq X\leq0.5\right\} +\frac{X}{1-X}\indicate\left\{ 0.5\leq X\leq1\right\} \right]\\
+ & =\E\left[\frac{1-X}{X}\indicate\left\{ 0\leq X\leq0.5\right\} \right]+\E\left[\frac{X}{1-X}\indicate\left\{ 0.5\leq X\leq1\right\} \right]\\
+ & =\int_{0}^{0.5}\frac{1-x}{x}dx+\int_{0.5}^{1}\frac{x}{1-x}dx\\
+\end{align*}
+where neither integral is finite.
+\end{example}
+
+The following is an example of a discrete probability distribution
+where the expectation does exist.
+\begin{example}
+\label{exa:isi2007samplepsb6}18 boys and 2 girls are made to stand
+in a line in a random order. Let $X$ be the number of boys standing
+in between the girls. Whati s $P(X=k)$ and $\E(X)$? Appendix \ref{chap:Combinatorics}
+will be useful here. Note that if there are $b$ boys and 2 girls,
+there are $\left(b+2\right)!$ ways to arrange them and $b+2-k-1$
+ways to sandwich $k$ boys between two girls, with $b!$ ways to arrange
+the boys and $g!$ ways to arrange the girls. Therefore
+\begin{align*}
+\P\left(X=k\right) & =\frac{\left(b+2-k-1\right)b!2!}{\left(b+2\right)!}\\
+ & =\frac{b+2-k-1}{\left(b+2\right)!}
+\end{align*}
+ To find the expectation, note that 
+\begin{align*}
+\E\left[X\right] & =\frac{2}{\left(b+2\right)\left(b+1\right)}\sum_{k=0}^{b}k\left(b+2-k-1\right)\\
+ & =\frac{2}{\left(b+2\right)\left(b+1\right)}\sum_{k=1}^{b}k\left(b+1-k\right)\\
+ & =\frac{2}{\left(b+2\right)\left(b+1\right)}\left(\begin{array}{c}
+b+2\\
+3
+\end{array}\right)\\
+ & =\frac{2}{\left(b+2\right)\left(b+1\right)}\frac{b\left(b+1\right)\left(b+2\right)}{6}\\
+ & =\frac{b}{3}
+\end{align*}
+where in the third equality we used Lemma \ref{prop:mdmActivity103}.
+\end{example}
+
+We can characterize \emph{joint }moments of multiple random variables
+just as easily. For instance, the \emph{covariance }of two random
+variables $X$ and $Y$ on the same probability space is simply their
+centered inner product $\Cov\left[X,Y\right]:=\mathbb{E}\left[\left(X-\mathbb{E}\left[X\right]\right)\left(Y-\mathbb{E}\left[Y\right]\right)\right]=\E\left[XY\right]-\E\left[X\right]\E\left[Y\right]$.
+Notice that this is a generalization of the variance which is essentially
+the covariance of a random variable with itself. The bilinearity of
+inner products lends itself very nicely to covariances.
+\begin{example}
+\label{exa:isi2015psb5ptA}Let $\probabilityspace$ be a probability
+space and let $X$ and $Y$ be $\mathcal{L}^{2}$ random variables
+such that $\Var\left[X+Y\right]=3,$ and $\Var\left[X-Y\right]=1$.
+What is $\Cov\left[X,Y\right]$? We use the bilinearity of covariances
+here. Note that $\Var\left[X+Y\right]=\Var\left[X\right]+\Var\left[Y\right]+2\Cov\left[X,Y\right]$
+and $\Var\left[X-Y\right]=\Var\left[X\right]+\Var\left[Y\right]-2\Cov\left[X,Y\right]$.
+Subtracting the two equations yields $\Cov\left[X,Y\right]=\frac{1}{2}$.
+\end{example}
+
+\begin{example}
+\label{exa:isi2006samplepsb6}Let $Y_{1},Y_{2},Y_{3}$ be i.i.d. continuous
+random variables. For $i=1,2$, define $U_{i}$ as 
+\[
+U_{i}=\begin{cases}
+1 & \text{ if }Y_{i+1}>Y_{i},\\
+0 & \text{ otherwise }
+\end{cases}
+\]
+
+What is the mean and variance of $U_{1}+U_{2}$? The key here is that
+the random variables are continuous and so $\P\left(Y_{i}=Y_{i+1}\right)=0$.
+Since then $\P\left(Y_{i}>Y_{i+1}\right)=\P\left(Y_{i}<Y_{i+1}\right)=\frac{1}{2}$,
+we have that $\E\left[U_{1}+U_{2}\right]=\P\left(Y_{2}>Y_{1}\right)+\P\left(Y_{3}>Y_{2}\right)=1$.
+For the variance, note that 
+\begin{align*}
+\Var\left[U_{1}+U_{2}\right] & =\Var\left[U_{1}\right]+\Var\left[U_{2}\right]+2\Cov\left[U_{1},U_{2}\right]\\
+ & =2\left(\E\left[U_{1}^{2}\right]-\E\left[U_{1}\right]^{2}\right)+2\left(\E\left[U_{1}U_{2}\right]-\E\left[U_{1}\right]\E\left[U_{2}\right]\right)\\
+ & =2\left(\frac{1}{2}-\frac{1}{4}\right)+2\left(\frac{1}{6}-\frac{1}{4}\right)\\
+ & =\frac{1}{2}-\frac{1}{6}\\
+ & =\frac{1}{3}.
+\end{align*}
+where in the second equality we have used the fact that $U_{1}$ and
+$U_{2}$ are identically distributed and in the third the fact that
+$\P\left(Y_{3}>Y_{2}>Y_{1}\right)=\frac{1}{6}$ since there are $3!$
+ways to arrange those three random variables.
+\end{example}
+
+The \emph{Pearson correlation coefficient }between $X$ and $Y$,
+is defined 
+\[
+r_{X,Y}:=\frac{\Cov\left[X,Y\right]}{\sqrt{\Var\left[X\right]\Var\left[Y\right]}}
+\]
+which captures the degree of linear association between $X$ and $Y$.
+This plays a large role in the context of linear regression which
+we shall see in Chapter \ref{chap:linearModels}. 
+
+\begin{example}
+\label{exa:isi2004samplepsb1}Suppose two teams play a series of games,
+each producing a winner and a loser, until one team has won two more
+games than the other. Let $G$ be the total number of games played.
+Assume each team has a chance of 0.5 to win each game, independent
+of the results of the previous games. (a) Find the probability distribution
+of $G$. (b) Find the expected value of $G$.
+\end{example}
+
+\begin{sol*}
+Note that for this series to end the last two games have to be won
+by the same time, with the previous games being won alternatively
+by one team and the other. For a series of $n$ games, there are $2^{n}$
+total possible outcomes and only two lead to termination, one where
+team 1 wins the last two games and the previous ones are won alternatingly
+and the other where team 2 wins the last two games etc. Therefore
+$\P\left(G=n\right)=\frac{n}{2^{n-1}}1\indicate\left\{ n\geq2\right\} .$
+Then the expectation is 
+\begin{align*}
+\E\left[G\right] & =\sum_{n=2}^{\infty}\frac{n}{2^{n-1}}
+\end{align*}
+which is arithmo-geometric series that can be shown to converge using
+a ratio test. We can note that for $\lvert x\rvert\leq1$
+\[
+\frac{1}{1-x}=\sum_{n=0}^{\infty}x^{n}
+\]
+and so by the fact that the power series converges uniformly, 
+\[
+\frac{1}{\left(1-x\right)^{2}}=\sum_{n=1}^{\infty}nx^{n-1}
+\]
+where we have interchanged derivatives and limits\hl{Add hyperrefs once differentiation section is complete}.
+Finally, we have 
+\[
+\frac{1}{\left(1-x\right)^{2}}-1=\sum_{n=2}^{\infty}nx^{n-1}.
+\]
+Letting $x=\frac{1}{2}$, we have that 
+\[
+\E\left[G\right]=4-1=3.
+\]
+\end{sol*}
+
+\subsection{Independence of random variables}
+\begin{defn}
+\label{def:indepRandomVariables}Let $\probabilityspace$ be a probability
+space and let $I$ be an arbitrary index set. Random variables $X_{i}:\Omega\to\R$
+where $i\in I$ are independent if $\left\{ \sigma\left(X_{i}\right)\right\} _{i\in I}$
+are mutually independent $\sigma-$algebras.
+
+Note that when $I$ is finite, the existence of finite product measures
+tells us that we can always construct independent random variables
+with distributions identical to $\left\{ X_{i}\right\} _{i\in I}$
+. For infinite products we use the Kolmogorov extension theorem. \hl{TODO: Flesh out}A
+collection of random variables which are independent and have the
+same distribution are called \emph{independent and identically distributed
+}or \emph{i.i.d }for short.
+\end{defn}
+
+\begin{prop}
+\label{prop:indepFunctionsRandomVariables}Let $\probabilityspace$
+be a probability space and let $I$ be an index set. If $X_{i}:\Omega\to\R$
+-- where $i\in I$ -- are independent random variables and $f_{i}:\R\to\R$
+are Borel-measuarable maps then the random variables $f_{i}\left(X_{i}\right)$
+are mutually independent.
+\end{prop}
+
+\begin{proof}
+Note that by Proposition \ref{prop:sigmaAlgebraGeneratedByFunction},
+$\sigma\left(f_{i}\left(X_{i}\right)\right)\subseteq\sigma\left(X_{i}\right)$
+and so $\sigma\left(f_{i}\left(X_{i}\right)\right)$ are all mutually
+independent by definition.
+\end{proof}
+%
+\begin{prop}
+\label{prop:indepCDFFactors}Let $\probabilityspace$ be a probability
+space and let $X$ and $Y$ be random variables. Then $X$ and $Y$
+are independent if and only if 
+\[
+F_{X,Y}\left(x,y\right):=\P\left(X\leq x\cap Y\leq y\right)=\P\left(X\leq x\right)\P\left(Y\leq y\right)=F_{X}\left(x\right)F_{Y}\left(y\right).
+\]
+\end{prop}
+
+\begin{proof}
+One direction of this is trivial. For the non-trivial direction, notice
+that -- by Lemma \ref{lem:collectionIntervalsMeasurable} -- sets
+like $\left(-\infty,x\right]$ can be used to generate $\borel\left(\R\right).$
+Further, observe that the collection is a $\pi-$system, and so by
+Corollary \ref{cor:generatorPreimage}, $\left\{ X^{-1}\left(\left(-\infty,x\right]\right)\right\} _{x\in\R}$
+and $\left\{ Y^{-1}\left(\left(-\infty,y\right]\right)\right\} _{y\in\R}$
+are $\pi-$systems (since intersections and preimages commute) that
+generate $\sigma\left(X\right)$ and $\sigma\left(Y\right)$ , respectively.
+The result then follows by Proposition \ref{prop:indepSigmaAlgebras}.
+\end{proof}
+The generalization of this result to the arbitrary collection of independent
+random variables proceeds in the obvious way.
+\begin{prop}
+\label{prop:indepExpectationFactors}Let $\probabilityspace$ be a
+probabiltiy space and let $X$ and $Y$ be non-negative (or integrable)
+independent random variables. Then,
+\[
+\E\left[XY\right]=\E\left[X\right]\E\left[Y\right].
+\]
+\end{prop}
+
+\begin{proof}
+Note that
+\begin{align*}
+\E\left[XY\right] & =\E_{X,Y}\left[xy\right]\\
+ & =\E_{X}\left[\E_{Y}\left[xy\right]\right]\\
+ & =\E_{X}\left[x\right]\E_{Y}\left[y\right]\\
+ & =\E\left[X\right]\E\left[Y\right]
+\end{align*}
+where in the first equality we have moved to the image measure under
+the random vector $\left(X,Y\right)$ through the standard change
+of variables (Corollary \ref{cor:changeOfVariables}). Then, since
+the image measure under the pair of independent random vectors is
+a product measure, we can use Tonelli/Fubini's theorem to turn it
+into an iterated integral. The final equality is yet another application
+of the change of variables formula.
+\end{proof}
+\begin{example}
+\label{exa:isi2008samplepsb5} Consider the i.i.d. sequence 
+\[
+X_{1},X_{2},X_{3},X_{4},X_{5},X_{6}
+\]
+ where each $X_{i}$ is one of the four symbols $\{a,t,g,c\}$. Further
+suppose that 
+\[
+\begin{array}{ll}
+P\left(X_{1}=a\right)=0.1 & P\left(X_{1}=t\right)=0.2\\
+P\left(X_{1}=g\right)=0.3 & P\left(X_{1}=c\right)=0.4.
+\end{array}
+\]
+
+Let $Z$ denote the random variable that counts the number of times
+that the subsequence cat occurs (i.e. the letters $c,a$ and $t$
+occur consecutively and in the correct order) in the above sequence.
+Find $\E\left[Z\right]$.
+\end{example}
+
+\begin{sol*}
+Let $Y_{i}=\indicate\left\{ X_{i}=c\right\} \indicate\left\{ X_{i+1}=a\right\} \indicate\left\{ X_{i+2}=t\right\} $
+for $1\leq i\leq4$ and notice that $Z=\sum_{i=1}^{4}Y_{i}$ and so
+\begin{align*}
+\E\left[Z\right] & =\sum_{i=1}^{4}\E\left[Y_{i}\right]\\
+ & =\sum_{i=1}^{4}\P\left(X_{i}=c\right)\P\left(X_{i+1}=a\right)\P\left(X_{i+1}=t\right)\\
+ & =4\times0.4\times0.1\times0.2\\
+ & =0.032
+\end{align*}
+where we used independence in the second equality.
+\end{sol*}
+\begin{example}
+\label{exa:isi2005samplepsb2}Let $X$ and $Y$ be independent random
+variables with $X$ having a \hyperref[subsec:binomialDistribution]{binomial distribution}
+with parameters $n_{1}$ and $p_{1}$ and $Y$ having a binomial distribution
+with parameters $n_{2}$ and $p_{2}$. What is the probability that
+$|X-Y|$ is even? Well, we don't need to really worry about the absolute
+value sign since if $X-Y$ is even then $Y-X$ is even. Moreover,
+we know that $X-Y$ is even if and only if either both $X$ and $Y$
+are even or both $X$ and $Y$ are odd. Therefore, formally letting
+$E:=\left\{ 0,2,4,\ldots\right\} $ and $O:=\left\{ 1,3,5,\ldots\right\} $
+\begin{align*}
+\P\left(\lvert X-Y\rvert\in E\right) & =\P\left(X\in E,Y\in E\right)+\P\left(X\in O,Y\in O\right)\\
+ & =\P\left(X\in E\right)\P\left(Y\in E\right)+\P\left(X\in O\right)\P\left(Y\in O\right)\\
+ & =\sum_{l\in E}\left(\begin{array}{c}
+n_{1}\\
+l
+\end{array}\right)p_{1}^{l}\left(1-p_{1}\right)^{n_{1}-l}\sum_{k\in E}\left(\begin{array}{c}
+n_{2}\\
+k
+\end{array}\right)p_{2}^{k}\left(1-p_{2}\right)^{n_{1}-k}\\
+ & \ \ +\sum_{l\in O}\left(\begin{array}{c}
+n_{1}\\
+l
+\end{array}\right)p_{1}^{l}\left(1-p_{1}\right)^{n_{1}-l}\sum_{k\in O}\left(\begin{array}{c}
+n_{2}\\
+k
+\end{array}\right)p_{2}^{k}\left(1-p_{2}\right)^{n_{1}-k}
+\end{align*}
+\end{example}
+
+
+\subsection{Multiple random variables and random vectors}
+
+Most of the results that we have deduced for random variables hold
+\emph{mutis mutandis }for random vectors, although some ideas need
+clarification in this more general context. For instance, the notion
+of a CDF is not immediately
+
+\subsection{Transformations of random variables}
+
+A typical question in basic probability theory is trying to find the
+distribution of some transformation of a collection of random variables.
+More formally, given random variables $X_{1},X_{2},\ldots,X_{n}$,
+on some probability space $\probabilityspace$, we wish to find the
+distribution of $T\left(X_{1},X_{2},\ldots,X_{n}\right)$ where $T:\R^{n}\to\R^{m}$
+is a Borel-measurable map.
+
+\subsubsection{Adding independent random variables}
+
+The simplest transformation we make on a collection of random variables
+is simply adding them. The theory of \hyperref[subsec:convolutions]{convolutions}
+we developed in Chapter \ref{chap:productMeasures} gives us the tools
+to find the distribution of the sum of random variables.
+\begin{prop}
+\label{prop:distSumIndep}Let $\probabilityspace$ be a probability
+space and let $X$ and $Y$ be $\Lp 1{\P}$ (or non-negative) independent
+random variables on the space. Then, the distribution of $Z:=X+Y$
+is given by 
+\[
+\P_{Z}\left(B\right)=\E_{Y}\left[\P_{X}\left(B-y\right)\right].
+\]
+for any $B\in\borel\left(\R\right).$ In particular, the CDF
+\[
+F_{Z}\left(z\right)=\E_{Y}\left[F_{X}\left(z-y\right)\right]
+\]
+\end{prop}
+
+\begin{proof}
+Note that 
+\begin{align*}
+\P_{Z}\left(B\right) & =\E_{Y}\left[\E_{X}\left[\indicate_{B}\left(x+y\right)\right]\right]\\
+ & =\E_{Y}\left[\E_{X}\left[\indicate_{B-y}\left(x\right)\right]\right]\\
+ & =\E_{Y}\left[\P_{X}\left(B-y\right)\right]
+\end{align*}
+ since $x+y\in B\Longleftrightarrow x\in B-y$. Of course, when $B=\left(-\infty,z\right]$
+the result about CDFs follows.
+\end{proof}
+\begin{cor}
+\label{cor:discreteConvolution}Let $\probabilityspace$ be a probability
+space and let $X$ and $Y$ be $\Lp 1{\P}$ (or non-negative) independent
+and discrete random variables supported on some countable set $S$.
+Then, the distribution of $Z:=X+Y$ is given 
+\[
+\P\left(Z=z\right)=\sum_{y\in S}\P\left(Y=y\right)\mathbb{P}\left(X=z-y\right).
+\]
+\end{cor}
+
+\begin{proof}
+Let $B=\left\{ z\right\} $ in Proposition \ref{prop:distSumIndep}.
+\end{proof}
+\begin{example}
+\label{exa:isi2007samplepsb5}Let $X$ and $Y$ be i.i.d. random variables,
+with $P(X=k)=2^{-k}$ for $k=1,2,3,\ldots$ Find $P(X>Y)$ and $P(X>2Y)$.
+The trick here is to define $Z:=X-\alpha Y$ for $\alpha>0$ and note
+that
+\begin{align*}
+\mathbb{P}\left(Z=z\right) & =\sum_{y\in\N}\P\left(Y=y\right)\mathbb{P}\left(X=z+\alpha y\right)\\
+ & =\sum_{y\in\N}2^{-y}2^{-\left(z+\alpha y\right)}\indicate\left\{ z+\alpha y\geq1\right\} \\
+ & =2^{-z}\sum_{y\in\N}2^{-\left(1+\alpha\right)y}\indicate\left\{ y\geq\frac{1-z}{\alpha}\right\} \\
+ & =2^{-z}\sum_{y=\max\left\{ 1,\lceil\frac{1-z}{\alpha}\rceil\right\} }^{\infty}2^{-\left(1+\alpha\right)y}.
+\end{align*}
+For $\alpha=1$, the above reduces to $\P\left(Z=z\right)=\frac{2^{-z}}{3}$
+and so $\P\left(Z\geq0\right)=\sum_{z=0}^{\infty}\frac{2^{-z}}{3}=\frac{2}{3}.$
+If $\alpha=2$ then $\P\left(Z=z\right)=\frac{2^{-z}}{7}$ and so
+$\P\left(Z\geq0\right)=\sum_{z=0}^{\infty}\frac{2^{-z}}{7}=\frac{2}{7}.$
+\end{example}
+
+More often than not, we are dealing with a situation where we are
+adding random variables that are not of the same ``type'', as is
+the case in the following example.
+\begin{example}
+\label{exa:isi2005samplepsb5}Suppose $X$ and $U$ are independent
+random variables with 
+\[
+P(X=k)=\frac{1}{N+1},\quad k=0,1,2,\ldots,N,
+\]
+ and $U$ having a uniform distribution on $[0,1]$. Let $Y=X+U$.
+What is the distribution of $Y$? What is the Pearson correlation
+coefficient $r_{Y,X}$? First note that by Proposition \ref{prop:distSumIndep}
+\begin{align*}
+F_{Y}\left(y\right) & =\E_{X}\left[F_{U}\left(y-x\right)\right]\\
+ & =\E_{X}\left[\left(y-x\right)\indicate\left\{ y-1\leq x\leq y\right\} +\indicate\left\{ x<y-1\right\} \right]\\
+ & =\frac{1}{N+1}\sum_{x=0}^{N}\left(y-x\right)\indicate\left\{ y-1\leq x\leq y\right\} +\frac{1}{N+1}\sum_{x=0}^{N}\indicate\left\{ x<y-1\right\} \\
+ & =\frac{y-\lfloor y\rfloor}{N+1}\indicate\left\{ 0\leq y\leq N+1\right\} +\frac{\lfloor y\rfloor}{N+1}\indicate\left\{ 0\leq y\leq N+1\right\} +\indicate\left\{ y>N+1\right\} \\
+ & =\frac{y}{N+1}\indicate\left\{ 0\leq y\leq N+1\right\} +\indicate\left\{ y>N+1\right\} .
+\end{align*}
+For the correlation between $X$ and $Y$, note that 
+\begin{align*}
+\Cov\left[X+U,X\right] & =\Var\left[X\right]\\
+ & =
+\end{align*}
+and $\Var\left[Y\right]=\Var\left[X\right]+\Var\left[U\right]$ and
+so 
+\[
+r_{X,Y}=\frac{\Var\left[X\right]}{\Var\left[X\right]+\Var\left[U\right]}
+\]
+\end{example}
+
+
+\subsection{Order statistics}
+\begin{example}
+\label{exa:isi2007samplepsb8}Let $U_{1},U_{2},\ldots,U_{n}$ be i.i.d.
+uniform $(0,1)$ random variables and suppose 
+\[
+X=\max\left(U_{1},U_{2},\ldots,U_{n}\right)\text{ and }Y=\min\left(U_{1},U_{2},\ldots,U_{n}\right).
+\]
+
+Find the distribution of $Z=X-Y$. \hl{TODO}
+\end{example}
+
+
+\subsection{Concentration inequalities}
+\begin{example}
+\label{exa:isi2015psb5ptB}Consider the setting in Example \ref{exa:isi2015psb5ptA}
+again. Can we provide a bound for $\E\left[\lvert X+Y\rvert\right]$
+with the additional information that $\mathbb{E}\left[X+Y\right]=\mathbb{E}\left[X-Y\right]=0$?
+Note that in this case $\E\left[X\right]=\E\left[Y\right]=0$ and
+so $\Var\left[X+Y\right]=\E\left[\left(X+Y\right)^{2}\right]=3$ and
+so by \hyperref[thm:jensenInequality]{Jensen's inequality} and the
+fact that $x\to\sqrt{x}$ is concave, we have that
+\[
+\E\left[\lvert X+Y\rvert\right]\leq\sqrt{\E\left[\left(X+Y\right)^{2}\right]}=\sqrt{3}.
+\]
+\end{example}
+
+\begin{example}[ISI 2016 PSA 26]
+\label{exa:isi2016psa26}Two integers $m$ and $n$ are chosen at
+random with replacement from $\{1,2,\ldots,9\}$. What is the probabiliy
+that that $m^{2}-n^{2}$ is even? First note that $m^{2}-n^{2}=\left(m+n\right)\left(m-n\right)$
+so we need to either $m+n$ or $m-n$ to be even. For this to be true,
+both $m$ and $n$ need to be even, or both odd. The probability that
+they are both even is $\frac{4}{9}\times\frac{4}{9}=\frac{16}{81}$
+since sampling with replacement leads to indepenent events. The probability
+that they are both odd is similarly $\frac{5}{9}\times\frac{5}{9}=\frac{25}{81}.$
+Thus the probability that they are either both odd or even is $\frac{16+25}{81}=\frac{41}{81}.$
+\end{example}
+
+\begin{example}
+\label{exa:isi2004samplepsb4}Two policemen are sent to watch a road
+that is $1\mathrm{~km}$ long. Each of the two policemen is assigned
+a position on the road which is chosen according to a uniform distribution
+along the length of the road and independent of the other's position.
+Find the probability that the policemen will be less than $1/4$ kilometer
+apart when they reach their assigned posts.\hl{TODO}
+\end{example}
+
+\begin{example}
+\label{exa:isi2004samplepsb7}Suppose $X$ has a normal distribution
+with mean 0 and variance 25 . Let $Y$ be an independent random variable
+taking values -1 and 1 with equal probability. Define$S=XY+\frac{X}{Y}$
+and$T=XY-\frac{X}{Y}$. (a) Find the probability distribution of $S$.
+(b) Find the probability distribution of $\left(\frac{S+T}{10}\right)^{2}$.\hl{TODO}
+\end{example}
+
+\begin{example}
+\label{exa:isi2006samplepsb3}Let $X_{1},X_{2}\ldots$ be i.i.d. Bernoulli
+random variables with parameter $\frac{1}{4}$, let $Y_{1},Y_{2},\ldots$
+be another sequence of i.i.d. Bernoulli random variables with parameter
+$\frac{3}{4}$ and Let $N$ be a geometric random variable with parameter
+$\frac{1}{2}$ (i. e. $P(N=k)=\frac{1}{2^{k}}$for $k=1,2\ldots)$.
+Assume the $X_{i}$ 's, $Y_{j}$'s and $N$ are all independent. Compute
+$\Cov\left(\sum_{i=1}^{N}X_{i},\sum_{i=1}^{N}Y_{i}\right)$.\hl{TODO}
+%
+\end{example}
+
+

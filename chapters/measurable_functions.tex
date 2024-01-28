@@ -1,0 +1,1598 @@
+
+\chapter{Measurable functions\label{chap:measurableFunctions}}
+
+\section{Limits of sets and their indicator functions}
+
+Before we embark on a general description of measurable functions,
+it's useful to look at a special kind of function: the indicator function
+of a set. These functions are special, because they are essentially
+the building blocks of all important functions in measure theory.
+In fact, indicator functions of sets are the key to linking abstract
+measure theory on one hand, to the theory of integration on the other.
+As we shall later see, this link is actually an equivalence: measures
+and integrals are equivalent objects, and so, in the context of this
+theory, sets and their indicator functions are also in some sense
+equivalent. While the full scope of this equivalence will only become
+salient when we discuss integration, this section will shed some light
+on why we perhaps should expect this \emph{ex-ante}.
+\begin{defn}
+\label{def:indicatorFunction}Let $\mathcal{X}$ be a set and let
+$A\subseteq\mathcal{X}$ be an arbitrary subset. The function 
+\[
+\mathds{1}_{A}:\mathcal{X}\longrightarrow\left\{ 0,1\right\} 
+\]
+defined by
+\[
+\mathds{1}_{A}\left(x\right)=\begin{cases}
+1 & x\in A\\
+0 & x\notin A
+\end{cases}
+\]
+is called the \emph{indicator function }of set $A$.
+\end{defn}
+
+The algebra of sets implies a corresponding Boolean algebra for indicator
+functions.
+\begin{fact}
+\label{fact:indicatorFunctionsFiniteOperations}Let $A,B\subseteq\mathcal{X}$
+be arbitrary and let $\mathds{1}_{A},\mathds{1}_{B}$ be their respective
+indicator functions. Then the indicator function of the set $C:=A\cup B$
+is given by
+\[
+\mathds{1}_{C}=\max\left\{ \mathds{1}_{A},\mathds{1}_{B}\right\} =\mathds{1}_{A}+\mathds{1}_{B}-\mathds{1}_{A}\mathds{1}_{B}
+\]
+where the maximum is taken pointwise. Similarly, the indicator function
+for set $D:=A\cap B$ is given by
+\[
+\mathds{1}_{D}=\min\left\{ \mathds{1}_{A},\mathds{1}_{B}\right\} =\mathds{1}_{A}\mathds{1}_{B}.
+\]
+The indicator function for $A^{C}$ is given by
+\[
+\mathds{1}_{A^{C}}=1-\mathds{1}_{A}.
+\]
+\end{fact}
+
+Note that if $A,B$ are disjoint, then the indicator function of their
+union is simply the sum of their individual indicators, i.e.
+\[
+\mathds{1}_{A\cup B}=\mathds{1}_{A}+\mathds{1}_{B}.
+\]
+We can extend these facts to describe indicator functions of arbitrary
+unions and intersections of sets in the obvious way
+\begin{prop}
+\label{prop:indicatorFunctionsArbitraryOperations}Let $\mathcal{I}$
+be an arbitrary index set and let $\left\{ A_{i}\right\} _{i\in\mathcal{I}}\subseteq\mathcal{X}$
+be subsets with indicator functions $\left\{ \mathds{1}_{A_{i}}\right\} _{i\in\mathcal{I}}$.
+Then, the indicator function for $B:=\bigcup_{i\in\mathcal{I}}A_{i}$
+is given by
+\[
+\mathds{1}_{B}=\sup_{i\in\mathcal{I}}\mathds{1}_{A_{i}}
+\]
+where the supremum is taken pointwise. Similarly, the indicator function
+for $C:=\bigcap_{i\in\mathcal{I}}A_{i}$ is given by
+\[
+\mathds{1}_{C}=\inf_{i\in\mathcal{I}}\mathds{1}_{A_{i}}.
+\]
+\end{prop}
+
+\begin{proof}
+We provide the argument for $B$; the argument for $C$ is analagous.
+Observe that
+\begin{align*}
+\mathds{1}_{B}\left(x\right)=1 & \Longleftrightarrow x\in\bigcup_{i\in\mathcal{I}}A_{i}\\
+ & \Longleftrightarrow x\in A_{i_{0}}\textrm{ for some }i_{0}\in\mathcal{I}\\
+ & \Longleftrightarrow\mathds{1}_{A_{i_{0}}}=1\text{ for some }i_{0}\in\mathcal{I}\\
+ & \Longleftrightarrow\sup_{i\in\mathcal{I}}\mathds{1}_{A_{i}}=1
+\end{align*}
+which completes the argument.
+\end{proof}
+These arguments appear to be rather pedantic, but they are key to
+defining limiting operations on sets. With a background in undergraduate
+calculus, it can be quite cumbersome to think of a sequence of sets
+converging to another set. However, it is quite straightforward to
+imagine the pointwise convergence of a sequence of \emph{indicator
+functions }of sets. For example, we have what appears to be a fairly
+daunting definition for the limit of a sequence of sets.
+\begin{defn}
+\label{def:limSupInfSets} Let $\left\{ A_{i}\right\} _{i\in\N}$
+be a sequence of sets in $2^{\mathcal{X}}$. Then the limit superior
+of the sequence is given by
+\[
+\limsup_{n\to\infty}A_{n}:=\bigcap_{n=1}^{\infty}\bigcup_{i=n}^{\infty}A_{i}.
+\]
+Similarly, the limit inferior of the sequence is given by
+\[
+\liminf_{n\to\infty}A_{n}:=\bigcup_{n=1}^{\infty}\bigcap_{i=n}^{\infty}A_{i}.
+\]
+If $\limsup_{n\to\infty}A_{n}=\liminf_{n\to\infty}A_{n}$ then the
+limit of the sequence is defined and is equal to the limit superior
+and inferior i.e.
+\[
+\lim_{n\to\infty}A_{n}:=\limsup_{n\to\infty}A_{n}=\liminf_{n\to\infty}A_{n}.
+\]
+
+While these definitions appear arbitrary, they demarcate important
+concepts in both analysis and probability. To unpack the intuition,
+let's try to understand what it means for an element $x\in\mathcal{X}$
+to be in $\limsup_{n\to\infty}A_{n}$. If $x\in\bigcap_{n=1}^{\infty}\bigcup_{i=n}^{\infty}A_{i}$,
+then $x\in\bigcup_{i=n}^{\infty}A_{i}$ for every $n\in\N$. That
+it is to say, for any $n\in\N$, there exists an $i\geq n$ such that
+$x\in A_{i}$. This essentially says that $x$ is in infinitely many
+of the sets $\left\{ A_{i}\right\} _{i\in\N}$. In the language of
+probability, the event $\limsup_{n\to\infty}A_{n}$ is the event of
+outcomes that occur infinitely often in the collection of events $\left\{ A_{i}\right\} _{i\in\N}.$
+
+On the other hand, if $x\in\liminf_{n\to\infty}A_{n},$then there
+exists some $n_{0}\in\N$ such that $x\in A_{i}$ for every $i\geq n_{0}$.
+Clearly then, $\liminf_{n\to\infty}A_{n}\subseteq\limsup_{n\to\infty}A_{n}$
+which mirrors the domination condition for limit superiors and inferiors
+of sequences of real numbers or real functions. So when does equality
+hold? Note that if $\left\{ A_{i}\right\} _{i\in\N}$ is an increasing
+sequence of sets
+\begin{align*}
+\limsup_{n\to\infty}A_{n} & =\bigcap_{n=1}^{\infty}\bigcup_{i=n}^{\infty}A_{i}\\
+ & =\bigcap_{n=1}^{\infty}\bigcup_{i=1}^{\infty}A_{i}\\
+ & =\bigcup_{i=1}^{\infty}A_{i}\\
+ & =\bigcup_{i=1}^{\infty}\bigcap_{n=i}^{\infty}A_{n}\\
+ & =\liminf_{i\to\infty}A_{i}
+\end{align*}
+where the second and fourth equalitiies follow from the increasing
+nature of the sets $A_{i}$. This shows that the continuity from below
+condition described in Proposition \ref{prop:measureProperties} is
+in fact bona-fide continuity. After developing the theory of integration,
+we will (seemingly) generalize this continuity result to measurable
+functions in the form of the famous \hyperref[thm:monotoneConvergenceLebInt]{\emph{monotone convergence theorem}}
+. Of course, once we know that measures and integrals are essentially
+the same objects, it will be clear that continuity from below and
+monotone convergence are two sides of the same coin. While this result
+is better known in it's integral formulation, there's another result
+that is perhaps better known in its measure-theoretic formulation:
+the Borel-Cantelli lemma.
+\end{defn}
+
+\begin{thm}[First Borel-Cantelli lemma]
+\label{thm:borelCantelli}Let $\left(\mathcal{X},\mathcal{F},\mu\right)$
+be an arbitrary measure space and let $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{F}$
+be a sequence of sets. If
+\[
+\sum_{i=1}^{\infty}\mu\left(A_{i}\right)<\infty
+\]
+then
+\[
+\mu\left(\limsup_{i\to\infty}A_{i}\right)=0.
+\]
+\end{thm}
+
+\begin{proof}
+Define by $B_{n}:=\bigcup_{i=n}^{\infty}A_{i}$. It's clear that $\left\{ B_{n}\right\} _{n\in\N}$
+is a decreasing sequence of sets. More over $\mu\left(B_{1}\right)=\mu\left(\bigcup_{i\in\N}A_{i}\right)\leq\sum_{i=1}^{\infty}\mu\left(A_{i}\right)<\infty$
+by \hyperref[cor:countableSubadditivity]{subadditivity} and so, since
+$\mu$ is finite on $\left\{ B_{n}\right\} _{n\in\N}$, we can apply
+Propositions \ref{prop:measureProperties} and \ref{prop:equivalenceContinuityMeasures}
+to establish
+\begin{align*}
+\mu\left(\bigcap_{n=1}^{\infty}B_{n}\right) & =\lim_{n\to\infty}\mu\left(B_{n}\right)\\
+ & =\lim_{n\to\infty}\text{\ensuremath{\mu\left(\bigcup_{i=n}^{\infty}A_{i}\right)}}\\
+ & \leq\lim_{n\to\infty}\sum_{i=n}^{\infty}\mu\left(A_{i}\right)\\
+ & =\lim_{n\to\infty}\left[\sum_{i=1}^{\infty}\mu\left(A_{i}\right)-\sum_{i=1}^{n-1}\mu\left(A_{i}\right)\right]\\
+ & =0
+\end{align*}
+where the inequality follows from subadditivity and the last equality
+is due to the the assumption that $\sum_{i\in\N}\mu\left(A_{i}\right)<\infty$
+along with the fact that a sequence and its tail have the same limit.
+\end{proof}
+\begin{rem*}
+This version of the Borel-Cantelli lemma is sometimes called the \emph{first
+}Borel-Cantelli lemma since its converse, which is true under certain
+conditions, is also called the Borel-Cantelli lemma in the literature.
+To prevent ambiguity, we refer to the conversee result as the \emph{second
+}Borel-Cantelli lemma. The second Borel-Cantelli lemma uses the probabilistic
+concept of independence which is the topic of Chapter 7 and as such,
+we will relegate the discussion of the second Borel-Cantelli lemma
+to when we formally delve into probabiility theory in the second part
+of these notes.
+\end{rem*}
+By now you should be sufficiently convinced that our definitions of
+the limiting behavior sets indeed make sense. However, if you any
+doubts, our treatment of indicator functions should help resolve them
+completely
+\begin{prop}
+\label{prop:limSupInfIndicator}Let $\left\{ A_{i}\right\} _{i\in\N}$
+be a collection of subsets of $\mathcal{X}$ and let $\left\{ \indicate_{A_{i}}\right\} _{i\in\N}$
+be their corresponding indicator functions. Then
+\[
+\limsup_{n\to\infty}\indicate_{A_{n}}=\indicate_{\limsup_{n\to\infty}A_{n}}
+\]
+and
+\[
+\liminf_{n\to\infty}\indicate_{A_{n}}=\indicate_{\liminf_{n\to\infty}A_{n}}.
+\]
+\end{prop}
+
+\begin{proof}
+We prove the first assertion as the second one follows by the same
+argument. Note that
+\begin{align*}
+\limsup_{n\to\infty}\indicate_{A_{n}} & =\inf_{n\in\N}\left\{ \sup_{i\geq n}\indicate_{A_{i}}\right\} \\
+ & =\inf_{n\in\N}\left\{ \indicate_{\bigcup_{i\geq n}A_{i}}\right\} \\
+ & =\indicate_{\bigcap_{n\in\N}\bigcup_{i\geq n}A_{i}}\\
+ & =\indicate_{\limsup_{n\to\infty}A_{n}}
+\end{align*}
+where the second and third equalities follow by Proposition \ref{prop:indicatorFunctionsArbitraryOperations}.
+\end{proof}
+By now, you should have begun to appreciate that indicator functions
+are essentially functional equivalents of the sets they indicate:
+sets and their indicator functioins are just two representations of
+the same object. This is not particularly suprising, given that sets
+are defined by their membership and indicator functions describe membership.
+In this context, it should then not be suprising that indicator functions
+of \emph{measurable sets }are \emph{measurable functions},\emph{ }even
+though we have not yet described the latter concept yet. This is indeed
+true, and moreover, any non-negative measurable function can be built
+by taking a limit of a linear combination of indicators of sets. But
+before we can show this, we should first define what a measurable
+function is!
+\begin{defn}
+\label{def:measurableFunction}Let $\left(\X,\mathcal{F}\right)$
+and $\left(\mathcal{Y},\mathcal{G}\right)$ be two measurable spaces.
+A function 
+\[
+f:\mathcal{X}\longrightarrow\mathcal{Y}
+\]
+is called \emph{$\mathcal{F}/\mathcal{G}-$measurable }if for any
+$G\in\mathcal{G}$
+\[
+f^{-1}\left[G\right]\in\mathcal{F}.
+\]
+\end{defn}
+
+\begin{rem*}
+This definition also resembles a continuity condition; indeed, if
+$\mathcal{F}$ and $\mathcal{G}$ were topologies rather than $\sigma-$algebras,
+this would be the definition of a continuous function. It turns out
+that if $\mathcal{F}$ and $\mathcal{G}$ are Borel $\sigma-$algebras,
+then continuity implies measurability: this is a fact that we establish
+in the next section. Moreover, all measurable functions are in some
+sense \emph{almost }continuous: we make this notion precise when we
+discuss the deep connections between topology and measure theory in
+Appendix A.
+\end{rem*}
+Later in these notes, we will stop writing $\mathcal{F}/\mathcal{G}$
+explicitly and let the reader infer the $\sigma-$algebras in play
+from the context.
+
+\section{Properties of measurable functions}
+
+Armed with our definition of measurable functions, we are ready to
+discuss interesting examples of such functions along with their properties.
+First, we establish that the measurability of a sets and its indicator
+function is indeed equivalent, as we had guessed earlier
+\begin{prop}
+\label{prop:measurableSetsFunctions}Let $\left(\X,\mathcal{F}\right)$
+be a measurable space. Then for any $A\subseteq\mathcal{X}$, $A$
+is measurable (i.e. $A\in\mathcal{F}$) if and only if 
+\[
+\indicate_{A}:\mathcal{X}\longrightarrow\left\{ 0,1\right\} 
+\]
+is $\mathcal{F}/2^{\left\{ 0,1\right\} }-$measurable.
+\end{prop}
+
+\begin{proof}
+First assume that $A\in\mathcal{F}$ and observe that if $B=\left\{ 0,1\right\} $
+then $\indicate_{A}^{-1}\left[B\right]=\X\in\mathcal{F}$, if $B=\{1\}$
+then $\indicate_{A}^{-1}\left[B\right]=A\in\mathcal{F}$, if $B=\left\{ 0\right\} $
+then $\indicate_{A}^{-1}\left[B\right]=A^{C}\in\mathcal{F}$, and
+if $B=\emptyset$ then $\indicate_{A}^{-1}\left[B\right]=\emptyset\in\mathcal{F}$.
+
+Conversely, assume that $\indicate_{A}$ is measurable and notice
+how $A=f^{-1}\left[\left\{ 1\right\} \right]\in\mathcal{F}$ which
+completes the proof.
+\end{proof}
+\begin{cor}
+\label{cor:borelMeasurableSetsFunctions}Let $\left(\X,\F\right)$
+be a measurable space. For any $A\subseteq\X$, $A\in\F$ if and only
+if
+\[
+\indicate_{A}:\X\longrightarrow\R
+\]
+is $\F/\borel\left(\R\right)-$measurable.
+\end{cor}
+
+\begin{proof}
+First assume that $A\in\F$ and observe that for any set $B\in\borel\left(\R\right)$
+\begin{align*}
+\indicate_{A}^{-1}\left[B\right] & =\indicate_{A}^{-1}\left[\left(B\setminus\left\{ 0,1\right\} \right)\bigcup\left(B\cap\left\{ 0,1\right\} \right)\right]\\
+ & =\indicate_{A}^{-1}\left[B\setminus\left\{ 0,1\right\} \right]\bigcup\indicate_{A}^{-1}\left[B\cap\left\{ 0,1\right\} \right]\\
+ & =\indicate_{A}^{-1}\left[B\cap\left\{ 0,1\right\} \right]\in\F
+\end{align*}
+where the second equality follows by the property of preimages and
+the last equality follows by the fact that $\indicate_{A}^{-1}\left[B\setminus\left\{ 0,1\right\} \right]=\emptyset$.
+The inclusion on the last line then is a consequence of Proposition
+\ref{prop:measurableSetsFunctions}.
+
+Conversely, assume that $\indicate_{A}$ is measurable and observe
+that since $\left\{ 1\right\} \in\borel\left(\R\right)$, the results
+follows trivially.
+\end{proof}
+In this case, measurability of our function was easy to establish
+because the $\sigma-$algebra $2^{\left\{ 0,1\right\} }$ could be
+explicitly enumerated. Generally, this is not possible as $\sigma-$algebras
+can be extremely large. Nevertheless, it is possible establish measurability
+using a smaller class of sets in the target $\sigma-$algebra; this
+is the crux of generating class arguments which we discusss more abstractly
+in the next section. Even the simplest of such arguments can be quite
+powerful, as we shall see with the following result.
+\begin{thm}[Generic generating class argument]
+\label{thm:genericGeneratingClassArgument}Let $\left(\X,\mathcal{F}\right)$
+and $\left(\mathcal{Y},\mathcal{G}\right)$ be measurable spaces and
+let $\mathcal{E}\subseteq\mathcal{G}$ be a collection of sets such
+that $\sigma\left(\mathcal{E}\right)=\mathcal{G}.$ A function
+\[
+f:\X\longrightarrow\mathcal{Y}
+\]
+is $\mathcal{F}/\mathcal{G}-$measurable if and only if 
+\[
+f^{-1}\left[E\right]\in\mathcal{F}
+\]
+for every $E\in\mathcal{E}.$
+\end{thm}
+
+\begin{proof}
+If $f$ is measurable, then by definition, $f^{-1}\left[E\right]\in\mathcal{F}$
+for every $E\in\mathcal{E}$ since $\mathcal{E}\subseteq\mathcal{G}$.
+Conversely, suppose that $f^{-1}\left[E\right]\in\mathcal{F}$ for
+every $E\in\mathcal{E}$ and define 
+\[
+\mathcal{D}=\left\{ G\in\mathcal{G}\mid f^{-1}\left[G\right]\in\mathcal{F}\right\} .
+\]
+By assumption, $\mathcal{E}\subseteq\mathcal{D}$ and with a little
+effort we can show that $\mathcal{D}$ is in fact a $\sigma-$algebra,
+which then shows that $\mathcal{G}=\sigma\left(\mathcal{E}\right)\subseteq\sigma\left(\mathcal{D}\right)=\mathcal{D}.$
+First, it is clear that $\emptyset\in\mathcal{D}$ as $f^{-1}\left[\emptyset\right]=\emptyset\in\mathcal{F}$.
+Next, for any $A\in\mathcal{D}$, observe that $f^{-1}\left[A^{c}\right]=\left(f^{-1}\left[A\right]\right)^{C}\in\mathcal{F}$
+since $\mathcal{F}$ is a $\sigma-$algebra. Finally, for any collection
+$\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{D},$ $f^{-1}\left[\bigcup_{i\in\N}A_{i}\right]=\bigcup_{i\in\N}f^{-1}\left[A_{i}\right]\in\mathcal{F}$
+again because $\mathcal{F}$ is a $\sigma-$algebra. This completes
+the proof.
+\end{proof}
+Now we can show that continuous functions between two spaces equipped
+with Borel $\sigma-$algebras are indeed measurable.
+\begin{cor}
+\label{cor:continuousFunctionsAreMeasurable}Let $\left(\X,\borel\left(\X\right)\right)$
+and $\left(\mathcal{Y},\borel\left(\mathcal{Y}\right)\right)$ be
+measurable spaces and let 
+\[
+f:\mathcal{X}\longrightarrow\mathcal{Y}
+\]
+be continuous. Then $f$ is $\borel\left(\X\right)/\borel\left(\mathcal{Y}\right)-$measurable.
+\end{cor}
+
+\begin{proof}
+Let $\mathcal{O}_{\mathcal{Y}}$ be the topology on $\mathcal{Y}$.
+By definition
+\[
+\sigma\left(\mathcal{O}_{\mathcal{Y}}\right)=\borel\left(\mathcal{Y}\right)
+\]
+and by continuity, for any open set $O\in\mathcal{O}_{\mathcal{Y}}$
+\[
+f^{-1}\left[O\right]\in\mathcal{O}_{\mathcal{X}}\subseteq\borel\left(\X\right)
+\]
+where $\mathcal{O}_{\mathcal{X}}$ is the topology on $\X$. Thus
+by Theorem \ref{thm:genericGeneratingClassArgument}, $f$ is measurable.
+\end{proof}
+Next we can use the generic generating class argument to establish
+routine properties of measurable functions. First, we prove the following
+useful lemma, which is an important property on its own.
+\begin{lem}
+\label{lem:compositionMeasurableFunctions}Let $\left(\X,\mathcal{F}\right),\left(\mathcal{Y},\mathcal{G}\right),$
+and $\left(\mathcal{Z},\mathcal{H}\right)$ be measurable spaces.
+If the functions
+\begin{align*}
+f & :\X\longrightarrow\mathcal{Y}\\
+g & :\mathcal{Y}\longrightarrow\mathcal{Z}
+\end{align*}
+are $\mathcal{F}/\mathcal{G}$ and $\mathcal{G}/\mathcal{H}-$measurable
+respectively, then the composition function $\phi:=f\circ g$ is $\mathcal{F}/\mathcal{H}-$measurable.
+\end{lem}
+
+\begin{proof}
+Let $H\in\mathcal{H}$ be arbitrary and note that
+\begin{align*}
+\phi^{-1}\left[H\right] & =f^{-1}\left[g^{-1}\left[H\right]\right]\\
+ & =f^{-1}\left[G\right]\\
+ & =F\in\mathcal{F}
+\end{align*}
+where $G:=g^{-1}\left[H\right]\in\mathcal{G}$ since $g$ is measurable.
+\end{proof}
+\begin{prop}
+\label{prop:binaryOperationsMeasurableFunctions} Let $\left(\X,\mathcal{F}\right)$
+be a measurable space and let $f,g$ be real-valued Borel-measurable
+functions on $\X$; that is $f,g:\X\longrightarrow\R$ and are $\mathcal{F}/\borel\left(\R\right)-$measurable.
+Define $T:\X\longrightarrow\R^{2}$ as
+\[
+T\left(x\right):=\left(\begin{array}{c}
+f\left(x\right)\\
+g\left(x\right)
+\end{array}\right)
+\]
+where $\R^{2}$ is equipped with its Borel $\sigma-$algebra $\borel\left(\R^{2}\right).$
+Finally, let the function $\psi:\R^{2}\longrightarrow\R$ be continuous
+with respect to the standard topologies. Then the function 
+\begin{align*}
+h & :=\psi\circ T:\X\longrightarrow\R
+\end{align*}
+is Borel measurable.
+\end{prop}
+
+\begin{proof}
+First, note that by Corollary \ref{cor:continuousFunctionsAreMeasurable}
+and Lemma \ref{lem:compositionMeasurableFunctions}, we only need
+to prove the measurability of $T$ in order to deduce the measurability
+of $h$. Let $R$ be an open rectangle in $\R^{2}$ i.e. $R=I_{1}\times I_{2}$
+where
+\[
+I_{j}=\left(a_{j},b_{j}\right)
+\]
+for $a_{j}>b_{j}\in\R$. Then consider 
+\begin{align*}
+T^{-1}\left[R\right] & =\left\{ x\in\X\mid T\left(x\right)\in R\right\} \\
+ & =\left\{ x\in\X\mid\left(f\left(x\right),g\left(x\right)\right)\in I_{1}\times I_{2}\right\} \\
+ & =\left\{ x\in\X\mid f\left(x\right)\in I_{1}\text{ and }g\left(x\right)\in I_{2}\right\} \\
+ & =\left\{ x\in\X\mid f\left(x\right)\in I_{1}\right\} \bigcap\left\{ x\in\X\mid g\left(x\right)\in I_{2}\right\} \\
+ & =f^{-1}\left[I_{1}\right]\bigcap g^{-1}\left[I_{2}\right]\in\mathcal{F}
+\end{align*}
+due to the measurability of $f,g$ and the fact that $\sigma-$algebras
+are closed under intersection.
+
+Let $\mathcal{R}$ denote the collection of all open rectanges in
+$\R^{2}$. Since $\mathcal{R}$ is a subset of all open sets in $\R^{2}$,
+we know that $\sigma\left(\mathcal{R}\right)\subseteq\borel\left(\R^{2}\right).$
+To deduce the converse inclusion, recall that a small modification
+of Lemma \ref{lem:openSetDisjointUnionInterval} will show that any
+open set in $\R^{2}$ can be written as a countable union of disjoint
+sets in $\mathcal{R}$ i.e. for any open set $O\subseteq\R^{2}$
+\[
+O=\bigcup_{i\in\N}R_{i}
+\]
+where $R_{i}\in\mathcal{R}.$ This implies that $O\in\sigma\left(\mathcal{R}\right)$
+and so $\borel\left(\R^{2}\right)\subseteq\sigma\left(\mathcal{R}\right).$
+Applying a \hyperref[thm:genericGeneratingClassArgument]{generating class argument}
+with $\mathcal{R}$ then shows that $T$ is measurable.
+\end{proof}
+\begin{cor}
+\label{cor:examplesBinaryOpsMeasFunc}For any real-valued Borel-measurable
+functions $f,g$ on $\left(\X,\mathcal{F}\right)$, the following
+functions are also measurable
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $ h(x) := f(x) + g(x) $
+	\item $ h(x) := f(x)g(x) $
+	\item $ h(x) := f(x)/g(x)\ \mathrm{where} \ g(x)\neq 0 $
+\end{enumerate}
+\end{cor}
+
+\begin{proof}
+For (i), let $\psi\left(x,y\right):=x+y$ (which is a continuous function)
+and apply Proposition \ref{prop:binaryOperationsMeasurableFunctions}.
+The other cases are simiilar.
+\end{proof}
+So we know that measurabiltiy is preserved under addition and multiplication,
+but the principal concept in analysis is the limit, and we would like
+measurability of functions to be preserved under limiting operations.
+The following results help us establish that measurability of real-valued
+functions is indeed preserved under pointwise limits, when one exists.
+\begin{lem}
+\label{lem:collectionIntervalsMeasurable}The following sets are generating
+classes for $\borel\left(\R\right):$
+\[
+\left\{ \left(a,\infty\right)\mid\forall a\in\R\right\} ,\ \left\{ \left[a,\infty\right)\mid\forall a\in\R\right\} ,\ \left\{ \left(-\infty,b\right)\mid\forall b\in\R\right\} ,\ \left\{ \left(-\infty,b\right]\mid\forall a\in\R\right\} .
+\]
+\end{lem}
+
+\begin{proof}
+\hyperref[prop:sigmaAlgebraGeneratedbyLisBorel]{Recall} that the
+collection of half-open intervals $\mathcal{L}=\left\{ \left(a,b\right]\mid-\infty<a\leq b<\infty\right\} $
+is a generating class for $\borel\left(\R\right).$ Observe that for
+any $a\leq b\in\R$,
+\[
+\left(a,b\right]=\bigcap_{n\in\N}\left(\left(a,\infty\right)\cap\left(b+\frac{1}{n},\infty\right)\right)
+\]
+and so $\mathcal{L}\subseteq\sigma\left(\left\{ \left(a,\infty\right)\mid\forall a\in\R\right\} \right)$
+which implies that $\borel\left(\R\right)\subseteq\sigma\left(\left\{ \left(a,\infty\right)\mid\forall a\in\R\right\} \right).$
+To see the reverse inclusion, note that for any $a\in\R$
+\[
+\left(a,\infty\right)=\bigcup_{b\in\N}\left(a,b\right]
+\]
+which shows that $\sigma\left(\left\{ \left(a,\infty\right)\mid\forall a\in\R\right\} \right)\subseteq\borel\left(\R\right)$.
+The other sets can be shown to be generators in a similar fashion.
+\end{proof}
+\begin{prop}
+\label{prop:supInfMeasurable}For a sequence of real-valued Borel-measurable
+functions $\left\{ f_{n}\right\} _{n\in\N}$ on $\left(\X,\mathcal{F}\right)$,
+the functions
+\[
+g:=\sup_{n\in\N}f_{n}
+\]
+and 
+\[
+h:=\inf_{n\in\N}f_{n}
+\]
+are $\mathcal{F}/\borel\left(\overline{\R}\right)$ measurable where
+$\overline{\R}$ represents the extended real line.
+\end{prop}
+
+\begin{proof}
+Let $a\in\R$ be arbitrary. Note that the set
+\[
+g^{-1}\left[\left(a,\infty\right)\right]=\left\{ x\in\X\mid g\left(x\right)>a\right\} =\bigcup_{n\in\N}\left\{ x\in\X\mid f_{n}\left(x\right)>a\right\} =\bigcup_{n\in\N}f_{n}^{-1}\left[\left(a,\infty\right)\right]
+\]
+since if $g\left(x\right)>a$ then there's at least one $n\in\N$
+such that $f_{n}\left(x\right)>a$. Note that by the measurability
+of $f_{n}$, $f_{n}^{-1}\left[\left(a,\infty\right)\right]\in\mathcal{F}$
+for every $n\in\N.$ Since $\mathcal{F}$ is a $\sigma-$algebra,
+$g^{-1}\left[\left(a,\infty\right)\right]\in\mathcal{F}$ by closure
+under countable unions. This establishes the measurability of $g$
+by Lemma \ref{lem:collectionIntervalsMeasurable}. A similar argument
+establishes the measurability of $h$.
+\end{proof}
+\begin{cor}
+\label{cor:limSupLimInfMeasurable}For a sequence of real-valued Borel-measurable
+functions $\left\{ f_{n}\right\} _{n\in\N}$ on $\left(\X,\mathcal{F}\right)$,
+the functions
+\[
+g:=\limsup_{n\to\infty}f_{n}
+\]
+and 
+\[
+h:=\liminf_{n\to\infty}f_{n}
+\]
+are measurable (provided they exist) and if $h=g$ then 
+\[
+\lim_{n\to\infty}f_{n}=h=g
+\]
+is measurable.
+\end{cor}
+
+\begin{proof}
+Recall that 
+\[
+g=\limsup_{n\to\infty}f_{n}=\inf_{n\in\N}\left\{ \sup_{k\geq n}f_{k}\right\} 
+\]
+and apply Proposition \ref{prop:supInfMeasurable}. The other results
+follow in the same fashion.
+\end{proof}
+Of course, we are often more interested in establishing the measurability
+of vector-valued function i.e functions whose range is some subset
+of the Euclidean space $\R^{n}$. This limit theorems for real-valued
+functions proved here extend naturally to arbitrary finite dimensional
+spaces.
+\begin{prop}
+Let $\left(\X,\mathcal{F}\right)$ be a measurable space and let the
+sequence of functions $\left\{ f_{m}\right\} _{m\in\N}$
+\[
+f_{m}:\X\longrightarrow\R^{n}
+\]
+be $\mathcal{F}/\borel\left(\R^{n}\right)-$measurable. The pointwise
+limit function $f:=\lim_{m\to\infty}f_{m}$ (if it exists) is $\mathcal{F}/\borel\left(\R^{n}\right)-$measurable
+if and only if the projection functions $f_{1},\ldots,f_{n}$ are
+$\mathcal{F}/\borel\left(\R\right)-$measurable.
+\end{prop}
+
+\begin{proof}
+First assume that the projections $f_{1},\ldots,f_{n}$ are measurable.
+Then, applying the same proof we used to prove the measurability of
+the function $T$ in Proposition \ref{prop:binaryOperationsMeasurableFunctions},
+we have that
+\[
+f=\left(\begin{array}{c}
+f_{1}\\
+\vdots\\
+f_{n}
+\end{array}\right)
+\]
+is measurable.
+
+Conversely, suppose that $f$ is measurable, then recall that the
+projection functions $\pi_{k}:\R^{n}\longrightarrow\R$ given by
+\[
+\pi_{k}\left(\begin{array}{c}
+x_{1}\\
+\vdots\\
+x_{k}\\
+\vdots\\
+x_{n}
+\end{array}\right)=x_{k}
+\]
+is a continuous function and hence measurable for any $1\leq k\leq n$.
+Applying Lemma \ref{lem:compositionMeasurableFunctions}, we have
+that $f_{k}=\pi_{k}\circ f$ is measurable for any $1\leq k\leq n.$
+\end{proof}
+In general, it appears that a measurability is preserved under a wide
+range of operations on functions. Additionally, the richness of commonly
+seen $\sigma-$algebras makes it the case that almost all functions
+we encounter in everyday mathematics are measurable. This heuristic
+is a fine one, but it begs the question: precisely how rich does the
+$\sigma-$algebra of the domain have to be for a given function to
+be measurable? This has a relatively straightforward answer.
+\begin{prop}
+\label{prop:sigmaAlgebraGeneratedByFunction}Let $\X$ be a set and
+let $\left(\mathcal{Y},\mathcal{G}\right)$ be a measurable space.
+Let
+\[
+T:\X\longrightarrow\mathcal{Y}
+\]
+be a function. Then the ``smallest'' $\sigma-$algebra on $\mathcal{X}$
+that makes $T$ measurable is 
+\[
+\sigma\left(T\right):=\left\{ T^{-1}\left[G\right]\mid G\in\mathcal{G}\right\} .
+\]
+That is, $\sigma\left(T\right)$ is the intersecion of all $\sigma-$algebras
+on $\mathcal{X}$ that makes T measurable.
+\end{prop}
+
+\begin{proof}
+Let $\mathcal{R}$ be the collection of all $\sigma-$algebras on
+$\X$ that makes $T$ measurable. Clearly, $\sigma\left(T\right)\subseteq R$
+for every $R\in\mathcal{\mathcal{R}}$ by the definition of measurability.
+Thus 
+\[
+\sigma\left(T\right)\subseteq\bigcap_{R\in\mathcal{R}}R
+\]
+and so all we have to do is show that $\sigma\left(T\right)\in\mathcal{\mathcal{R}}$
+to show the reverse inclusion. To do this, we simply show that $\sigma\left(T\right)$
+is a $\sigma-$algebra.
+
+Note that $\emptyset=T^{-1}\left[\emptyset\right]\in\sigma\left(T\right).$
+Next, let $A\in\sigma\left(T\right)$ be arbitrary and observe that
+$A=T^{-1}\left[G\right]$ for some $G\in\mathcal{G}$. Then $A^{C}=\left(T^{-1}\left[G\right]\right)^{C}=T^{-1}\left[G^{C}\right]\in\sigma\left(T\right)$
+as $G^{C}\in\mathcal{G}$ since $\mathcal{G}$ is a $\sigma-$algebra.
+Finally, suppose $\left\{ A_{i}\right\} _{i\in\N}\in\sigma\left(T\right)$
+and note that $A_{i}=T^{-1}\left[G_{i}\right]$ for $G_{i}\in\mathcal{G}$
+and so
+\[
+\bigcup_{i\in\N}A_{i}=\bigcup_{i\in\N}T^{-1}\left[G_{i}\right]=T^{-1}\left[\bigcup_{i\in\N}G_{i}\right]\in\sigma\left(T\right)
+\]
+ since $\mathcal{G}$ is closed under countable unions. This completes
+the proof.
+\end{proof}
+\begin{cor}
+\label{cor:generatorPreimage}Let $\X$ be a set and let $\left(\mathcal{Y},\mathcal{G}\right)$
+be a measurable space. Let $\mathcal{H}\subset\mathcal{G}$ be a generating
+class such that $\sigma\left(\mathcal{H}\right)=\mathcal{G}$. Then
+for a function $T:\mathcal{X}\to\mathcal{Y}$
+\[
+\sigma\left(T^{-1}\left(\mathcal{H}\right)\right)=\sigma\left(T\right).
+\]
+\end{cor}
+
+\begin{proof}
+Note that $T^{-1}\left(\mathcal{H}\right)\subseteq\sigma\left(T\right)$
+and so $\sigma\left(T^{-1}\left(\mathcal{H}\right)\right)\subseteq\sigma\left(T\right)$.
+Conversely, note that $T$ is $\sigma\left(T^{-1}\left(\mathcal{H}\right)\right)/\mathcal{G}$
+measurable by the generating class argument in Theorem \ref{thm:genericGeneratingClassArgument}.
+But since by Proposition \ref{prop:sigmaAlgebraGeneratedByFunction},$\sigma\left(T\right)$
+is the smallest $\sigma-$algebra on which $T$ is measurable, we
+have that $\sigma\left(T\right)\subseteq\sigma\left(T^{-1}\left(\mathcal{H}\right)\right)$.
+\end{proof}
+\begin{prop}
+\label{prop:sigmaFunctionOfMeasurableFunctionSubset}Let $\left(\X,\mathcal{F}\right)$
+, $\left(\mathcal{Y},\mathcal{G}\right),$ and $\left(\mathcal{Z},\mathcal{H}\right)$
+be measurable spaces and let $f:\X\to\mathcal{Y}$ be $\mathcal{F}/\mathcal{G}$
+measurable. Then for any $\mathcal{G}/\mathcal{H}$ measurable function
+$g:\mathcal{Y}\to\R$
+\[
+\sigma\left(g\circ f\right)\subseteq\sigma\left(f\right).
+\]
+\end{prop}
+
+\begin{proof}
+Note that for any $H\in\mathcal{H}$, $\left(g\circ f\right)^{-1}\left[H\right]=f^{-1}\left[g^{-1}\left[H\right]\right]\in\sigma\left(f\right)$
+which implies the claim.
+\end{proof}
+Note that $\sigma-$algebras generated by measurable functions constitute
+an important subclass of all $\sigma-$algebras.
+\begin{prop}
+\label{prop:countablyGeneratedSigmaAlgebrasMeasFunc}Let $\X$ be
+a set and let $\{B_{i}\}_{i\in\N}\subseteq\X$ be a countable collection
+of sets. Then there exists a Borel-measurable function $f:\X\to\R$
+such that 
+\[
+\sigma\left(\{B_{i}\}_{i\in\N}\right)=\sigma\left(f\right).
+\]
+\end{prop}
+
+
+\section{Constructing measurable functions}
+
+\subsection{Simple functions}
+
+In the beginning of this chapter, we foreshadowed how the indicator
+functions of measurable sets were in fact the building blocks of all
+real-valued non-negative measurable functions; now we have developed
+just enough of the theory to show that this is true. First, we should
+introduce some useful notation to save space in the future. We denote
+by $\mathcal{M}\left(\X,\mathcal{F}\right)$ the set of (extended)
+real-valued Borel-measurable functions on $\left(\X,\mathcal{F}\right)$.
+We write $\mathcal{M}^{+}\left(\X,\mathcal{F}\right)\subset\mathcal{M}\left(\X,\mathcal{F}\right)$
+to denote the set of all non-negative (extended) real-valued Borel-measurable
+functions on $\left(\X,\mathcal{F}\right)$. Note that the properties
+we described for the set of real-valued measurable functions on $\left(\X,\F\right)$
+in the previous section carry over to the set of extended real valued
+measurable functions, as long as no weird $\infty-\infty$ or $\infty\cdot0$
+situations arise.
+\begin{defn}
+\label{def:simpleFunction} A function $s:\mathcal{X}\longrightarrow\left[0,\infty\right)$
+is called a \emph{simple function }if its range is a finite subset
+of $\left[0,\infty\right)$ It can be represented as an aggregation
+of indicator functions as
+\[
+s=\sum_{i=1}^{k}\alpha_{i}\indicate_{A_{i}}
+\]
+where $\left\{ \alpha_{i}\right\} _{i=1}^{k}\in\left[0,\infty\right)$
+is the range of $s$ and $A_{i}:=\left\{ x\in\X\mid s\left(x\right)=\alpha_{i}\right\} $
+partitions the domain $\X$ into preimages of the singletons in the
+range. Such a representation is called the \emph{standard representation
+}of $s$
+\end{defn}
+
+\begin{rem*}
+Note that in general, a simple function could be written as a finite
+linear combination of indicator functions in more than one way. For
+example, the function $s=3\indicate_{A}+7\indicate_{B}$ can also
+be expressed as $3\indicate_{A\setminus B}+10\indicate_{A\cap B}+7\indicate_{B\setminus A}$,
+where the latter is the \emph{standard representation }since the sets
+$A\cap B,A\setminus B,B\setminus A$ ( and the implicitly included
+$\X\setminus\left(A\cup B\right)$) form a partition of the domain
+given by preimages of the singletons in the range (namely $\{0,3,7,10\}$).
+Standard representations are, of course, unique.
+\end{rem*}
+It should be clear that a non-negative simple function $s\in\mathcal{M^{+}}\left(\mathcal{X},\mathcal{F}\right)$
+if and only if $\left\{ A_{i}\right\} _{i=1}^{k}\in\mathcal{F}$;
+the ``if'' part follows directly from Corollary \ref{cor:examplesBinaryOpsMeasFunc}.
+To see the ``only if'' part, note that if $s$ is measurable then
+$s^{-1}\left[\left\{ \alpha_{i}\right\} \right]=A_{i}\in\mathcal{F}$
+since singletons in $\R$ are Borel sets (they are closed). Denote
+the collection of these measurable simple functions on $\left(\X,\mathcal{F}\right)$
+as $M_{\textnormal{sim}}\left(\X,\mathcal{F}\right)$. Then, we have
+shown that $M_{\textnormal{sim}}\left(\X,\mathcal{F}\right)\subset\mathcal{M^{+}}\left(\mathcal{X},\mathcal{F}\right)$.
+It turns out that we can make a stronger claim: the measurable simple
+functions are in some sense ``dense'' in the space of non-negative
+measurable functions.
+\begin{prop}
+\label{prop:simpleFunctionMonotoneConvergence}Let $f\in\mathcal{M^{+}}\left(\mathcal{X},\mathcal{F}\right)$
+be arbitrary. Then there exists a sequence of simple measurable functions
+$\left\{ f_{n}\right\} _{n\in\N}\in M_{\textnormal{sim}}\left(\X,\mathcal{F}\right)$
+such that
+\[
+f_{n}\leq f_{n+1}
+\]
+pointwise for every $n\in\N$ and
+\[
+\lim_{n\to\infty}f_{n}=f
+\]
+where the limit is taken pointwise.
+\end{prop}
+
+\begin{proof}
+It turns out that we can establish the existence of such functions
+$f_{n}$ constructively. Define
+\[
+f_{n}\left(x\right):=\sum_{k=0}^{4^{n}-1}\frac{k}{2^{n}}\indicate_{\left\{ \frac{k}{2^{n}}\leq f\left(x\right)<\frac{k+1}{2^{n}}\right\} }+2^{n}\indicate_{\left\{ f\left(x\right)\geq2^{n}\right\} }
+\]
+and observe that $f_{n}$ are Borel-measurable simple functions (given
+the measurability of $f$) and that $f_{n}\leq f$ pointwise by definition.
+Next, note that $\left\{ \frac{k}{2^{n}}\right\} _{k=0}^{4^{n}}\subset\left\{ \frac{k}{2^{n+1}}\right\} _{k=0}^{4^{n+1}}$
+and fix $x_{0}\in\X$ to be arbitrary. If $\frac{k_{0}}{2^{n}}\leq f\left(x_{0}\right)<\frac{k_{0}+1}{2^{n}}$
+for some $k_{0}\in\left\{ 0,1,\ldots,4^{n}-1\right\} $ then either
+$\frac{k_{0}}{2^{n}}=\frac{2k_{0}}{2^{n+1}}\leq f\left(x_{0}\right)<\frac{2k_{0}+1}{2^{n+1}}$
+or $\frac{2k_{0}+1}{2^{n+1}}\leq f\left(x_{0}\right)<\frac{2k_{0}+2}{2^{n+1}}=\frac{k_{0}+1}{2^{n}}$.
+In either case,
+\[
+f_{n}\left(x_{0}\right)=\frac{k_{0}}{2^{n}}\leq f_{n+1}\left(x_{0}\right)\leq\frac{2k_{0}+1}{2^{n+1}}
+\]
+by the definitions of our simple functions $f_{n}.$ Conversely, if
+$f\left(x_{0}\right)\geq2^{n}$ then either $f\left(x_{0}\right)\geq2^{n+1}$
+or there exists some $k_{0}\in\left\{ 2^{2n+1},\ldots,4^{n+1}-1\right\} $
+such that
+\[
+\frac{k_{0}}{2^{n+1}}\leq f\left(x_{0}\right)<\frac{k_{0}+1}{2^{n+1}}.
+\]
+Again, in either case,
+\[
+f_{n}\left(x_{0}\right)=2^{n}\leq\frac{k_{0}}{2^{n+1}}\leq f_{n+1}\left(x_{0}\right)\leq2^{n+1}
+\]
+which shows that $f_{n}\leq f_{n+1}$ pointwise.
+
+To show convergence, again pick an arbitrary $x_{0}\in\X$ and observe
+that if $f\left(x_{0}\right)=\infty$ then $f_{n}\left(x_{0}\right)=2^{n}\nearrow\infty=f\left(x_{0}\right).$
+Conversely, suppose that $f\left(x_{0}\right)<\infty$. Then, since
+the natural numbers are not bounded above in $\R$, we know that there
+exists some $n_{x_{0}}\in\N$ such that for every $n\geq n_{x_{0}}$:
+$f\left(x_{0}\right)<2^{n}$. Thus for each such $n,$ there exists
+some $k_{n}\in\left\{ 0,1,\ldots,4^{n}-1\right\} $ such that 
+\begin{equation}
+\frac{k_{n}}{2^{n}}\leq f\left(x_{0}\right)<\frac{k_{n}+1}{2^{n}}\label{eq:pointwiseInequalitySimpleFunc}
+\end{equation}
+which would imply that $f_{n}\left(x_{0}\right)=\frac{k_{n}}{2^{n}}$
+for all $n\geq n_{x_{0}}.$ Then
+\[
+0\leq f\left(x_{0}\right)-f_{n}\left(x_{0}\right)=f\left(x_{0}\right)-\frac{k_{n}}{2^{n}}\leq\frac{k_{n}+1}{2^{n}}-\frac{k_{n}}{2_{n}}=\frac{1}{2^{n}}
+\]
+where the first inequality is due to the fact that $f_{n}\leq f$
+pointwise and the second inequality is due to (\ref{eq:pointwiseInequalitySimpleFunc}).
+Taking limits then yields the result.
+\end{proof}
+\begin{prop}
+\label{prop:minMaxMeasurable}For any function $f\in\mathcal{M}\left(\X,\mathcal{F}\right)$,
+the derived functions\footnote{Again, maxima are taken pointwise.}
+\begin{align*}
+f^{+} & :=\max\left\{ f,0\right\} \\
+f^{-} & :=\max\left\{ -f,0\right\} 
+\end{align*}
+are contained in $\mathcal{M}^{+}\left(\X,\mathcal{F}\right)$
+\end{prop}
+
+\begin{proof}
+Define for any $a\in\R$ , $F_{a}:=\left\{ x\in\X\mid f^{+}\left(x\right)\in\left(a,\infty\right)\right\} $
+and notice that if $a>0$, then
+\[
+F_{a}=f^{-1}\left[\left(a,\infty\right)\right]\in\mathcal{F}
+\]
+by the measurability of $f.$ Conversely, if $a\leq0$ then
+\[
+F_{a}=\X\in\mathcal{F}
+\]
+and so, by Lemma \ref{lem:collectionIntervalsMeasurable} and a generating
+class argument, $f^{+}\in\mathcal{M}^{+}\left(\X,\mathcal{F}\right)$.
+
+To see that $f^{-1}\in\mathcal{M}^{+}\left(\X,\mathcal{F}\right)$,
+notice that by Corollary \ref{cor:examplesBinaryOpsMeasFunc}, $-f\in\mathcal{M}\left(\X,\mathcal{F}\right)$
+and apply the same argument.
+\end{proof}
+\begin{rem*}
+Another way to prove the above proposition would be to observe that
+\[
+\max\left\{ x,y\right\} =\frac{x+y+\left|x-y\right|}{2}
+\]
+and apply Proposition \ref{prop:binaryOperationsMeasurableFunctions}.
+\end{rem*}
+Proposition \ref{prop:minMaxMeasurable} is important because any
+function $f\in\measurableFunctions$ can be decomposed as
+\[
+f=f^{+}-f^{-}
+\]
+and since both $f^{+},f^{-}\in\nonnegMeasurableFunctions$, by Proposition
+\ref{prop:simpleFunctionMonotoneConvergence}, there are non-negative
+simple functions $\left\{ s_{n}^{+}\right\} _{n\in\N},\left\{ s_{n}^{-}\right\} _{n\in\N}$
+such that $s_{n}^{+}\nearrow f^{+}$and $s_{n}^{-}\nearrow f^{-}$.
+By the linearity of limits, the sequence of functions $h_{n}:=s_{n}^{+}-s_{n}^{-}$
+converges (although not monotonically) to $f$. This fact will prove
+important in the chapter on integration.
+\begin{prop}
+\label{prop:simpleFunctionsAddMultiply}Let $s,t\in\mathcal{M}_{\textnormal{sim}}\measurablespace$.
+Then
+\[
+h:=s+t\in\mathcal{M}_{\textnormal{sim}}\measurablespace
+\]
+and 
+\[
+g:=st\in\mathcal{M}_{\textnormal{sim}}\measurablespace.
+\]
+Moreover, if $s$ and $t$ be given by the standard representations
+\begin{align*}
+s & =\sum_{i=1}^{I}\alpha_{i}\indicate_{A_{i}}\\
+t & =\sum_{j=1}^{J}\beta_{j}\mathds{1}_{B_{j}}
+\end{align*}
+then
+\begin{align*}
+h & =\sum_{i=1}^{I}\sum_{j=1}^{J}\left(\alpha_{i}+\beta_{j}\right)\indicate_{A_{i}\cap B_{j}}\\
+g & =\sum_{i=1}^{I}\sum_{j=1}^{J}\left(\alpha_{i}\beta_{j}\right)\indicate_{A_{i}\cap B_{j}}
+\end{align*}
+\end{prop}
+
+\begin{proof}
+First we prove that 
+\[
+\sum_{i=1}^{I}\alpha_{i}\indicate_{A_{i}}+\sum_{j=1}^{J}\beta_{j}\mathds{1}_{B_{j}}=\sum_{i=1}^{I}\sum_{j=1}^{J}\left(\alpha_{i}+\beta_{j}\right)\indicate_{A_{i}\cap B_{j}}.
+\]
+To see this, let $x_{0}\in\X$ be arbitrary and observe that since
+$\left\{ A_{i}\right\} _{i=1}^{I}$ and $\left\{ B_{j}\right\} _{j=1}^{J}$
+are partitions of $\X$, there exists exactly one $1\leq i_{0}\leq I$
+and one $1\leq j_{0}\leq J$ such that $x_{0}\in A_{i_{0}}$ and $x\in B_{j_{0}}$.
+Then, $x_{0}\in A_{i_{0}}\cap B_{j_{0}}$ and $x\notin A_{i}\cap B_{j}$
+if either $i\neq i_{0}$ or $j\neq j_{0}$.\footnote{In other words, $\left\{ A_{i}\cap B_{j}\right\} _{\left(i,j\right)\in\left\{ 1,\ldots,I\right\} \times\left\{ 1,\ldots,J\right\} }$forms
+a partition of $\X$.}Then 
+\begin{align*}
+\left(\sum_{i=1}^{I}\alpha_{i}\indicate_{A_{i}}+\sum_{j=1}^{J}\beta_{j}\mathds{1}_{B_{j}}\right)\left(x_{0}\right) & =\sum_{i=1}^{I}\alpha_{i}\indicate_{A_{i}}\left(x_{0}\right)+\sum_{j=1}^{J}\beta_{j}\mathds{1}_{B_{j}}\left(x_{0}\right)\\
+ & =\alpha_{i_{0}}+\beta_{j_{0}}\\
+ & =\sum_{i=1}^{I}\sum_{j=1}^{J}\left(\alpha_{i}+\beta_{j}\right)\indicate_{A_{i}\cap B_{j}}\left(x_{0}\right)
+\end{align*}
+which establishes our claim. Note that the representation above need
+not be standard as the partition $\left\{ A_{i}\cap B_{j}\right\} _{\left(i,j\right)\in\left\{ 1,\ldots,I\right\} \times\left\{ 1,\ldots,J\right\} }$
+need not be the collection of preimages of singletons in $\Ran\left(h\right)$;
+in fact, it is a \emph{refinement }of the collection of preimages,
+and so the preimage of every singleton in $\Ran\left(h\right)$ can
+be written as a union of sets in $\left\{ A_{i}\cap B_{j}\right\} _{\left(i,j\right)\in\left\{ 1,\ldots,I\right\} \times\left\{ 1,\ldots,J\right\} }$.
+
+Next, for closure under multiplication, observe that
+\begin{align*}
+st & =\left(\sum_{i=1}^{I}\alpha_{i}\indicate_{A_{i}}\right)\left(\sum_{j=1}^{J}\beta_{j}\mathds{1}_{B_{j}}\right)\\
+ & =\sum_{i=1}^{I}\sum_{j=1}^{J}\left(\alpha_{i}\beta_{j}\right)\indicate_{A_{i}}\indicate_{B_{j}}\\
+ & =\sum_{i=1}^{I}\sum_{j=1}^{J}\left(\alpha_{i}\beta_{j}\right)\indicate_{A_{i}\cap B_{j}}
+\end{align*}
+where the last equality follows from Fact \ref{fact:indicatorFunctionsFiniteOperations}.
+For the same reason as before, this representation need not be standard.
+\end{proof}
+\begin{prop}
+\label{prop:doobDynkin}Let $\X$ be an arbitrary set and let $f:\X\to\mathcal{\R}$
+be a function, then for any $\sigma\left(f\right)/\mathcal{\borel}\left(\R\right)-$measurable
+function $g:\X\longrightarrow\R$, there exists a Borel-measurable
+map $h:\R\to\R$ such that
+\[
+g=h\circ f.
+\]
+\end{prop}
+
+\begin{proof}
+First suppose that $g=\indicate_{A}$ for some $A\in\sigma\left(f\right).$
+Then
+\[
+g=\indicate_{A}\left(x\right)=\indicate_{f^{-1}\left[B\right]}\left(x\right)=\indicate_{B}\left(f(x)\right)
+\]
+for some $B\in\mathcal{G}.$ Thus in this case, $h=\indicate_{B}$.
+
+Now consider the case of a simple function $g=\sum_{i=1}^{n}\alpha_{i}\indicate_{A_{i}}$
+for $\alpha_{i}\in\R,A_{i}\in\sigma\left(F\right).$ Note that by
+the above example for indicator functions, we can find $h_{i}:\R\to\R$
+such that 
+\[
+g=\sum_{i=1}^{n}\alpha_{i}h_{i}\left(f(x)\right)
+\]
+and so the function $h=\sum_{i=1}^{n}\alpha_{i}h_{i}$ does the trick.
+
+Next, for $g\in\nonnegMeasurableFunctions,$ by Proposition \ref{prop:simpleFunctionMonotoneConvergence}we
+can find a sequence of simple functions $s_{n}$ such that $s_{n}\nearrow g$
+pointwise. Note from our work above that we can write $s_{n}=h_{n}\circ f$
+where $h_{n}$ is Borel-measurable as above. Let $h:=\lim_{n\to\infty}h_{n}$
+which exists pointwise since it is a monotone limit ($s_{n}\leq s_{n+1}\implies h_{n+1}\leq h_{n}$)
+. In particular, $h$ is Borel-measurable by Corollary \ref{cor:limSupLimInfMeasurable}
+and so for any fixed $x\in\X$
+\[
+\lim_{n\to\infty}s_{n}\left(x\right)=\lim_{n\to\infty}h_{n}\left(f\left(x\right)\right)=h\left(f\left(x\right)\right)=g\left(x\right).
+\]
+
+Finally, for general measurable $g\in\measurableFunctions$, we can
+write $g=g^{+}-g^{-}$ and by the previous results, we know there
+exist Borel-measurable real-valued maps $h_{1},h_{2}$ such that $g^{+}=h_{1}\circ f$,
+$g^{-}=h_{2}\circ f.$ Then
+\begin{align*}
+g & =h_{1}\circ f-h_{2}\circ f\\
+ & =(h_{1}-h_{2})\circ f
+\end{align*}
+and $h:=h_{1}-h_{2}$ is Borel-measurable by Corollary \ref{cor:examplesBinaryOpsMeasFunc}.
+This completes the proof.
+\end{proof}
+
+\subsection{Images of measurable sets under measurable functions}
+
+We have the shown (or rather, defined) that for measurable functions,
+preimages of measurable sets are measurable. Does this hold for images
+under measurable functions as well? That is, for any pair of measurable
+spaces $\left(\X,\F\right)$ and $\left(\mathcal{Y},\mathcal{G}\right)$
+and a measurable function $f:\X\to\mathcal{G}$, is it true that $f\left[A\right]\in\mathcal{G}$
+for any $A\in\F$? The answer to this question is ``no'' and to
+show this, we continue on a thread we began in Subsection \ref{subsec:cantorSets}
+(read that section again). We shall first construct a strictly increasing
+analogue of the Cantor function $\psi_{C}$ from that section.
+\begin{prop}
+\label{prop:strictlyIncreasingCantorFunction}Let $\phi\left(x\right):=\psi_{C}\left(x\right)+x$.
+Then $\phi$ is a strictly increasing, continuous function that maps
+$\left[0,1\right]$ onto $\left[0,2\right]$. Moreover, $\phi\left[C\right]\in\borel\left(\R\right)$
+is a set of positive Lebesgue measure.
+\end{prop}
+
+\begin{proof}
+Note that the sum of a non-decreasing and strictly increasing function
+is strictly increasing and the sum of two continuous functions is
+continuous. That gives us the first two properties. Now since $\phi\left(0\right)=0$
+and $\phi\left(1\right)=2$, by the intermediate value theorem $\phi\left[\left[0,1\right]\right]=\left[0,2\right].$
+Next, note that $\phi\left[C\right]=\left(\phi^{-1}\right)^{-1}\left[C\right]$
+which is Borel measurable since $C$ is closed (and so Borel measurable)
+and $\phi^{-1}$ is a continuous (and hence Borel measurable) function
+by Proposition \ref{prop:strictlyIncreasingContinuousFunctionInverse}.
+Finally, consider the image $\phi\left[\left[0,1\right]\setminus C\right]$.
+We know from Proposition \ref{prop:cantorFunctionConstantOutside}that
+there exists a countable collection of disjoint open intervals $\left\{ O_{j}\right\} _{j\in\N}\subset\left[0,1\right]$
+such that $\bigcup_{j\in\N}O_{j}=\left[0,1\right]\setminus C$ such
+that $\psi_{C}\left(x\right)=c_{j}$ for any $x\in O_{j}$. Then,
+\begin{align*}
+\phi\left[\left[0,1\right]\setminus C\right] & =\phi\left[\bigcup_{j\in\N}O_{j}\right]\\
+ & =\bigcup_{j\in\N}\phi\left[O_{j}\right]\\
+ & =\bigcup_{j\in\N}O_{j}+c_{j}
+\end{align*}
+where each $O_{j}+c_{j}$ is disjoint since $\phi$ is a bijection
+and so its image preserves intersections. Then,
+\begin{align*}
+\lambda\left(\phi\left[\left[0,1\right]\setminus C\right]\right) & =\lambda\left(\bigcup_{j\in\N}O_{j}+c_{j}\right)\\
+ & =\sum_{i=1}^{\infty}\lambda\left(O_{j}\right)\\
+ & =\lambda\left(\bigcup_{j\in\N}O_{j}\right)\\
+ & =\lambda\left(\left[0,1\right]\setminus C\right)\\
+ & =1
+\end{align*}
+where in the inequality we used countable additivity and translation
+invariance. Then, by additivity, finiteness of $\lambda$ on bounded
+intervasls, and the fact that the image of a bijective function preserves
+set differences-
+\begin{align*}
+1=\lambda\left(\phi\left[\left[0,1\right]\setminus C\right]\right) & =\lambda\left(\phi\left[\left[0,1\right]\right]\setminus\phi\left[C\right]\right)\\
+ & =\lambda\left(\phi\left[\left[0,1\right]\right]\right)-\lambda\left(\phi\left[C\right]\right)\\
+ & =\lambda\left(\left[0,2\right]\right)-\lambda\left(\phi\left[C\right]\right)\\
+ & =2-\lambda\left(\phi\left[C\right]\right).
+\end{align*}
+Therefore 
+\[
+\lambda\left(\phi\left[C\right]\right)=1
+\]
+which completes the proof.
+\end{proof}
+\begin{thm}
+\label{thm:continuousImageLebesgueMeasurable}There exists a measurable
+set $A\in\mathcal{C}\left(\lambda^{*}\right)$ such that $\phi\left[A\right]\notin\mathcal{C}\left(\lambda^{*}\right).$
+\end{thm}
+
+\begin{proof}
+Note that by Theorem \ref{thm:positiveMeasureNonMeasurable} and Proposition
+\ref{prop:strictlyIncreasingCantorFunction}, $\phi\left[C\right]$
+contains a set $E$ such that $E\notin\mathcal{C}\left(\lambda^{*}\right).$
+Let $A=C\cap\phi^{-1}\left[E\right]$ and notice that $A$ is measurable
+as it is a subset of a measure-zero set and since $\mathcal{C}\left(\lambda^{*}\right)$
+is complete. Then, $\phi\left[A\right]=E$ which is not measurable.
+\end{proof}
+\begin{cor}
+\label{cor:lebesgueNotBorel}There exists a set $A\in\mathcal{C}\left(\lambda^{*}\right)$
+such that $A\notin\borel\left(\R\right)$.
+\end{cor}
+
+\begin{proof}
+Let $A=C\cap\phi^{-1}\left[E\right]$ as in Theorem \ref{thm:continuousImageLebesgueMeasurable}.
+Then $A\in\mathcal{C}\left(\lambda^{*}\right)$ but $\phi\left[A\right]\notin\mathcal{C}\left(\lambda^{*}\right).$
+But recall that $\phi^{-1}$ is measurable since it is continuous
+and $\phi\left[A\right]=\left(\phi^{-1}\right)^{-1}\left[A\right]$
+and so if $A\in\borel\left(\R\right)$ then $\phi\left[A\right]\in\borel\left(\R\right)$
+which would be a contradiction.
+\end{proof}
+
+\subsection{An iterative construction of the Cantor function}
+
+\section{Types of generating class arguments\label{sec:genClassArgs}}
+
+So far we have seen how a generating class argument, such as the one
+formalized in Theorem \ref{thm:genericGeneratingClassArgument}, can
+help establish the measurability of functions. In general, measurability
+can be replaced by any property, opening up other avenues to use such
+arguments. The abstract analogue of Theorem \ref{thm:genericGeneratingClassArgument}
+goes as follows: Let $\mathcal{F}$ be a $\sigma-$algebra on $\X$.
+We want to show that all sets in $\mathcal{F}$ enjoy some property
+$\left(*\right)$. In order to prove that this is indeed the case
+we
+\begin{enumerate}
+\item Find a subclass of sets $\mathcal{E}\subseteq\mathcal{F}$ that enjoys
+property $\left(*\right)$ such that $\sigma\left(\mathcal{E}\right)=\mathcal{F}.$
+\item Define $\mathcal{D}=\left\{ F\in\mathcal{F}\mid F\ \text{enjoys property }\text{\ensuremath{\left(*\right)}}\right\} $.
+\item Observe that if $\mathcal{D}$ is a $\sigma-$algebra then
+\[
+\mathcal{E}\subseteq\mathcal{D}\subseteq\mathcal{F}\Longrightarrow\mathcal{F}=\sigma\left(\mathcal{E}\right)\subseteq\sigma\left(\mathcal{D}\right)=\mathcal{D}\subseteq\mathcal{F}\Longrightarrow\mathcal{F}=\mathcal{D}.
+\]
+\end{enumerate}
+In this argument, we do not assume any structure on the special class
+$\mathcal{E}.$ However, imposing structure can add power to generating
+class arguments, since then we can drop the requirement that subclass
+$\mathcal{D}$ of ``desirable'' sets be a $\sigma-$algebra. The
+fact that we can do this is not \emph{a-priori }obvious, and the point
+of this section is to develop the theory to show that this can be
+done with different types of structural assumptions. The results of
+this section form the backbone of standard techniques in measure theory,
+and have important applications, one of which we show here.
+
+\subsection{Dynkin's $\pi-\lambda$ Theorem}
+\begin{defn}
+\label{def:dynkinSystem}A collection of sets $\mathcal{D}\subseteq2^{\X}$
+is called a \emph{Dynkin system }or a $\lambda-$system if
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $ \X \in \mathcal{D} $
+	\item $ A_1, A_2 \in \mathcal{D} \text{ s.t. } A_2 \subseteq A_1 \Longrightarrow A_2\setminus A_1 \in \mathcal{D} $
+	\item $\{A_i\}_{i\in\N} \in \mathcal{D} \text{ s.t. } A_i \subseteq A_{i+1} \Longrightarrow \bigcup_{i\in\N} A_i \in \mathcal{D} $
+\end{enumerate}
+\end{defn}
+
+\begin{prop}
+\label{prop:dynkinSystemEquivDefn}A collection of sets $\mathcal{D\subseteq}2^{\mathcal{X}}$
+is a $\lambda-$system if and only if
+
+\begin{enumerate}[label=(\roman*'),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item $ \X \in \mathcal{D} $
+	\item $ A \in \mathcal{D} \Longrightarrow A^C \in \mathcal{D} $
+	\item $\{A_i\}_{i\in\N} \in \mathcal{D}$ s.t $A_i \cap A_j = \emptyset \Longrightarrow \bigcup_{i\in\N} A_i \in \mathcal{D}$
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+First suppose that $\mathcal{D}$ is a $\lambda-$system. Then, property
+$(i')$ above is automatically satisfied. For property $(ii')$, observe
+that $\text{(i),(ii})$ together imply $(ii')$ since $A^{C}=\X\setminus A.$
+Next, let $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{D}$ be pairwise
+disjoint and define 
+\[
+B_{n}:=\bigcup_{i=1}^{n}A_{i},
+\]
+observing that $B_{n}\subseteq B_{n+1}$ and that $\bigcup_{n\in\N}B_{n}=\bigcup_{i\in\N}A_{i}.$
+Then $(iii')$ follows from (iii).
+
+Conversely, assume that $\mathcal{D}$ satisfies $(i')-(iii')$ above.
+Again, (i) follows from $(i')$. Next, pick $A_{1},A_{2}\in\mathcal{D}$
+such that $A_{2}\subseteq A_{1}$. By $(ii')$ , $A_{1}^{C}\in\mathcal{D}$
+and we know that$A_{1}^{C}\cap A_{2}=\emptyset$ and so by $\left(ii'\right),\left(iii'\right)$,
+we have that
+\[
+A_{1}\setminus A_{2}=\left(A_{1}^{C}\cup A_{2}\right)^{C}\in\mathcal{D}
+\]
+which proves (ii). Finally, let $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{D}$
+be an increasing sequence of sets (that is, $A_{i}\subseteq A_{i+1}$
+for every $i\in\N$). By (ii), 
+\[
+B_{i}:=A_{i}\setminus A_{i-1}\in\mathcal{D}
+\]
+ and are pairwise disjoint. Applying $(iii')$ we have that
+\[
+\bigcup_{i\in\N}A_{i}=\bigcup_{i\in\N}B_{i}\in\mathcal{D}
+\]
+completing the proof.
+\end{proof}
+It is easy to see that a $\sigma-$algebra is a $\lambda-$system,
+and arguments akin to those in Proposition \ref{prop:ringGeneratedByClassIsRing}
+will prove that
+\[
+\lambda\left(\mathcal{E}\right):=\bigcap\left\{ \mathcal{A}\subseteq2^{\X}\text{ is a }\lambda-\text{system}\mid\mathcal{E}\subseteq\mathcal{A}\right\} 
+\]
+is itself a $\lambda-$system, and these two facts together show that
+\[
+\mathcal{E}\subseteq\lambda\left(\mathcal{E}\right)\subseteq\sigma\left(\mathcal{E}\right).
+\]
+
+\begin{defn}
+\label{def:piSystem}A collection of sets $\mathcal{E}\subseteq2^{\X}$
+is called a $\pi-$system if it is closed under finite intersections
+i.e. if $A,B\in\mathcal{E}$ then $A\cap B\in\mathcal{E}$.
+\end{defn}
+
+Properties of $\pi-$systems and $\lambda-$systems can be combined
+to yield a $\sigma-$algebra.
+\begin{lem}
+\label{lem:piLambdaIsSigma}A collection of sets $\mathcal{F}\subseteq2^{\X}$
+is a $\sigma-$algebra if and only if it is both a $\pi-$system and
+a $\lambda-$system.
+\end{lem}
+
+\begin{proof}
+Clearly, if $\mathcal{F}$ is a $\sigma-$algebra, then it is both
+a $\pi-$system and a $\lambda-$system. To see the converse, note
+that Proposition \ref{prop:dynkinSystemEquivDefn} gives us (i) containing
+$\X$ and (ii) closure under complements for free. Thus we need to
+prove that for any countable (not necessarily disjoint) collection
+of sets $\left\{ E_{i}\right\} _{i\in\N}\in\mathcal{E}$
+\[
+\bigcup_{i\in\N}E_{i}\in\mathcal{F}.
+\]
+As we usually do, we shall look at the ``disjointification''
+\begin{align*}
+F_{i} & :=E_{i}\setminus\bigcup_{j=1}^{i-1}E_{j}\\
+ & =E_{i}\cap\left(\bigcap_{j=1}^{i-1}E_{j}^{C}\right)
+\end{align*}
+and observe that closure under finite intersections (from being a
+$\pi-$system) and complements implies that $F_{i}\in\mathcal{F}$.
+Moreover, the $F_{i}$ are pairwise disjoint, and so by closure under
+countable \emph{disjoint }unions, we have that
+\[
+\bigcup_{i\in\N}E_{i}=\bigcup_{i\in\N}F_{i}\in\mathcal{F}
+\]
+which finishes the proof.
+\end{proof}
+\begin{thm}[Dynkin's $\pi-\lambda$ Theorem]
+\label{thm:piLambdaThm}Let $\mathcal{E}\subseteq2^{\X}$ be a $\pi-$system.
+Then
+\[
+\lambda\left(\mathcal{E}\right)=\sigma\left(\mathcal{E}\right).
+\]
+\end{thm}
+
+\begin{proof}
+We had shown earlier that $\lambda\left(\mathcal{E}\right)\subseteq\sigma\left(\mathcal{E}\right)$
+and so we now we use the additional hypothesis of closure under finite
+intersections to show the reverse inclusion. By Lemma \ref{lem:piLambdaIsSigma},
+we only need to show that $\lambda\left(\mathcal{E}\right)$ inherits
+closure under finite intersections from $\mathcal{E}$, since then
+$\lambda\left(\mathcal{E}\right)$ would be a $\sigma-$algebra that
+contains $\mathcal{E}$ and so $\sigma\left(\mathcal{E}\right)\subseteq\lambda\left(\mathcal{E}\right)$.
+
+In order to show that $\lambda\left(\mathcal{E}\right)$ is indeed
+closed under finite intersections, define for every $B\in\lambda\left(\mathcal{E}\right)$
+\[
+\mathcal{D}_{B}:=\left\{ A\subseteq\X\mid A\cap B\in\lambda\left(\mathcal{E}\right)\right\} .
+\]
+It turns out that $\mathcal{D}_{B}$ is a $\lambda-$system for every
+$B\in\lambda\left(\mathcal{E}\right)$. To see this, note that $\X\in\mathcal{D}_{B}$
+since $\X\cap B=B\in\lambda\left(\mathcal{E}\right).$ Moreover, for
+any sets $A_{1},A_{2}\in\mathcal{D}_{B}$ such that $A_{2}\subseteq A_{1}$
+\[
+\left(A_{1}\setminus A_{2}\right)\cap B=A_{1}\cap A_{2}^{C}\cap B=A_{1}\cap B\setminus A_{2}=A_{1}\cap B\setminus A_{2}\cap B\in\lambda\left(\mathcal{E}\right)
+\]
+ since $A_{1}\cap B,A_{2}\cap B\in\lambda\left(\mathcal{E}\right)$
+and $A_{2}\cap B\subseteq A_{1}\cap B$ (see property (ii) in Definition
+\ref{def:dynkinSystem}). This shows that $A_{1}\setminus A_{2}\in\mathcal{D}_{B}.$
+Finally, let $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{D}_{B}$
+be an increasing sequence of sets, then
+\[
+A_{i}\cap B\subseteq A_{i+1}\cap B
+\]
+and so using property (iii) of $\lambda-$systems 
+\[
+\left(\bigcup_{i\in\N}A_{i}\right)\cap B=\bigcup_{i\in\N}\left(A_{i}\cap B\right)\in\lambda\left(\mathcal{E}\right)
+\]
+which shows that $\bigcup_{i\in\N}A_{i}\in\mathcal{D}_{B}$, proving
+our claim that $\mathcal{D}_{B}$ is a $\lambda-$system for any $B\in\lambda\left(\mathcal{E}\right).$
+In particular, for any $E\in\mathcal{E}$, $\mathcal{D}_{E}$ is a
+$\lambda-$system such that $\mathcal{E}\subseteq\mathcal{D}_{E}$
+because of $\mathcal{E}$ is closed under finite intersections. Since
+$\mathcal{D}_{E}$ is a $\lambda-$system,
+\[
+\lambda\left(\mathcal{E}\right)\subseteq\mathcal{D}_{E}
+\]
+for every $E\in\mathcal{E}$. Now we have proved that for any $B\in\lambda\left(\mathcal{E}\right)$
+and any $E\in\mathcal{E}$, their intersection $A\cap E\in\lambda\left(\mathcal{E}\right)$,
+which seems like it is just a little bit short of what we need. But
+notice that this means $\mathcal{E}\subseteq\mathcal{D}_{B}$ for
+every $B\in\lambda\left(\mathcal{E}\right)$, which implies that 
+\[
+\lambda\left(\mathcal{E}\right)\subseteq\mathcal{D}_{B}
+\]
+for every $B\in\lambda\left(\mathcal{E}\right).$ Thus we have proved
+that for any $A,B\in\mathcal{\lambda\left(E\right)},A\cap B\in\mathcal{\lambda\left(E\right)}$
+which completes the proof.
+\end{proof}
+\begin{cor}
+\label{cor:piLambdaGeneratingClassArg}Let $\mathcal{D}\subseteq2^{\X}$
+be a $\lambda-$system and let $\mathcal{E}\subseteq\mathcal{D}$
+be a $\pi-$system. Then
+\[
+\sigma\left(\mathcal{E}\right)\subseteq\mathcal{D}.
+\]
+\end{cor}
+
+\begin{proof}
+By the $\pi-\lambda$ theorem
+\[
+\sigma\left(\mathcal{E}\right)=\lambda\left(\mathcal{E}\right)\subseteq\mathcal{D}
+\]
+since $\mathcal{D}$ is a $\lambda-$system that contains $\mathcal{E}$.
+\end{proof}
+This corollary is useful because it adds structural assumptions on
+the generating class (by requiring that it be a $\pi-$system), which
+allows us to loosen the restriction that $\mathcal{D}$ be a $\sigma-$algebra
+like we used to assume in standard generating class arguments. This
+technique is powerful, and has important applications such as finding
+sufficient conditions to show that two measures on a $\sigma-$algebra
+are equal without having to explicitly check that equality holds on
+the entire $\sigma-$algebra.
+\begin{thm}[Uniqueness of Measures]
+ \label{thm:uniquenessMeasures}Let $\left(\X,\mathcal{F}\right)$
+be a measurable space and let $\mu,\nu$ be measures on $\mathcal{F}$.
+If there exists a $\pi-$system $\mathcal{E\subseteq}2^{\X}$ such
+that $\sigma\left(\mathcal{E}\right)=\mathcal{F}$ and 
+\[
+\mu\left(E\right)=\nu\left(E\right)
+\]
+for every $E\in\mathcal{E}$, and there exists increasing sequence
+$\left\{ E_{i}\right\} _{i\in\N}\in\mathcal{E}$ such that $\X=\bigcup_{i\in\N}E_{i}$
+and
+\[
+\mu\left(E_{i}\right)=\nu\left(E_{i}\right)<\infty
+\]
+for all $i\in\N$ then
+\[
+\mu\left(F\right)=\nu\left(F\right)
+\]
+for every $F\in\mathcal{F}$.
+\end{thm}
+
+\begin{proof}
+Define
+\[
+\mathcal{D}_{i}:=\left\{ F\in\mathcal{F}\mid\mu\left(F\cap E_{i}\right)=\nu\left(F\cap E_{i}\right)\right\} 
+\]
+and note that $\X\in\mathcal{D}_{i}$ for every $i\in\N$ since $\mu\left(E_{i}\right)=\nu\left(E_{i}\right)$.
+Next, let $F\in\mathcal{D}_{i}$ and observe that 
+\begin{align*}
+\mu\left(F^{C}\cap E_{i}\right) & =\mu\left(E_{i}\setminus\left(E_{i}\cap F\right)\right)\\
+ & =\mu\left(E_{i}\right)-\mu\left(E_{i}\cap F\right)\\
+ & =\nu\left(E_{i}\right)-\nu\left(E_{i}\cap F\right)\\
+ & =\nu\left(E_{i}\setminus\left(E_{i}\cap F\right)\right)\\
+ & =\nu\left(F^{C}\cap E_{i}\right)
+\end{align*}
+where the second and fourth equalities follow from (finite) additivity
+of measures and the fact that $\mu\left(E_{i}\cap F\right)\leq\mu\left(E_{i}\right)<\infty$.
+This proves that for any $F\in\mathcal{D}_{i}$, $F^{C}\in\mathcal{D}_{i}$
+for every $i\in\N$. Finally, let $\left\{ F_{j}\right\} _{j\in\N}$be
+a pairwise disjoint collection of sets in $\mathcal{D}_{i}$. Then
+\begin{align*}
+\mu\left(\left(\bigcup_{k\in\N}F_{j}\right)\cap E_{i}\right) & =\mu\left(\bigcup_{j\in\N}\left(F_{j}\cap E_{i}\right)\right)\\
+ & =\sum_{j=1}^{\infty}\mu\left(F_{j}\cap E_{i}\right)\\
+ & =\sum_{j=1}^{\infty}\nu\left(F_{j}\cap E_{i}\right)\\
+ & =\nu\left(\bigcup_{j\in\N}\left(F_{j}\cap E_{i}\right)\right)\\
+ & =\nu\left(\left(\bigcup_{k\in\N}F_{j}\right)\cap E_{i}\right)
+\end{align*}
+where the second and fourth equality follow from countable additivity
+and the third equality follows from the uniqueness of limits. This
+proves that $\bigcup_{j\in\N}F_{j}\in\mathcal{D}_{i}$ for every $i\in\N,$
+which shows (through Proposition \ref{prop:dynkinSystemEquivDefn})
+that every $\mathcal{D}_{i}$ is a $\lambda-$system.
+
+Now note that since $\mathcal{E}$ is a $\pi-$system (and so closed
+under finite intersections), we have that 
+\[
+\mathcal{E}\subseteq\mathcal{D}_{i}
+\]
+for every $i\in\N$. By Corollary \ref{cor:piLambdaGeneratingClassArg},
+we have that 
+\[
+\mathcal{F}=\sigma\left(\mathcal{E}\right)\subseteq\mathcal{D}_{i}
+\]
+for every $i\in\N$. This means that for any $F\in\mathcal{F}$ and
+any $i\in\N$
+\[
+\mu\left(F\cap E_{i}\right)=\nu\left(F\cap E_{i}\right).
+\]
+Let $F\in\mathcal{F}$ be arbitrary and observe that since $\left\{ E_{i}\right\} _{i\in\N}\nearrow\X$,
+$\left\{ E_{i}\cap F\right\} _{i\in\N}\nearrow\X\cap F=F.$ Then,
+by the \hyperref[prop:measureProperties]{continuity of measures},
+\[
+\mu\left(F\right)=\lim_{i\to\infty}\mu\left(F\cap E_{i}\right)=\lim_{i\to\infty}\nu\left(F\cap E_{i}\right)=\nu\left(F\right),
+\]
+again by the uniqueness of limits.
+\end{proof}
+
+\subsection{Monotone class theorem}
+\begin{defn}
+\label{def:monotoneClass} A collection of sets $\mathcal{M\subseteq}2^{\X}$
+is called a \emph{monotone class }if
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item For an increasing sequence of sets $ \{A_i\}_{i\in\N} \in \mathcal{M}: \bigcup_{i\in\N}A_i \in \mathcal{M} $
+	\item For a decreasing sequence of sets $ \{A_i\}_{i\in\N} \in \mathcal{M}: \bigcap_{i\in\N}A_i \in \mathcal{M} $
+\end{enumerate}
+\end{defn}
+
+Note that every $\sigma-$algebra is already a monotone class. However,
+we can make an even stronger claim: every $\lambda-$system is monotone
+class.
+\begin{prop}
+\label{prop:dynkinSystemIsMonotoneClass} Let $\mathcal{D}\subseteq2^{\X}$
+be a $\lambda-$system. Then $\mathcal{D}$ is a monotone class
+\end{prop}
+
+\begin{proof}
+Property (i) above follows directly from Definition \ref{def:dynkinSystem}.
+To see property (ii), let $\left\{ A_{i}\right\} _{i\in\N}\in\mathcal{D}$
+be a decreasing sequence of sets and observe that 
+\[
+B_{i}=\X\setminus A_{i}\in\mathcal{D}
+\]
+is an inccreasing sequence of sets such that
+\[
+\bigcup_{i\in\N}B_{i}\in\mathcal{D}.
+\]
+However, 
+\begin{align*}
+\bigcap_{i\in\N}A_{i} & =\left(\bigcup_{i\in\N}A_{i}^{C}\right)^{C}\\
+ & =\left(\bigcup_{i\in\N}B_{i}\right)^{C}\\
+ & =\X\setminus\left(\bigcup_{i\in\N}B_{i}\right)
+\end{align*}
+which is in $\mathcal{D}$. This completes the proof.
+\end{proof}
+As usual, we define the monotone class generated by class of sets
+$\mathcal{A}$ as 
+\[
+\mathscr{M}\left(\mathcal{A}\right):=\bigcap\left\{ \mathcal{M}\subseteq2^{\X}\text{ is a monotone class}\mid\mathcal{A}\subseteq\mathcal{M}\right\} 
+\]
+which is itself a monotone class by the usual arguments. Again, since
+$\sigma-$algebras and $\lambda-$systems are monotone classes, we
+have that
+\[
+\mathcal{A}\subseteq\mathscr{M}\left(\mathcal{A}\right)\subseteq\lambda\left(\mathcal{A}\right)\subseteq\sigma\left(\mathcal{A}\right)
+\]
+where we also use the fact that a $\sigma-$algebra is a $\lambda-$system.
+Finally, note that an \hyperref[def:algebra]{\emph{algebra} of sets}
+$\mathcal{A}$ is also a $\pi-$system and so, by the $\pi-\lambda$
+theorem, 
+\[
+\sigma\left(\mathcal{A}\right)=\lambda\left(\mathcal{A}\right).
+\]
+
+\begin{thm}[Monotone class theorem]
+\label{thm:monotoneClassThm} Let $\mathcal{A}\subseteq2^{\X}$ be
+an algebra of sets. Then
+\[
+\mathscr{M}\left(\mathcal{A}\right)=\sigma\left(\mathcal{A}\right).
+\]
+\end{thm}
+
+\begin{proof}
+We have shown that $\mathscr{M}\left(\mathcal{A}\right)\subseteq\sigma\left(\mathcal{A}\right)$
+and so we need to show the reverse inclusion. Since $\mathcal{A}$
+is also a $\pi-$system, this is equivalent to showing that $\lambda\left(\mathcal{A}\right)\subseteq\mathscr{M}\left(\mathcal{A}\right)$.
+To this end, it is sufficient to show that $\mathscr{M}\left(\mathcal{A}\right)$
+is a $\lambda-$system. Note that $\X\in\mathscr{M}\left(\mathcal{A}\right)$
+since $\X\in\mathcal{A}$. Further, $\mathscr{M}\left(\mathcal{A}\right)$
+is closed under limits of increasing sequences of sets since it's
+a monotone class. Thus we need to prove that for any $A_{1},A_{2}\in\mathscr{M}\left(\mathcal{A}\right)$
+such that $A_{2}\subseteq A_{1}$ we have that $A_{1}\setminus A_{2}\in\mathscr{M}\mathcal{\left(A\right)}.$
+
+For any set $E\in\mathscr{M}\left(\mathcal{A}\right)$, define
+\[
+M_{E}:=\left\{ F\subseteq\mathscr{M}\left(\mathcal{A}\right)\mid E\setminus F,F\setminus E\in\mathscr{M}\left(\mathcal{A}\right)\right\} 
+\]
+and note that for an increasing collection of sets $\left\{ F_{i}\right\} _{i\in\N}\in M_{E}$
+\begin{align*}
+E\setminus\bigcup_{i\in\N}F_{i} & =E\cap\left(\bigcap_{i\in\N}F_{i}^{C}\right)\\
+ & =\bigcap_{i\in\N}\left(E\cap F_{i}^{C}\right)\\
+ & =\bigcap_{i\in\N}E\setminus F_{i}\in M_{E}
+\end{align*}
+since $E\setminus F_{i}\supseteq E\setminus F_{i+1}$ and $E\setminus F_{i}\in\mathscr{M}\left(\mathcal{A}\right)$
+for all $i\in\N$. A similar aragument shows that $\bigcup_{i\in\N}F_{i}\setminus E\in\mathscr{M}\left(\mathcal{A}\right)$
+which shows that $\bigcup_{i\in\N}F_{i}\in M_{E}.$ We can apply the
+same argument to show that for a decreasing sequence of sets $\left\{ F_{i}\right\} _{i\in\N}\in M_{E}$,
+the intersection $\bigcap_{i\in\N}F_{i}\in M_{E}$. This proves that
+$M_{E}$ is in fact a monotone class, and since $\mathcal{A}$ is
+an algebra (and so it's closed under set differences), $\mathcal{A}\subseteq M_{E}$
+which implies that $\mathscr{M}\left(\mathcal{A}\right)\subseteq M_{E}$
+for any $E\in\mathscr{M}\left(\mathcal{A}\right).$ In other words,
+this proves that for any $E,F\in\mathscr{M}\left(\mathcal{A}\right):$
+\[
+E\setminus F,F\setminus E\in\mathscr{M}\left(\mathcal{A}\right)
+\]
+ which completes the proof.
+\end{proof}
+Note how we used our previous work with the $\pi-\lambda$ theorem
+to establish the monotone class theorem; it turns out that the monotone
+class also implies theorem implies the $\pi-\lambda$ theorem, and
+so these two theorems are in fact equivalent. This should not be particularly
+surprising to you at this juncture since they are both generating
+class arguments which make slightly different structural assumptions
+to yield the same result. We can present these assumptions in a concise
+and organized fashion, using the notation defined in the abstract
+generating class argument described at the beginning of this section.
+In Table \ref{tab:typesGenClassArg} $\mathcal{E}$ is the generating
+class which satisfies the desired property $\left(*\right)$ and $\mathcal{D}$
+is all the sets in the $\sigma-$algebra $\mathcal{F}$ which satisfies
+property $\left(*\right)$. In the generic argument, we put very strong
+structural assumptions on $\mathcal{D}$ and none on $\mathcal{E}$.
+In the $\pi-\lambda$ case, we weaken the assumptions on $\mathcal{D}$
+in exchange for imposing (weak) assumptions on $\mathcal{E}$. Finally,
+in the monotone class approach, we impose a strong structural assumption
+on $\mathcal{E}$, whereas $\mathcal{D}$ has the minimal structure
+of a monotone class. The type of argument one uses in practice depends
+on context, and in many situations one can pick to use either Dynkin's
+theorem or the monotone class theorem.
+
+\begin{table}[H]
+\caption{\label{tab:typesGenClassArg}Types of generating class arguments}
+
+\centering{}%
+\begin{tabular}{ccc}
+\hline 
+Name & Structure of $\mathcal{E}$ & Structure of $\mathcal{D}$\tabularnewline
+\hline 
+\hline 
+Generic & No structure & $\sigma-$algebra\tabularnewline
+Dynkin's theorem & $\pi-$system & $\lambda-$system\tabularnewline
+Monotone class theorem & Algebra  & Monotone class\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+\subsection{Generating classes of functions}
+\begin{defn}
+\label{def:lambdaSpaceOfFunctions}A set $\mathcal{H}$ of bounded
+real functions on $\X$ is called a $\lambda-$\emph{space of functions
+}if
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item The constant function $\indicate_{\X} \in \mathcal{H} $
+	\item $\mathcal{H}$ is a vector space over $\R$
+	\item If $h_n \in \mathcal{H} $ such that $h_n \leq h_{n+1} $ pointwise and
+		\[
+					\lim_{n\to\infty} h_n = h
+		\]
+		 is well defined and bounded then $h \in \mathcal{H}$
+\end{enumerate}
+\end{defn}
+
+$\lambda-$spaces of functions are named so because they generalize
+$\lambda-$systems of sets, as we show in the following result.
+\begin{prop}
+\label{prop:lambdaFuncsGeneralizeLambdaSystems} If $\mathcal{H}$
+is a $\lambda-$space of functions on $\X$ then
+\[
+\mathcal{D:=}\left\{ A\subseteq\X\mid\indicate_{A}\in\mathcal{H}\right\} 
+\]
+is a $\lambda-$system.
+\end{prop}
+
+\begin{proof}
+Note that since $\indicate_{\X}\in\mathcal{H}$ we have that $\X\in\mathcal{D}.$
+Next, assume that $A_{1},A_{2}\in\mathcal{D}$ such that $A_{2}\subseteq A_{1}$
+and observe that
+\begin{align*}
+\indicate_{A_{1}\setminus A_{2}} & =\indicate_{A_{1}\cap A_{2}^{C}}\\
+ & =\indicate_{A_{1}}\left(1-\indicate_{A_{2}}\right)\\
+ & =\indicate_{A_{1}}-\indicate_{A_{2}}\in\mathcal{H}
+\end{align*}
+where the second and third equalities follows from Fact \ref{fact:indicatorFunctionsFiniteOperations},
+and the inclusion follows from the fact that $\mathcal{H}$ is closed
+under linear combinations. This prove that $A_{1}\setminus A_{2}\in\mathcal{H}$.
+Fiinally, let $\left\{ A_{i}\right\} _{i\in\N}$ be an increasing
+sequence of sets in $\mathcal{D}$ and observe that
+\begin{align*}
+\indicate_{\bigcup_{i\in\N}A_{i}} & =\sup_{i\in\N}\indicate_{A_{i}}\\
+ & =\lim_{n\to\infty}\indicate_{A_{i}}\in\mathcal{H}
+\end{align*}
+where the first equality follows from \ref{prop:indicatorFunctionsArbitraryOperations}
+and the second equality is due to the fact that $A\subseteq B\Longrightarrow\indicate_{A}\leq\indicate_{B}$,
+and so $\indicate_{A_{i}}$ converges pointwise to its supremum. This
+proves that $\bigcup_{i\in\N}A_{i}\in\mathcal{D}$ which implies that
+$\mathcal{D}$ is a $\lambda-$system.
+\end{proof}
+In the next theorem and elsewhere, let $\mathcal{M}_{\text{bdd}}\left(\X,\mathcal{F}\right)$
+and $\mathcal{M}_{\text{bdd}}^{+}\left(\X,\mathcal{F}\right)$ denote
+the set of all bounded real-valued Borel-measurable functions on $\left(\mathcal{X},\mathcal{F}\right),$and
+the set of all non-negative and bounded real-valued Borel-measurable
+functions on $\left(\mathcal{X},\mathcal{F}\right)$ respectively.
+\begin{thm}[$\pi-\lambda$ theorem for functions]
+\label{thm:piLambdaThmFunctions} Let $\mathcal{G}$ be a $\pi-$system
+of sets and let $\mathcal{H}$ be a $\lambda-$space of functions
+on $\X$. If
+\[
+\left\{ \indicate_{A}\mid A\in\mathcal{G}\right\} \subseteq\mathcal{H}
+\]
+then $\mathcal{M}_{\textnormal{bdd}}\left(\X,\sigma\left(\mathcal{G}\right)\right)\subseteq\mathcal{H}.$
+\end{thm}
+
+\begin{proof}
+Define $\mathcal{D:=}\left\{ D\subseteq\X\mid\indicate_{D}\in\mathcal{H}\right\} $.
+Then, by Proposition \ref{prop:lambdaFuncsGeneralizeLambdaSystems},
+$\mathcal{D}$ is a $\lambda-$system such that $\mathcal{G}\subseteq\mathcal{D}.$
+By the \hyperref[cor:piLambdaGeneratingClassArg]{$\pi-\lambda$ theorem for sets},
+$\sigma\left(\mathcal{G}\right)\subseteq\mathcal{D}$. This means
+that the indicator functions of sets in $\sigma\left(\mathcal{G}\right)$
+is contained in $\mathcal{H}$.
+
+Next, let $f\in\mathcal{M}_{\text{bdd}}^{+}\left(\X,\sigma\left(\mathcal{G}\right)\right)$
+be arbitrary. Since $f\in\mathcal{M}^{+}\left(\X,\sigma\left(\mathcal{G}\right)\right),$
+by Proposition \ref{prop:simpleFunctionMonotoneConvergence} there
+exists an increasing sequence of simple functions $\left\{ s_{n}\right\} _{n\in\N}\in\mathcal{M}^{+}\left(\X,\sigma\left(\mathcal{G}\right)\right)$
+such that 
+\[
+f=\lim_{n\to\infty}s_{n}.
+\]
+Since, $f$ is bounded, $s_{n}\leq f$ are all bounded. Moreover,
+since every $s_{n}$ is a measurable simple function, it's a finite
+linear combination of indicator functions of sets in $\sigma\left(\mathcal{G}\right)$.
+Therefore, $\left\{ s_{n}\right\} _{n\in\N}\in\mathcal{H}$ and since
+$f$ is the monotone limit of $s_{n}$, $f\in\mathcal{H}$.
+
+Finally, assume that $f\in\mathcal{M}_{\textnormal{bdd}}\left(\X,\sigma\left(\mathcal{G}\right)\right)$
+and note that $f^{+},f^{-}\in\mathcal{H}$ by Proposition \ref{prop:minMaxMeasurable}
+and the last step, and so $f=f^{+}-f^{-}\in\mathcal{H}$.
+\end{proof}
+

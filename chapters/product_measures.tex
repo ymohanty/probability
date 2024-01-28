@@ -1,0 +1,1107 @@
+
+\chapter{Measures on product spaces\label{chap:productMeasures}}
+
+In calculus, we learnt that the theory of integration readily extends
+from from real valued functions on $\R$ to real valued functions
+on the Euclidean space $\R^{n}.$ The extension is usually motivated
+geometrically by studying the volume under the surface of a sufficiently
+smooth function $f:\R^{2}\to\R$. The idea is that if a function is
+sufficiently well behaved, then one can recover the volume under the
+surface by looking at the areas under various ``slices'' of the function
+and then summing up those areas. Importantly, under the requisite
+smoothness conditions, the ``slices'' could have been made horizontally
+or vertically, and we would get the same result. This intuition leads
+to the Fubini theorem for multiple integration in the Riemann setting:
+\[
+\int_{a}^{b}\int_{c}^{d}f(x,y)dydx=\int_{c}^{d}\int_{a}^{b}f(x,y)dxdy.
+\]
+In our linear functional notation, this can be written as
+\[
+\lambda^{x}\left(\lambda^{y}\left(f\left(x,y\right)\indicate_{\left[c,d\right]}\right)\indicate_{\left[a,b\right]}\right)=\lambda^{y}\left(\lambda^{x}\left(f\left(x,y\right)\indicate_{\left[a,b\right]}\right)\indicate_{\left[c,d\right]}\right).
+\]
+Here $\lambda$ is the Lebesgue measure as usual, and the superscripts
+denote the variable of integration. Note that we have dropped the
+bars on top of the $\lambda$ to denote integration to clean up notation;
+for comfort, you can just think of integration as an extension of
+a measure from the space of measurable indicators to the space of
+non-negative measurable or integrable functions, in the spirit of
+Theorem \ref{thm:integralMeasureEquivalence}.
+
+The main goal of this chapter is to recover this result for the general
+measures. While important in its own right for the study of analysis
+on Euclidean spaces, in the context of probability theory, this result
+takes a far more important role. In particular, the ability to write
+a multiple integral as an iterated integral corresponds directly with
+the ability to factor the joint distribution of random variables into
+their marginal distributions; that is, it underpins the theory of
+\emph{independent }random variables. Independence, and the departures
+from independence, constitute the central concepts of probabiliy theory.
+
+\section{Product measures on finite product spaces}
+
+\subsection{Iterated integrals}
+
+Let $\left(\X,\F,\mu\right)$ and $\left(\mathcal{Y},\mathcal{G},\nu\right)$
+be measure spaces. Our interest is in defining measurable functions
+on the product space $\X\times\mathcal{Y}.$ The principle hurdle
+that is immediately apparent here is that the product of the $\sigma-$algebras
+$\F\times\mathcal{G}:=\left\{ F\times G\mid F\in\F,G\in\mathcal{G}\right\} $
+is not necessarily a $\sigma-$algebra. \hl{ADD CE}. It is easy to
+see, however, that it is a $\pi-$system (this fact will turn out
+to be important!). Any $\sigma-$algebra we use should certainly \emph{contain
+}$\mathcal{F}\times\mathcal{G}$ and so the canonical choice is given
+by $\mathcal{F}\otimes\mathcal{G:=\sigma\left(F\times G\right)}$.
+A series of natural questions follow if we want iterated integrals
+to make sense. In particular, for a measurable map $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right),$we
+want to know if the projections $x\to f(x,y)$ and $y\to\mu^{x}\left(f\left(x,y\right)\right)$
+are $\mathcal{F}$ and $\mathcal{G}$ measurable, respectively. Thankfully,
+this turns out to be the case. We will use a long lost result from
+Chapter 2: the \hyperref[thm:piLambdaThmFunctions]{$\pi-\lambda$ theorem for functions}.
+Go over the hypotheses of this theorem before reading the following
+results.
+\begin{lem}
+\label{lem:partialFunctionMeasurability}For every $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$,
+the maps $x\to f(x,y)$ and $y\to f(x,y)$ are $\mathcal{F}/\borel\left(\R\right)$
+and $\mathcal{G}/\borel\left(\R\right)$ measurable for every $y\in\mathcal{Y}$
+and $x\in\X$, respectively.
+\end{lem}
+
+\begin{proof}
+First we note, due to the fact that $\left(A_{1}\times B_{1}\right)\cap\left(A_{2}\times B_{2}\right)=\left(A_{1}\cap A_{2}\right)\times\left(B_{1}\times B_{2}\right),$that
+$\mathcal{\mathcal{E:=}F}\times\mathcal{G}$ is a $\pi-$system. Next,
+we claim that the space
+\[
+\mathcal{H:=}\left\{ f\in\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\mid\forall y\in\mathcal{Y}:x\to f\left(x,y\right)\text{is }\mathcal{G}/\borel\left(\R\right)\text{ measurable }\right\} 
+\]
+is a $\lambda-$space of functions. Note that $\indicate_{\X\times\mathcal{Y}}$is
+constant and bounded (and evidently partially measurable in our sense).
+Further, our space $\mathcal{H}$ is a vector space, since linear
+combinations of bounded measurable functions is bounded, and the partial
+measurability condition is also preserved under linear combinations
+(both results of Proposition \ref{prop:binaryOperationsMeasurableFunctions}).
+Finally, $\mathcal{H}$ is closed under monotone limits (if they exist)
+since measurability (resp. partial measurability) is preserved under
+limits.
+
+Now, observe that $\left\{ \indicate_{A}\mid A\in\mathcal{E}\right\} \subseteq\mathcal{H}$,
+since $\indicate_{F\times G}=\indicate_{F}\indicate_{G}$which is
+clearly bounded, measurable, and partially measurable in our sense.
+Thus applying the $\pi-\lambda$ theorem as discussed, we have that
+
+\[
+\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\subseteq\mathcal{H}
+\]
+which completes the proof for bounded functions.
+
+Now we can simply take a function $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+and construct the bounded monotone sequence $f_{n}:=\min\left\{ f,n\right\} \in\mathcal{H}$
+by our results. We complete the proof by taking limits and noting
+that partial measurability is preserved. The same argument, of course,
+holds for $y\to f\left(x,y\right)$.
+\end{proof}
+Note that the converse of this result is not necessarily true; that
+is, for a function $f:\X\times\mathcal{Y}\to\R$ with measurable sections
+$x\to f\left(x,y\right)$ and $y\to f\left(x,y\right)$, it need not
+be the case that $f$ is product measurable.
+\begin{example}
+\label{exa:sectionMeasurableNotProductMeasurable}Let $V$ be a Vitali
+set in $\R$ and let $E=\left\{ \left(x,x\right)\mid x\in V\right\} .$
+Then let $f\left(x,y\right)=\indicate_{E}\left(x,y\right)$ and notice
+that
+\[
+x\to f\left(x,y\right)=\begin{cases}
+0, & y\notin V\\
+\indicate\left\{ x=y\right\}  & y\in V.
+\end{cases}
+\]
+In the first case, the section $x\to f\left(x,y\right)$ is constantly
+zero and hence measurable. In the second case, its an indicator function
+for the singleton $\left\{ y\right\} $ which is measurable since
+singletons are in $\borel\left(\R\right).$Therefore, for every $y\in\R$
+the section $x\to f\left(x,y\right)$ is $\borel\left(\R\right)/\borel\left(\R\right)$
+measurable. A similar argument shows that for every $x\in\R$, $y\to f\left(x,y\right)$
+is Borel measurable. But notice that $f$ is measurable if and only
+if $E$ is measurable, but the map $g\left(x\right)=\left(x,x\right)$is
+measurable and $g^{-1}\left[E\right]=V$ is not measurable and so
+$E$ is not measurable.
+\end{example}
+
+Virtually the same argument as in Lemma \ref{lem:partialFunctionMeasurability}
+shows that $y\to\mu^{x}\left(f\left(x,y\right)\right)$ is measurable
+(although we need this previous lemma to show that this function is
+indeed well-defined). We include this result here for completeness
+\begin{lem}
+\label{lem:partialIntegralMeasurability}Let $\left(\X,\F,\mu\right)$
+and $\left(\mathcal{Y},\mathcal{G},\nu\right)$ be measure spaces.
+For every function $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$,
+the maps $x\to\nu^{y}\left(f\left(x,y\right)\right)$ and $y\to\mu^{x}\left(f\left(x,y\right)\right)$
+are $\mathcal{F}/\borel\left(\R\right)$ and $\mathcal{G}/\borel\left(\R\right)$
+measurable respectively.
+\end{lem}
+
+\begin{proof}
+Let $\mathcal{E}$ be as before and this time let
+\[
+\mathcal{H:=}\left\{ f\in\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\mid y\to\mu^{x}f\left(x,y\right)\text{is }\mathcal{G}/\borel\left(\R\right)\text{ measurable }\right\} ,
+\]
+noting that $\indicate_{\X\times\mathcal{Y}}\in\mathcal{H}$ since
+$\mu^{x}\left(\indicate_{\X\times\mathcal{Y}}\right)=\indicate_{\mathcal{Y}}\mu\left(\X\right)$
+which is $\mathcal{G}$ measurable. $\mathcal{H}$ is a vector space
+closed under monotone limits with the same arguments as before along
+with the linearity and monotone convergence properties of $\mu$.
+Applying the $\pi-\lambda$ theorem for functions, we have that 
+\[
+\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\subseteq\mathcal{H}.
+\]
+Finally, take some $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+and construct $f_{n}:=\min\left\{ f,n\right\} \in\mathcal{H}$ and
+note that $y\to\mu^{x}\left(f_{n}\left(x,y\right)\right)$ is measurable
+and by monotone convergence $y\to\mu^{x}\left(f\left(x,y\right)\right)$
+is measurable completing the proof.
+\end{proof}
+\hl{Add remarks under each measurability lemma to extend to n dimensions via induction}
+
+With the technicalities out of the way, we can show that iterated
+integrals give the same result under certain conditions. This is a
+generalization of the result we saw all the way back in Lemma \ref{lem:TonelliForSeries}.
+\begin{thm}[Tonelli]
+\label{thm:tonelli}Let $\left(\X,\F,\mu\right)$ and $\left(\mathcal{Y},\mathcal{G},\nu\right)$
+be measure spaces. Then, for any $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$,
+the functions 
+\[
+\gamma_{1}\left(f\right):=\nu^{y}\mu^{x}\left(f\right)
+\]
+and
+\[
+\gamma_{2}\left(f\right):\mu^{x}\nu^{y}\left(f\right)
+\]
+are integrals on $\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right).$
+Moreover, if $\mu$and $\nu$ are $\sigma-$finite, $\gamma_{1}\left(f\right)=\gamma_{2}\left(f\right)$
+for every $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right).$
+\end{thm}
+
+\begin{proof}
+We show that $\gamma_{1}$ is an integral; the argument for $\gamma_{2}$
+is the analagous. First, observe that $\gamma_{1}\left(0\right)=\nu^{y}\mu^{x}\left(0\right)=\nu^{y}\left(0\right)=0$,
+given that $\nu$ and $\mu$ are integrals. Second, note that for
+$\alpha,\beta\geq0$, and $f,g\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+\begin{align*}
+\gamma_{1}\left(\alpha f+\beta g\right) & =\nu^{y}\mu^{x}\left(\alpha f+\beta g\right)\\
+ & =\nu^{y}\left(\alpha\mu^{x}f+\beta\mu^{x}g\right)\\
+ & =\alpha\nu^{y}\mu^{x}\left(f\right)+\beta\nu^{y}\mu^{x}\left(g\right)\\
+ & =\alpha\gamma_{1}\left(f\right)+\beta\gamma_{1}\left(g\right).
+\end{align*}
+Finally, observe that for $f_{n}\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+such that $f_{n}\leq f_{n+1}$ and $f_{n}\to f$, we have
+\begin{align*}
+\lim_{n\to\infty}\gamma_{1}\left(f_{n}\right) & =\lim_{n\to\infty}\nu^{y}\mu^{x}\left(f_{n}\right)\\
+ & =\nu^{y}\mu^{x}\left(\lim_{n\to\infty}f_{n}\right)\\
+ & =\gamma_{1}\left(f\right)
+\end{align*}
+by applying monotone convergence twice.
+
+Therefore, by Theorem \ref{thm:integralMeasureEquivalence}, $\gamma_{1}$
+and $\gamma_{2}$ are integrals on $\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+with respect to measures defined by integrating indicator functions
+in $\mathcal{F\otimes\mathcal{G}}.$ If $\mu$ and $\nu$ are $\sigma-$finite,
+the two integrals can be shown to be equal by showing that the corresponding
+measures are equal on a generating $\pi-$system that can approximate
+the full space (courtesy of our \hyperref[thm:uniquenessMeasures]{uniqueness theorem}).
+Of course, since $\mathcal{F\times\mathcal{G}}$ is a $\pi-$system,
+for $F\in\F,G\in\mathcal{G}$
+\begin{align*}
+\gamma_{1}\left(\indicate_{F\times G}\right) & =\nu^{y}\mu^{x}\left(\indicate_{F\times G}\left(x,y\right)\right)\\
+ & =\nu^{y}\mu^{x}\left(\indicate_{F}\left(x\right)\indicate_{G}\left(y\right)\right)\\
+ & =\nu\left(G\right)\mu\left(F\right)\\
+ & =\mu^{x}\nu^{y}\left(\indicate_{F}\left(x\right)\indicate_{G}\left(y\right)\right)\\
+ & =\gamma_{2}\left(\indicate_{F\times G}\right)
+\end{align*}
+completing the proof. Since our measures $\mu,\nu$ are $\sigma-$finite,
+we know that there exist sets $E_{i}\in\mathcal{F\times\mathcal{G}}$
+such that $\bigcup E_{i}=\X\times\mathcal{Y}.$ This completes the
+proof.
+\end{proof}
+Note that the $\sigma-$finiteness condition is actually necessary
+for the uniqueness of the integrals, as Example \ref{exa:tonelliFailNonSigmaFinite}
+illustrates.
+\begin{cor}[Fubini's Theorem]
+Let $\left(\X,\F,\mu\right)$ and $\left(\mathcal{Y},\mathcal{G},\nu\right)$
+be $\sigma-$finite measure spaces and let $f\in\mathcal{M}\left(\X\times\mathcal{Y},\F\otimes\mathcal{G}\right).$
+If one of $\gamma_{1}\left(\lvert f\rvert\right):=\nu^{y}\mu^{x}\left(\lvert f\rvert\right)$
+or $\gamma_{2}\left(\lvert f\rvert\right):\mu^{x}\nu^{y}\left(\lvert f\rvert\right)$
+is finite, then
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+\item $x \to f\left(x,y\right) \in \Lp{1}{\mu}$
+\item $y \to f\left(x,y\right) \in \Lp{1}{\nu}$
+\item $x \to \nu^y\left(f\left(x,y\right)\right)\in \Lp{1}{\mu}$
+\item $y \to \mu^x\left(f\left(x,y\right)\right) \in \Lp{1}{\nu}$
+\item $\gamma_1\left(f\right) = \gamma_2\left(f\right)$
+\end{enumerate}
+\end{cor}
+
+\begin{proof}
+Note that since $\lvert f\rvert\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\F\otimes\mathcal{G}\right)$,
+by Tonelli's theorem,
+\[
+\gamma_{1}\left(\lvert f\rvert\right)=\gamma_{2}\left(\lvert f\rvert\right)<\infty
+\]
+which implies, by Proposition \ref{prop:intFiniteFuncFinite}, that
+\[
+\nu^{y}\left(\lvert f\left(x,y\right)\rvert\right)<\infty
+\]
+and
+\[
+\mu^{x}\left(\lvert f\left(x,y\right)\rvert\right)<\infty
+\]
+which gives us $\left(i\right)$ and $\left(ii\right)$. Next, note
+that
+\[
+\lvert\nu^{y}\left(f\left(x,y\right)\right)\rvert\leq\nu^{y}\left(\lvert f\left(x,y\right)\rvert\right)<\infty
+\]
+and
+\[
+\lvert\mu^{x}\left(f\left(x,y\right)\right)\rvert\leq\mu^{x}\left(\lvert f\left(x,y\right)\rvert\right)<\infty
+\]
+for all $y\in\mathcal{Y}$ by $\left(i\right)$ , $\left(ii\right)$
+and Corollary \ref{cor:triangleIneqLebIntL1}. The measurabiltiy of
+$x\to\lvert\nu^{y}\left(f\left(x,y\right)\right)\rvert$ and $y\to\lvert\mu^{x}\left(f\left(x,y\right)\right)\rvert$
+follows from the fact that $x\to\nu^{y}\left(f^{\pm}\right)$ and
+$y\to\mu^{x}\left(f^{\pm}\right)$ are measurable (and finite) by
+Lemma \ref{lem:partialIntegralMeasurability} and so $x\to\nu^{x}\left(f\left(x,y\right)\right)=x\to\nu^{x}\left(f^{+}\right)-\nu^{x}\left(f^{-}\right)$
+and $y\to\mu^{x}\left(f\left(x,y\right)\right)=y\to\mu^{x}\left(f^{+}\right)-\mu^{x}\left(f^{-}\right)$
+are measurable by Corollary \ref{cor:examplesBinaryOpsMeasFunc}.
+Since the absolute value is continuous, our measurability results
+hold. Then, monotonicity of integration implies that 
+\[
+\mu^{x}\lvert\nu^{y}\left(f\left(x,y\right)\right)\rvert<\infty\ \text{and}\ \nu^{y}\lvert\mu^{x}\left(f\left(x,y\right)\right)\rvert<\infty
+\]
+which gives is $\left(iii\right)$ and $\left(iv\right).$ Finally,
+to see $\left(v\right)$, you note that $\gamma_{1}\left(f^{+}\right)=\gamma_{2}\left(f^{+}\right)$
+and $\gamma_{1}\left(f^{-}\right)=\gamma_{2}\left(f^{-}\right)$ by
+Tonelli. Then the result follows by subtracting these two equalities
+and apply linearity.
+\end{proof}
+
+\subsection{Product sigma algebras and measures}
+\begin{defn}
+\label{def:productMeasure}Let $\measurespace$ and $\left(\mathcal{Y},\mathcal{G},\nu\right)$
+be measure spaces and let $\left(\X\times\mathcal{Y},\F\otimes\mathcal{G}\right)$
+be the product measurable space. Then a measure $\mu\otimes\nu:\F\otimes\mathcal{G}\to\left[0,\infty\right]$
+is called a \emph{product measure }if
+\[
+\mu\otimes\nu\left(F\times G\right)=\mu\left(F\right)\nu\left(G\right)
+\]
+for all $F\in\F,G\in\mathcal{G}.$
+\end{defn}
+
+Of course, the way we have set this up, Theorem \ref{thm:tonelli}(Tonelli)
+guarantees existence of this measure, since measures and integrals
+are equivalent. Uniqueness, when $\mu$ and $\nu$ are $\sigma-$finite,
+follows from the uniqueness theorem, as outlined in the proof of Tonelli.
+Note also the fact that the product of sigma finite measures is sigma
+finite. Tonelli (or Fubini) also tell us that for non-negative measurable
+(or integrable) functions, the integral with respect to the product
+measure coincides with iterated integrals, at least when the measure
+spaces are $\sigma-$finite. That is to say
+\[
+\lebInt{\mu\otimes\nu}f=\gamma_{1}\left(f\right)=\gamma_{2}\left(f\right)
+\]
+for any $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+($f\in\Lp 1{\mu\otimes v}$).
+
+To get some of the standard results on multiple integration in $\R^{n}$,
+we first need to do some legwork to characterize products of Borel
+$\sigma-$algebras. We begin first by generalizing the concept of
+a $\sigma-$algebra generated by a measurable function.
+\begin{defn}
+\label{def:sigmaMultipleMeasurableFunctions}Let $\X$ be a set and
+let $\left(\mathcal{Y}_{i},\mathcal{G}_{i}\right)$ be a measurable
+spaces, for $i\in I$ where $I$ is an index set. Further, let $\left\{ f_{i}\right\} _{i\in I}$
+, be a collection of functions $f_{i}:\X\to\mathcal{Y}_{i}$. Then,
+the $\sigma-$algebra generated by $\left\{ f_{i}\right\} _{i\in I}$
+is 
+\[
+\sigma\left(\left\{ f_{i}\right\} _{i\in I}\right):=\sigma\left(\bigcup_{i\in I}\sigma\left(f_{i}\right)\right)
+\]
+where $\sigma\left(f_{i}\right)$ is the usual definition of the sigma
+algebra generated by a function.
+\end{defn}
+
+\begin{rem*}
+When the $I$ is finite or countable, we simply write $\sigma\left(f_{1},f_{2},\ldots\right)$.
+\end{rem*}
+\begin{prop}
+\label{prop:sigmaAlgebraGenCollectionSmallest}Let $\X$ be a set
+and let $\left(\mathcal{Y},\mathcal{G}\right)$ be a measurable space.
+For any collection $\left\{ f_{i}\right\} _{i\in I}$ where $I$ is
+just some index set, $\sigma\left(\left\{ f_{i}\right\} _{i\in I}\right)$
+is the smallest $\sigma-$algebra that makes every $f_{i}$ measurable.
+\end{prop}
+
+\begin{proof}
+Note that if $\mathcal{F}$ is some $\sigma-$algebra that makes $f_{i}$
+measurable for all $i\in I$, then $\sigma\left(f_{i}\right)\subseteq\mathcal{F}$
+which implies that $\bigcup_{i\in I}\sigma\left(f_{i}\right)\subseteq\F$
+and the result follows.
+\end{proof}
+\begin{rem*}
+We can use the definition above to provide an alternate characterization
+of product $\sigma-$algebras. First note for measurable spaces $\left(\X_{1},\mathcal{F}_{1}\right)$
+and $\left(\X_{2},\mathcal{F}_{2}\right)$ with the product space
+$\left(\X_{1}\times\mathcal{\X}_{2},\F_{1}\otimes\F_{2}\right)$,
+we have that the coordinate projections $\pi_{1}$ and $\pi_{2}$
+defined as
+\[
+\pi_{i}:\X_{1}\times\mathcal{\X}_{2}\to\X_{i}
+\]
+where $\pi_{i}\left(x_{1},x_{2}\right)=x_{i}$ for any $i=1,2.$
+\end{rem*}
+\begin{prop}
+\label{prop:altProductSigma}Let $\left(\X_{1},\F_{1}\right),\left(\X_{2},\F_{2}\right),$
+and $\left(\mathcal{Y},\mathcal{G}\right)$ be measurable spaces.
+Then
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+\item $\sigma \left( \pi_1, \pi_2 \right) = \mathcal{F}_1 \otimes \mathcal{F}_2$
+\item  $T:\left(\mathcal{Y},\mathcal{G}\right) \to \left(\X_{1}\times\mathcal{\X}_{2},\F_{1}\otimes\F_{2}\right)$ is measurable if and only if the maps $\pi_i \circ T :\left(\mathcal{Y},\mathcal{G}\right) \to \left(\mathcal{X}_i, \mathcal{F}_i\right)$ are measurable for $i=1,2$.
+\item If $ S:\left(\X_{1}\times\mathcal{\X}_{2},\F_{1}\otimes\F_{2}\right) \to \left(\mathcal{Y},\mathcal{G}\right)$ is measurable then the maps $x_1 \to S(x_1,x_2)$ and $x_2 \to S(x_1, x_2)$ are measurable for all $x_2 \in \mathcal{X}_2$ and $x_1 \in \mathcal{X}_1$, respectively.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+For $\left(i\right)$, note that for any $F\in\mathcal{F}_{1}$, $\pi_{1}^{-1}\left[F\right]=F\times\X_{2}\in\mathcal{F}_{1}\otimes\mathcal{F}_{2}$
+and so $\pi_{1}$ is measurable with respect to $\mathcal{F}_{1}\otimes\mathcal{F}_{2}$
+and so by definition $\sigma\left(\pi_{1}\right)\subseteq\mathcal{F}_{1}\otimes\mathcal{F}_{2}$.
+Similarly, $\sigma\left(\pi_{2}\right)\subseteq\mathcal{F}_{1}\otimes\mathcal{F}_{2}$
+and so $\sigma\left(\pi_{1},\pi_{2}\right)\subseteq\mathcal{F}_{1}\otimes\mathcal{F}_{2}.$
+Conversely, for any $F_{1}\in\mathcal{F}_{1}$ and $F_{2}\in\mathcal{F}_{2}$,
+\[
+F_{1}\times F_{2}=\left(F_{1}\times\X_{2}\right)\cap\left(\X_{1}\times F_{2}\right)\in\sigma\left(\pi_{1},\pi_{2}\right)
+\]
+ and so $\mathcal{F}_{1}\otimes\mathcal{F}_{2}=\sigma\left(\left\{ F_{1}\times F_{2}\mid F_{1}\in\F_{1},F_{2}\in\F_{2}\right\} \right)\subseteq\sigma\left(\pi_{1},\pi_{2}\right).$
+
+Next, for $\left(ii\right)$, first note that if $T$ is measurable,
+then $\pi_{i}\circ T$ is measurable since $\pi_{i}\in\mathcal{M}\left(\X_{1}\times\X_{2},\mathcal{F}_{1}\otimes\mathcal{F}_{2}\right)$
+by part $\left(i\right)$ and the composition of measurable functions
+is measurable. Conversely, if both $\pi_{i}$ and $\pi\circ T$ are
+measurable, then for any $F_{1}\in\F_{1}$ and $F_{2}\in\F_{2}$
+\begin{align*}
+T^{-1}\left[F_{1}\times F_{2}\right] & =T^{-1}\left[\left(F_{1}\times\X_{2}\right)\cap\left(\X_{1}\times F_{2}\right)\right]\\
+ & =T^{-1}\left[\pi_{1}^{-1}\left[F_{1}\right]\cap\pi_{2}^{-1}\left[F_{2}\right]\right]\\
+ & =\left(\pi_{1}\circ T\right)^{-1}\left[F_{1}\right]\cap\left(\pi_{2}\circ T\right)^{-1}\left[F_{2}\right]
+\end{align*}
+where both terms in the intersection are in $\mathcal{G}$ by the
+measurability of $\pi_{i}\circ T$. Then a standard generating class
+argument (Theorem \ref{thm:genericGeneratingClassArgument}) yields
+the result.
+
+Finally, note that $x_{1}\to S\left(x_{1},x_{2}\right)$ for some
+fixed $x_{2}$ can be thought of as the composition $S\circ i_{x_{2}}$
+where $i_{x_{2}}:\X_{1}\to\X_{1}\times\X_{2}$ is given by $i_{x_{2}}\left(x_{1}\right)=\left(x_{1},x_{2}\right)$
+. $S$ is measurable by assumption and $i_{x_{2}}^{-1}\left[F_{1}\times F_{2}\right]=F_{1}$
+and so $i_{x_{2}}$ is measurable by the standard generating class
+argument. A composition of measurable maps is measurable and the result
+follows. The argument for $x_{2}\to S\left(x_{1},x_{2}\right)$ is
+analagous.
+\end{proof}
+This result allows us to show that our definition of the $\sigma-$algebra
+generated by multiple functions is quite natural.
+\begin{cor}
+\label{cor:sigmaTupleisSigmaUnpack}Let $\X$ be a set, let $\left(\mathcal{Y}_{i},\mathcal{G}_{i}\right)$
+be a measurable spaces, for $i\in\left\{ 1,2\right\} $, and let $\left(\mathcal{Y}_{1}\times\mathcal{Y}_{2},\mathcal{G}_{1}\otimes\mathcal{G}_{2}\right)$
+be the product measurable space. For any functions $f_{1}:\X\to\mathcal{Y}_{1}$
+and $f_{2}:\X\to\mathcal{Y}_{2}$ , along with a function $h\left(x\right)=\left(f_{1}\left(x\right),f_{2}\left(x\right)\right)$,
+we have that 
+\[
+\sigma\left(h\right)=\sigma\left(f_{1},f_{2}\right).
+\]
+\end{cor}
+
+\begin{proof}
+Note by Proposition \ref{prop:altProductSigma}, $h$ is measurable
+with respect to $\sigma\left(f_{1},f_{2}\right)$ since $f_{1}=\pi_{1}\circ h$
+and $f_{2}=\pi_{2}\circ h$ are measurable with respect to $\sigma\left(f_{1},f_{2}\right)$
+and so $\sigma\left(h\right)\subseteq\sigma\left(f_{1},f_{2}\right).$
+Conversely, again by Proposition \ref{prop:altProductSigma}, both
+$f_{1}$ and $f_{2}$ are measurable with respect to $\sigma\left(h\right)$
+since $h$ is measurable with respect to $\sigma\left(h\right)$.
+Thus $\sigma\left(f_{1},f_{2}\right)\subseteq\sigma\left(h\right).$
+\end{proof}
+\begin{prop}
+\label{prop:productGenerator}Let $\left(\X_{i},\F_{i}\right)$ $i=1,2$
+be measurable spaces where there exist some collection of sets $\mathcal{E}_{i}\subset\F_{i}$
+such that $\X_{i}\in\mathcal{E}_{i}$ and 
+\[
+\sigma\left(\mathcal{E}_{i}\right)=\F_{i}.
+\]
+Then, letting $\mathcal{E}:=\left\{ E_{1}\times E_{2}\mid E_{1}\in\mathcal{E}_{1},E_{2}\right\} $,
+we have that 
+\[
+\sigma\left(\mathcal{E}\right)=\F_{1}\otimes\F_{2}.
+\]
+\end{prop}
+
+\begin{proof}
+Let $\F:=\left\{ F_{1}\times F_{2}\mid F_{1}\in\F_{1},F_{2}\in\F_{2}\right\} .$Obviously,
+$\mathcal{E}\subseteq\mathcal{F}$ and so $\sigma\left(\mathcal{E}\right)\subseteq\sigma\left(\F\right)=\F_{1}\otimes\F_{2}.$
+To see the reverse inclusion, take the projections $\pi_{i}:\X_{1}\times\X_{2}\to\X_{i}$.
+We wish to show these functions are $\sigma\left(\mathcal{E}\right)/\F_{i}$
+measurable. To that end, note that for any $E\in\mathcal{E}_{1}$,
+$\pi_{1}^{-1}\left[E\right]=E\times\X_{2}\in\mathcal{E}\subseteq\sigma\left(\mathcal{E}\right)$
+and so a generating class argument tells us that $\pi_{1}$ is measurable
+as needed. An analagous argument establishes the measurability of
+$\pi_{2}$ and so 
+\[
+\F_{1}\otimes\F_{2}=\sigma\left(\pi_{1},\pi_{2}\right)\subseteq\sigma\left(\mathcal{E}\right)
+\]
+where the equality is due to Proposition \ref{prop:altProductSigma}.
+\end{proof}
+\begin{example}
+\label{exa:XinEnecessaryForProductGeneration}In the proposition above,
+the requirement that $\X_{i}\in\mathcal{E}_{i}$ is necessary. Let
+$\X_{1}=\X_{2}=\left\{ 1,2,3\right\} $. Suppose then that $\mathcal{E}_{1}=\left\{ \left\{ 1\right\} \right\} $and
+$\mathcal{E}_{2}=\left\{ \left\{ 2\right\} \right\} $ and so
+\begin{align*}
+\F_{1} & :=\sigma\left(\mathcal{E}_{1}\right)=\left\{ \left\{ 1,2,3\right\} ,\emptyset,\left\{ 1\right\} ,\left\{ 2,3\right\} \right\} \\
+\F_{2} & :=\sigma\left(\mathcal{E}_{2}\right)=\left\{ \left\{ 1,2,3\right\} ,\emptyset,\left\{ 2\right\} ,\left\{ 1,3\right\} \right\} .
+\end{align*}
+Meanwhile, $\mathcal{E}=\left\{ \left\{ \left(1,2\right)\right\} \right\} $
+and so
+\[
+\sigma\left(\mathcal{E}\right)=\left\{ \left\{ 1,2,3\right\} \times\left\{ 1,2,3\right\} ,\emptyset,\left\{ \left(1,2\right)\right\} ,\left\{ \left(1,2\right)\right\} ^{C}\right\} 
+\]
+which doesnt contain $\left\{ 1\right\} \times\left\{ 1,2,3\right\} \in\F_{1}\otimes\F_{2}.$
+\end{example}
+
+\begin{prop}
+\label{prop:borelProductInclusion}Let $\left(\X_{1},\tau_{1}\right)$
+and $\left(\X_{2},\tau_{2}\right)$ be topological spaces with Borel
+sigma algebras $\borel\left(\X_{1}\right)=\sigma\left(\tau_{1}\right)$
+and $\borel\left(\X_{2}\right)=\sigma\left(\tau_{2}\right).$ Then,
+letting $\tau_{1}\otimes\tau_{2}$ denote the box topology\footnote{which is equivalent to the product topology for finite products}i.e.
+the topology generated by $\left\{ O_{1}\times O_{2}\mid O_{1}\in\tau_{1},O_{2}\in\tau_{2}\right\} $,
+we have that 
+\[
+\borel\left(\X_{1}\right)\otimes\borel\left(\X_{2}\right)\subseteq\borel\left(\X_{1}\times\X_{2}\right):=\sigma\left(\tau_{1}\otimes\tau_{2}\right).
+\]
+Moreover, in the case of Euclidean spaces
+\[
+\borel\left(\R\right)\otimes\borel\left(\R\right)=\borel\left(\R^{2}\right).
+\]
+\end{prop}
+
+\begin{proof}
+Observe that since $\X_{i}\in\tau_{i}$ $,i=1,2$, $\sigma\left(\left\{ O_{1}\times O_{2}\mid O_{1}\in\tau_{1},O_{2}\in\tau_{2}\right\} \right)=\borel\left(\X_{1}\right)\otimes\borel\left(\X_{2}\right)$
+by Proposition \ref{prop:productGenerator}. Note that the box topology
+$\tau_{1}\otimes\tau_{2}=\tau\left(\left\{ O_{1}\times O_{2}\mid O_{1}\in\tau_{1},O_{2}\in\tau_{2}\right\} \right)$;
+that is, it is the \emph{topology generated by $\left\{ O_{1}\times O_{2}\mid O_{1}\in\tau_{1},O_{2}\in\tau_{2}\right\} $
+}(exactly analagous to a $\sigma-$algebra generated by a collection
+of sets). Since $\left\{ O_{1}\times O_{2}\mid O_{1}\in\tau_{1},O_{2}\in\tau_{2}\right\} \subseteq\tau\left(\left\{ O_{1}\times O_{2}\mid O_{1}\in\tau_{1},O_{2}\in\tau_{2}\right\} \right)=\tau_{1}\otimes\tau_{2}$,
+\[
+\borel\left(\X_{1}\right)\otimes\borel\left(\X_{2}\right)=\sigma\left(\left\{ O_{1}\times O_{2}\mid O_{1}\in\tau_{1},O_{2}\in\tau_{2}\right\} \right)\subseteq\sigma\left(\tau_{1}\otimes\tau_{2}\right)=\borel\left(\X_{1}\times\X_{2}\right)
+\]
+which is the first claim.
+
+The second claim makes use of the separability of $\R$. We extend
+the argument from Lemma \ref{lem:openSetDisjointUnionInterval} to
+$\R^{2}$ to show that any open set in $\R^{2}$ can be written as
+a countable union of open rectangles in $\R^{2}$. Take any open set
+$U\subseteq\R^{2}$. By definition, for any norm $\lVert\cdot\rVert$
+on $\R^{2}$, for any $x:=\left(x_{1},x_{2}\right)\in U$ there exists
+some $r>0$ such that 
+\[
+B_{\lVert\cdot\rVert}\left(x,r\right)\subset U.
+\]
+Since norms on $\R^{2}$ are all equivalent, let $\lVert\cdot\rVert=\lVert\cdot\rVert_{\infty}$
+and notice that $y\in B_{\lVert\cdot\rVert_{\infty}}\left(x,r\right)$
+if and ony if $y\in\left(x_{1}-r,x_{1}+r\right)\times\left(x_{2}-r,x_{2}+r\right)$.
+Now note that since the rationals are dense in $\R$ , we can find
+rational endpoints $a_{i,x},b_{i,}$ such that $\left(a_{i,x},,b_{i,x}\right)\subseteq\left(x_{i}-r,x_{i}+r\right)$
+and $x_{i}\in\left(a_{i,x},b_{i,x}\right).$ Then, 
+\[
+U=\bigcup_{x\in U}\left(a_{1,x},,b_{1,x}\right)\times\left(a_{2,x},,b_{2,x}\right).
+\]
+Since the endpoints are rational, there can only be countably many
+distinct such rectangles and so our claim follows. Now note that open
+rectangles are in $\borel\left(\R\right)\otimes\borel\left(\R\right)$
+by definition, and so every open set in $\R^{2}$ is a countable union
+of sets in $\borel\left(\R\right)\otimes\borel\left(\R\right).$ Let
+the collection of open sets in $\R^{2}$ be denoted $\mathcal{O}$.
+Then
+\[
+\mathcal{O}\subseteq\borel\left(\R\right)\otimes\borel\left(\R\right)\implies\borel\left(\R^{2}\right)\subseteq\borel\left(\R\right)\otimes\borel\left(\R\right)
+\]
+which completes the proof.
+\end{proof}
+We can use the above result to construct classic counterexamples to
+Tonelli and Fubini when one of their hypotheses is not satsfied.
+\begin{example}
+\label{exa:tonelliFailNonSigmaFinite}Let $\left(\left[0,1\right],\borel\left(\left[0,1\right]\right),\lambda\right)$
+and $\left(\left[0,1\right],2^{\left[0,1\right]},\mu_{0}\right)$
+where $\lambda$ and $\mu_{0}$ are the Lebesgue and counting measures,
+respectively. Now consider the product space $\left(\left[0,1\right]^{2},\borel\left(\left[0,1\right]\right)\otimes2^{\left[0,1\right]},\lambda\otimes\mu_{0}\right)$
+and observe that by a variant of the argument in Proposition \ref{prop:borelProductInclusion},
+the diagonal set $D=\left\{ \left(x,y\right)\in\left[0,1\right]^{2}\mid x=y\right\} \in\borel\left(\left[0,1\right]^{2}\right)=\borel\left(\left[0,1\right]\right)\otimes\borel\left(\left[0,1\right]\right)\subseteq\borel\left(\left[0,1\right]\right)\otimes2^{\left[0,1\right]}$
+since it is closed. Then
+\begin{align*}
+\lambda^{x}\mu_{0}^{y}\left(\indicate_{D}\right) & =\lambda^{x}\left(1\left\{ x\in\left[0,1\right]\right\} \right)\\
+ & =1\\
+ & \neq0\\
+ & =\mu_{0}^{y}\left(0\indicate\left\{ y\in\left[0,1\right]\right\} \right)\\
+ & =\mu_{0}^{y}\lambda^{x}\left(\indicate_{D}\right).
+\end{align*}
+Note that $\mu_{0}$ is not $\sigma-$finite.
+\end{example}
+
+
+\subsection{Radon-Nikodym derivatives}
+\begin{prop}
+\label{prop:prodRadonNikodymDerivatives}Let $\left(\X,\F\right)$
+and $\left(\mathcal{Y},\mathcal{G}\right)$ be measurable spaces with
+product space $\left(\X\times\mathcal{Y},\F\otimes\mathcal{G}\right).$
+Let $\mu_{1},\mu_{2}$ be $\sigma-$finite measures on $\F$ such
+that $\mu_{1}<<\mu_{2}$. Similarly, let $\nu_{1},\nu_{2}$ be measures
+on $\mathcal{G}$ such that $\nu_{1}<<\nu_{2}$. Then $\mu_{1}\otimes\nu_{1}$
+and $\mu_{2}\otimes\nu_{2}$ are $\sigma-$finite, $\mu_{1}\otimes\mu_{2}<<\nu_{1}\otimes\nu_{2}$
+and
+\[
+\frac{d\left(\mu_{1}\otimes\nu_{1}\right)}{d\left(\mu_{2}\otimes\nu_{2}\right)}\stackrel{\text{a.e}}{=}\frac{d\mu_{1}}{d\mu_{2}}\times\frac{d\nu_{1}}{d\nu_{2}}.
+\]
+\end{prop}
+
+\begin{rem*}
+Note that the almost everywhere equality here holds with respect to
+both product measures.
+\end{rem*}
+\begin{proof}
+Note that the $\sigma-$finiteness of the products follows from the
+fact that if $\left\{ F_{i}\right\} _{i\in\N}\in\F$ such that $\bigcup_{i\in\N}F_{i}=\X$
+and $\mu_{1}\left(F_{i}\right)<\infty$ (and similarly for $\left\{ G_{j}\right\} _{j\in\N}\in\mathcal{G})$
+then $\bigcup_{i\in\N}\bigcup_{j\in\N}F_{i}\times G_{j}=\X\times\mathcal{Y}$and
+$\mu_{1}\left(F_{i}\right)\nu_{1}\left(G_{j}\right)<\infty$. The
+same argument works for the other pair of measures. Then, notice that
+for any $F\in\F\otimes\mathcal{G}$, 
+\begin{align*}
+\mu_{1}\otimes\nu_{1}\left(F\right) & =\mu_{1}^{x}\nu_{1}^{y}\left(\indicate_{F}\left(x,y\right)\right)\\
+ & =\mu_{1}^{x}\nu_{2}^{y}\left(\indicate_{F}\left(x,y\right)\frac{d\nu_{1}}{d\nu_{2}}\right)\\
+ & =\mu_{2}^{x}\left(\nu_{2}^{y}\left(\indicate_{F}\left(x\right)\frac{d\nu_{1}}{d\nu_{2}}\right)\frac{d\mu_{1}}{d\mu_{2}}\right)\\
+ & =\mu_{2}^{x}\nu_{2}^{y}\left(\indicate_{F}\left(x\right)\frac{d\nu_{1}}{d\nu_{2}}\frac{d\mu_{1}}{d\mu_{2}}\right)
+\end{align*}
+where the first equality is Tonelli (and the uniquenes of product
+measures), the second is due the fact that $y\to\indicate_{F}\left(x,y\right)$
+is a non-negative measurable function for every $x\in\X$ (by Lemma
+\ref{lem:partialFunctionMeasurability}) and so Corollary \ref{cor:radonNikodymIntegral}
+applies. The third equality is similar: now we have the function $x\to\nu_{2}^{y}\left(\indicate_{F}\left(x,y\right)\frac{d\nu_{1}}{d\nu_{2}}\right)$
+which is non-negative since the the integrand is non-negative function
+for every $x\in\X$. It's also measurable by Lemma \ref{lem:partialIntegralMeasurability}
+and so Corollary \ref{cor:radonNikodymIntegral} again applies. Finally,
+we apply linearity (since $\frac{d\mu_{1}}{d\mu_{2}}$ is constant
+in $y$) in the last line. This completes the proof.
+\end{proof}
+This result has a converse, in that for any $\sigma-$finite measure
+$\nu$ on $\F\otimes\mathcal{G}$ which is absolutely continuous with
+respect to a $\sigma-$finite product measure and whose Radon Nikodym
+derivative can be written as a product is itself a product measure.
+We make this precise with the following result.
+\begin{prop}
+\label{prop:prodRNConverse}Let $\left(\X,\F\right)$ and $\left(\mathcal{Y},\mathcal{G}\right)$
+be measurable spaces with product $\left(\X\times\mathcal{Y},\F\otimes\mathcal{G}\right)$.
+Let $\nu_{1}$ and $\mu_{1}$ be $\sigma-$finite measures on $\F$
+such that $\nu_{1}<<\mu_{1}$ . Similarly, let $\nu_{2}$ and $\mu_{2}$
+be $\sigma-$finite measures on $\mathcal{G}$ such that $\nu_{2}<<\mu_{2}$.
+Finally, let $\gamma$ be a measure on $\F\otimes\mathcal{G}$ such
+that $\gamma<<\mu_{1}\otimes\mu_{2}$ and
+\[
+\frac{d\gamma}{d\mu_{1}\otimes\mu_{2}}\stackrel{\text{a.e}}{=}\frac{d\nu_{1}}{d\mu_{1}}\times\frac{d\nu_{2}}{d\mu_{2}}.
+\]
+Then $\gamma=\nu_{1}\otimes\nu_{2}$.
+\end{prop}
+
+\begin{proof}
+Note that for any $A\in\F\otimes\mathcal{G}$
+\begin{align*}
+\gamma\left(A\right) & =\mu_{1}^{x}\mu_{2}^{y}\left(\indicate_{A}\left(x,y\right)\frac{d\nu_{1}}{d\mu_{1}}\left(x\right)\frac{d\nu_{2}}{d\mu_{2}}\left(y\right)\right)\\
+ & =\mu_{1}^{x}\nu_{2}^{y}\left(\indicate_{A}\left(x,y\right)\frac{d\nu_{1}}{d\mu_{1}}\left(x\right)\right)\\
+ & =\nu_{2}^{y}\mu_{1}^{x}\left(\indicate_{A}\left(x,y\right)\frac{d\nu_{1}}{d\mu_{1}}\left(x\right)\right)\\
+ & =\nu_{2}^{y}\nu_{1}^{x}\left(\indicate_{A}\left(x,y\right)\right)\\
+ & =\nu_{2}\otimes\nu_{1}\left(A\right)
+\end{align*}
+where the second equality follows by Corollary\ref{cor:radonNikodymIntegral},
+the third equality by Tonelli, the fourth again by Corollary \ref{cor:radonNikodymIntegral}.
+\end{proof}
+\begin{rem*}
+As we shall see, this results in this section are a measure theoretic
+justification for the probabilistic fact that two \emph{absolutely
+continuous }random variables $X$ and $Y$ are \emph{independent }if
+and only if we can factor their probability density functions.
+\end{rem*}
+
+\subsection{Integration by parts}
+
+Tonelli (or Fubini) gives us a generalization of integration by parts
+from elementary calculus. To see this, let $F$ and $G$ be Stieljes
+(that is, real valued, nondecreasing, and right continuous) functions
+on a compact set $\left[a,b\right].$ By Theorem \ref{thm:stieljesMeasure},
+we have that the set functions 
+\begin{align*}
+\mu\left(\left(x,y\right]\right) & :=F\left(y\right)-F\left(x\right)\\
+\nu\left(\left(x,y\right]\right) & :=G\left(y\right)-G\left(x\right)
+\end{align*}
+for any $a\leq x\leq y\leq b$ extend to measures on $\borel\left(\left[a,b\right]\right)$.
+We can show that under mild regularity conditions, 
+\[
+\lebInt{\mu}G+\lebInt{\nu}F=F\left(b\right)G\left(b\right)-F\left(a\right)G\left(a\right).
+\]
+This implies the ``usual'' integration by parts formula since \hl{complete after finishing chapter on differentiation}.
+\begin{thm}[Integration by Parts]
+\label{thm:generalizedIntegrationByParts}Let $F$ and $G$ be Stieljes
+functions on a compact set $\left[a,b\right]$. If the set of discontinuities
+of $F$ and $G$ are disjoint, then
+\[
+\lebInt{\mu}G+\lebInt{\nu}F=F\left(b\right)G\left(b\right)-F\left(a\right)G\left(a\right).
+\]
+\end{thm}
+
+\begin{proof}
+Note that 
+\begin{align*}
+\lebInt{\mu}G & =\mu^{x}\left(G\left(x\right)\right)\\
+ & =\mu^{x}\left(\nu\left(\left(a,x\right]\right)+G\left(a\right)\right)\\
+ & =\mu^{x}\nu^{y}\left(\indicate\left\{ a<y\leq x\leq b\right\} \right)+G\left(a\right)\left(F\left(b\right)-F\left(a\right)\right)
+\end{align*}
+where the third equality uses linearity and the fact that $\mu\left(\left(a,b\right]\right)=F\left(b\right)-F\left(a\right).$
+Similarly, we can write
+\begin{align*}
+\lebInt{\nu}F & =\nu^{y}\left(F\left(y\right)\right)\\
+ & =\nu^{y}\left(\mu\left(\left(a,y\right]\right)+F\left(a\right)\right)\\
+ & =\nu^{y}\mu^{x}\left(\indicate\left\{ a<x\leq y\leq b\right\} \right)+F\left(a\right)\left(G\left(b\right)-G\left(a\right)\right).
+\end{align*}
+Now note that
+\begin{align}
+\lebInt{\mu}G+\lebInt{\nu}F & =\mu^{x}\nu^{y}\left(\indicate\left\{ a<y\leq x\leq b\right\} \right)+\nu^{y}\mu^{x}\left(\indicate\left\{ a<x\leq y\leq b\right\} \right)+G\left(a\right)\left(F\left(b\right)-F\left(a\right)\right)+F\left(a\right)\left(G\left(b\right)-G\left(a\right)\right)\nonumber \\
+ & =\mu^{x}\nu^{y}\left(\indicate\left\{ a<y\leq x\leq b\right\} +\indicate\left\{ a<x\leq y\leq b\right\} \right)+G\left(a\right)\left(F\left(b\right)-F\left(a\right)\right)+F\left(a\right)\left(G\left(b\right)-G\left(a\right)\right)\label{eq:muGPlusNuF}
+\end{align}
+where the second equality follows by Tonelli and linearity. We can
+expand upon the term inside the integral by noticing that $\left\{ a<y\leq x\leq b\right\} =\underbrace{\left\{ a<y=x\leq b\right\} }_{=:A}\cup\underbrace{\left\{ a<y<x\leq b\right\} }_{=:B}$
+where the union is disjoint and so by Fact \ref{fact:indicatorFunctionsFiniteOperations},
+we know that 
+\[
+\indicate\left\{ a<y\leq x\leq b\right\} =\indicate_{A}+\indicate_{B}.
+\]
+Further, $\left\{ a<x\leq y\leq b\right\} =\left(a,b\right]^{2}\setminus B$.
+Then
+\begin{align}
+\mu^{x}\nu^{y}\left(\indicate\left\{ a<y\leq x\leq b\right\} +\indicate\left\{ a<x\leq y\leq b\right\} \right) & =\mu^{x}\nu^{y}\left(\indicate_{A}+\indicate_{B}+\indicate_{\left(a,b\right]^{2}\setminus B}\right)\nonumber \\
+ & =\mu^{x}\nu^{y}\left(\indicate_{A}\right)+\mu\otimes\nu\left(\left(a,b\right]^{2}\right)\nonumber \\
+ & =\mu^{x}\nu\left(\left\{ x\right\} \right)+\left(F\left(a\right)-F\left(b\right)\right)\left(G\left(a\right)-G\left(b\right)\right)\nonumber \\
+ & =\left(F\left(a\right)-F\left(b\right)\right)\left(G\left(a\right)-G\left(b\right)\right)\label{eq:muNuXEqualYZero}
+\end{align}
+where the third equality is due to the fact that $\mu\otimes\nu$
+is a product measure, and the last equality follows by our assumption
+that $F$ and $G$ contain no common points of discontinuity and Proposition
+\ref{prop:stieljesSingleton}\hl{explain this better}. Then, substituting
+(\ref{eq:muNuXEqualYZero}) into (\ref{eq:muGPlusNuF}) and doing
+some algebra yields the result.
+\end{proof}
+An interesting application of this result is showing that the integral
+of a Stieljes function $F$ under the measure induced by $F$ is simply
+$\frac{F\left(b\right)^{2}-F\left(a\right)^{2}}{2},$ which follows
+simply by applying the above theorem where $F=G.$ In probability
+theory, this is a special case of the fact that a cumulative distribution
+function of a random variable is itself uniformly distributed on $\left[0,1\right]$.
+We shall establish this fact in Part II of these notes.
+
+\subsection{Area under the graph of a function.}
+
+In elementary calculus, we understood the ordinary (Riemann) integral
+of a bounded function $f$ on a compact interval $\left[a,b\right]$
+as representing the area of under the graph of $f$ on $\left[a,b\right].$
+The Riemann theory formalized this by partitioning the interval $\left[a,b\right]$
+into subintervals and computing the integral of step functions which
+were constant on each subinterval in the partition. We can do this
+more generally with Lebesgue integrals as well. That is to say, we
+can show that for a non-negative measurable function $f:\R\to\R$
+\[
+\lebInt{\lambda}f=\lambda^{2}\left(\left\{ \left(x,t\right)\in\R^{2}\mid0\leq t<f\left(x\right)\right\} \right)
+\]
+where $\lambda^{2}$ is the 2-dimensional Lebesgue measure $\lambda\otimes\lambda$
+on $\borel\left(\R^{2}\right)$. In fact, we can establish this result
+more generally for other $\sigma-$finite measures using Tonelli's
+theorem.
+\begin{thm}
+\label{thm:areaUnderGraphLebesgue}Let $\measurespace$ be a $\sigma-$finite
+measure space and let $f\in\nonnegMeasurableFunctions.$ Then $\left\{ \left(x,t\right)\in\X\times\R\mid f\left(x\right)>t\geq0\right\} \in\F\otimes\borel\left(\R\right)$
+and
+\[
+\lebInt{\mu}f=\lambda^{t}\left(\mu^{x}\left(\left\{ f\left(x\right)>t\right\} \right)\indicate\left\{ t\geq0\right\} \right)=\lambda\otimes\mu\left(\left\{ \left\{ f\left(x\right)>t\geq0\right\} \right\} \right)
+\]
+\end{thm}
+
+\begin{proof}
+First notice that function $T\left(x,t\right)=f\left(x\right)-t$
+is $\F\otimes\mathcal{\borel\left(\R\right)}/\borel\left(\R\right)$
+measurable. To see this, define $g\left(x,t\right)=f\left(x\right)$
+and notice that for any $B\in\borel\left(\R\right):$$g^{-1}\left[B\right]=f^{-1}\left[B\right]\times\R\in\mathcal{F}\otimes\borel\left(\R\right)$.
+Similarly, letting $h\left(x,t\right)=t$, we have that $h^{-1}\left[B\right]=\R\times B\in\F\otimes\borel\left(\R\right)$.
+Then, using the fact that linear combinations of Borel measurable
+functions are Borel measurable, the function $T$ is $\F\otimes\borel\left(\R\right)/\borel\left(\R\right)$
+measurable. Notice then that $T^{-1}\left[\left(0,\infty\right)\right]=\left\{ \left(x,t\right)\in\R^{2}\mid f\left(x\right)>t\right\} $
+is measurable. Further, the set $\left\{ \left(x,t\right)\in\R^{2}\mid t\geq0\right\} =\X\times\left[0,\infty\right)\in\F\otimes\borel\left(\R\right).$
+Then, 
+\[
+\left\{ \left(x,t\right)\in\X\times\R\mid f\left(x\right)>t\geq0\right\} =T^{-1}\left[\left(0,\infty\right)\right]\cap\left(\X\times\left[0,\infty\right)\right)\in\F\otimes\borel\left(\R\right)
+\]
+and the first result follows. Then,
+\begin{align*}
+\lebInt{\mu}f & =\mu^{x}\left(\lambda^{t}\left(\indicate\left\{ 0\le t<f\left(x\right)\right\} \right)\right)\\
+ & =\lambda^{t}\left(\indicate\left\{ t\geq0\right\} \mu^{x}\left(\indicate\left\{ f\left(x\right)>t\right\} \right)\right)\\
+ & =\lambda^{t}\left(\mu^{x}\left(\left\{ f\left(x\right)>t\right\} \right)\indicate\left\{ t>0\right\} \right)
+\end{align*}
+where in the second equality we used Tonelli (\ref{thm:tonelli}),
+linearity, and the fact that $\indicate_{A\cap B}=\indicate_{A}\indicate_{B}.$
+Observe that Tonelli can be applied here since $\indicate\left\{ 0<t<f\left(x\right)\right\} \in\mathcal{M}^{+}\left(\X\times\R,\mathcal{F}\otimes\borel\left(\R\right)\right)$
+and both $\mu$ and $\lambda$ are $\sigma-$finite. Note that Tonelli's
+theorem also implies that 
+\[
+\lambda^{t}\left(\mu^{x}\left(\indicate\left\{ f\left(x\right)>t\geq0\right\} \right)\right)=\lambda\otimes\mu\left(\left\{ \left\{ f\left(x\right)>t\geq0\right\} \right\} \right).
+\]
+\end{proof}
+
+
+\section{The Lebesgue measure on $\protect\R^{n}$}
+
+\hl{Formalize extension of Fubini etc to $n$ dimension}
+
+It should be easy to guess that by induction, we can extend the construction
+of product measures to products of $n$$\sigma-$finite measure spaces.
+That is, for spaces $\left\{ \left(\X_{i},\mathcal{F}_{i},\mu_{i}\right)\right\} _{i=1}^{n}$
+, we can define the product space $\left(\prod_{i=1}^{n}\X_{i},\otimes_{i}\F_{i}\right)$
+and show that for sigme finite measures $\mu_{i}$ on $\F_{i}$, there
+exists a unique product measure $\otimes_{i=1}^{n}\mu_{i}$ such that
+for $\prod F_{i}$, $F_{i}\in\F_{i}$
+\[
+\otimes_{i=1}^{n}\mu_{i}\left(\prod_{i=1}^{n}F_{i}\right)=\prod_{i=1}^{n}\mu_{i}\left(F_{i}\right).
+\]
+This requires us to use the canonical identification between $\prod_{i=1}^{n}\X_{i}$
+and $\left(\prod_{i=1}^{n-1}\X_{i}\right)\times\X_{n}$ and the fact
+that the product of $\sigma-$finite measures is $\sigma-$finite.
+We can also similarly extend the Fubini-Tonelli theorems, so that
+for any permutation $\sigma:\left\{ 1,2,\dots,n\right\} \to\left\{ 1,2,\ldots,n\right\} $
+and $f\in\mathcal{M}^{+}\left(\prod_{i=1}^{n}\X_{i},\otimes_{i}\F_{i}\right)$
+(or $f\in\Lp 1{\otimes_{i=1}^{n}\mu_{i}}$)
+\[
+\otimes_{i=1}^{n}\mu_{i}\left(f\right)=\mu_{\sigma\left(1\right)}\left(\mu_{\sigma\left(2\right)}\ldots\left(\mu_{\sigma\left(n\right)}\left(f\right)\right)\right).
+\]
+
+Using the above facts, we can easily construct the Lebesgue measure
+$\lambda^{n}$ on $\borel\left(\R^{n}\right)=\otimes_{i=1}^{n}\borel\left(\R\right)$
+as the product measure $\otimes_{i=1}^{n}\lambda$, where uniqueness
+is guaranteed by the $\sigma-$finiteness of $\lambda$. Equivalently,
+we can construct the Lebesgue measure using the Caratheodory approach,
+by defining $\mathcal{L}^{n}=\left\{ \prod_{i=1}^{n}\left(a_{i},b_{i}\right]\mid\left(a_{i},b_{i}\right]\in\mathcal{L}\right\} $,
+and restricting the canonical outer measure
+\[
+\lambda_{*}^{n}\left(A\right)=\inf\left\{ \sum_{j=1}^{\infty}\lambda_{1}^{n}\left(L_{j}\right)\mid A\subseteq\bigcup_{j\in\N}L_{j},L_{j}\in\mathcal{L}^{n}\right\} 
+\]
+to the Lebesgue $\sigma-$algebra $\mathcal{C}\left(\lambda_{*}^{n}\right)$.
+This works because the collection $\mathcal{L}^{n}$ can be shown
+to be a semi-ring and $\lambda_{1}^{n}:\mathcal{L}^{n}\to\left[0,\infty\right]$
+(here $\lambda_{1}^{n}\left(\prod_{i=1}^{n}L_{i}\right)=\prod_{i=1}^{n}\lambda_{1}\left(L_{i}\right)$where
+$L_{i}\in\mathcal{L}$) can be shown to satisfy the requirements of
+Theorem \ref{thm:semiRingCaratheodoryExtn}.
+
+\subsection{Basic properties of the Lebesgue measure\label{subsec:lebesgueRNproperties}}
+
+The first property of the Lebesgue measure that we establish is a
+generalization of Lemma \ref{lem:outerMeasureScales} to $n-$dimensions.
+\begin{prop}
+\label{prop:outerMeasureScalesNDim}For $\delta\neq0$ and any $A\in\borel\left(\R^{n}\right)$
+we have $\delta B\in\borel\left(\R^{n}\right)$. Further, for any
+$A\subseteq\R^{n}$
+\[
+\lambda_{*}^{n}\left(\delta A\right)=\lvert\delta\rvert^{n}\lambda_{*}^{n}\left(A\right).
+\]
+\end{prop}
+
+\begin{proof}
+Measurability follows by a simple generating class argument as in
+the Lemma (or alternatively, let $f\left(x\right)=\frac{x}{\delta}$
+and notice that $f^{-1}$is a continuous function and $f^{-1}\left[B\right]=\delta B\in\borel\left(\R\right)$).
+Next, notice that for $n=1$ this result is result is Lemma \ref{lem:outerMeasureScales}.
+Suppose the result holds for $n-1$. Let $B\in\borel\left(\R^{n-1}\right)$
+and $A\in\borel\left(\R\right)$, then 
+\begin{align*}
+\lambda^{n}\left(\delta\left(B\times A\right)\right) & =\lambda^{n}\left(\left(\delta B\right)\times\left(\delta A\right)\right)\\
+ & =\lambda^{n-1}\left(\delta B\right)\lambda\left(\delta A\right)\\
+ & =\lvert\delta^{n}\rvert\lambda^{n-1}\left(B\right)\lambda\left(A\right)\\
+ & =\lvert\delta^{n}\rvert\lambda^{n}\left(B\times A\right).
+\end{align*}
+By the identification between $\R^{n-1}\times\R$ and $\R^{n}$, our
+scaling result holds on $\mathcal{L}^{n}$. Extending the proof to
+any arbitrary set $A\subseteq\R^{n}$proceeds exactly as in Lemma
+\ref{lem:outerMeasureScales}.
+\end{proof}
+\begin{cor}
+\label{cor:dilationIntegral}Let $\delta\neq0$ be arbitrary. For
+any $f\in\mathcal{M}^{+}\left(\R^{n},\borel\left(\R^{n}\right)\right)$
+(or $f\in\Lp 1{\lambda^{n}})$
+\[
+\lebInt{\lambda^{n}}{f\left(\delta x\right)}=\frac{1}{\lvert\delta^{n}\rvert}\lebInt{\lambda^{n}}{f\left(x\right)}.
+\]
+\end{cor}
+
+\begin{proof}
+Let $g\left(x\right)=\delta x$ and notice that by Proposition \ref{prop:outerMeasureScalesNDim},
+the image measure $\lambda^{n}g$ agrees with the measure $\frac{1}{\lvert\delta^{n}\rvert}\lambda^{n}$
+on all Borel sets. By the change of variables formula in Corollary
+\ref{cor:changeOfVariables}, $\lebInt{\lambda^{n}}{f\left(\delta x\right)}=\lebInt{\lambda^{n}g}f=\frac{1}{\lvert\delta^{n}\rvert}\lebInt{\lambda^{n}}f.$
+\end{proof}
+We also have translation invariance, which is the analogue of Lemma
+\ref{lem:outerMeasureTranslationInvariant}.
+\begin{prop}
+\label{prop:outerMeasureTranslationInvariantNDim}Let $A\subseteq\R^{n}$
+be an arbitrary set. Then the translated set $A+t:=\left\{ a+t\mid a\in A\right\} $
+has Lebesgue outer measure
+\[
+\lambda_{*}^{n}\left(A+t\right)=\lambda_{*}^{n}\left(A\right)
+\]
+for all $t\in\R$. Moreover, for any set $A\in\borel\left(\R^{n}\right),$$A+t\in\borel\left(\R^{n}\right).$
+\end{prop}
+
+\begin{proof}
+Again, the measurability result is a generating class argument (or
+let $f\left(x\right)=x-t$...). The result holds for $n=1$ by the
+Lemma. Suppose it holds for $n-1$ . Letting $B\in\borel\left(\R^{n-1}\right)$
+and $A\in\borel\left(\R\right)$, we have 
+\begin{align*}
+\lambda^{n}\left(\left(B\times A\right)+t\right) & =\lambda^{n}\left(\left(B+t\right)\times\left(A+t\right)\right)\\
+ & =\lambda^{n-1}\left(B+t\right)\lambda\left(A+t\right)\\
+ & =\lambda^{n-1}\left(B\right)\lambda\left(A\right)\\
+ & =\lambda^{n}\left(B\times A\right).
+\end{align*}
+Extending this to the general case follows exactly as in the Lemma.
+\end{proof}
+\begin{cor}
+\label{cor:translationInvarianceIntegral}Let $t\in\R$ be arbitrary.
+For any $f\in\mathcal{M}^{+}\left(\R^{n},\borel\left(\R^{n}\right)\right)$
+(or $f\in\Lp 1{\lambda^{n}})$
+\[
+\lebInt{\lambda^{n}}{f\left(x+t\right)}=\lebInt{\lambda^{n}}{f\left(x\right)}.
+\]
+\end{cor}
+
+\begin{proof}
+Let $g\left(x\right)=x+t$ and notice that by Proposition \ref{prop:outerMeasureTranslationInvariantNDim},
+the image measure $\lambda^{n}g$ and $\lambda^{n}$ agree on all
+Borel sets. But recall that by the general change of variables formula
+in Corollary\ref{cor:changeOfVariables}, $\lebInt{\lambda^{n}}{f\left(x+t\right)}=\lebInt{\lambda^{n}g}f=\lebInt{\lambda^{n}}f.$
+\end{proof}
+These two results are rather banal because they don't offer much additional
+insight over and above the corresponding results for the usual Lebesgue
+measure on the line. In order to derive some interesting properties
+of $\lambda^{n}$, we need to exploit the rich geometric structure
+of the Euclidean space and the functions that act on it. In order
+to do so, we need to review some basic linear algebra. Appendix \ref{sec:Determinants}
+on determinants is key here; please re-read this section carefully
+before we embark on the next result.
+\begin{lem}
+\label{lem:changeOfVariablesAffineElementary}Let $T:\R^{n}\to\R^{n}$
+be an elementary map and let $f\in\mathcal{M}^{+}\left(\R,\borel\left(\R\right)\right)$
+(or $f\in\Lp 1{\lambda^{n}}$). Then $f\circ T\in\mathcal{M}^{+}\left(\R,\F\right)$
+($f\circ T\in\Lp 1{\lambda^{n}}$ and 
+\[
+\lvert\det\left(T\right)\rvert\lebInt{\lambda^{n}}{f\circ T}=\lebInt{\lambda^{n}}f.
+\]
+\end{lem}
+
+\begin{proof}
+The measurability is trivial and so first, suppose $T$ is the row
+scaling operator, and note that if $T\left(x_{1},\ldots,x_{k},\ldots,x_{n}\right)=\left(x_{1},\ldots,cx_{k},\ldots x_{n}\right),$with
+$c\ne0,$then $\det\left(T\right)=c$ and so by Tonelli (Fubini)
+\begin{align*}
+\lambda^{n}\left(f\circ T\right) & =\lambda^{x_{-k}}\lambda^{x_{k}}\left(f\left(x_{1},\ldots,cx_{k},\ldots,x_{n}\right)\right)\\
+ & =\frac{1}{\lvert c\rvert}\lambda^{x_{-k}}\lambda^{x_{k}}\left(f\left(x_{1},\ldots,x_{k},\ldots x_{n}\right)\right)\\
+ & =\frac{1}{\lvert c\rvert}\lambda^{n}\left(f\right)
+\end{align*}
+where in the second line we used Corollary \ref{cor:dilationIntegral}
+for $n=1$. Next, suppose that $T$ is the row switching operator
+which as $\det\left(T\right)=-1$ and clearly Tonelli-Fubini imply
+that the integral is invariant under any permutation of indices and
+so the result follows. Finally, suppose that $T$ is the row replacement
+operator i.e $T\left(x_{1},\ldots,x_{l},\ldots x_{k},\ldots,x_{n}\right)=\left(x_{1},\ldots,x_{l}+cx_{k},\ldots x_{k},\ldots,x_{n}\right)$.
+Again, by Tonelli (Fubini)
+\begin{align*}
+\lambda^{n}\left(f\circ T\right) & =\lambda^{x_{-l}}\lambda^{x_{l}}\left(f\left(x_{1},\ldots,x_{l}+cx_{k},\ldots,x_{n}\right)\right)\\
+ & =\lambda^{x_{-l}}\lambda^{x_{l}}\left(f\left(x_{1},\ldots,x_{l},\ldots x_{k},\ldots,x_{n}\right)\right)\\
+ & =\lambda^{n}\left(f\right)
+\end{align*}
+which establishes the result since $\det\left(T\right)=1.$
+\end{proof}
+\begin{lem}
+\label{lem:changeOfVariablesLinear}Let $T:\R^{n}\to\R^{n}$ be an
+invertbe linear map and let $f\in\mathcal{M}^{+}\left(\R,\borel\left(\R\right)\right)$
+(or $f\in\Lp 1{\lambda^{n}}$). Then $f\circ T\in\mathcal{M}^{+}\left(\R,\F\right)$
+($f\circ T\in\Lp 1{\lambda^{n}}$ and
+\[
+\lvert\det\left(T\right)\rvert\lambda^{n}\left(f\circ T\right)=\lambda^{n}\left(f\right).
+\]
+\end{lem}
+
+\begin{proof}
+The measurability is again trivial. Since the matrices of arbitrary
+invertible maps are the product of elementary matrices, all we need
+to show is that for two elementary matrices $E_{1},E_{2}$ , the product
+matrix $E=E_{1}E_{2}$ satisfies the conclusion of the theorem. The
+general claim then follows by induction. Clearly, 
+\begin{align*}
+\lvert\det\left(E\right)\rvert\lambda^{n}\left(f\circ E\right) & =\lvert\det\left(E_{1}\right)\rvert\lvert\det\left(E_{2}\right)\rvert\lambda^{n}\left(\left(f\circ E_{1}\right)\circ E_{2}\right)\\
+ & =\lvert\det\left(E_{1}\right)\rvert\lambda^{n}\left(f\circ E_{1}\right)\\
+ & =\lambda^{n}\left(f\right)
+\end{align*}
+where the first equality uses the associativity of composition and
+Proposition \ref{prop:detProduct}, the second equality uses Lemma
+\ref{lem:changeOfVariablesAffineElementary} applied to $T=E_{2}$
+and $f=f\circ E_{1}$. The last equality is yet another application
+of the previous lemma.
+\end{proof}
+Note that a corollary of this result is the fact that the Lebesgue
+measure is rotationally invariant.
+\begin{cor}
+\label{cor:lebesgueRotationalInvariance}Let $R:\R^{n}\to\R^{n}$
+be a rotation. Then for any Borel set $B\in\borel\left(\R^{n}\right)$
+\[
+\lambda^{n}\left(R\left(B\right)\right)=\lambda^{n}\left(B\right).
+\]
+\end{cor}
+
+\begin{proof}
+Note that rotations are orthogonal linear maps in that $RR^{T}=I$
+and so 
+\[
+\det\left(R\right)=\frac{1}{\det\left(R^{T}\right)}.
+\]
+But recall from Proposition \ref{prop:detTranspose} that $\det\left(R\right)=\det\left(R^{T}\right)$
+and so
+\[
+\lvert\det\left(T\right)\rvert=1.
+\]
+We then apply \ref{lem:changeOfVariablesLinear}with $f=\indicate_{B}$
+and $T=R$.
+\end{proof}
+
+\subsection{The Lebesgue differentiation theorem and the fundamental theorem
+of calculus}
+\begin{example}
+\label{exa:isi2007samplepsb4}Let $f:\mathbb{R}\rightarrow\mathbb{R}$
+be a bounded continuous function. Define $g:[0,\infty)\rightarrow\R$
+by, 
+\[
+g(x)=\int_{-x}^{x}(2xt+1)f(t)dt.
+\]
+
+Show that $g$ is differentiable on $(0,\infty)$ and find the derivative
+of $g$.\hl{TODO}
+\end{example}
+
+
+\subsection{Non-linear change-of-variables}
+
+\subsection{Integration with polar coordinates}
+
+\subsection{Symmetry of partial derivatives}
+
+\subsection{Convolutions\label{subsec:convolutions}}
+
+When measure spaces have a vector space structure such as $\R^{n}$,
+we can define some interesting image measures which play an important
+role in probability, fourier analysis, compressed sensing, signal
+processing etc.
+\begin{defn}
+\label{def:convolution}Let $\mu,\nu$ be $\sigma-$finite Borel measures
+on $\R^{n}$ (i.e. measures on $\borel\left(\R^{n}\right)$). The
+\emph{convolution} $\mu\star\nu$ is is the image measure of the product
+$\mu\otimes\nu$ under the map $T:\R^{n}\times\R^{n}\to\R$ given
+by $T\left(x,y\right)=x+y$.
+
+Since the product measure always exists and is unique, the convolution
+always exists since $T$ is a continuous (and hence measurable) map.
+Therefore for any bounded, continuous $f\in\mathcal{M}\left(\R^{n},\borel\left(\R^{n}\right)\right)$,
+we have that
+\begin{align*}
+\lebInt{\mu\star\nu}f & =\lebInt{\mu\otimes\nu}{f\circ T}\\
+ & =\mu^{x}\nu^{y}\left(f\left(x+y\right)\right)
+\end{align*}
+where we have used Corollary \ref{cor:changeOfVariables} and Fubini's
+theorem. The definition implies that the convolution is symmetric
+in that $\mu\star v=v\star\mu$. It is also possible to define the
+convolution of a measure with a measurable function or of two measurable
+functions on their own, as is illustrated in the following result.
+\end{defn}
+
+\begin{prop}
+\label{prop:convolutionFunctions}Let $\mu,\nu$ be $\sigma-$finite
+measures on $\borel\left(\R\right)$ such that $\mu$ is absolutely
+continuous with respect to the Lebesgue measure with Radon-Nikodym
+derivative $g\in\mathcal{M}^{+}\left(\R,\borel\left(\R\right)\right)$.
+Then, for any bounded, continuous $f\in\mathcal{M}\left(\R,\borel\left(\R\right)\right)$
+\[
+\lebInt{\mu\star\nu}f=\lambda^{x}\nu^{y}\left(f\left(x\right)g\left(x-y\right)\right)
+\]
+ and so $\mu\star\nu$ is absolutely continuous with respect to the
+Lebesgue measure with Radon-Nikodym derivative 
+\[
+g\star\nu:=\nu^{y}\left(g\left(x-y\right)\right).
+\]
+\end{prop}
+
+\begin{proof}
+Note that 
+\begin{align*}
+\lebInt{\mu\star\nu}f & =\mu\otimes\nu\left(f\left(x+y\right)\right)\\
+ & =\nu^{y}\mu^{x}\left(f\left(x+y\right)\right)\\
+ & =\nu^{y}\lambda^{x}\left(f\left(x+y\right)g\left(x\right)\right)\\
+ & =\nu^{y}\lambda^{x}\left(f\left(x\right)g\left(x-y\right)\right)\\
+ & =\lambda^{x}\left(f\left(x\right)\nu^{y}\left(g\left(x-y\right)\right)\right)
+\end{align*}
+where we have used the translation invariance of the Lebesgue measure
+in the fourth equality.
+\end{proof}
+The Radon-Nikodym derivative $g\star\nu$ is called the convolution
+of the function $g$ with the measure $\nu$. If $\nu$ too was absolutely
+continuous and had some density $h$ then $\mu\star\nu$ would have
+density $g\star h:=\lambda^{y}\left(g\left(x-y\right)h\left(y\right)\right)$.
+Note that this definition can be expanded in the usual way to define
+convolutions of functions that are not necessarily non-negative (as
+Radon-Nikodym derivatives of positive measures are). We characterize
+the symmetry and other properties of convolutions in this next result
+\begin{prop}
+\label{prop:propertiesConvolution}Let $\mu,\nu$ be $\sigma-$finite
+measures on $\borel\left(\R^{n}\right)$ and let $f,g,h:\R^{n}\to\R$
+be measurable functions. Then
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+\item The convolution of two functions is symmetric in that $$ f \star g = g \star f $$. 
+\item The convolution of two measures (or of a measure and a function, or of two functions) is bilinear in that 
+$$ (\alpha f + \beta g) \star h = \alpha f \star h + \beta h \star h $$ with a similar result for the second argument.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+For $\left(i\right)$, note that $f\star g=\lambda_{n}^{y}\left(f\left(x-y\right)g\left(y\right)\right)=\lambda^{y}\left(f\left(y\right)g\left(x-y\right)\right)=g\star f$
+by using $T\left(y\right)=x-y$ \hl{TODO AFTER CHANGE OF VARIABLES}
+\end{proof}
+\begin{prop}
+\label{prop:derivativeConvolution}
+\end{prop}
+
+
+\section{Kernels and disintegration}
+
+\hl{Tatikonda}
+
+\hl{Chang and Pollard, 1997}
+
+\section{Extension to infinite product spaces}
+
+\hl{ASH or KLENKE?}

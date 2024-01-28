@@ -1,0 +1,42 @@
+
+\chapter{Design of experiments\label{chap:designOfExperiments}}
+\begin{example}
+\label{exa:isi2004samplepsb5}Here is a partial key-block of a $2^{4}$
+factorial experiment (with factors $A,B,C,D)$ conducted in two blocks
+of size 8 each: Partial key-block: $ad\quad bd\quad c\quad\ldots$
+Search out the other five treatment combinations for the key-block
+and also the confounded interaction. Also, give the treatment combination
+of the second block.\hl{TODO}
+\end{example}
+
+\begin{example}
+\label{exa:isi2006samplepsb10}For the data collected via a randomized
+block design with $v$ treatments and $b$ blocks, the following model
+is postulated: 
+\[
+\E\left(y_{ij}\right)=\mu+\tau_{i}+\beta_{j},\quad1\leq i\leq v,1\leq j\leq b,
+\]
+ where $t_{i}$ and $\beta_{j}$ are the effects of the ith treatment
+and the jth block respectively, and $\mu$ is a general mean. For
+$1\leq i\leq v$, define $Q_{i}=T_{i}-\frac{G}{v}$, where $T_{i}$
+is the total of observations under the ith treatment and $G=\sum_{i=1}^{v}T_{i}$.
+Show that 
+\[
+\begin{array}{r}
+E\left(Q_{i}\right)=\left(b-\frac{b}{v}\right)\tau_{i},\quad\operatorname{Var}\left(Q_{i}\right)=\sigma^{2}\left(b-\frac{b}{v}\right),\\
+\operatorname{Cov}\left(Q_{i},Q_{j}\right)=-\left(\frac{b}{v}\right)\sigma^{2}\text{ for }i\neq j,
+\end{array}
+\]
+ where $\sigma^{2}$ is the per observation variance.\hl{TODO}
+\end{example}
+
+\begin{example}
+\label{exa:isi2008samplepsb12}Consider a randomized block experiment
+with 4 treatments and 3 replicates (blocks) and let $\tau_{i}$ be
+the effect of the $i$ th treatment $(1\leq i\leq4)$. Find all possible
+covariances between the least squares estimators of the following
+treatment contrasts: (a) $\tau_{1}-\tau_{2}$ (b) $\tau_{1}+\tau_{2}-2\tau_{3}$
+(c) $\tau_{1}+\tau_{2}+\tau_{3}-3\tau_{4}$.\hl{TODO}
+\end{example}
+
+

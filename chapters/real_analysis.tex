@@ -1,0 +1,575 @@
+
+\chapter{Real analysis}
+
+For completeness, we state and prove all theorems from basic real
+analysis that are used in the main text.
+
+\section{Elementary analysis on the line}
+
+\subsection{Sequences and series}
+
+\subsubsection{Properties of Limit Inferiors and Superiors}
+
+We collect here the following properties of the limit superiors and
+limit inferiors. In all of the following, $\left\{ a_{n}\right\} $
+and $\left\{ b_{n}\right\} $ are real sequences. Recall that $\limsup_{n\to\infty}a_{n}=\inf_{n\geq1}\left\{ \sup_{i\geq n}\left\{ a_{i}\right\} \right\} $
+and $\liminf_{n\to\infty}a_{n}=\sup_{n\geq1}\left\{ \inf_{i\geq n}\left\{ a_{i}\right\} \right\} $.
+Note that these always exist (in the extended reals) by the completeness
+of the real numbers.
+\begin{prop}
+\label{prop:.limInfNegLimSupNeg}$\liminf_{n\to\infty}a_{n}=-\limsup_{n\to\infty}-a_{n}$.
+\end{prop}
+
+\begin{proof}
+Note that $\inf_{i\geq n}a_{i}=-\sup_{i\geq n}-a_{i}$ and so taking
+limits completes the proof.
+\end{proof}
+\begin{prop}
+\label{prop:limSupDominatesLimInf}$\liminf_{n\to\infty}a_{n}\leq\limsup_{n\to\infty}a_{n}$.
+\end{prop}
+
+\begin{proof}
+$\inf_{i\geq n}a_{i}\leq\sup_{i\geq n}a_{i}$ and so the result follows
+by taking limits.
+\end{proof}
+\begin{prop}
+\label{prop:limSupSubsequential}$\liminf_{n\to\infty}a_{n}$ and
+$\limsup_{n\to\infty}a_{n}$ are subsequential limits of $a_{n}$
+such that for any other subsequential limit $L$ we have that 
+\[
+\liminf_{n\to\infty}a_{n}\leq L\leq\limsup_{n\to\infty}a_{n}.
+\]
+\end{prop}
+
+\begin{proof}
+Note that if $L<\liminf_{n\to\infty}a_{n}$ , then there are infinitely
+many elements of $\left\{ a_{n}\right\} $ in $\left(L-\epsilon,L+\epsilon\right)$where
+$\epsilon>0$ is small enough that $L+\epsilon<\liminf_{n\to\infty}a_{n}$.
+Note that since $\left\{ \inf_{i\geq n}a_{i}\right\} $ is a nondecreasing
+sequence, there exists some $n_{0}\in\N$ such that for all $n\geq n_{0}$,
+$\inf_{i\geq n}a_{i}>L+\epsilon$. But then $a_{i}\geq\inf_{i\geq n_{0}}a_{i}>L+\epsilon$
+for all every $i\geq n_{0}$ which contradicts the fact that infinitely
+many of our $\left\{ a_{n}\right\} $ were in $\left[L,L+\epsilon\right)$.
+The proof for the limit superior case is analagous.
+
+Next fix $\epsilon>0$ , let $c_{n}:=\inf_{i\geq n}a_{i}$., and let
+$I:=\lim c_{n}.$By the definition of infimum, there exists some $k_{n}\geq n$
+such that $\lvert c_{n}-a_{k_{n}}\rvert<\frac{\epsilon}{2}$. By definition
+of limit inferiors, we have that for large enough $n$, $\lvert c_{n}-I\rvert<\frac{\epsilon}{2}$
+and so
+\[
+\lvert a_{k_{n}}-I\rvert\leq\lvert c_{n}-a_{k_{n}}\rvert+\lvert c_{n}-I\rvert<\epsilon
+\]
+which completes the proof. The proof for limit superiors is analagous
+(or you can use Proposition \ref{prop:.limInfNegLimSupNeg}).
+\end{proof}
+\begin{prop}
+\label{prop:limSupEqualLimInf}The sequence $\left\{ a_{n}\right\} $
+converges if and only if $\limsup_{n\to\infty}a_{n}=\liminf_{n\to\infty}a_{n}$
+in which case 
+\[
+\lim_{n\to\infty}a_{n}=\limsup_{n\to\infty}a_{n}=\liminf_{n\to\infty}a_{n}.
+\]
+\end{prop}
+
+\begin{proof}
+If $\lim_{n\to\infty}a_{n}=L$, then all subsequential limits are
+also equal to $L$, which implies (by Proposition \ref{prop:limSupSubsequential})
+that $\lim_{n\to\infty}a_{n}=\limsup_{n\to\infty}a_{n}=\liminf_{n\to\infty}a_{n}.$
+Conversely, assuming that $L:=\limsup_{n\to\infty}a_{n}=\liminf_{n\to\infty}a_{n},$
+we can show that for any $\epsilon>0,$there's some large enough $n_{0}\in\N$,
+$\lvert$such that
+\[
+\sup_{i\geq n_{0}}x_{i}-\inf_{i\geq n_{0}}x_{i}\leq\lvert\inf_{i\geq n_{0}}x_{i}-L\rvert+\lvert\sup_{i\geq n_{0}}x_{i}-L\rvert<\epsilon.
+\]
+Then for any $m,n\geq n_{0}$
+\[
+\rvert x_{m}-x_{n}\rvert\leq\sup_{i\geq n_{0}}x_{i}-\inf_{i\geq n_{0}}x_{i}\leq\epsilon
+\]
+and thus the sequence is Cauchy and converges to $L$ by Proposition
+\ref{prop:limSupSubsequential}.
+\end{proof}
+\begin{prop}
+\label{prop:SumLimInf}$\liminf_{n\to\infty}a_{n}+\liminf_{n\to\infty}b_{n}\leq\liminf_{n\to\infty}\left(a_{n}+b_{n}\right)\leq\limsup_{n\to\infty}\left(a_{n}+b_{n}\right)\leq\limsup_{n\to\infty}a_{n}+\limsup_{n\to\infty}b_{n}.$
+\end{prop}
+
+\begin{proof}
+Note that $\inf_{i\geq n}a_{i}+\inf_{i\geq n}b_{i}\leq\inf_{i\geq n}\left(a_{i}+b_{i}\right)$
+and take limits. The other inequalities follow by Propositions \ref{prop:limSupDominatesLimInf}
+and \ref{prop:.limInfNegLimSupNeg}.
+\end{proof}
+\begin{rem*}
+We are implicitly excluding the $\infty-\infty$ situations in the
+limits. This should be assumed throughout this section.
+\end{rem*}
+\begin{prop}
+\label{prop:prodLimInf}For $a_{n},b_{n}\geq0$ we have that $\liminf a_{n}\liminf b_{n}\leq\liminf a_{n}b_{n}\leq\limsup a_{n}b_{n}\leq\limsup a_{n}\limsup b_{n}.$
+\end{prop}
+
+\begin{proof}
+Note that we have the inequalities 
+\begin{align*}
+0 & \leq\inf_{i\geq n}a_{i}\leq a_{i}\\
+0 & \leq\inf_{i\geq n}b_{i}\leq b_{i}
+\end{align*}
+for all $i\geq n$ and so by multiplying the inequalities we get 
+\[
+0\leq\inf_{i\geq n}a_{i}\inf_{i\geq n}b_{i}\leq a_{i}b_{i}\implies0\leq\inf_{i\geq n}a_{i}\inf_{i\geq n}b_{i}\leq\inf_{i\geq n}a_{i}b_{i}
+\]
+and taking limits finishes the proof.
+\end{proof}
+\begin{rem}
+Note that the condition that $a_{n},b_{n}\geq0$ is necessary: see
+$a_{n}=\left(-1\right)^{n},b_{n}=(-1)^{n+1}$.
+\end{rem}
+
+\begin{prop}
+\label{prop:limInfMid}$\liminf_{n\to\infty}\left(a_{n}+b_{n}\right)\leq\liminf_{n\to\infty}a_{n}+\limsup_{n\to\infty}b_{n}\leq\limsup_{n\to\infty}\left(a_{n}+b_{n}\right)$
+\end{prop}
+
+\begin{proof}
+Note that 
+\[
+a_{n}+b_{n}\leq a_{n}+\sup_{i\geq n}b_{i}\implies\inf_{i\geq n}\left(a_{n}+b_{n}\right)\leq\inf_{i\geq n}\left(a_{n}+\sup_{i\geq n}b_{n}\right)=\inf_{i\geq n}a_{i}+\sup_{i\geq n}b_{i}
+\]
+where the last equality follows because $\sup b_{i}$ is a constant
+for a fixed $n.$ Taking limits then yields the result.
+\end{proof}
+\begin{prop}
+\label{prop:sumLimInfLim}If $\lim_{n\to\infty}a_{n}=L$ then 
+\begin{align*}
+\liminf_{n\to\infty}\left(a_{n}+b_{n}\right) & =L+\liminf_{n\to\infty}b_{n}\\
+\limsup_{n\to\infty}\left(a_{n}+b_{n}\right) & =L+\limsup b_{n}.
+\end{align*}
+\end{prop}
+
+\begin{proof}
+Note first that 
+\begin{align*}
+L+\liminf_{n\to\infty}b_{n} & =\liminf_{n\to\infty}a_{n}+\liminf_{n\to\infty}b_{N}\\
+ & \leq\liminf_{n\to\infty}\left(a_{n}+b_{n}\right)\\
+ & \leq\limsup_{n\to\infty}a_{n}+\liminf_{n\to\infty}b_{n}\\
+ & =L+\liminf_{n\to\infty}b_{n}
+\end{align*}
+by Propositions\ref{prop:limSupEqualLimInf}, \ref{prop:SumLimInf},
+and \ref{prop:limInfMid}.
+\end{proof}
+\begin{prop}
+If $a_{n},b_{n}\geq0$ then
+\[
+\liminf_{n\to\infty}a_{n}b_{n}\leq\liminf_{n\to\infty}a_{n}\limsup_{n\to\infty}b_{n}\leq\limsup_{n\to\infty}a_{n}b_{n}.
+\]
+\end{prop}
+
+\begin{proof}
+The proof proceeds in the exact same way as in Proposition \ref{prop:limInfMid}.
+\end{proof}
+%
+\begin{prop}
+\label{prop:prodLimInfExists}If $a_{n},b_{n}\geq0$ , $\lim a_{n}=L$
+and $\limsup_{n\to\infty}b_{n}<\infty$ then 
+\begin{align*}
+\liminf\left(a_{n}b_{n}\right) & =L\liminf b_{n}\\
+\limsup\left(a_{n}b_{n}\right) & =L\limsup b_{n}.
+\end{align*}
+\end{prop}
+
+\begin{proof}
+This is akin to Proposition \ref{prop:prodLimInfExists}; the following
+chain of inequalities establish the claim
+\begin{align*}
+L\liminf b_{n} & =\liminf a_{n}\liminf b_{n}\\
+ & \leq\liminf a_{n}b_{n}\\
+ & \leq\limsup a_{n}\liminf b_{n}\\
+ & =L\liminf b_{n}.
+\end{align*}
+\end{proof}
+\begin{prop}
+\label{prop:limInfContinuity}Let $a_{n}$ be a real sequence and
+let $f:\R\to\R$ be a continuous and increasing function, then
+\begin{align*}
+f\left(\liminf_{n\to\infty}a_{n}\right) & =\liminf_{n\to\infty}f\left(a_{n}\right)\\
+f\left(\limsup_{n\to\infty}a_{n}\right) & =\limsup_{n\to\infty}f\left(a_{n}\right).
+\end{align*}
+\end{prop}
+
+\begin{proof}
+First observe that since $f$ is increasing, we have that $\inf_{i\geq n}a_{i}\leq a_{i}\implies f\left(\inf_{i\geq n}a_{i}\right)\leq f\left(a_{i}\right)$
+for all $i\geq n$ and so
+\[
+f\left(\inf_{i\geq n}a_{i}\right)\leq\inf_{i\geq n}f\left(a_{i}\right).
+\]
+Conversely, fix $n$ and suppose that $f\left(\inf_{i\geq n}a_{i}\right)<\inf_{i\geq n}f\left(a_{i}\right)$.
+Fixing $\epsilon=\frac{\inf_{i\geq n}f\left(a_{i}\right)-f\left(\inf_{i\geq n}a_{i}\right)}{2}$
+, note that by continuity there exists a $\delta>0$ such that $\lvert\inf_{i\geq n}a_{i}-x\rvert<\delta\implies\lvert f\left(\inf_{i\geq n}a\right)-f\left(x\right)\rvert<\epsilon$.
+By the definition of infimum, there is some $i_{0}\geq n$ where $a_{i_{0}}-\inf_{i\geq n}a_{i}<\delta$
+and so 
+\[
+f\left(a_{i_{0}}\right)-f\left(\inf_{i\geq n}a_{i}\right)<\epsilon
+\]
+which is a contradiction and hence 
+\[
+f\left(\inf_{i\geq n}a_{i}\right)\geq\inf_{i\geq n}f\left(a_{i}\right).
+\]
+Taking limits and applying the continuity of $f$ once again yields
+the result.
+\end{proof}
+\begin{prop}
+\[
+\limsup_{n\to\infty}\max\left\{ a_{n},b_{n}\right\} =\max\left\{ \limsup_{n\to\infty}a_{n},\limsup_{n\to\infty}b_{n}\right\} 
+\]
+ and 
+\[
+\liminf_{n\to\infty}\min\left\{ a_{n},b_{n}\right\} =\min\left\{ \liminf_{n\to\infty}a_{n},\liminf_{n\to\infty}b_{n}\right\} .
+\]
+\end{prop}
+
+\begin{xca}
+Let $\left\{ a_{n}\right\} $ and $\left\{ b_{n}\right\} $ be positive
+real sequences with such that $\limsup_{n\to\infty}\frac{\log\left(b_{n}\right)}{n}=-\infty$.
+Prove that 
+\[
+\liminf_{n\to\infty}\frac{\log\left(a_{n}+b_{n}\right)}{n}=\liminf_{n\to\infty}\frac{\log\left(a_{n}\right)}{n}.
+\]
+\end{xca}
+
+\begin{sol*}
+Note that since exponential function is increasing and continuous,
+by Proposition \ref{prop:limInfContinuity}
+\[
+\exp\left(\limsup_{n\to\infty}\log\left(b_{n}^{\frac{1}{n}}\right)\right)=\limsup_{n\to\infty}b_{n}^{\frac{1}{n}}=0
+\]
+which implies that $\lim_{n\to\infty}b_{n}^{\frac{1}{n}}=0$ since
+$b_{n}>0$ for all $n\in\N.$ Since eventually, $b_{n}<b_{n}^{\frac{1}{n}}$
+we have that $\lim_{n\to\infty}b_{n}=0.$ 
+\[
+\frac{\log\left(a_{n}+b_{n}\right)}{n}=\frac{\log\left(a_{n}\right)}{n}+\frac{\log\left(1+\frac{b_{n}}{a_{n}}\right)}{n}\leq\frac{\log\left(a_{n}\right)}{n}+
+\]
+\end{sol*}
+
+\subsubsection{\label{subsec:baseBRepresentations}Base-$b$ representations}
+\begin{thm}
+\label{thm:realDecimalExpansion}For any real number $x\in\left[0,1\right)$
+and any positive integer $b\geq2,$ there exists a sequence of non-negative
+integers $\left\{ a_{i}\right\} _{i=1}^{\infty}\in\left\{ 0,1,2,\ldots,b-1\right\} $
+such that 
+\[
+\sum_{i=1}^{\infty}\frac{a_{i}}{b^{i}}=x.
+\]
+Moreover, if there is no $n_{0}\in\mathbb{N}$ such that for all $n\geq n_{0}:a_{n}=b-1,$
+then the sequence $\left\{ a_{i}\right\} $ is unique.
+\end{thm}
+
+\begin{proof}
+Note that we can partition\hl{TODO}
+\end{proof}
+\begin{example}
+\label{exa:isi2004samplepsb11}For $n\geq1$ let $x_{n}=\frac{1}{n\alpha_{n}}$
+where $\alpha_{n}$ is such that $2^{\alpha_{n}-2}<n\leq2^{\alpha_{n}-1}$.
+Is the series $\sum_{n=1}^{\infty}x_{n}$ convergent or divergent?
+Justify your answer.
+\end{example}
+
+
+\subsection{Limits of functions}
+
+
+\section{Metric spaces}
+
+\subsection{Topology of metric spaces}
+
+\subsection{Complete metric spaces}
+
+\subsection{Compact metric spaces}
+
+\subsection{Continuity of functions between metric spaces}
+\begin{defn}
+\label{def:continousFunction}Let $\left(X,d_{X}\right)$ and $\left(Y,d_{Y}\right)$
+be a metric space. A function $f:X\to Y$ is said to be \emph{continuous
+at a point} $c\in X$ if for any sequence $x_{n}\to c$ we have that
+$f\left(x_{n}\right)\to f\left(c\right)$. The function $f$ is called
+\emph{continuous }if it is continuous at every point $c\in X$.
+\end{defn}
+
+\begin{prop}
+\label{prop:equivalentContinuity}Let $\left(X,d_{X}\right)$ and
+$\left(Y,d_{Y}\right)$ be a metric space. A function $f:X\to Y$
+is said to be \emph{continuous at a point} $c\in X$ if and only if
+for every $\epsilon>0$ there exists a $\delta$ such that for any
+$x\in X$ $d_{X}\left(x,c\right)<\delta\implies d_{Y}\left(f\left(x\right),f\left(c\right)\right)<\epsilon$.
+\end{prop}
+
+\begin{proof}
+Suppose that the $\epsilon-\delta$ definition doesnt hold i.e. there
+exists some $\epsilon_{0}>0$ such that for all $\delta>0$ there
+exists some $x$ such that $d_{X}\left(x,c\right)<\delta$ but $d_{Y}\left(f\left(x\right),f\left(c\right)\right)\geq\epsilon_{0}.$
+Letting $\delta=1/n,$ we can find a corresponding $x_{n}$ such that
+$d_{X}\left(x_{n},c\right)<\frac{1}{n}$ but $d_{Y}\left(f\left(x_{n}\right),f\left(c\right)\right)\geq\epsilon_{0}$.
+Since this can be done for any $n\in\N$, we have a seqeunce $x_{n}\to c$
+but $f\left(x_{n}\right)\not\to c$.
+
+Conversely, suppose the $\epsilon-\delta$ definition holds and let
+$x_{n}\to c$ by arbitrary. For a large enough $N,$ $d_{X}\left(x_{n},c\right)<\delta$
+for all $n\geq N$ and so $d_{Y}\left(f\left(x_{n}\right),f\left(c\right)\right)<\epsilon$
+which completes the proof.
+\end{proof}
+\begin{prop}
+\label{prop:openPreImageMetric}Let $\left(X,d_{X}\right)$ and $\left(Y,d_{Y}\right)$
+be a metric space. A function $f:X\to Y$ is said to be \emph{continuous
+if and only if for every open set $O_{Y}\in\tau_{Y}$ (here $\tau_{y}$
+denotes the topology on $Y$) the preimage $f^{-1}\left[o_{Y}\right]\in\tau_{X}$.}
+\end{prop}
+
+\begin{proof}
+First assume that $f$ is continuous and let $O_{Y}$ be an open set
+in $Y$. We wish to show that for any $x\in f^{-1}\left[O_{Y}\right],$there
+is some open ball $B\left(x,\delta\right)\subseteq f^{-1}\left[O_{y}\right].$
+Note that since $O_{Y}$ is open, there exists some ball $B\left(f\left(x\right),\epsilon\right)\subseteq O_{Y}.$
+Note that by continuity, there exists some $\delta>0$ such that $f\left[B\left(x,\delta\right)\right]\subseteq B\left(f\left(x\right),\epsilon\right)$.
+Then by the property of preimages
+\[
+B\left(x,\delta\right)\subseteq f^{-1}f\left[B\left(x,\delta\right)\right]\subseteq f^{-1}\left[o_{Y}\right]
+\]
+which proves the claim.
+
+Conversely, suppose that preimages of open sets are open. Fix $\epsilon>0$
+and note that for any $x\in X$, the preimage of the ball $f^{-1}\left[B\left(f\left(x\right),\epsilon\right)\right]$
+is open and thus there exists some $\delta>0$ such that $B\left(x,\delta\right)\subseteq f^{-1}\left[B\left(f\left(x\right),\epsilon\right)\right].$
+Then
+\[
+f\left[B\left(x,\delta\right)\right]\subseteq ff^{-1}\left[B\left(f\left(x\right),\epsilon\right)\right]\subseteq B\left(f\left(x\right),\epsilon\right)
+\]
+which completes the proof.
+\end{proof}
+\begin{prop}
+Let $\left(X,d_{X}\right),\left(Y,d_{Y}\right),$ and $\left(Z,d_{Z}\right)$
+be metric spaces. Then for any continuous functions $f:X\to Y$ and
+$g:Y\to Z$, the composition $g\circ f:X\to Z$ given by
+\[
+g\circ f\left(x\right)=g\left(f\left(x\right)\right)
+\]
+is continuous.
+\end{prop}
+
+\begin{proof}
+Let $O_{Z}$ be an open set in $Z$. Note that $\left(g\circ f\right)^{-1}\left[O_{Z}\right]=f^{-1}\left[g^{-1}\left[O_{Z}\right]\right]$
+and $g^{-1}\left[O_{Z}\right]$ is open since $g$ is continuous and
+so $f^{-1}\left[g^{-1}\left[O_{Z}\right]\right]$ is open.
+\end{proof}
+\begin{rem*}
+This proof applies \emph{mutis mutandis }to continuous functions between
+general topological spaces, of which metric spaces are a special case.
+\end{rem*}
+\begin{defn}
+\label{def:lipschitz}Let $\left(X,d_{X}\right)$ and $\left(Y,d_{Y}\right)$
+be a metric spaces. A function $f:X\to Y$ is called \emph{Lipschitz
+continuous }if there exists some $K>0$ such that 
+\[
+d_{Y}\left(f\left(x\right),f\left(y\right)\right)\leq Kd_{X}\left(x,y\right).
+\]
+\end{defn}
+
+\begin{prop}
+\label{prop:lipschitzContinuous}Let $\left(X,d_{X}\right)$ and $\left(Y,d_{Y}\right)$
+be a metric spaces. Every Lipschitz continuous function $f:X\to Y$
+is uniformly continuous.
+\end{prop}
+
+\begin{proof}
+Fix $\epsilon>0$ and note that if $\delta=\frac{\epsilon}{K}$ then
+$d_{X}\left(x,y\right)<\delta\implies d_{Y}\left(f\left(x\right),f\left(y\right)\right)<\epsilon.$
+\end{proof}
+\begin{prop}
+\label{prop:lipschitzBoundedDerivative}$Let$$f:D\subseteq\R\to\R$
+be a differentiable function. Then $f$ is Lipschitz if and only if
+it has a bounded derivative.
+\end{prop}
+
+\begin{proof}
+First suppose that the function has a bounded derivative. Then there
+exists some $M>0$ such that for any $x\in D$, $\lvert f^{\prime}\left(x\right)\rvert\leq M.$
+Then for any $x,y\in D$, the mean value theorem implies that there
+exists some $c\in\left(\min\left\{ x,y\right\} ,\max\left\{ x,y\right\} \right)$
+such that 
+\[
+\left\lvert \frac{f\left(x\right)-f\left(y\right)}{x-y}\right\rvert =\lvert f^{\prime}\left(c\right)\rvert\leq M
+\]
+Rearranging yields the result.
+
+Conversely, suppose that the function is Lipschitz with constant $K$.
+Then
+\[
+\left\lvert \frac{f\left(x\right)-f\left(y\right)}{x-y}\right\rvert \leq K
+\]
+and taking limits $x\to y$ gives the result.
+\end{proof}
+\begin{defn}
+\label{def:cauchyContinuity}Let $\left(X,d_{X}\right)$ and $\left(Y,d_{Y}\right)$
+be metric spaces. A function $f:X\to Y$ is called \emph{Cauchy-continuous
+}if for any Cauchy sequence $\left\{ x_{n}\right\} \in X$, the image
+$\left\{ f\left(x_{n}\right)\right\} $ is Cauchy.
+\end{defn}
+
+\begin{prop}
+\label{prop:CauchyContinuityImpliesContinuity}Let $\left(X,d_{X}\right)$
+and $\left(Y,d_{Y}\right)$ be metric spaces. If $f:X\to Y$ is Cauchy
+continuous then it is continuous. Moreover, if $X$ is complete then
+every continuous function $f:X\to Y$ is also Cauchy-continuous.
+\end{prop}
+
+\begin{proof}
+Fix $\epsilon>0$ and let $c\in X$ be arbitrary. Then there exists
+at least one (possibly eventually constant) Cauchy sequence $x_{m}\to c.$.
+Now consider a new sequence $y_{n}$ such that $y_{n}=x_{n}$ for
+even $n$and $y_{n}=c$ for odd $n.$ Then $y_{n}\to c$ (and is Cauchy)
+and so $f\left(y_{n}\right)$ is Cauchy. This implies that for large
+$n$
+\[
+d\left(f\left(x_{n}\right),f\left(c\right)\right)<\epsilon
+\]
+which implies $f\left(y_{n}\right)\to f\left(c\right).$ Extracting
+the even indexed subsequence shows that $f\left(x_{n}\right)\to c.$
+
+Next, suppose that $X$ is complete and $f$ is continuous. Let $\left\{ x_{n}\right\} $
+be a Cauchy sequence. Then by completenes $x_{n}\to c\in X$. By continuity,
+$f\left(x_{n}\right)\to f\left(c\right)$ and so $\left\{ f\left(x_{n}\right)\right\} $
+is Cauchy.
+\end{proof}
+\begin{prop}
+\label{prop:uniformContinuityImpliesCauchyContinuity}Let $\left(X,d_{X}\right)$
+and $\left(Y,d_{Y}\right)$ be a metric spaces. If a function $f:X\to Y$
+is uniformly continuous, it is Cauchy continuous.
+\end{prop}
+
+\begin{proof}
+Fix $\epsilon>0$ and let $\left\{ x_{n}\right\} \in X$ be a Cauchy
+sequence. By uniform continuity, there exists some $\delta>0$ such
+that for any $m,n\in\N$ $d_{X}\left(x_{n},x_{m}\right)<\delta\implies d_{Y}\left(f\left(x_{n}\right),f\left(x_{m}\right)\right)<\epsilon.$
+Since $\left\{ x_{n}\right\} $ is Cauchy, there exists some $N$
+such that for any $m,n\geq N$ $d_{X}\left(x_{n},x_{m}\right)<\delta$
+which completes the proof.
+\end{proof}
+\begin{thm}
+\label{thm:compactUniformContinuity}Let $\left(X,d_{X}\right)$ be
+a compact metric space and let $\left(Y,d_{Y}\right)$ be an arbitrary
+metric space. The following are equivalent for a function $f:X\to Y$
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+	\item f is continuous
+	\item f is uniformly continuous
+	\item f is Cauchy continuous.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+We prove $(i)\implies(ii)$; $(ii)\implies(iii)$ is Proposition \ref{prop:uniformContinuityImpliesCauchyContinuity}
+and $(iii)\implies(i)$ is Proposition \ref{prop:CauchyContinuityImpliesContinuity}.
+
+Let $\epsilon>0$ be fixed. By continuity, we know that for every
+$c\in X$ there exists some $\delta_{c}>0$ such that when $d_{X}\left(x,c\right)<\delta_{c}\implies d_{Y}\left(f\left(x\right),f\left(c\right)\right)<\frac{\epsilon}{2}$.
+Note that the balls $\left\{ B_{d_{X}}\left(c,\frac{\delta_{c}}{2}\right)\right\} _{c\in X}$
+form a cover of $X$ and by compactness we can extract a finite subcover
+$\left\{ B_{d_{X}}\left(c_{i},\frac{\delta_{c_{i}}}{2}\right)\right\} _{i=1}^{n}$.
+Let $\delta:=\min_{i}\frac{\delta_{c_{i}}}{2}$ and note that for
+any $x,y\in X$ , there's some $1\leq i_{0}\leq n$ such that $x\in B_{d_{X}}\left(c_{i_{0}}\frac{d_{c_{i_{0}}}}{2}\right).$
+Then, if $d_{X}\left(x,y\right)<\delta$
+\begin{align*}
+d_{X}\left(c_{i_{0}},y\right) & \leq d_{X}\left(x,y\right)+d_{X}\left(x,c_{i_{0}}\right)\\
+ & <\delta+\frac{\delta_{c_{i_{0}}}}{2}\\
+ & \leq\delta_{c_{i_{0}}}
+\end{align*}
+Then,
+\begin{align*}
+d_{Y}\left(f\left(x\right),f\left(y\right)\right) & \leq d_{Y}\left(f\left(x\right),f\left(c_{i_{0}}\right)\right)+\delta_{Y}\left(f\left(y\right),f\left(c_{i_{0}}\right)\right)\\
+ & <\frac{\epsilon}{2}+\frac{\epsilon}{2}\\
+ & =\epsilon
+\end{align*}
+which completes the proof.
+\end{proof}
+\begin{defn}
+Let $\left(X,d_{X}\right)$ and $\left(Y,d_{Y}\right)$ be a metric
+spaces. A function $f:X\to Y$ is called a contraction if it is Lipschitz
+with a Lipschitz constant $0<K<1$. In other words, for any $x,y\in X$
+\[
+d_{Y}\left(f\left(x\right),f\left(y\right)\right)\leq Kd_{X}\left(x,y\right).
+\]
+\end{defn}
+
+\begin{thm}[Banach Fixed Point Theorem]
+\label{thm:banachFixedPoint}Let $\left(X,d\right)$ be a complete
+metric space and let a function $f:X\to X$ be a contraction. Then
+there exists a unique $x\in X$ such that $f\left(x\right)=x$.
+\end{thm}
+
+\begin{proof}
+Let $x_{0}\in X$ be arbitrary, define a sequence $x_{n+1}=f\left(x_{n}\right)$
+and fix $\epsilon>0$. For any $n\geq m\geq1$
+\begin{align}
+d\left(x_{n},x_{m}\right) & \leq d\left(x_{n},x_{n-1}\right)+d\left(x_{n-1},x_{n-2}\right)+\ldots+d\left(x_{m+1},x_{m}\right)\nonumber \\
+ & \leq K^{n-1}d\left(x_{1},x_{0}\right)+K^{n-2}d\left(x_{1},x_{0}\right)+\ldots+K^{m}d\left(x_{1},x_{0}\right)\nonumber \\
+ & =d\left(x_{1},x_{0}\right)\sum_{i=m}^{n-1}K^{i}\label{eq:contractionCauchy}
+\end{align}
+where the first inequalitity is simply the triangle inequality and
+the second is induction on the contraction property. Note that since
+$\left\{ \sum_{i=1}^{n}K^{i}\right\} _{i=1}^{\infty}$ is a convergent
+geometric series, it's Cauchy as in we can find an $N\in\N$ such
+that for all $n,m\geq N$ we have that $\lvert\sum_{i=1}^{n}K_{i}-\sum_{i=1}^{m}K_{i}\rvert=\sum_{i=\min\left\{ n.m\right\} -1}^{\max\left\{ n.m\right\} }K^{i}<\epsilon.$
+Therefore, for $m,n\geq N$, the inequality (\ref{eq:contractionCauchy})
+implies
+\[
+d\left(x_{m},x_{n}\right)\leq d\left(x_{1},x_{0}\right)\epsilon.
+\]
+Since $\epsilon$ can be arbitrarily small, our sequence $x_{n}$
+is Cauchy and so by the completeness of $X$ it converges to some
+limit $x.$ Then, by the continuity of $f$
+\begin{align*}
+x & =\lim_{n\to\infty}x_{n}\\
+ & =\lim_{n\to\infty}f(x_{n-1})\\
+ & =f(x).
+\end{align*}
+which yields our fixed point.
+
+Now suppose that there were two fixed points i.e. $x\neq y$ such
+that $f\left(x\right)=x$ and $f\left(y\right)=y$. By the contraction
+property,
+\[
+d\left(x,y\right)\leq Kd\left(x,y\right)
+\]
+which is a contradiction.
+\end{proof}
+
+\subsubsection{Continuity of real valued function on $\protect\R$}
+\begin{prop}
+\label{prop:strictlyIncreasingContinuousFunctionInverse}Let $f:\left[a,b\right]\to\R$
+be a strictly increasing, continuous function. Then $f$ is bijective
+on its range, and its inverse is strictly increasing and continuous.
+\end{prop}
+
+\begin{proof}
+Note that injectivity is straightforward since if $x\neq y$ then
+either $x>y$ or $y<x$ in which case $f\left(x\right)>f\left(y\right)$
+or $f\left(x\right)<f\left(y\right)$, respectively. To see that the
+inverse is strictly increasing, let $c,d\in R$ where $R\subseteq\R$
+is the range of $f$. If $c>d$, then since $f$ is strictly increasing
+it must be that $f^{-1}\left(c\right)>f^{-1}\left(d\right)$. Finally,
+notice that $f^{-1}$ is a strictly increasing function that is onto
+$\left[a,b\right]$. Suppose that $y_{0}\in R$ is a point of discontinuity
+for $f^{-1}$, then $f^{-1}\left(y_{0}^{-}\right)<f^{-1}\left(y_{0}^{+}\right)$
+where both limits are in $\left[a,b\right].$ Then of course there's
+some $f^{-1}\left(y_{0}^{-}\right)<c<f^{-1}\left(y_{0}^{+}\right)$
+such that there's no $y\in R$ such that $f^{-1}\left(y\right)=c$
+which is a contradiction since $f^{-1}$ is onto $\left[a,b\right].$
+\end{proof}
+\begin{example}
+\label{exa:isi2008samplepsb3} Let $g$ be a continuous function with
+$g(1)=1$ such that 
+\[
+g(x+y)=5g(x)g(y)
+\]
+ for all $x,y$. Find $g(x)$. {[}Hint: You may use the following
+result. If $f$ is a continuous function that satisfies $f(x+y)=f(x)+f(y)$
+for all $x,y$, then $f(x)=xf(1)$.\hl{TODO}
+\end{example}
+
+
+\subsection{Separable metric spaces}

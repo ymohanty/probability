@@ -1,0 +1,980 @@
+
+\chapter{Basic combinatorics\label{chap:Combinatorics}}
+
+\section{Binomial and multinomial coefficients}
+
+The following is an \emph{algebraic }proof of Pascal's rule, a basic
+combinatorial identity. In the remark that follows, we provide a more
+combinatorial interpretation of the identity. Throughout this appendix,
+we will try to provide both algebraic and combinatorial arguments
+for results, unless the algebraic arguments are too cumbersome.
+\begin{prop}[Pascal's rule]
+\label{prop:pascalRule}For $n\geq k\geq1$
+\[
+\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)=\left(\begin{array}{c}
+n-1\\
+k-1
+\end{array}\right)+\left(\begin{array}{c}
+n-1\\
+k
+\end{array}\right).
+\]
+\end{prop}
+
+\begin{proof}
+Observe that 
+\begin{align*}
+\left(\begin{array}{c}
+n-1\\
+k-1
+\end{array}\right)+\left(\begin{array}{c}
+n-1\\
+k
+\end{array}\right) & =\frac{\left(n-1\right)!}{\left(k-1\right)!\left(n-k\right)!}+\frac{\left(n-1\right)!}{k!\left(n-k-1\right)!}\\
+ & =\left(n-1\right)!\left[\frac{1}{\left(k-1\right)!\left(n-k\right)!}+\frac{1}{k!\left(n-k-1\right)!}\right]\\
+ & =\left(n-1\right)!\left[\frac{k}{k!\left(n-k\right)!}+\frac{n-k}{k!\left(n-k\right)!}\right]\\
+ & =\left(n-1\right)!\frac{n}{k!\left(n-k\right)!}\\
+ & =\frac{n!}{k!\left(n-k\right)!}\\
+ & =\left(\begin{array}{c}
+n\\
+k
+\end{array}\right).
+\end{align*}
+\end{proof}
+\begin{rem*}
+The combinatorial idea for the above result is simple. Suppose you
+want to select $k$ items from a collection of $n$ items, without
+any consideration for order. How does one do so? . First we arbitrarily
+pick some item and label it $x$. How many ways are ways are there
+to pick items excluding $x$? Well, there are $\left(\begin{array}{c}
+n-1\\
+k
+\end{array}\right)$ ways to pick $k$ items if we explicitly exclude $x$. What if we
+insist on including $x?$ Then we have to pick $k-1$ items from $n-1$
+remaining total items, that is $\left(\begin{array}{c}
+n-1\\
+k-1
+\end{array}\right).$
+\end{rem*}
+\begin{example}[ISI 2021 PSA-11]
+\label{exa:isi2021psa11}We can use Pascal's formula to recover a
+more succinct formula for the expression
+\[
+\prod_{i=1}^{n}\left(\left(\begin{array}{c}
+n\\
+i
+\end{array}\right)+\left(\begin{array}{c}
+n\\
+i-1
+\end{array}\right)\right).
+\]
+We can apply Pascal's rule to each term in the product so that 
+\begin{align*}
+\prod_{i=1}^{n}\left(\left(\begin{array}{c}
+n\\
+i
+\end{array}\right)+\left(\begin{array}{c}
+n\\
+i-1
+\end{array}\right)\right) & =\prod_{i=1}^{n}\left(\begin{array}{c}
+n+1\\
+i
+\end{array}\right)\\
+ & =k\prod_{i=1}^{n}\left(\begin{array}{c}
+n\\
+i
+\end{array}\right)
+\end{align*}
+where $k=\frac{\left(n+1\right)^{n}}{n!}.$
+\end{example}
+
+Pascal's rule helps us establish the binomial theorem.
+\begin{thm}[Binomial theorem]
+\label{thm:binomialTheorem}Let $n\geq1$ be an integer and let $x,y\in\R$.
+Then,
+\[
+\left(x+y\right)^{n}=\sum_{k=0}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)x^{k}y^{n-k}.
+\]
+\end{thm}
+
+\begin{proof}
+The identity is easily verified for $n=1$ and $n=2$. Supopose that
+it holds for $n-1$ and observe
+\begin{align*}
+\left(x+y\right)^{n} & =x\left(x+y\right)^{n-1}+y\left(x+y\right)^{n-1}\\
+ & =x\sum_{k=0}^{n-1}\left(\begin{array}{c}
+n-1\\
+k
+\end{array}\right)x^{k}y^{n-1-k}+y\sum_{k=0}^{n-1}\left(\begin{array}{c}
+n-1\\
+k
+\end{array}\right)x^{k}y^{n-1-k}\\
+ & =\sum_{k=0}^{n-1}\left(\begin{array}{c}
+n-1\\
+k
+\end{array}\right)x^{k+1}y^{n-1-k}+\sum_{k=0}^{n-1}\left(\begin{array}{c}
+n-1\\
+k
+\end{array}\right)x^{k}y^{n-k}\\
+ & =\sum_{k=1}^{n}\left(\begin{array}{c}
+n-1\\
+k-1
+\end{array}\right)x^{k}y^{n-k}+\sum_{k=0}^{n-1}\left(\begin{array}{c}
+n-1\\
+k
+\end{array}\right)x^{k}y^{n-k}\\
+ & =\left(\begin{array}{c}
+n-1\\
+n-1
+\end{array}\right)x^{n}+\left(\begin{array}{c}
+n-1\\
+0
+\end{array}\right)y^{n}+\sum_{k=1}^{n-1}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)x^{k}y^{n-k}\\
+ & =\left(\begin{array}{c}
+n\\
+n
+\end{array}\right)x^{n}+\left(\begin{array}{c}
+n\\
+0
+\end{array}\right)y^{n}+\sum_{k=1}^{n-1}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)x^{k}y^{n-k}\\
+ & =\sum_{k=0}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)x^{k}y^{n-k}
+\end{align*}
+where in the third line we used a change of variables, and in the
+fourth we used Pascal's rule.
+\end{proof}
+\begin{rem*}
+The combinatorial argument is again simple. We know that the coefficient
+for $x^{k}y^{n-k}$ in the expansion of $\left(x+y\right)^{n}$ involves
+choosing $k$ out of $n$ available $x'$s and the number of ways
+to do that is $\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)$.
+\end{rem*}
+\begin{example}[ISI 2016 PSA 1]
+\label{exa:isi2016psa1}How many terms in the binomial expansion
+of $\left(3x^{2}+\frac{1}{x}\right)^{5}$ are independent of $x$?
+Note that the binomial expansion of this expression is of the form
+\begin{align*}
+\left(3x^{2}+\frac{1}{x}\right)^{5} & =\sum_{i=0}^{5}\left(\begin{array}{c}
+5\\
+i
+\end{array}\right)3x^{2i}x^{i-5}\\
+ & =\sum_{i=0}^{5}\left(\begin{array}{c}
+5\\
+i
+\end{array}\right)3x^{3i-5}.
+\end{align*}
+Note that $3i-5=0\implies i=\frac{5}{3}$ which is not an integer.
+Thus no terms are independent of $x.$
+\end{example}
+
+The binomial theorem gives us a simple formula for the sum of binomial
+coefficients.
+\begin{cor}
+\label{cor:sumOfBinomialCoefficients}Let $n\geq1$ be a fixed integer.
+Then,
+\[
+\sum_{k=0}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)=2^{n}.
+\]
+\end{cor}
+
+\begin{proof}
+Let $x=y=1$ in the binomial theorem.
+\end{proof}
+\begin{rem*}
+Think about a set with $n$ elements. You want to construct all possible
+subsets. You know the number of all possible subsets is $2^{n}$.
+How do you count all possible subsets of a finite set? Well, order
+doesn't matter in a set so all you have to do is count the empty set,
+the sets with one element (singletons), the set with two elements,
+those with three and so on.
+\end{rem*}
+\begin{example}[ISI 2013 PSB 3]
+\label{exa:isi2013psb3}Let $S=\left\{ 1,2,\ldots,n\right\} .$ How
+many ways can we choose two subsets $B\subseteq A\subseteq S$ such
+that $B\neq\emptyset$? How many subsets $B\subsetneq A\subseteq S$
+can we choose? For the first question, we know that for each subset
+$A$ of size $k$ we can select $2^{k}-1$ nonempty subsets. Further,
+there are $\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)$ subsets of size $k$ and so the number of such sets is $\sum_{k=1}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)\left(2^{k}-1\right)$.
+\end{example}
+
+There are a number of interesting identities regarding binomial coefficients
+which have simple combinatorial interpretations. We list a few here.
+\begin{prop}
+\label{prop:mdmActivity94}Let $n$ be a non-negative integer. Then,
+\[
+\left(\begin{array}{c}
+2n\\
+2
+\end{array}\right)=2\left(\begin{array}{c}
+n\\
+2
+\end{array}\right)+n^{2}.
+\]
+\end{prop}
+
+\begin{proof}
+Note that 
+\begin{align*}
+\left(\begin{array}{c}
+2n\\
+2
+\end{array}\right) & =\frac{\left(2n\right)!}{2!\left(2n-2\right)!}\\
+ & =\frac{2n\left(2n-1\right)}{2!}\\
+ & =2n^{2}-n\\
+ & =n(n-1)+n^{2}\\
+ & =2\left(\begin{array}{c}
+n\\
+2
+\end{array}\right)+n^{2}.
+\end{align*}
+\end{proof}
+\begin{rem*}
+Suppose you have $n$distinguihsable red balls and $n$ distinguishble
+green balls. How many ways are there to choose two balls from this
+collection? Well, you can get one red and one green and there are
+$n^{2}$ ways of getting such pairs. Alternatively, you can get two
+of red or two of green and there are $\left(\begin{array}{c}
+n\\
+2
+\end{array}\right)$ possible ways to select two reds (or two greens).
+\end{rem*}
+\begin{prop}
+\label{prop:mdmActivity95}Let $m,n\geq1$ be positive integers. Then,
+\[
+\left(\begin{array}{c}
+m+n\\
+2
+\end{array}\right)-\left(\begin{array}{c}
+m\\
+2
+\end{array}\right)-\left(\begin{array}{c}
+n\\
+2
+\end{array}\right)=mn.
+\]
+\end{prop}
+
+\begin{proof}
+Note that 
+\begin{align*}
+\left(\begin{array}{c}
+m+n\\
+2
+\end{array}\right)-\left(\begin{array}{c}
+m\\
+2
+\end{array}\right)-\left(\begin{array}{c}
+n\\
+2
+\end{array}\right) & =\frac{\left(m+n\right)!}{2!\left(m+n-2\right)!}-\frac{m!}{2!\left(m-2\right)!}-\frac{n!}{2!\left(n-2\right)!}\\
+ & =\frac{\left(m+n\right)\left(m+n-1\right)-m(m-1)-n(n-1)}{2}\\
+ & =\frac{m^{2}+n^{2}+2mn-m^{2}+m-n^{2}+n}{2}\\
+ & =mn.
+\end{align*}
+\end{proof}
+\begin{rem*}
+Suppose you want to count the number of ways in which you can choose
+2 items from $m$ distinguishable green balls and $n$ distinguishable
+red balls and you want one of each. Then you can count the number
+of ways you can choose two of those in aggregate and subtract out
+the number of ways in which you could choose both of one color. On
+the other hand there are clearly $mn$ such ways (by the product rule
+if you will).
+\end{rem*}
+\begin{prop}
+\label{prop:prodSumBinomialCoefficients}Let $n\geq1$ be an integer,.
+Then,
+\[
+\sum_{i=1}^{n}i\left(\begin{array}{c}
+n\\
+i
+\end{array}\right)=n2^{n-1}.
+\]
+\end{prop}
+
+\begin{proof}
+Note that by the binomial theorem,
+\[
+\left(1+x\right)^{n}=\sum_{k=0}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)x^{k}.
+\]
+Taking derivatives on both sides, we have that 
+\[
+n\left(1+x\right)^{n-1}=\sum_{k=0}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)kx^{k-1}.
+\]
+Letting $x=1$ yields the result.
+\end{proof}
+\begin{rem*}
+\hl{Fill later}
+\end{rem*}
+\begin{prop}
+\label{prop:squaredSumBinomialCoefficients}Let $n\geq1$ be a fixed
+integer. Then,
+\[
+\sum_{k=0}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)^{2}=\left(\begin{array}{c}
+2n\\
+n
+\end{array}\right).
+\]
+\end{prop}
+
+\begin{proof}
+Consider the algebraic identity
+\[
+\left[\left(1+x\right)^{n}\right]^{2}=\left(1+x\right)^{2n}.
+\]
+We can expand the left hand side as 
+\[
+\left(\sum_{k=0}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)x^{k}\right)^{2}=\sum_{k=0}^{n}\sum_{j=0}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)\left(\begin{array}{c}
+n\\
+j
+\end{array}\right)x^{j+k}.
+\]
+The coefficient to the term $x^{n}$ is $\sum_{k=0}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)\left(\begin{array}{c}
+n\\
+n-k
+\end{array}\right)=\sum_{k=0}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)^{2}.$On the other hand, a simple application of binomial theorem tells
+us that the coefficient of $x^{n}$ on the right hand side is $\left(\begin{array}{c}
+2n\\
+n
+\end{array}\right)$ which completes the proof.
+\end{proof}
+\begin{rem*}
+Suppose you have $n$ distinguishable red balls and $n$distinguishable
+green balls. How many ways can you collect $n$ items from this group?
+Well the answer is clearly $\left(\begin{array}{c}
+2n\\
+n
+\end{array}\right)$ , but we can break this up by considering that we can select 1 red
+ball and $n-1$ green balls, or $2$ red balls and $n-2$ green balls...
+\end{rem*}
+The above result is a special case of Vandermonde's identity, which
+was known to mathematicians as early as the 14th century.
+\begin{prop}
+\label{prop:vandermondeIdentity}Let $m,n,$ and $r$ be non-negative
+integers. Then,
+\[
+\left(\begin{array}{c}
+m+n\\
+r
+\end{array}\right)=\sum_{k=0}^{r}\left(\begin{array}{c}
+m\\
+k
+\end{array}\right)\left(\begin{array}{c}
+n\\
+r-k
+\end{array}\right).
+\]
+\end{prop}
+
+\begin{proof}
+The algebraic proof is similar to the one for the special case in
+Proposition \ref{prop:squaredSumBinomialCoefficients}. The combinatorial
+argument is more illuminating and significantly less cumbersome. Consider
+a committee consisting of $m$ men and $n$ women. We want to form
+a subcommittee of $r$ members. Clearly the number of such subcommittes
+is $\left(\begin{array}{c}
+m+n\\
+r
+\end{array}\right)$. One way to form such a committee is to consider a committee with
+one man and $r-1$ women, or two men and $r-2$ women, or ...
+\end{proof}
+\begin{prop}
+\label{prop:mdmActivity103}Let $n\geq1$ be an integer. Then,
+\[
+\sum_{i=1}^{n}i\left(n+1-i\right)=\left(\begin{array}{c}
+n+2\\
+3
+\end{array}\right).
+\]
+\end{prop}
+
+\begin{proof}
+For $n=1$ both the left and right hand sides of the identity above
+are 1 and so the base case holds. Suppose the identity holds for $n$.
+Then,
+\begin{align*}
+\sum_{i=1}^{n+1}i\left(n+1+1-i\right) & =\sum_{i=1}^{n+1}i\left(n+1-i\right)+\sum_{i=1}^{n+1}i\\
+ & =\sum_{i=1}^{n}i\left(n+1-i\right)+\left(\begin{array}{c}
+n+2\\
+2
+\end{array}\right)\\
+ & =\left(\begin{array}{c}
+n+2\\
+3
+\end{array}\right)+\left(\begin{array}{c}
+n+2\\
+2
+\end{array}\right)\\
+ & =\left(\begin{array}{c}
+n+2\\
+3
+\end{array}\right)
+\end{align*}
+where the second equality is the Gaussian formula for the sum of consecutive
+natural numbers, the third is the induction hypothesis, and the last
+is Pascal's rule.
+\end{proof}
+\begin{prop}
+\label{prop:sumOfBinomialCoefficients2}Let $n\geq2$ be an integer.
+Then
+\[
+\sum_{k=2}^{n}\left(\begin{array}{c}
+k\\
+2
+\end{array}\right)=\left(\begin{array}{c}
+n+1\\
+3
+\end{array}\right).
+\]
+\end{prop}
+
+\begin{proof}
+$n=2$ the result follows easily since $\left(\begin{array}{c}
+2\\
+2
+\end{array}\right)=\left(\begin{array}{c}
+3\\
+3
+\end{array}\right)=1$. For $n=3$ we have $\left(\begin{array}{c}
+2\\
+2
+\end{array}\right)+\left(\begin{array}{c}
+3\\
+2
+\end{array}\right)=4=\left(\begin{array}{c}
+4\\
+3
+\end{array}\right).$ Now suppose the result holds for $n-1$ and note that 
+\begin{align*}
+\sum_{k=2}^{n}\left(\begin{array}{c}
+k\\
+2
+\end{array}\right) & =\sum_{k=2}^{n-1}\left(\begin{array}{c}
+k\\
+2
+\end{array}\right)+\left(\begin{array}{c}
+n\\
+2
+\end{array}\right)\\
+ & =\left(\begin{array}{c}
+n\\
+3
+\end{array}\right)+\left(\begin{array}{c}
+n\\
+2
+\end{array}\right)\\
+ & =\left(\begin{array}{c}
+n+1\\
+3
+\end{array}\right)\\
+\end{align*}
+where the second equality uses the induction hypothesis and the last
+uses Pascal's rule.
+\end{proof}
+We can generalize the notion of binomial coefficients to that of multinomial
+coefficients with the following result.
+\begin{prop}
+\label{prop:multinomialCoefficients}Let $r_{1},r_{2},\ldots,r_{k}$
+be positive integers and let $n=\sum_{i=1}^{k}r_{i}$. Then the number
+of ways to split a set of size $n$ into $k$ ordered subsets where
+the $i$th subset contains $r_{i}$ elements is given by
+\[
+\left(\begin{array}{cccc}
+ & n\\
+r_{1}, & r_{2}, & \ldots & r_{k}
+\end{array}\right):=\frac{n!}{r_{1}!r_{2}!\ldots r_{k}!}.
+\]
+\end{prop}
+
+\begin{proof}
+Note that first we choose $r_{1}$ items from $n$ items, then $r_{2}$
+items from $n-r_{1}$ remaining items, then $r_{3}$ from the remaining
+$n-r_{1}-r_{2}$ and so on, yielding
+\begin{align*}
+\left(\begin{array}{cccc}
+ & n\\
+r_{1}, & r_{2}, & \ldots & r_{k}
+\end{array}\right) & =\prod_{i=1}^{k}\left(\begin{array}{c}
+n-\sum_{j=0}^{i-1}r_{j}\\
+r_{i}
+\end{array}\right)\\
+ & =\prod_{i=1}^{k}\frac{\left(n-\sum_{j=0}^{i-1}r_{j}\right)!}{r_{i}!\left(n-\sum_{j=0}^{i}r_{j}\right)!}\\
+ & =\frac{n!}{r_{1}!r_{2}!\ldots r_{k}!}.
+\end{align*}
+The last equality follows because there's a ``telescoping'' product
+and so the all $\left(n-\sum_{j=0}^{i-1}r_{j}\right)!$ terms except
+the first (which is is $n!$) cancel.
+\end{proof}
+This gives us the multinomial theorem.
+\begin{thm}[Multinomial theorem]
+\label{thm:multinomialTheorem}Let $m,n\geq1$ be fixed integers.
+Then, for $x_{1},x_{2},\ldots,x_{m}\in\R$
+\[
+\left(\sum_{i=1}^{m}x_{i}\right)^{n}=\sum_{k_{1}+\ldots+k_{m}=n,k_{i}\geq0}\left(\begin{array}{cccc}
+ & n\\
+k_{1}, & k_{2}, & \ldots & k_{m}
+\end{array}\right)\prod_{i=1}^{m}x_{i}^{k_{i}}.
+\]
+\end{thm}
+
+\begin{proof}
+For $m=1$ the result is trivial. For $m=2$, we shall verify that
+it is in fact the binomial theorem. To see this, note that for $m=2$,
+the binomial theorem implies that 
+\begin{align*}
+\left(x_{1}+x_{2}\right)^{n} & =\sum_{k=0}^{n}\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)x_{1}^{k}x_{2}^{n-k}\\
+ & =\sum_{k=0}^{n}\left(\begin{array}{c}
+n\\
+k,n-k
+\end{array}\right)x_{1}^{k}x_{2}^{n-k}\\
+ & =\sum_{k_{1}+k_{2}=n,k_{i}\geq0}\left(\begin{array}{c}
+n\\
+k_{1},k_{2}
+\end{array}\right)x_{1}^{k_{1}}x_{2}^{k_{2}}
+\end{align*}
+where the second equality uses Proposition \ref{prop:multinomialCoefficients}.
+To extend this result to arbitrary $m$, we assume that it holds for
+$m-1$ and then note that 
+\begin{align*}
+\left(\sum_{i=1}^{m-1}x_{i}+x_{m}\right)^{n} & =\sum_{K+k_{m}=n,K,k_{m}\geq0}\left(\begin{array}{c}
+n\\
+K,k_{m}
+\end{array}\right)\left(\sum_{i=1}^{m-1}x_{i}\right)^{K}x_{m}^{k_{m}}\\
+ & =\sum_{K+k_{m}=n,K,k_{m}\geq0}\left(\begin{array}{c}
+n\\
+K,k_{m}
+\end{array}\right)\sum_{k_{1}+\ldots+k_{m-1}=K,k_{i}\geq0}\left(\begin{array}{c}
+K\\
+k_{1},\ldots,k_{m-1}
+\end{array}\right)\prod_{i=1}^{m}x_{i}^{k_{i}}\\
+ & =\sum_{K+k_{m}=n,K,k_{m}\geq0}\sum_{k_{1}+\ldots+k_{m-1}=K,k_{i}\geq0}\left(\begin{array}{c}
+n\\
+K,k_{m}
+\end{array}\right)\left(\begin{array}{c}
+K\\
+k_{1},\ldots,k_{m-1}
+\end{array}\right)\prod_{i=1}^{m}x_{i}^{k_{i}}\\
+ & =\sum_{K+k_{m}=n,K,k_{m}\geq0}\sum_{k_{1}+\ldots+k_{m-1}=K,k_{i}\geq0}\left(\begin{array}{cccc}
+ & n\\
+k_{1}, & k_{2}, & \ldots & k_{m}
+\end{array}\right)\prod_{i=1}^{m}x_{i}^{k_{i}}\\
+ & =\sum_{k_{1}+\ldots+k_{m}=n,k_{i}\geq0}\left(\begin{array}{cccc}
+ & n\\
+k_{1}, & k_{2}, & \ldots & k_{m}
+\end{array}\right)\prod_{i=1}^{m}x_{i}^{k_{i}}
+\end{align*}
+which completes the proof.
+
+There is an obvious generalization of Vandermonde's identity that
+should occur to you at this point.
+\end{proof}
+\begin{prop}[Generalized Vandermonde identity]
+\label{prop:generalizedVandermondeIdentity}Let $\left\{ n_{i}\right\} _{i=1}^{k},r$
+be non-negative integers. Then,
+\[
+\left(\begin{array}{c}
+\sum_{i=1}^{k}n_{i}\\
+r
+\end{array}\right)=\sum_{i_{1}+i_{2}+\ldots+i_{k}=r}\prod_{j=1}^{k}\left(\begin{array}{c}
+n_{j}\\
+i_{j}
+\end{array}\right).
+\]
+\end{prop}
+
+
+\subsubsection{Stars and bars}
+
+Sums like $\sum_{i_{1}+i_{2}+\ldots+i_{k}=r}$ should trouble you,
+since it's not obvious how many terms are in such a sum. Fortunately,
+we have the tools we need to be able to answer such questions. To
+do so, we make an analogy with a different type of question: suppose
+you have $k$ urns and $r$ indistinguishable balls. How many ways
+could you allocate balls to urns? William Feller's famous textbook
+on probability provided an ingenious framework to think about this
+problem: suppose you have $k+1$ bars and $r$ stars, you could then
+fix two bars at two ends and put all the stars and remaining bars
+in the middle. The gap between bars would act as urns and the stars
+would be balls. Suppose you have four bars and ten stars, one arrangment
+could be like $|**|*****|**|$. This corresponds to the solution where
+there are $3$ urns and the first urn has $2$ balls, the second has
+$5$ balls, and the last again has 2 balls. How many other possibilities
+are there? Well we can rearrange the bars and stars in the interior
+of by looking at the number of slots in the interior (in this case
+12) and choosing the slots for either the bars or the stars (in this
+case 2 or 10). So the answer is $\left(\begin{array}{c}
+12\\
+2
+\end{array}\right)=\left(\begin{array}{c}
+12\\
+10
+\end{array}\right)$. More generally, there are $k-1$ bars in the interior along with
+$r$ stars, leading to $\left(\begin{array}{c}
+r+k-1\\
+k-1
+\end{array}\right)=\left(\begin{array}{c}
+r+k-1\\
+r
+\end{array}\right)$ ways to arrange the interior bars and stars. Equivalently, there
+are $\left(\begin{array}{c}
+r+k-1\\
+k
+\end{array}\right)$ ways to put $r$ balls in $k$ urns. This simple idea has remarkable
+power in its ability to resolve combinatorial problems. For instance,
+if we apply the restriction that each urn needs to have at least $1$
+ball, then our result becomes $\left(\begin{array}{c}
+k-1+(r-k)\\
+r-k
+\end{array}\right)=\left(\begin{array}{c}
+r-1\\
+k-1
+\end{array}\right).$
+\begin{example}[ISI 2018 PSA 13 (variant)]
+\label{exa:countingFunctions}How many functions $f:\left\{ 1,2,\ldots,n\right\} \to\left\{ 1,2,\ldots,m\right\} $
+are strictly increasing? How many are non-decreasing? To answer questions
+like this, we can use some of the ideas from the discussion above.
+First, you should notice that there are $\left(\begin{array}{c}
+m\\
+n
+\end{array}\right)$ ways to choose the range of the function (it has to be injective
+after all), and exactly one way for each of those ways to arrange
+them in increasing order. This gives us the total number of strictly
+increasing functions. To count non-decreasing functions, we
+\end{example}
+
+\begin{example}[ISI 2016 PSA 21]
+\label{exa:isi2016psa21}Let $A=\{1,2,\ldots n,\ldots,m\}$. How
+many functions $f:A\rightarrow A$ are there such that $f(1)<f(2)<\ldots,<f(n)$
+? Well there are $\left(\begin{array}{c}
+m\\
+n
+\end{array}\right)$ ways of selecting the strictly increasing elements and $\left(m-n\right)^{\left(m-n\right)}$
+ways of choosing how the remaining elements are arranged. Thus the
+total number of of such functions is $\left(\begin{array}{c}
+m\\
+n
+\end{array}\right)\left(m-n\right)^{\left(m-n\right)}.$
+\end{example}
+
+\begin{example}[ISI 2016 PSA 11]
+\label{exa:isi2016psa11}The number of ordered pairs $\left(a,b\right)\in\N^{2}$
+such that $a+b\leq n$ where $n\in\N$ is $\sum_{i=2}^{n}\left(\begin{array}{c}
+i-1\\
+2-1
+\end{array}\right)=1+2+3+\ldots+n-1=\frac{n\left(n-1\right)}{2}$
+\end{example}
+
+
+\section{Inclusion-exclusion and its consequences}
+\begin{lem}
+\label{lem:inclusionExclusion}Let $A$ denote the union of sets $A_{1},A_{2},\ldots,A_{n}$,
+all of which are subsets of some ambient set $\X$. Then,
+\begin{align}
+\indicate_{A} & =\sum_{i=1}^{n}\left(-1\right)^{i-1}\sum_{J\subset\left\{ 1,2,\ldots n\right\} ,\lvert J\rvert=i}\indicate_{\bigcap_{j\in J}A_{j}}.\label{eq:inclusionExclusionIndicator}
+\end{align}
+\end{lem}
+
+\begin{proof}
+Consider the function 
+\[
+g\left(x\right)=\prod_{i=1}^{n}\left(\indicate_{A}\left(x\right)-\indicate_{A_{i}}\left(x\right)\right).
+\]
+We claim that $g\left(x\right)=0$ for all $x\in\X$. To see this,
+notice that if $x\in A_{i}$ for any $1\leq i\leq n$ then that particular
+factor is zero. Conversely if $x\notin A$ then all the factors are
+zero. Rearranging the equation $g\left(x\right)=0$ and using Fact
+(\ref{fact:indicatorFunctionsFiniteOperations})yields the result.
+\end{proof}
+\begin{thm}[Inclusion-Exclusion]
+\label{thm:inclusionExclusionCardinality}Let $A_{1},A_{2},\ldots,A_{n}$
+be finite sets and let $A=\bigcup A_{i}$ . Then,
+\[
+\lvert A\rvert=\sum_{i=1}^{n}\left(-1\right)^{i-1}\sum_{J\subset\left\{ 1,2,\ldots n\right\} ,\lvert J\rvert=i}\lvert\bigcap_{j\in J}A_{j}\rvert.
+\]
+\end{thm}
+
+\begin{proof}
+We are going to cheat here and use measure theory. We can take the
+integral with respect to the counting measure on (\ref{eq:inclusionExclusionIndicator})and
+recover the result by linearity.
+\end{proof}
+The inclusion-exclusion principle is very useful in counting the number
+of \emph{derangements} of a given set. A derangement of a finite set
+$A$ is a permutation on that set with no fixed points.
+\begin{prop}
+\label{prop:numDerangements}Let $A$ be a finite set such that $\lvert A\rvert=n.$
+The number of derangements $\sigma:A\to A$ is given by 
+\[
+!n:=n!\sum_{i=0}^{n}\frac{\left(-1\right)^{i}}{i!}.
+\]
+\end{prop}
+
+\begin{proof}
+Without loss of generality, we can assume that $A=\left\{ 1,2,\ldots,n\right\} .$
+Let $S_{k}:=\left\{ \sigma\in\mathrm{Perm}\left(A\right)\mid\sigma\left(k\right)=k\right\} $
+for $1\leq k\leq n.$ That is, each $S_{k}$ fixes $k$ and may or
+may not fix any other elements. Then, for any $J\subset A$, we have
+that 
+\[
+\sum_{J\subset\left\{ 1,2,\ldots n\right\} ,\lvert J\rvert=i}\lvert\bigcap_{j\in J}S_{j}\rvert=\left(\begin{array}{c}
+n\\
+i
+\end{array}\right)\left(n-i\right)!
+\]
+because the intersection of any $i$ elements of $\left\{ S_{k}\right\} _{1\leq k\leq n}$
+consists of permutations which fix at least $i$ points and there
+are $\left(\begin{array}{c}
+n\\
+i
+\end{array}\right)$ ways to pick $i$ fixed points and $\left(n-i\right)!$ ways to permute
+all the other elements. Then, the number of ways in which you can
+have at least one fixed point is given by the inclusion-exclusion
+formula
+\begin{align*}
+\lvert\bigcup_{i=1}^{n}S_{i}\rvert & =\sum_{i=1}^{n}\left(-1\right)^{i-1}\sum_{J\subset\left\{ 1,2,\ldots n\right\} ,\lvert J\rvert=i}\lvert\bigcap_{j\in J}A_{j}\rvert\\
+ & =\sum_{i=1}^{n}\left(-1\right)^{i-1}\left(\begin{array}{c}
+n\\
+i
+\end{array}\right)\left(n-i\right)!\\
+ & =\sum_{i=1}^{n}\left(-1\right)^{i-1}\frac{n!}{i!\left(n-i\right)!}\left(n-i\right)!\\
+ & =n!\sum_{i=1}^{n}\frac{\left(-1\right)^{i-1}}{i!}.
+\end{align*}
+The number of derangements is then simply the difference between the
+total number of permutations and the number of permutations that has
+at least one fixed point i.e.
+\begin{align*}
+!n & =n!-n!\sum_{i=1}^{n}\frac{\left(-1\right)^{i-1}}{i!}\\
+ & =n!\left(1-\sum_{i=1}^{n}\frac{\left(-1\right)^{i-1}}{i!}\right)\\
+ & =n!\left(1+\sum_{i=1}^{n}\frac{\left(-1\right)^{i}}{i!}\right)\\
+ & =n!\sum_{i=0}^{n}\frac{\left(-1\right)^{i}}{i!}.
+\end{align*}
+\end{proof}
+\begin{rem*}
+There's a recursive formulation for counting derangements as well.
+To see this, first think about \hl{Finish later}
+\end{rem*}
+\begin{cor}
+\label{cor:recontresNumbers}Let $A$ be a finite set with cardinality
+$n.$ The number of permutations $\sigma:A\to A$ with exactly $k$
+fixed points, where $1\leq k\leq n$. is 
+\[
+D_{n,k}:=\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)!\left(n-k\right).
+\]
+\end{cor}
+
+It's worth noting down the values of small derangements so that one
+isn't forced to compute these when solving problems (much in the way
+we often memorize small factorials).
+
+\begin{table}
+
+\caption{Values of derangements}
+
+\begin{centering}
+\begin{tabular}{ccc}
+\hline 
+$n$ & $n!$ & $!n$\tabularnewline
+\hline 
+\hline 
+1 & 1 & 0\tabularnewline
+2 & 2 & 1\tabularnewline
+3 & 6 & 2\tabularnewline
+4 & 24 & 9\tabularnewline
+5 & 120 & 44\tabularnewline
+6 & 720 & 265\tabularnewline
+7 & 5040 & 1854\tabularnewline
+8 & 40320 & 14833\tabularnewline
+9 & 362880 & 133496\tabularnewline
+10 & 3628800 & 1334961\tabularnewline
+\end{tabular}
+\par\end{centering}
+\end{table}
+
+\begin{example}[JAM 2022 P-54]
+\label{exa:jam2022p54}Suppose that five men go to a restaurant together
+and each of them orders a dish that is different from the dishes ordered
+by the other members of the group. However, the waiter serves the
+dishes randomly. Then what is the number of ways in which exactly
+one of them gets the dish he ordered? The answer is $D_{5,1}=\left(\begin{array}{c}
+5\\
+1
+\end{array}\right)!4=5\times9=45$.
+\end{example}
+
+We can generalize the idea of derangements by considering permutations
+that don't have \emph{cycles. }A cycle is itself a sort of generalization
+of a fixed point. A permutation $f$ on a finite set $A$ of size
+$n$ is said to have a $k-$cycle if there exists some $x\in A$ such
+that $f^{k}\left(x\right)=x$ where the exponent is denoting repeated
+composition rather than multiplication. Of course, here $k$ represents
+the \emph{smallest }positive integer such that the equality holds
+true. It should be clear that it also holds true for any \emph{multiple
+}of $k$. To understand cycles in permutations, it's useful to adopt
+a notation for describing permutations that can help clarify their
+cyclic structure. This is the so called \emph{cyclic notation}. For
+example, we can write a permutation on $\left\{ 1,2,3,4,5\right\} $
+\[
+f=\left(351\right)\left(24\right)
+\]
+which basically tells us that the permutation consists of two cycles
+$\left(351\right)$ and $\left(24\right)$. The cycles here are \emph{ordered},
+in that the first cycle represents the fact that $f\left(3\right)=5,f\left(5\right)=1$
+and $f\left(1\right)=3$ and the second cycle tells us that $f\left(2\right)=4$
+and $f\left(4\right)=2$. Every permutation can be decomposed into
+cycles, and \emph{non-cyclic }permutations are those that consist
+of only the trivial cycle: for instance, a non-cyclic permutation
+on $\left\{ 1,2,3,4,5\right\} $ would be the permutation $\left(14235\right).$
+Note that two cycles of length $k$ $\left(x_{1}x_{2}\ldots x_{k}\right)$
+and $\left(y_{1}y_{2}\ldots y_{k}\right)$ are equivalent if there
+exists some $p\in\N$ such that $y_{i}=f^{p}\left(x_{i}\right)$.
+This defines an equivalence relation (as should be clear), so we can
+talk about \emph{equivalence classes} of cycles, denoted $\left[\left(x_{1}x_{2}\ldots x_{k}\right)\right]$.
+Such an equivalence class consists of exactly $k$ distinct members
+since $f^{k}\left(x_{i}\right)=x_{i}.$ Thus the total number of cycles
+of length $k$ that can be formed out of $k$ fixed elements is $\frac{k!}{k}$.
+We can use this to count the total number of permutations without
+any cycles using an inclusion-exclusion argument analagous to the
+one used for counting derangements in Proposition \ref{prop:numDerangements}.
+\begin{example}[ISI 2021 PSA 14]
+\label{exa:isi2021psa14}What is the total number of permutations
+$\sigma:\left\{ 1,2,\ldots,6\right\} \to\left\{ 1,2,\ldots,6\right\} $
+such that $\sigma\left(\sigma\left(i\right)\right)\neq i$ for any
+$i\in\left\{ 1,2,\ldots,6\right\} $?\hl{TODO}
+\end{example}
+
+
+\section{Miscellaneous problems}
+\begin{example}[ISI 2019 PSA 11]
+\label{exa:isi2019psa11}What are the total number of divisors of
+$2^{5}5^{3}11^{4}$ that are perfect squares? The prime square divisors
+are $2^{2},5^{2},$ and $11^{2}$, where the first and last divisors
+appear twice. Thus the first product can appear at most twice, the
+second at most once, and the third at most twice in any square divisor
+and so the number is $(2+1)(1+1)(2+1)=18$. More generally, for any
+positive integer $n$ with prime factorization $n=\prod_{i=1}^{k}p_{i}^{r_{i}}$,
+we can decompose the product into the largest square divisor 
+\[
+n=\prod_{i=1}^{k}\left(p_{i}^{2}\right)^{\lfloor\frac{r_{i}}{2}\rfloor}\prod_{i=1}^{k}p_{i}^{\indicate\left\{ \lfloor\frac{r_{i}}{2}\rfloor\neq\frac{r_{i}}{2}\right\} }
+\]
+where the second product is square-free and so the number of square
+divisors is given $\prod_{i=1}^{k}\left(\lfloor\frac{r_{i}}{2}\rfloor+1\right)$.
+\end{example}
+
+\begin{example}[ISI 2019 PSA 18]
+\label{exa:isi2019psa18}Draw one observation $N$ at random from
+the set $\{1,2,\ldots,100\}$. What is the probability that the last
+digit of $N^{2}$ is 1 ? Well note that only if the units digit of
+$N$ is 1 or 9 does the units digit of $N^{2}$ equal 1, which tells
+us that the probability is $\frac{1}{5}.$
+\end{example}
+
+\begin{example}[ISI 2019 PSA 6]
+\label{exa:isi2019psa6} How many times does the digit '2' appear
+in the set of integers $\{1,2,..,1000\}$ ? In the units digit, '2'
+appears $10\times10=100$ times; in the tens digit, it appears 10
+times and in the 100s digit it appears once. Thus in total it appears
+111 times.
+\end{example}
+
+\begin{example}[ISI 2019 PSA 5]
+\label{exa:isi2019psa5}Let the sum $3+33+333+\cdots+\underbrace{33\ldots3}_{200\text{ times }}$
+be $...zyx$ in the decimal system, i.e., $x$ is the unit's digit,
+$y$ the ten's digit, and so on. What is $z$ ?
+\end{example}
+
+\begin{example}[ISI 2021 PSA 12]
+\label{exa:isi2021psa12} Let $\pi=\left(a_{1},a_{2},\cdots,a_{2021}\right)$
+be a permutation of $(1,2,\cdots,2021)$. For every such permutation
+$\pi$, 
+\[
+P(\pi)=\prod_{j=1}^{2021}\left(a_{j}-j\right).
+\]
+
+Is $P\left(\pi\right)$ always even for any permutation $\pi$? Yes.
+To see this, note that $\sum_{j=1}^{2021}\left(a_{j}-j\right)=0$
+and so 
+\[
+\sum_{j\neq i}\left(a_{j}-j\right)=-\left(a_{i}-i\right)
+\]
+where for any $i\in\left\{ 1,2,\ldots,2021\right\} $ the sum on the
+LHS has an even number of terms. If the terms are all odd, the sum
+(and therefore the RHS) is even and thus the product is even.
+\end{example}
+
+\begin{example}[ISI 2020 PSA 14]
+\label{exa:isi2020psa14}Let $S$ be the set of all $3\times3$ matrices$A$
+such that among the 9 entries of $A$, there are exactly three 0 's,
+exactly three 1 's and exactly three 2 's. What is the number of matrices
+in $S$ that have trace divisible by 3? \hl{TODO}
+\end{example}
+
+\begin{example}[ISI 2023 PSB 2]
+\label{exa:isi2023psb2}How many permutations of the numbers $1,2,\ldots,n$
+where $n$is even exist such that no two adjacent numbers have an
+odd product? Let's first count the number of such permutations where
+the first slot is taken up by an even number. The number of positive
+even integers less or equal to $n$ is $\frac{n}{2}$ and so answer
+is for these is $\frac{n}{2}!^{2}$. The odd first answer is $\frac{n}{2}!^{2}$
+so together the answer is $2\frac{n}{2}!^{2}$.
+\end{example}
+
+\begin{example}[ISI 2015 PSB 4]
+\label{exa:isi2015psb4}Suppose 15 identical balls are placed in
+3 boxes labeled A, B and C. What is the number of ways in which Box
+A can have more balls than Box C?\hl{TODO}
+\end{example}
+
+

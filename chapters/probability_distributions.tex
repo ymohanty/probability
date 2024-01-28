@@ -1,0 +1,344 @@
+
+\chapter{Common probability distributions\label{chap:probabilityDistributions}}
+
+\section{General families of distributions}
+
+\subsection{Location-scale families}
+
+\subsection{General exponential families}
+
+\subsection{Stable distributions}
+
+\subsection{Infinitely divisible distributions}
+
+\subsection{Power series distributions}
+
+\section{Special parametric families of distributions}
+
+\subsection{Normal distributions and their associates}
+
+\subsubsection{The univariate normal distribution}
+
+\subsubsection{The multivariate normal distribution}
+\begin{example}
+\label{exa:isi2008samplepsb8}Let $\underline{Y}=\left(Y_{1},Y_{2}\right)^{\prime}$
+have the bivariate normal distribution $N_{2}(\underline{0},\Sigma)$,
+where 
+\[
+\Sigma=\left(\begin{array}{cc}
+\sigma_{1}^{2} & \rho\sigma_{1}\sigma_{2}\\
+\rho\sigma_{1}\sigma_{2} & \sigma_{2}^{2}
+\end{array}\right).
+\]
+
+Obtain the mean and variance of $U=\underline{Y^{\prime}}\Sigma^{-1}\underline{Y}-Y_{1}^{2}/\sigma_{1}^{2}$.\hl{TODO}
+\end{example}
+
+
+\subsubsection{The lognormal distribution}
+
+\subsubsection{The folded normal distribution}
+
+\subsubsection{The Rayleigh distribution}
+
+\subsubsection{The Maxwell distribution}
+
+\subsubsection{The Levy distribution}
+
+\subsection{Distributions useful for basic statistical inference}
+
+\subsubsection{The Gamma distribution}
+
+\subsubsection{The Chi-squared distributtion}
+
+\subsubsection{Student's $t$ distribution}
+
+\subsubsection{The $F$ distribution}
+
+\subsection{Continuous distributions with bounded support}
+
+\subsubsection{The uniform distribution\label{subsec:uniformDistribution}}
+
+The uniform distribution on the interval $\left[a,b\right]$ is the
+simplest example of a distribution that is absolutely continuous with
+respect to the Lebesgue measure. In fact, it
+
+\subsubsection{The Beta distribution}
+
+\subsubsection{The Beta Prime distribution}
+
+\subsubsection{The arcsine distribution}
+
+\subsubsection{The semicircle distribution}
+
+\subsubsection{The triangle distribution}
+
+\subsubsection{The Irwin-Hall distribution}
+
+\subsection{Continuous distributions with positve support}
+
+\subsubsection{Exponential-logarithmic distribution}
+
+\subsubsection{The Gompertz distribution}
+
+\subsubsection{The Log-logistic distribution}
+
+\subsubsection{The Pareto distribution}
+
+\subsubsection{The Wald distribution}
+
+\subsubsection{The Weibull distribution}
+
+\subsection{Continuous distributions supported on the real line}
+
+\subsubsection{The Laplace distribution}
+
+\subsubsection{The logistic distribution}
+
+\subsubsection{The exreme value distribution}
+
+\subsubsection{The hyperbolic secant distribution}
+
+\subsubsection{The Cauchy distribution}
+
+\subsection{Distributions associated with modeling Bernoulli trials}
+
+\subsubsection{The Bernoulli distribution\label{subsec:bernoulliDistribution}}
+
+The Bernoulli distribution is the simplest of all discrete probability
+distributions. It represents the mathematical abstraction of coin
+tossing with not-necessarily fair coins.
+\begin{defn}
+\label{def:bernoulliDistribution}A random variable $X$ on probability
+space $\probabilityspace$ is said to have a Bernoulli distribution
+with parameter $p\in\left[0,1\right]$ if $\P\left(X=1\right)=p$
+and $\P\left(X=0\right)=1-p$.
+\end{defn}
+
+Formally, any indicator variable of an event $A\in\F$ is a Bernoulli
+random variable. However, we typically reserve this description for
+random variables used to model the outcome of a binary experiment
+trial. Usually we are interested in the \emph{sequence }of such trials.
+\begin{prop}
+\label{prop:bernoulliMoments}The raw moments of a Bernoulli random
+variable $X$ with parameter $p$ is given 
+\[
+\E\left[X^{k}\right]=p
+\]
+for any $k\in\N$. The central moments are
+\[
+\E\left[\left(X-p\right)^{k}\right]=\left(1-p\right)^{k}p+\left(1-p\right)\left(-p\right)^{k}
+\]
+\end{prop}
+
+\begin{proof}
+Note that 
+\begin{align*}
+\E\left[\left(X-p\right)^{k}\right] & =\left(1-p\right)^{k}\P\left(X=1\right)+\left(0-p\right)^{k}\P\left(X=0\right)\\
+ & =\left(1-p\right)^{k}p+\left(1-p\right)\left(-p\right)^{k}.
+\end{align*}
+The raw moment case is simpler and follows exactly in the same way.
+\end{proof}
+\begin{prop}
+\label{prop:mgfBernoulli}The moment generating function of a Bernoulli
+random variable $X$ with parameter $p$ is given
+\[
+M_{X}\left(t\right)=1-p+pe^{t}.
+\]
+\end{prop}
+
+\begin{proof}
+Again follow the same approach as in \ref{prop:bernoulliMoments}.
+\end{proof}
+
+\subsubsection{The Binomial distribution\label{subsec:binomialDistribution}}
+
+The Binomial distribution is perhaps the most well known of all discrete
+distributions. It models the number of successes in a fixed number
+of trials (say coin tosses) and as such is a defined as a sum of Bernoulli
+trials.
+\begin{defn}
+\label{def:binomialDistribution}A random variable $Y$ has a Binomial
+distribution with parameters $n$ and $p$ if 
+\[
+Y=\sum_{i=1}^{n}X_{i}
+\]
+where $X_{i}$ are independent and identically distributed Bernoulli
+random variables with parameter $p$. In this case we write $Y\sim\textrm{Bin}\left(n,p\right)$
+\end{defn}
+
+\begin{prop}
+\label{prop:binomialCDF}The mass function of a random variable $Y$
+with a Binomial distribution with parameters $n$ and $p$ is given
+by
+\[
+\P\left(Y=k\right)=\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)p^{k}\left(1-p\right)^{n-k}\indicate\left\{ 0\leq k\leq n\right\} 
+\]
+\end{prop}
+
+\begin{proof}
+For $n=2$, we use the result about convolutions. More specifically,
+by Corollary \ref{cor:discreteConvolution}
+\begin{align*}
+\P\left(Y=k\right) & =\sum_{x\in\left\{ 0,1\right\} }\P\left(X_{1}=x\right)\P\left(X_{2}=k-x\right)\\
+ & =\left(1-p\right)\left[p\indicate\left\{ k=1\right\} +\left(1-p\right)\indicate\left\{ k=0\right\} \right]\\
+ & \ \ \ \!\ +p\left[p\indicate\left\{ k=2\right\} +\left(1-p\right)\indicate\left\{ k=1\right\} \right]\\
+ & =p^{2}\indicate\left\{ k=2\right\} +2p\left(1-p\right)\indicate\left\{ k=1\right\} +\left(1-p\right)^{2}\indicate\left\{ k=0\right\} \\
+ & =\left(\begin{array}{c}
+2\\
+k
+\end{array}\right)p^{k}\left(1-p\right)^{2-k}\indicate\left\{ 0\leq k\leq2\right\} .
+\end{align*}
+Now for the induction step, assume that the result holds for $n$
+and then we write $Y=\sum_{i=1}^{n+1}X_{i}=Z+X_{n+1}$ where $Z\sim\textrm{Bin}\left(n-1,p\right)$.
+Then, another convolution argument shows
+\begin{align*}
+\P\left(Y=k\right) & =\sum_{z=0}^{n}\P\left(Z=z\right)\P\left(X_{n+1}=k-z\right)\\
+ & =\sum_{z=0}^{n}\left(\begin{array}{c}
+n\\
+z
+\end{array}\right)p^{z}\left(1-p\right)^{n-z}\indicate\left\{ 0\leq z\leq n\right\} \left(p\indicate\left\{ z=k-1\right\} +\left(1-p\right)\indicate\left\{ z=k\right\} \right)\\
+ & =\sum_{z=0}^{n}\left(\begin{array}{c}
+n\\
+z
+\end{array}\right)p^{z+1}\left(1-p\right)^{n-z}\indicate\left\{ 0\leq z\leq n,z=k-1\right\} \\
+ & \ \ \!\ +\sum_{z=0}^{n}\left(\begin{array}{c}
+n\\
+z
+\end{array}\right)p^{z}\left(1-p\right)^{n-z+1}\indicate\left\{ 0\leq z\leq n,z=k\right\} \\
+ & =\left(\begin{array}{c}
+n\\
+k-1
+\end{array}\right)p^{k}\left(1-p\right)^{n-k+1}+\left(\begin{array}{c}
+n\\
+k
+\end{array}\right)p^{k}\left(1-p\right)^{n-k+1}\\
+ & =\left(\begin{array}{c}
+n+1\\
+k
+\end{array}\right)p^{k}\left(1-p\right)^{n+1-k}
+\end{align*}
+ where we used \hyperref[prop:pascalRule]{Pascal's rule} in the last
+equality.
+\end{proof}
+The moments of the Binomial distribution are easily characterized
+using the Bernoulli moments and the multinomial theorem
+\begin{prop}
+\label{prop:momentsBinomial}Let $\probabilityspace$ be a probability
+space and let $Y\sim\mathrm{Bin}\left(n,p\right)$ for some $n\in\N$
+and $p\in\left[0,1\right]$. Then,
+\[
+\E\left[Y^{k}\right]=\sum_{i_{1}+i_{2}+\ldots+i_{n}=k,i_{j}\geq0}\left(\begin{array}{cccc}
+ & k\\
+i_{1}, & i_{2}, & \ldots & i_{n}
+\end{array}\right)p^{\sum_{j=1}^{n}\indicate\left\{ i_{j}\geq1\right\} }.
+\]
+\end{prop}
+
+\begin{proof}
+Note that $Y=\sum_{i=1}^{n}X_{i}$ where $X_{i}$ are i.i.d Bernoulli
+random variables with parameter $p$. Then
+\begin{align*}
+\E\left[Y^{k}\right] & =\E\left[\left(\sum_{i=1}^{n}X_{i}\right)^{k}\right]\\
+ & =\E\left[\sum_{i_{1}+i_{2}+\ldots+i_{n}=k,i_{j}\geq0}\left(\begin{array}{cccc}
+ & k\\
+i_{1}, & i_{2}, & \ldots & i_{n}
+\end{array}\right)\prod_{j=1}^{n}X_{j}^{i_{j}}\right]\\
+ & =\sum_{i_{1}+i_{2}+\ldots+i_{n}=k,i_{j}\geq0}\left(\begin{array}{cccc}
+ & k\\
+i_{1}, & i_{2}, & \ldots & i_{n}
+\end{array}\right)\E\left[\prod_{j=1}^{n}X_{j}^{i_{j}}\right]\\
+ & =\sum_{i_{1}+i_{2}+\ldots+i_{n}=k,i_{j}\geq0}\left(\begin{array}{cccc}
+ & k\\
+i_{1}, & i_{2}, & \ldots & i_{n}
+\end{array}\right)\prod_{j=1}^{n}\E\left[X_{j}^{i_{j}}\right]\\
+ & =\sum_{i_{1}+i_{2}+\ldots+i_{n}=k,i_{j}\geq0}\left(\begin{array}{cccc}
+ & k\\
+i_{1}, & i_{2}, & \ldots & i_{n}
+\end{array}\right)p^{\sum_{j=1}^{n}\indicate\left\{ i_{j}\geq1\right\} }
+\end{align*}
+where in the second equality we have used the \hyperref[thm:multinomialTheorem]{multinomial theorem},
+the third is linearity of integration, the fourth is Proposition \ref{prop:indepExpectationFactors},
+and the last equality uses Proposition \ref{prop:bernoulliMoments}.
+\end{proof}
+The first moment is $\E\left[Y\right]=np$ which can be seen just
+by linearity and the definition. The second moment is
+\begin{align*}
+\E\left[Y^{2}\right] & =\E\left[\sum_{i=1}^{n}X_{i}^{2}+\sum_{i=1}^{n}\sum_{j=1,i\neq j}^{n}X_{i}X_{j}\right]\\
+ & =np+n\left(n-1\right)p^{2}.
+\end{align*}
+We are more interested in higher \emph{central }moments like the variance.
+Of course, $\Var\left[Y\right]=\E\left[Y^{2}\right]-\left(\E\left[Y\right]\right)^{2}=np+n\left(n-1\right)p^{2}-n^{2}p^{2}=np-np^{2}=np\left(1-p\right).$
+The moment generating function is can be computed in a similar way.
+\begin{prop}
+\label{prop:mgfBinomial}Let $\probabilityspace$ be a probability
+space and let $Y\sim\mathrm{Bin}\left(n,p\right)$ for some $n\in\N$
+and $p\in\left[0,1\right]$. Then,
+\[
+M_{Y}\left(t\right)=\left(1-p+pe^{t}\right)^{n}.
+\]
+\end{prop}
+
+\begin{proof}
+Note that $Y=\sum_{i=1}^{n}X_{i}$ where as before $X_{i}$ are iid
+Bernoulli with parameter $p$ and so
+\begin{align*}
+M_{Y}\left(t\right) & =\E\left[e^{tY}\right]\\
+ & =\E\left[e^{t\sum X_{i}}\right]\\
+ & =\E\left[\prod_{i=1}^{n}e^{tX_{i}}\right]\\
+ & =\prod_{i=1}^{n}\E\left[e^{tX_{i}}\right]\\
+ & =\left(1-p+pe^{t}\right)^{n}
+\end{align*}
+wheree the fourth equality is again due to Proposition \ref{prop:indepExpectationFactors}
+and the last is Proposition \ref{prop:mgfBernoulli}.
+\end{proof}
+
+\subsubsection{The geometric distribution}
+
+\subsubsection{The negative binomial distribution}
+
+\subsubsection{The multinomial distribution}
+
+\subsubsection{The discrete arcine distribution}
+
+\subsubsection{The Beta-binomial distribution}
+
+\subsubsection{The Beta-negative binomial distribution}
+
+\subsubsection{The discrete uniform distribution\label{subsec:discreteUniformDistribution}}
+
+The discrete uniform distribution is the generalization of the distribution
+we encountered in Example \ref{exa:floorFuncCDF}. The idea is that
+its a distribution supported on any finite set, where each element
+of the set has equal probability. Thus for a finite set $A$ and a
+discrete uniform random variable $X$ supported on $A$ we have that
+$\P\left(X=k\right)=\frac{1}{\lvert A\rvert}\indicate\left\{ k\in A\right\} .$
+Typically, the set $A=\left\{ a,a+1,a+2,\ldots,b\right\} $ in which
+case the $\lvert A\rvert=b-a+1$. In the discussion below we will
+focus on the special case where $a=0$ and $b=n$ for some $n\in\N$.
+
+
+\subsection{Distributions associated with finite sampling models}
+
+\subsubsection{The hypergeometric distribution}
+
+\subsubsection{The multivariate hypergeometric distribution}
+
+\subsubsection{The matching distribution}
+
+\subsubsection{The birthday distribution}
+
+\subsubsection{The coupon collector distribution}
+
+\subsubsection{The Polya distribution}
+
+\subsection{Distributions associated with the Poisson process}
+
+\subsubsection{The exponential distribution}
+
+\subsubsection{The Erlang distribution}
+
+\subsubsection{The Poisson distribution}
