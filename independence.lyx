@@ -2605,9 +2605,8 @@ variance
 \begin_inset Formula $\sigma^{2}$
 \end_inset
 
-.
- It captures the degree to which a random variable deviates from its mean
- value.
+ and it captures the degree to which a random variable deviates from its
+ mean value.
  The third 
 \emph on
 standardized 
@@ -2634,6 +2633,11 @@ of
 \end_inset
 
 .
+ The fourth standardized moment 
+\begin_inset Formula $\E\left[\left(\frac{Y}{\sigma}\right)^{4}\right]$
+\end_inset
+
+ is called thee kurtosis.
  Of course, random variables need not even by 
 \begin_inset Formula $\mathcal{L}^{1}$
 \end_inset
@@ -3291,6 +3295,340 @@ Letting
 
 \end_layout
 
+\begin_layout Subsubsection
+Quantile functions and coupling
+\end_layout
+
+\begin_layout Standard
+The expectation of a random variable 
+\begin_inset Formula $X$
+\end_inset
+
+, if it exists, provides one measure of central tendency for a random variable.
+ Other useful measures include the 
+\emph on
+median, 
+\emph default
+which is a real number 
+\begin_inset Formula $c$
+\end_inset
+
+ such that the probability that 
+\begin_inset Formula $X$
+\end_inset
+
+ less than or equal 
+\begin_inset Formula $c$
+\end_inset
+
+ is 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+.
+ This is a useful measure of central tendency when the distribution of 
+\begin_inset Formula $X$
+\end_inset
+
+ is highly skewed.
+ The median may not be unique, as is the case when the random variable 
+\begin_inset Formula $X$
+\end_inset
+
+ has a discrete distribution.
+ More formally, we can define a median
+\emph on
+ 
+\emph default
+as any real number 
+\begin_inset Formula $c\in\left[\sup\left\{ x\in\R\mid F\left(x\right)<\frac{1}{2}\right\} ,\sup\left\{ x\in\R\mid F\left(x\right)\leq\frac{1}{2}\right\} \right]$
+\end_inset
+
+ where 
+\begin_inset Formula $F$
+\end_inset
+
+ is the CDF of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ In general, the 
+\begin_inset Formula $p$
+\end_inset
+
+th quantile is any element of the set 
+\begin_inset Formula $Q_{F}\left(p\right):=\left[\sup\left\{ x\in\R\mid F\left(x\right)<p\right\} ,\sup\left\{ x\in\R\mid F\left(x\right)\leq p\right\} \right]$
+\end_inset
+
+.
+ To prevent ambiguity, we often use the lowest value of this interval to
+ construct a quantile function.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:quantileFunction"
+
+\end_inset
+
+A quantile function 
+\begin_inset Formula $q_{F}$
+\end_inset
+
+ for a given CDF 
+\begin_inset Formula $F$
+\end_inset
+
+ is defined
+\begin_inset Formula 
+\[
+q_{F}\left(p\right):=\inf\left\{ x\in\R\mid F\left(x\right)\geq p\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:quantileProperty"
+
+\end_inset
+
+Let 
+\begin_inset Formula $q_{F}$
+\end_inset
+
+ be the quantile function associated with a CDF 
+\begin_inset Formula $F$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $q_{F}$
+\end_inset
+
+ is the unique function such that 
+\begin_inset Formula $F(x)\geq p\Longleftrightarrow q_{F}(p)\leq x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+First we prove that 
+\begin_inset Formula $q_{F}$
+\end_inset
+
+ satisfies these properties.
+ Assume that 
+\begin_inset Formula $F\left(x\right)\geq p$
+\end_inset
+
+ for some 
+\begin_inset Formula $x\in\R$
+\end_inset
+
+.
+ Then clearly 
+\begin_inset Formula $q_{F}\left(p\right)\leq x$
+\end_inset
+
+ by the definition of an infimum.
+ Conversely, assume that 
+\begin_inset Formula $q_{F}\left(p\right)\leq x$
+\end_inset
+
+ and observe that since 
+\begin_inset Formula $F$
+\end_inset
+
+ is non-decreasing, 
+\begin_inset Formula $F\left(x\right)\geq p$
+\end_inset
+
+.
+ Next, suppose that some function 
+\begin_inset Formula $\tilde{q}$
+\end_inset
+
+ satisfies this equivalence i.e.
+ 
+\begin_inset Formula 
+\begin{equation}
+F(x)\geq p\Longleftrightarrow\tilde{q}(p)\leq x.\label{eq:assumptionEquivalence}
+\end{equation}
+
+\end_inset
+
+Observe that by the right continuity of 
+\begin_inset Formula $F$
+\end_inset
+
+, 
+\begin_inset Formula $F\left(q_{F}\left(p\right)\right)\geq p$
+\end_inset
+
+ and so 
+\begin_inset Formula $\tilde{q}\left(p\right)\leq q_{F}\left(p\right)$
+\end_inset
+
+.
+ On the other hand, if there exists some 
+\begin_inset Formula $p^{*}\in\left[0,1\right]$
+\end_inset
+
+ such that 
+\begin_inset Formula $\tilde{q}\left(p^{*}\right)<q_{F}\left(p^{*}\right)$
+\end_inset
+
+ then 
+\begin_inset Formula $F\left(\tilde{q}\left(p^{*}\right)\right)<p^{*}$
+\end_inset
+
+ which by 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:assumptionEquivalence"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ implies that 
+\begin_inset Formula $\tilde{q}\left(p^{*}\right)>\tilde{q}\left(p^{*}\right),$
+\end_inset
+
+ a contradiction.
+ Therefore,
+\begin_inset Formula 
+\[
+q_{F}\left(p\right)=\tilde{q}\left(p\right)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $p\in\left[0,1\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Note that the quantile function can also be written as 
+\begin_inset Formula $q_{F}\left(p\right)=\sup\left\{ x\in\R\mid F\left(x\right)<p\right\} $
+\end_inset
+
+, a fact that can be established by noting that the non-decreasing nature
+ of 
+\begin_inset Formula $F$
+\end_inset
+
+ implies that 
+\begin_inset Formula $\sup\left\{ x\in\R\mid F\left(x\right)<p\right\} \leq\inf\left\{ x\in\R\mid F\left(x\right)\geq p\right\} $
+\end_inset
+
+.
+ If the inequality were strict, then there would be some 
+\begin_inset Formula $\sup\left\{ x\in\R\mid F\left(x\right)<p\right\} <c<\inf\left\{ x\in\R\mid F\left(x\right)\geq p\right\} $
+\end_inset
+
+ and so 
+\begin_inset Formula $F\left(c\right)\not<p$
+\end_inset
+
+ and 
+\begin_inset Formula $F\left(c\right)\not\geq p$
+\end_inset
+
+ which is a contradiction.
+\end_layout
+
+\begin_layout Standard
+We can use the quantile function to construct a standard probability space
+ for random variables to live in.
+ To begin, let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be arbitrary and let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a random variable on the space with CDF 
+\begin_inset Formula $F_{X}$
+\end_inset
+
+.
+ Define an auxiliary random variable on 
+\begin_inset Formula $\tilde{X}:\left(\left[0,1\right],\borel\left[0,1\right],\lambda\right)\to\left(\R,\borel\left(\R\right)\right)$
+\end_inset
+
+ by 
+\begin_inset Formula 
+\[
+\tilde{X}\left(p\right):=q_{F_{X}}\left(p\right)
+\]
+
+\end_inset
+
+ and notice that its CDF 
+\begin_inset Formula 
+\begin{align*}
+F_{\tilde{X}}\left(x\right) & :=\lambda\left(\tilde{X}^{-1}\left[\left(-\infty,x\right]\right]\right)\\
+ & =\lambda\left(\left\{ p:q_{F_{X}}\left(p\right)\leq x\right\} \right)\\
+ & =\lambda\left(\left\{ p:F_{X}\left(x\right)\geq p\right\} \right)\\
+ & =\lambda\left(\left[0,F_{X}\left(x\right)\right]\right)\\
+ & =F_{X}\left(x\right).
+\end{align*}
+
+\end_inset
+
+Thus we have taken an arbitrary random variable on 
+\begin_inset Formula $X$
+\end_inset
+
+ on an unspecified probability space 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ and constructed an auxiliary random variable 
+\begin_inset Formula $\tilde{X}$
+\end_inset
+
+ on 
+\begin_inset Formula $\left(\left[0,1\right],\borel\left[0,1\right],\lambda\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{X}$
+\end_inset
+
+ are identically distributed.
+ Since probability is fundamentally concerned with 
+\emph on
+distributions 
+\emph default
+rather than random variables as functions themselves, we have found a canonical
+ representation for all random variables on the same space 
+\begin_inset Formula $\left(\left[0,1\right],\borel\left[0,1\right],\lambda\right)$
+\end_inset
+
+.
+ The next result provides some evidence that this representation is indeed
+ special.
+\end_layout
+
 \begin_layout Subsection
 Independence of random variables
 \end_layout
@@ -3839,7 +4177,16 @@ mutis mutandis
 \emph default
 for random vectors, although some ideas need clarification in this more
  general context.
- For instance, the notion of a CDF is not immediately
+ For instance, the notion of a CDF is not immediately obvious since there
+ is no canonical ordering on 
+\begin_inset Formula $\R^{n}$
+\end_inset
+
+ for 
+\begin_inset Formula $n>1.$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -3869,7 +4216,7 @@ n of some transformation of a collection of random variables.
 \end_layout
 
 \begin_layout Subsubsection
-Linear transformations on scalar random variables
+Transformations on scalar random variables
 \end_layout
 
 \begin_layout Subsubsection
@@ -4267,7 +4614,7 @@ Products of random variables
 \end_layout
 
 \begin_layout Subsubsection
-Absolutee values of random variables
+Absolute values of random variables
 \end_layout
 
 \begin_layout Subsection
