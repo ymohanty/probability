@@ -3629,6 +3629,266 @@ rather than random variables as functions themselves, we have found a canonical
  special.
 \end_layout
 
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:coupling"
+
+\end_inset
+
+ Let 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ be random variables, not necessarily on the same probability space.
+ A 
+\emph on
+coupling 
+\emph default
+of 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+are two new random variables 
+\begin_inset Formula $\tilde{X}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{Y}$
+\end_inset
+
+ on a common probability space 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ such that 
+\begin_inset Formula $\tilde{X}$
+\end_inset
+
+ has the same distribution as 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{Y}$
+\end_inset
+
+ has the same distribution as 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+ When we define 
+\begin_inset Formula $\tilde{X}\left(p\right)=q_{F_{X}}\left(p\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{Y}\left(p\right)=q_{F_{Y}}\left(p\right)$
+\end_inset
+
+ on 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\left(\left[0,1\right],\borel\left[0,1\right],\lambda\right)$
+\end_inset
+
+, then we call 
+\begin_inset Formula $\left(\tilde{X},\tilde{Y},\left(\left[0,1\right],\borel\left[0,1\right],\lambda\right)\right)$
+\end_inset
+
+ a 
+\family default
+\series default
+\shape default
+\size default
+\emph on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+quantile coupling
+\emph default
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:quantileCouplingBest"
+
+\end_inset
+
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ be random variables, not necessarily on the same probability space.
+ Then for any coupling 
+\begin_inset Formula $\left(\hat{X},\hat{Y},\probabilityspace\right)$
+\end_inset
+
+, we have that 
+\begin_inset Formula 
+\[
+\lambda\left(\lvert\hat{X}-\hat{Y}\rvert\right)\leq\P\left(\lvert\tilde{X}-\tilde{Y}\rvert\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that for any 
+\begin_inset Formula $s\in\R$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\P\left(\hat{X}>s,\hat{Y}>s\right) & \leq\min\left\{ \P\left(\hat{X}>s\right),\P\left(\hat{Y}>s\right)\right\} \\
+ & =\min\left\{ 1-F_{X}\left(s\right),1-F_{Y}\left(s\right)\right\} \\
+ & =1-\max\left\{ F_{X}\left(s\right),F_{Y}\left(s\right)\right\} \\
+ & =1-\lambda\left(p:0\leq p\leq\max\left\{ F_{X}\left(s\right),F_{Y}\left(s\right)\right\} \right)\\
+ & =\lambda\left(p:\max\left\{ F_{X}\left(s\right),F_{Y}\left(s\right)\right\} <p\leq1\right)\\
+ & =\lambda\left(p:F_{X}\left(s\right)<p,F_{Y}\left(s\right)<p\right)\\
+ & =\lambda\left(p:q_{F_{X}}\left(p\right)>s,q_{F_{Y}}\left(p\right)>s\right)\\
+ & =\lambda\left(p:\tilde{X}\left(p\right)>s,\tilde{Y}\left(p\right)>s\right)
+\end{align*}
+
+\end_inset
+
+where in the second to last equality wee have used Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:quantileProperty"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Further, by the definition of a coupling
+\begin_inset Formula 
+\begin{align*}
+\P\left(\hat{X}>s\right) & =\lambda\left(\tilde{X}>s\right)\\
+\P\left(\hat{Y}>s\right) & =\lambda\left(\tilde{Y}>s\right)
+\end{align*}
+
+\end_inset
+
+and so
+\begin_inset Formula 
+\[
+\lebInt{\P}{\indicate\left\{ \hat{X}>s\right\} +\indicate\left\{ \hat{Y}>x\right\} -2\indicate\left\{ \hat{X}>s,\hat{Y}>s\right\} }\geq\lambda\left(\indicate\left\{ \text{\ensuremath{\tilde{X}}}>s\right\} +\indicate\left\{ \tilde{Y}>x\right\} -2\indicate\left\{ \tilde{X}>s,\tilde{Y}>s\right\} \right).
+\]
+
+\end_inset
+
+Note that the expressions inside the integrals are indicators of the symmetric
+ differences 
+\begin_inset Formula $\left\{ \hat{X}>s\right\} \Delta\left\{ \hat{Y}>s\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ \tilde{X}>s\right\} \Delta\left\{ \tilde{Y}>s\right\} $
+\end_inset
+
+ and so we can write the above as 
+\begin_inset Formula 
+\begin{align}
+\P\left(\omega\in\Omega:\hat{X}\left(\omega\right)>s>\hat{Y}\left(\omega\right)\right)+\P\left(\omega\in\Omega:\hat{Y}\left(\omega\right)>s>\hat{X}\left(\omega\right)\right)\nonumber \\
+\geq\lambda\left(p\in\left[0,1\right]:\tilde{X}\left(p\right)>s>\tilde{Y}\left(p\right)\right)+\lambda\left(p\in\left[0,1\right]:\tilde{Y}\left(p\right)>s>\tilde{X}\left(p\right)\right)\label{eq:quantileInequality}
+\end{align}
+
+\end_inset
+
+Taking an integral with respect to the Lebesgue measure on 
+\begin_inset Formula $\R$
+\end_inset
+
+ on the left hand side, we hav
+\begin_inset Formula 
+\begin{align*}
+\lambda^{s}\left(\P^{\omega}\left(\omega\in\Omega:\hat{X}\left(\omega\right)>s>\hat{Y}\left(\omega\right)\right)+\P^{\omega}\left(\omega\in\Omega:\hat{Y}\left(\omega\right)>s>\hat{X}\left(\omega\right)\right)\right)\\
+=\lambda^{s}\left(\P^{\omega}\left(\indicate\left\{ \hat{X}\left(\omega\right)>s>\hat{Y}\left(\omega\right)\right\} \right)\right) & +\lambda^{s}\left(\P^{\omega}\left(\indicate\left\{ \hat{Y}\left(\omega\right)>s>\hat{X}\left(\omega\right)\right\} \right)\right)\\
+=\P^{\omega}\left(\lambda^{s}\left(\indicate\left\{ \hat{X}\left(\omega\right)>s>\hat{Y}\left(\omega\right)\right\} \right)\right) & +\P^{\omega}\left(\lambda^{s}\left(\indicate\left\{ \hat{Y}\left(\omega\right)>s>\hat{X}\left(\omega\right)\right\} \right)\right)\\
+=\P^{\omega}\left(\hat{X}-\hat{Y}\right)^{+}+\ \P^{\omega}\left(\hat{Y}-\hat{X}\right)^{+}\quad\\
+=\P^{\omega}\left(\lvert\hat{X}-\hat{Y}\rvert\right)\qquad\qquad\qquad\qquad\quad\  & .
+\end{align*}
+
+\end_inset
+
+where we have used 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[thm:tonelli]{Tonelli's theorem}
+\end_layout
+
+\end_inset
+
+ in the second equality and the fact that 
+\begin_inset Formula $f^{-}+f^{+}=\lvert f\rvert$
+\end_inset
+
+ in the last.
+ A similar argument where we apply 
+\begin_inset Formula $\lambda^{s}$
+\end_inset
+
+ to the right side of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:quantileInequality"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows (by monotonicity of integration) that
+\begin_inset Formula 
+\[
+\P^{\omega}\left(\lvert\hat{X}-\hat{Y}\rvert\right)\geq\lambda\left(\lvert\tilde{X}-\tilde{Y}\rvert\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Independence of random variables
 \end_layout
