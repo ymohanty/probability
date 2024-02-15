@@ -426,7 +426,7 @@ filename "differentiation.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "product_measures.lyx"
+filename "measure_and_topology.lyx"
 
 \end_inset
 
@@ -436,7 +436,7 @@ filename "product_measures.lyx"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "measure_and_topology.lyx"
+filename "product_measures.lyx"
 
 \end_inset
 
