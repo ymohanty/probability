@@ -318,7 +318,7 @@ name "lem:partialFunctionMeasurability"
 \end_inset
 
 For every 
-\begin_inset Formula $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+\begin_inset Formula $f\in\mathcal{M}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
 \end_inset
 
 , the maps 
@@ -435,11 +435,11 @@ which completes the proof for bounded functions.
 
 \begin_layout Proof
 Now we can simply take a function 
-\begin_inset Formula $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+\begin_inset Formula $f\in\mathcal{M}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
 \end_inset
 
- and construct the bounded monotone sequence 
-\begin_inset Formula $f_{n}:=\min\left\{ f,n\right\} \in\mathcal{H}$
+ and construct the bounded monotone sequences 
+\begin_inset Formula $f_{n}^{\pm}:=\min\left\{ f^{\pm},n\right\} \in\mathcal{H}$
 \end_inset
 
  by our results.
@@ -565,26 +565,6 @@ is measurable and
  is not measurable.
 \end_layout
 
-\begin_layout Standard
-Virtually the same argument as in Lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:partialFunctionMeasurability"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- shows that 
-\begin_inset Formula $y\to\mu^{x}\left(f\left(x,y\right)\right)$
-\end_inset
-
- is measurable (although we need this previous lemma to show that this function
- is indeed well-defined).
- We include this result here for completeness
-\end_layout
-
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
@@ -600,7 +580,11 @@ Let
 \begin_inset Formula $\left(\mathcal{Y},\mathcal{G},\nu\right)$
 \end_inset
 
- be measure spaces.
+ be 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measure spaces.
  For every function 
 \begin_inset Formula $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
 \end_inset
@@ -625,71 +609,227 @@ Let
 \end_layout
 
 \begin_layout Proof
-Let 
-\begin_inset Formula $\mathcal{E}$
+We will prove that 
+\begin_inset Formula $x\to\nu^{y}f\left(x,y\right)$
 \end_inset
 
- be as before and this time let
+ is measurable; the other case follows by symmetry.
+ First, let 
+\begin_inset Formula $F_{i}\in\mathcal{\F}$
+\end_inset
+
+ be an increasing sequence of sets with finite measure such that 
+\begin_inset Formula $\bigcup_{i\in\N}F_{i}=\mathcal{\X}.$
+\end_inset
+
+ Observe that for the indicator of any rectangle in 
+\begin_inset Formula $F\times G\in\mathcal{E},$
+\end_inset
+
+we have that 
+\begin_inset Formula $\nu^{y}\left(F\times G\right)=\indicate_{F}\nu\left(G\right)$
+\end_inset
+
+ which is measurable.
+ Next, define
 \begin_inset Formula 
 \[
-\mathcal{H:=}\left\{ f\in\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\mid y\to\mu^{x}f\left(x,y\right)\text{is }\mathcal{G}/\borel\left(\R\right)\text{ measurable }\right\} ,
+\mathcal{D}_{i}:=\left\{ D\in\mathcal{F}\otimes\mathcal{G}\mid x\to\nu^{y}\left(\indicate_{D}\indicate_{F_{i}}\right)\text{ is }\mathcal{\F}/\borel\left(\R\right)\ \text{measurable}\right\} 
 \]
 
 \end_inset
 
-noting that 
-\begin_inset Formula $\indicate_{\X\times\mathcal{Y}}\in\mathcal{H}$
+using Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:partialFunctionMeasurability"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
- since 
-\begin_inset Formula $\mu^{x}\left(\indicate_{\X\times\mathcal{Y}}\right)=\indicate_{\mathcal{Y}}\mu\left(\X\right)$
+ to ensure that the expression is well defined.
+ Notice that 
+\begin_inset Formula $\mathcal{E}\subseteq\mathcal{D}$
 \end_inset
 
- which is 
-\begin_inset Formula $\mathcal{G}$
+ (and so in particular, 
+\begin_inset Formula $\X\times\mathcal{Y}\in\mathcal{D}$
 \end_inset
 
- measurable.
- 
-\begin_inset Formula $\mathcal{H}$
+).
+ Now suppose 
+\begin_inset Formula $D_{1},D_{2}\in\mathcal{D}$
 \end_inset
 
- is a vector space closed under monotone limits with the same arguments
- as before along with the linearity and monotone convergence properties
- of 
-\begin_inset Formula $\mu$
+ such that 
+\begin_inset Formula $D_{1}\subseteq D_{2}$
 \end_inset
 
 .
- Applying the 
-\begin_inset Formula $\pi-\lambda$
+ Then, letting 
+\begin_inset Formula $\nu_{i}$
 \end_inset
 
- theorem for functions, we have that 
+ denoting the measure that has density 
+\begin_inset Formula $\indicate_{F_{i}}$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $\nu$
+\end_inset
+
+
 \begin_inset Formula 
 \[
-\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\subseteq\mathcal{H}.
+\nu_{i}^{y}\left(\indicate_{D_{2}\setminus D_{1}}\right)=\nu_{i}^{y}\left(\indicate_{D_{2}}\right)-\nu_{i}^{y}\left(\indicate_{D_{1}}\right)
 \]
 
 \end_inset
 
-Finally, take some 
-\begin_inset Formula $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+ which is measurable by Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:binaryOperationsMeasurableFunctions"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
- and construct 
-\begin_inset Formula $f_{n}:=\min\left\{ f,n\right\} \in\mathcal{H}$
+.
+ Note that the expression on the right is well defined since 
+\begin_inset Formula $\nu_{i}$
 \end_inset
 
- and note that 
-\begin_inset Formula $y\to\mu^{x}\left(f_{n}\left(x,y\right)\right)$
+ is a finite measure and indicator functions are bounded (and so no 
+\begin_inset Formula $\infty-\infty$
 \end_inset
 
- is measurable and by monotone convergence 
-\begin_inset Formula $y\to\mu^{x}\left(f\left(x,y\right)\right)$
+ situations arise).
+ Similarly, suppose we have an increasing sequence of sets 
+\begin_inset Formula $D_{n}\in\mathcal{D}_{i}$
 \end_inset
 
- is measurable completing the proof.
+, with 
+\begin_inset Formula $D:=\bigcup_{n\in\N}D_{n}$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\begin{align*}
+\nu_{i}^{y}\left(\indicate_{D}\right) & =\nu_{i}^{y}\left(\sup_{n\in\N}\indicate_{D_{n}}\right)\\
+ & =\nu_{i}^{y}\left(\lim_{n\to\infty}\indicate_{D_{n}}\right)\\
+ & =\lim_{n\to\infty}\nu_{i}^{y}\left(\indicate_{D_{n}}\right)
+\end{align*}
+
+\end_inset
+
+where we have used Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:indicatorFunctionsArbitraryOperations"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ in the first equality, the nested nature of 
+\begin_inset Formula $D_{n}$
+\end_inset
+
+ in the second equality, and the monotone convergence theorem in the final
+ equality.
+ By Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:limSupLimInfMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the limit is measurable and so 
+\begin_inset Formula $D\in\mathcal{D}_{i}$
+\end_inset
+
+.
+ Thus we have shown that each 
+\begin_inset Formula $\mathcal{D}_{i}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\lambda-$
+\end_inset
+
+system containing 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+, a 
+\begin_inset Formula $\pi-$
+\end_inset
+
+system, and so by the 
+\begin_inset Formula $\pi-\lambda$
+\end_inset
+
+ theorem, 
+\begin_inset Formula $\F\otimes\mathcal{G}=\sigma\left(\mathcal{E}\right)\subseteq\mathcal{D}_{i}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\in\N$
+\end_inset
+
+.
+ Finally, for any 
+\begin_inset Formula $D\in\F\otimes\mathcal{G}$
+\end_inset
+
+, we know that 
+\begin_inset Formula $x\to\nu_{i}^{y}\left(\indicate_{D}\right)$
+\end_inset
+
+ is measurable, and by yet another application of monotone convergence and
+ Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:limSupLimInfMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $x\to\nu^{y}\left(\indicate_{D}\right)$
+\end_inset
+
+ is also measurable.
+\end_layout
+
+\begin_layout Proof
+This completes the proof for indiactor functions.
+ We can then show that measurability holds for non-negative measurable simple
+ functions by using the linearity of integration and the fact that measurability
+ is preserved under linear combinations.
+ Finally, we show the result for general non-negative measurable functions
+ by approximating them by simple functions from below, applying monotone
+ convergence, and using Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:limSupLimInfMeasurable"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ yet again.
 \end_layout
 
 \begin_layout Standard
@@ -3562,7 +3702,7 @@ finite.
 \end_inset
 
  (or 
-\begin_inset Formula $f\in\Lp 1{\otimes_{i=1}^{n}\mu_{i}}$
+\begin_inset Formula $f\in\Lp1{\otimes_{i=1}^{n}\mu_{i}}$
 \end_inset
 
 )
@@ -3815,7 +3955,7 @@ Let
 \end_inset
 
  (or 
-\begin_inset Formula $f\in\Lp 1{\lambda^{n}})$
+\begin_inset Formula $f\in\Lp1{\lambda^{n}})$
 \end_inset
 
 
@@ -3979,7 +4119,7 @@ Let
 \end_inset
 
  (or 
-\begin_inset Formula $f\in\Lp 1{\lambda^{n}})$
+\begin_inset Formula $f\in\Lp1{\lambda^{n}})$
 \end_inset
 
 
@@ -4075,7 +4215,7 @@ Let
 \end_inset
 
  (or 
-\begin_inset Formula $f\in\Lp 1{\lambda^{n}}$
+\begin_inset Formula $f\in\Lp1{\lambda^{n}}$
 \end_inset
 
 ).
@@ -4084,7 +4224,7 @@ Let
 \end_inset
 
  (
-\begin_inset Formula $f\circ T\in\Lp 1{\lambda^{n}}$
+\begin_inset Formula $f\circ T\in\Lp1{\lambda^{n}}$
 \end_inset
 
  and 
@@ -4192,7 +4332,7 @@ Let
 \end_inset
 
  (or 
-\begin_inset Formula $f\in\Lp 1{\lambda^{n}}$
+\begin_inset Formula $f\in\Lp1{\lambda^{n}}$
 \end_inset
 
 ).
@@ -4201,7 +4341,7 @@ Let
 \end_inset
 
  (
-\begin_inset Formula $f\circ T\in\Lp 1{\lambda^{n}}$
+\begin_inset Formula $f\circ T\in\Lp1{\lambda^{n}}$
 \end_inset
 
  and
@@ -4789,6 +4929,350 @@ name "prop:derivativeConvolution"
 
 \begin_layout Section
 Kernels and disintegration
+\end_layout
+
+\begin_layout Standard
+So far we have looked at constructing measures on product spaces by taking
+ individual measures and combining them in some way to create a measure
+ on the product space.
+ Often we are interested in the reverse process; that is, we are interested
+ in taking a measure on a product space and 
+\emph on
+disintegrating 
+\emph default
+it into measures on the individual spaces.
+ It turns out that this process is more complicated than the process we
+ have seen for constructing product measures.
+ As discussed earlier, in the context of probability theory, the process
+ of constructing product measures corresponds to the process of constructing
+ independent random variables.
+ In contrast, the process of disintegrating a measure on a product space
+ into component measures corresponds to the process of computing conditional
+ distributions.
+ If you have some familiarity with probability, you would know that conditioning
+ is more complicated than independence l
+\end_layout
+
+\begin_layout Standard
+The central mathematical objects that underpin the theory of disintegration
+ are kernels.
+ Kernels are important as they wear two hats: on one hand, they act as measures,
+ on the other they act as measurable functions.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:kernel"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G}\right)$
+\end_inset
+
+ be measure spaces A kernel 
+\begin_inset Formula $\kappa$
+\end_inset
+
+ from 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+ to 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G}\right)$
+\end_inset
+
+ is a function 
+\begin_inset Formula $\kappa:\mathcal{G}\times\X\to\left[0,\infty\right]$
+\end_inset
+
+ such that for any fixed 
+\begin_inset Formula $G_{0}\in\mathcal{G}$
+\end_inset
+
+ , the map
+\begin_inset Formula 
+\[
+x\to\kappa\left(G_{0},x\right)
+\]
+
+\end_inset
+
+is 
+\begin_inset Formula $\F/\borel\left(\R\right)$
+\end_inset
+
+ measurable and for every fixed 
+\begin_inset Formula $x_{0}\in\X$
+\end_inset
+
+ , the map 
+\begin_inset Formula 
+\[
+G\to\kappa\left(G,x_{0}\right)
+\]
+
+\end_inset
+
+is a measure on 
+\begin_inset Formula $\mathcal{G}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+It is sometimes more intuitive to think of a kernel from 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+ to 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G}\right)$
+\end_inset
+
+ as a collection of measures on 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+ indexed by 
+\begin_inset Formula $\X$
+\end_inset
+
+.
+ So we can write
+\begin_inset Formula 
+\[
+K:=\left\{ \kappa_{x}:x\in\X\right\} 
+\]
+
+\end_inset
+
+where each 
+\begin_inset Formula $\kappa_{x}$
+\end_inset
+
+ is a measure on 
+\begin_inset Formula $\mathcal{G}$
+\end_inset
+
+ and 
+\begin_inset Formula $x\to\kappa_{x}\left(G\right)$
+\end_inset
+
+ is measurable for each 
+\begin_inset Formula $G\in\mathcal{G}$
+\end_inset
+
+.
+ When these measures are restricted to the range 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+ the kernel is called a 
+\emph on
+Markov kernel.
+\end_layout
+
+\begin_layout Standard
+A generalization of the Tonelli theorem allows us to work with kernels.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:tonelliKernels"
+
+\end_inset
+
+Let 
+\begin_inset Formula $K=\left\{ \kappa_{x}:x\in\X\right\} $
+\end_inset
+
+ be a kernel from 
+\begin_inset Formula $\left(\X,\F\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\mathcal{Y},\mathcal{G}\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $\kappa_{x}$
+\end_inset
+
+ is 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite for every 
+\begin_inset Formula $x\in\X$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\mu$
+\end_inset
+
+be a 
+\begin_inset Formula $\sigma-$
+\end_inset
+
+finite measure on 
+\begin_inset Formula $\F$
+\end_inset
+
+.
+ Then, for 
+\begin_inset Formula $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}[label=(
+\backslash
+roman*),leftmargin=.1
+\backslash
+linewidth,rightmargin=.4
+\backslash
+linewidth]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item $y 
+\backslash
+to f
+\backslash
+left(x,y
+\backslash
+right)$ is $
+\backslash
+mathcal{G}/
+\backslash
+borel
+\backslash
+left(
+\backslash
+R
+\backslash
+right)$ measurable
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item $x 
+\backslash
+to 
+\backslash
+kappa_x
+\backslash
+left(f
+\backslash
+left(x,y
+\backslash
+right)
+\backslash
+right)$ is $
+\backslash
+mathcal{F}/
+\backslash
+borel
+\backslash
+left(
+\backslash
+R
+\backslash
+right)$ measurable
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+item $
+\backslash
+left(
+\backslash
+mu 
+\backslash
+otimes K
+\backslash
+right) := 
+\backslash
+mu^x
+\backslash
+left(
+\backslash
+kappa_x^y
+\backslash
+left(f
+\backslash
+left(x,y
+\backslash
+right)
+\backslash
+right)
+\backslash
+right)$ is an integral on $
+\backslash
+F
+\backslash
+otimes
+\backslash
+mathcal{G}$.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that 
+\begin_inset Formula $(i)$
+\end_inset
+
+ is simply Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:partialFunctionMeasurability"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ For 
+\begin_inset Formula $\left(ii\right)$
+\end_inset
+
+, we can treat
 \end_layout
 
 \begin_layout Standard
