@@ -4181,7 +4181,12 @@ Let
 \end_layout
 
 \begin_layout Proof
-Note that
+First suppose 
+\begin_inset Formula $X,Y\geq0$
+\end_inset
+
+ almost surely.
+ Note that
 \begin_inset Formula 
 \begin{align*}
 \E\left[XY\right] & =\E_{X,Y}\left[xy\right]\\
@@ -4209,10 +4214,28 @@ noprefix "false"
 
 ).
  Then, since the image measure under the pair of independent random vectors
- is a product measure, we can use Tonelli/Fubini's theorem to turn it into
- an iterated integral.
+ is a product measure, we can use Tonelli's theorem to turn it into an iterated
+ integral.
  The final equality is yet another application of the change of variables
  formula.
+ Now if 
+\begin_inset Formula $X,Y\in\Lp 1{\P},$
+\end_inset
+
+ then we can apply the result for non-negative random variables to 
+\begin_inset Formula $\lvert X\rvert,\lvert Y\rvert$
+\end_inset
+
+ to show that 
+\begin_inset Formula 
+\[
+\E\left[\lvert XY\rvert\right]=\E\left[\lvert X\rvert\right]\E\left[\lvert Y\rvert\right]<\infty
+\]
+
+\end_inset
+
+and then applying the same argument (except replacing the use of Tonelli
+ with the use of Fubini) yields the result.
 \end_layout
 
 \begin_layout Example
