@@ -48,8 +48,8 @@ theorems-sec
 \paperfontsize default
 \spacing single
 \use_hyperref true
-\pdf_title "Analysis & Probability"
-\pdf_author "Yashaswi Mohanty"
+\pdf_title "Math for statistics and economics"
+\pdf_author "YM"
 \pdf_subject "Mathematics"
 \pdf_bookmarks true
 \pdf_bookmarksnumbered false
@@ -330,10 +330,6 @@ frontmatter
 Basic Mathematics for Statistics and Economics
 \end_layout
 
-\begin_layout Author
-Yashaswi Mohanty
-\end_layout
-
 \begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
@@ -341,6 +337,10 @@ LatexCommand tableofcontents
 \end_inset
 
 
+\end_layout
+
+\begin_layout Author
+Yashaswi Mohanty
 \end_layout
 
 \begin_layout Standard
