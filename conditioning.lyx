@@ -97,6 +97,262 @@ name "chap:conditioning"
 Elementary notions of conditional probability
 \end_layout
 
+\begin_layout Standard
+The basic notion of conditional probabilities is clear when we are conditioning
+ of events of positive probability.
+ That is, on a probability space 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ with an event 
+\begin_inset Formula $B\in\F$
+\end_inset
+
+ such that 
+\begin_inset Formula $\P\left(B\right)>0$
+\end_inset
+
+, we can easily define a conditional measure
+\begin_inset Formula 
+\begin{equation}
+\P_{B}\left(A\right):=\frac{\P\left(A\cap B\right)}{\P\left(B\right)}\label{eq:conditionalProbabilityPositive}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Sometimes we write 
+\begin_inset Formula $\P\left(A\mid B\right)$
+\end_inset
+
+ instead of 
+\begin_inset Formula $\P_{B}\left(A\right)$
+\end_inset
+
+ if the event 
+\begin_inset Formula $B$
+\end_inset
+
+ is actually some long expression like 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\left\{ X=1\right\} ".$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+for any 
+\begin_inset Formula $A\in\F$
+\end_inset
+
+.
+ It's easy to verify that 
+\begin_inset Formula $\P_{B}$
+\end_inset
+
+ is in fact a probability measure on 
+\begin_inset Formula $\F$
+\end_inset
+
+ and thus we can derive the corresponding integral 
+\begin_inset Formula 
+\[
+\E_{B}\left[f\right]=\frac{\E\left[f\indicate_{B}\right]}{\P\left(B\right)}.
+\]
+
+\end_inset
+
+This definition quickly yields some of the most foundational and basic probabili
+stic ideas: for instance with two events 
+\begin_inset Formula $A,B$
+\end_inset
+
+ where both occur with positive probability, they are independent if and
+ only if 
+\begin_inset Formula $\P\left(A\right)=\P_{B}\left(A\right).$
+\end_inset
+
+The following basic facts
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:totalProbability"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $B\in\F$
+\end_inset
+
+ be an event.
+ Then for any countable partition 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
+\end_inset
+
+ of 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ such that 
+\begin_inset Formula $\P\left(A_{i}\right)>0$
+\end_inset
+
+, we have that 
+\begin_inset Formula 
+\[
+\P\left(B\right)=\sum_{i=1}^{\infty}\P\left(A_{i}\right)\P_{A_{i}}\left(B\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that by countable additivity
+\begin_inset Formula 
+\begin{align*}
+\P\left(B\right) & =\sum_{i=1}^{\infty}\P\left(B\cap A_{i}\right)\\
+ & =\sum_{i=1}^{\infty}\P\left(A_{i}\right)\P_{A_{i}}\left(B\right).
+\end{align*}
+
+\end_inset
+
+This immediately yields the famous Bayes Theorem.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:bayesTheorem"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $\left\{ A_{i}\right\} _{i\in\N}$
+\end_inset
+
+be a partition of 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ such that 
+\begin_inset Formula $\P\left(A_{i}\right)>0$
+\end_inset
+
+.
+ Then, for any 
+\begin_inset Formula $A,B\in\F$
+\end_inset
+
+ with positive probability,
+\begin_inset Formula 
+\[
+\P_{B}\left(A\right)=\frac{\P_{A}\left(B\right)\P\left(A\right)}{\sum_{i=1}^{\infty}\P\left(A_{i}\right)\P_{A_{i}}\left(B\right)}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Of course, we are not satisfied with a theory of conditional probabilities
+ where we restrict the conditioning event to one with positive probability.
+ After all, we are often interested in conditioning on events like 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\left\{ X=a\right\} "$
+\end_inset
+
+ where 
+\begin_inset Formula $X$
+\end_inset
+
+ is a continuous random variable and 
+\begin_inset Formula $a$
+\end_inset
+
+ is a real number.
+ For instance, consider the problem of choosing a point uniformly at random
+ on the unit square.
+ What is the probability that the point has an 
+\begin_inset Formula $x-$
+\end_inset
+
+coordinate greater than 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+ if it lies on the diagonal? We can formally model this problem by taking
+ two independent random variables 
+\begin_inset Formula $X,Y\sim U\left[0,1\right]$
+\end_inset
+
+ and computing 
+\begin_inset Formula $\P\left(X>\frac{1}{2}\mid X=Y\right)$
+\end_inset
+
+.
+ Of course, the event 
+\begin_inset Formula $X=Y$
+\end_inset
+
+ has probability zero as can be verified by Tonelli's theorem.
+ Intuitively, we can guess that the answer should be 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+ since we should effectively have a uniform distribution on the diagonal
+ in this setting.
+ It turns out that the answer is not as straightforward as we would expect.
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:borelKolmogorov"
+
+\end_inset
+
+Let 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
 \begin_layout Example
 \begin_inset CommandInset label
 LatexCommand label
@@ -290,6 +546,24 @@ hl{TODO}
 
 \begin_layout Section
 Kolmogorov conditional expectations
+\end_layout
+
+\begin_layout Standard
+The abstract formulation of the conditional expectation was quite unintuitive
+ when it was first put forward by Kolmogorov (1933) 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hl{add ref}
+\end_layout
+
+\end_inset
+
+ as the right way to think about conditioning.
 \end_layout
 
 \begin_layout Example
