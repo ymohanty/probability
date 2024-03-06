@@ -813,7 +813,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Proof
-This completes the proof for indiactor functions.
+This completes the proof for indicator functions.
  We can then show that measurability holds for non-negative measurable simple
  functions by using the linearity of integration and the fact that measurability
  is preserved under linear combinations.
@@ -4501,6 +4501,14 @@ with
 
 \begin_layout Subsection
 The Lebesgue differentiation theorem and the fundamental theorem of calculus
+\end_layout
+
+\begin_layout Standard
+Establishing the change of variables theorem in full requires a difficult
+ measure theoretic result due to Lebesgue called the Lebesgue Differentiation
+ Theorem.
+ It turns out that this result is also key to establishing the fundamental
+ theorem of calculus, and so
 \end_layout
 
 \begin_layout Example

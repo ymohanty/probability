@@ -1575,28 +1575,6 @@ name "sec:specialFunctions"
 Derivatives of functions between Banach spaces
 \end_layout
 
-\begin_layout Subsection
-Optimization
-\end_layout
-
-\begin_layout Example
-\begin_inset CommandInset label
-LatexCommand label
-name "exa:isi2006samplepsb2"
-
-\end_inset
-
-Maximize 
-\begin_inset Formula $x+y$
-\end_inset
-
- subject to the condition that 
-\begin_inset Formula $2x^{2}+3y^{2}\leq1$
-\end_inset
-
-.
-\end_layout
-
 \begin_layout Section
 Decomposition of measures
 \end_layout
@@ -4677,7 +4655,7 @@ Choosing
 \end_inset
 
 where the inequality is due to monotonicity of measures.
- This completes the proof by yet another applyication of Proposition 
+ This completes the proof by yet another application of Proposition 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prop:epsdeltaAbsContinuity"
@@ -4701,7 +4679,7 @@ A Stieljes function
 \begin_inset Formula $F:\left[a,b\right]\to\R$
 \end_inset
 
- is absolutely continuous if and only there exists some unique 
+ is absolutely continuous if and only if there exists some unique 
 \begin_inset Formula $f\in\mathcal{M}^{+}\left(\left[a,b\right],\borel\left(\left[a,b\right]\right)\right)$
 \end_inset
 
@@ -4884,7 +4862,7 @@ Let
  such that 
 \begin_inset Formula 
 \[
-f\left(x\right)=f_{1}\left(x\right)-f_{2}\left(x\right)
+f\left(x\right)-f\left(a\right)=f_{1}\left(x\right)-f_{2}\left(x\right)
 \]
 
 \end_inset
@@ -4932,7 +4910,7 @@ hyperref[def:partitionInterval]{partition}
 \begin_inset Formula $x_{2}\geq x_{1}$
 \end_inset
 
- 
+ , 
 \begin_inset Formula $f_{j}\left(x_{2}\right)\geq f_{j}\left(x_{1}\right)$
 \end_inset
 
@@ -4974,19 +4952,261 @@ since the summands are non-negative.
 \end_inset
 
  of 
-\begin_inset Formula $\left[x_{1},x_{2}\right]\subset\left[a,b\right]$
+\begin_inset Formula $\left[a,x\right]\subset\left[a,b\right]$
 \end_inset
 
 , we have that
 \begin_inset Formula 
 \begin{align*}
-f\left(x_{2}\right)-f\left(x_{1}\right) & =\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)\\
- & =\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{+}-\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{-}.
+f\left(x\right)-f\left(a\right) & =\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)\\
+ & =\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{+}-\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{-}
 \end{align*}
 
 \end_inset
 
+and so taking supremums we get the equality 
+\begin_inset Formula $f\left(x\right)-f\left(a\right)=f_{1}\left(x\right)-f_{2}\left(x\right).$
+\end_inset
 
+ Next, we shall show absolute continuity for 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+; the proof for 
+\begin_inset Formula $f_{2}$
+\end_inset
+
+ is identical.
+ Fix 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+ and note that by the absolute continuity of 
+\begin_inset Formula $f$
+\end_inset
+
+ we have that there exists some 
+\begin_inset Formula $\delta>0$
+\end_inset
+
+ such that for any disjoint collection 
+\begin_inset Formula $\left\{ \left(a_{i},b_{i}\right)\right\} _{i=1}^{n}$
+\end_inset
+
+
+\begin_inset Formula $\subset\left[a,b\right]$
+\end_inset
+
+, 
+\begin_inset Formula $\sum_{i=1}^{n}b_{i}-a_{i}<\delta$
+\end_inset
+
+ implies 
+\begin_inset Formula $\sum_{i=1}^{n}\lvert f\left(b_{i}\right)-f\left(a_{i}\right)\rvert<\epsilon$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula 
+\begin{align*}
+\sum_{i=1}^{n}\lvert f_{1}\left(b_{i}\right)-f_{1}\left(a_{i}\right)\rvert & =\sum_{i=1}^{n}\lvert\sup_{\pi\left[a,b_{i}\right]}\sum_{j=1}^{k\left(\pi\right)}\left(f\left(t_{j}^{\pi}\right)-f\left(t_{j-1}^{\pi}\right)\right)^{+}-\sup_{\pi^{\prime}\left[a,a_{i}\right]}\sum_{j=1}^{k\left(\pi^{\prime}\right)}\left(f\left(t_{j}^{\pi^{\prime}}\right)-f\left(t_{j-1}^{\pi^{\prime}}\right)\right)^{+}\rvert\\
+ & =\sum_{i=1}^{n}\sup_{\pi\left[a_{i},b_{i}\right]}\sum_{j=1}^{k\left(\pi\right)}\left(f\left(t_{j}^{\pi}\right)-f\left(t_{j-1}^{\pi}\right)\right)^{+}\\
+ & \leq\sum_{i=1}^{n}\sup_{\pi\left[a_{i},b_{i}\right]}\sum_{j=1}^{k\left(\pi\right)}\left(f\left(t_{j}^{\pi}\right)-f\left(t_{j-1}^{\pi}\right)\right)^{+}+\left(f\left(t_{j}^{\pi}\right)-f\left(t_{j-1}^{\pi}\right)\right)^{-}\\
+ & =\sum_{i=1}^{n}\sup_{\pi\left[a_{i},b_{i}\right]}\sum_{j=1}^{k\left(\pi\right)}\lvert f\left(t_{j}^{\pi}\right)-f\left(t_{j-1}^{\pi}\right)\rvert\\
+ & \leq\epsilon
+\end{align*}
+
+\end_inset
+
+where in the second equality we have used the fact that we can enlarge any
+ partition 
+\begin_inset Formula $\pi$
+\end_inset
+
+on 
+\begin_inset Formula $\left[a,b_{i}\right]$
+\end_inset
+
+ to contain any given partition 
+\begin_inset Formula $\pi^{\prime}$
+\end_inset
+
+ on 
+\begin_inset Formula $\left[a,a_{i}\right]$
+\end_inset
+
+ since 
+\begin_inset Formula $\left[a,a_{i}\right]\subset\left[a,b_{i}\right].$
+\end_inset
+
+ The final inequality then follows since for any partition 
+\begin_inset Formula $\pi_{i}$
+\end_inset
+
+ of 
+\begin_inset Formula $\left[a_{i},b_{i}\right]$
+\end_inset
+
+, entire collection 
+\begin_inset Formula $\left\{ \left(t_{j-1}^{\pi_{i}},t_{j}^{\pi_{i}}\right)\right\} _{1\leq j\leq k\left(\pi_{i}\right),1\leq i\leq n}$
+\end_inset
+
+ is a disjoint collection with total length
+\begin_inset Formula 
+\[
+\sum_{i=1}^{n}\sum_{j=1}^{k\left(\pi_{i}\right)}t_{j}^{\pi_{i}}-t_{j-1}^{\pi_{i}}=\sum_{i=1}^{n}b_{i}-a_{i}<\delta
+\]
+
+\end_inset
+
+and so by absolute continuity
+\begin_inset Formula 
+\[
+\sum_{i=1}^{n}\sum_{j=1}^{k\left(\pi_{i}\right)}\lvert f\left(t_{j}^{\pi}\right)-f\left(t_{j-1}^{\pi}\right)\rvert\leq\epsilon.
+\]
+
+\end_inset
+
+Taking supremums over partitions preserves the inequality.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:integralRepresentationAbsoluteContinuity"
+
+\end_inset
+
+Let 
+\begin_inset Formula $f:\left[a,b\right]\to\R$
+\end_inset
+
+ be a measurable function.
+ Then 
+\begin_inset Formula $f$
+\end_inset
+
+ is absolutely continuous if and only if there exists a unique function
+ 
+\begin_inset Formula $h\in\Lp 1{\left[a,b\right],\borel\left[a,b\right],\lambda}$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+f\left(x\right)=f\left(a\right)+\lambda\left(h\indicate_{\left[a,x\right]}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+First suppose that 
+\begin_inset Formula $f$
+\end_inset
+
+ is absolutely continuous and so by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:decomposeAbsolutelyContinuous"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we can write 
+\begin_inset Formula 
+\[
+f\left(x\right)-f\left(a\right)=f_{1}\left(x\right)-f_{2}\left(x\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ are non-negative, non-decreasing, and absolutely continuous (and thus Stieljes
+ functions).
+ By Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:stieljesAbsContRepresentation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ there exist functions 
+\begin_inset Formula $h_{1},h_{2}\in\mathcal{M}^{+}\left(\left[a,b\right],\borel\left(\left[a,b\right]\right)\right)$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+f_{i}\left(x\right)=f_{i}\left(a\right)+\lambda\left(h_{i}\indicate_{\left[a,x\right]}\right)
+\]
+
+\end_inset
+
+and so by the linearity of integration we have that 
+\begin_inset Formula 
+\[
+f\left(x\right)-f\left(a\right)=\underbrace{f_{1}\left(a\right)-f_{2}\left(a\right)}_{=0}+\lambda\left(\left(h_{1}-h_{2}\right)\indicate_{\left[a,x\right]}\right).
+\]
+
+\end_inset
+
+Note that 
+\begin_inset Formula $h:=h_{1}-h_{2}$
+\end_inset
+
+ is integrable since 
+\begin_inset Formula $f\left(b\right)-f\left(a\right)<\infty$
+\end_inset
+
+.
+ To see uniqueness,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Optimization
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:optimization"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset CommandInset label
+LatexCommand label
+name "exa:isi2006samplepsb2"
+
+\end_inset
+
+Maximize 
+\begin_inset Formula $x+y$
+\end_inset
+
+ subject to the condition that 
+\begin_inset Formula $2x^{2}+3y^{2}\leq1$
+\end_inset
+
+.
 \end_layout
 
 \end_body

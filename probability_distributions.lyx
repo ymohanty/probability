@@ -253,7 +253,164 @@ The uniform distribution on the interval
 
  is the simplest example of a distribution that is absolutely continuous
  with respect to the Lebesgue measure.
- In fact, it
+ In fact, its density is 
+\begin_inset Formula $\frac{1}{b-a}\indicate_{\left[a,b\right]}$
+\end_inset
+
+ which means the distribution is simply the restriction of the Lebesgue
+ measure to the interval 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ , with an appropriate normalization to ensure that it is a probability
+ measure.
+ A random variable 
+\begin_inset Formula $X$
+\end_inset
+
+ distributed uniformly on 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ is often denoted 
+\begin_inset Formula $X\sim U\left[a,b\right]$
+\end_inset
+
+.
+ The CDF of such an 
+\begin_inset Formula $X$
+\end_inset
+
+ is 
+\begin_inset Formula $F_{X}\left(x\right)=\lebInt{\lambda}{\frac{1}{b-a}\indicate_{\left[a,x\right]}}=\frac{x-a}{b-a}\indicate\left\{ a\leq x\leq b\right\} +\indicate\left\{ x>b\right\} .$
+\end_inset
+
+ The moments can be computed easily.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:momentsUniformDistribution"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $X\sim U\left[a,b\right]$
+\end_inset
+
+.
+ Then,
+\begin_inset Formula 
+\begin{align*}
+\E\left[X^{k}\right] & =\frac{b^{k+1}-a^{k+1}}{(k+1)\left(b-a\right)}.\\
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Note that by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hyperref[cor:changeOfVariables]{change of variables}
+\end_layout
+
+\end_inset
+
+ and the fundamental theorem of calculus
+\begin_inset Formula 
+\begin{align*}
+\E\left[X^{k}\right] & =\lebInt{\lambda_{x}}{x^{k}\frac{1}{b-a}\indicate\left[a,b\right]}\\
+ & =\frac{1}{b-a}\left.\frac{x^{k+1}}{k+1}\right|_{a}^{b}\\
+ & =\frac{b^{k+1}-a^{k+1}}{(k+1)\left(b-a\right)}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:mgfUniformDistribution"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $X\sim U\left[a,b\right]$
+\end_inset
+
+.
+ Then,
+\begin_inset Formula 
+\begin{align*}
+M_{X}\left(t\right) & =\frac{e^{bt}-e^{at}}{t\left(b-a\right)}\indicate\left\{ t\neq0\right\} +\indicate\left\{ t=0\right\} .
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Suppose 
+\begin_inset Formula $t\neq0$
+\end_inset
+
+, in which case
+\begin_inset Formula 
+\begin{align*}
+M_{X}\left(t\right) & =\E\left[e^{tX}\right]\\
+ & =\frac{1}{b-a}\lebInt{\lambda_{x}}{e^{tx}\indicate\left[a,b\right]}\\
+ & =\frac{1}{b-a}\frac{1}{t}\left.e^{tx}\right|_{a}^{b}\\
+ & =\frac{e^{tb}-e^{ta}}{t\left(b-a\right)}.
+\end{align*}
+
+\end_inset
+
+ The other case is trivial.
+\end_layout
+
+\begin_layout Standard
+Other interesting moments of the distribution are the variance, skewness
+ and kurtosis.The variance is found easily by the identity 
+\begin_inset Formula 
+\begin{align*}
+\Var\left[X\right] & =\E\left[X^{2}\right]-\left(\E\left[X\right]\right)^{2}\\
+ & =\frac{b^{3}-a^{3}}{3\left(b-a\right)}-\left(\frac{a+b}{2}\right)^{2}\\
+ & =\frac{\left(a+b\right)^{2}-ab}{3}-\frac{\left(a+b\right)^{2}}{4}\\
+ & =\frac{\left(b-a\right)^{2}}{12}.
+\end{align*}
+
+\end_inset
+
+Similarly, the skewness is given
+\begin_inset Formula 
+\begin{align*}
+\mathrm{skew}\left(X\right) & =\E\left[\left(\frac{X-\mu}{\sigma}\right)^{3}\right]\\
+ & =
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -952,7 +1109,7 @@ noprefix "false"
 \end_inset
 
 .
- The idea is that its a distribution supported on any finite set, where
+ The idea is that it is a distribution supported on any finite set, where
  each element of the set has equal probability.
  Thus for a finite set 
 \begin_inset Formula $A$
@@ -984,7 +1141,7 @@ noprefix "false"
 \end_inset
 
  and 
-\begin_inset Formula $b=n$
+\begin_inset Formula $b=n-1$
 \end_inset
 
  for some 
@@ -994,8 +1151,183 @@ noprefix "false"
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:discreteUniformCDF"
 
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and suppose 
+\begin_inset Formula $X$
+\end_inset
+
+ is a discrete uniform distribution supported on 
+\begin_inset Formula $A=\left\{ 0,1,\ldots,n-1\right\} $
+\end_inset
+
+.
+ Then, the CDF of 
+\begin_inset Formula $X$
+\end_inset
+
+ is given
+\begin_inset Formula 
+\[
+F_{X}\left(x\right)=\frac{\lfloor x\rfloor+1}{n}\indicate\left\{ x\in\left[0,n-1\right]\right\} +\indicate\left\{ x>n-1\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Observe
+\begin_inset Formula 
+\begin{align*}
+F_{X}\left(x\right) & =\E\left[\indicate\left\{ X\leq x\right\} \right]\\
+ & =\frac{1}{n}\sum_{a=0}^{n-1}\indicate\left\{ a\leq x\right\} \\
+ & =\frac{\lfloor x\rfloor+1}{n}\indicate\left\{ x\in\left[0,n-1\right]\right\} +\indicate\left\{ x>n-1\right\} .
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:momentsDiscreteUniform"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and suppose 
+\begin_inset Formula $X$
+\end_inset
+
+ is a discrete uniform distribution supported on 
+\begin_inset Formula $A=\left\{ 0,1,\ldots,n-1\right\} $
+\end_inset
+
+.
+ Then for any 
+\begin_inset Formula $k\in\N$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\E\left[X^{k}\right]=\frac{1}{n}\sum_{a=0}^{n-1}a^{k}.
+\]
+
+\end_inset
+
+In particular 
+\begin_inset Formula 
+\[
+\E\left[X\right]=\frac{1}{2}\left(n-1\right)
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+\E\left[X^{2}\right]=\frac{\left(n-1\right)\left(2n-1\right)}{6}
+\]
+
+\end_inset
+
+and so
+\begin_inset Formula 
+\[
+\Var\left[X\right]=\frac{n^{2}-1}{12}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+This is a standard application of Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:changeOfVariables"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The specific formulas for the first and second moments follow from partial
+ sum formulas for consecutive integers and squares, respectively.
+ The variance then is given by 
+\begin_inset Formula $\Var\left[X\right]=\E\left[X^{2}\right]-\left(\E\left[X\right]\right)^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:mgfDiscreteUniform"
+
+\end_inset
+
+Let 
+\begin_inset Formula $\probabilityspace$
+\end_inset
+
+ be a probability space and let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a discrete uniform random variable supported on 
+\begin_inset Formula $A=\left\{ 0,1,\ldots,n-1\right\} $
+\end_inset
+
+.
+ Then, the MGF of 
+\begin_inset Formula $X$
+\end_inset
+
+ is given
+\begin_inset Formula 
+\[
+M_{X}\left(t\right)=\frac{1-e^{nt}}{n\left(1-e^{t}\right)}\indicate\left\{ t\neq0\right\} +\indicate\left\{ t=0\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Observe that
+\begin_inset Formula 
+\begin{align*}
+M_{X}\left(t\right) & =\E\left[e^{tX}\right]\\
+ & =\frac{1}{n}\sum_{a=0}^{n-1}e^{ta}\\
+ & =\frac{1}{n}\sum_{a=0}^{n-1}\left(e^{t}\right)^{a}\\
+ & =\frac{1-e^{nt}}{n\left(1-e^{t}\right)}\indicate\left\{ t\neq0\right\} +\indicate\left\{ t=0\right\} 
+\end{align*}
+
+\end_inset
+
+by the geometric partial sum formula.
 \end_layout
 
 \begin_layout Subsection

@@ -2637,12 +2637,14 @@ of
 \begin_inset Formula $\E\left[\left(\frac{Y}{\sigma}\right)^{4}\right]$
 \end_inset
 
- is called thee kurtosis.
+ is called the kurtosis.
  Of course, random variables need not even by 
 \begin_inset Formula $\mathcal{L}^{1}$
 \end_inset
 
 , as the following two examples illustrate.
+ A more detailed discussion on moments can be found in the Appendix on common
+ probability distributions 
 \end_layout
 
 \begin_layout Example
@@ -2706,7 +2708,7 @@ The symmetry of the distribution of a random variable is an important property
 \begin_inset Formula $:F_{X}(x)=1-F_{X}\left(-x\right).$
 \end_inset
 
-
+ One can show that the skewness of such a random variable is zero by 
 \end_layout
 
 \end_inset
@@ -4219,7 +4221,7 @@ noprefix "false"
  The final equality is yet another application of the change of variables
  formula.
  Now if 
-\begin_inset Formula $X,Y\in\Lp 1{\P},$
+\begin_inset Formula $X,Y\in\Lp1{\P},$
 \end_inset
 
  then we can apply the result for non-negative random variables to 
