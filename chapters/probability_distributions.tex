@@ -61,7 +61,62 @@ Obtain the mean and variance of $U=\underline{Y^{\prime}}\Sigma^{-1}\underline{Y
 
 The uniform distribution on the interval $\left[a,b\right]$ is the
 simplest example of a distribution that is absolutely continuous with
-respect to the Lebesgue measure. In fact, it
+respect to the Lebesgue measure. In fact, its density is $\frac{1}{b-a}\indicate_{\left[a,b\right]}$
+which means the distribution is simply the restriction of the Lebesgue
+measure to the interval $\left[a,b\right]$ , with an appropriate
+normalization to ensure that it is a probability measure. A random
+variable $X$ distributed uniformly on $\left[a,b\right]$ is often
+denoted $X\sim U\left[a,b\right]$. The CDF of such an $X$ is $F_{X}\left(x\right)=\lebInt{\lambda}{\frac{1}{b-a}\indicate_{\left[a,x\right]}}=\frac{x-a}{b-a}\indicate\left\{ a\leq x\leq b\right\} +\indicate\left\{ x>b\right\} .$
+The moments can be computed easily.
+\begin{prop}
+\label{prop:momentsUniformDistribution}Let $\probabilityspace$ be
+a probability space and let $X\sim U\left[a,b\right]$. Then,
+\begin{align*}
+\E\left[X^{k}\right] & =\frac{b^{k+1}-a^{k+1}}{(k+1)\left(b-a\right)}.\\
+\end{align*}
+\end{prop}
+
+\begin{proof}
+Note that by \hyperref[cor:changeOfVariables]{change of variables}
+and the fundamental theorem of calculus
+\begin{align*}
+\E\left[X^{k}\right] & =\lebInt{\lambda_{x}}{x^{k}\frac{1}{b-a}\indicate\left[a,b\right]}\\
+ & =\frac{1}{b-a}\left.\frac{x^{k+1}}{k+1}\right|_{a}^{b}\\
+ & =\frac{b^{k+1}-a^{k+1}}{(k+1)\left(b-a\right)}.
+\end{align*}
+\end{proof}
+\begin{prop}
+\label{prop:mgfUniformDistribution}Let $\probabilityspace$ be a
+probability space and let $X\sim U\left[a,b\right]$. Then,
+\begin{align*}
+M_{X}\left(t\right) & =\frac{e^{bt}-e^{at}}{t\left(b-a\right)}\indicate\left\{ t\neq0\right\} +\indicate\left\{ t=0\right\} .
+\end{align*}
+\end{prop}
+
+\begin{proof}
+Suppose $t\neq0$, in which case
+\begin{align*}
+M_{X}\left(t\right) & =\E\left[e^{tX}\right]\\
+ & =\frac{1}{b-a}\lebInt{\lambda_{x}}{e^{tx}\indicate\left[a,b\right]}\\
+ & =\frac{1}{b-a}\frac{1}{t}\left.e^{tx}\right|_{a}^{b}\\
+ & =\frac{e^{tb}-e^{ta}}{t\left(b-a\right)}.
+\end{align*}
+ The other case is trivial.
+\end{proof}
+Other interesting moments of the distribution are the variance, skewness
+and kurtosis.The variance is found easily by the identity 
+\begin{align*}
+\Var\left[X\right] & =\E\left[X^{2}\right]-\left(\E\left[X\right]\right)^{2}\\
+ & =\frac{b^{3}-a^{3}}{3\left(b-a\right)}-\left(\frac{a+b}{2}\right)^{2}\\
+ & =\frac{\left(a+b\right)^{2}-ab}{3}-\frac{\left(a+b\right)^{2}}{4}\\
+ & =\frac{\left(b-a\right)^{2}}{12}.
+\end{align*}
+Similarly, the skewness is given
+\begin{align*}
+\mathrm{skew}\left(X\right) & =\E\left[\left(\frac{X-\mu}{\sigma}\right)^{3}\right]\\
+ & =
+\end{align*}
+
 
 \subsubsection{The Beta distribution}
 
@@ -312,14 +367,78 @@ and the last is Proposition \ref{prop:mgfBernoulli}.
 
 The discrete uniform distribution is the generalization of the distribution
 we encountered in Example \ref{exa:floorFuncCDF}. The idea is that
-its a distribution supported on any finite set, where each element
+it is a distribution supported on any finite set, where each element
 of the set has equal probability. Thus for a finite set $A$ and a
 discrete uniform random variable $X$ supported on $A$ we have that
 $\P\left(X=k\right)=\frac{1}{\lvert A\rvert}\indicate\left\{ k\in A\right\} .$
 Typically, the set $A=\left\{ a,a+1,a+2,\ldots,b\right\} $ in which
 case the $\lvert A\rvert=b-a+1$. In the discussion below we will
-focus on the special case where $a=0$ and $b=n$ for some $n\in\N$.
+focus on the special case where $a=0$ and $b=n-1$ for some $n\in\N$.
+\begin{prop}
+\label{prop:discreteUniformCDF}Let $\probabilityspace$ be a probability
+space and suppose $X$ is a discrete uniform distribution supported
+on $A=\left\{ 0,1,\ldots,n-1\right\} $. Then, the CDF of $X$ is
+given
+\[
+F_{X}\left(x\right)=\frac{\lfloor x\rfloor+1}{n}\indicate\left\{ x\in\left[0,n-1\right]\right\} +\indicate\left\{ x>n-1\right\} .
+\]
+\end{prop}
 
+\begin{proof}
+Observe
+\begin{align*}
+F_{X}\left(x\right) & =\E\left[\indicate\left\{ X\leq x\right\} \right]\\
+ & =\frac{1}{n}\sum_{a=0}^{n-1}\indicate\left\{ a\leq x\right\} \\
+ & =\frac{\lfloor x\rfloor+1}{n}\indicate\left\{ x\in\left[0,n-1\right]\right\} +\indicate\left\{ x>n-1\right\} .
+\end{align*}
+\end{proof}
+\begin{prop}
+\label{prop:momentsDiscreteUniform}Let $\probabilityspace$ be a
+probability space and suppose $X$ is a discrete uniform distribution
+supported on $A=\left\{ 0,1,\ldots,n-1\right\} $. Then for any $k\in\N$
+\[
+\E\left[X^{k}\right]=\frac{1}{n}\sum_{a=0}^{n-1}a^{k}.
+\]
+In particular 
+\[
+\E\left[X\right]=\frac{1}{2}\left(n-1\right)
+\]
+and 
+\[
+\E\left[X^{2}\right]=\frac{\left(n-1\right)\left(2n-1\right)}{6}
+\]
+and so
+\[
+\Var\left[X\right]=\frac{n^{2}-1}{12}.
+\]
+\end{prop}
+
+\begin{proof}
+This is a standard application of Corollary \ref{cor:changeOfVariables}.
+The specific formulas for the first and second moments follow from
+partial sum formulas for consecutive integers and squares, respectively.
+The variance then is given by $\Var\left[X\right]=\E\left[X^{2}\right]-\left(\E\left[X\right]\right)^{2}$.
+\end{proof}
+\begin{prop}
+\label{prop:mgfDiscreteUniform}Let $\probabilityspace$ be a probability
+space and let $X$ be a discrete uniform random variable supported
+on $A=\left\{ 0,1,\ldots,n-1\right\} $. Then, the MGF of $X$ is
+given
+\[
+M_{X}\left(t\right)=\frac{1-e^{nt}}{n\left(1-e^{t}\right)}\indicate\left\{ t\neq0\right\} +\indicate\left\{ t=0\right\} .
+\]
+\end{prop}
+
+\begin{proof}
+Observe that
+\begin{align*}
+M_{X}\left(t\right) & =\E\left[e^{tX}\right]\\
+ & =\frac{1}{n}\sum_{a=0}^{n-1}e^{ta}\\
+ & =\frac{1}{n}\sum_{a=0}^{n-1}\left(e^{t}\right)^{a}\\
+ & =\frac{1-e^{nt}}{n\left(1-e^{t}\right)}\indicate\left\{ t\neq0\right\} +\indicate\left\{ t=0\right\} 
+\end{align*}
+by the geometric partial sum formula.
+\end{proof}
 
 \subsection{Distributions associated with finite sampling models}
 

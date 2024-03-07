@@ -56,11 +56,11 @@ to make sense. In particular, for a measurable map $f\in\mathcal{M}^{+}\left(\X\
 want to know if the projections $x\to f(x,y)$ and $y\to\mu^{x}\left(f\left(x,y\right)\right)$
 are $\mathcal{F}$ and $\mathcal{G}$ measurable, respectively. Thankfully,
 this turns out to be the case. We will use a long lost result from
-Chapter 2: the \hyperref[thm:piLambdaThmFunctions]{$\pi-\lambda$ theorem for functions}.
+Chapter \ref{chap:measurableFunctions}: the \hyperref[thm:piLambdaThmFunctions]{$\pi-\lambda$ theorem for functions}.
 Go over the hypotheses of this theorem before reading the following
 results.
 \begin{lem}
-\label{lem:partialFunctionMeasurability}For every $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$,
+\label{lem:partialFunctionMeasurability}For every $f\in\mathcal{M}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$,
 the maps $x\to f(x,y)$ and $y\to f(x,y)$ are $\mathcal{F}/\borel\left(\R\right)$
 and $\mathcal{G}/\borel\left(\R\right)$ measurable for every $y\in\mathcal{Y}$
 and $x\in\X$, respectively.
@@ -93,8 +93,8 @@ Thus applying the $\pi-\lambda$ theorem as discussed, we have that
 \]
 which completes the proof for bounded functions.
 
-Now we can simply take a function $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
-and construct the bounded monotone sequence $f_{n}:=\min\left\{ f,n\right\} \in\mathcal{H}$
+Now we can simply take a function $f\in\mathcal{M}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+and construct the bounded monotone sequences $f_{n}^{\pm}:=\min\left\{ f^{\pm},n\right\} \in\mathcal{H}$
 by our results. We complete the proof by taking limits and noting
 that partial measurability is preserved. The same argument, of course,
 holds for $y\to f\left(x,y\right)$.
@@ -126,38 +126,65 @@ measurable and $g^{-1}\left[E\right]=V$ is not measurable and so
 $E$ is not measurable.
 \end{example}
 
-Virtually the same argument as in Lemma \ref{lem:partialFunctionMeasurability}
-shows that $y\to\mu^{x}\left(f\left(x,y\right)\right)$ is measurable
-(although we need this previous lemma to show that this function is
-indeed well-defined). We include this result here for completeness
 \begin{lem}
 \label{lem:partialIntegralMeasurability}Let $\left(\X,\F,\mu\right)$
-and $\left(\mathcal{Y},\mathcal{G},\nu\right)$ be measure spaces.
-For every function $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$,
+and $\left(\mathcal{Y},\mathcal{G},\nu\right)$ be $\sigma-$finite
+measure spaces. For every function $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$,
 the maps $x\to\nu^{y}\left(f\left(x,y\right)\right)$ and $y\to\mu^{x}\left(f\left(x,y\right)\right)$
 are $\mathcal{F}/\borel\left(\R\right)$ and $\mathcal{G}/\borel\left(\R\right)$
 measurable respectively.
 \end{lem}
 
 \begin{proof}
-Let $\mathcal{E}$ be as before and this time let
+We will prove that $x\to\nu^{y}f\left(x,y\right)$ is measurable;
+the other case follows by symmetry. First, let $F_{i}\in\mathcal{\F}$
+be an increasing sequence of sets with finite measure such that $\bigcup_{i\in\N}F_{i}=\mathcal{\X}.$
+Observe that for the indicator of any rectangle in $F\times G\in\mathcal{E},$we
+have that $\nu^{y}\left(F\times G\right)=\indicate_{F}\nu\left(G\right)$
+which is measurable. Next, define
 \[
-\mathcal{H:=}\left\{ f\in\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\mid y\to\mu^{x}f\left(x,y\right)\text{is }\mathcal{G}/\borel\left(\R\right)\text{ measurable }\right\} ,
+\mathcal{D}_{i}:=\left\{ D\in\mathcal{F}\otimes\mathcal{G}\mid x\to\nu^{y}\left(\indicate_{D}\indicate_{F_{i}}\right)\text{ is }\mathcal{\F}/\borel\left(\R\right)\ \text{measurable}\right\} 
 \]
-noting that $\indicate_{\X\times\mathcal{Y}}\in\mathcal{H}$ since
-$\mu^{x}\left(\indicate_{\X\times\mathcal{Y}}\right)=\indicate_{\mathcal{Y}}\mu\left(\X\right)$
-which is $\mathcal{G}$ measurable. $\mathcal{H}$ is a vector space
-closed under monotone limits with the same arguments as before along
-with the linearity and monotone convergence properties of $\mu$.
-Applying the $\pi-\lambda$ theorem for functions, we have that 
+using Lemma \ref{lem:partialFunctionMeasurability} to ensure that
+the expression is well defined. Notice that $\mathcal{E}\subseteq\mathcal{D}$
+(and so in particular, $\X\times\mathcal{Y}\in\mathcal{D}$). Now
+suppose $D_{1},D_{2}\in\mathcal{D}$ such that $D_{1}\subseteq D_{2}$.
+Then, letting $\nu_{i}$ denoting the measure that has density $\indicate_{F_{i}}$
+with respect to $\nu$
 \[
-\mathcal{M_{\text{bdd}}}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)\subseteq\mathcal{H}.
+\nu_{i}^{y}\left(\indicate_{D_{2}\setminus D_{1}}\right)=\nu_{i}^{y}\left(\indicate_{D_{2}}\right)-\nu_{i}^{y}\left(\indicate_{D_{1}}\right)
 \]
-Finally, take some $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
-and construct $f_{n}:=\min\left\{ f,n\right\} \in\mathcal{H}$ and
-note that $y\to\mu^{x}\left(f_{n}\left(x,y\right)\right)$ is measurable
-and by monotone convergence $y\to\mu^{x}\left(f\left(x,y\right)\right)$
-is measurable completing the proof.
+ which is measurable by Proposition \ref{prop:binaryOperationsMeasurableFunctions}.
+Note that the expression on the right is well defined since $\nu_{i}$
+is a finite measure and indicator functions are bounded (and so no
+$\infty-\infty$ situations arise). Similarly, suppose we have an
+increasing sequence of sets $D_{n}\in\mathcal{D}_{i}$, with $D:=\bigcup_{n\in\N}D_{n}$,
+we have 
+\begin{align*}
+\nu_{i}^{y}\left(\indicate_{D}\right) & =\nu_{i}^{y}\left(\sup_{n\in\N}\indicate_{D_{n}}\right)\\
+ & =\nu_{i}^{y}\left(\lim_{n\to\infty}\indicate_{D_{n}}\right)\\
+ & =\lim_{n\to\infty}\nu_{i}^{y}\left(\indicate_{D_{n}}\right)
+\end{align*}
+where we have used Proposition \ref{prop:indicatorFunctionsArbitraryOperations}
+in the first equality, the nested nature of $D_{n}$ in the second
+equality, and the monotone convergence theorem in the final equality.
+By Corollary \ref{cor:limSupLimInfMeasurable}, the limit is measurable
+and so $D\in\mathcal{D}_{i}$. Thus we have shown that each $\mathcal{D}_{i}$
+is a $\lambda-$system containing $\mathcal{E}$, a $\pi-$system,
+and so by the $\pi-\lambda$ theorem, $\F\otimes\mathcal{G}=\sigma\left(\mathcal{E}\right)\subseteq\mathcal{D}_{i}$
+for all $i\in\N$. Finally, for any $D\in\F\otimes\mathcal{G}$, we
+know that $x\to\nu_{i}^{y}\left(\indicate_{D}\right)$ is measurable,
+and by yet another application of monotone convergence and Corollary
+\ref{cor:limSupLimInfMeasurable}, $x\to\nu^{y}\left(\indicate_{D}\right)$
+is also measurable.
+
+This completes the proof for indicator functions. We can then show
+that measurability holds for non-negative measurable simple functions
+by using the linearity of integration and the fact that measurability
+is preserved under linear combinations. Finally, we show the result
+for general non-negative measurable functions by approximating them
+by simple functions from below, applying monotone convergence, and
+using Corollary \ref{cor:limSupLimInfMeasurable} yet again.
 \end{proof}
 \hl{Add remarks under each measurability lemma to extend to n dimensions via induction}
 
@@ -992,6 +1019,11 @@ and $T=R$.
 
 \subsection{The Lebesgue differentiation theorem and the fundamental theorem
 of calculus}
+
+Establishing the change of variables theorem in full requires a difficult
+measure theoretic result due to Lebesgue called the Lebesgue Differentiation
+Theorem. It turns out that this result is also key to establishing
+the fundamental theorem of calculus, and so
 \begin{example}
 \label{exa:isi2007samplepsb4}Let $f:\mathbb{R}\rightarrow\mathbb{R}$
 be a bounded continuous function. Define $g:[0,\infty)\rightarrow\R$
@@ -1098,6 +1130,70 @@ by using $T\left(y\right)=x-y$ \hl{TODO AFTER CHANGE OF VARIABLES}
 
 \section{Kernels and disintegration}
 
+So far we have looked at constructing measures on product spaces by
+taking individual measures and combining them in some way to create
+a measure on the product space. Often we are interested in the reverse
+process; that is, we are interested in taking a measure on a product
+space and \emph{disintegrating }it into measures on the individual
+spaces. It turns out that this process is more complicated than the
+process we have seen for constructing product measures. As discussed
+earlier, in the context of probability theory, the process of constructing
+product measures corresponds to the process of constructing independent
+random variables. In contrast, the process of disintegrating a measure
+on a product space into component measures corresponds to the process
+of computing conditional distributions. If you have some familiarity
+with probability, you would know that conditioning is more complicated
+than independence l
+
+The central mathematical objects that underpin the theory of disintegration
+are kernels. Kernels are important as they wear two hats: on one hand,
+they act as measures, on the other they act as measurable functions.
+\begin{defn}
+\label{def:kernel}Let $\left(\X,\F\right)$ and $\left(\mathcal{Y},\mathcal{G}\right)$
+be measure spaces A kernel $\kappa$ from $\left(\X,\F\right)$ to
+$\left(\mathcal{Y},\mathcal{G}\right)$ is a function $\kappa:\mathcal{G}\times\X\to\left[0,\infty\right]$
+such that for any fixed $G_{0}\in\mathcal{G}$ , the map
+\[
+x\to\kappa\left(G_{0},x\right)
+\]
+is $\F/\borel\left(\R\right)$ measurable and for every fixed $x_{0}\in\X$
+, the map 
+\[
+G\to\kappa\left(G,x_{0}\right)
+\]
+is a measure on $\mathcal{G}.$
+\end{defn}
+
+\begin{rem*}
+It is sometimes more intuitive to think of a kernel from $\left(\X,\F\right)$
+to $\left(\mathcal{Y},\mathcal{G}\right)$ as a collection of measures
+on $\mathcal{G}$ indexed by $\X$. So we can write
+\[
+K:=\left\{ \kappa_{x}:x\in\X\right\} 
+\]
+where each $\kappa_{x}$ is a measure on $\mathcal{G}$ and $x\to\kappa_{x}\left(G\right)$
+is measurable for each $G\in\mathcal{G}$. When these measures are
+restricted to the range $\left[0,1\right]$ the kernel is called a
+\emph{Markov kernel.}
+\end{rem*}
+A generalization of the Tonelli theorem allows us to work with kernels.
+\begin{thm}
+\label{thm:tonelliKernels}Let $K=\left\{ \kappa_{x}:x\in\X\right\} $
+be a kernel from $\left(\X,\F\right)$ and $\left(\mathcal{Y},\mathcal{G}\right)$
+such that $\kappa_{x}$ is $\sigma-$finite for every $x\in\X$. Let
+$\mu$be a $\sigma-$finite measure on $\F$. Then, for $f\in\mathcal{M}^{+}\left(\X\times\mathcal{Y},\mathcal{F}\otimes\mathcal{G}\right)$
+
+\begin{enumerate}[label=(\roman*),leftmargin=.1\linewidth,rightmargin=.4\linewidth]
+\item $y \to f\left(x,y\right)$ is $\mathcal{G}/\borel\left(\R\right)$ measurable
+\item $x \to \kappa_x\left(f\left(x,y\right)\right)$ is $\mathcal{F}/\borel\left(\R\right)$ measurable
+\item $\left(\mu \otimes K\right) := \mu^x\left(\kappa_x^y\left(f\left(x,y\right)\right)\right)$ is an integral on $\F\otimes\mathcal{G}$.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+Note that $(i)$ is simply Lemma \ref{lem:partialFunctionMeasurability}.
+For $\left(ii\right)$, we can treat
+\end{proof}
 \hl{Tatikonda}
 
 \hl{Chang and Pollard, 1997}

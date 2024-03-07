@@ -641,14 +641,17 @@ that if a random variable has a finite $p$th moment, it has a finite
 $q$th moment for $1\leq q\leq p$. Some moments have special names.
 So, for instance, for the centered random variable $Y:=X-\mathbb{E}\left[X\right]$,
 the second moment $\text{\ensuremath{\Var\left[X\right]}:=}\mathbb{E}\left[Y^{2}\right]=\E\left[X^{2}\right]-\left(\E\left[X\right]\right)^{2}$
-is called the \emph{variance} of $X$. It is often denoted as $\sigma^{2}$.
-It captures the degree to which a random variable deviates from its
-mean value. The third \emph{standardized }moment $\mathbb{E}\left[\left(\frac{Y}{\sigma}\right)^{3}\right]$
+is called the \emph{variance} of $X$. It is often denoted as $\sigma^{2}$
+and it captures the degree to which a random variable deviates from
+its mean value. The third \emph{standardized }moment $\mathbb{E}\left[\left(\frac{Y}{\sigma}\right)^{3}\right]$
 is called the \emph{skewness; }it captures the degree to which a random
 variables distribution is asymmetric. Here $\sigma$ is the square
 root of the variance, and is referred to as the \emph{standard deviation
-}of $X$. Of course, random variables need not even by $\mathcal{L}^{1}$,
-as the following two examples illustrate.
+}of $X$. The fourth standardized moment $\E\left[\left(\frac{Y}{\sigma}\right)^{4}\right]$
+is called the kurtosis. Of course, random variables need not even
+by $\mathcal{L}^{1}$, as the following two examples illustrate. A
+more detailed discussion on moments can be found in the Appendix on
+common probability distributions 
 \begin{example}
 \label{exa:cauchyDistribution}Let $\probabilityspace$ be a probabiltiy
 space and let $X:\Omega\to\R$ be a random variable whose distribution
@@ -669,7 +672,8 @@ property that characterizes many of the common probability distributions
 we hear about in probability and statistics. For instance, the normal
 distribution, and the uniform distribution, are both symmetric distributions.
 A probability distribution of a random variable $X$ is said to be
-symmetric about $0$ if for any $x\in\R$$:F_{X}(x)=1-F_{X}\left(-x\right).$} and in the fourth the fact that the derivative of $\tan^{-1}\left(x\right)$
+symmetric about $0$ if for any $x\in\R$$:F_{X}(x)=1-F_{X}\left(-x\right).$
+One can show that the skewness of such a random variable is zero by } and in the fourth the fact that the derivative of $\tan^{-1}\left(x\right)$
 is $\frac{1}{1+x^{2}}$ and the fundamental theorem of calculus. To
 see that the first moment doesn't exist, observe that 
 \begin{align*}
@@ -827,6 +831,157 @@ Letting $x=\frac{1}{2}$, we have that
 \]
 \end{sol*}
 
+\subsubsection{Quantile functions and coupling}
+
+The expectation of a random variable $X$, if it exists, provides
+one measure of central tendency for a random variable. Other useful
+measures include the \emph{median, }which is a real number $c$ such
+that the probability that $X$ less than or equal $c$ is $\frac{1}{2}$.
+This is a useful measure of central tendency when the distribution
+of $X$ is highly skewed. The median may not be unique, as is the
+case when the random variable $X$ has a discrete distribution. More
+formally, we can define a median\emph{ }as any real number $c\in\left[\sup\left\{ x\in\R\mid F\left(x\right)<\frac{1}{2}\right\} ,\sup\left\{ x\in\R\mid F\left(x\right)\leq\frac{1}{2}\right\} \right]$
+where $F$ is the CDF of $X$. In general, the $p$th quantile is
+any element of the set $Q_{F}\left(p\right):=\left[\sup\left\{ x\in\R\mid F\left(x\right)<p\right\} ,\sup\left\{ x\in\R\mid F\left(x\right)\leq p\right\} \right]$.
+To prevent ambiguity, we often use the lowest value of this interval
+to construct a quantile function.
+\begin{defn}
+\label{def:quantileFunction}A quantile function $q_{F}$ for a given
+CDF $F$ is defined
+\[
+q_{F}\left(p\right):=\inf\left\{ x\in\R\mid F\left(x\right)\geq p\right\} .
+\]
+\end{defn}
+
+\begin{prop}
+\label{prop:quantileProperty}Let $q_{F}$ be the quantile function
+associated with a CDF $F$. Then $q_{F}$ is the unique function such
+that $F(x)\geq p\Longleftrightarrow q_{F}(p)\leq x$.
+\end{prop}
+
+\begin{proof}
+First we prove that $q_{F}$ satisfies these properties. Assume that
+$F\left(x\right)\geq p$ for some $x\in\R$. Then clearly $q_{F}\left(p\right)\leq x$
+by the definition of an infimum. Conversely, assume that $q_{F}\left(p\right)\leq x$
+and observe that since $F$ is non-decreasing, $F\left(x\right)\geq p$.
+Next, suppose that some function $\tilde{q}$ satisfies this equivalence
+i.e. 
+\begin{equation}
+F(x)\geq p\Longleftrightarrow\tilde{q}(p)\leq x.\label{eq:assumptionEquivalence}
+\end{equation}
+Observe that by the right continuity of $F$, $F\left(q_{F}\left(p\right)\right)\geq p$
+and so $\tilde{q}\left(p\right)\leq q_{F}\left(p\right)$. On the
+other hand, if there exists some $p^{*}\in\left[0,1\right]$ such
+that $\tilde{q}\left(p^{*}\right)<q_{F}\left(p^{*}\right)$ then $F\left(\tilde{q}\left(p^{*}\right)\right)<p^{*}$
+which by (\ref{eq:assumptionEquivalence}) implies that $\tilde{q}\left(p^{*}\right)>\tilde{q}\left(p^{*}\right),$
+a contradiction. Therefore,
+\[
+q_{F}\left(p\right)=\tilde{q}\left(p\right)
+\]
+for all $p\in\left[0,1\right]$.
+\end{proof}
+Note that the quantile function can also be written as $q_{F}\left(p\right)=\sup\left\{ x\in\R\mid F\left(x\right)<p\right\} $,
+a fact that can be established by noting that the non-decreasing nature
+of $F$ implies that $\sup\left\{ x\in\R\mid F\left(x\right)<p\right\} \leq\inf\left\{ x\in\R\mid F\left(x\right)\geq p\right\} $.
+If the inequality were strict, then there would be some $\sup\left\{ x\in\R\mid F\left(x\right)<p\right\} <c<\inf\left\{ x\in\R\mid F\left(x\right)\geq p\right\} $
+and so $F\left(c\right)\not<p$ and $F\left(c\right)\not\geq p$ which
+is a contradiction.
+
+We can use the quantile function to construct a standard probability
+space for random variables to live in. To begin, let $\probabilityspace$
+be arbitrary and let $X$ be a random variable on the space with CDF
+$F_{X}$. Define an auxiliary random variable on $\tilde{X}:\left(\left[0,1\right],\borel\left[0,1\right],\lambda\right)\to\left(\R,\borel\left(\R\right)\right)$
+by 
+\[
+\tilde{X}\left(p\right):=q_{F_{X}}\left(p\right)
+\]
+ and notice that its CDF 
+\begin{align*}
+F_{\tilde{X}}\left(x\right) & :=\lambda\left(\tilde{X}^{-1}\left[\left(-\infty,x\right]\right]\right)\\
+ & =\lambda\left(\left\{ p:q_{F_{X}}\left(p\right)\leq x\right\} \right)\\
+ & =\lambda\left(\left\{ p:F_{X}\left(x\right)\geq p\right\} \right)\\
+ & =\lambda\left(\left[0,F_{X}\left(x\right)\right]\right)\\
+ & =F_{X}\left(x\right).
+\end{align*}
+Thus we have taken an arbitrary random variable on $X$ on an unspecified
+probability space $\probabilityspace$ and constructed an auxiliary
+random variable $\tilde{X}$ on $\left(\left[0,1\right],\borel\left[0,1\right],\lambda\right)$
+such that $X$ and $\tilde{X}$ are identically distributed. Since
+probability is fundamentally concerned with \emph{distributions }rather
+than random variables as functions themselves, we have found a canonical
+representation for all random variables on the same space $\left(\left[0,1\right],\borel\left[0,1\right],\lambda\right)$.
+The next result provides some evidence that this representation is
+indeed special.
+\begin{defn}
+\label{def:coupling} Let $X$ and $Y$ be random variables, not necessarily
+on the same probability space. A \emph{coupling }of $X$ and $Y$are
+two new random variables $\tilde{X}$ and $\tilde{Y}$ on a common
+probability space $\probabilityspace$ such that $\tilde{X}$ has
+the same distribution as $X$ and $\tilde{Y}$ has the same distribution
+as $Y$. When we define $\tilde{X}\left(p\right)=q_{F_{X}}\left(p\right)$
+and $\tilde{Y}\left(p\right)=q_{F_{Y}}\left(p\right)$ on $\left(\left[0,1\right],\borel\left[0,1\right],\lambda\right)$,
+then we call $\left(\tilde{X},\tilde{Y},\left(\left[0,1\right],\borel\left[0,1\right],\lambda\right)\right)$
+a \emph{quantile coupling}.
+\end{defn}
+
+\begin{prop}
+\label{prop:quantileCouplingBest}Let $X$ and $Y$ be random variables,
+not necessarily on the same probability space. Then for any coupling
+$\left(\hat{X},\hat{Y},\probabilityspace\right)$, we have that 
+\[
+\lambda\left(\lvert\hat{X}-\hat{Y}\rvert\right)\leq\P\left(\lvert\tilde{X}-\tilde{Y}\rvert\right).
+\]
+\end{prop}
+
+\begin{proof}
+Note that for any $s\in\R$
+\begin{align*}
+\P\left(\hat{X}>s,\hat{Y}>s\right) & \leq\min\left\{ \P\left(\hat{X}>s\right),\P\left(\hat{Y}>s\right)\right\} \\
+ & =\min\left\{ 1-F_{X}\left(s\right),1-F_{Y}\left(s\right)\right\} \\
+ & =1-\max\left\{ F_{X}\left(s\right),F_{Y}\left(s\right)\right\} \\
+ & =1-\lambda\left(p:0\leq p\leq\max\left\{ F_{X}\left(s\right),F_{Y}\left(s\right)\right\} \right)\\
+ & =\lambda\left(p:\max\left\{ F_{X}\left(s\right),F_{Y}\left(s\right)\right\} <p\leq1\right)\\
+ & =\lambda\left(p:F_{X}\left(s\right)<p,F_{Y}\left(s\right)<p\right)\\
+ & =\lambda\left(p:q_{F_{X}}\left(p\right)>s,q_{F_{Y}}\left(p\right)>s\right)\\
+ & =\lambda\left(p:\tilde{X}\left(p\right)>s,\tilde{Y}\left(p\right)>s\right)
+\end{align*}
+where in the second to last equality wee have used Proposition \ref{prop:quantileProperty}.
+Further, by the definition of a coupling
+\begin{align*}
+\P\left(\hat{X}>s\right) & =\lambda\left(\tilde{X}>s\right)\\
+\P\left(\hat{Y}>s\right) & =\lambda\left(\tilde{Y}>s\right)
+\end{align*}
+and so
+\[
+\lebInt{\P}{\indicate\left\{ \hat{X}>s\right\} +\indicate\left\{ \hat{Y}>x\right\} -2\indicate\left\{ \hat{X}>s,\hat{Y}>s\right\} }\geq\lambda\left(\indicate\left\{ \text{\ensuremath{\tilde{X}}}>s\right\} +\indicate\left\{ \tilde{Y}>x\right\} -2\indicate\left\{ \tilde{X}>s,\tilde{Y}>s\right\} \right).
+\]
+Note that the expressions inside the integrals are indicators of the
+symmetric differences $\left\{ \hat{X}>s\right\} \Delta\left\{ \hat{Y}>s\right\} $
+and $\left\{ \tilde{X}>s\right\} \Delta\left\{ \tilde{Y}>s\right\} $
+and so we can write the above as 
+\begin{align}
+\P\left(\omega\in\Omega:\hat{X}\left(\omega\right)>s>\hat{Y}\left(\omega\right)\right)+\P\left(\omega\in\Omega:\hat{Y}\left(\omega\right)>s>\hat{X}\left(\omega\right)\right)\nonumber \\
+\geq\lambda\left(p\in\left[0,1\right]:\tilde{X}\left(p\right)>s>\tilde{Y}\left(p\right)\right)+\lambda\left(p\in\left[0,1\right]:\tilde{Y}\left(p\right)>s>\tilde{X}\left(p\right)\right)\label{eq:quantileInequality}
+\end{align}
+Taking an integral with respect to the Lebesgue measure on $\R$ on
+the left hand side, we hav
+\begin{align*}
+\lambda^{s}\left(\P^{\omega}\left(\omega\in\Omega:\hat{X}\left(\omega\right)>s>\hat{Y}\left(\omega\right)\right)+\P^{\omega}\left(\omega\in\Omega:\hat{Y}\left(\omega\right)>s>\hat{X}\left(\omega\right)\right)\right)\\
+=\lambda^{s}\left(\P^{\omega}\left(\indicate\left\{ \hat{X}\left(\omega\right)>s>\hat{Y}\left(\omega\right)\right\} \right)\right) & +\lambda^{s}\left(\P^{\omega}\left(\indicate\left\{ \hat{Y}\left(\omega\right)>s>\hat{X}\left(\omega\right)\right\} \right)\right)\\
+=\P^{\omega}\left(\lambda^{s}\left(\indicate\left\{ \hat{X}\left(\omega\right)>s>\hat{Y}\left(\omega\right)\right\} \right)\right) & +\P^{\omega}\left(\lambda^{s}\left(\indicate\left\{ \hat{Y}\left(\omega\right)>s>\hat{X}\left(\omega\right)\right\} \right)\right)\\
+=\P^{\omega}\left(\hat{X}-\hat{Y}\right)^{+}+\ \P^{\omega}\left(\hat{Y}-\hat{X}\right)^{+}\quad\\
+=\P^{\omega}\left(\lvert\hat{X}-\hat{Y}\rvert\right)\qquad\qquad\qquad\qquad\quad\  & .
+\end{align*}
+where we have used \hyperref[thm:tonelli]{Tonelli's theorem} in the
+second equality and the fact that $f^{-}+f^{+}=\lvert f\rvert$ in
+the last. A similar argument where we apply $\lambda^{s}$ to the
+right side of (\ref{eq:quantileInequality}) shows (by monotonicity
+of integration) that
+\[
+\P^{\omega}\left(\lvert\hat{X}-\hat{Y}\rvert\right)\geq\lambda\left(\lvert\tilde{X}-\tilde{Y}\rvert\right).
+\]
+\end{proof}
+
 \subsection{Independence of random variables}
 \begin{defn}
 \label{def:indepRandomVariables}Let $\probabilityspace$ be a probability
@@ -890,7 +1045,7 @@ independent random variables. Then,
 \end{prop}
 
 \begin{proof}
-Note that
+First suppose $X,Y\geq0$ almost surely. Note that
 \begin{align*}
 \E\left[XY\right] & =\E_{X,Y}\left[xy\right]\\
  & =\E_{X}\left[\E_{Y}\left[xy\right]\right]\\
@@ -901,9 +1056,16 @@ where in the first equality we have moved to the image measure under
 the random vector $\left(X,Y\right)$ through the standard change
 of variables (Corollary \ref{cor:changeOfVariables}). Then, since
 the image measure under the pair of independent random vectors is
-a product measure, we can use Tonelli/Fubini's theorem to turn it
-into an iterated integral. The final equality is yet another application
-of the change of variables formula.
+a product measure, we can use Tonelli's theorem to turn it into an
+iterated integral. The final equality is yet another application of
+the change of variables formula. Now if $X,Y\in\Lp 1{\P},$ then we
+can apply the result for non-negative random variables to $\lvert X\rvert,\lvert Y\rvert$
+to show that 
+\[
+\E\left[\lvert XY\rvert\right]=\E\left[\lvert X\rvert\right]\E\left[\lvert Y\rvert\right]<\infty
+\]
+and then applying the same argument (except replacing the use of Tonelli
+with the use of Fubini) yields the result.
 \end{proof}
 \begin{example}
 \label{exa:isi2008samplepsb5} Consider the i.i.d. sequence 
@@ -972,7 +1134,8 @@ k
 Most of the results that we have deduced for random variables hold
 \emph{mutis mutandis }for random vectors, although some ideas need
 clarification in this more general context. For instance, the notion
-of a CDF is not immediately
+of a CDF is not immediately obvious since there is no canonical ordering
+on $\R^{n}$ for $n>1.$
 
 \subsection{Transformations of random variables}
 
@@ -982,6 +1145,8 @@ More formally, given random variables $X_{1},X_{2},\ldots,X_{n}$,
 on some probability space $\probabilityspace$, we wish to find the
 distribution of $T\left(X_{1},X_{2},\ldots,X_{n}\right)$ where $T:\R^{n}\to\R^{m}$
 is a Borel-measurable map.
+
+\subsubsection{Transformations on scalar random variables}
 
 \subsubsection{Adding independent random variables}
 
@@ -1072,8 +1237,14 @@ so
 \[
 r_{X,Y}=\frac{\Var\left[X\right]}{\Var\left[X\right]+\Var\left[U\right]}
 \]
+
+\hl{TODO}
 \end{example}
 
+
+\subsubsection{Products of random variables}
+
+\subsubsection{Absolute values of random variables}
 
 \subsection{Order statistics}
 \begin{example}

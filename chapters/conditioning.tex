@@ -2,6 +2,72 @@
 \chapter{Conditioning\label{chap:conditioning}}
 
 \section{Elementary notions of conditional probability}
+
+The basic notion of conditional probabilities is clear when we are
+conditioning of events of positive probability. That is, on a probability
+space $\probabilityspace$ with an event $B\in\F$ such that $\P\left(B\right)>0$,
+we can easily define a conditional measure
+\begin{equation}
+\P_{B}\left(A\right):=\frac{\P\left(A\cap B\right)}{\P\left(B\right)}\label{eq:conditionalProbabilityPositive}
+\end{equation}
+\footnote{Sometimes we write $\P\left(A\mid B\right)$ instead of $\P_{B}\left(A\right)$
+if the event $B$ is actually some long expression like ``$\left\{ X=1\right\} ".$}for any $A\in\F$. It's easy to verify that $\P_{B}$ is in fact a
+probability measure on $\F$ and thus we can derive the corresponding
+integral 
+\[
+\E_{B}\left[f\right]=\frac{\E\left[f\indicate_{B}\right]}{\P\left(B\right)}.
+\]
+This definition quickly yields some of the most foundational and basic
+probabilistic ideas: for instance with two events $A,B$ where both
+occur with positive probability, they are independent if and only
+if $\P\left(A\right)=\P_{B}\left(A\right).$The following basic facts
+\begin{lem}
+\label{lem:totalProbability}Let $\probabilityspace$ be a probability
+space and let $B\in\F$ be an event. Then for any countable partition
+$\left\{ A_{i}\right\} _{i\in\N}$ of $\Omega$ such that $\P\left(A_{i}\right)>0$,
+we have that 
+\[
+\P\left(B\right)=\sum_{i=1}^{\infty}\P\left(A_{i}\right)\P_{A_{i}}\left(B\right).
+\]
+\end{lem}
+
+\begin{proof}
+Note that by countable additivity
+\begin{align*}
+\P\left(B\right) & =\sum_{i=1}^{\infty}\P\left(B\cap A_{i}\right)\\
+ & =\sum_{i=1}^{\infty}\P\left(A_{i}\right)\P_{A_{i}}\left(B\right).
+\end{align*}
+This immediately yields the famous Bayes Theorem.
+\end{proof}
+\begin{thm}
+\label{thm:bayesTheorem}Let $\probabilityspace$ be a probability
+space and let $\left\{ A_{i}\right\} _{i\in\N}$be a partition of
+$\Omega$ such that $\P\left(A_{i}\right)>0$. Then, for any $A,B\in\F$
+with positive probability,
+\[
+\P_{B}\left(A\right)=\frac{\P_{A}\left(B\right)\P\left(A\right)}{\sum_{i=1}^{\infty}\P\left(A_{i}\right)\P_{A_{i}}\left(B\right)}.
+\]
+\end{thm}
+
+Of course, we are not satisfied with a theory of conditional probabilities
+where we restrict the conditioning event to one with positive probability.
+After all, we are often interested in conditioning on events like
+``$\left\{ X=a\right\} "$ where $X$ is a continuous random variable
+and $a$ is a real number. For instance, consider the problem of choosing
+a point uniformly at random on the unit square. What is the probability
+that the point has an $x-$coordinate greater than $\frac{1}{2}$
+if it lies on the diagonal? We can formally model this problem by
+taking two independent random variables $X,Y\sim U\left[0,1\right]$
+and computing $\P\left(X>\frac{1}{2}\mid X=Y\right)$. Of course,
+the event $X=Y$ has probability zero as can be verified by Tonelli's
+theorem. Intuitively, we can guess that the answer should be $\frac{1}{2}$
+since we should effectively have a uniform distribution on the diagonal
+in this setting. It turns out that the answer is not as straightforward
+as we would expect.
+\begin{example}
+\label{exa:borelKolmogorov}Let 
+\end{example}
+
 \begin{example}
 \label{exa:isi2004samplepsb3}Suppose a random vector $(X,Y)$ has
 joint probability density function 
@@ -43,6 +109,10 @@ Find $P(1\leq Z\leq2)$.\hl{TODO}
 
 
 \section{Kolmogorov conditional expectations}
+
+The abstract formulation of the conditional expectation was quite
+unintuitive when it was first put forward by Kolmogorov (1933) \hl{add ref}
+as the right way to think about conditioning.
 \begin{example}
 \label{exa:isi2005samplepsb11}Let $X$ and $Y$ be two random variables
 with joint probability density function 

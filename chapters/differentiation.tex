@@ -429,13 +429,6 @@ and $f$ has derivatives of all order. Show that
 
 \subsection{Derivatives of functions between Banach spaces}
 
-\subsection{Optimization}
-\begin{example}
-\label{exa:isi2006samplepsb2}Maximize $x+y$ subject to the condition
-that $2x^{2}+3y^{2}\leq1$.
-\end{example}
-
-
 \section{Decomposition of measures}
 
 Recall that in Proposition \ref{prop:densities}, we showed that for
@@ -1081,11 +1074,11 @@ and so
 \mu_{F}\left(B\right)\leq\mu_{F}\left(O\right)<\epsilon
 \]
 where the inequality is due to monotonicity of measures. This completes
-the proof by yet another applyication of Proposition \ref{prop:epsdeltaAbsContinuity}.
+the proof by yet another application of Proposition \ref{prop:epsdeltaAbsContinuity}.
 \end{proof}
 \begin{cor}
 \label{cor:stieljesAbsContRepresentation}A Stieljes function $F:\left[a,b\right]\to\R$
-is absolutely continuous if and only there exists some unique $f\in\mathcal{M}^{+}\left(\left[a,b\right],\borel\left(\left[a,b\right]\right)\right)$
+is absolutely continuous if and only if there exists some unique $f\in\mathcal{M}^{+}\left(\left[a,b\right],\borel\left(\left[a,b\right]\right)\right)$
 such that for any $x\in\left[a,b\right]$
 \[
 F\left(x\right)=F\left(a\right)+\lebInt{\lambda}{f\indicate_{\left[a,x\right]}}.
@@ -1137,7 +1130,7 @@ be absolutely continuous. Then there exist non-negative, non-decreasing,
 and absolutely continuous functions $f_{1},f_{2}:\left[a,b\right]\to\R$
 such that 
 \[
-f\left(x\right)=f_{1}\left(x\right)-f_{2}\left(x\right)
+f\left(x\right)-f\left(a\right)=f_{1}\left(x\right)-f_{2}\left(x\right)
 \]
 for all $x\in\left[a,b\right]$.
 \end{lem}
@@ -1151,7 +1144,7 @@ f_{2}\left(x\right) & :=\sup_{\pi\left[a,x\right]}\sum_{i=1}^{k\left(\pi\right)}
 where $\pi\left[a,x\right]:\left\{ t_{i}\mid t_{0}=a,t_{k\left(\pi\right)}=x,t_{i}<t_{i+1}\right\} $
 is a \hyperref[def:partitionInterval]{partition} of $\left[a,x\right].$
 Note that the non-negativity of these functions follows by definition.
-Next, notice that for $x_{2}\geq x_{1}$ $f_{j}\left(x_{2}\right)\geq f_{j}\left(x_{1}\right)$
+Next, notice that for $x_{2}\geq x_{1}$ , $f_{j}\left(x_{2}\right)\geq f_{j}\left(x_{1}\right)$
 for $j\in\left\{ 1,2\right\} .$To see this, notice that any partition
 $\pi$ of $\left[a,x_{1}\right]$ can be extended to a partition $\pi^{\prime}$
 of $\left[a,x_{2}\right]$ by adding $t_{k\left(\pi^{\prime}\right)}=t_{k\left(\pi\right)+1}=x_{2}.$
@@ -1160,11 +1153,76 @@ Then,
 \sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{\pm}\leq\sum_{i=0}^{k\left(\pi\right)+1}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{\pm}
 \]
 since the summands are non-negative. Next, observe that for any partition
-$\pi$ of $\left[x_{1},x_{2}\right]\subset\left[a,b\right]$, we have
-that
+$\pi$ of $\left[a,x\right]\subset\left[a,b\right]$, we have that
 \begin{align*}
-f\left(x_{2}\right)-f\left(x_{1}\right) & =\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)\\
- & =\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{+}-\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{-}.
+f\left(x\right)-f\left(a\right) & =\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)\\
+ & =\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{+}-\sum_{i=1}^{k\left(\pi\right)}\left(f\left(t_{i}\right)-f\left(t_{i-1}\right)\right)^{-}
 \end{align*}
+and so taking supremums we get the equality $f\left(x\right)-f\left(a\right)=f_{1}\left(x\right)-f_{2}\left(x\right).$
+Next, we shall show absolute continuity for $f_{1}$; the proof for
+$f_{2}$ is identical. Fix $\epsilon>0$ and note that by the absolute
+continuity of $f$ we have that there exists some $\delta>0$ such
+that for any disjoint collection $\left\{ \left(a_{i},b_{i}\right)\right\} _{i=1}^{n}$$\subset\left[a,b\right]$,
+$\sum_{i=1}^{n}b_{i}-a_{i}<\delta$ implies $\sum_{i=1}^{n}\lvert f\left(b_{i}\right)-f\left(a_{i}\right)\rvert<\epsilon$.
+Note that 
+\begin{align*}
+\sum_{i=1}^{n}\lvert f_{1}\left(b_{i}\right)-f_{1}\left(a_{i}\right)\rvert & =\sum_{i=1}^{n}\lvert\sup_{\pi\left[a,b_{i}\right]}\sum_{j=1}^{k\left(\pi\right)}\left(f\left(t_{j}^{\pi}\right)-f\left(t_{j-1}^{\pi}\right)\right)^{+}-\sup_{\pi^{\prime}\left[a,a_{i}\right]}\sum_{j=1}^{k\left(\pi^{\prime}\right)}\left(f\left(t_{j}^{\pi^{\prime}}\right)-f\left(t_{j-1}^{\pi^{\prime}}\right)\right)^{+}\rvert\\
+ & =\sum_{i=1}^{n}\sup_{\pi\left[a_{i},b_{i}\right]}\sum_{j=1}^{k\left(\pi\right)}\left(f\left(t_{j}^{\pi}\right)-f\left(t_{j-1}^{\pi}\right)\right)^{+}\\
+ & \leq\sum_{i=1}^{n}\sup_{\pi\left[a_{i},b_{i}\right]}\sum_{j=1}^{k\left(\pi\right)}\left(f\left(t_{j}^{\pi}\right)-f\left(t_{j-1}^{\pi}\right)\right)^{+}+\left(f\left(t_{j}^{\pi}\right)-f\left(t_{j-1}^{\pi}\right)\right)^{-}\\
+ & =\sum_{i=1}^{n}\sup_{\pi\left[a_{i},b_{i}\right]}\sum_{j=1}^{k\left(\pi\right)}\lvert f\left(t_{j}^{\pi}\right)-f\left(t_{j-1}^{\pi}\right)\rvert\\
+ & \leq\epsilon
+\end{align*}
+where in the second equality we have used the fact that we can enlarge
+any partition $\pi$on $\left[a,b_{i}\right]$ to contain any given
+partition $\pi^{\prime}$ on $\left[a,a_{i}\right]$ since $\left[a,a_{i}\right]\subset\left[a,b_{i}\right].$
+The final inequality then follows since for any partition $\pi_{i}$
+of $\left[a_{i},b_{i}\right]$, entire collection $\left\{ \left(t_{j-1}^{\pi_{i}},t_{j}^{\pi_{i}}\right)\right\} _{1\leq j\leq k\left(\pi_{i}\right),1\leq i\leq n}$
+is a disjoint collection with total length
+\[
+\sum_{i=1}^{n}\sum_{j=1}^{k\left(\pi_{i}\right)}t_{j}^{\pi_{i}}-t_{j-1}^{\pi_{i}}=\sum_{i=1}^{n}b_{i}-a_{i}<\delta
+\]
+and so by absolute continuity
+\[
+\sum_{i=1}^{n}\sum_{j=1}^{k\left(\pi_{i}\right)}\lvert f\left(t_{j}^{\pi}\right)-f\left(t_{j-1}^{\pi}\right)\rvert\leq\epsilon.
+\]
+Taking supremums over partitions preserves the inequality.
 \end{proof}
+\begin{thm}
+\label{thm:integralRepresentationAbsoluteContinuity}Let $f:\left[a,b\right]\to\R$
+be a measurable function. Then $f$ is absolutely continuous if and
+only if there exists an (almost-everywhere) unique function $h\in\Lp 1{\left[a,b\right],\borel\left[a,b\right],\lambda}$
+such that 
+\[
+f\left(x\right)=f\left(a\right)+\lambda\left(h\indicate_{\left[a,x\right]}\right).
+\]
+\end{thm}
+
+\begin{proof}
+First suppose that $f$ is absolutely continuous and so by Lemma \ref{lem:decomposeAbsolutelyContinuous}
+we can write 
+\[
+f\left(x\right)-f\left(a\right)=f_{1}\left(x\right)-f_{2}\left(x\right)
+\]
+where $f_{i}$ are non-negative, non-decreasing, and absolutely continuous
+(and thus Stieljes functions). By Corollary \ref{cor:stieljesAbsContRepresentation}
+there exist functions $h_{1},h_{2}\in\mathcal{M}^{+}\left(\left[a,b\right],\borel\left(\left[a,b\right]\right)\right)$
+such that
+\[
+f_{i}\left(x\right)=f_{i}\left(a\right)+\lambda\left(h_{i}\indicate_{\left[a,x\right]}\right)
+\]
+and so by the linearity of integration we have that 
+\[
+f\left(x\right)-f\left(a\right)=\underbrace{f_{1}\left(a\right)-f_{2}\left(a\right)}_{=0}+\lambda\left(\left(h_{1}-h_{2}\right)\indicate_{\left[a,x\right]}\right).
+\]
+Note that $h:=h_{1}-h_{2}$ is integrable since $f\left(b\right)-f\left(a\right)<\infty$.
+To see uniqueness, let $h,g\in\Lp{1}{\left[a,b\right],\borel\left(\left[a,b\right]\right),\lambda}$
+\end{proof}
+%
+
+\section{Optimization\label{sec:optimization}}
+\begin{example}
+\label{exa:isi2006samplepsb2}Maximize $x+y$ subject to the condition
+that $2x^{2}+3y^{2}\leq1$.
+\end{example}
+
 

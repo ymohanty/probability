@@ -1,5 +1,5 @@
 
-\chapter{Integration}
+\chapter{Integration\label{chap:integration}}
 
 \section{Constructing the Lebesgue integral}
 \begin{thm}
@@ -26,9 +26,10 @@ that satisfies the following properties
 
 We can prove Theorem \ref{thm:existenceUniquenessLebesgueIntegral}
 constructively, in a similar fashion to how we proved the existence
-of the Lebesgue measure in Chapter 1. In this spirit, we shall define
-a functional on the non-negative measurable simple functions and extend
-the domain of this functional to more complicated function spaces.
+of the Lebesgue measure in Chapter \ref{chap:measures}. In this spirit,
+we shall define a functional on the non-negative measurable simple
+functions and extend the domain of this functional to more complicated
+function spaces.
 \begin{defn}
 \label{def:simpleFuncIntegral}For any measurable simple function
 $s\in\mathcal{M}_{\textnormal{sim}}\left(\X,\F\right)$ with the standard
@@ -489,8 +490,9 @@ we can dispense with the unnecessary amounts of new notation and simply
 denote the integral as $\bar{\mu}\left(f\right)$ for any function
 $f\in\measurableFunctions$, provided that the integral is defined.
 As discussed earlier, this is analagous to our construction of the
-Lebesgue measure in Chapter 1, where we ``extended'' the measure
-from simple sets to more complicated sets over the course of the chapter.
+Lebesgue measure in Chapter \ref{chap:measures}, where we ``extended''
+the measure from simple sets to more complicated sets over the course
+of the chapter.
 
 Next we show the power of this integration theory by establishing
 two results which allow us to interchange pointwise limits of functions
@@ -765,12 +767,13 @@ which completes the proof.
 relation $\mu\left(A\right)=0\Longrightarrow\nu\left(A\right)=0$
 for every $A\in\F$ and a refence measure $\mu$ is called \emph{absolutely
 continuous }with respect to $\mu$. This relation is denoted as $\nu<<\mu$
-symbolically. We discuss absolute continuity in Chapter 6, where we
-prove the converse of this theorem under a minor restriction. The
-non-negative measurable function $f$ which generates the new measure
-$\nu$ is called the \emph{density }of $\nu$ with respect to $\mu.$
-If $\nu$ is a probability measure then $f$ is called the\emph{ probability
-density function} of $\nu$ with respect to $\mu.$
+symbolically. We discuss absolute continuity in Chapter \ref{chap:Differentiation},
+where we prove the converse of this theorem under a minor restriction.
+The non-negative measurable function $f$ which generates the new
+measure $\nu$ is called the \emph{density }of $\nu$ with respect
+to $\mu.$ If $\nu$ is a probability measure then $f$ is called
+the\emph{ probability density function} of $\nu$ with respect to
+$\mu.$
 \end{rem}
 
 \begin{cor}
@@ -918,10 +921,10 @@ point, this may seem to be a trivial observation (and the proof of
 this result is indeed trivial); this shift of perspective, however,
 offers powerful simplifications to questions concerning the existence
 and uniqueness of measures. Indeed, our approach to product measures
-in Chapter 6 would rely on this insight, allowing us to prove both
-the existence of product measures, and the representation of integrals
-with respect to product measures as iterated integrals, in a single
-stroke.
+in Chapter \ref{chap:productMeasures} would rely on this insight,
+allowing us to prove both the existence of product measures, and the
+representation of integrals with respect to product measures as iterated
+integrals, in a single stroke.
 \begin{thm}
 \label{thm:integralMeasureEquivalence}Let $\left(\X,\F\right)$ be
 a measurable space and let 
@@ -1962,8 +1965,9 @@ Thus we have established that the topology of convergence in measure
 comes from a (pseudo)-metric, whereas almost everywhere convergence
 is not topologizable at all! Convergence in $L^{1}$ , on the other
 hand, corresponds to a (semi)-normed convergence as shown in Chapter
-4. Proposition \ref{prop:subsubsequenceProbAEConv} implies a form
-of dominated convergence theorem for convergence in measure.
+\ref{chap:spaces_of_functions}. Proposition \ref{prop:subsubsequenceProbAEConv}
+implies a form of dominated convergence theorem for convergence in
+measure.
 \begin{prop}
 \label{prop:convMeasureDomConv}Let $\left(\X,\F,\mu\right)$ be a
 finite measure space i.e $\mu(\X)<\infty.$ Suppose $\left\{ f_{n}\right\} _{n\in\N}\in\measurableFunctions$
@@ -2028,8 +2032,8 @@ property always holds as observed in Proposition \ref{prop:densities}
 and Remark \ref{rem:absoluteContinuity}. Of course, it is not clear
 that this $\epsilon-\delta$ characterization of absolute continuity
 is the same as the one discussed in that remark; later on in Chapter
-6 (see Proposition \ref{prop:epsdeltaAbsContinuity}) we show they
-are indeed equiavelent for finite measures.
+\ref{chap:Differentiation} (see Proposition \ref{prop:epsdeltaAbsContinuity})
+we show they are indeed equiavelent for finite measures.
 \end{rem}
 
 \begin{prop}
