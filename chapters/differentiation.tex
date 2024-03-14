@@ -1045,7 +1045,7 @@ we have that
 \[
 \lambda\left(\bigcup_{i=1}^{n}\left(a_{i},b_{i}\right)\right)>\delta\implies\mu_{F}\left(\bigcup_{i=1}^{n}\left(a_{i},b_{i}\right)\right)<\epsilon
 \]
-and applying finite addivity yields one side of the result. Conversely,
+and applying finite additivity yields one side of the result. Conversely,
 assume $F$ is absolutely continuous as a function and so for any
 $\epsilon>0$ there exists some $\delta>0$ such that for any finite
 collection of disjoint open intervals $\left\{ \left(a_{i},b_{i}\right)\right\} _{i=1}^{n}\subset\left[a,b\right]$
@@ -1120,7 +1120,7 @@ the Euclidean space $\R^{n}$, and use those results to complete the
 proof started here.
 \end{rem*}
 Next we extend this representation result to absolutely continuous
-functions that are not neccessarily non-decreasing. As usual, we do
+functions that are not necessarily non-decreasing. As usual, we do
 this by decomposing an arbitrary absolutely continuous function as
 a difference of absolutely continuous Stieljes functions and apply
 the above result separately to each component.
@@ -1215,7 +1215,19 @@ and so by the linearity of integration we have that
 f\left(x\right)-f\left(a\right)=\underbrace{f_{1}\left(a\right)-f_{2}\left(a\right)}_{=0}+\lambda\left(\left(h_{1}-h_{2}\right)\indicate_{\left[a,x\right]}\right).
 \]
 Note that $h:=h_{1}-h_{2}$ is integrable since $f\left(b\right)-f\left(a\right)<\infty$.
-To see uniqueness, let $h,g\in\Lp{1}{\left[a,b\right],\borel\left(\left[a,b\right]\right),\lambda}$
+Uniqueness is a generating class argument as usual. To spell it out, notice that for  $h,g\in\Lp{1}{\left[a,b\right],\borel\left(\left[a,b\right]\right),\lambda}$, where the representation result holds we have that 
+\[
+	\mathcal{D} : = \{ B \in \borel \left(\left[a,b\right] \right) \mid \lebInt{\lambda}{f\indicate_{B}} = \lebInt{\lambda}{g\indicate_{B}} \}
+\]
+is a $\lambda-$system: $\left[a,b\right]$ is clearly in $\mathcal{D}$, and if $B \in \mathcal{D}$ then $B^C \in \mathcal{D}$ because $\indicate_{B^C} = \indicate_{[a,b]} - \indicate_{B}$, the linearity of integration, and the fact that $[a,b] \in \mathcal{D}$. Finally, if $\{B_i\}_{i\in\N} \in \mathcal{D}$ are disjoint then 
+\begin{align*}
+	\lebInt{\lambda}{f\indicate_{\bigcup_{i\in\N}B_i}} &= \lebInt{\lambda}{\sum_{i=1}^\infty f \indicate_{B_i}} \\
+	&= \sum_{i=1}^\infty \lebInt{\lambda}{f\indicate_{B_i}} \\
+	&=  \sum_{i=1}^\infty \lebInt{\lambda}{g\indicate_{B_i}} \\
+	&= \lebInt{\lambda}{\sum_{i=1}^{\infty}g\indicate_{B_i}} \\
+	&= 	\lebInt{\lambda}{g\indicate_{\bigcup_{i\in\N}B_i}}
+\end{align*}
+where in the second and fourth equalities leverage dominated convergence. Note that $\mathcal{E}$ the collection of all closed interval subsets of $[a,b]$ generates $\borel\left([a,b]\right)$ and the equality of representations holds on $\mathcal{E}$ by definition. By the $\pi-\lambda$ theorem, the equality extends to the entirety of $\borel\left([a,b]\right)$. By Proposition \ref{prop:intEqualFuncEqual} we have that $f \stackrel{\text{a.e}}{=} g $.
 \end{proof}
 %
 

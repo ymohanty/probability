@@ -1207,8 +1207,8 @@ is finite by \ref{prop:L1conditions}, we get
 as desired.
 \end{proof}
 \begin{prop}
-\label{prop:intEqualFuncEqual} Let $f,g\in\nonnegMeasurableFunctions$
-such and let $\mu$ be a measure on $\F$ such that 
+\label{prop:intEqualFuncEqual} Let $f,g\in\nonnegMeasurableFunctions$ (or  let $f,g \in \Lp{1}{\mu}$)
+where $\mu$ is a measure on $\F$ such that 
 \[
 \lebInt{\mu}{f\indicate_{F}}=\lebInt{\mu}{g\indicate_{F}}
 \]
@@ -1230,7 +1230,7 @@ of generality, that $\mu\left(A_{1}\right)>0$ and further define
 \[
 A_{1,n}:=\left\{ x\in\X\mid f\left(x\right)-\frac{1}{n}\geq g\left(x\right)\right\} =\left\{ x\in\X\mid z\left(x\right)\geq\frac{1}{n}\right\} 
 \]
-where $z=f-g$ and so is measurable, which in turn imples that $A_{1,n}\in\F$
+where $z=f-g$ and so is measurable, which in turn implies that $A_{1,n}\in\F$
 for all $i\in\N.$ Further, $A_{1,n}\subseteq A_{1,n+1}$ and $\bigcup_{n\in\N}A_{1,n}=A$,
 and so by \hyperref[prop:measureProperties]{continuity from below}
 \[
@@ -2518,9 +2518,9 @@ integrability
 \]
 Note further that $\inf_{i}u_{i}-\sup_{i}l_{i}\geq0$ and so $\lebInt{\lambda}{\inf_{i}u_{i}-\sup_{i}l_{i}}=0$
 implies that $\inf_{i}u_{i}\stackrel{\text{a.e}}{=}\sup_{i}l_{i}$
-by Proposition \ref{prop:intEqualFuncEqual}. Of couse, then $f\stackrel{\text{a.e}}{=}\inf_{i}u_{i}$
+by Proposition \ref{prop:intEqualFuncEqual}. Of course, then $f\stackrel{\text{a.e}}{=}\inf_{i}u_{i}$
 and so $f$ is measurable (and Lebesgue integrable since its bounded
-in a finite measure space). Moreover, Propostion \ref{prop:funcEqualityAlmostEverywhere}
+in a finite measure space). Moreover, Proposition \ref{prop:funcEqualityAlmostEverywhere}
 implies
 \[
 \lebInt{\lambda}f=L^{*}\left(f\right)=U^{*}\left(f\right)
