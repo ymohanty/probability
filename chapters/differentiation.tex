@@ -717,7 +717,7 @@ and so by the \hyperref[thm:borelCantelli]{Borel-Cantelli lemma},
 where $\limsup_{n\to\infty}A_{n}=\cap_{n=1}^{\infty}\cup_{i=1}^{n}A_{i}\in\F$.
 Since $\nu(X)<\infty,$ by the \hyperref[cor:reverseFatouLemma]{reverse Fatou lemma}
 \[
-\nu(\limsup_{n\to\infty}A)\geq\limsup_{n\to\infty}\nu(A_{n})\geq\epsilon
+\nu(\limsup_{n\to\infty}A_n)\geq\limsup_{n\to\infty}\nu(A_{n})\geq\epsilon
 \]
 which completes the proof.
 \end{proof}
@@ -1217,17 +1217,32 @@ f\left(x\right)-f\left(a\right)=\underbrace{f_{1}\left(a\right)-f_{2}\left(a\rig
 Note that $h:=h_{1}-h_{2}$ is integrable since $f\left(b\right)-f\left(a\right)<\infty$.
 Uniqueness is a generating class argument as usual. To spell it out, notice that for  $h,g\in\Lp{1}{\left[a,b\right],\borel\left(\left[a,b\right]\right),\lambda}$, where the representation result holds we have that 
 \[
-	\mathcal{D} : = \{ B \in \borel \left(\left[a,b\right] \right) \mid \lebInt{\lambda}{f\indicate_{B}} = \lebInt{\lambda}{g\indicate_{B}} \}
+	\mathcal{D} : = \{ B \in \borel \left(\left[a,b\right] \right) \mid \lebInt{\lambda}{h\indicate_{B}} = \lebInt{\lambda}{g\indicate_{B}} \}
 \]
 is a $\lambda-$system: $\left[a,b\right]$ is clearly in $\mathcal{D}$, and if $B \in \mathcal{D}$ then $B^C \in \mathcal{D}$ because $\indicate_{B^C} = \indicate_{[a,b]} - \indicate_{B}$, the linearity of integration, and the fact that $[a,b] \in \mathcal{D}$. Finally, if $\{B_i\}_{i\in\N} \in \mathcal{D}$ are disjoint then 
 \begin{align*}
-	\lebInt{\lambda}{f\indicate_{\bigcup_{i\in\N}B_i}} &= \lebInt{\lambda}{\sum_{i=1}^\infty f \indicate_{B_i}} \\
-	&= \sum_{i=1}^\infty \lebInt{\lambda}{f\indicate_{B_i}} \\
+	\lebInt{\lambda}{h\indicate_{\bigcup_{i\in\N}B_i}} &= \lebInt{\lambda}{\sum_{i=1}^\infty h \indicate_{B_i}} \\
+	&= \sum_{i=1}^\infty \lebInt{\lambda}{h\indicate_{B_i}} \\
 	&=  \sum_{i=1}^\infty \lebInt{\lambda}{g\indicate_{B_i}} \\
 	&= \lebInt{\lambda}{\sum_{i=1}^{\infty}g\indicate_{B_i}} \\
 	&= 	\lebInt{\lambda}{g\indicate_{\bigcup_{i\in\N}B_i}}
 \end{align*}
-where in the second and fourth equalities leverage dominated convergence. Note that $\mathcal{E}$ the collection of all closed interval subsets of $[a,b]$ generates $\borel\left([a,b]\right)$ and the equality of representations holds on $\mathcal{E}$ by definition. By the $\pi-\lambda$ theorem, the equality extends to the entirety of $\borel\left([a,b]\right)$. By Proposition \ref{prop:intEqualFuncEqual} we have that $f \stackrel{\text{a.e}}{=} g $.
+where in the second and fourth equalities leverage dominated convergence. Note that $\mathcal{E}$ the collection of all closed interval subsets of $[a,b]$ generates $\borel\left([a,b]\right)$ and the equality of representations holds on $\mathcal{E}$ by definition. By the $\pi-\lambda$ theorem, the equality extends to the entirety of $\borel\left([a,b]\right)$. By Proposition \ref{prop:intEqualFuncEqual} we have that $h \stackrel{\text{a.e}}{=} g $.
+
+Finally, suppose that $f$ has the integral representation
+\[
+f(x) - f(a) = \lebInt{\lambda}{h\indicate_{[a,x]}}
+\] 
+and fix $\epsilon > 0$ . Note that by the linearity of integration, for any $\left[a_i, b_i\right] \subseteq \left[a,b\right]$ 
+\[
+f(b_i) - f(a_i) = \lebInt{\lambda}{h\indicate_{[a_i,b_i]}}
+\]
+and so for any disjoint collection $\{[a_i,b_i]\}_{i=1}^n$
+\begin{align*}
+	\sum_{i=1}^{n} \lvert f(b_i)-f(a_i) \rvert &= \sum_{i=1}^n\lvert \lebInt{\lambda}{h\indicate_{[a_i,b_i]}}\rvert \\
+	&\leq \sum_{i=1}^n\lebInt{\lambda}{\lvert h\rvert \indicate_{[a_i,b_i]}} 
+\end{align*}
+ by Corollary \ref{cor:triangleIneqLebIntL1}. Then, using Proposition \ref{prop:epsdeltaAbsContinuity}, we have that there exists some $\delta > 0$ such that for $\lambda\left(\bigcup_{i=1}^n[a_i,b_i]\right) < \delta $ we have $ \lebInt{\lambda}{\lvert h \rvert \indicate_{\bigcup_{i=1}^n[a_i,b_i]}} < \epsilon $ which completes the proof.
 \end{proof}
 %
 
