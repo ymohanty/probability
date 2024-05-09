@@ -1013,7 +1013,7 @@ and so
 \[
 \lvert\det\left(T\right)\rvert=1.
 \]
-We then apply \ref{lem:changeOfVariablesLinear}with $f=\indicate_{B}$
+We then apply \ref{lem:changeOfVariablesLinear} with $f=\indicate_{B}$
 and $T=R$.
 \end{proof}
 
@@ -1023,7 +1023,51 @@ of calculus}
 Establishing the change of variables theorem in full requires a difficult
 measure theoretic result due to Lebesgue called the Lebesgue Differentiation
 Theorem. It turns out that this result is also key to establishing
-the fundamental theorem of calculus, and so
+the fundamental theorem of calculus, and so we shall kill two birds with one stone and prove the 
+change of variables theorem along with the fundamental theorem of calculus.
+
+The Lebesgue Differentiation Theorem is built on top of lemmata that are important and interesting in their own right. We start with a \emph{covering lemma} 
+which is a geometric type analogue of compactness arguments from topology. Throughout, we shall be working in $\R^n$ where the standard notation $B_r\left(c\right)$ denotes a ball of radius $r$ 
+centered at $c$ under the standard Euclidean norm. We shall use superscripts to denote indices; that is to say, a ball $B^a$ -- where $A$ is an index set -- is short hand for
+$B^a_r(c)$ where $r$ is the radius and $c$ is the center. We will use the notation $r(B^a)$ to denote the radius of the ball $B^a$ and $c(B^a)$ to denote its center. 
+
+\begin{lem}
+    \label{lem:coveringLemma} Let $E\subset \R^n$ be a subset of the Euclidean space such that there exists a  (possibly uncountable) collection $\{B^a\}_{a\in A}$ of balls 
+    of radius at most $R$ that covers $E$. Then there exists a disjoint countable\footnote{or finite} subcollection $\{B^{a_{i}}\}_{i\in \N}$ of balls such that 
+    \[
+        \lambda^n(E) \leq 5^n \sum_{i=1}^\infty \lambda^n(B^{a_i}).
+    \]
+\end{lem}
+\begin{proof}
+    We can construct our subcollection inductively as follows: first, let $B^{a_1}$ be any ball in $\{B_a\}_{a\in A}$ such that its radius $r(B^{a_1}) \geq \frac{1}{2}\sup_{a\in A} r(B^a)$. This is possible because radii of the balls are bounded above
+    by $R$. Then, we can define $B^{a_k}$ , $a_k \in A$ such that
+    \[
+        r(B^{a_k}) \geq \frac{1}{2}\sup \left\{ r(B^a) \mid B^a \cap B^{a_i} = \emptyset \text{ for } 1 \leq i \leq k-1 \right\}.
+    \]
+    This process can either terminate or continue indefinitely; this is 
+
+    Next, note that if $\sum_{k=1}^\infty \lambda^n \left( B^{a_k} \right) = \infty $ then we are done. In the case that this sum is finite, we have that 
+    $\lim_{k\to\infty} r\left( B^{a_k} \right) = 0$ and so for any $a^* \in A$ there exists some smallest $k^* \in \N$ such that for all $k \geq k^*$
+    \[
+        r\left(B^{a_k}\right) < \frac{1}{2}r\left( B^{a^*} \right).
+    \]
+    But by the construction of our sequence $B^{a_k}$, this means that there must exist some $i < k^*$ such that $B^{a_i} \cap B^{a^*} \neq \emptyset$. Let $x \in B^{a^*}$ be arbitrary, and pick some 
+    $y \in B^{a_i} \cap B^{a^*}$. By our results so far, we have that 
+    \begin{align*}
+        \lVert x - c\left(B^{a_i}\right) \rVert &\leq \lVert x - y \rVert + \lVert y - c\left(B^{a_i}\right) \rVert \\
+            &\leq 2 r\left(B^{a^*}\right) + r\left(B^{a_i}\right) \\
+            & \leq 4 r\left(B^{a_i}\right) + r\left(B^{a_i}\right) \\
+            &= 5r\left(B^{a_i}\right)
+    \end{align*}
+    where we have used the fact that for any $x,y \in B_r(c)$, $\lVert x - y \rVert \leq 2r $ in the first inequality, and the fact that $r(B^{a_i}) \geq \frac{1}{2}r\left( B^{a^*} \right)$ in the second
+    inequality. Since $x$ was arbitrary, we have concluded that $B^{a^*} \subseteq 5B^{a_i}$. Since $a^* \in A$ was itself arbitrary, 
+    we have that 
+    \[
+        E \subseteq \bigcup_{a \in A} B^a \subseteq \bigcup_{k=1}^\infty 5 B^{a_k}.
+    \]
+    Then, by Proposition \ref{prop:outerMeasureScalesNDim}, the monotonicity of measures, and countable subadditivity, our result follows.
+\end{proof}
+
 \begin{example}
 \label{exa:isi2007samplepsb4}Let $f:\mathbb{R}\rightarrow\mathbb{R}$
 be a bounded continuous function. Define $g:[0,\infty)\rightarrow\R$
@@ -1126,6 +1170,14 @@ by using $T\left(y\right)=x-y$ \hl{TODO AFTER CHANGE OF VARIABLES}
 \begin{prop}
 \label{prop:derivativeConvolution}
 \end{prop}
+
+\subsection{Laplace's method}
+
+\begin{thm}[Laplace's method]
+\label{thm:laplaceMethod}
+
+\end{thm}
+
 
 
 \section{Kernels and disintegration}
