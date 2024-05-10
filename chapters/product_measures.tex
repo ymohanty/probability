@@ -1024,10 +1024,10 @@ Establishing the change of variables theorem in full requires a difficult
 measure theoretic result due to Lebesgue called the Lebesgue Differentiation
 Theorem. It turns out that this result is also key to establishing
 the fundamental theorem of calculus, and so we shall kill two birds with one stone and prove the 
-change of variables theorem along with the fundamental theorem of calculus.
+fundamental theorem of calculus and the change of variables theorem.
 
 The Lebesgue Differentiation Theorem is built on top of lemmata that are important and interesting in their own right. We start with a \emph{covering lemma} 
-which is a geometric type analogue of compactness arguments from topology. Throughout, we shall be working in $\R^n$ where the standard notation $B_r\left(c\right)$ denotes a ball of radius $r$ 
+which is a geometric argument that shows that a cover of a set $E$ that consists of bounded balls can be reduced to an enlargement of a countable subcollection of disjoint balls. Throughout, we shall be working in $\R^n$ where the standard notation $B_r\left(c\right)$ denotes a ball of radius $r$ 
 centered at $c$ under the standard Euclidean norm. We shall use superscripts to denote indices; that is to say, a ball $B^a$ -- where $A$ is an index set -- is short hand for
 $B^a_r(c)$ where $r$ is the radius and $c$ is the center. We will use the notation $r(B^a)$ to denote the radius of the ball $B^a$ and $c(B^a)$ to denote its center. 
 
@@ -1067,6 +1067,55 @@ $B^a_r(c)$ where $r$ is the radius and $c$ is the center. We will use the notati
     \]
     Then, by Proposition \ref{prop:outerMeasureScalesNDim}, the monotonicity of measures, and countable subadditivity, our result follows.
 \end{proof}
+
+\begin{rem*}
+	The bound is not sharp and the constant 5 is not necessarily optimal. Instead of choosing $r(B^{a_i}) \geq \frac{1}{2}\sup_{a\in A} r(B^a)$, we could have chosen $r(B^a_i) \geq c\sup_{a\in A} r(B^a)$ where $c \in (0,1)$. In this case, we get the inequality that
+	\[
+	 	\lambda^n (E) \leq \left(\frac{2+c}{c}\right)^n \sum_{i=1}^\infty \lambda^n \left( B^{a_i} \right).
+	\]
+	Since $c \to \frac{c+2}{c}$ is decreasing on $(0,1)$, it doesnt achieve a minimum, leaving us unable to optimize bound this way.
+\end{rem*}
+
+This geometric result appears to be a non-sequitur in our development of the fundamental theorem of calculus but it turns out to be indispensable to a key intermediate result
+called the \emph{Hardy-Littlewood weak inequality}. 
+
+\begin{defn}
+\label{def:maximalFunction} A function $f \in \mathcal{M}\left(\R^n, \borel \left( \R^n \right) \right) $ is called \emph{locally integrable} if for any compact 
+$K \subset \R^n$
+\[
+    \lambda^n \left( \lvert f \rvert \indicate_K \right) < \infty. 
+\]
+For any locally integrable function $f$, its \emph{maximal function} $Mf$ is defined 
+\[
+Mf(x) := \sup_{r > 0} \frac{1}{\lambda^n \left(B_r(x)\right) } \lambda^n \left( \lvert f \rvert \indicate_{B_r(x)} \right).
+\] 
+
+\end{defn}
+
+\begin{prop}
+    \label{prop:maximalFunctionMeasurable} Let $f \in \mathcal{M}\left(\R^n, \borel \left( \R^n \right) \right) $ be locally integrable. Then
+    $Mf:\R^n \to \R $ is Borel-measurable.
+\end{prop}
+\begin{proof}
+    First, observe that $x \to \lambda^n \left(\lvert f \rvert \indicate_{B_r(x)} \right)$ is continuous. To see this, let $\{x_n\}_{n \in \N} \in \R^n$ be a sequence
+    converging to $x$.  Eventually, for large enough $n$ (say $n\geq n^*$), the sequence is in $B_r(x)$ and so for arbitrary $y \in B_r(x_n)$, $n \geq n^*$, we have that
+    \begin{align*}
+        \lVert y - x \rVert &\leq \lVert y - x_{n} \rVert + \lVert x_{n} - x \rVert  \\
+        & \leq 2r 
+    \end{align*}
+    and so for large enough $n$, $B_r(x_n) \subseteq  B_{2r}(x)$. Now consider the functions $g_n := \lvert f \rvert \indicate_{B_r(x_n)}$.  Since $\overline{B_{2r}(x)}$ is compact, local integrability implies that the sequence of functions $g_n$ is dominated by the integrable function $h := \lvert f \rvert \indicate_{\overline{B_{2r}(x)}}$ and so by dominated convergence 
+    \[
+    	\lambda^n \left(g_n\right) \to \lambda^n \left(g\right).
+    \]
+    Of course, \hl{RESULT} implies that 
+    \[
+    	\lambda^n \left(g\right) = \lambda^n\left( \lvert f \rvert \indicate_{B_r(x)}\right) 
+    \]
+    and so the continuity result follows.
+\end{proof}
+
+
+
 
 \begin{example}
 \label{exa:isi2007samplepsb4}Let $f:\mathbb{R}\rightarrow\mathbb{R}$
