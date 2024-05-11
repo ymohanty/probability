@@ -1077,7 +1077,12 @@ $B^a_r(c)$ where $r$ is the radius and $c$ is the center. We will use the notati
 \end{rem*}
 
 This geometric result appears to be a non-sequitur in our development of the fundamental theorem of calculus but it turns out to be indispensable to a key intermediate result
-called the \emph{Hardy-Littlewood weak inequality}. 
+called the \emph{Hardy-Littlewood weak inequality}. Before we get to it, we need a special case of a result we shall later establish in Chapter \hl{Measure and Topology (?)}
+
+\begin{lem}
+	\label{lem:ballBoundaryMeasureZero} Let $B_r(x) \subset \R^n$ be an open ball. Then $\lambda^n \left(\partial B_r(x) \right) = 0$ where $\partial E$ denotes the boundary of set $E$.
+\end{lem}
+
 
 \begin{defn}
 \label{def:maximalFunction} A function $f \in \mathcal{M}\left(\R^n, \borel \left( \R^n \right) \right) $ is called \emph{locally integrable} if for any compact 
@@ -1097,13 +1102,17 @@ Mf(x) := \sup_{r > 0} \frac{1}{\lambda^n \left(B_r(x)\right) } \lambda^n \left( 
     $Mf:\R^n \to \R $ is Borel-measurable.
 \end{prop}
 \begin{proof}
-    First, observe that $x \to \lambda^n \left(\lvert f \rvert \indicate_{B_r(x)} \right)$ is continuous. To see this, let $\{x_n\}_{n \in \N} \in \R^n$ be a sequence
+    First, for a fixed $r>0$, observe that $x \to \lambda^n \left(\lvert f \rvert \indicate_{B_r(x)} \right)$ is continuous. To see this, let $\{x_n\}_{n \in \N} \in \R^n$ be a sequence
     converging to $x$.  Eventually, for large enough $n$ (say $n\geq n^*$), the sequence is in $B_r(x)$ and so for arbitrary $y \in B_r(x_n)$, $n \geq n^*$, we have that
     \begin{align*}
         \lVert y - x \rVert &\leq \lVert y - x_{n} \rVert + \lVert x_{n} - x \rVert  \\
         & \leq 2r 
     \end{align*}
-    and so for large enough $n$, $B_r(x_n) \subseteq  B_{2r}(x)$. Now consider the functions $g_n := \lvert f \rvert \indicate_{B_r(x_n)}$.  Since $\overline{B_{2r}(x)}$ is compact, local integrability implies that the sequence of functions $g_n$ is dominated by the integrable function $h := \lvert f \rvert \indicate_{\overline{B_{2r}(x)}}$ and so by dominated convergence 
+    and so for large enough $n$, $B_r(x_n) \subseteq  B_{2r}(x)$. Writing $g_n := \lvert f \rvert \indicate_{B_r(x_n)}$, we claim that $g_n \to g:= \lvert f \rvert \indicate_{B_r(x)}$ almost everywhere. Indeed, notice that for any $y \in \R^n$, if $\lVert y - x\rVert > r$ then we can find some $\epsilon > 0$ such that $\lVert y - x \rVert = r - \epsilon$. By convergence, for large enough $n$, we have that $\lVert x - x_n \rVert < \frac{\epsilon}{2}$ and so 
+    \begin{align*}
+    	\lVert y - x_n \rVert \leq \lVert
+    \end{align*}
+    Thus $\{ y \in \R^n \mid \lim g_n(y) \neq g(y)\} \subseteq \{y \in \R^n \mid \lVert y - x \rVert = r\}$. Since Lemma \ref{lem:ballBoundaryMeasureZero} implies that this set has  $\overline{B_{2r}(x)}$ is compact, local integrability implies that the sequence of functions $g_n$ is dominated by the integrable function $h := \lvert f \rvert \indicate_{\overline{B_{2r}(x)}}$ and so by dominated convergence 
     \[
     	\lambda^n \left(g_n\right) \to \lambda^n \left(g\right).
     \]
