@@ -1079,10 +1079,6 @@ $B^a_r(c)$ where $r$ is the radius and $c$ is the center. We will use the notati
 This geometric result appears to be a non-sequitur in our development of the fundamental theorem of calculus but it turns out to be indispensable to a key intermediate result
 called the \emph{Hardy-Littlewood weak inequality}. Before we get to it, we need a special case of a result we shall later establish in Chapter \hl{Measure and Topology (?)}
 
-\begin{lem}
-	\label{lem:ballBoundaryMeasureZero} Let $B_r(x) \subset \R^n$ be an open ball. Then $\lambda^n \left(\partial B_r(x) \right) = 0$ where $\partial E$ denotes the boundary of set $E$.
-\end{lem}
-
 
 \begin{defn}
 \label{def:maximalFunction} A function $f \in \mathcal{M}\left(\R^n, \borel \left( \R^n \right) \right) $ is called \emph{locally integrable} if for any compact 
@@ -1094,9 +1090,12 @@ For any locally integrable function $f$, its \emph{maximal function} $Mf$ is def
 \[
 Mf(x) := \sup_{r > 0} \frac{1}{\lambda^n \left(B_r(x)\right) } \lambda^n \left( \lvert f \rvert \indicate_{B_r(x)} \right).
 \] 
-
 \end{defn}
 
+\hl{REVIEW}
+\begin{lem}
+	\label{lem:ballBoundaryMeasureZero} Let $B_r(x) \subset \R^n$ be an open ball. Then $\lambda^n \left(\partial B_r(x) \right) = 0$ where $\partial E$ denotes the boundary of set $E$.
+\end{lem}
 \begin{prop}
     \label{prop:maximalFunctionMeasurable} Let $f \in \mathcal{M}\left(\R^n, \borel \left( \R^n \right) \right) $ be locally integrable. Then
     $Mf:\R^n \to \R $ is Borel-measurable.
@@ -1108,19 +1107,61 @@ Mf(x) := \sup_{r > 0} \frac{1}{\lambda^n \left(B_r(x)\right) } \lambda^n \left( 
         \lVert y - x \rVert &\leq \lVert y - x_{n} \rVert + \lVert x_{n} - x \rVert  \\
         & \leq 2r 
     \end{align*}
-    and so for large enough $n$, $B_r(x_n) \subseteq  B_{2r}(x)$. Writing $g_n := \lvert f \rvert \indicate_{B_r(x_n)}$, we claim that $g_n \to g:= \lvert f \rvert \indicate_{B_r(x)}$ almost everywhere. Indeed, notice that for any $y \in \R^n$, if $\lVert y - x\rVert > r$ then we can find some $\epsilon > 0$ such that $\lVert y - x \rVert = r - \epsilon$. By convergence, for large enough $n$, we have that $\lVert x - x_n \rVert < \frac{\epsilon}{2}$ and so 
+    and so for large enough $n$, $B_r(x_n) \subseteq  B_{2r}(x)$. Writing $g_n := \lvert f \rvert \indicate_{B_r(x_n)}$, we claim that $g_n \to g:= \lvert f \rvert \indicate_{B_r(x)}$ almost everywhere. Indeed, notice that for any $y \in \R^n$, if $\lVert y - x\rVert > r$ then we can find some $\epsilon > 0$ such that $\lVert y - x \rVert = r - \epsilon$. Since $x_n \to x$, for large enough $n$, we have that $\lVert x - x_n \rVert < \frac{\epsilon}{2}$ and so 
     \begin{align*}
-    	\lVert y - x_n \rVert \leq \lVert
+    	\lVert y - x_n \rVert &\leq \lVert y -x \rVert + \lVert x - x_n \\
+    	&\leq r - \epsilon + \frac{\epsilon}{2}\\
+    	&< r.
     \end{align*}
-    Thus $\{ y \in \R^n \mid \lim g_n(y) \neq g(y)\} \subseteq \{y \in \R^n \mid \lVert y - x \rVert = r\}$. Since Lemma \ref{lem:ballBoundaryMeasureZero} implies that this set has  $\overline{B_{2r}(x)}$ is compact, local integrability implies that the sequence of functions $g_n$ is dominated by the integrable function $h := \lvert f \rvert \indicate_{\overline{B_{2r}(x)}}$ and so by dominated convergence 
+    Similarly, if $\lVert y - x \rVert > r$ we know there's some $\epsilon > 0$ such that $\lVert y - x \rVert = r + \epsilon$ and so with the same type of argument, we have for large $n$
+    \begin{align*}
+    	\lVert y - x_n \rVert &\geq \lVert y - x\rVert - \lVert x_n - x \rVert \\
+    	&\geq r + \epsilon - \frac{\epsilon}{2} \\
+    	&> \epsilon.
+    \end{align*}
+    Thus $\{ y \in \R^n \mid \lim g_n(y) \neq g(y)\} \subseteq \{y \in \R^n \mid \lVert y - x \rVert = r\}$ where this latter set has measure zero since \hl{...}. Since $\overline{B_{2r}(x)}$ is compact, local integrability implies that the sequence of functions $g_n$ is dominated by the integrable function $h := \lvert f \rvert \indicate_{\overline{B_{2r}(x)}}$ and so by dominated convergence 
     \[
     	\lambda^n \left(g_n\right) \to \lambda^n \left(g\right).
     \]
-    Of course, \hl{RESULT} implies that 
-    \[
-    	\lambda^n \left(g\right) = \lambda^n\left( \lvert f \rvert \indicate_{B_r(x)}\right) 
-    \]
     and so the continuity result follows.
+    
+    By a similar argument, $\frac{1}{\lambda^n \left(B_r(x)\right)}$ is continuous and thus so is their product. In other words, for any $a \in \R$ and $r>0$, $\{ x \in \R^n \mid \frac{1}{\lambda^n \left(B_r(x)\right) } \lambda^n \left( \lvert f \rvert \indicate_{B_r(x)} \right)  > a\}$ is open. Note that for any $x \in \R^n$ and fixed $ a \in \R$.
+    \[
+    	Mf(x) > a \Longleftrightarrow \exists r > 0 \text{ s.t } \frac{1}{\lambda^n \left(B_r(x)\right) } \lambda^n \left( \lvert f \rvert \indicate_{B_r(x)} \right)  > a
+    \] and so 
+    \[
+    	\{ x \in \R^n \mid Mf(x) > a\} = \bigcup_{r > 0}  \left\{x \in \R^n \mid \frac{1}{\lambda^n \left(B_r(x)\right) } \lambda^n \left( \lvert f \rvert \indicate_{B_r(x)} \right)  > a \right\}
+    \]
+    which is open since arbitrary unions of open sets are open. Then, applying the standard generating class argument (Lemma \ref{lem:collectionIntervalsMeasurable}) yields the result.
+\end{proof}
+
+
+\hl{REVIEW}
+\begin{thm}[Hardy-Littlewood]
+	\label{thm:hardyLittlewoodWeakInequality} If $f \in \Lp{1}{\lambda^n}$ then 
+	\[
+		\lambda^n\left( \{\ x \in \R^n \mid Mf(x) > a \}\right) \leq \frac{5^n}{a}\lambda^n\left(\lvert f \rvert\right)
+	\]
+	for any $a > 0$.
+\end{thm}
+
+\begin{proof}
+	Fix $a>0$ and consider, any $x_0 \in \{Mf(x) > a\}$. By the definition of the maximal function, there exists some $r_0>0$ such that
+	\[
+		\frac{1}{\lambda^n\left(B_{r_0}(x_0)\right)}\lambda^n\left(\lvert f \rvert \indicate_{B_{r_0}(x_0)}\right) > a
+	\] 
+	which is equivalent to saying
+	\begin{align*}
+		\lambda^n\left( B_{r_0}(x_0)\right) &< \frac{\lambda^n\left( \lvert f\rvert \indicate_{B_{r_0}(x_0)} \right)}{a} \\
+		&\leq \frac{\lebInt{\lambda^n}{\lvert f \rvert }}{a}.
+	\end{align*}
+	Therefore $\{ x \in \R^n \mid Mf(x) > a\}$ can be covered by balls which are bounded above in measure by $R:=\frac{\lebInt{\lambda^n}{\lvert f \rvert }}{a}$. We can therefore apply Lemma \ref{lem:coveringLemma} and extract a countable subcollection of such balls $\{B_i\}_{i\in\N}$ which are pairwise disjoint such that
+	\begin{align*}
+		\lambda^n \left( \{ x \in \R^n \mid Mf(x) > a\} \right) &\leq  5^n \sum_{i=1}^n \lambda^n\left( B_i\right) \\
+		&\leq \frac{5^n}{a} \sum_{i=1}^n \lambda^n\left(\lvert f \rvert \indicate_{B_i}\right) \\
+		&= \frac{5^n}{a}\lambda^n\left( \lvert f \rvert \right)
+	\end{align*}
+where the equality at the end is via monotone convergence.
 \end{proof}
 
 
