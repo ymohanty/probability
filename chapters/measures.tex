@@ -1666,7 +1666,7 @@ such that $A\subseteq\bigcup_{i\in\N}\left(a_{i},b_{i}\right]$ and
 \lambda\left(A\right)\leq\sum_{i=1}^{\infty}\lambda\left(\left(a_{i},b_{i}\right]\right)=\sum_{i=1}^{\infty}\lambda\left(\left(a_{i},b_{i}\right)\right)<\lambda\left(A\right)+\frac{\epsilon}{2}.
 \]
 where the second equality is property $\left(ii\right)$ in Theorem
-\ref{thm:existenceLebesgueR}.Next, we consider the open sets $\left(a_{i},b_{i}+\frac{\epsilon}{4^{i}}\right)$.
+\ref{thm:existenceLebesgueR}. Next, we consider the open sets $\left(a_{i},b_{i}+\frac{\epsilon}{4^{i}}\right)$.
 Clearly, $A\subseteq\bigcup_{i\in\N}\left(a_{i},b_{i}+\frac{\epsilon}{4^{i}}\right)$.
 Letting $O=\bigcup_{i\in\N}\left(a_{i},b_{i}+\frac{\epsilon}{4^{i}}\right)$,
 we see that $O$ is open since the union of open sets is open. Further,
@@ -1751,7 +1751,7 @@ for any $A\subseteq\R$
 
 \begin{proof}
 $\left[\left(i\right)\implies\left(ii\right)\right]$ First assume
-$\left(i\right)$ and observe that by Proposition \ref{prop:equivalentLebesgueMeasurability},
+$\left(i\right)$ and observe that by Proposition \ref{prop:borelApproximateLebesgue},
 for every $n\in\N$ there exists some open set $O_{n}$ such that
 $A\subseteq O_{n}$ and \footnote{Note that $O_{n}\setminus A=O_{n}\cap A^{C}\in\mathcal{C}\left(\lambda^{*}\right)$
 since $A,O_{n}\in\mathcal{C}\left(\lambda^{*}\right)$}
@@ -1770,12 +1770,12 @@ $\left[\left(ii\right)\implies\left(iii\right)\right]$ This implication
 is trivial since $G$ above is a Borel set.
 
 $\left[\left(iii\right)\implies\left(i\right)\right]$ This follows
-the same argument as in Proposition \ref{prop:equivalentLebesgueMeasurability}
+the same argument as in Proposition \ref{prop:borelApproximateLebesgue}
 to show that $\lambda\left(B\setminus A\right)=0\implies\lambda^{*}\left(E\right)\geq\lambda^{*}\left(E\cap A\right)+\lambda^{*}\left(E\cap A^{C}\right).$
 
 $\left[\left(i\right)\implies\left(iv\right)\right]$ Fix $\epsilon>0$
 and let $A\in\mathcal{C}\left(\lambda^{*}\right)$. Then $A^{C}\in\mathcal{C}\left(\lambda^{*}\right)$
-and so by Proposition \ref{prop:equivalentLebesgueMeasurability},
+and so by Proposition \ref{prop:borelApproximateLebesgue},
 there exists some open $O$ such that $A^{C}\subseteq O$ and 
 \[
 \lambda\left(O\setminus A^{C}\right)<\epsilon.
@@ -2216,3 +2216,5 @@ yielding the result.
 \end{proof}
 
 \subsubsection{Fat cantor sets}
+
+\hl{Folland: Exercise 32, page 40}
