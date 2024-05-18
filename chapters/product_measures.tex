@@ -832,7 +832,7 @@ and restricting the canonical outer measure
 \lambda_{*}^{n}\left(A\right)=\inf\left\{ \sum_{j=1}^{\infty}\lambda_{1}^{n}\left(L_{j}\right)\mid A\subseteq\bigcup_{j\in\N}L_{j},L_{j}\in\mathcal{L}^{n}\right\} 
 \]
 to the Lebesgue $\sigma-$algebra $\mathcal{C}\left(\lambda_{*}^{n}\right)$.
-This works because the collection $\mathcal{L}^{n}$ can be shown
+This works because the collection $\mathcal{L}^{n}$ can be \hl{shown}
 to be a semi-ring and $\lambda_{1}^{n}:\mathcal{L}^{n}\to\left[0,\infty\right]$
 (here $\lambda_{1}^{n}\left(\prod_{i=1}^{n}L_{i}\right)=\prod_{i=1}^{n}\lambda_{1}\left(L_{i}\right)$where
 $L_{i}\in\mathcal{L}$) can be shown to satisfy the requirements of
@@ -1013,9 +1013,72 @@ and so
 \[
 \lvert\det\left(T\right)\rvert=1.
 \]
-We then apply \ref{lem:changeOfVariablesLinear} with $f=\indicate_{B}$
+We then apply Lemma  \ref{lem:changeOfVariablesLinear} with $f=\indicate_{B}$
 and $T=R$.
 \end{proof}
+
+We have seen some (but not all!) of the nice \emph{geometric} properties of the Lebesgue measure (mainly that it's invariant under rigid motions). Before we can generalize the Lemma \ref{lem:changeOfVariablesLinear} to non-linear maps, we also need to establish some of the basic \emph{topological} properties of the Lebesgue measure analogous to Proposition \ref{prop:equivalentLebesgueMeasurability} for the one dimensional Lebesgue measure. Later, in Chapter \ref{chap:measureAndTopology}, we will explore the link between measure and topology more deeply.
+
+\hl{REVIEW}
+\begin{thm}
+	\label{thm:lebesgueTopologicalProperty}
+	Let $E \subset \R^n$ be Lebesgue measurable. Then
+	\[
+		\lambda^n\left(E\right) = \inf \left\{\lambda^n \left(O\right) \mid E \subseteq O, O \text{ is open }\right\}
+	\]
+	and 
+	\[
+		\lambda^n\left(E\right) = \sup \left\{\lambda^n \left(K\right) \mid K \subseteq E, K \text{ is compact }\right\}
+	\]
+\end{thm}
+\begin{proof}
+The proof of the first claim is almost identical to the proof of Proposition \ref{prop:borelApproximateLebesgue}. First assume that $\lambda(E) < \infty$ and note that by the outer measure construction of the $n$-dimensional Lebesgue measure, for any $\epsilon > 0$, there exist some $\{L_i\}_{i\in\N} \in \mathcal{L}$ with $E \subset \bigcup_{i\in\N} L_i$,  where $L_i = \prod_{j=1}^n\left(a_i^j, b_i^j\right]$ such that   
+\[
+	\lambda^n\left(E\right) \leq \sum_{i=1}^\infty \underbrace{\lambda^n \left(L_i\right)}_{=\prod_{j=1}^n \left(b_i^j - a_i^j\right) } < \lambda^n \left(E\right) + \frac{\epsilon}{2}.
+\]
+Note that we can for each $i \in \N$, we can choose some $\delta_i > 0$ such that
+\[
+	\prod_{j=1}^n \left(b_i^j - a_i^j + \delta_i\right) < \prod_{j=1}^n \left(b_i^j - a_i^j\right) + \frac{\epsilon}{4^i}.\footnote{We can do this by noting that that the expression on the left-hand side can be written as a symmetric elementary polynomial. Write $\Delta^j_i := b_i^j - a_i^j$ and note that 
+		\[
+			\prod_{j=1}^n \left( \Delta_i^j + \delta_i \right) = \sum_{k=0}^n e_k\left(\{\Delta_i^j\}_{j=1}^n\right)\delta_i^{n-k}
+		\] where $e_0\left(\{\Delta_i^j\}_{j=1}^n\right) := 1$, $e_1\left(\{\Delta_i^j\}_{j=1}^n\right) := \sum_{j=1}^n \Delta_i^j$ and in general 
+		\[
+			e_k\left(\{\Delta_i^j\}_{j=1}^n\right) := \sum_{1 \leq j_1 < j_2 < \ldots < j_k \leq n} \prod_{l=1}^k \Delta_i^{j_l} 
+		\] and so for small $\delta_i$ the higher power terms can effectively be ignored \hl{complete later} }
+\]	Then writing
+\[
+ O := \bigcup_{i\in\N}\prod_{j=1}^n \left(b_i^j - a_i^j + \delta_i\right) 
+\]
+we have that $E \subseteq O$ and that
+\begin{align*}
+	\lambda^n \left(O\right) &\leq \sum_{i=1}^{\infty} \prod_{j=1}^n \left(b_i^j - a_i^j\right) +\frac{\epsilon}{4^i}\\
+	&= \sum_{i=1}^\infty \lambda^n\left(L_i\right) + \frac{\epsilon}{4^i} \\
+	&\leq \lambda^n\left(E\right)+ \epsilon
+\end{align*}
+and so the result follows when $E$ has finite measure. When it has infinite measure, we can simply follow the same kind of partitioning argument we saw in Proposition \ref{prop:borelApproximateLebesgue}. 
+
+For the approximation by compact sets, begin once again by assuming that $\lambda^n(E) < \infty$. Note that the closure of $\bar{E}$ is compact by the Heine-Borel theorem since it is bounded\footnote{if $\forall x \in E: \lVert x \rVert < R$ then for any limit point $y$ of $E$ $\lVert y \rVert \leq R$ by the continuity of norms.} and closed. Now note that by the first part of this result, the measurable set $\bar{E} \setminus E$ is contained in some open set $O$ such that $\lambda^n(O \setminus \left(\bar{E} \setminus  \right)) < \epsilon $. Now let $K := \bar{E} \cap O^C$ which is closed since it is the intersection of two closed sets, and is bounded since $\bar{E}$ is bounded. Therefore $K$ is compact and since
+\begin{align*}
+	O^C &\subseteq \left(\bar{E} \setminus E\right)^C \\
+	&= \left(\bar{E} \cap E^C \right)^C \\
+	&= \bar{E}^C \cup E
+\end{align*}
+we have that $K = \bar{E} \cap O^C \subseteq \bar{E} \cap \left(\bar{E}^C \cup E\right) = E$. Finally, we have that 
+\begin{align*}
+	\lambda^n\left(E \setminus K\right) &= \lambda^n\left(E \cap K^C\right) \\
+	&= \lambda^n\left(E \cap \left(\bar{E}^C \cup O\right)\right) \\
+	&= \lambda^n\left(\left(E \cap \bar{E}^C\right) \cup  \left( E \cap O \right)\right) \\
+	&= \lambda^n \left(E \cap O\right) \\
+	&\leq \lambda^n\left(\bar{E}^C \cap O\right) + \lambda^n\left(O \cap E\right) \\
+	&=\lambda^n\left(O \cap \left(\bar{E}^C \cup E\right)\right) \\
+	&=\lambda^n \left(O \setminus \left(\bar{E}\setminus E\right)\right) \\
+	&< \epsilon
+\end{align*}
+which completes the proof for the finite measure case. The extension to the infinite measure case is the standard $\sigma-$finiteness argument we have always used.
+
+\end{proof}
+
+
 
 \subsection{The Lebesgue differentiation theorem and the fundamental theorem
 of calculus}
@@ -1024,7 +1087,7 @@ Establishing the change of variables theorem in full requires a difficult
 measure theoretic result due to Lebesgue called the Lebesgue Differentiation
 Theorem. It turns out that this result is also key to establishing
 the fundamental theorem of calculus, and so we shall kill two birds with one stone and prove the 
-fundamental theorem of calculus and the change of variables theorem.
+fundamental theorem of calculus and the change of variables theorem together.
 
 The Lebesgue Differentiation Theorem is built on top of lemmata that are important and interesting in their own right. We start with a \emph{covering lemma} 
 which is a geometric argument that shows that a cover of a set $E$ that consists of bounded balls can be reduced to an enlargement of a countable subcollection of disjoint balls. Throughout, we shall be working in $\R^n$ where the standard notation $B_r\left(c\right)$ denotes a ball of radius $r$ 
@@ -1349,6 +1412,4 @@ For $\left(ii\right)$, we can treat
 
 \hl{Chang and Pollard, 1997}
 
-\section{Extension to infinite product spaces}
 
-\hl{ASH or KLENKE?}
