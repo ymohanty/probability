@@ -1663,14 +1663,13 @@ measure, for every $\epsilon>0$, there exists some collection of
 half-open intervals $\left\{ \left(a_{i},b_{i}\right]\right\} \in\mathcal{L}$
 such that $A\subseteq\bigcup_{i\in\N}\left(a_{i},b_{i}\right]$ and
 \[
-\lambda\left(A\right)\leq\sum_{i=1}^{\infty}\lambda\left(\left(a_{i},b_{i}\right]\right)=\sum_{i=1}^{\infty}\lambda\left(\left(a_{i},b_{i}\right)\right)<\lambda\left(A\right)+\frac{\epsilon}{2}.
+\lambda\left(A\right)\leq\sum_{i=1}^{\infty}\lambda\left(\left(a_{i},b_{i}\right]\right)<\lambda\left(A\right)+\frac{\epsilon}{2}.
 \]
-where the second equality is property $\left(ii\right)$ in Theorem
-\ref{thm:existenceLebesgueR}. Next, we consider the open sets $\left(a_{i},b_{i}+\frac{\epsilon}{4^{i}}\right)$.
+ Next, we consider the open sets $\left(a_{i},b_{i}+\frac{\epsilon}{4^{i}}\right)$.
 Clearly, $A\subseteq\bigcup_{i\in\N}\left(a_{i},b_{i}+\frac{\epsilon}{4^{i}}\right)$.
 Letting $O=\bigcup_{i\in\N}\left(a_{i},b_{i}+\frac{\epsilon}{4^{i}}\right)$,
 we see that $O$ is open since the union of open sets is open. Further,
-$\lambda\left(O\right)=\frac{\epsilon}{2}+\sum_{i=1}^{\infty}b_{i}-a_{i}<\lambda\left(A\right)+\epsilon$.
+$\lambda\left(O\right)\leq\frac{\epsilon}{2}+\sum_{i=1}^{\infty}b_{i}-a_{i}<\lambda\left(A\right)+\epsilon$.
 Therefore, since $O,E\in\mathcal{C}\left(\lambda^{*}\right)$ and
 $\lambda\left(O\right)<\infty$
 \[
