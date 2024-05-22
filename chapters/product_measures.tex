@@ -1090,7 +1090,7 @@ the fundamental theorem of calculus, and so we shall kill two birds with one sto
 fundamental theorem of calculus and the change of variables theorem together.
 
 The Lebesgue Differentiation Theorem is built on top of lemmata that are important and interesting in their own right. We start with a \emph{covering lemma} 
-which is a geometric argument that shows that a cover of a set $E$ that consists of bounded balls can be reduced to an enlargement of a countable subcollection of disjoint balls. Throughout, we shall be working in $\R^n$ where the standard notation $B_r\left(c\right)$ denotes a ball of radius $r$ 
+which is a geometric argument that shows that a cover of a set $E$ that consists of bounded balls can be reduced to an enlargement of a countable subcollection of disjoint balls. Throughout, we shall be working in $\R^n$ where the standard notation $B_r\left(c\right)$ denotes an open ball of radius $r$ 
 centered at $c$ under the standard Euclidean norm. We shall use superscripts to denote indices; that is to say, a ball $B^a$ -- where $A$ is an index set -- is short hand for
 $B^a_r(c)$ where $r$ is the radius and $c$ is the center. We will use the notation $r(B^a)$ to denote the radius of the ball $B^a$ and $c(B^a)$ to denote its center. 
 
@@ -1157,8 +1157,33 @@ Mf(x) := \sup_{r > 0} \frac{1}{\lambda^n \left(B_r(x)\right) } \lambda^n \left( 
 
 \hl{REVIEW}
 \begin{lem}
-	\label{lem:ballBoundaryMeasureZero} Let $B_r(x) \subset \R^n$ be an open ball. Then $\lambda^n \left(\partial B_r(x) \right) = 0$ where $\partial E$ denotes the boundary of set $E$.
+	\label{lem:ballBoundaryMeasureZero} For any $x \in \R$ and any $r > 0$, we have that 
+	\[
+		\lambda^n\left(\{y\in \R^n \mid \lVert y - x \rVert = r\}\right) = 0.
+	\]
 \end{lem}
+\begin{proof}
+	First let $x = 0$  and let $V := \lambda^n\left(B_1(0)\right)$. By the homogeneity of norms we have that $cB_1(0) = B_c(0)$ for any $c > 0$ and so by Proposition \ref{prop:outerMeasureScalesNDim}, $\lambda^n\left(B_c(0)\right) = c^nV$. Now notice that $\partial B_r(x) := \{y\in \R^n \mid \lVert y - x \rVert = r\}$ can be written as 
+	\begin{align*}
+		\partial B_r(x) &= \{y \in R^n \mid \lVert y - x \rVert \geq r \} \cap \{y \in R^n \mid \lVert y - x \rVert \leq r \} \\
+		&= \bigcap_{m \in \N} \left\{y \in R^n \mid \lVert y - x \rVert \geq r - \frac{1}{m}  \right\} \cap \bigcap_{m \in \N}\left\{y \in R^n \mid \lVert y - x \rVert < r + \frac{1}{m} \right\} \\
+		&=\bigcap_{m \in \N}  \left\{y \in R^n \mid \lVert y - x \rVert \geq r - \frac{1}{m}  \right\} \cap \left\{y \in R^n \mid \lVert y - x \rVert < r + \frac{1}{m} \right\} \\
+		&= \bigcap_{m \in \N}  \left\{y \in R^n \mid \lVert y - x \rVert < r - \frac{1}{m}  \right\}^C \cap \left\{y \in R^n \mid \lVert y - x \rVert < r + \frac{1}{m} \right\} \\
+		&= \bigcap_{m \in \N} B_{r+\frac{1}{m}}(x) \setminus B_{r-\frac{1}{m}}(x)
+	\end{align*}
+	which is the intersection of a decreasing sequence of (measurable) sets and thus is itself and measurable and so
+	\begin{align*}
+		\lambda^n\left(\partial B_r(0)\right) &= \lim_{n\to\infty} \lambda^n\left(B_{r+\frac{1}{m}}(0) \setminus B_{r-\frac{1}{m}}(0)\right) \\
+		&= \lim_{m\to\infty}\left[ \lambda^n\left(B_{r+\frac{1}{m}}(0)\right) - \lambda^n\left(B_{r-\frac{1}{m}}(0)\right)\right] \\
+		&= \lim_{m \to \infty} \left[ \left(r + \frac{1}{m}\right)^n -  \left(r - \frac{1}{m}\right)^n  \right] V \\
+		&= 0
+	\end{align*}
+	where we have used the continuity of measures and finite additivity. 
+	
+	Of course, by translation invariance (\ref{prop:outerMeasureTranslationInvariantNDim}), this result holds for $\partial B_r(x) = B_r(0) + x$.
+	
+\end{proof}
+
 \begin{prop}
     \label{prop:maximalFunctionMeasurable} Let $f \in \mathcal{M}\left(\R^n, \borel \left( \R^n \right) \right) $ be locally integrable. Then
     $Mf:\R^n \to \R $ is Borel-measurable.
@@ -1182,7 +1207,7 @@ Mf(x) := \sup_{r > 0} \frac{1}{\lambda^n \left(B_r(x)\right) } \lambda^n \left( 
     	&\geq r + \epsilon - \frac{\epsilon}{2} \\
     	&> \epsilon.
     \end{align*}
-    Thus $\{ y \in \R^n \mid \lim g_n(y) \neq g(y)\} \subseteq \{y \in \R^n \mid \lVert y - x \rVert = r\}$ where this latter set has measure zero since \hl{...}. Since $\overline{B_{2r}(x)}$ is compact, local integrability implies that the sequence of functions $g_n$ is dominated by the integrable function $h := \lvert f \rvert \indicate_{\overline{B_{2r}(x)}}$ and so by dominated convergence 
+    Thus $\{ y \in \R^n \mid \lim g_n(y) \neq g(y)\} \subseteq \{y \in \R^n \mid \lVert y - x \rVert = r\}$ where this latter set has measure zero by Lemma \ref{lem:ballBoundaryMeasureZero}. Since $\overline{B_{2r}(x)}$ is compact, local integrability implies that the sequence of functions $g_n$ is dominated by the integrable function $h := \lvert f \rvert \indicate_{\overline{B_{2r}(x)}}$ and so by dominated convergence 
     \[
     	\lambda^n \left(g_n\right) \to \lambda^n \left(g\right).
     \]
