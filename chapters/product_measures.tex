@@ -680,7 +680,11 @@ We can show that under mild regularity conditions,
 \[
 \lebInt{\mu}G+\lebInt{\nu}F=F\left(b\right)G\left(b\right)-F\left(a\right)G\left(a\right).
 \]
-This implies the ``usual'' integration by parts formula since \hl{complete after finishing chapter on differentiation}.
+This implies the ``usual'' integration by parts formula since if $F$ and $G$ were absolutely continuous (as functions in the sense of Definition \ref{def:absolutelyContinuousFunction} ), then by Proposition \ref{prop:absoluteContinuityStieljesFunctions}, the measures $\mu$ and $\nu$ would be absolutely continuous (in the sense of Definition \ref{def:absoluteContinuityMeasures}) with respect to the Lebesgue measure with Radon Nikodym derivatives $f$ and $g$, respectively. Then, by Corollary \ref{cor:radonNikodymIntegral} our formula would be (in the traditional integral notation)
+\[
+	\int_{a}^{b}G(x)f(x)dx + \int_{a}^{b}F(x)g(x)dx = F\left(b\right)G\left(b\right)-F\left(a\right)G\left(a\right).
+\]
+The only piece missing from our usual formula is the fact that $F^\prime = f$ and $G^\prime = g$. As we had promised back in Chapter \ref{chap:Differentiation}, we will prove this later in this chapter.
 \begin{thm}[Integration by Parts]
 \label{thm:generalizedIntegrationByParts}Let $F$ and $G$ be Stieljes
 functions on a compact set $\left[a,b\right]$. If the set of discontinuities
@@ -839,6 +843,8 @@ $L_{i}\in\mathcal{L}$) can be shown to satisfy the requirements of
 Theorem \ref{thm:semiRingCaratheodoryExtn}.
 
 \subsection{Basic properties of the Lebesgue measure\label{subsec:lebesgueRNproperties}}
+
+\subsubsection{Geometric properties}
 
 The first property of the Lebesgue measure that we establish is a
 generalization of Lemma \ref{lem:outerMeasureScales} to $n-$dimensions.
@@ -1017,7 +1023,9 @@ We then apply Lemma  \ref{lem:changeOfVariablesLinear} with $f=\indicate_{B}$
 and $T=R$.
 \end{proof}
 
-We have seen some (but not all!) of the nice \emph{geometric} properties of the Lebesgue measure (mainly that it's invariant under rigid motions). Before we can generalize the Lemma \ref{lem:changeOfVariablesLinear} to non-linear maps, we also need to establish some of the basic \emph{topological} properties of the Lebesgue measure analogous to Proposition \ref{prop:equivalentLebesgueMeasurability} for the one dimensional Lebesgue measure. Later, in Chapter \ref{chap:measureAndTopology}, we will explore the link between measure and topology more deeply.
+\subsubsection{Topological properties}
+
+We have seen some (but not all!) of the nice \emph{geometric} properties of the Lebesgue measure (mainly that it's invariant under rigid motions). Before we can generalize the Lemma \ref{lem:changeOfVariablesLinear} to non-linear maps, we also need to establish some of the basic \emph{topological} properties of the Lebesgue measure ( we hinted at at this with Proposition \ref{prop:equivalentLebesgueMeasurability} for the one dimensional Lebesgue measure). Later, in Chapter \ref{chap:measureAndTopology}, we will explore the link between measures and topology more deeply.
 
 \hl{REVIEW}
 \begin{thm}
@@ -1075,6 +1083,10 @@ we have that $K = \bar{E} \cap O^C \subseteq \bar{E} \cap \left(\bar{E}^C \cup E
 	&< \epsilon
 \end{align*}
 which completes the proof for the finite measure case. The extension to the infinite measure case is the standard $\sigma-$finiteness argument we have always used.
+
+\hl{Lusin's theorem: Rudin RCA (pp 55-56)}
+
+\hl{Continuous compactly supported functions dense in Lp: Rudin RCA (pp 69)}
 
 \end{proof}
 
@@ -1180,7 +1192,7 @@ Mf(x) := \sup_{r > 0} \frac{1}{\lambda^n \left(B_r(x)\right) } \lambda^n \left( 
 	\end{align*}
 	where we have used the continuity of measures and finite additivity. 
 	
-	Of course, by translation invariance (\ref{prop:outerMeasureTranslationInvariantNDim}), this result holds for $\partial B_r(x) = B_r(0) + x$.
+	Of course, by translation invariance (\ref{prop:outerMeasureTranslationInvariantNDim}), this result holds for $\partial B_r(x) = \partial B_r(0) + x$.
 	
 \end{proof}
 
@@ -1271,8 +1283,10 @@ of $g$.\hl{TODO}
 \subsection{Non-linear change-of-variables}
 
 \subsection{Integration with polar coordinates}
+\hl{Folland / Schilling}
 
 \subsection{Symmetry of partial derivatives}
+\hl{Axler}
 
 \subsection{Convolutions\label{subsec:convolutions}}
 
