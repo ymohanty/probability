@@ -1081,7 +1081,7 @@ we have that $K = \bar{E} \cap O^C \subseteq \bar{E} \cap \left(\bar{E}^C \cup E
 	&=\lambda^n\left(O \cap \left(\bar{E}^C \cup E\right)\right) \\
 	&=\lambda^n \left(O \setminus \left(\bar{E}\setminus E\right)\right) \\
 	&< \epsilon
-\end{align*}
+\end{align*}  
 which completes the proof for the finite measure case. The extension to the infinite measure case is the standard $\sigma-$finiteness argument we have always used.
 
 \hl{Lusin's theorem: Rudin RCA (pp 55-56)}
@@ -1263,6 +1263,55 @@ Mf(x) := \sup_{r > 0} \frac{1}{\lambda^n \left(B_r(x)\right) } \lambda^n \left( 
 	\end{align*}
 where the equality at the end is via monotone convergence.
 \end{proof}
+
+We seem to be doing a lot of work to prove an $n-$dimensional generalization of the first fundamental theorem of calculus (FTC-1). The reason we need all this setup is that while the traditional FTC-1 applies to continuous functions, we are trying to extend the result to merely (locally) integrable functions. Fortunately for us, \hl{insert relevant theorem} tells us that continuous functions on compact support are dense in $\Lp{p}{\lambda^n}$.
+\begin{defn}
+	For any locally integrable $f \in \mathcal{M}\left(\R^n , \borel \left(\R^n\right)\right)$, a point $x \in \R$ is called a \emph{Lebesgue point} of $f$ if
+	\[
+		\lim_{r\to 0} \frac{1}{\lambda^n\left(B_r(x)\right)} \lambda^n_y\left(\lvert f(y) - f(x) \rvert \indicate_{B_r(x)}\right) = 0.
+	\]
+\end{defn}
+
+It should be clear that the continuity points of $f$ are also Lebesgue points of $f$. Indeed, if $x$ is a continuity point, for any $\epsilon > 0$, there exists a $\delta > 0 $ such that when $y \in B_r(x)$ for $0< r \leq \delta$, we have that $\lvert f(y) - f(x) \rvert < \epsilon$. This ensures that for small enough $r$, 
+\[
+	\frac{1}{\lambda^n\left(B_r(x)\right)} \lambda^n_y\left(\lvert f(y) - f(x) \rvert \indicate_{B_r(x)}\right) \leq \frac{1}{\lambda^n\left(B_r(x)\right)} \lambda^n_y\left(\epsilon \indicate_{B_r(x)}\right) = \epsilon.
+\]
+Since $\epsilon$ was arbitrary the result follows. Using this fact, the density of continuous functions, and the Hardy-Littlewood inequality, we have the tools to show that almost every point in the domain of a locally integrable function is a Lebesgue point. We prove a slightly weaker result first.
+
+\begin{lem}
+	\label{lem:lebesgueDifferentiation}
+	Let $f \in \mathcal{M}\left(\R^n , \borel \left(\R^n\right)\right)$ be locally integrable. Define
+	\[
+	f_r(x) := \frac{1}{\lambda^n \left(B_r(x)\right) } \lambda^n \left(  f \indicate_{B_r(x)} \right).
+	\]
+	Then $f_r(x) \stackrel{\text{a.e}}{\to} f(x)$.
+\end{lem}
+\begin{proof}
+	Let $a > 0$ be fixed and first assume $f$ is integrable. By the \hl{insert theorem} density of continuous compactly supported functions in $\Lp{1}{\lambda^n}$, for any $\epsilon > 0$, there exists some function $g$ such that $\lVert f - g \rVert_1 < \epsilon$. Then, by the triangle inequality, monotonicity of measures, and finite subadditivity\footnote{We are using $\limsup$ rather than $\lim$ because we don't know the limit exists yet.}
+	\begin{align*}
+		\lambda^n\left(\limsup_{r\to 0}\lvert f_r(x) - f(x) \rvert > a\right) &\leq \lambda^n\left(\limsup_{r\to 0}\lvert f_r(x) - g_r(x) \rvert +  \limsup_{r\to 0}\lvert g_r(x) - g(x) \rvert + \lvert g(x) - f(x) \rvert > a\right) \\
+		&\leq \lambda^n \left(\limsup_{r\to 0} \lvert f_r(x) - g_r(x) \rvert > \frac{a}{3}\right) + \lambda^n\left(\limsup_{r\to 0} \lvert g_r(x) - g(x) \rvert > \frac{a}{3}\right) + \\ & \hspace{4em}\lambda^n\left(\lvert f(x) - g(x) \rvert > \frac{a}{3}\right).
+	\end{align*}
+	
+	Note that the second term on the right-hand side is 0 given our discussion on how the domain of a continuous functions consists of Lebesgue points. The third term is bounded above by $\frac{3\epsilon}{a}$ by Markov's inequality \hl{insert ref}. For the first term, note that $\lvert f_r - g_r \rvert \leq M\left(f-g\right)$ where $M$ is the maximal function operator from Definition \ref{def:maximalFunction}. This we can rewrite the inequality as 
+	\begin{align*}
+		\lambda^n\left(\limsup_{r\to 0}\lvert f_r(x) - f(x) \rvert > a\right) &\leq 	\lambda^n\left(M(f-g)(x) \rvert > \frac{a}{3}\right) + \frac{3\epsilon}{a} \\
+		&\leq \frac{3\epsilon\left(5^n + 1\right)}{a}
+	\end{align*}
+	where the second inequality comes from Hardy-Littlewood's Theorem \ref{thm:hardyLittlewoodWeakInequality}. Since $\epsilon > 0$ can be arbitrarily small we have 
+	\[
+	\lambda^n\left(\limsup_{r\to 0}\lvert f_r(x) - f(x) \rvert > a\right) = 0.
+	\]
+	In particular, the result holds for $a = \frac{1}{m}$ for all $m \in \N$ and since
+	\begin{align*}
+		\lambda^n\left(\limsup_{r\to 0}\lvert f_r(x) - f(x) \rvert > 0\right) &= \lambda^n\left(\bigcup_{m\in\N}\limsup_{r\to 0}\lvert f_r(x) - f(x) \rvert > \frac{1}{m}\right) \\
+		&\leq \sum_{m=1}^\infty \left(\limsup_{r\to 0}\lvert f_r(x) - f(x) \rvert > \frac{1}{m}\right) = 0
+	\end{align*}
+	our result for the integrable case follows by subadditivity and non-negativity of measures.
+	
+	The extension to the locally integrable case is routine;
+\end{proof}
+
 
 
 
