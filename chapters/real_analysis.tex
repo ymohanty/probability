@@ -279,6 +279,411 @@ Series are limits of sequences of partial sums of the form $\{\sum_{i=1}^n a_i \
 
 \subsection{Limits of functions}
 
+\subsection{Differentiation in $\R$\label{subsec:reviewDifferentiation}}
+
+We first review some basic material from single variable calculus
+for completeness; note that this section is technically presumed knowledge
+and so results appearing previously in the text use some of the facts
+established here. We will avoid circularity by keeping this section
+self-contained without any reference to the material we have developed
+so far in the body of the text (we will use results from the appendices).
+\begin{defn}
+	\label{def:differentiable}A function $f:\left[a,b\right]\to\R$ is
+	said to be \emph{differentiable at a point }$c\in\left(a,b\right)$
+	if 
+	\[
+	\lim_{x\to a}\frac{f\left(x\right)-f\left(a\right)}{x-a}
+	\]
+	exists as a real number. The function is said to be \emph{differentiable
+	}if it is differentiable at every point in the interior of its domain.
+	If a function $f$ is differentiable everywhere, the derivative function
+	is denoted $f^{\prime}$as in 
+	\[
+	f^{\prime}\left(y\right)=\lim_{x\to y}\frac{f\left(x\right)-f\left(y\right)}{x-y}.
+	\]
+\end{defn}
+
+\begin{rem*}
+	The derivative is also denoted $\frac{df}{dy}=f^{\prime}\left(y\right)$
+	which captures the heuristic that the derivative can be thought as
+	the ratio of small quantities.
+\end{rem*}
+\begin{example}
+	\label{exa:derivativeConstant}It should be immediately clearly that
+	for any constant function $f\left(x\right)=a$, its derivative is
+	zero everywhere, and for the function $f\left(x\right)=x$, its derivative
+	is 1 is everywhere.
+\end{example}
+
+\begin{prop}
+	\label{prop:differentiableImpliesContinuous}Let $f:\left[a,b\right]\to\R$
+	be differentiable at a point $c\in\left(a,b\right).$Then it is continuous
+	at $c.$
+\end{prop}
+
+\begin{proof}
+	Recall that the limit of the product of two functions is the product
+	of the limit, provided those individual limits exist. 
+	\begin{align*}
+		\lim_{x\to c}f\left(x\right)-f\left(c\right) & =\lim_{x\to c}\frac{f\left(x\right)-f\left(c\right)}{x-c}x-c\\
+		& =\lim_{x\to c}\frac{f\left(x\right)-f\left(c\right)}{x-c}\lim_{x\to c}x-c\\
+		& =f^{\prime}\left(c\right)0\\
+		& =0
+	\end{align*}
+	which completes the proof.
+\end{proof}
+\begin{rem*}
+	The converse of this theorem is not true; for instance, consider that
+	$\lvert x\rvert$ is continuous (this follows by the ``reverse''
+	triangle inequality $\lvert\lvert x\rvert-\lvert y\rvert\rvert\leq\lvert x-y\rvert)$.
+	That it is not differentiable can be seen by looking at 
+	\[
+	\lim_{x\to0^{-}}\frac{\lvert x\rvert}{x}=-1\neq1=\lim_{x\to0^{+}}\frac{\lvert x\rvert}{x}.
+	\]
+\end{rem*}
+\begin{prop}
+	\label{prop:algebraOfDifferentiableFunctions}Let $f,g$ be real-valued
+	functions on $\left[a,b\right]$ that are differentiable at some $x\in\left[a,b\right]$
+	. Then $f+g$ and $fg$ are differentiable at $x.$ If $g\left(x\right)\neq0$
+	then $\frac{f}{g}$is also differentaible. The derivatives are given
+	\begin{align}
+		\left(f+g\right)^{\prime}\left(x\right) & =f^{\prime}\left(x\right)+g^{\prime}\left(x\right)\\
+		\left(fg\right)^{\prime}\left(x\right) & =f^{\prime}\left(x\right)g\left(x\right)+g^{\prime}\left(x\right)f\left(x\right)\\
+		\left(\frac{f}{g}\right)^{\prime} & \left(x\right)=\frac{f^{\prime}\left(x\right)g\left(x\right)-g^{\prime}\left(x\right)f\left(x\right)}{\left(g\left(x\right)\right)^{2}}
+	\end{align}
+\end{prop}
+
+\begin{proof}
+	The first one, called the sum rule, follows by algebra of limits.
+	The second, known as the product rule, follows by the same trick that
+	is used to prove that the product of two sequences converges to the
+	product of their limits. To reiterate, note that 
+	\begin{align*}
+		\frac{f\left(y\right)g\left(y\right)-f\left(x\right)g\left(x\right)}{y-x} & =\frac{f\left(y\right)g\left(y\right)-f\left(y\right)g\left(x\right)+f\left(y\right)g\left(x\right)-f\left(x\right)g\left(x\right)}{x-c}\\
+		& =\frac{f\left(y\right)\left(g\left(y\right)-g\left(x\right)\right)}{y-x}+\frac{g\left(x\right)\left(f\left(y\right)-f\left(x\right)\right)}{y-x}.
+	\end{align*}
+	Taking limits and applying Proposition \ref{prop:differentiableImpliesContinuous}
+	gets the result.
+	
+	Finally, the third result, called the quotient rule, follows as 
+	\begin{align*}
+		\frac{\frac{f\left(y\right)}{g\left(y\right)}-\frac{f\left(x\right)}{g\left(x\right)}}{y-x} & =\frac{1}{g\left(x\right)g\left(y\right)}\left(\frac{f\left(y\right)g\left(x\right)-f\left(x\right)g\left(y\right)}{y-x}\right)\\
+		& =\frac{1}{g\left(x\right)g\left(y\right)}\left(\frac{f\left(y\right)g\left(x\right)-f\left(y\right)g\left(y\right)+f\left(y\right)g\left(y\right)-f\left(x\right)g\left(y\right)}{y-x}\right)\\
+		& =\frac{1}{g\left(x\right)g\left(y\right)}\left(\frac{f\left(y\right)\left[g\left(x\right)-g\left(y\right)\right]}{y-x}+\frac{g\left(y\right)\left[f\left(y\right)-f\left(x\right)\right]}{y-x}\right)
+	\end{align*}
+	and taking limits and again applying the continuity of differentiable
+	functions completes the proof.
+\end{proof}
+\begin{cor}[Power rule]
+	\label{cor:powerRule}The derivative of a real-valued function on
+	$\R$ defined $f\left(x\right)=x^{n}$ where $n\in\mathds{Z}$ is
+	given by $f^{\prime}\left(x\right)=nx^{n-1}.$
+\end{cor}
+
+\begin{proof}
+	First we examine the case when $n\in\N$. For the base cases of $n=0$
+	and $n=1$ look at the remark above. Now suppose that the rule holds
+	for $n\in\N$. Then, writing $x^{n+1}=xx^{n},$ we apply the product
+	rule to yield
+	\[
+	\frac{dx^{n+1}}{dx}=xnx^{n-1}+x^{n}=\left(n+1\right)x^{n}
+	\]
+	which completes the proof.
+	
+	To extend the result to negative integers, we can apply the quotient
+	rule. Note that for a negative integer $m$, we have some positive
+	integern $n$ such that $m=-n$ and so $f\left(x\right)=x^{m}=\frac{1}{x^{n}}$
+	which has derivative (by applying the power rule for positive integers
+	and the quoteint rule)
+	\[
+	f^{\prime}\left(x\right)=\frac{-nx^{n-1}}{x^{2n}}=mx^{m-1}.
+	\]
+\end{proof}
+\begin{rem*}
+	The power rule also holds for rational exponents; we shall establish
+	this fact after we state the chain rule. For real exponents, the power
+	rule holds if $x\geq0$ since we define $x^{a}:=\exp\left(a\log\left(x\right)\right)$
+	when $a\in\R$. Since the logarithm is only defined on the positive
+	reals, the result only extends to that case (the case of $x=0$ is
+	trivial). We shall prove this after we construct the exponential and
+	natural logarithm functions in Appendix section \ref{sec:specialFunctions}.
+\end{rem*}
+\begin{prop}
+	\label{prop:differentiabilityOfPolynomials}Let $f\in P_{n}\left(x\right)$
+	the space of $n-$degree polynomials. Then $f$ is differentiable
+	and its derivative $f^{\prime}\in P_{n-1}\left(x\right).$
+\end{prop}
+
+\begin{proof}
+	Let $f\left(x\right)=\sum_{i=0}^{n}a_{i}x^{i}.$ By the ``sum rule'',''product
+	rule'' and the ``power rule'', 
+	\[
+	f^{\prime}\left(x\right)=\sum_{i=0}^{n}a_{i}ix^{i-1}\in P_{n-1}\left(x\right).
+	\]
+\end{proof}
+\begin{rem*}
+	An immediate corrolary is that every polynomial is infinitely differentiable.
+	Infinitely differentiable functions are called \emph{smooth.}
+\end{rem*}
+\begin{thm}[Chain rule]
+	\label{thm:chainRuleR}Let $g:C\subseteq\R\to\R$ be differentiable
+	at some $c\in D$ and let $f:D\subseteq\R\to\R$ be differentiable
+	at $g\left(c\right)\in D.$ Then the composition $f\circ g$ is differentiable
+	at $c$ with derivative 
+	\[
+	\left(f\circ g\right)^{\prime}\left(c\right)=f^{\prime}\left(g\left(c\right)\right)g^{\prime}\left(c\right).
+	\]
+\end{thm}
+
+We omit the proof of this theorem right now; we will prove it in the
+more general setting of derivatves on functions between Banach spaces
+in the next section.
+\begin{prop}
+	\label{prop:rationalPowerRule}A function $f\left(x\right)=x^{r}$
+	where $r\in\mathds{Q}$ and $x\in\R$ is differentiable with derivative
+	$f^{\prime}\left(x\right)=rx^{r-1}.$
+\end{prop}
+
+\begin{proof}
+	We will establish the result when $x\neq0$ (when $x=0$, the derivative
+	is 0 as established in an earlier remark). Let $r=\frac{p}{q}$ where
+	$p,q\in\mathds{Z}$ and note that $g\left(x\right):=x^{q}$ has derivative
+	$g^{\prime}\left(x\right)=qx^{q-1}$ by the integral power rule\ref{cor:powerRule}.
+	Then, observe that $g\left(f\left(x\right)\right)=x^{p}$ and so applying
+	the chain rule on the left hand hand side and the integral power rule
+	on the right hand side, we have
+	\begin{align*}
+		qf\left(x\right)^{q-1}f^{\prime}\left(x\right) & =px^{p-1}
+	\end{align*}
+	which can be re-arranged to yield
+	\begin{align*}
+		f^{\prime}\left(x\right) & =\frac{px^{p-1}}{qf\left(x\right)^{q-1}}\\
+		& =\left(\frac{p}{q}\right)x^{p-1-\frac{p}{q}\left(q-1\right)}\\
+		& =\frac{p}{q}x^{\frac{p}{q}-1}\\
+		& =rx^{r-1}
+	\end{align*}
+	which completes the proof.
+\end{proof}
+\begin{example}[ISI 2013 PSB 2]
+	\label{exa:isi2013psb2} Let $a_{1}<a_{2}<\cdots<a_{m}$ and $b_{1}<b_{2}<\cdots<b_{n}$
+	be real numbers such that 
+	\[
+	\sum_{i=1}^{m}\left|a_{i}-x\right|=\sum_{j=1}^{n}\left|b_{j}-x\right|\text{ for all }x\in\mathbb{R}.
+	\]
+	We can use differentiability to show that $m=n$ and $a_{j}=b_{j}$
+	for$1\leq j\leq n$. To see this, note that $f\left(x\right):=\sum_{i=1}^{m}\lvert a_{i}-x\rvert$
+	is not differentiable exactly on the set $F:=\left\{ a_{1},\ldots,a_{n}\right\} .$
+	This is because eacj component $\lvert a_{i}-x\rvert$ is non-differentiable
+	only at $a_{i}$and the sum of differentiable and non-differentiable
+	functions are not differentiable. Similarly, the function $g\left(x\right):=\sum_{i=1}^{n}\lvert b_{i}-x\rvert$
+	is exactly not differentiable on the set $G$ which implies $F=G$.
+\end{example}
+
+
+\subsubsection{Mean value theorems}
+\begin{defn}
+	\label{def:localMax}A function $f:\left[a,b\right]\to\R$ is set
+	to have a local maximum at $c\in\left[a,b\right]$ if there exists
+	some $\delta>0$ such that for every $x\in\left(c-\delta,c+\delta\right)\cap\left[a,b\right]$
+	\[
+	f\left(c\right)\geq f\left(x\right).
+	\]
+	Local minima are defined analagously.
+\end{defn}
+
+\begin{prop}
+	\label{prop:firstOrderConditionR}Let $f:\left[a,b\right]\to\R$ have
+	a local maximum or minimum at $c\in\left(a,b\right).$ If $f^{\prime}\left(c\right)$
+	exists then $f^{\prime}\left(c\right)=0.$
+\end{prop}
+
+\begin{proof}
+	We consider the case of the local maximum; the case of the local minimum
+	follows by applying the maximum result to $-f.$ Suppose $c\in\left(a,b\right)$
+	is a local maximum for $f$, in which case we can choose some $\delta>0$
+	small enough that 
+	\[
+	\left(c-\delta,c+\delta\right)\subseteq\left(a,b\right)
+	\]
+	and $f\left(c\right)\geq f\left(x\right)$ on $\left(c-\delta,c+\delta\right).$
+	Note that for $c-\delta<x<c$ we have that 
+	\[
+	\frac{f\left(x\right)-f\left(c\right)}{x-c}\geq0
+	\]
+	and so 
+	\[
+	f^{\prime}\left(c^{-}\right):=\lim_{x\to c^{-}}\frac{f\left(x\right)-f\left(c\right)}{x-c}\geq0.
+	\]
+	Similarly, for $c<x<c+\delta$
+	\[
+	\frac{f\left(x\right)-f\left(c\right)}{x-c}\leq0
+	\]
+	and so 
+	\[
+	f^{\prime}\left(c^{+}\right):=\lim_{x\to c^{+}}\frac{f\left(x\right)-f\left(c\right)}{x-c}\leq0.
+	\]
+	But of course, $f^{\prime}\left(c\right)=f^{\prime}\left(c^{-}\right)=f^{\prime}\left(c^{+}\right)$
+	since left and right hand limits are always equal to the limit when
+	it exists and thus 
+	\[
+	f^{\prime}\left(c\right)=0.
+	\]
+\end{proof}
+\begin{thm}[Cauchy's mean value theorem]
+	\label{thm:cauchyMeanValue}If $f,g$ are real-valued continuous
+	functions on $\left[a,b\right]$ such that the derivative functions
+	$f^{\prime},g^{\prime}$ exist on $\left(a,b\right)$ , there exists
+	some $x\in\left(a,b\right)$ such that 
+	\[
+	\left(f\left(b\right)-f\left(a\right)\right)g^{\prime}\left(x\right)=\left(g\left(b\right)-g\left(a\right)\right)f^{\prime}\left(x\right)
+	\]
+\end{thm}
+
+\begin{proof}
+	Write 
+	\[
+	h\left(t\right):=\left(f\left(b\right)-f\left(a\right)\right)g\left(t\right)-\left(g\left(b\right)-g\left(a\right)\right)f\left(t\right)
+	\]
+	and observe that since it's built out of differeniable functions by
+	adding and multiplying them, $h$ is continuous and differentiable.
+	Since $\left[a,b\right]$ is compact, $h$ has a minimum and maximum
+	by Weierstrass'. If the minimum and maximum are both at the end points
+	$a$ and $b$, then the function is constant and the derivative is
+	zero everywhere, which yields the result. If at least one of the minimum
+	or maximum is interior, say at $x\in\left(a,b\right)$, then by Proposition
+	\ref{prop:firstOrderConditionR}, $f^{\prime}\left(x\right)=0$ which
+	again yields the result.
+\end{proof}
+\begin{cor}[Mean~ value theorem]
+	\label{cor:meanValueThm}Let $f:\left[a,b\right]\to\R$ be continuous
+	on $\left[a,b\right]$ and differentiable on $\left(a,b\right).$
+	Then there exists some $x\in\left(a,b\right)$ such that
+	\[
+	f^{\prime}\left(c\right)=\frac{f\left(b\right)-f\left(a\right)}{b-a}.
+	\]
+\end{cor}
+
+\begin{proof}
+	Apply Cauchy's mean value theorem with $g\left(x\right)=x$.
+\end{proof}
+\begin{prop}
+	\label{prop:derivativeAndMonotonicity}If $f:\left[a,b\right]\to\R$
+	is differentiable on $\left(a,b\right)$ then
+	\begin{align*}
+		\forall x\in\left(a,b\right):f^{\prime}\left(x\right) & \geq0\implies\left(x_{1}\geq x_{2}\implies f\left(x_{1}\right)\geq f\left(x_{2}\right)\right)\\
+		\forall x\in\left(a,b\right):f^{\prime}\left(x\right) & \leq0\implies\left(x_{1}\geq x_{2}\geq f\left(x_{1}\right)\leq f\left(x_{2}\right)\right)\\
+	\end{align*}
+\end{prop}
+
+\begin{proof}
+	Applying the mean value theorem, we have 
+	\[
+	f\left(x_{1}\right)-f\left(x_{2}\right)=f^{\prime}\left(c\right)\left(x_{1}-x_{2}\right)
+	\]
+	for $c\in\left(a,b\right)$ and if $f^{\prime}\left(c\right)\geq0$
+	then $x_{1}\geq x_{2}$ implies that $f\left(x_{!}\right)\geq f\left(x_{2}\right)$
+	and the other implication follows in the same way.
+\end{proof}
+\begin{rem*}
+	An obvious corollary of the above result is that if $\forall x\in\left(a,b\right)$$:f^{\prime}\left(x\right)=0\implies f$
+	is constant on $\left(a,b\right)$.
+\end{rem*}
+
+\subsubsection{Continuity of derivatives}
+
+For a function $f$ on $\left[a,b\right]$ that is differentiable
+everywhere on $\left(a,b\right)$, it need not be the case that the
+derivative function $f^{\prime}$ is continuous everywhere. In fact,
+the points of discontinuity of a derivative can be dense in the domain
+and have positive Lebesgue measure. We postpone the discussion of
+these more complicated examples until we prove the fundamental theorem
+of calculus. The simplest canonical example of a discontinuous derivative
+is the following
+\begin{example}
+	\label{exa:discontinuousDerivative}Let $f\left(x\right)=x^{2}\sin\left(\frac{1}{x}\right)\indicate\left\{ x\neq0\right\} .$We
+	take on faith the fact that the function $\sin\left(x\right)$ is
+	bounded between $-1$ and 1, is infinitely differentiable and that
+	its derivative is $\cos\left(x\right)$. We construct these functions
+	from first principles in Appendix section \ref{sec:specialFunctions}.
+	Note that the derivative of this function away from zero is given
+	by the chain and product rules as 
+	\[
+	f^{\prime}\left(x\right)=2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right).
+	\]
+	The derivative at zero can be computed from first principles by looking
+	at the limit
+	\[
+	\lim_{x\to0}\frac{x^{2}\sin\left(\frac{1}{x}\right)\indicate\left\{ x\neq0\right\} }{x}=\lim_{x\to0}x\sin\left(\frac{1}{x}\right)\indicate\left\{ x\neq0\right\} =0
+	\]
+	since $\lvert\sin\left(\frac{1}{x}\right)\rvert\leq1$. Then we have
+	that 
+	\[
+	f^{\prime}\left(x\right)=\begin{cases}
+		2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right), & x\neq0\\
+		0, & x=0
+	\end{cases}
+	\]
+	but $\lim_{x\to0}f^{\prime}\left(x\right)$ does not exist since $\cos\left(\frac{1}{x}\right)$
+	oscillates rapidly near zero.
+\end{example}
+
+While derivatives can be discontinuous, they share the intermediate
+value property with continuous functions.
+\begin{prop}[Darboux's theorem]
+	\label{prop:darbouxTheorem}Let $f:\left[a,b\right]\to\R$ be differentiable
+	on $\left(a,b\right).$ Then the derivative function $f^{\prime}:\left(a,b\right)\to\R$
+	has the intermediate value property that the image $f\left[\left(a,b\right)\right]$
+	is an interval.
+\end{prop}
+
+\begin{proof}
+	Let $c,d\in\left(a,b\right)$ be such that, without loss generality,
+	$f^{\prime}\left(c\right)>f^{\prime}\left(d\right).$ Take any $y\in\left(f^{\prime}\left(c\right),f^{\prime}\left(d\right)\right)$.
+	The function $g\left(x\right)=f\left(x\right)-yx$ is continuous on
+	$\left[\min\left\{ c,d\right\} ,\max\left\{ c,d\right\} \right]$
+	and thus achieves a maximum and a minimum by Weierstrass' theorem.
+	If both the minimum and maximum occur at the end points then the function
+	$g$ is constant on $\left[\min\left\{ c,d\right\} ,\max\left\{ c,d\right\} \right]$
+	and so its derivative is zero everywhere, completing the proof. If
+	there's at least one interior extrema, say at $t\in\left(\min\left\{ c,d\right\} ,\max\left\{ c,d\right\} \right),$
+	then
+	\[
+	f^{\prime}\left(t\right)=y
+	\]
+	by Proposition \ref{prop:firstOrderConditionR}.
+\end{proof}
+\begin{lem}
+	\label{lem:IVTJump}Any function that satisifies the intermediate
+	value property cannot have removable or jump discontinuities.
+\end{lem}
+
+\begin{proof}
+	Let $f:\left[a,b\right]\to\R$ be a function that satisfies the intermediate
+	value property and let $c\in\left(a,b\right)$ such that $\lim_{x\to c^{-}}f\left(x\right)=L$
+	and $\lim_{x\to c^{+}}f\left(x\right)=M$. Suppose, without loss of
+	generality, that $L\neq f\left(c\right)$ and let $\epsilon=\frac{\lvert L-f\left(c\right)\rvert}{2}.$
+	Note that by definition, there exists some $\delta>0$ such that for
+	any $x$ with $0<c-x<\delta\implies\lvert f\left(x\right)-L\rvert<\epsilon$
+	which implies that $\lvert f\left(x\right)-f\left(c\right)\rvert\geq\epsilon.$
+	By the intermediate value property, for any $y$ in between $f\left(x\right)$
+	and $f\left(c\right)$, there exists some $z\in\left(x,c\right)$
+	such that $f\left(z\right)=y.$ In particular, this holds true for
+	any $\text{y}.$such that $\lvert y-f\left(c\right)\rvert<\epsilon.$
+	But then $0<c-z<\delta$ which implies that $\lvert y-f\left(c\right)\rvert\geq\epsilon$
+	which is a contradiciton.
+\end{proof}
+
+\subsubsection{Differentiability classes and local approximation by polynomials}
+\begin{example}
+	\label{exa:isi2007samplepsb3}Let $f$ be a function such that $f(0)=0$
+	and $f$ has derivatives of all order. Show that 
+	\[
+	\lim_{h\rightarrow0}\frac{f(h)+f(-h)}{h^{2}}=f^{\prime\prime}(0)
+	\]
+	where $f^{\prime\prime}(0)$ is the second derivative of $f$ at
+	0 .\hl{TODO}
+\end{example}
+
 
 \section{Metric spaces}
 
