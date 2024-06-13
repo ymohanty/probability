@@ -1311,7 +1311,7 @@ Since $\epsilon$ was arbitrary the result follows. Using this fact, the density 
 	
 	The extension to the locally integrable case is routine; \hl{TODO}
 \end{proof}
-
+\hl{REVIEW}
 \begin{thm}[Lebesgue Differentiation Theorem]
 	\label{thm:lebesgueDifferentiation}
 	For $f \in \mathcal{M}\left(\R^n , \borel \left(\R^n\right)\right)$  locally integrable, there exists a set $N \in \borel\left(\R^n\right)$ with $\lambda^n\left(N\right) = 0$ such at for every $x \notin N$, x is a Lebesgue point.
@@ -1324,6 +1324,25 @@ Since $\epsilon$ was arbitrary the result follows. Using this fact, the density 
 		& = \epsilon
 	\end{align*}
 	where the first inequality is just the triangle inequality and linearity, and the second is given the density of rationals and our lemma. This completes the proof since $N := \bigcup_{c \in Q} N_c$ has measure zero by countable additivity.
+\end{proof}
+
+The second part of the fundamental theorem of calculus for integrable functions easily follows from this result. 
+
+\begin{thm}
+	For $f \in \Lp{1}{[a,b],\borel\left([a,b]\right), \lambda}$ and any $x \in [a,b]$, let 
+	\[
+		F(x):=\lambda\left(f\indicate_{[a,x]}\right).
+	\]
+	Then $F$ is differentiable at every Lebesgue point $x$ of $f$ with derivative $F^\prime(x) = f(x)$
+\end{thm}
+\begin{proof}
+	Let $x$ be a Lebesgue point of $f$ and notice that 
+	\begin{align*}
+		\left\lvert \frac{F(x+r) - F(x)}{r} - f(x) \right\rvert &= \left\lvert \frac{1}{r}\lambda_y\left((f(y) -f(x))\indicate_{[x,x+r]}\right) \right\rvert \\
+		&\leq \frac{1}{r}\lambda_y\left(\lvert f(y) - f(x) \rvert \indicate_{[x,x+r]} \right) \\
+		& \leq 2\frac{1}{2r}\lambda_y\left(\lvert f(y) - f(x) \rvert \indicate_{[x-r,x+r]}	\right)
+	\end{align*}
+	where the equality comes from the definition of $F$ and the linearity of integration, the first inequality is the integral triangle inequality \ref{cor:triangleIneqLebIntL1}, and the last is monotonicity. The last term goes to zero by the Lebesgue Differentiation Theorem and the result follows. 
 \end{proof}
 
 
