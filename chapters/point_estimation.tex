@@ -3,6 +3,14 @@
 
 \section{Population and sample}
 
+\begin{example}
+\label{exa:isi2009samplepsb11}
+A simple random sample of size $n=n_1+n_2$ is drawn without replacement from a finite population of size $N$. Further a simple random sample of size $n_1$ is drawn without replacement from the first sample. Let $\bar{y}$ and $\overline{y_1}$ be the respective sample means.
+(a) Find $V\left(\overline{y_1}\right)$ and $V\left(\overline{y_2}\right)$, where $\overline{y_2}$ is the mean of the remaining $n_2$ units in the first sample.
+(b) Show that $\operatorname{Cov}\left(\overline{y_1}, \overline{y_2}\right)=-S^2 / N$, where $S^2$ is the population variance.
+\hl{TODO}
+\end{example}
+
 \section{Sufficiency and completeness}
 \begin{example}
 \label{exa:isi2007samplepsb9}Let $X_{1}$ and $X_{2}$ be i.i.d.
@@ -52,6 +60,24 @@ Find the m.le. of $\theta$ based on the above sample. \hl{TODO}
 \label{exa:isi2008samplepsb11} Let $r$ be the number of successes
 in $n$ Bernoulli trials with unknown probability $p$ of success.
 Obtain the minimum variance unbiased estimator of $p-p^{2}$.
+\hl{TODO}
+\end{example}
+
+\begin{example}
+	\label{exa:isi2009samplepsb7}
+	Let $X$ be a random variable taking values $-1,0,1,2,3$ such that
+	$$
+	P_\theta(X=x)= \begin{cases}2 \theta(1-\theta) & \text { if } \quad x=-1, \\ \theta^x(1-\theta)^{3-x} & \text { if } \quad x=0,1,2,3 .\end{cases}
+	$$
+	where $\theta \in(0,1)$. Show that $E_\theta(U(X))=0$ for all $\theta \in(0,1)$ if and only if $U(k)=a U^{\star}(k)$ for some $a \in \mathbb{R}$, where
+	$$
+	U^{\star}(k)=\left\{\begin{array}{ccc}
+		0 & \text { if } \quad k=0,3 \\
+		1 & \text { if } \quad k=-1 \\
+		-2 & \text { if } \quad k=1,2
+	\end{array}\right.
+	$$
+	\hl{TODO}
 \end{example}
 
 
@@ -139,6 +165,12 @@ on $X_{1},\ldots,X_{n}$. Show that $\lim_{n\rightarrow\infty}\Var\left(S_{n}\rig
 sample from a uniform distribution on $\{1,2,\ldots,N\}$ where $N$
 is an unknown positive integer. Find the MLE $\widehat{N}$ of $N$
 and find its distribution function.\hl{TODO}
+\end{example}
+
+\begin{example}
+	\label{exa:isi2009samplepsb6}
+	Suppose $X_1, \ldots, X_n$ are i.i.d. $\mathrm{N}(\theta, 1), \theta_0 \leq \theta \leq \theta_1$, where $\theta_0<\theta_1$ are two specified numbers. Find the MLE of $\theta$ and show that it is better than the sample mean $\bar{X}$ in the sense of having smaller mean squared error.
+	\hl{TODO}
 \end{example}
 
 
