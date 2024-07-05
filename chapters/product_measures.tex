@@ -1284,7 +1284,7 @@ Since $\epsilon$ was arbitrary the result follows. Using this fact, the density 
 	\[
 	f_r(x) := \frac{1}{\lambda^n \left(B_r(x)\right) } \lambda^n \left(  f \indicate_{B_r(x)} \right).
 	\]
-	Then $f_r(x) \stackrel{\text{a.e}}{\to} f(x)$.
+	Then $f_r \stackrel{\text{a.e}}{\to} f$.
 \end{lem}
 \begin{proof}
 	Let $a > 0$ be fixed and first assume $f$ is integrable. By the \hl{insert theorem} density of continuous compactly supported functions in $\Lp{1}{\lambda^n}$, for any $\epsilon > 0$, there exists some function $g$ such that $\lVert f - g \rVert_1 < \epsilon$. Then, by the triangle inequality, monotonicity of measures, and finite subadditivity\footnote{We are using $\limsup$ rather than $\lim$ because we don't know the limit exists yet.}
@@ -1309,9 +1309,41 @@ Since $\epsilon$ was arbitrary the result follows. Using this fact, the density 
 	\end{align*}
 	our result for the integrable case follows by subadditivity and non-negativity of measures.
 	
-	The extension to the locally integrable case is routine;
+	The extension to the locally integrable case is routine; \hl{TODO}
+\end{proof}
+\hl{REVIEW}
+\begin{thm}[Lebesgue Differentiation Theorem]
+	\label{thm:lebesgueDifferentiation}
+	For $f \in \mathcal{M}\left(\R^n , \borel \left(\R^n\right)\right)$  locally integrable, there exists a set $N \in \borel\left(\R^n\right)$ with $\lambda^n\left(N\right) = 0$ such at for every $x \notin N$, x is a Lebesgue point.
+\end{thm}
+\begin{proof}
+	Fix $x \in \R^n$, let $\epsilon > 0 $ be arbitrary and note that by the density of rationals in the reals, there exists a rational $c_x \in \R$ such that $ \lvert f(x) - c_x \rvert < \frac{\epsilon}{2}$. Let $g^{x}(y) : = \lvert f(y) - c_x\rvert$ and notice that by Lemma \ref{lem:lebesgueDifferentiation}, there exists a null set $N_{c_x}$ such that $g_r^{x} \to g^x$ except on $N_{c_x}$. Since there are only countably many rationals, we can discard the subscript "$x$" in $c_x$ and so for any $x \notin \bigcup_{c \in \mathbb{Q}} N_c \in \borel\left(\R^n\right)$, we have that for small enough $r$
+	\begin{align*}
+		\frac{1}{\lambda^n\left(B_r(x)\right)} \lambda^n_y\left(\lvert f(y) - f(x) \rvert \indicate_{B_r(x)}\right) &\leq g^x(x) + g^x_r(x) \\
+		&\leq \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+		& = \epsilon
+	\end{align*}
+	where the first inequality is just the triangle inequality and linearity, and the second is given the density of rationals and our lemma. This completes the proof since $N := \bigcup_{c \in Q} N_c$ has measure zero by countable additivity.
 \end{proof}
 
+The second part of the fundamental theorem of calculus for integrable functions easily follows from this result. 
+
+\begin{thm}
+	For $f \in \Lp{1}{[a,b],\borel\left([a,b]\right), \lambda}$ and any $x \in [a,b]$, let 
+	\[
+		F(x):=\lambda\left(f\indicate_{[a,x]}\right).
+	\]
+	Then $F$ is differentiable at every Lebesgue point $x$ of $f$ with derivative $F^\prime(x) = f(x)$
+\end{thm}
+\begin{proof}
+	Let $x$ be a Lebesgue point of $f$ and notice that 
+	\begin{align*}
+		\left\lvert \frac{F(x+r) - F(x)}{r} - f(x) \right\rvert &= \left\lvert \frac{1}{r}\lambda_y\left((f(y) -f(x))\indicate_{[x,x+r]}\right) \right\rvert \\
+		&\leq \frac{1}{r}\lambda_y\left(\lvert f(y) - f(x) \rvert \indicate_{[x,x+r]} \right) \\
+		& \leq 2\frac{1}{2r}\lambda_y\left(\lvert f(y) - f(x) \rvert \indicate_{[x-r,x+r]}	\right)
+	\end{align*}
+	where the equality comes from the definition of $F$ and the linearity of integration, the first inequality is the integral triangle inequality \ref{cor:triangleIneqLebIntL1}, and the last is monotonicity. The last term goes to zero by the Lebesgue Differentiation Theorem and the result follows. 
+\end{proof}
 
 
 
