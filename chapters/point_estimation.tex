@@ -173,4 +173,38 @@ and find its distribution function.\hl{TODO}
 	\hl{TODO}
 \end{example}
 
+\begin{example}
+	\label{exa:isi2023psb5}
+	Suppose $X_1, \ldots, X_n(n \geq 2)$ are independent and identically distributed observations from a distribution having probability density function
+	
+	$$
+	f_\theta(x)= \begin{cases}e^{-(x-\theta)} & \text { if } x \geq \theta \\ 0 & \text { if } x<\theta\end{cases}
+	$$
+	
+	where $\theta \in \mathbb{R}$. Let
+	
+	$$
+	\psi(\theta)=\int_1^{\infty} f_\theta(x) d x
+	$$
+	
+	
+	Define $\widehat{\theta}_n=\min \left\{X_1, \ldots, X_n\right\}$. Consider $\psi\left(\widehat{\theta}_n\right)$ as an estimator of $\psi(\theta)$ and let $B_n(\theta)$ denote the associated bias.
+	(a) Show that $B_n(\theta)>0$ for every $\theta<1$ and $B_n(\theta)=0$ for every $\theta \geq 1$.
+	(b) Show that $\lim _{n \rightarrow \infty} B_n(\theta)=0$ for every $\theta<1$.
+\end{example}
+
+\begin{example}
+	\label{exa:isi2023psb6}
+	Suppose that two observations $X_1$ and $X_2$ are drawn at random from a distribution with the following probability density function
+	
+	$$
+	f_\theta(x)= \begin{cases}\frac{1}{2 \theta} & \text { if } 0 \leq x \leq \theta \text { or } 2 \theta \leq x \leq 3 \theta \\ 0 & \text { otherwise }\end{cases}
+	$$
+	
+	where $\theta>0$. Determine the maximum likelihood estimator of $\theta$ for each of the following observed values of $X_1$ and $X_2$.
+	(a) $X_1=7$ and $X_2=9$.
+	(b) $X_1=4$ and $X_2=9$
+	(c) $X_1=5$ and $X_2=9$.
+\end{example}
+
 
